@@ -1,6 +1,6 @@
 # DATA SUMMARY — EU Cyber Resilience Act Readiness Programme (v1.0, 31 Oct 2026)
 
-> Illustrative engagement — fictional client data; regulatory facts verified to 30 Oct 2026. Source of truth: `/home/claude/pack/data/pack_data.json`. Never invent client numbers — use these.
+> Illustrative engagement — fictional client data; regulatory facts verified to 30 Oct 2026. Source of truth: `pack/data/pack_data.json`. Never invent client numbers — use these.
 
 ## Key numbers (use exactly)
 

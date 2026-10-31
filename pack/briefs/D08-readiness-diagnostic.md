@@ -1,11 +1,11 @@
 # Brief D08 — CRA Readiness Diagnostic (live, multi-respondent web app)
 
 **Title (page `<title>`):** "CRA Readiness Diagnostic"
-**Format:** a hand-built single-page HTML artifact published with the `Artifact` tool, with a **shared database** so many product teams can submit assessments and everyone sees the live portfolio view. Before writing any code: load the `artifact-design` skill and the `artifact-capabilities` skill (Skill tool) and follow them — the database capability (`db`) and its `window.claude.*` API are defined there. Call `Artifact` `action: "quickstart"` with intent "other" once first, as the tool requires. Write the file in `/home/claude/pack/out/diagnostic/index.html`. Icon: "chart" or "gauge".
+**Format:** a hand-built single-page HTML artifact published with the `Artifact` tool, with a **shared database** so many product teams can submit assessments and everyone sees the live portfolio view. Before writing any code: load the `artifact-design` skill and the `artifact-capabilities` skill (Skill tool) and follow them — the database capability (`db`) and its `window.claude.*` API are defined there. Call `Artifact` `action: "quickstart"` with intent "other" once first, as the tool requires. Write the file in `pack/out/diagnostic/index.html`. Icon: "chart" or "gauge".
 
 **Why it matters:** this is the pack's showpiece tool. It must look and feel like a premium consulting product (think a McKinsey/BCG digital diagnostic), work flawlessly on desktop and phone, and turn answers into an instant, executive-grade portfolio heatmap.
 
-**Data:** `/home/claude/pack/data/pack_data.json` → `diagnostic` (scale, 10 domains, 40 questions each with `basis`, `evidence`, `action`; `baseline_scores` for 13 families; target level 3) and `client.product_families` (id, name, BU, class, wave, route). Embed what you need in the page.
+**Data:** `pack/data/pack_data.json` → `diagnostic` (scale, 10 domains, 40 questions each with `basis`, `evidence`, `action`; `baseline_scores` for 13 families; target level 3) and `client.product_families` (id, name, BU, class, wave, route). Embed what you need in the page.
 
 **Design:** use the brand tokens in BRIEF.md section 4 (Source Serif 4 / Inter / JetBrains Mono via Google Fonts; ink, paper, teal accent, RAG and maturity colours). Light and dark mode per the artifact-design contract. Clean, spacious, confident; no gimmicks.
 

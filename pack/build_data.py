@@ -1,14 +1,16 @@
 """Single source of truth for the CRA Readiness Programme Pack.
 
 Everything client-specific here is ILLUSTRATIVE (fictional client "Example Group").
-Regulatory facts are taken from the knowledge base files under /home/claude/reports.
-Run:  python3 build_data.py   -> writes data/pack_data.json and data/DATA_SUMMARY.md
+Regulatory facts are taken from the knowledge base files under ../reports.
+Run:  python3 pack/build_data.py   -> writes data/pack_data.json and data/DATA_SUMMARY.md
 """
 import json, random, math, datetime as dt
+from pathlib import Path
 from collections import OrderedDict
 
-OUT_JSON = "/home/claude/pack/data/pack_data.json"
-OUT_MD = "/home/claude/pack/data/DATA_SUMMARY.md"
+DATA_DIR = Path(__file__).resolve().parent / "data"
+OUT_JSON = DATA_DIR / "pack_data.json"
+OUT_MD = DATA_DIR / "DATA_SUMMARY.md"
 
 AS_AT = dt.date(2026, 10, 30)          # facts verified to
 PACK_DATE = dt.date(2026, 10, 31)      # pack issue date
@@ -716,7 +718,7 @@ def eur(x):
     return f"EUR {x/1e6:.2f}m" if abs(x) >= 1e6 else f"EUR {x/1e3:.0f}k"
 md = []
 md.append(f"# DATA SUMMARY — {meta['pack_name']} (v{meta['version']}, {meta['issue_date']})\n")
-md.append(f"> {meta['classification_label']}. Source of truth: `/home/claude/pack/data/pack_data.json`. Never invent client numbers — use these.\n")
+md.append(f"> {meta['classification_label']}. Source of truth: `pack/data/pack_data.json`. Never invent client numbers — use these.\n")
 md.append("## Key numbers (use exactly)\n")
 md.append(f"- Days from pack issue ({meta['issue_date']}) to full application (11 Dec 2027): **{meta['days_to_full_application_from_issue']}**; from board ({meta['board_meeting']}): **{meta['days_to_full_application_from_board']}**")
 md.append(f"- Client: {client['name']} (fictional), HQ {client['hq']}; revenue EUR {total_rev}m; EU revenue EUR {eu_total}m ({client['eu_share']*100:.0f}%); {client['employees']:,} employees; {client['engineers']} engineers; {client['counts']['families']} product families / {client['counts']['skus']} SKUs in scope; {client['counts']['legacy_lines']} legacy lines; ~{client['installed_base_m']}m connected devices in the field")

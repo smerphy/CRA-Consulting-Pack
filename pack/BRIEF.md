@@ -1,6 +1,6 @@
 # MASTER BRIEF — CRA Readiness Programme Pack (v1.0, 31 Oct 2026)
 
-Read this whole file first, then `/home/claude/pack/data/DATA_SUMMARY.md`, then your own brief in `/home/claude/pack/briefs/`.
+Read this whole file first, then `pack/data/DATA_SUMMARY.md`, then your own brief in `pack/briefs/`.
 
 ## 1. What we are building
 
@@ -16,12 +16,12 @@ Quality bar: the reader should say "wow". That means: pyramid principle, an acti
 
 ## 2. Sources of truth (precedence order)
 
-1. **Client numbers**: `/home/claude/pack/data/pack_data.json` (machine-readable) and `DATA_SUMMARY.md` (readable). Use these exact numbers. If you need a number that is not there, derive it transparently from them or label it an assumption — and list it in your final report.
+1. **Client numbers**: `pack/data/pack_data.json` (machine-readable) and `DATA_SUMMARY.md` (readable). Use these exact numbers. If you need a number that is not there, derive it transparently from them or label it an assumption — and list it in your final report.
 2. **Regulatory facts**: the knowledge base built for this engagement (published as the Claude Doc "EU Cyber Resilience Act — Engineering Compliance Knowledge Base", https://claude.ai/artifact/JC24c3EC3qR8Xz8k3858Wj). Local copies:
-   - `/home/claude/reports/sections/*.md` — 16 knowledge-base sections (law, guidance, standards, reporting, conformity, open source, interplay, enforcement, programme, watchlist, sources).
-   - `/home/claude/reports/guides/corporate/*.md` and `/home/claude/reports/guides/application/*.md` — corporate and application implementation guides.
-   - `/home/claude/reports/verification.md` — independent fact-check; **its corrections override the section files**.
-   - `/home/claude/reports/digest.md` and `/home/claude/research_notes/EU CRA engineering compliance/*.md` — deeper research notes (surveys, vendor material, URLs).
+   - `reports/sections/*.md` — 16 knowledge-base sections (law, guidance, standards, reporting, conformity, open source, interplay, enforcement, programme, watchlist, sources).
+   - `reports/guides/corporate/*.md` and `reports/guides/application/*.md` — corporate and application implementation guides.
+   - `reports/verification.md` — independent fact-check; **its corrections override the section files**.
+   - `reports/digest.md` and `research_notes/EU CRA engineering compliance/*.md` — deeper research notes (surveys, vendor material, URLs).
 3. Known corrections to apply everywhere (local files may still show the old text):
    - Germany's CRA implementation law passed the **Bundestag plenary on 15 Oct 2026** (committee 14 Oct); promulgation pending.
    - EUCC: **111 valid certificates from 9 certification bodies** on 30 Oct 2026.
