@@ -1,0 +1,504 @@
+# CRA readiness pack — client intake (Northwind Devices, fictional demo client)
+# Demonstrates the re-skin pipeline on a second, smaller client: two business units, six product families
+# covering default, Class I, Class II and one critical (Annex IV) product.
+# Build: python3 pack/reskin.py pack/clients/northwind-devices/client.yaml
+
+schema: cra-pack-intake/1
+engagement:
+  client_name: Northwind Devices
+  fictional: true
+  programme_codename: Project Keystone
+  advisor: '[Advisor]'
+  classification_label: Illustrative engagement — fictional client data; regulatory facts verified to 30 Oct 2026
+  pack_date: 2026-11-13
+  facts_as_at: 2026-10-30
+  board_date: 2026-12-10
+  steerco_1: 2026-11-12
+  kickoff: 19 Oct 2026
+  knowledge_base_url: https://claude.ai/artifact/JC24c3EC3qR8Xz8k3858Wj
+storyline:
+  governing_thought: The CRA makes product cybersecurity a condition of selling in the EU. Northwind Devices can be ready by 11 Dec 2027, but only if it books third-party assessment for its smart meter gateway and building-network products and builds shared compliance tooling by mid-2027.
+  scqa:
+    situation: The Cyber Resilience Act (Regulation (EU) 2024/2847) has applied to manufacturers' vulnerability and incident reporting since 11 Sep 2026, for every in-scope product already on the market. All other obligations apply from 11 Dec 2027.
+    complication: 'Four of Northwind Devices'' six product families need a notified body, including the KS-1 Smart Meter Gateway, an Annex IV critical product; no CRA notified body or harmonised standard exists yet; and the Energy Systems business has no PSIRT of its own.'
+    question: What must Northwind Devices do, by when and at what cost, to keep selling its gateways, chargers and building-network products in the EU after 11 Dec 2027?
+    answer: 'Run a 13-month, two-wave programme (Project Keystone): stand up one PSIRT and SBOM pipeline for both business units, take the five notified-body families through assessment first, and contract notified-body capacity by Q1 2027. Investment is about __ONEOFF__ to Dec 2027 and __RUN__ a year to run. The board is asked to take four decisions on 10 Dec 2026.'
+  pillars:
+  - title: Reporting already applies
+    message: Every in-scope product, including the KS-0 gateways still in the field, is on a 24-hour reporting clock today.
+    proof: Art 14 applies since 11 Sep 2026 (Art 69(3)); early warning 24h, notification 72h, final report 14 days / 1 month.
+  - title: Third-party assessment is the bottleneck
+    message: __EUNB__ of annual EU revenue sits in Class I, Class II and critical products that need a notified body that does not yet exist.
+    proof: No harmonised standard cited; no CRA notified body designated at checks to 8 Sep 2026; no Art 8(1) certification act adopted for critical products.
+  - title: One evidence system for both businesses
+    message: Build the PSIRT, SBOM and technical-file tooling once and use it for meters, chargers and network products alike.
+    proof: Annex VII file per version; retention 10 years or support period (Art 13(13)); PLD disclosure from 9 Dec 2026.
+client:
+  disclaimer: Fictional company used to demonstrate the re-skin pipeline. Replace with the client's data.
+  hq: Netherlands (main establishment; coordinator CSIRT is the Netherlands')
+  employees: 1450
+  engineers: 380
+  suppliers_in_scope: 24
+  installed_base_m: 0.9
+  existing_assurance:
+  - ISO/IEC 27001 (corporate IT and the Energy Cloud)
+  - IEC 62443-4-1 (Building Networks development process, 2025)
+  - EN 18031-1 assessments for Energy Systems radio products under the RED delegated act (2025)
+  - One-person PSIRT in Building Networks; none in Energy Systems before Oct 2026
+  saas:
+    bu: ES
+    revenue_m: 12
+  business_units:
+  - id: ES
+    name: Energy Systems
+    revenue_m: 190
+    eu_share: 0.81
+    profile: Smart meter gateways, heat-pump controllers and EV chargers sold to grid operators, installers and housebuilders; includes the Energy Cloud platform (SaaS, EUR 12m).
+  - id: BN
+    name: Building Networks
+    revenue_m: 130
+    eu_share: 0.72
+    profile: Building network routers, access controllers and firewalls sold to facility integrators; IEC 62443-4-1 certified development process (2025).
+  product_families:
+  - id: HP40
+    name: HP-40 Heat Pump Controller
+    bu: ES
+    cra_class: Default
+    annex_item: '-'
+    revenue_m: 58
+    skus: 5
+    wave: Wave 1 (pilot)
+    route: Module A
+    support_period_years: 10
+    rdps: Installer app backend; update service
+    description: Heat-pump controller with installer app and manufacturer cloud; the pilot family.
+  - id: KS1
+    name: KS-1 Smart Meter Gateway
+    bu: ES
+    cra_class: Critical
+    annex_item: Annex IV item 2 (smart meter gateways)
+    revenue_m: 62
+    skus: 3
+    wave: Wave 1
+    route: Module B+C
+    support_period_years: 15
+    rdps: Head-end connector; firmware update service
+    description: Smart meter gateway that secures metering data between household meters and the grid operator.
+  - id: EV22
+    name: EV-22 Wallbox Charger
+    bu: ES
+    cra_class: Default (provisional)
+    annex_item: Under legal review vs Annex III Class I item 12 (built-in cellular router)
+    revenue_m: 44
+    skus: 4
+    wave: Wave 2
+    route: Module A (B+C if Class I)
+    support_period_years: 8
+    rdps: Charge-point management connector; update service
+    description: Home and workplace EV charger with app control; its built-in cellular router makes the classification borderline.
+  - id: NR8
+    name: NR-8 Building Network Router
+    bu: BN
+    cra_class: Class I
+    annex_item: Annex III Class I item 12 (routers, modems, switches)
+    revenue_m: 46
+    skus: 4
+    wave: Wave 1
+    route: Module H
+    support_period_years: 10
+    rdps: Optional SiteView management service
+    description: Routers for building-automation and IoT networks.
+  - id: AX5
+    name: AX-5 Access Controller
+    bu: BN
+    cra_class: Class I
+    annex_item: Annex III Class I item 1 (access-control readers)
+    revenue_m: 34
+    skus: 3
+    wave: Wave 1
+    route: Module H
+    support_period_years: 10
+    rdps: Credential management service
+    description: Door access controller and badge reader with mobile credentials.
+  - id: FW3
+    name: FW-3 Building Firewall
+    bu: BN
+    cra_class: Class II
+    annex_item: Annex III Class II item 2 (firewalls, IDS/IPS)
+    revenue_m: 28
+    skus: 2
+    wave: Wave 1
+    route: Module H
+    support_period_years: 10
+    rdps: Threat-signature update service
+    description: Firewall with intrusion prevention for building-automation networks.
+  legacy_lines:
+  - id: KS0
+    name: KS-0 Meter Gateway (gen 1)
+    bu: ES
+    status: End of sale 2024; security fixes to Jun 2027
+    units_in_field_k: 310
+    still_sold_after_dec_2027: false
+    eu_revenue_m: 0
+  - id: HP20
+    name: HP-20 Heat Pump Controller
+    bu: ES
+    status: Still sold to two housebuilders
+    units_in_field_k: 120
+    still_sold_after_dec_2027: true
+    eu_revenue_m: 6
+  - id: NR6
+    name: NR-6 Router
+    bu: BN
+    status: Still sold as a low-cost option
+    units_in_field_k: 40
+    still_sold_after_dec_2027: true
+    eu_revenue_m: 4
+  - id: AX3
+    name: AX-3 Door Controller
+    bu: BN
+    status: End of sale 2023; unsupported
+    units_in_field_k: 55
+    still_sold_after_dec_2027: false
+    eu_revenue_m: 0
+exposure:
+  legacy_decision:
+    lines:
+    - HP20
+    - NR6
+    eu_revenue_m: 10
+    remediation_cost_estimate_m: 0.7
+    recommendation: Withdraw HP-20 and NR-6 from EU sale before 11 Dec 2027 and migrate customers to HP-40/NR-8; remediation would cost about EUR 0.7m plus notified-body fees for EUR 10m of declining EU revenue.
+diagnostic:
+  baseline_date: 2026-11-06
+  baseline_label: Illustrative baseline — Northwind Devices, self-assessed by product teams and moderated by the programme, 6 Nov 2026
+  targets:
+    by_jun_2027: 0.7
+    by_nov_2027: 0.9
+    art14_domain_now: 1.0
+  # The pilot family was scored question by question in a moderated workshop; the rest use the seeded generator.
+  scores:
+    HP40: {Q1.1: 2, Q1.2: 1, Q1.3: 1, Q1.4: 2, Q2.1: 2, Q2.2: 2, Q2.3: 2, Q2.4: 1, Q3.1: 2, Q3.2: 1, Q3.3: 1, Q3.4: 2,
+           Q4.1: 1, Q4.2: 1, Q4.3: 1, Q4.4: 0, Q5.1: 1, Q5.2: 1, Q5.3: 0, Q5.4: 1, Q6.1: 1, Q6.2: 1, Q6.3: 0, Q6.4: 0,
+           Q7.1: 2, Q7.2: 2, Q7.3: 1, Q7.4: 1, Q8.1: 2, Q8.2: 1, Q8.3: 1, Q8.4: 1, Q9.1: 1, Q9.2: 1, Q9.3: 1, Q9.4: 0,
+           Q10.1: 2, Q10.2: 0, Q10.3: 1, Q10.4: 1}
+  generator:
+    seed: 4242
+    bu_base:
+      ES: {D2: 1.2, D3: 1.0, D4: 1.1, D5: 0.7, D6: 0.5, D7: 1.4, D9: 0.6, D10: 0.4}
+      BN: {D2: 1.6, D3: 1.5, D4: 2.1, D5: 1.1, D6: 1.6, D7: 1.5, D9: 0.9, D10: 0.8}
+    family_adjust:
+      KS1: {D3: 0.4, D7: 0.3, D10: -0.2}
+      EV22: {D2: -0.4, D5: -0.2}
+      FW3: {D4: 0.3, D6: 0.3}
+      AX5: {D10: -0.3}
+    question_offset:
+      D2: [0.3, -0.2, 0.2, -0.3]
+      D3: [0.4, -0.3, -0.2, 0.1]
+      D4: [0.3, 0.2, -0.1, -0.4]
+      D5: [0.2, -0.1, -0.3, 0.2]
+      D6: [0.4, 0.2, -0.3, -0.3]
+      D7: [0.3, 0.1, -0.3, -0.1]
+      D9: [-0.2, 0.0, 0.2, 0.0]
+      D10: [0.5, 0.0, -0.2, -0.3]
+    fixed:
+      D1: [2, 1, 1, 2]
+      D8: [2, 2, 1, null]
+    d8_q4_by_bu:
+      ES: 1
+      BN: 2
+cost_model:
+  assumptions:
+    fte_cost_programme: 140000
+    fte_cost_psirt: 125000
+    fte_cost_engineering: 115000
+    programme_team_fte: 3
+    programme_team_run_fte: 1.5
+    psirt_incremental_fte: 1.5
+    psirt_oncall_allowance: 45000
+    remediation_fte_years:
+      default: 1.0
+      class_i: 2.2
+      class_ii: 3.5
+    remediation_phasing:
+      q4_2026: 0.1
+      y2027: 0.9
+    platforms_build: 520000
+    platforms_phasing:
+      q4_2026: 0.2
+      y2027: 0.8
+    platforms_run: 130000
+    platforms_build_detail:
+      sbom_vex_csaf_tooling: 140000
+      signing_hsm_update_infrastructure: 230000
+      system_of_record: 100000
+      psirt_tooling_advisory_portal: 50000
+    risk_assessment_per_family: 40000
+    risk_assessment_phasing:
+      q4_2026: 0.3
+      y2027: 0.7
+    testing_per_family_per_year:
+      default: 30000
+      class_i: 55000
+      class_ii: 85000
+    documentation_per_family: 35000
+    documentation_run_per_family: 7000
+    nb_pre_assessments:
+      count: 2
+      unit: 20000
+      q4_2026: 20000
+      y2027: 20000
+    nb_module_b_examinations:
+      count: 1
+      unit: 45000
+      note: KS-1 one type (critical product on a Class II route until an Art 8(1) act is adopted)
+    nb_module_h:
+      initial: 100000
+      extra_categories: 2
+      per_extra_category: 20000
+    nb_surveillance_run:
+      module_h: 30000
+      module_b_audits: 10000
+    training:
+      q4_2026: 20000
+      y2027: 70000
+      run: 25000
+    legal:
+      external_q4_2026: 40000
+      external_2027: 80000
+      translations_per_family: 6000
+      run: 35000
+    supplier_programme:
+      y2027: 50000
+      run: 20000
+    contingency_rate: 0.15
+  scenarios:
+    low:
+      label: Low
+      description: Harmonised standards cited mid-2027 and an Art 8(1) act settles the gateway route; less remediation than assessed.
+      multipliers:
+        engineering: 0.85
+        notified_body: 0.7
+        testing: 0.9
+      contingency: 0.1
+    base:
+      label: Base
+      description: Plan as assessed at the 6 Nov 2026 baseline.
+      multipliers: {}
+      contingency: 0.15
+    high:
+      label: High
+      description: Notified-body scarcity forces premium fees and a second body for the gateway; remediation 30% above estimate; one extra programme FTE.
+      multipliers:
+        engineering: 1.3
+        notified_body: 1.5
+        programme_team_fte: 4
+        legal: 1.4
+      contingency: 0.2
+  phasing:
+    q4_2026_monthly_weights: [0.15, 0.35, 0.5]
+    y2027_monthly_weights: [0.06, 0.07, 0.08, 0.085, 0.09, 0.09, 0.09, 0.09, 0.09, 0.09, 0.085, 0.08]
+  actual_to_date:
+    month: Oct 2026
+    actual: 95000
+programme:
+  overall_rag: Amber
+  overall_status: Reporting live in both business units; market access at risk for the KS-1 gateway and the Building Networks families because no CRA notified body was designated at checks to 8 Sep 2026 (external dependency).
+  phases:
+  - id: P0
+    name: Reporting readiness
+    start: 14 Sep 2026
+    end: 30 Oct 2026
+    status: Complete
+    gate: An early warning can be filed within 24 hours from either business unit
+  - id: P1
+    name: Inventory, scope and classification
+    start: 2 Nov 2026
+    end: 18 Dec 2026
+    status: In progress
+    gate: Every product has a class, a route and an owner
+  - id: P2
+    name: Risk assessment and gap analysis
+    start: 7 Dec 2026
+    end: 26 Feb 2027
+    status: Planned
+    gate: Applicability matrices signed for Wave 1
+  - id: P3
+    name: Remediation and SDLC changes
+    start: 11 Jan 2027
+    end: 31 Aug 2027
+    status: Planned
+    gate: Pipeline evidence generated for one release per family
+  - id: P4
+    name: Documentation and declarations
+    start: 1 Jun 2027
+    end: 30 Sep 2027
+    status: Planned
+    gate: Technical files complete and reviewed outside engineering
+  - id: P5
+    name: Conformity assessment
+    start: 1 Apr 2027
+    end: 30 Nov 2027
+    status: Planned
+    gate: Certificate or internal-control record in hand per family
+  - id: P6
+    name: Go-live and operations
+    start: 11 Dec 2027
+    end: ongoing
+    status: Planned
+    gate: Only declared products placed on the EU market
+  waves:
+  - id: W1
+    name: Wave 1
+    families: [HP40, KS1, NR8, AX5, FW3]
+    window: Nov 2026 - Nov 2027
+    rationale: The four families that need a notified body, plus HP-40 as the pilot that produces the templates.
+  - id: W2
+    name: Wave 2
+    families: [EV22]
+    window: Feb 2027 - Oct 2027
+    rationale: EV-22 on Module A reusing Wave 1 templates; moves to Wave 1 if the legal opinion classifies it Class I.
+  - id: W3
+    name: Wave 3
+    families: [KS0, HP20, NR6, AX3]
+    window: Continuous
+    rationale: 'Legacy lines: Art 14 reporting only, plus end-of-sale decisions for HP-20 and NR-6.'
+  milestones:
+  - {id: M0, name: SRP registration and coordinator CSIRT decision, date: 25 Sep 2026, status: Complete}
+  - {id: M1, name: First Art 14 tabletop drill (actively exploited vulnerability in KS-1), date: 29 Oct 2026, status: Complete}
+  - {id: M2, name: 'Programme mobilised; SteerCo #1', date: 12 Nov 2026, status: Complete}
+  - {id: M3, name: 'Board decisions (budget, signing authority, notified-body strategy, legacy lines)', date: 10 Dec 2026, status: Planned}
+  - {id: M4, name: Scope and classification register baselined, date: 18 Dec 2026, status: On track}
+  - {id: M5, name: Notified-body pre-assessments contracted (2 candidates), date: 12 Feb 2027, status: At risk}
+  - {id: M6, name: Wave 1 risk assessments signed, date: 26 Feb 2027, status: On track}
+  - {id: M7, name: SBOM pipeline live on all Wave 1 release trains, date: 31 Mar 2027, status: At risk}
+  - {id: M8, name: Formal notified-body engagements contracted (Module H; Module B+C for KS-1), date: 31 Mar 2027, status: At risk}
+  - {id: M9, name: Wave 1 technical files complete, date: 30 Sep 2027, status: Planned}
+  - {id: M10, name: Module H approval and KS-1 Module B certificate, date: 30 Nov 2027, status: Planned}
+  - {id: M11, name: Declarations signed; CE marking; Annex II published, date: 3 Dec 2027, status: Planned}
+  - {id: M12, name: Full application of the CRA, date: 11 Dec 2027, status: Fixed}
+  workstreams:
+  - {id: WS1, name: Governance & PMO, lead: Programme director, rag: Green, note: Sponsor named; programme board running; board paper in draft.}
+  - {id: WS2, name: Portfolio & classification, lead: Compliance lead, rag: Amber, note: 5 of 6 families classified; EV-22 awaits a legal opinion on its cellular router.}
+  - {id: WS3, name: Reporting & PSIRT, lead: PSIRT lead, rag: Green, note: SRP live with 2 Assigned Representatives; first drill filed an early warning in 11h 15m.}
+  - {id: WS4, name: Secure engineering & SBOM, lead: Product security officer, rag: Red, note: Signed SBOMs on 25% of releases; Energy Systems firmware lacks binary SCA.}
+  - {id: WS5, name: Documentation & conformity, lead: Head of quality & regulatory, rag: Red, note: No CRA notified body designated at checks to 8 Sep 2026 (external); 2 candidates shortlisted.}
+  - {id: WS6, name: People & change, lead: Head of engineering enablement, rag: Amber, note: 45 of 380 engineers trained; on-call allowance agreed with HR.}
+  mobilisation_plan:
+  - {id: T01, workstream: WS1, task: Board paper and pre-read issued, owner: Programme director, start: 16 Nov 2026, end: 3 Dec 2026, status: In progress, depends_on: ''}
+  - {id: T02, workstream: WS1, task: 'Board decisions on budget, signing authority, NB strategy, legacy lines', owner: Executive sponsor, start: 10 Dec 2026, end: 10 Dec 2026, status: Not started, depends_on: T01}
+  - {id: T03, workstream: WS1, task: DoC signing instrument executed, owner: General Counsel, start: 11 Dec 2026, end: 15 Jan 2027, status: Not started, depends_on: T02}
+  - {id: T04, workstream: WS2, task: 'Reconcile release, commercial and cloud inventories into the scope register', owner: Compliance lead, start: 2 Nov 2026, end: 4 Dec 2026, status: In progress, depends_on: ''}
+  - {id: T05, workstream: WS2, task: Legal opinion on EV-22 classification, owner: General Counsel, start: 9 Nov 2026, end: 4 Dec 2026, status: In progress, depends_on: ''}
+  - {id: T06, workstream: WS2, task: Scope and classification register baselined, owner: Compliance lead, start: 7 Dec 2026, end: 18 Dec 2026, status: Not started, depends_on: 'T04,T05'}
+  - {id: T07, workstream: WS3, task: Energy Systems security.txt and CVD policy published, owner: PSIRT lead, start: 16 Nov 2026, end: 11 Dec 2026, status: Not started, depends_on: ''}
+  - {id: T08, workstream: WS3, task: 'Legacy reportable inventory completed (KS-0, AX-3 fleets)', owner: PSIRT lead, start: 2 Nov 2026, end: 11 Dec 2026, status: In progress, depends_on: ''}
+  - {id: T09, workstream: WS4, task: HP-40 pilot risk assessment signed (applicability matrix), owner: Product security officer, start: 2 Nov 2026, end: 4 Dec 2026, status: In progress, depends_on: ''}
+  - {id: T10, workstream: WS4, task: SBOM generation from artefact on Energy Systems firmware builds, owner: Head of platform engineering, start: 9 Nov 2026, end: 29 Jan 2027, status: In progress, depends_on: ''}
+  - {id: T11, workstream: WS5, task: Pre-assessment proposals from 2 candidate notified bodies, owner: Head of quality & regulatory, start: 16 Nov 2026, end: 18 Dec 2026, status: In progress, depends_on: ''}
+  - {id: T12, workstream: WS6, task: Engineering awareness training to 200 engineers, owner: Head of engineering enablement, start: 16 Nov 2026, end: 29 Jan 2027, status: In progress, depends_on: ''}
+  kpis:
+  - {id: K01, name: Portfolio readiness index, value: auto:readiness_index, display: auto, target: 70% by Jun 2027; 90% by Nov 2027, rag: Amber, trend: Baseline, source: 'Readiness diagnostic, 6 Nov 2026'}
+  - {id: K02, name: Families with final scope and class decision, value: 5, display: 5 / 6, target: 6 / 6 by 18 Dec 2026, rag: Amber, trend: New, source: Scope register}
+  - {id: K03, name: Notified-body families with route and notified-body plan, value: 3, display: 3 / 4, target: 4 / 4 by 10 Dec 2026, rag: Amber, trend: New, source: Scope register}
+  - {id: K04, name: SRP Assigned Representatives registered, value: 2, display: '2', target: '>= 2 at all times', rag: Green, trend: Stable, source: SRP roster}
+  - {id: K05, name: 'Art 14 drill: time to early warning', value: 11.25, display: 11h 15m, target: < 24h incl. weekends, rag: Green, trend: First drill, source: Drill record 29 Oct 2026}
+  - {id: K06, name: Art 14 cases assessed (reportable / not reportable), value: 2, display: 0 / 2, target: 100% decided with UTC timeline, rag: Green, trend: Stable, source: PSIRT case files}
+  - {id: K07, name: Releases with signed SBOM (last 30 days), value: 0.25, display: 25% (3 / 12), target: 100% by 31 Mar 2027, rag: Red, trend: Up from 10%, source: Build pipeline}
+  - {id: K08, name: Families with signed risk assessment, value: 0, display: 0 / 6 (HP-40 in review), target: Wave 1 (5) by 26 Feb 2027, rag: Green, trend: On plan, source: System of record}
+  - {id: K09, name: In-scope suppliers on CRA clauses, value: 3, display: 3 / 24 (13%), target: Top 10 by Feb 2027; all by Jun 2027, rag: Amber, trend: New, source: Contract register}
+  - {id: K10, name: Engineers trained, value: 45, display: 45 / 380 (12%), target: 60% by Mar 2027, rag: Amber, trend: Up, source: LMS}
+  - {id: K11, name: Spend to date vs plan, value: auto:spend_vs_plan, display: auto, target: Within +/-10% of plan, rag: Green, trend: Oct 2026, source: Finance}
+  - {id: K12, name: Notified-body candidates, value: 2, display: 2 shortlisted; 0 proposals, target: 2 pre-assessments contracted by 12 Feb 2027, rag: Amber, trend: New, source: Programme}
+  trajectories:
+    readiness_months: [Oct 2026, Nov 2026, Dec 2026, Jan 2027, Feb 2027, Mar 2027, Apr 2027, May 2027, Jun 2027, Jul 2027, Aug 2027, Sep 2027, Oct 2027, Nov 2027, Dec 2027]
+    readiness_weights: [0, 0.02, 0.06, 0.12, 0.19, 0.27, 0.35, 0.44, 0.53, 0.62, 0.7, 0.79, 0.87, 0.95, 1.0]
+    readiness_end: 0.92
+    sbom_coverage:
+      Sep 2026: 0.1
+      Oct 2026: 0.25
+      Nov 2026: 0.35
+      Dec 2026: 0.45
+      Jan 2027: 0.6
+      Feb 2027: 0.8
+      Mar 2027: 1.0
+    note: Oct 2026 values are actuals (illustrative); later months are plan. SBOM Sep 2026 is the pre-programme measurement.
+  risks:
+  - id: R01
+    title: No notified-body capacity in time
+    description: No CRA notified body with capacity is designated before Q2 2027, so KS-1 and the Building Networks families cannot be certified by 11 Dec 2027.
+    likelihood: 4
+    impact: 5
+    owner: Head of quality & regulatory
+    mitigations: Pre-contract two candidates with conversion options; one Module H approval covers all three Building Networks families; check NANDO at every programme board.
+    trend: Rising
+  - id: R02
+    title: Critical-product route changes
+    description: An Art 8(1) implementing act could require EU cybersecurity certification for the KS-1 gateway at short notice.
+    likelihood: 2
+    impact: 5
+    owner: Compliance lead
+    mitigations: Build the KS-1 file to EUCC-compatible evidence; track the Commission's work programme quarterly.
+    trend: Stable
+  - id: R03
+    title: Engineering capacity
+    description: Remediation competes with the 2027 roadmap for the same small firmware teams.
+    likelihood: 4
+    impact: 4
+    owner: CTO
+    mitigations: Ring-fence remediation FTE-years in the 2027 plan; contractors for documentation and testing.
+    trend: Stable
+  - id: R04
+    title: SBOM gaps in Energy Systems firmware
+    description: Vendored code and supplier binaries without SBOMs undermine Annex I Part II(1) and the 24-hour determination.
+    likelihood: 3
+    impact: 4
+    owner: Head of platform engineering
+    mitigations: Binary SCA on firmware images; clause pack to the top 10 suppliers first.
+    trend: Stable
+  - id: R05
+    title: Legacy lines still sold after 11 Dec 2027
+    description: HP-20 and NR-6 units placed after 11 Dec 2027 must comply with Annex I.
+    likelihood: 3
+    impact: 3
+    owner: BU president Building Networks
+    mitigations: Board decision on 10 Dec 2026 to withdraw from EU sale and migrate customers.
+    trend: New
+  - id: R06
+    title: Late or wrong Art 14 filing
+    description: The Energy Systems on-call chain is new; awareness could be misjudged at a weekend.
+    likelihood: 2
+    impact: 5
+    owner: PSIRT lead
+    mitigations: Written awareness criteria; deputies with authority to file; two drills a year.
+    trend: Falling
+  issues:
+  - {id: I01, title: Borderline classification, description: EV-22 could be Class I because of its built-in cellular router; capacity planning includes it until the legal opinion lands., owner: General Counsel, due: 4 Dec 2026}
+  - {id: I02, title: Energy Systems firmware SBOM depth, description: Manifest-only SBOMs miss vendored code; binary SCA needed., owner: Head of platform engineering, due: 29 Jan 2027}
+  decisions:
+    steerco_1:
+    - {id: SD1, decision: 'Endorse Module H for the three Building Networks families, built on the IEC 62443-4-1 process, and Module B+C for KS-1.', outcome: Endorsed (illustrative)}
+    - {id: SD2, decision: 'Treat EV-22 as Class I for capacity planning until the legal opinion lands on 4 Dec 2026.', outcome: Endorsed (illustrative)}
+    - {id: SD3, decision: Release EUR 0.3m of pre-approval spend ahead of the 10 Dec board., outcome: Endorsed (illustrative)}
+    board:
+    - id: BD1
+      decision: Approve the Project Keystone investment envelope.
+      detail: EUR {{one_off_m}}m one-off to Dec 2027 (incl. {{contingency_pct}}% contingency) and EUR {{run_m}}m a year run from 2028.
+    - id: BD2
+      decision: Appoint the accountable executive and execute the DoC signing instrument.
+      detail: CTO as accountable executive; CEO signs declarations or delegates in writing.
+    - id: BD3
+      decision: Authorise notified-body pre-contracting.
+      detail: Pre-assessments with two candidate bodies (up to EUR 40k) and formal contracts by Q1 2027.
+    - id: BD4
+      decision: Withdraw HP-20 and NR-6 from EU sale before 11 Dec 2027.
+      detail: EUR 10m of declining EU revenue versus about EUR 0.7m remediation plus notified-body fees.
+  stakeholders:
+  - {id: ST01, name: Board of directors, group: Internal - governance, power: 5, interest: 3, stance_now: Aware, stance_target: Committed, key_concern: 'Liability, fines, market access, cost', key_message: A funded 13-month programme protects __EUNB__ of EU revenue; four decisions now., channel: Board paper and briefing, owner: Executive sponsor, frequency: Quarterly}
+  - {id: ST02, name: CEO and executive committee, group: Internal - governance, power: 5, interest: 4, stance_now: Supportive, stance_target: Committed, key_concern: 'Revenue at risk, roadmap impact', key_message: Reporting is live; notified-body capacity is the constraint., channel: ExCo agenda item; monthly dashboard, owner: Executive sponsor, frequency: Monthly}
+  - {id: ST03, name: CTO (accountable executive), group: Internal - leadership, power: 5, interest: 5, stance_now: Committed, stance_target: Leading, key_concern: 'Engineering capacity, release gates', key_message: You own the release gate and the evidence; the programme supplies shared tooling., channel: SteerCo; 1:1, owner: Programme director, frequency: Fortnightly}
+  - {id: ST04, name: General Counsel, group: Internal - leadership, power: 4, interest: 4, stance_now: Supportive, stance_target: Committed, key_concern: 'DoC liability, EV-22 classification', key_message: Decision records and the signing instrument limit exposure., channel: SteerCo; legal working group, owner: Compliance lead, frequency: Fortnightly}
+  - {id: ST05, name: 'BU presidents (Energy Systems, Building Networks)', group: Internal - leadership, power: 5, interest: 4, stance_now: Mixed, stance_target: Committed, key_concern: 'Margin, roadmap, legacy lines', key_message: Your EU revenue depends on notified-body slots we must book now., channel: BU reviews; SteerCo, owner: Executive sponsor, frequency: Monthly}
+  - {id: ST06, name: Engineering leads and developers, group: Internal - delivery, power: 3, interest: 4, stance_now: Aware, stance_target: Practising, key_concern: 'Extra process, release friction', key_message: 'Evidence comes from the pipeline, not from paperwork.', channel: Engineering all-hands; training, owner: Product security officer, frequency: Fortnightly}
+  - {id: ST07, name: Grid operators and integrators (B2B customers), group: External - market, power: 4, interest: 4, stance_now: Asking, stance_target: Confident, key_concern: Supply-chain evidence for their own NIS2 duties, key_message: 'Support periods, CVD contact, SBOM on request and declarations on a published timetable.', channel: Account letters; trust page, owner: Head of customer operations, frequency: Quarterly}
+  - {id: ST08, name: Coordinator CSIRT and market surveillance (Netherlands), group: External - regulator, power: 5, interest: 3, stance_now: Neutral, stance_target: Trusting, key_concern: 'Timely, accurate reporting', key_message: We report on time with complete data., channel: SRP; formal correspondence, owner: PSIRT lead / Compliance lead, frequency: As required}

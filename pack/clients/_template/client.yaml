@@ -1,0 +1,244 @@
+# CRA readiness pack — client intake TEMPLATE
+#
+# 1. Copy this folder:  cp -r pack/clients/_template pack/clients/<client-slug>
+# 2. Replace every example value below (keep the keys; the comments say what each one means).
+# 3. Build:             python3 pack/reskin.py pack/clients/<client-slug>/client.yaml
+#    Output goes to dist/<client-slug>/ ; RESKIN.md there lists what to change in the hosted decks, docs and dashboard.
+#
+# Conventions
+# - Money in the client section is EUR millions (revenue_m); money in cost_model is EUR (whole euros).
+# - ISO dates (2026-11-13) where the comment says "ISO date"; text dates ("2 Nov 2026") everywhere else.
+# - Quote any text that contains a comma or ": " when you use the one-line {a: b, c: d} form.
+# - Tokens filled in at build time, usable in any text:
+#     __EUNB__            annual EU revenue that needs a notified body, e.g. "EUR 128m"
+#     __ONEOFF__          one-off investment to Dec 2027 incl. contingency, e.g. "EUR 4.9m"
+#     __RUN__             yearly run cost from 2028, e.g. "EUR 1.1m"
+#     {{one_off_m}}       the one-off number without unit, e.g. "4.9"   (use as "EUR {{one_off_m}}m")
+#     {{run_m}}           the run number without unit, e.g. "1.1"
+#     {{contingency_pct}} base-case contingency as a whole percentage, e.g. "15"
+# - KPI values computed by the engine: value "auto:readiness_index" (portfolio readiness index from the diagnostic)
+#   and "auto:spend_vs_plan" (actual_to_date vs the first month of the plan); set display: auto for both.
+# - Limits: the cost model and monthly plan run Oct 2026 - Dec 2027 (Q4 2026 + 2027 + run from 2028); regulatory
+#   content (facts, diagnostic questions, classifier categories) is shared and dated to 30 Oct 2026.
+
+schema: cra-pack-intake/1                      # intake format version; leave as is
+engagement:
+  client_name: Client Name                     # legal or trading name as it should appear on every deliverable
+  fictional: false                             # true adds "Illustrative" tags everywhere; false for a real client
+  programme_codename: Project Codename         # programme name used in titles and footers
+  advisor: '[Advisor]'                         # consultancy name shown as "Prepared by ..."
+  classification_label: Client engagement — confidential; regulatory facts verified to 30 Oct 2026   # banner on data outputs
+  pack_date: 2026-11-30                        # ISO date the pack is issued (drives "days to 11 Dec 2027")
+  facts_as_at: 2026-10-30                      # ISO date regulatory facts were verified (shared content: keep unless re-verified)
+  board_date: 2026-12-15                       # ISO date of the board meeting that takes the decisions
+  steerco_1: 2026-11-26                        # ISO date of the first steering committee
+  kickoff: 2 Nov 2026                          # text date the programme started
+  knowledge_base_url: https://claude.ai/artifact/JC24c3EC3qR8Xz8k3858Wj   # shared CRA knowledge base (keep)
+storyline:
+  governing_thought: One sentence the board should remember, e.g. the client can be ready by 11 Dec 2027 if it secures notified-body capacity now.
+  scqa:                                        # situation, complication, question, answer (board deck spine)
+    situation: What is already true (the CRA is in force; Article 14 reporting applies since 11 Sep 2026).
+    complication: Why it is hard for this client (how many families need a notified body; what is missing).
+    question: The question the board must answer.
+    answer: 'The recommended programme in one or two sentences; investment about __ONEOFF__ to Dec 2027 and __RUN__ a year.'
+  pillars:                                     # three supporting messages: title, message, proof
+  - title: Reporting already applies
+    message: Every in-scope product is on a 24-hour reporting clock today.
+    proof: Art 14 applies since 11 Sep 2026 (Art 69(3)).
+  - title: Market access is the constraint
+    message: __EUNB__ of annual EU revenue sits in products that need a notified body.
+    proof: No harmonised standard cited; no CRA notified body designated at checks to 8 Sep 2026.
+  - title: Build once, apply per product
+    message: Shared PSIRT, SBOM and evidence tooling, applied product by product.
+    proof: Annex VII file per version; retention 10 years or support period (Art 13(13)).
+client:
+  disclaimer: Client data supplied on <date>; figures rounded.   # one line shown under client numbers
+  hq: Country (main establishment; coordinator CSIRT is that country's)   # decides the coordinator CSIRT
+  employees: 1000                              # headcount
+  engineers: 250                               # engineers in product development
+  suppliers_in_scope: 20                       # suppliers of security-relevant components
+  installed_base_m: 0.5                        # connected devices in the field, millions
+  existing_assurance:                          # certifications and capabilities already in place (free text list)
+  - ISO/IEC 27001 (corporate IT)
+  saas:                                        # SaaS revenue that is not itself a CRA product (remote data processing at most)
+    bu: BU1                                    # business unit that books it
+    revenue_m: 0                               # EUR m a year; 0 if none
+  business_units:                              # every business unit with in-scope products
+  - id: BU1                                    # short id used everywhere below
+    name: Business Unit One                    # display name
+    revenue_m: 200                             # annual revenue, EUR m (must cover its families' revenue)
+    eu_share: 0.7                              # share of the BU's revenue earned in the EU (0-1)
+    profile: What it sells, to whom, and relevant certifications.   # one sentence
+  product_families:                            # one row per product family (a family shares a risk assessment and route)
+  - id: FAM1                                   # short id (letters/digits; also used as the classifier preset key)
+    name: FAM-1 Example Device                 # display name; put the model code first so the diagnostic can shorten it
+    bu: BU1                                    # business unit id from above
+    cra_class: Default                         # Default | Default (provisional) | Class I | Class II | Critical
+    annex_item: '-'                            # '-' for default; 'Annex III Class I item 12 (routers, modems, switches)';
+                                               # 'Annex III Class II item 2 (...)'; 'Annex IV item 2 (smart meter gateways)';
+                                               # for provisional: 'Under legal review vs Annex III Class I item N (reason)'
+    revenue_m: 80                              # annual revenue, EUR m
+    skus: 3                                    # SKUs in the family
+    wave: Wave 1 (pilot)                       # 'Wave 1', 'Wave 1 (pilot)' or 'Wave 2' (the diagnostic groups by these)
+    route: Module A                            # Module A | Module B+C | Module H; add '(B+C if Class I)' for provisional
+    support_period_years: 8                    # support period from expected time in use (five years is the floor)
+    rdps: Cloud control service                # remote data processing the product needs; 'None' if none
+    description: One sentence on what it is and does.   # also the classifier's default core functionality
+  - id: FAM2
+    name: FAM-2 Example Router
+    bu: BU1
+    cra_class: Class I
+    annex_item: Annex III Class I item 12 (routers, modems, switches)
+    revenue_m: 60
+    skus: 2
+    wave: Wave 1
+    route: Module H
+    support_period_years: 10
+    rdps: None
+    description: Router for small business networks.
+  legacy_lines:                                # older lines still in the field (Art 14 reporting applies to them)
+  - id: LEG1                                   # short id (must differ from family ids)
+    name: LEG-1 Old Device                     # display name
+    bu: BU1                                    # business unit id
+    status: End of sale 2024; unsupported      # sales and support status
+    units_in_field_k: 50                       # units in the field, thousands
+    still_sold_after_dec_2027: false           # true if units will still be placed on the EU market after 11 Dec 2027
+    eu_revenue_m: 0                            # EU revenue still earned, EUR m
+classifier:                                    # optional: pin the product-classifier (D13) presets (max 4)
+  presets: []                                  # e.g. [{family: FAM2, chip: FAM-2 Router, form: hw, core: Routes and filters traffic}]
+                                               # form: hw | sw | both | web; leave [] to let the engine pick one per class
+exposure:
+  legacy_decision:                             # the board decision on legacy lines still sold after 11 Dec 2027
+    lines: []                                  # legacy ids concerned, e.g. [LEG1]
+    eu_revenue_m: 0                            # their EU revenue, EUR m
+    remediation_cost_estimate_m: 0             # cost to make them compliant, EUR m
+    recommendation: No legacy line is sold in the EU after 11 Dec 2027; no decision needed.   # one sentence
+diagnostic:
+  baseline_date: 2026-11-20                    # ISO date of the baseline self-assessment
+  baseline_label: Baseline — Client Name, self-assessed by product teams and moderated by the programme, 20 Nov 2026
+  targets:                                     # portfolio readiness targets (0-1)
+    by_jun_2027: 0.7
+    by_nov_2027: 0.9
+    art14_domain_now: 1.0
+  # Baseline scores: two options, which can be mixed.
+  # (a) Explicit scores per family, from the real diagnostic workshop: every question Q1.1 ... Q10.4, levels 0-4.
+  #     A family listed here ignores the generator.
+  scores:
+    FAM1: {Q1.1: 2, Q1.2: 1, Q1.3: 1, Q1.4: 1, Q2.1: 2, Q2.2: 1, Q2.3: 2, Q2.4: 1, Q3.1: 1, Q3.2: 1, Q3.3: 1, Q3.4: 2,
+           Q4.1: 1, Q4.2: 1, Q4.3: 1, Q4.4: 0, Q5.1: 1, Q5.2: 1, Q5.3: 0, Q5.4: 1, Q6.1: 1, Q6.2: 1, Q6.3: 0, Q6.4: 0,
+           Q7.1: 2, Q7.2: 1, Q7.3: 1, Q7.4: 1, Q8.1: 2, Q8.2: 1, Q8.3: 1, Q8.4: 1, Q9.1: 1, Q9.2: 1, Q9.3: 1, Q9.4: 0,
+           Q10.1: 1, Q10.2: 0, Q10.3: 1, Q10.4: 1}
+  # (b) The seeded generator, for an illustrative baseline before the workshop: level = BU base + family adjustment
+  #     + question offset + seeded noise, rounded and clipped to 0-4. Same seed, same scores.
+  generator:
+    seed: 1234                                 # any integer; change it to get a different but repeatable baseline
+    default_level: 1.0                         # base level for domains not listed in bu_base
+    bu_base:                                   # average level per BU and domain (D2-D7, D9, D10; D1 and D8 use 'fixed')
+      BU1: {D2: 1.2, D3: 1.0, D4: 1.3, D5: 0.8, D6: 0.8, D7: 1.2, D9: 0.6, D10: 0.5}
+    family_adjust:                             # +/- per family and domain
+      FAM2: {D10: -0.3}
+    question_offset:                           # +/- per question within a domain (4 values each)
+      D2: [0.3, -0.2, 0.2, -0.3]
+    fixed:                                     # organisation-wide domains: the same 4 levels for every family
+      D1: [2, 1, 1, 1]
+      D8: [2, 1, 1, null]                      # null = take d8_q4_by_bu
+    d8_q4_by_bu:                               # legacy reportable inventory (Q8.4) level per BU
+      BU1: 1
+cost_model:
+  assumptions:                                 # all EUR unless stated
+    fte_cost_programme: 140000                 # loaded cost per programme FTE a year
+    fte_cost_psirt: 125000                     # loaded cost per PSIRT FTE a year
+    fte_cost_engineering: 115000               # loaded cost per engineering FTE-year
+    programme_team_fte: 3                      # programme team size during 2027 (Q4 2026 at a quarter)
+    programme_team_run_fte: 1.5                # programme team kept from 2028
+    psirt_incremental_fte: 1                   # extra PSIRT staff
+    psirt_oncall_allowance: 40000              # 24/7 on-call allowance a year
+    remediation_fte_years:                     # engineering effort per family by class (critical uses class_ii)
+      default: 1.0
+      class_i: 2.2
+      class_ii: 3.5
+    remediation_phasing: {q4_2026: 0.1, y2027: 0.9}   # share of remediation per period (sums to 1)
+    platforms_build: 400000                    # shared platforms one-off (SBOM, signing, system of record, PSIRT tooling)
+    platforms_phasing: {q4_2026: 0.2, y2027: 0.8}
+    platforms_run: 100000                      # platforms run cost a year from mid-2027
+    platforms_build_detail:                    # breakdown of platforms_build (should add up to it)
+      sbom_vex_csaf_tooling: 100000
+      signing_hsm_update_infrastructure: 180000
+      system_of_record: 80000
+      psirt_tooling_advisory_portal: 40000
+    risk_assessment_per_family: 40000          # risk assessment and threat model per family
+    risk_assessment_phasing: {q4_2026: 0.3, y2027: 0.7}
+    testing_per_family_per_year:               # security testing per family a year, by class
+      default: 30000
+      class_i: 55000
+      class_ii: 85000
+    documentation_per_family: 35000            # technical file and Annex II per family (one-off)
+    documentation_run_per_family: 7000         # keeping it current, per family a year
+    nb_pre_assessments: {count: 1, unit: 20000, q4_2026: 0, y2027: 20000}   # notified-body pre-assessments
+    nb_module_b_examinations: {count: 0, unit: 40000, note: none}            # Module B type examinations
+    nb_module_h: {initial: 100000, extra_categories: 0, per_extra_category: 20000}   # Module H approval
+    nb_surveillance_run: {module_h: 30000, module_b_audits: 0}               # notified-body run cost a year
+    training: {q4_2026: 15000, y2027: 50000, run: 20000}
+    legal: {external_q4_2026: 30000, external_2027: 60000, translations_per_family: 6000, run: 30000}
+    supplier_programme: {y2027: 40000, run: 15000}
+    contingency_rate: 0.15                     # base-case contingency (0-0.5)
+  scenarios:                                   # low / base / high; multipliers on engineering, notified_body, testing, legal;
+    low:                                       # programme_team_fte replaces the team size
+      label: Low
+      description: Harmonised standards cited mid-2027; less remediation than assessed.
+      multipliers: {engineering: 0.85, notified_body: 0.7, testing: 0.9}
+      contingency: 0.1
+    base:
+      label: Base
+      description: Plan as assessed at the baseline.
+      multipliers: {}
+      contingency: 0.15
+    high:
+      label: High
+      description: Notified-body scarcity and 30% more remediation.
+      multipliers: {engineering: 1.3, notified_body: 1.5, programme_team_fte: 4, legal: 1.4}
+      contingency: 0.2
+  phasing:
+    q4_2026_monthly_weights: [0.2, 0.35, 0.45]                     # Oct, Nov, Dec 2026 (sum to 1)
+    y2027_monthly_weights: [0.06, 0.07, 0.08, 0.085, 0.09, 0.09, 0.09, 0.09, 0.09, 0.09, 0.085, 0.08]   # Jan-Dec 2027 (normalised)
+  actual_to_date:                              # spend so far, for KPI auto:spend_vs_plan
+    month: Oct 2026
+    actual: 0
+programme:
+  overall_rag: Amber                           # Green | Amber | Red
+  overall_status: One sentence on where the programme stands.
+  phases:                                      # id, name, start, end (text dates or 'ongoing'), status, exit gate
+  - {id: P1, name: Inventory and classification, start: 2 Nov 2026, end: 18 Dec 2026, status: In progress, gate: Every product has a class and a route}
+  - {id: P2, name: Remediation and conformity, start: 4 Jan 2027, end: 30 Nov 2027, status: Planned, gate: Certificate or internal-control record per family}
+  waves:                                       # families (and legacy ids) per wave; every family should be in one wave
+  - {id: W1, name: Wave 1, families: [FAM1, FAM2], window: Nov 2026 - Nov 2027, rationale: Pilot plus the notified-body family.}
+  - {id: W3, name: Wave 3, families: [LEG1], window: Continuous, rationale: 'Legacy lines: Art 14 reporting only.'}
+  milestones:                                  # id, name, date (text), status
+  - {id: M1, name: Board decisions, date: 15 Dec 2026, status: Planned}
+  - {id: M2, name: Full application of the CRA, date: 11 Dec 2027, status: Fixed}
+  workstreams:                                 # id, name, lead (role), rag, note
+  - {id: WS1, name: Governance & PMO, lead: Programme director, rag: Green, note: Sponsor named.}
+  mobilisation_plan:                           # first 90 days: id, workstream, task, owner, start, end, status, depends_on ('T01,T02')
+  - {id: T01, workstream: WS1, task: Board paper issued, owner: Programme director, start: 30 Nov 2026, end: 8 Dec 2026, status: Not started, depends_on: ''}
+  kpis:                                        # id, name, value, display, target, rag, trend, source
+  - {id: K01, name: Portfolio readiness index, value: auto:readiness_index, display: auto, target: 70% by Jun 2027, rag: Amber, trend: Baseline, source: Readiness diagnostic}
+  - {id: K11, name: Spend to date vs plan, value: auto:spend_vs_plan, display: auto, target: Within +/-10% of plan, rag: Green, trend: Oct 2026, source: Finance}
+  trajectories:
+    readiness_months: [Oct 2026, Nov 2026, Dec 2026, Jan 2027, Feb 2027, Mar 2027, Apr 2027, May 2027, Jun 2027, Jul 2027, Aug 2027, Sep 2027, Oct 2027, Nov 2027, Dec 2027]
+    readiness_weights: [0, 0.02, 0.06, 0.12, 0.19, 0.27, 0.35, 0.44, 0.53, 0.62, 0.7, 0.79, 0.87, 0.95, 1.0]   # share of the gap closed by each month
+    readiness_end: 0.9                         # planned readiness index in Dec 2027
+    sbom_coverage: {Oct 2026: 0.2, Mar 2027: 1.0}   # share of releases with a signed SBOM, by month
+    note: Oct 2026 values are actuals; later months are plan.
+  risks:                                       # likelihood and impact 1-5; score and rating are computed
+  - {id: R01, title: No notified-body capacity in time, description: No CRA notified body has capacity before Q2 2027., likelihood: 4, impact: 5, owner: Head of quality, mitigations: Pre-contract candidates with conversion options., trend: Rising}
+  issues:
+  - {id: I01, title: Example issue, description: What is wrong now., owner: Compliance lead, due: 15 Jan 2027}
+  decisions:
+    steerco_1:                                 # decisions taken at SteerCo #1
+    - {id: SD1, decision: Endorse the conformity routes per family., outcome: Endorsed}
+    board:                                     # decisions asked of the board (use the tokens for money)
+    - id: BD1
+      decision: Approve the Project Codename investment envelope.
+      detail: EUR {{one_off_m}}m one-off to Dec 2027 (incl. {{contingency_pct}}% contingency) and EUR {{run_m}}m a year run from 2028.
+  stakeholders:                                # power and interest 1-5
+  - {id: ST01, name: Board of directors, group: Internal - governance, power: 5, interest: 3, stance_now: Aware, stance_target: Committed, key_concern: Liability and cost, key_message: A funded programme protects __EUNB__ of EU revenue., channel: Board paper, owner: Executive sponsor, frequency: Quarterly}

@@ -271,6 +271,25 @@ client:
     units_in_field_k: 3
     still_sold_after_dec_2027: false
     eu_revenue_m: 0
+classifier:
+  # Optional: pin the product-classifier (D13) presets. Without this block the engine picks one family per class.
+  presets:
+  - family: L2
+    chip: L2 Smart Lock
+    form: both
+    core: Controls physical access to a home through app keys and guest access
+  - family: T200
+    chip: T200 Thermostat
+    form: both
+    core: Controls home heating to a schedule set in the app
+  - family: SG900
+    chip: SG-900 Firewall/IDS
+    form: hw
+    core: Filters OT network traffic and detects and blocks intrusions
+  - family: H3
+    chip: HomeHub H3
+    form: both
+    core: Bridges Zigbee and Thread devices to the app; optional alarm mode
 exposure:
   legacy_decision:
     lines:

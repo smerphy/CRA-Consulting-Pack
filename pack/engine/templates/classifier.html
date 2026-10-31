@@ -1,0 +1,686 @@
+<title>CRA Product Classifier</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400..700&family=JetBrains+Mono:wght@400..600&family=Source+Serif+4:opsz,wght@8..60,400..700&display=swap">
+<style>
+/* Layout: questions on the left in three numbered stages (a real sequence); a sticky verdict panel on the right; SKU register below. Advisory Design System tokens. */
+:root {
+  --ink-900: #0E1A2B; --ink-700: #26364D; --ink-500: #56667E; --ink-300: #C5CDD8; --ink-100: #EEF1F5;
+  --paper: #FAFAF7; --surface: #FFFFFF;
+  --accent-700: #0A5753; --accent-600: #0F6E6A; --accent-400: #2E9C93; --accent-100: #DCEFEC;
+  --signal: #C2410C; --rag-red: #B42318; --rag-amber: #B54708; --rag-green: #027A48;
+  --bg: var(--paper); --fg: var(--ink-900); --fg-2: var(--ink-700); --muted: var(--ink-500); --rule: var(--ink-300);
+  --fill: var(--ink-100); --card: var(--surface); --emph: var(--accent-600); --emph-strong: var(--accent-700);
+  --tint: var(--accent-100); --signal-fg: var(--signal); --signal-tint: #FBEAE1; --amber-fg: var(--rag-amber); --amber-tint: #FCF0DF;
+  --green-fg: var(--rag-green); --green-tint: #E3F3EA; --grey-tint: var(--ink-100);
+  --shadow: 0 1px 2px #0E1A2B0F, 0 4px 12px #0E1A2B14;
+  --font-display: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --font-body: Inter, system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --s1: 4px; --s2: 8px; --s3: 12px; --s4: 16px; --s5: 24px; --s6: 32px; --s7: 48px;
+  --r1: 2px; --r2: 4px; --r3: 6px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0E1A2B; --fg: #FAFAF7; --fg-2: #D5DCE6; --muted: #A3AFC0; --rule: #2C3C55; --fill: #1F2E45;
+    --card: #16243A; --emph: #2E9C93; --emph-strong: #7FD1C7; --tint: #123F3D; --signal-fg: #FB923C; --signal-tint: #3A2416;
+    --amber-fg: #F5B556; --amber-tint: #3A2C14; --green-fg: #5BD39A; --green-tint: #123527; --grey-tint: #1F2E45;
+    --shadow: 0 1px 2px #00000066, 0 4px 12px #00000080; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0E1A2B; --fg: #FAFAF7; --fg-2: #D5DCE6; --muted: #A3AFC0; --rule: #2C3C55; --fill: #1F2E45;
+  --card: #16243A; --emph: #2E9C93; --emph-strong: #7FD1C7; --tint: #123F3D; --signal-fg: #FB923C; --signal-tint: #3A2416;
+  --amber-fg: #F5B556; --amber-tint: #3A2C14; --green-fg: #5BD39A; --green-tint: #123527; --grey-tint: #1F2E45;
+  --shadow: 0 1px 2px #00000066, 0 4px 12px #00000080; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+.jump { display: none; margin-top: var(--s2); font-size: 14px; font-weight: 600; }
+@media (max-width: 920px) { .jump { display: inline-block; } }
+body { background: var(--bg); color: var(--fg); font: 400 15px/1.55 var(--font-body); -webkit-font-smoothing: antialiased; }
+a { color: var(--emph); text-underline-offset: 3px; }
+:focus-visible { outline: 2px solid var(--emph); outline-offset: 2px; }
+h1, h2, h3 { font-family: var(--font-display); text-wrap: balance; margin: 0; font-weight: 500; }
+p { margin: 0; }
+.wrap { max-width: 1240px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.eyebrow { font: 600 11px/1.2 var(--font-body); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.mono { font-family: var(--font-mono); }
+
+header.mast { padding-block: var(--s6) var(--s5); border-bottom: 1px solid var(--rule); }
+.mast-top { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--s3); align-items: baseline; }
+.wordmark { font: 600 12px/1 var(--font-body); letter-spacing: .32em; }
+.meta { display: flex; flex-wrap: wrap; gap: var(--s2) var(--s4); color: var(--muted); font-size: 13px; }
+.mast h1 { font-size: clamp(30px, 4.4vw, 46px); line-height: 1.06; margin-top: var(--s5); max-width: 22ch; }
+.mast .lede { font-family: var(--font-display); font-size: clamp(17px, 1.9vw, 20px); line-height: 1.45; color: var(--fg-2); margin-top: var(--s3); max-width: 62ch; }
+.presets { display: flex; flex-wrap: wrap; gap: var(--s2); align-items: center; margin-top: var(--s5); }
+.presets .eyebrow { margin-right: var(--s1); }
+.chip { font: 500 13px/1 var(--font-body); padding: 8px 12px; border-radius: 999px; border: 1px solid var(--rule); background: var(--card); color: var(--fg); cursor: pointer; }
+.chip:hover { border-color: var(--emph); }
+.chip[aria-pressed="true"] { background: var(--fg); color: var(--bg); border-color: var(--fg); }
+.loaded { margin-top: var(--s3); font-size: 13px; color: var(--muted); min-height: 1.4em; }
+
+main.grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 420px); gap: var(--s6); padding-block: var(--s6) var(--s7); align-items: start; }
+@media (max-width: 920px) { main.grid { grid-template-columns: minmax(0, 1fr); } }
+
+.stage { padding-block: var(--s5); border-top: 2px solid var(--fg); }
+.stage + .stage { margin-top: var(--s5); }
+.stage-head { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: var(--s1) var(--s3); align-items: baseline; margin-bottom: var(--s4); }
+.stage-n { font: 600 13px/1 var(--font-mono); color: var(--emph); }
+.stage-head h2 { font-size: 24px; line-height: 1.2; }
+.stage-head p { grid-column: 2; color: var(--fg-2); font-size: 14px; max-width: 62ch; }
+.stage.locked { opacity: .45; }
+.stage.locked .q { pointer-events: none; }
+
+.q { padding-block: var(--s4); border-top: 1px solid var(--rule); display: grid; gap: var(--s3); }
+.q:first-of-type { border-top: 0; padding-top: 0; }
+.q-label { font-weight: 600; font-size: 15px; }
+.q-help { color: var(--muted); font-size: 13px; margin-top: -6px; max-width: 70ch; }
+.cite { font: 500 11.5px var(--font-mono); color: var(--muted); white-space: nowrap; }
+.opts { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: var(--s2); }
+.opt { position: relative; }
+.opt input { position: absolute; opacity: 0; pointer-events: none; }
+.opt label { display: grid; gap: 2px; height: 100%; padding: 10px 12px; border: 1px solid var(--rule); border-radius: var(--r3); background: var(--card); cursor: pointer; font-size: 14px; line-height: 1.35; }
+.opt label small { color: var(--muted); font-size: 12.5px; }
+.opt label:hover { border-color: var(--emph); }
+.opt input:checked + label { border-color: var(--emph); box-shadow: inset 0 0 0 1px var(--emph); background: var(--tint); }
+.opt input:focus-visible + label { outline: 2px solid var(--emph); outline-offset: 2px; }
+select, input[type="text"], textarea { font: inherit; color: var(--fg); background: var(--card); border: 1px solid var(--rule); border-radius: var(--r3); padding: 9px 11px; width: 100%; }
+textarea { min-height: 64px; resize: vertical; }
+.two { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: var(--s3); }
+@media (max-width: 620px) { .two { grid-template-columns: minmax(0, 1fr); } }
+.field { display: grid; gap: 6px; font-size: 13px; color: var(--fg-2); }
+
+.cat-tools { display: flex; gap: var(--s2); flex-wrap: wrap; align-items: center; }
+.cat-tools input { flex: 1 1 220px; width: auto; }
+.cat-count { font-size: 12.5px; color: var(--muted); }
+.cats { max-height: 460px; overflow-y: auto; border: 1px solid var(--rule); border-radius: var(--r3); background: var(--card); }
+.cat-group { padding: 10px 12px 6px; position: sticky; top: 0; background: var(--fill); border-bottom: 1px solid var(--rule); display: flex; justify-content: space-between; gap: var(--s2); z-index: 1; }
+.cat-group span:last-child { font: 500 11.5px var(--font-mono); color: var(--muted); }
+.cat { display: grid; grid-template-columns: 18px minmax(0, 1fr); gap: 10px; padding: 10px 12px; border-bottom: 1px solid var(--rule); cursor: pointer; }
+.cat:last-child { border-bottom: 0; }
+.cat:hover { background: var(--fill); }
+.cat input { margin: 3px 0 0; accent-color: var(--emph); }
+.cat b { font-weight: 600; font-size: 14px; }
+.cat .ref { font: 500 11.5px var(--font-mono); color: var(--muted); margin-left: 6px; }
+.cat p { font-size: 12.5px; color: var(--fg-2); margin-top: 2px; }
+.cat p i { font-style: normal; color: var(--muted); }
+.cat.on { background: var(--tint); }
+.rules { font-size: 13px; color: var(--fg-2); display: grid; gap: 6px; padding: var(--s3) var(--s4); background: var(--fill); border-radius: var(--r3); }
+.rules b { color: var(--fg); }
+
+/* Verdict panel */
+aside.verdict { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 16px); display: grid; gap: var(--s4); max-height: calc(100vh - 32px); overflow-y: auto; overscroll-behavior: contain; }
+@media (max-width: 920px) { aside.verdict { position: static; max-height: none; overflow: visible; } }
+.card { background: var(--card); border: 1px solid var(--rule); border-radius: var(--r3); box-shadow: var(--shadow); }
+.v-top { padding: var(--s5); border-bottom: 1px solid var(--rule); display: grid; gap: var(--s2); }
+.v-badge { display: inline-flex; align-items: center; gap: 8px; justify-self: start; font: 600 12px/1 var(--font-body); letter-spacing: .08em; text-transform: uppercase; padding: 7px 10px; border-radius: var(--r2); }
+.v-badge i { width: 8px; height: 8px; border-radius: 50%; background: currentColor; }
+.t-out, .t-temp, .t-pending { color: var(--fg-2); background: var(--grey-tint); }
+.t-excluded { color: var(--fg-2); background: var(--grey-tint); }
+.t-default { color: var(--green-fg); background: var(--green-tint); }
+.t-class1 { color: var(--amber-fg); background: var(--amber-tint); }
+.t-class2, .t-critical { color: var(--signal-fg); background: var(--signal-tint); }
+.v-title { font-family: var(--font-display); font-size: 30px; line-height: 1.1; }
+.v-sub { color: var(--fg-2); font-size: 14px; }
+.v-prov { font-size: 13px; color: var(--amber-fg); font-weight: 500; }
+.v-sec { padding: var(--s4) var(--s5); border-bottom: 1px solid var(--rule); display: grid; gap: var(--s2); }
+.v-sec:last-child { border-bottom: 0; }
+.kv { display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: 6px var(--s3); font-size: 13.5px; }
+.kv dt { color: var(--muted); }
+.kv dd { margin: 0; }
+.nb { display: flex; gap: var(--s2); align-items: baseline; font-size: 13.5px; }
+.nb b { color: var(--signal-fg); }
+.nb.no b { color: var(--green-fg); }
+ul.steps { margin: 0; padding-left: 18px; display: grid; gap: 6px; font-size: 13.5px; }
+.routes { display: grid; gap: var(--s2); }
+.route { display: grid; grid-template-columns: 64px minmax(0, 1fr); gap: var(--s3); font-size: 13.5px; }
+.route .when { font: 600 11px/1.6 var(--font-body); letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.notes { display: grid; gap: var(--s2); font-size: 13px; color: var(--fg-2); }
+.notes p { padding-left: 12px; border-left: 2px solid var(--rule); }
+.dates { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s3); }
+.date b { display: block; font: 600 22px/1.1 var(--font-body); font-variant-numeric: tabular-nums; }
+.date span { font-size: 12.5px; color: var(--muted); }
+.actions { display: flex; flex-wrap: wrap; gap: var(--s2); }
+.btn { font: 600 13.5px/1 var(--font-body); padding: 10px 14px; border-radius: var(--r2); border: 1px solid var(--fg); background: var(--fg); color: var(--bg); cursor: pointer; }
+.btn.ghost { background: transparent; color: var(--fg); border-color: var(--rule); }
+.btn:disabled { opacity: .4; cursor: not-allowed; }
+.status { font-size: 12.5px; color: var(--muted); min-height: 1.3em; }
+pre.record { margin: 0; white-space: pre-wrap; word-break: break-word; font: 12px/1.55 var(--font-mono); color: var(--fg-2); background: var(--fill); border-radius: var(--r2); padding: var(--s3); max-height: 240px; overflow: auto; }
+
+/* Register */
+section.register { padding-block: var(--s6) var(--s7); border-top: 1px solid var(--rule); }
+.reg-head { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--s3); align-items: end; margin-bottom: var(--s4); }
+.reg-head h2 { font-size: 26px; }
+.reg-head p { color: var(--fg-2); font-size: 14px; max-width: 62ch; margin-top: 4px; }
+.table-wrap { overflow-x: auto; border: 1px solid var(--rule); border-radius: var(--r3); background: var(--card); }
+table { border-collapse: collapse; width: 100%; min-width: 760px; font-size: 13.5px; }
+th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--rule); vertical-align: top; }
+th { font: 600 11px/1.3 var(--font-body); letter-spacing: .1em; text-transform: uppercase; color: var(--muted); background: var(--fill); }
+tr:last-child td { border-bottom: 0; }
+td .v-badge { font-size: 10.5px; padding: 5px 7px; }
+.empty { padding: var(--s5); color: var(--muted); font-size: 14px; text-align: center; }
+.rm { background: none; border: 0; color: var(--muted); cursor: pointer; font-size: 13px; text-decoration: underline; }
+.confirm { display: inline-flex; gap: var(--s2); align-items: center; font-size: 13px; }
+
+footer { padding-block: var(--s5) var(--s6); border-top: 1px solid var(--rule); font-size: 12.5px; color: var(--muted); display: grid; gap: var(--s2); }
+footer p { max-width: 110ch; }
+@media (prefers-reduced-motion: no-preference) { .v-top, .v-sec { transition: background-color .2s; } }
+</style>
+
+<header class="mast">
+  <div class="wrap">
+    <div class="mast-top">
+      <span class="wordmark">CRA READINESS PROGRAMME</span>
+      <span class="meta"><span>Tool D13</span><span>Facts as at {{FACTS_AS_AT}}</span><span>Prepared by {{ADVISOR}}</span></span>
+    </div>
+    <h1>Which CRA class is your product in?</h1>
+    <p class="lede">Answer three short stages and get the class, the legal basis and the conformity routes open to you today, plus a record you can paste into the SKU-level classification register.</p>
+    <div class="presets" role="group" aria-label="Load an example">
+      <span class="eyebrow">Try an example</span>
+{{PRESET_BUTTONS}}
+      <button class="chip" type="button" data-preset="SMG">Smart meter gateway</button>
+      <button class="chip" type="button" data-preset="SAAS">HR web app</button>
+      <button class="chip" type="button" id="reset">Start blank</button>
+    </div>
+    <p class="loaded" id="loaded" aria-live="polite"></p>
+    <a class="jump" href="#verdict" id="jump">Jump to the result</a>
+  </div>
+</header>
+
+<div class="wrap">
+<main class="grid">
+  <form id="form" autocomplete="off" novalidate>
+    <!-- Stage 1 -->
+    <section class="stage" id="stage1" aria-labelledby="s1h">
+      <div class="stage-head"><span class="stage-n">1</span><h2 id="s1h">Is it in scope?</h2>
+        <p>Three cumulative conditions in Art 2(1), then the six sectoral carve-outs. Most products pass; the edge cases are SaaS, internal tools and non-monetised open source.</p></div>
+
+      <div class="q">
+        <div class="q-label">What are you placing on the market? <span class="cite">Art 3(1)-(5)</span></div>
+        <div class="opts" data-name="form">
+          <div class="opt"><input type="radio" name="form" id="form-hw" value="hw"><label for="form-hw">Hardware with firmware<small>Devices, chips, modules</small></label></div>
+          <div class="opt"><input type="radio" name="form" id="form-sw" value="sw"><label for="form-sw">Installed software<small>Apps, desktop tools, libraries, SDKs</small></label></div>
+          <div class="opt"><input type="radio" name="form" id="form-both" value="both"><label for="form-both">Device plus app or cloud<small>Your backend counts as part of the product</small></label></div>
+          <div class="opt"><input type="radio" name="form" id="form-web" value="web"><label for="form-web">Browser-only web app or SaaS<small>Nothing installed on the user's side</small></label></div>
+        </div>
+      </div>
+
+      <div class="q" id="q-conn">
+        <div class="q-label">Can it exchange data with a device or network, directly or indirectly? <span class="cite">Art 2(1); guidance paras 26-28</span></div>
+        <p class="q-help">Count reasonably foreseeable use. Software on a networked computer is indirectly connected. A signal that only switches or powers something is not a data connection.</p>
+        <div class="opts">
+          <div class="opt"><input type="radio" name="conn" id="conn-y" value="yes"><label for="conn-y">Yes</label></div>
+          <div class="opt"><input type="radio" name="conn" id="conn-n" value="no"><label for="conn-n">No data connection at all<small>e.g. a basic calculator</small></label></div>
+        </div>
+      </div>
+
+      <div class="q">
+        <div class="q-label">How is it supplied in the EU? <span class="cite">Art 3(21)-(22); Art 4</span></div>
+        <div class="opts">
+          <div class="opt"><input type="radio" name="market" id="mk-com" value="commercial"><label for="mk-com">Sold or supplied commercially<small>Free supply by a business counts</small></label></div>
+          <div class="opt"><input type="radio" name="market" id="mk-int" value="internal"><label for="mk-int">Internal use only<small>Never supplied to anyone else</small></label></div>
+          <div class="opt"><input type="radio" name="market" id="mk-foss" value="foss-nc"><label for="mk-foss">Open source we do not monetise<small>No charge for binaries, updates or access</small></label></div>
+          <div class="opt"><input type="radio" name="market" id="mk-proto" value="prototype"><label for="mk-proto">Trade-fair prototype or time-limited test</label></div>
+        </div>
+      </div>
+
+      <div class="q">
+        <label class="q-label" for="excl">Does another EU act take this product out? <span class="cite">Art 2(2)-(7)</span></label>
+        <p class="q-help">The test is whether that act applies to this product, not whether it looks medical or automotive.</p>
+        <select id="excl" name="excl">
+          <option value="none">No, none of these apply</option>
+          <option value="medical">Medical device or IVD under Regulation 2017/745 or 2017/746</option>
+          <option value="vehicle">Type-approved motor vehicle, or a component designed exclusively for one</option>
+          <option value="lcat">L-category vehicle (two- or three-wheeler, quadricycle)</option>
+          <option value="aviation">Aviation product certified under Regulation 2018/1139</option>
+          <option value="marine">Marine equipment under Directive 2014/90/EU</option>
+          <option value="defence">Made exclusively for national security or defence, or for classified information</option>
+          <option value="spare">Spare part identical to the component it replaces</option>
+        </select>
+      </div>
+    </section>
+
+    <!-- Stage 2 -->
+    <section class="stage" id="stage2" aria-labelledby="s2h">
+      <div class="stage-head"><span class="stage-n">2</span><h2 id="s2h">What is its core functionality?</h2>
+        <p>A product is in a category only when its core functionality matches the technical description in Implementing Regulation (EU) 2025/2392. Pick one. Anything else is a default product.</p></div>
+
+      <div class="q">
+        <div class="two">
+          <label class="field" for="pname">Product or SKU<input type="text" id="pname" placeholder="e.g. {{PNAME_EXAMPLE}}"></label>
+          <label class="field" for="pcore">Core functionality, in one sentence<input type="text" id="pcore" placeholder="What it must do to meet its intended purpose"></label>
+        </div>
+      </div>
+
+      <div class="q">
+        <div class="q-label">Closest category <span class="cite">Annex III, Annex IV</span></div>
+        <div class="cat-tools">
+          <input type="text" id="catfilter" placeholder="Filter: router, lock, VPN, wearable…" aria-label="Filter categories">
+          <span class="cat-count" id="catcount"></span>
+        </div>
+        <div class="cats" id="cats" role="radiogroup" aria-label="Category"></div>
+      </div>
+
+      <div class="q" id="q-chip" hidden>
+        <div class="q-label">What tamper resistance is the chip designed to? <span class="cite">2025/2392; Common Criteria AVA_VAN</span></div>
+        <p class="q-help">The designed vulnerability-assurance level separates Class I, Class II and the Annex IV secure elements.</p>
+        <div class="opts">
+          <div class="opt"><input type="radio" name="chip" id="chip-1" value="1"><label for="chip-1">Security functions, no tamper design<small>Below AVA_VAN 2 → Class I</small></label></div>
+          <div class="opt"><input type="radio" name="chip" id="chip-2" value="2"><label for="chip-2">Tamper-resistant, AVA_VAN 2-3<small>→ Class II</small></label></div>
+          <div class="opt"><input type="radio" name="chip" id="chip-4" value="4"><label for="chip-4">Secure element, AVA_VAN 4 or higher<small>→ Annex IV critical</small></label></div>
+        </div>
+      </div>
+
+      <div class="q">
+        <div class="q-label">How clear is the match?</div>
+        <div class="opts">
+          <div class="opt"><input type="radio" name="conf" id="conf-c" value="clear"><label for="conf-c">Clear<small>The description plainly fits, or plainly doesn't</small></label></div>
+          <div class="opt"><input type="radio" name="conf" id="conf-b" value="borderline"><label for="conf-b">Borderline<small>A secondary feature pulls toward a category</small></label></div>
+        </div>
+      </div>
+
+      <div class="rules">
+        <span><b>Integration does not reclassify the host.</b> Embedding an operating system or a VPN module does not make a phone an OS or a VPN (Art 7(1); guidance Example 58).</span>
+        <span><b>Ancillary features do not declassify.</b> A router with firewall functions is still a router.</span>
+        <span><b>Modules sold separately are separate products.</b> A suite's SIEM module sold on its own is Class I; its IDS module Class II (guidance para 145).</span>
+        <span><b>Marketing does not decide it.</b> The test is objective (para 142), and wrong route choice can be fined under Art 64(3).</span>
+      </div>
+    </section>
+
+    <!-- Stage 3 -->
+    <section class="stage" id="stage3" aria-labelledby="s3h">
+      <div class="stage-head"><span class="stage-n">3</span><h2 id="s3h">Anything that changes the route?</h2>
+        <p>Two overlays can change the conformity procedure, and market timing decides which units need it.</p></div>
+
+      <div class="q">
+        <div class="q-label">Is it free and open-source software, with the Annex VII technical documentation made public? <span class="cite">Art 32(5)</span></div>
+        <div class="opts">
+          <div class="opt"><input type="radio" name="foss" id="foss-n" value="no"><label for="foss-n">No</label></div>
+          <div class="opt"><input type="radio" name="foss" id="foss-y" value="yes"><label for="foss-y">Yes, FOSS with public documentation</label></div>
+        </div>
+      </div>
+
+      <div class="q">
+        <div class="q-label">Is it a high-risk AI system under AI Act Art 6? <span class="cite">CRA Art 12</span></div>
+        <div class="opts">
+          <div class="opt"><input type="radio" name="ai" id="ai-n" value="no"><label for="ai-n">No</label></div>
+          <div class="opt"><input type="radio" name="ai" id="ai-y" value="yes"><label for="ai-y">Yes</label></div>
+        </div>
+      </div>
+
+      <div class="q">
+        <div class="q-label">Are units of this product already on the EU market? <span class="cite">Art 69</span></div>
+        <div class="opts">
+          <div class="opt"><input type="radio" name="legacy" id="leg-y" value="yes"><label for="leg-y">Yes, we ship it today</label></div>
+          <div class="opt"><input type="radio" name="legacy" id="leg-n" value="no"><label for="leg-n">No, it launches later</label></div>
+        </div>
+      </div>
+    </section>
+  </form>
+
+  <aside class="verdict" aria-live="polite">
+    <div class="card" id="verdict" tabindex="-1"></div>
+  </aside>
+</main>
+</div>
+
+<section class="register">
+  <div class="wrap">
+    <div class="reg-head">
+      <div><h2>Classification register</h2>
+        <p>Add each SKU as you classify it, then copy the register as CSV into the evidence system. It stays in this browser only.</p></div>
+      <div class="actions">
+        <button class="btn ghost" type="button" id="copycsv">Copy register as CSV</button>
+        <span id="clearwrap"><button class="btn ghost" type="button" id="clear">Clear register</button></span>
+      </div>
+    </div>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Product</th><th>Result</th><th>Category</th><th>Routes today</th><th>Notified body</th><th>Flags</th><th></th></tr></thead>
+      <tbody id="regbody"></tbody>
+    </table></div>
+    <p class="status" id="regstatus" aria-live="polite"></p>
+  </div>
+</section>
+
+<div class="wrap">
+<footer>
+  <p>Built from the engagement knowledge base: <a href="https://eur-lex.europa.eu/eli/reg/2024/2847/oj" target="_blank" rel="noopener">Regulation (EU) 2024/2847</a>; category descriptions paraphrased from <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32025R2392" target="_blank" rel="noopener">Implementing Regulation (EU) 2025/2392</a>; <a href="https://ec.europa.eu/newsroom/dae/redirection/document/131456" target="_blank" rel="noopener">Commission guidance C(2026) 5252</a>; <a href="https://ec.europa.eu/newsroom/dae/redirection/document/123307" target="_blank" rel="noopener">Commission FAQ v1.4</a>.</p>
+  <p>Facts as at 30 Oct 2026: no harmonised standard cited in the OJ, no Art 27(9) or Art 8(1) act adopted. Notified-body status at checks to 8 Sep 2026. Notified-body lead times are vendor estimates, unverified. {{FOOTER_ILLUS}} This tool supports a documented self-classification; it is not legal advice.</p>
+  <p>{{CODENAME}} · CRA Product Classifier (D13) · v{{VERSION}} · {{ISSUE_DATE}} · Prepared by {{ADVISOR}}</p>
+</footer>
+</div>
+
+<script>
+(() => {
+  "use strict";
+  const FULL_APPLICATION = new Date("2027-12-11T00:00:00Z");
+  const REPORTING_LIVE = new Date("2026-09-11T00:00:00Z");
+  const NB_STATUS = "None designated at checks to 8 Sep 2026";
+
+  // 26 categories, descriptions paraphrased from Implementing Regulation (EU) 2025/2392
+  const CATS = [
+    ["I1","class1","Annex III Class I, item 1","Identity and privileged access management","Authentication or authorisation systems, PAM, SSO, MFA, access-control and biometric readers","IdP, PAM suite, badge reader"],
+    ["I2","class1","Annex III Class I, item 2","Standalone and embedded browsers","Software that accesses and renders web content","Browser, embedded webview engine"],
+    ["I3","class1","Annex III Class I, item 3","Password managers","Store passwords locally or remotely, incl. extensions and hardware","Vault app, browser extension"],
+    ["I4","class1","Annex III Class I, item 4","Anti-malware","Searches for, removes or quarantines malicious code","AV, EDR agent, rescue disk"],
+    ["I5","class1","Annex III Class I, item 5","VPN products","Create encrypted logical tunnels: clients, servers, gateways","VPN client, concentrator, remote-access appliance"],
+    ["I6","class1","Annex III Class I, item 6","Network management systems","Monitor and configure network elements, incl. SDN controllers","NMS, device-management console"],
+    ["I7","class1","Annex III Class I, item 7","SIEM systems","Collect and correlate security data into actionable information","SIEM; log collection without correlation falls short"],
+    ["I8","class1","Annex III Class I, item 8","Boot managers","Manage system start-up, incl. UEFI firmware and boot loaders","UEFI firmware, boot loader"],
+    ["I9","class1","Annex III Class I, item 9","PKI and certificate issuance software","Manage certificates or keys, incl. KMS and OCSP responders","CA software, KMS"],
+    ["I10","class1","Annex III Class I, item 10","Physical and virtual network interfaces","Connect devices to networks: NICs, Wi-Fi, Bluetooth, virtual NICs","Network card, radio module"],
+    ["I11","class1","Annex III Class I, item 11","Operating systems","Abstract hardware and manage execution, real-time or general purpose","Embedded OS, RTOS, mobile OS"],
+    ["I12","class1","Annex III Class I, item 12","Routers, internet modems and switches","Path selection, signal conversion, packet forwarding with a management plane","Router, DSL modem, managed switch, access point"],
+    ["I13","class1","Annex III Class I, item 13","Microprocessors with security functions","Processors that also provide encryption, secure boot or similar","Application processor with crypto engine"],
+    ["I14","class1","Annex III Class I, item 14","Microcontrollers with security functions","MCUs with hardware crypto, secure boot or key storage","Secure-boot MCU"],
+    ["I15","class1","Annex III Class I, item 15","ASICs and FPGAs with security functions","Custom or reprogrammable ICs with similar security features","Security ASIC, FPGA with secure configuration"],
+    ["I16","class1","Annex III Class I, item 16","Smart home virtual assistants","Process natural-language requests and control connected home devices","Smart speaker, voice hub"],
+    ["I17","class1","Annex III Class I, item 17","Smart home products with security functions","Protect physical security in homes, incl. central control hardware and software","Smart lock, security camera, video doorbell, alarm"],
+    ["I18","class1","Annex III Class I, item 18","Connected toys with social or location features","Toys under Directive 2009/48/EC with microphone, camera, speaker or location tracking","Talking toy, GPS-tracked toy"],
+    ["I19","class1","Annex III Class I, item 19","Health-monitoring and children's wearables","Health-tracking wearables that are not medical devices; wearables for children","Fitness band, smartwatch, child's watch"],
+    ["II1","class2","Annex III Class II, item 1","Hypervisors and container runtimes","Type 1, type 2 and hybrid hypervisors; container runtime systems","Bare-metal hypervisor, container runtime"],
+    ["II2","class2","Annex III Class II, item 2","Firewalls, IDS and IPS","Network and application firewalls incl. WAFs; network- and host-based IDS and IPS","NGFW, WAF, industrial firewall/IDS"],
+    ["II3","class2","Annex III Class II, item 3","Tamper-resistant microprocessors","Class I processors with tamper features, designed to AVA_VAN 2 or 3","Hardened application processor"],
+    ["II4","class2","Annex III Class II, item 4","Tamper-resistant microcontrollers","Class I MCUs with tamper features, designed to AVA_VAN 2 or 3","Hardened payment or automotive MCU"],
+    ["IV1","critical","Annex IV, item 1","Hardware devices with security boxes","Hardware storing or processing sensitive data in a tamper-protecting enclosure","Payment terminal, HSM, tachograph"],
+    ["IV2","critical","Annex IV, item 2","Smart meter gateways and secure cryptoprocessing devices","Gateways controlling smart-metering communication and encryption","Smart meter gateway"],
+    ["IV3","critical","Annex IV, item 3","Smartcards and secure elements","Tamper-protected chips designed to at least AVA_VAN.4, incl. TPMs and eUICCs","Payment card, TPM, eUICC"]
+  ].map(([id, cls, ref, name, desc, ex]) => ({ id, cls, ref, name, desc, ex }));
+  const CAT = Object.fromEntries(CATS.map(c => [c.id, c]));
+  const CHIP_FAMILY = { I13: "mpu", II3: "mpu", I14: "mcu", II4: "mcu", IV3: "se" };
+
+  const EXCL = {
+    medical: ["Excluded: medical device", "Art 2(2)(a)-(b); Recital 25", "The MDR or IVDR governs it, including its cybersecurity.", "A generic component you sell to device makers, which is not itself a device, stays in scope for you."],
+    vehicle: ["Excluded: type-approved vehicle", "Art 2(2)(c); guidance paras 241-246", "Regulation (EU) 2019/2144 governs it.", "Components count only if designed exclusively for such vehicles and sold through restricted B2B channels. Generic or retail-sold parts are in scope."],
+    lcat: ["Excluded: L-category vehicle", "Art 2(5); Delegated Regulation (EU) 2025/1535", "Two- and three-wheelers and quadricycles under Regulation 168/2013 are out from 18 Nov 2025.", "Pedal-assist e-bikes (L1e) stay in scope."],
+    aviation: ["Excluded: certified aviation product", "Art 2(3); Recital 27", "Certification under Regulation 2018/1139 covers it.", "Open-category drones and uncertified components for certified aircraft may be covered."],
+    marine: ["Excluded: marine equipment", "Art 2(4)", "Directive 2014/90/EU governs it, per Implementing Regulation 2025/1533.", "Components for marine equipment that fall outside the Directive may be covered."],
+    defence: ["Excluded: national security or defence", "Art 2(7); Recital 26", "Products developed or modified exclusively for these purposes are out.", "Dual-use products sold on the open market are in scope."],
+    spare: ["Excluded: identical spare part", "Art 2(6); Recital 29", "A replacement built to the same specification as the original component is out.", "A part with different cryptography or secure boot is not identical; it is a product in its own right (guidance Example 37)."]
+  };
+
+  const PRESETS = {
+{{PRESETS_JS}}
+    SMG: { label: "Smart meter gateway (generic example)", form: "hw", conn: "yes", market: "commercial", excl: "none", pname: "Smart meter gateway", pcore: "Controls smart-metering communication, encryption and device control", cat: "IV2", conf: "clear", foss: "no", ai: "no", legacy: "no" },
+    SAAS: { label: "HR web app (generic example)", form: "web", conn: "yes", market: "commercial", excl: "none", pname: "HR web app", pcore: "Browser-based HR workflows; nothing installed", cat: "", conf: "clear", foss: "no", ai: "no", legacy: "yes" }
+  };
+
+  const $ = s => document.querySelector(s);
+  const form = $("#form");
+  const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
+  const radio = n => (form.querySelector(`input[name="${n}"]:checked`) || {}).value || "";
+  const setRadio = (n, v) => form.querySelectorAll(`input[name="${n}"]`).forEach(i => { i.checked = i.value === v; });
+
+  // Category list
+  const groups = [["default","Default product",""],["class1","Important · Class I","Annex III · 19"],["class2","Important · Class II","Annex III · 4"],["critical","Critical","Annex IV · 3"]];
+  function renderCats() {
+    const f = $("#catfilter").value.trim().toLowerCase();
+    const sel = radio("cat");
+    let html = "", shown = 0;
+    for (const [g, title, count] of groups) {
+      const items = g === "default"
+        ? [{ id: "", cls: "default", ref: "", name: "None of the 26 categories", desc: "Its core functionality matches no Annex III or IV description", ex: "Thermostat, sensor, configuration tool, SDK" }]
+        : CATS.filter(c => c.cls === g);
+      const vis = items.filter(c => !f || (c.name + " " + c.desc + " " + c.ex + " " + c.ref).toLowerCase().includes(f));
+      if (!vis.length) continue;
+      html += `<div class="cat-group"><span class="eyebrow">${title}</span><span>${count}</span></div>`;
+      for (const c of vis) {
+        const id = `cat-${c.id || "none"}`;
+        shown += c.id ? 1 : 0;
+        html += `<label class="cat${sel === c.id && form.dataset.catSet ? " on" : ""}" for="${id}"><input type="radio" name="cat" id="${id}" value="${c.id}"${sel === c.id && form.dataset.catSet ? " checked" : ""}><span><b>${esc(c.name)}</b>${c.ref ? `<span class="ref">${esc(c.ref)}</span>` : ""}<p>${esc(c.desc)}. <i>e.g. ${esc(c.ex)}</i></p></span></label>`;
+      }
+    }
+    $("#cats").innerHTML = html || `<div class="empty">No category matches “${esc(f)}”. Clear the filter, or choose “None of the 26” if nothing fits.</div>`;
+    $("#catcount").textContent = f ? `${shown} of 26 categories match` : "26 categories";
+  }
+
+  function state() {
+    return {
+      form: radio("form"), conn: radio("conn"), market: radio("market"), excl: $("#excl").value,
+      pname: $("#pname").value.trim(), pcore: $("#pcore").value.trim(),
+      cat: form.dataset.catSet ? radio("cat") : null, chip: radio("chip"), conf: radio("conf"),
+      foss: radio("foss"), ai: radio("ai"), legacy: radio("legacy")
+    };
+  }
+
+  function resolveCategory(s) {
+    if (s.cat === null) return null;
+    if (!s.cat) return { cls: "default" };
+    const fam = CHIP_FAMILY[s.cat];
+    if (fam && s.chip) {
+      if (s.chip === "4") return CAT.IV3;
+      if (fam === "se") return null; // below AVA_VAN.4 a chip is not a secure element
+      return s.chip === "2" ? CAT[fam === "mpu" ? "II3" : "II4"] : CAT[fam === "mpu" ? "I13" : "I14"];
+    }
+    return CAT[s.cat];
+  }
+
+  function evaluate(s) {
+    const r = { type: "pending", title: "Answer stage 1", sub: "Start with what you place on the market.", basis: "", routes: [], nb: null, steps: [], notes: [], cat: null, inScope: false, provisional: false };
+    if (!s.form) return r;
+    if (s.form === "web") {
+      return { ...r, type: "out", title: "Not a product under the CRA", sub: "Browser-only software and websites are not products with digital elements.", basis: "Guidance C(2026) 5252 paras 20-21; Recital 12",
+        notes: ["Cloud services built outside a product's responsibility fall under NIS2 if you are a medium or larger SaaS provider.", "The moment you ship an installed client or device that depends on this service, the service becomes that product's remote data processing and is in scope with it (Art 3(2))."],
+        steps: ["Record the decision and the evidence (no installed component) in the classification register.", "Re-run this if you add a mobile app, desktop client or device."] };
+    }
+    if (!s.conn) return { ...r, title: "Answer stage 1", sub: "Does it have a data connection?" };
+    if (s.conn === "no") {
+      return { ...r, type: "out", title: "Out of scope: no data connection", sub: "Without a direct or indirect data connection, Art 2(1) is not met.", basis: "Art 2(1); guidance paras 26-28",
+        notes: ["Check reasonably foreseeable use, not only intended use. Software on a networked computer is indirectly connected.", "The same firmware sold separately may be in scope (Commission FAQ)."],
+        steps: ["Record why there is no data connection, with design evidence.", "Re-run this if a connected variant or a service port is added."] };
+    }
+    if (!s.market) return { ...r, title: "Answer stage 1", sub: "How is it supplied in the EU?" };
+    if (s.market === "internal") {
+      return { ...r, type: "out", title: "Not placed on the market", sub: "Software and tools built for your own use are not made available on the market.", basis: "Art 3(21)-(22); Blue Guide s.2.3; Recital 16",
+        notes: ["A later commercial supply of the same software is a placing on the market and brings it into scope."], steps: ["Keep it on the internal-tools list and re-check before any external supply."] };
+    }
+    if (s.market === "foss-nc") {
+      return { ...r, type: "out", title: "Not made available on the market", sub: "Free and open-source software outside a commercial activity is not caught.", basis: "Art 3(22); Recitals 15-20",
+        notes: ["Charging for binaries, updates or access, or monetising through the software, makes you a manufacturer.", "A legal person that sustains FOSS intended for commercial use may be an open-source software steward (Art 24): a light regime with a security policy and limited reporting, not an exclusion."],
+        steps: ["Document how the project is funded and supplied.", "Check whether the steward regime applies."] };
+    }
+    if (s.market === "prototype") {
+      return { ...r, type: "temp", title: "Temporarily allowed without conformity", sub: "Prototypes at fairs and time-limited test versions may be shown with a visible non-compliance sign.", basis: "Art 4(2)-(4); Recital 37",
+        notes: ["Only for the time needed to test and gather feedback. A risk assessment is still expected.", "Classify the production version now: it needs the full route before it is placed on the market."],
+        steps: ["Display the non-compliance sign.", "Run this tool again for the production version."] };
+    }
+    if (s.excl && s.excl !== "none") {
+      const [t, b, sub, watch] = EXCL[s.excl];
+      return { ...r, type: "excluded", title: t, sub, basis: b, notes: [watch], steps: ["Record which act applies and why, at SKU level.", "Check separately sold components and spare variants, which may be in scope on their own."] };
+    }
+    // In scope
+    r.inScope = true;
+    const cat = resolveCategory(s);
+    if (cat === null && s.cat === null) return { ...r, type: "pending", title: "In scope: choose a category", sub: "The product meets Art 2(1). Its core functionality now decides the class." };
+    if (CHIP_FAMILY[s.cat] && !s.chip) return { ...r, type: "pending", title: "In scope: one more answer", sub: "Choose the designed tamper-resistance level of the chip." };
+    if (cat === null) return { ...r, type: "pending", title: "Check the chip category", sub: "A chip below AVA_VAN.4 is not a secure element. Choose the processor or microcontroller category instead." };
+
+    r.cat = cat.id ? cat : null;
+    r.type = cat.cls;
+    r.provisional = s.conf === "borderline";
+    const important = cat.cls === "class1" || cat.cls === "class2";
+    const fossOpen = s.foss === "yes" && important;
+
+    if (cat.cls === "default") {
+      r.title = "Default product"; r.sub = "No Annex III or IV core functionality. Self-assessment is always open.";
+      r.basis = "Art 6; Art 32(1)(a)";
+      r.routes = [["Today", "Module A, internal control, with your own EU declaration and CE marking"], ["Later", "Unchanged. A cited harmonised standard adds presumption of conformity for the risks it covers."]];
+      r.nb = { need: false, text: "Not needed" };
+      r.steps = ["Write the Art 13 risk assessment and map every Annex I requirement.", "Build the Annex VII technical file and fix the support period (at least 5 years unless expected use is shorter).", "Sign the declaration and affix CE marking before 11 Dec 2027 for units placed from then."];
+    } else if (cat.cls === "class1") {
+      r.title = "Important · Class I"; r.sub = `${cat.ref}: ${cat.name}`;
+      r.basis = "Art 7(1); Annex III; Art 32(2)";
+      r.routes = fossOpen
+        ? [["Today", "Any Art 32(1) route, including Module A, because the technical documentation is public (Art 32(5))"], ["Later", "Unchanged while the documentation stays public."]]
+        : [["Today", "Module B+C (EU-type examination) or Module H (full quality assurance), both through a notified body"], ["Later", "Module A reopens once a harmonised standard is cited in the OJ and applied in full; 2027 at the earliest. A 'substantial' EUCC certificate may replace third-party assessment once the Art 27(9) act exists."]];
+      r.nb = fossOpen ? { need: false, text: "Not needed while documentation is public" } : { need: true, text: NB_STATUS };
+      r.steps = fossOpen
+        ? ["Publish the full Annex VII documentation at placing on the market.", "Run Module A and record the Art 32(5) basis in the declaration."]
+        : ["Shortlist notified bodies now and contract pre-assessment; capacity sets the critical path.", "Choose Module H if you run several important families on one quality system; B+C for one-off types.", "Track OJ citations: a cited standard would let you switch to Module A.", "Freeze the core-functionality statement in Annex VII point 1."];
+    } else if (cat.cls === "class2") {
+      r.title = "Important · Class II"; r.sub = `${cat.ref}: ${cat.name}`;
+      r.basis = "Art 7(1); Annex III; Art 32(3)";
+      r.routes = fossOpen
+        ? [["Today", "Any Art 32(1) route, including Module A, because the technical documentation is public (Art 32(5))"], ["Later", "Unchanged while the documentation stays public."]]
+        : [["Today", "Module B+C or Module H through a notified body. Self-assessment is never open to Class II."], ["Later", "A 'substantial' or higher EUCC certificate once the Art 27(9) delegated act is adopted (planned Q4 2026, not adopted)."]];
+      r.nb = fossOpen ? { need: false, text: "Not needed while documentation is public" } : { need: true, text: NB_STATUS };
+      r.steps = fossOpen
+        ? ["Publish the full Annex VII documentation at placing on the market.", "Run Module A and record the Art 32(5) basis in the declaration."]
+        : ["Contract notified-body pre-assessment now; Class II has no self-assessment fallback.", "Prepare for EUCC as an alternative once the Art 27(9) act is adopted.", "Budget for Module B examination or a first Module H engagement (vendor estimates, unverified)."];
+    } else {
+      r.title = "Critical · Annex IV"; r.sub = `${cat.ref}: ${cat.name}`;
+      r.basis = "Art 8; Annex IV; Art 32(4)";
+      r.routes = [["Today", "Any Art 32(3) route: Module B+C, Module H or a 'substantial' certification scheme, as for Class II"], ["Later", "An Art 8(1) delegated act may make European certification mandatory, with at least 6 months' transition. None adopted or consulted."]];
+      r.nb = { need: true, text: NB_STATUS };
+      r.steps = ["Contract notified-body capacity now.", "Plan for EUCC certification at 'substantial' or higher.", "Watch for an Art 8(1) act; it would change the route with 6 months' notice."];
+      if (s.foss === "yes") r.notes.push("Art 32(5) relief for public FOSS documentation covers Annex III products only, not Annex IV.");
+    }
+    if (r.provisional) {
+      r.notes.unshift(cat.cls === "default"
+        ? "Borderline: a secondary feature pulls toward a category. Take a documented legal view and plan for the stricter route until it lands."
+        : "Borderline: confirm with a documented legal view before committing to the route.");
+      r.steps.unshift("Get a written legal opinion on the core functionality and plan capacity for the stricter class meanwhile.");
+    }
+    if (s.ai === "yes") r.notes.push(important || cat.cls === "critical"
+      ? "High-risk AI system: the AI Act Art 43 procedure covers the CRA requirements (Art 12(2)), except where the AI Act route is Annex VI internal control; then this CRA route applies (Art 12(3))."
+      : "High-risk AI system: the AI Act Art 43 procedure covers the CRA essential requirements (Art 12(2)). Meeting Annex I gives deemed compliance with AI Act Art 15.");
+    if (s.legacy === "yes") r.notes.push("Art 14 reporting of actively exploited vulnerabilities and severe incidents already applies to units on the market (since 11 Sep 2026; Art 69(3)). Units placed from 11 Dec 2027 need the full route; earlier units only if substantially modified (Art 69(2)).");
+    else if (s.legacy === "no") r.notes.push("If it launches on or after 11 Dec 2027, the first unit already needs the declaration and CE marking.");
+    r.notes.push("Integrated important components do not reclassify the host, but you must still assess their security (Art 7(1); Art 13(5)).");
+    return r;
+  }
+
+  const BADGE = { pending: "Incomplete", out: "Out of scope", temp: "Temporary", excluded: "Excluded", default: "In scope · Default", class1: "In scope · Class I", class2: "In scope · Class II", critical: "In scope · Critical" };
+
+  function daysTo(d) { return Math.max(0, Math.ceil((d - new Date()) / 86400000)); }
+
+  function recordText(s, r) {
+    const L = [];
+    L.push(`CRA CLASSIFICATION RECORD`);
+    L.push(`Product: ${s.pname || "[product or SKU]"}`);
+    L.push(`Core functionality: ${s.pcore || "[one sentence, as in Annex VII point 1]"}`);
+    L.push(`Result: ${BADGE[r.type]}${r.provisional ? " (provisional)" : ""}`);
+    if (r.cat) L.push(`Category: ${r.cat.ref}, ${r.cat.name}`);
+    if (r.basis) L.push(`Legal basis: ${r.basis}`);
+    for (const [w, t] of r.routes) L.push(`Route ${w.toLowerCase()}: ${t}`);
+    if (r.nb) L.push(`Notified body: ${r.nb.need ? "needed; " : ""}${r.nb.text}`);
+    L.push(`Answers: form=${s.form || "-"}; data connection=${s.conn || "-"}; supply=${s.market || "-"}; exclusion=${s.excl}; match=${s.conf || "-"}; FOSS public docs=${s.foss || "-"}; high-risk AI=${s.ai || "-"}; on market=${s.legacy || "-"}${s.chip ? `; chip AVA_VAN=${s.chip === "4" ? "4+" : s.chip === "2" ? "2-3" : "<2"}` : ""}`);
+    L.push(`Classified: ${new Date().toISOString().slice(0, 10)} by [name, role]`);
+    L.push(`Basis: CRA Product Classifier v1.0; facts as at 30 Oct 2026; notified-body status at checks to 8 Sep 2026. Not legal advice.`);
+    return L.join("\n");
+  }
+
+  let last = null;
+  function render() {
+    const s = state();
+    const r = evaluate(s);
+    last = { s, r };
+    $("#q-conn").hidden = s.form === "web";
+    $("#q-chip").hidden = !CHIP_FAMILY[s.cat];
+    const scopeDone = r.inScope;
+    for (const id of ["#stage2", "#stage3"]) $(id).classList.toggle("locked", !scopeDone);
+    for (const id of ["#stage2", "#stage3"]) $(id).toggleAttribute("inert", !scopeDone);
+
+    const t = r.type;
+    let h = `<div class="v-top"><span class="v-badge t-${t}"><i></i>${BADGE[t]}</span>
+      <div class="v-title">${esc(r.title)}</div><p class="v-sub">${esc(r.sub)}</p>
+      ${r.provisional ? `<p class="v-prov">Provisional: borderline match</p>` : ""}
+      ${r.basis ? `<p class="cite">${esc(r.basis)}</p>` : ""}</div>`;
+    if (r.routes.length) h += `<div class="v-sec"><span class="eyebrow">Conformity routes</span><div class="routes">${r.routes.map(([w, x]) => `<div class="route"><span class="when">${w}</span><span>${esc(x)}</span></div>`).join("")}</div></div>`;
+    if (r.nb) h += `<div class="v-sec"><span class="eyebrow">Notified body</span><div class="nb${r.nb.need ? "" : " no"}"><b>${r.nb.need ? "Needed" : "Not needed"}</b><span>${r.nb.need ? esc(r.nb.text) : ""}</span></div>${r.nb.need ? `<p class="cite" style="white-space:normal">Vendor estimates, unverified: 2-4 months to contract a body; 3-6 months per Module B+C engagement.</p>` : ""}</div>`;
+    if (r.inScope && t !== "pending") h += `<div class="v-sec"><div class="dates"><div class="date"><b>${daysTo(FULL_APPLICATION)}</b><span>days to full application, 11 Dec 2027</span></div><div class="date"><b>Live</b><span>Art 14 reporting since ${REPORTING_LIVE.toISOString().slice(8,10)} Sep 2026</span></div></div></div>`;
+    if (r.steps.length) h += `<div class="v-sec"><span class="eyebrow">Next steps</span><ul class="steps">${r.steps.map(x => `<li>${esc(x)}</li>`).join("")}</ul></div>`;
+    if (r.notes.length) h += `<div class="v-sec"><span class="eyebrow">Watch-outs</span><div class="notes">${r.notes.map(x => `<p>${esc(x)}</p>`).join("")}</div></div>`;
+    const ready = t !== "pending";
+    h += `<div class="v-sec"><span class="eyebrow">Classification record</span>${ready ? `<pre class="record" id="record">${esc(recordText(s, r))}</pre>` : `<p class="v-sub">Finish the questions to generate the record.</p>`}
+      <div class="actions"><button class="btn" type="button" id="add"${ready ? "" : " disabled"}>Add to register</button><button class="btn ghost" type="button" id="copyrec"${ready ? "" : " disabled"}>Copy record</button></div>
+      <p class="status" id="vstatus"></p></div>`;
+    $("#verdict").innerHTML = h;
+    $("#jump").textContent = `Jump to the result: ${BADGE[t]}`;
+    $("#add").addEventListener("click", addToRegister);
+    $("#copyrec").addEventListener("click", () => copy(recordText(last.s, last.r), $("#vstatus"), "Record copied.", $("#record")));
+  }
+
+  async function copy(text, statusEl, ok, fallbackEl) {
+    try { await navigator.clipboard.writeText(text); statusEl.textContent = ok; }
+    catch {
+      if (fallbackEl) { const sel = window.getSelection(), rg = document.createRange(); rg.selectNodeContents(fallbackEl); sel.removeAllRanges(); sel.addRange(rg); }
+      statusEl.textContent = "Copy was blocked here. The text is selected: press Ctrl+C or Cmd+C.";
+    }
+  }
+
+  // Register (per-viewer convenience; browser storage only)
+  const KEY = "cra-classifier-register-v1";
+  let reg = [];
+  try { reg = JSON.parse(localStorage.getItem(KEY) || "[]"); if (!Array.isArray(reg)) reg = []; } catch { reg = []; }
+  const save = () => { try { localStorage.setItem(KEY, JSON.stringify(reg)); } catch {} };
+
+  function addToRegister() {
+    const { s, r } = last;
+    const row = {
+      product: s.pname || "Unnamed product", result: r.type, label: BADGE[r.type] + (r.provisional ? " (provisional)" : ""),
+      category: r.cat ? `${r.cat.ref}: ${r.cat.name}` : (r.type === "default" ? "None (default)" : r.title),
+      routes: (r.routes[0] || ["", "n/a"])[1], nb: r.nb ? (r.nb.need ? "Needed" : "Not needed") : "n/a",
+      flags: [r.provisional && "Borderline", s.ai === "yes" && "High-risk AI", s.foss === "yes" && "Public FOSS docs", s.legacy === "yes" && "On market"].filter(Boolean).join("; "),
+      date: new Date().toISOString().slice(0, 10)
+    };
+    const i = reg.findIndex(x => x.product === row.product);
+    if (i >= 0) reg[i] = row; else reg.push(row);
+    save(); renderReg();
+    $("#vstatus").textContent = i >= 0 ? `Updated ${row.product} in the register.` : `Added ${row.product} to the register.`;
+  }
+
+  function renderReg() {
+    const tb = $("#regbody");
+    if (!reg.length) { tb.innerHTML = `<tr><td colspan="7" class="empty">No products yet. Classify a product above and choose “Add to register”.</td></tr>`; }
+    else tb.innerHTML = reg.map((x, i) => `<tr><td><b>${esc(x.product)}</b><br><span class="cite">${esc(x.date)}</span></td><td><span class="v-badge t-${esc(x.result)}"><i></i>${esc(x.label)}</span></td><td>${esc(x.category)}</td><td>${esc(x.routes)}</td><td>${esc(x.nb)}</td><td>${esc(x.flags || "—")}</td><td><button class="rm" type="button" data-i="${i}">Remove</button></td></tr>`).join("");
+    tb.querySelectorAll(".rm").forEach(b => b.addEventListener("click", () => { reg.splice(+b.dataset.i, 1); save(); renderReg(); }));
+    $("#copycsv").disabled = !reg.length; $("#clear").disabled = !reg.length;
+  }
+  const csvCell = v => `"${String(v ?? "").replace(/"/g, '""')}"`;
+  $("#copycsv").addEventListener("click", () => {
+    const head = ["Product", "Result", "Category", "Routes today", "Notified body", "Flags", "Classified"];
+    const rows = reg.map(x => [x.product, x.label, x.category, x.routes, x.nb, x.flags, x.date]);
+    copy([head, ...rows].map(r => r.map(csvCell).join(",")).join("\n"), $("#regstatus"), `Copied ${reg.length} row${reg.length === 1 ? "" : "s"} as CSV.`);
+  });
+  function onClear() {
+    const w = $("#clearwrap");
+    w.innerHTML = `<span class="confirm">Clear ${reg.length} row${reg.length === 1 ? "" : "s"}? <button class="btn" type="button" id="clear-yes">Clear</button><button class="btn ghost" type="button" id="clear-no">Keep</button></span>`;
+    const restore = () => { w.innerHTML = `<button class="btn ghost" type="button" id="clear">Clear register</button>`; $("#clear").addEventListener("click", onClear); renderReg(); };
+    $("#clear-yes").addEventListener("click", () => { reg = []; save(); restore(); $("#regstatus").textContent = "Register cleared."; });
+    $("#clear-no").addEventListener("click", restore);
+  }
+  $("#clear").addEventListener("click", onClear);
+
+  // Presets
+  function load(key) {
+    const p = PRESETS[key];
+    setRadio("form", p.form); setRadio("conn", p.conn); setRadio("market", p.market); $("#excl").value = p.excl;
+    $("#pname").value = p.pname; $("#pcore").value = p.pcore;
+    form.dataset.catSet = "1"; $("#catfilter").value = ""; renderCats(); setRadio("cat", p.cat);
+    setRadio("chip", ""); setRadio("conf", p.conf); setRadio("foss", p.foss); setRadio("ai", p.ai); setRadio("legacy", p.legacy);
+    document.querySelectorAll("[data-preset]").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.preset === key)));
+    $("#loaded").textContent = `Example loaded: ${p.label}. Change any answer to classify your own product.`;
+    renderCats(); render();
+  }
+  document.querySelectorAll("[data-preset]").forEach(b => b.addEventListener("click", () => load(b.dataset.preset)));
+  $("#reset").addEventListener("click", () => {
+    form.reset(); delete form.dataset.catSet; $("#catfilter").value = "";
+    document.querySelectorAll("[data-preset]").forEach(b => b.setAttribute("aria-pressed", "false"));
+    $("#loaded").textContent = "Blank form. Start with stage 1.";
+    renderCats(); render();
+  });
+
+  form.addEventListener("change", e => {
+    if (e.target.name === "cat") { form.dataset.catSet = "1"; if (!CHIP_FAMILY[e.target.value]) setRadio("chip", ""); else if (e.target.value === "IV3" && !radio("chip")) setRadio("chip", "4"); renderCats(); }
+    document.querySelectorAll("[data-preset]").forEach(b => b.setAttribute("aria-pressed", "false"));
+    render();
+  });
+  form.addEventListener("input", e => { if (e.target.id === "catfilter") renderCats(); else if (e.target.type === "text") render(); });
+  form.addEventListener("submit", e => e.preventDefault());
+
+  renderCats(); renderReg(); load("{{FIRST_PRESET}}");
+})();
+</script>
