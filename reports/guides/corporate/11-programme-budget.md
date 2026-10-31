@@ -23,7 +23,7 @@ A mid-size manufacturer should expect 12 to 18 months from a standing start to a
 | Line | What it covers | Benchmark, labelled |
 |---|---|---|
 | People | Compliance lead, product security officer, PSIRT lead and on-call, SBOM owner per release train, line 2 reviewers, programme management; engineering time for remediation | ONEKEY (Sep 2026, 200 German industrial firms, vendor survey): 28% have CRA teams of up to 10 people, 22% larger, 16% up to 3; over 60% expect longer development, 28% "significantly longer". No authoritative FTE benchmark exists |
-| Tooling | SBOM generation and quality (Syft, Trivy, cdxgen, sbomqs), signing and attestation (cosign), dependency monitoring (Dependency-Track), VEX and CSAF, threat-modelling tools, the system of record, SRP access devices | ENISA SBOM State of Play 2026 (survey): 74% have partly or fully automated SBOM generation; completeness is the top challenge at 62%. Open-source tooling dominates ENISA's landscape table |
+| Tooling | SBOM generation and quality (Syft, Trivy, cdxgen, sbomqs), signing and attestation (cosign), dependency monitoring (Dependency-Track), VEX and CSAF, threat-modelling tools, the system of record, SRP access devices | ENISA SBOM State of Play 2026 (survey) (334 responses): 74% have partly or fully automated SBOM generation; completeness is the top challenge at 62%. Open-source tooling dominates ENISA's landscape table |
 | Notified-body fees | Pre-assessments, Module B type examinations, Module H quality-system approval and surveillance, scope extensions | Vendor estimates, unverified: EUR 20,000-60,000 per Module B examination; EUR 80,000-150,000 for a first Module H engagement with surveillance every 1-2 years ([CRA Decoded](https://cra-decoded.com/blog/posts/cra-notified-body-capacity-crisis/), commentary); another vendor gives EUR 15,000-80,000 for Module B (sota.io, unsourced) |
 | External testing | Penetration tests, fuzzing, binary SCA, lab gap assessments | [cyberresilienceact.eu calculator](https://www.cyberresilienceact.eu/cra-compliance-cost-calculator/) (independent model, illustrative): security testing EUR 6,400 within a EUR 78,300 one-off for three default products at medium readiness and EUR 45 per hour |
 | Training | Role-based training (Section 9), drills, ORC Learning Hub and vendor courses | ENISA SME survey (Jun 2026, 194 responses, not representative): 73% want technical documentation templates; 13% rate their documentation understanding good |
@@ -70,7 +70,7 @@ The executive sponsor reports to the board quarterly, aligned with the executive
 2. The constraint: notified-body status for each Class I and II product, slot dates and the fallback.
 3. Reporting performance: live cases and drills against the 24-hour and 72-hour targets; roster currency.
 4. Risk: open high-risk findings, residual-risk acceptances and any appeal the sponsor decided.
-5. Exposure: the Art 64 tiers, Member States with enforcement laws in force (four on 30 Oct 2026), the PLD from 9 Dec 2026.
+5. Exposure: the Art 64 tiers, Member States with enforcement laws in force (three adopted on 30 Oct 2026; Germany awaiting promulgation), the PLD from 9 Dec 2026.
 6. Money: spend against the budget lines above and any re-forecast.
 7. Changes in the authority stack since the last report: FAQ or guidance versions, OJ citations, designations, delegated or implementing acts.
 8. Decisions requested of the board, if any, with the written basis.

@@ -667,7 +667,7 @@ function slug(s) { return String(s || '').toLowerCase().normalize('NFKD').replac
 /* Soft hyphens let long words break inside narrow heatmap headers only when they must. */
 function softHyphens(s) {
   return String(s).replace('Documentation', 'Documen­tation').replace('Vulnerability', 'Vulner­ability')
-    .replace('Conformity', 'Confor­mity');
+    .replace('Conformity', 'Confor­mity').replace('Governance', 'Gover­nance');
 }
 function hash36(s) { let h = 5381; for (let i = 0; i < s.length; i++) h = ((h << 5) + h + s.charCodeAt(i)) >>> 0; return h.toString(36); }
 function cleanId(s) { return typeof s === 'string' && /^[A-Za-z0-9][A-Za-z0-9-]{0,63}$/.test(s) ? s : null; }
@@ -934,7 +934,8 @@ function productTitle(rec, fam, P) {
     const diff = pct(rec.index) - pct(P.index);
     rel = diff === 0 ? ', level with the portfolio' : ', ' + Math.abs(diff) + (Math.abs(diff) === 1 ? ' point ' : ' points ') + (diff > 0 ? 'above' : 'below') + ' the portfolio';
   }
-  return shortName(fam) + ' is ' + pct(rec.index) + '% ready' + rel + '; ' + r[0].d.phrase + ' is the largest gap.';
+  const gap = r[0].v >= 3 ? 'no domain is below target' : r[0].d.phrase + ' is the largest gap';
+  return shortName(fam) + ' is ' + pct(rec.index) + '% ready' + rel + '; ' + gap + '.';
 }
 
 /* ================= shared fragments ================= */

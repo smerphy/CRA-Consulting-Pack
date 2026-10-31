@@ -68,6 +68,14 @@ section + section { border-top: 1px solid var(--rule); }
 .countdown .lbl { color: var(--fg-2); font-size: 14px; }
 .timeline { position: relative; overflow-x: auto; padding-bottom: var(--s2); }
 .timeline svg { display: block; min-width: 640px; width: 100%; height: auto; }
+.tl-list { display: none; list-style: none; margin: 0; padding: 0 0 0 var(--s4); border-left: 2px solid var(--rule); gap: var(--s3); }
+.tl-list li { position: relative; display: grid; gap: 2px; font-size: 14px; color: var(--fg-2); }
+.tl-list li::before { content: ""; position: absolute; left: calc(-1 * var(--s4) - 7px); top: 4px; width: 12px; height: 12px; border-radius: 50%; background: var(--card); border: 2px solid var(--fg); }
+.tl-list li.past::before { background: var(--emph); border-color: var(--emph); }
+.tl-list li b { font: 600 13px var(--font-mono); color: var(--fg); }
+.tl-list li.today { color: var(--emph); font-weight: 600; }
+.tl-list li.today::before { background: var(--emph); border-color: var(--bg); transform: rotate(45deg); border-radius: 1px; }
+@media (max-width: 640px) { .timeline { overflow: visible; } .timeline svg { display: none; } .tl-list { display: grid; } }
 .tl-axis { stroke: var(--rule); stroke-width: 2; }
 .tl-done { stroke: var(--emph); stroke-width: 4; stroke-linecap: round; }
 .tl-dot { fill: var(--card); stroke: var(--fg); stroke-width: 2; }
@@ -169,7 +177,7 @@ footer { padding-block: var(--s6) var(--s7); border-top: 1px solid var(--rule); 
       <div class="timeline" id="timeline" aria-label="CRA timeline from 10 Dec 2024 to 11 Dec 2027"></div>
       <div class="countdown">
         <span class="big" id="days">406</span>
-        <span class="lbl">days until full application on 11 Dec 2027</span>
+        <span class="lbl" id="days-lbl">days until full application on 11 Dec 2027</span>
         <span class="live-pill"><i aria-hidden="true"></i><span id="live">Article 14 reporting live since 11 Sep 2026</span></span>
       </div>
     </div>
@@ -270,7 +278,7 @@ footer { padding-block: var(--s6) var(--s7); border-top: 1px solid var(--rule); 
     { phase: 3, id: "D09", fmt: "Dashboard", title: "Programme Dashboard", text: "The always-current management view: readiness, market access, delivery, money and risk.", aud: "Sponsor, steering committee", tags: ["programme", "board"], url: "https://claude.ai/artifact/KbSnPXQmoZmjuEDroY8eP5" },
     { phase: 3, id: "D11", fmt: "Workbook", title: "Obligations Register and Programme Tracker", text: "Every obligation with evidence and owner, product-by-obligation matrix, 90-day Gantt, RAID, decisions, KPIs, RACI.", aud: "PMO, compliance", tags: ["programme", "engineering", "consultant"], url: "", file: "Excel workbook (.xlsx), delivered with the pack as a file" },
     { phase: 4, id: "DS", fmt: "Design system", title: "Advisory Design System", text: "White-label tokens, slide masters and components that every deliverable is built on.", aud: "Consultant, future deliverables", tags: ["consultant"], url: "https://claude.ai/artifact/9AGwnwfY3RVENQQayi6ixN" },
-    { phase: 4, id: "KB", fmt: "Knowledge base", title: "Engineering Compliance Knowledge Base", text: "The law, guidance and standards in 17 sections, with requirement checklists and corporate and application implementation guides.", aud: "Engineering, compliance, legal", tags: ["engineering", "programme", "consultant"], url: "https://claude.ai/artifact/JC24c3EC3qR8Xz8k3858Wj" }
+    { phase: 4, id: "KB", fmt: "Knowledge base", title: "Engineering Compliance Knowledge Base", text: "The law, guidance and standards in 16 sections, with requirement checklists and corporate and application implementation guides.", aud: "Engineering, compliance, legal", tags: ["engineering", "programme", "consultant"], url: "https://claude.ai/artifact/JC24c3EC3qR8Xz8k3858Wj" }
   ];
   var P = [
     { step: "Phase 1", name: "Diagnose", text: "Establish where the client stands and what the market looks like." },
@@ -357,6 +365,7 @@ footer { padding-block: var(--s6) var(--s7); border-top: 1px solid var(--rule); 
   var full = utc(2027, 12, 11), art14 = utc(2026, 9, 11);
   var left = Math.max(0, Math.round((full - today) / DAY));
   document.getElementById("days").textContent = String(left);
+  document.getElementById("days-lbl").textContent = left === 0 ? "The CRA has applied in full since 11 Dec 2027" : (left === 1 ? "day" : "days") + " until full application on 11 Dec 2027";
   var liveDays = Math.max(0, Math.round((today - art14) / DAY));
   document.getElementById("live").textContent = today >= art14 ? "Article 14 reporting live for " + liveDays + " days (since 11 Sep 2026)" : "Article 14 reporting applies from 11 Sep 2026";
 
@@ -397,5 +406,19 @@ footer { padding-block: var(--s6) var(--s7); border-top: 1px solid var(--rule); 
     s("text", { x: x0 + 274, y: ly, "class": "tl-legend" }, "Still to come");
   }
   document.getElementById("timeline").appendChild(svg);
+  // Phone layout: the same events as a vertical list
+  var ol = document.createElement("ol"); ol.className = "tl-list";
+  var mnames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  var todayShown = false;
+  ev.forEach(function (e) {
+    if (!todayShown && today < e[0] && today > start) {
+      var t = document.createElement("li"); t.className = "today";
+      t.textContent = "Today, " + now.getDate() + " " + mnames[now.getMonth()] + " " + now.getFullYear(); ol.appendChild(t); todayShown = true;
+    }
+    var li = document.createElement("li"); if (e[0] <= today) li.className = "past";
+    var b = document.createElement("b"); b.textContent = e[1]; li.appendChild(b);
+    li.appendChild(document.createTextNode(e[2] + (e[0] <= today ? " · applies now" : ""))); ol.appendChild(li);
+  });
+  document.getElementById("timeline").appendChild(ol);
 })();
 </script>
