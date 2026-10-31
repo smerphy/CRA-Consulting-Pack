@@ -33,7 +33,9 @@ The CRA has moved from awareness to execution, and execution is running into cap
 
 The CRA's dates are fixed in [Regulation (EU) 2024/2847](https://eur-lex.europa.eu/eli/reg/2024/2847/oj) and no pending proposal moves them: Art 14 reporting has applied since 11 Sep 2026, and every other obligation applies from 11 Dec 2027 (Art 71(2)).
 
-&#91;embedded content: Source: Regulation (EU) 2024/2847 Arts 35, 69 and 71; Directive (EU) 2024/2853; Delegated Regulation (EU) 2026/339; days counted from 31 Oct 2026. Official.\]
+![Source: Regulation (EU) 2024/2847 Arts 35, 69 and 71; Directive (EU) 2024/2853; Delegated Regulation (EU) 2026/339; days counted from 31 Oct 2026. Official.](images/01-report-fig01.png)
+
+[Chart: Source: Regulation (EU) 2024/2847 Arts 35, 69 and 71; Directive (EU) 2024/2853; Delegated Regulation (EU) 2026/339; days counted from 31 Oct 2026. Official.]
 
 Three transition rules shape the run-up:
 
@@ -68,7 +70,9 @@ Plans should assume the missing instruments arrive late. The Commission's levers
 
 Two-thirds of firms have heard of the CRA, but fewer than a third know what it means for them, and most manufacturers cannot say when they will comply.
 
-&#91;embedded content: Source: Bitkom Research survey of 1,003 German companies with 10 or more employees, Apr–Jun 2026, as reported by IT Finanzmagazin (11 Sep 2026); survey by an industry association; 5% not reported in the article.\]
+![Source: Bitkom Research survey of 1,003 German companies with 10 or more employees, Apr–Jun 2026, as reported by IT Finanzmagazin (11 Sep 2026); survey by an industry association; 5% not reported in the article.](images/01-report-fig02.png)
+
+[Chart: Source: Bitkom Research survey of 1,003 German companies with 10 or more employees, Apr–Jun 2026, as reported by IT Finanzmagazin (11 Sep 2026); survey by an industry association; 5% not reported in the article.]
 
 Bitkom's sample of 1,003 German companies is the largest among the surveys reviewed here, and it measures awareness rather than preparedness ([IT Finanzmagazin](https://www.it-finanzmagazin.de/cyber-resilience-act-cra-nur-jedes-dritte-unternehmen-vorbereitet-250594/)).
 
@@ -76,17 +80,23 @@ The global picture is weaker. In the [Linux Foundation's 2026 survey](https://ww
 
 Official channels are not closing the gap: only 25% of those respondents learned about the CRA from EU or national authorities, against 48% from digital media and 39% from open-source foundations (Linux Foundation, n=404).
 
-&#91;embedded content: Source: Linux Foundation Research, 2026 CRA Awareness and Readiness report (Jun 2026), Fig. 11; 194 manufacturers, fieldwork early 2026; survey, convenience sample of LF communities.\]
+![Source: Linux Foundation Research, 2026 CRA Awareness and Readiness report (Jun 2026), Fig. 11; 194 manufacturers, fieldwork early 2026; survey, convenience sample of LF communities.](images/01-report-fig03.png)
+
+[Chart: Source: Linux Foundation Research, 2026 CRA Awareness and Readiness report (Jun 2026), Fig. 11; 194 manufacturers, fieldwork early 2026; survey, convenience sample of LF communities.]
 
 Smaller firms show the same pattern in finer grain. [ENISA's SME survey](https://www.enisa.europa.eu/sites/default/files/2026-06/SME%20CRA%20survey%20report.pdf) (194 responses, Feb–Mar 2026, not representative) found 66% aware of the CRA but only 13% with a good grasp of documentation requirements and 14% of conformity assessment. Only 11% were confident they could build in security by design without difficulty; 47% expected problems.
 
-&#91;embedded content: Source: ENISA, SME CRA Survey Report (Jun 2026), Q4.1.a; 194 responses (174 in CRA scope), Feb–Mar 2026; official survey, voluntary and not representative; % of all 194 respondents.\]
+![Source: ENISA, SME CRA Survey Report (Jun 2026), Q4.1.a; 194 responses (174 in CRA scope), Feb–Mar 2026; official survey, voluntary and not representative; % of all 194 respondents.](images/01-report-fig04.png)
+
+[Chart: Source: ENISA, SME CRA Survey Report (Jun 2026), Q4.1.a; 194 responses (174 in CRA scope), Feb–Mar 2026; official survey, voluntary and not representative; % of all 194 respondents.]
 
 What SMEs ask for is telling: 73% want templates for technical documentation, 71% for secure development and 56% for vulnerability handling, and only 3 of 194 respondents needed none of the templates offered. The gap is practical tooling, not more explanation of the law.
 
 Organisation is forming, but thinly. In [ONEKEY's vendor survey](https://www.onekey.com/press-release/onkey-iot-ot-cybersecurity-report-2026-half-of-all-companies-have-formed-cra-teams) of 200 German industrial firms, responsibility for the CRA sits mostly with IT security (50%), then product development (26%), compliance (15%) and legal (15%).
 
-&#91;embedded content: Source: ONEKEY, IoT/OT Cybersecurity Report 2026 press release (9 Sep 2026); 200 German industrial firms; vendor survey, unverified; 15% not stated in the release.\]
+![Source: ONEKEY, IoT/OT Cybersecurity Report 2026 press release (9 Sep 2026); 200 German industrial firms; vendor survey, unverified; 15% not stated in the release.](images/01-report-fig05.png)
+
+[Chart: Source: ONEKEY, IoT/OT Cybersecurity Report 2026 press release (9 Sep 2026); 200 German industrial firms; vendor survey, unverified; 15% not stated in the release.]
 
 The same survey finds 61% have set aside or plan a CRA budget, only 18% expect to manage without external help, and more than 60% expect product development to take longer, 28% "significantly longer". ONEKEY's own headline ("half of all companies have formed CRA teams") does not match its distribution figures, so treat these numbers as indicative.
 
@@ -116,7 +126,9 @@ Five notifying authorities are documented: BSI in Germany (with DAkkS accreditat
 
 The visible pipeline is short and vendor-reported. [Brightsight](https://www.brightsight.com/cra-notified-body-services) says it holds ISO/IEC 17065 accreditation for Module B from the Dutch Accreditation Council, pending notification; [Applus+](https://www.appluslaboratories.com/global/en/what-we-do/service-sheet/cyber-resilience-act-notified-body) says it is progressing through accreditation. Once an accredited body is notified, other Member States have two weeks to object (Art 43), so an accreditation date is the best leading indicator of new capacity.
 
-&#91;embedded content: Source: CRA Decoded, notified-body capacity analysis (19 Jul 2026), commentary, unverified; dates from Regulation (EU) 2024/2847 Arts 35 and 71. Back-scheduling is \[Advisor\] arithmetic and excludes queueing and remediation.\]
+![Source: CRA Decoded, notified-body capacity analysis (19 Jul 2026), commentary, unverified; dates from Regulation (EU) 2024/2847 Arts 35 and 71. Back-scheduling is \[Advisor](images/01-report-fig06.png)
+
+[Chart: Source: CRA Decoded, notified-body capacity analysis (19 Jul 2026), commentary, unverified; dates from Regulation (EU) 2024/2847 Arts 35 and 71. Back-scheduling is \[Advisor] arithmetic and excludes queueing and remediation.\]
 
 The arithmetic is unforgiving. Commentary estimates of 2–4 months to contract a body and 3–6 months per Module B+C engagement mean a product that must comply on 11 Dec 2027 needs a signed contract by 11 Feb 2027 in the slow case, or by 11 Jul 2027 in the fast case. A body that began accreditation when Chapter IV applied would, at 12–18 months, be designated between Jun and Dec 2027: too late for the slow case. Early capacity therefore rests on the few bodies already in the pipeline and goes to the manufacturers who book first.
 
@@ -143,7 +155,9 @@ A cited standard helps only where it is applied in full and covers all of a prod
 
 ### Certification: EUCC has capacity but no CRA status yet
 
-&#91;embedded content: Source: ENISA EUCC certificate register, read 30 Oct 2026 and fact-checked for this report; official register; 112 certificates listed, 1 withdrawn.\]
+![Source: ENISA EUCC certificate register, read 30 Oct 2026 and fact-checked for this report; official register; 112 certificates listed, 1 withdrawn.](images/01-report-fig07.png)
+
+[Chart: Source: ENISA EUCC certificate register, read 30 Oct 2026 and fact-checked for this report; official register; 112 certificates listed, 1 withdrawn.]
 
 EUCC is the only adopted EU cybersecurity certification scheme, with 111 valid certificates from 9 certification bodies on 30 Oct 2026, 18 of them at "substantial" level. It cannot yet replace CRA third-party assessment: the Art 27(9) delegated act that would allow this is planned for Q4 2026 and not adopted. ENISA's own [study](https://certification.enisa.europa.eu/publications/cyber-resilience-act-implementation-eucc-and-its-applicable-technical-elements_en) found that Common Criteria leaves CVD policy and free security updates uncovered and does not address remote data processing, so a certificate would still need a gap assessment.
 
@@ -205,13 +219,17 @@ The Digital Omnibus (COM(2025) 837 of 19 Nov 2025) does not amend the CRA. The C
 
 The CRA is accelerating SBOM adoption, but automation stops short of the technical file, and open-source dependence is still managed by waiting for upstream fixes.
 
-&#91;embedded content: Source: ENISA, SBOM Adoption State of Play 2026 (Jun 2026); 334 responses, fieldwork end-2025, about 65% EU-based; official survey; partial or full automation.\]
+![Source: ENISA, SBOM Adoption State of Play 2026 (Jun 2026); 334 responses, fieldwork end-2025, about 65% EU-based; official survey; partial or full automation.](images/01-report-fig08.png)
+
+[Chart: Source: ENISA, SBOM Adoption State of Play 2026 (Jun 2026); 334 responses, fieldwork end-2025, about 65% EU-based; official survey; partial or full automation.]
 
 ENISA's [SBOM State of Play](https://www.enisa.europa.eu/sites/default/files/2026-06/SBOM%20Adoption%20State%20of%20Play%202026.pdf) survey (334 responses, fieldwork end-2025, published Jun 2026) shows momentum: 78% have started adopting SBOMs and 43% say the CRA "significantly accelerated" their investment in SBOM tooling. Maturity is low: 44% are at pilot or limited adoption, 25% report broad adoption and only 9% are mature with full automation. Most generate at build time (39%), against 16% on delivery to a registry and 14% at deployment.
 
 Quality, not generation, is the hard part. 62% rate a high degree of completeness "quite a lot" or "extremely" difficult, 58% say the same of vulnerability matching, and 57% of the quality of SBOMs supplied by vendors.
 
-&#91;embedded content: Source: ENISA, SBOM Adoption State of Play 2026 (Jun 2026); 334 responses, fieldwork end-2025; official survey; shares as published, summing to 101% through rounding.\]
+![Source: ENISA, SBOM Adoption State of Play 2026 (Jun 2026); 334 responses, fieldwork end-2025; official survey; shares as published, summing to 101% through rounding.](images/01-report-fig09.png)
+
+[Chart: Source: ENISA, SBOM Adoption State of Play 2026 (Jun 2026); 334 responses, fieldwork end-2025; official survey; shares as published, summing to 101% through rounding.]
 
 Formats are converging on the two families that BSI's technical guideline TR-03183-2 accepts (CycloneDX 1.6 or later, SPDX 3.0.1 or later). That guideline and ENISA's SBOM technical advisory (v1.10, Oct 2026) are the de facto profiles, because the Commission has not used its Art 13(24) power to set a format. The legal minimum is a commonly used, machine-readable format covering at least top-level dependencies; the SBOM sits in the technical documentation and need not be published.
 
@@ -223,7 +241,9 @@ Manufacturers own the security of the open-source code they ship (Art 13(5)–(6
 
 Dependence is highest where capacity is lowest: 62% of SMEs rely on open source for more than three-quarters of their products, against 35% of larger organisations (Linux Foundation, n=187).
 
-&#91;embedded content: Source: Linux Foundation Research, 2025 Open Source ROI survey (n=236), as cited in the 2026 CRA Awareness and Readiness report (Jun 2026); survey; USD at USD 50 an hour.\]
+![Source: Linux Foundation Research, 2025 Open Source ROI survey (n=236), as cited in the 2026 CRA Awareness and Readiness report (Jun 2026); survey; USD at USD 50 an hour.](images/01-report-fig10.png)
+
+[Chart: Source: Linux Foundation Research, 2025 Open Source ROI survey (n=236), as cited in the 2026 CRA Awareness and Readiness report (Jun 2026); survey; USD at USD 50 an hour.]
 
 Private forks are the costly alternative to working upstream. The average organisation in the Linux Foundation's 2025 ROI survey maintains 86 private forks at about 60 labour hours each per release cycle: 5,160 hours, or about USD 258,000 at USD 50 an hour.
 
@@ -258,7 +278,9 @@ No authoritative cost benchmark exists: the figures in circulation come from one
 
 *Source: as listed in each row. Vendor and commentary figures are unverified, and no notified body publishes fees or lead times.*
 
-&#91;embedded content: Source: cyberresilienceact.eu CRA compliance cost calculator (i46 s.r.o.), accessed Oct 2026; independent model, "illustrative and intended for planning only"; three default-class products, medium readiness, EUR 45 an hour.\]
+![Source: cyberresilienceact.eu CRA compliance cost calculator (i46 s.r.o.), accessed Oct 2026; independent model, "illustrative and intended for planning only"; three default-class products, medium readiness, EUR 45 an hour.](images/01-report-fig11.png)
+
+[Chart: Source: cyberresilienceact.eu CRA compliance cost calculator (i46 s.r.o.), accessed Oct 2026; independent model, "illustrative and intended for planning only"; three default-class products, medium readiness, EUR 45 an hour.]
 
 In the model, engineering uplift, not conformity paperwork, drives one-off cost. Its conformity line (EUR 3,000 for three default products) covers internal control only; Class I and II products would add notified-body fees in the ranges above.
 
@@ -278,7 +300,9 @@ Figures attributed to the Commission's impact assessment circulate only second-h
 
 Market surveillance authorities enforce the CRA from 11 Dec 2027 with fines of up to EUR 15m or 2.5% of worldwide turnover, but national machinery is uneven 13 months out.
 
-&#91;embedded content: Source: national gazettes and authorities; law-firm commentary (Hogan Lovells, Innovatech Legal, Legal 500); engagement knowledge base, fact-checked 30 Oct 2026. Seventeen Member States were not verified.\]
+![Source: national gazettes and authorities; law-firm commentary (Hogan Lovells, Innovatech Legal, Legal 500); engagement knowledge base, fact-checked 30 Oct 2026. Seventeen Member States were not verified.](images/01-report-fig12.png)
+
+[Chart: Source: national gazettes and authorities; law-firm commentary (Hogan Lovells, Innovatech Legal, Legal 500); engagement knowledge base, fact-checked 30 Oct 2026. Seventeen Member States were not verified.]
 
 **Exhibit 20: National implementation, verified subset**
 
@@ -328,7 +352,9 @@ The CRA spares non-commercial open source and gives foundations a light regime, 
 - **Manufacturers keep the whole duty.** Art 13(5) requires due diligence on every third-party component, including open source never placed on the market, and Art 13(6) requires reporting vulnerabilities to maintainers and sharing fixes.
 - **Monetisation flips the role.** Charging for binaries, updates or a supported version makes the publisher a manufacturer (guidance points 51–57); donations matter only when they gate access or updates (points 60–62).
 
-&#91;embedded content: Source: Linux Foundation Research, 2026 CRA Awareness and Readiness report, Appendix A15–A17 (Jun 2026); stewards n=34 (2025) and n=28 (2026); survey; small samples, indicative only.\]
+![Source: Linux Foundation Research, 2026 CRA Awareness and Readiness report, Appendix A15–A17 (Jun 2026); stewards n=34 (2025) and n=28 (2026); survey; small samples, indicative only.](images/01-report-fig13.png)
+
+[Chart: Source: Linux Foundation Research, 2026 CRA Awareness and Readiness report, Appendix A15–A17 (Jun 2026); stewards n=34 (2025) and n=28 (2026); survey; small samples, indicative only.]
 
 Stewards' own preparation has not improved. The Linux Foundation's steward samples are small (34 in 2025, 28 in 2026) and the LF itself calls the comparison indicative, but all three measures shown fell. Their stated needs lead with money: financial support was cited by 50% in both years, legal guidance by 47% in 2025 and 39% in 2026, and technical resources by 44% and then 25%. Contributors are uncertain too: 61% of non-commercial developers are unsure whether the CRA applies to them (n=109).
 
