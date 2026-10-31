@@ -191,6 +191,7 @@ footer p { max-width: 115ch; }
 <div class="wrap">
 <footer>
   <p id="metanote"></p>
+  <p>* The CRA draft harmonised standards are not cited in the Official Journal and give no presumption of conformity; they are shown to guide design, and cannot be "held".</p>
   <p><span class="kit">†</span> Mapping added by this kit where the engagement knowledge base gives none; verify the clause against the standard before relying on it. Unmarked mappings come from the knowledge base. Coverage is an indicative judgement of how much existing evidence can be reused, not a statement of conformity.</p>
   <p>CRA Readiness Programme · CRA Framework Crosswalk (D15) · v1.0 · 31 Oct 2026 · Prepared by [Advisor]</p>
 </footer>
@@ -210,7 +211,7 @@ const XW = /*XW_DATA*/null;
   const DEFAULT_HELD = ["iso27001", "iec62443_4_1", "en18031"].filter(id => FW.some(f => f.id === id));
   const KEY = "cra-crosswalk-held-v1";
   let held = new Set(DEFAULT_HELD);
-  try { const s = JSON.parse(localStorage.getItem(KEY) || "null"); if (Array.isArray(s)) held = new Set(s.filter(id => FW.some(f => f.id === id))); } catch {}
+  try { const s = JSON.parse(localStorage.getItem(KEY) || "null"); if (Array.isArray(s)) held = new Set(s.filter(id => FW.some(f => f.id === id && f.holdable !== false))); } catch {}
   let sel = RQ[0].id;
   const save = () => { try { localStorage.setItem(KEY, JSON.stringify([...held])); } catch {} };
   const shortName = f => f.short || f.name;
@@ -227,7 +228,7 @@ const XW = /*XW_DATA*/null;
   $("#grp").innerHTML = `<option value="">All requirements (${RQ.length})</option>` + groups.map(g => `<option>${esc(g)}</option>`).join("");
 
   function renderChips() {
-    $("#chips").innerHTML = FW.map(f => `<button type="button" class="chip" data-fw="${f.id}" aria-pressed="${held.has(f.id)}"><span class="tick" aria-hidden="true"></span>${esc(shortName(f))}</button>`).join("");
+    $("#chips").innerHTML = FW.filter(f => f.holdable !== false).map(f => `<button type="button" class="chip" data-fw="${f.id}" aria-pressed="${held.has(f.id)}"><span class="tick" aria-hidden="true"></span>${esc(shortName(f))}</button>`).join("");
     document.querySelectorAll("#chips .chip").forEach(b => b.addEventListener("click", () => {
       held.has(b.dataset.fw) ? held.delete(b.dataset.fw) : held.add(b.dataset.fw); save(); renderAll();
     }));
@@ -245,7 +246,7 @@ const XW = /*XW_DATA*/null;
     $("#bar").setAttribute("aria-label", ["strong", "partial", "weak", "none"].map(k => `${LBL[k]} ${counts[k]}`).join(", "));
     const byGroup = {}; for (const r of gapList) (byGroup[r.group] ||= []).push(r);
     $("#gaps").innerHTML = held.size
-      ? (gapList.length ? `<b>${gapList.length} requirements need new evidence.</b> ` + Object.entries(byGroup).map(([g, rs]) => `${esc(g)}: ${rs.map(r => esc(r.ref.replace(/^Annex I Part I+ ?/, "").replace(/^Art(icle)? /, "Art "))).join(", ")}`).join("; ") + "." : "<b>No requirement is left without at least partial evidence.</b>")
+      ? (gapList.length ? `<b>${gapList.length} requirements need new evidence.</b> ` + Object.entries(byGroup).map(([g, rs]) => `${esc(g)}: ${rs.map(r => esc(r.title)).join(" · ")}`).join(". ") + "." : "<b>No requirement is left without at least partial evidence.</b>")
       : "";
   }
 
@@ -291,7 +292,7 @@ const XW = /*XW_DATA*/null;
 
   function renderAll() { renderChips(); renderSummary(); renderMatrix(); renderDetail(); }
 
-  $("#all").addEventListener("click", () => { held = new Set(FW.map(f => f.id)); save(); renderAll(); });
+  $("#all").addEventListener("click", () => { held = new Set(FW.filter(f => f.holdable !== false).map(f => f.id)); save(); renderAll(); });
   $("#none").addEventListener("click", () => { held = new Set(); save(); renderAll(); });
   for (const id of ["#grp", "#gaponly"]) $(id).addEventListener("change", renderMatrix);
   $("#q").addEventListener("input", renderMatrix);
