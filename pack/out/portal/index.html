@@ -1,0 +1,400 @@
+<title>CRA Readiness Programme Pack</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400..700&family=JetBrains+Mono:wght@400..600&family=Source+Serif+4:opsz,wght@8..60,400..700&display=swap">
+<style>
+/* Layout: a consulting delivery portal. Left-aligned masthead, a live regulatory clock, headline numbers,
+   then the engagement arc (Diagnose → Decide → Mobilise → Govern) holding the deliverables, a 12-week run plan,
+   a "make it yours" panel for reuse, and the fact base. Tokens follow the Advisory Design System. */
+:root {
+  --ink-900: #0E1A2B; --ink-700: #26364D; --ink-500: #56667E; --ink-300: #C5CDD8; --ink-100: #EEF1F5;
+  --paper: #FAFAF7; --surface: #FFFFFF;
+  --accent-700: #0A5753; --accent-600: #0F6E6A; --accent-400: #2E9C93; --accent-100: #DCEFEC;
+  --signal: #C2410C; --rag-red: #B42318; --rag-amber: #B54708; --rag-green: #027A48;
+  --bg: var(--paper); --fg: var(--ink-900); --fg-2: var(--ink-700); --muted: var(--ink-500); --rule: var(--ink-300);
+  --fill: var(--ink-100); --card: var(--surface); --emph: var(--accent-600); --emph-strong: var(--accent-700);
+  --tint: var(--accent-100); --signal-fg: var(--signal); --shadow: 0 1px 2px #0E1A2B0F, 0 4px 12px #0E1A2B14;
+  --font-display: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --font-body: Inter, system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --s1: 4px; --s2: 8px; --s3: 12px; --s4: 16px; --s5: 24px; --s6: 32px; --s7: 48px; --s8: 72px;
+  --r1: 2px; --r2: 4px; --r3: 6px;
+  --measure: 68ch;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0E1A2B; --fg: #FAFAF7; --fg-2: #D5DCE6; --muted: #A3AFC0; --rule: #2C3C55; --fill: #1F2E45;
+    --card: #16243A; --emph: #2E9C93; --emph-strong: #7FD1C7; --tint: #123F3D; --signal-fg: #FB923C;
+    --shadow: 0 1px 2px #00000066, 0 4px 12px #00000080; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0E1A2B; --fg: #FAFAF7; --fg-2: #D5DCE6; --muted: #A3AFC0; --rule: #2C3C55; --fill: #1F2E45;
+  --card: #16243A; --emph: #2E9C93; --emph-strong: #7FD1C7; --tint: #123F3D; --signal-fg: #FB923C;
+  --shadow: 0 1px 2px #00000066, 0 4px 12px #00000080; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--fg); font: 400 15px/1.55 var(--font-body); -webkit-font-smoothing: antialiased; }
+.wrap { max-width: 1180px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+a { color: var(--emph); text-underline-offset: 3px; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--emph); outline-offset: 2px; border-radius: var(--r2); }
+h1, h2, h3 { font-family: var(--font-display); text-wrap: balance; color: var(--fg); margin: 0; }
+p { margin: 0; }
+.eyebrow { font: 600 11px/1.2 var(--font-body); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.mono { font-family: var(--font-mono); }
+.tabular { font-variant-numeric: tabular-nums; }
+
+/* Masthead */
+header.mast { padding-block: var(--s7) var(--s6); border-bottom: 1px solid var(--rule); }
+.mast-top { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--s3); align-items: baseline; }
+.wordmark { font: 600 12px/1 var(--font-body); letter-spacing: .32em; color: var(--fg); }
+.meta { display: flex; flex-wrap: wrap; gap: var(--s2) var(--s4); color: var(--muted); font-size: 13px; }
+.mast h1 { font-size: clamp(34px, 5.2vw, 58px); line-height: 1.04; font-weight: 500; letter-spacing: -.01em; margin-top: var(--s6); max-width: 18ch; }
+.mast .lede { font-family: var(--font-display); font-size: clamp(18px, 2.1vw, 22px); line-height: 1.45; color: var(--fg-2); margin-top: var(--s4); max-width: 60ch; }
+.illus { margin-top: var(--s5); display: inline-flex; flex-wrap: wrap; gap: var(--s2); align-items: center; padding: var(--s2) var(--s3); border: 1px dashed var(--rule); border-radius: var(--r2); font-size: 13px; color: var(--fg-2); }
+.illus b { color: var(--fg); font-weight: 600; }
+
+/* Regulatory clock */
+section { padding-block: var(--s7); }
+section + section { border-top: 1px solid var(--rule); }
+.sec-head { display: grid; gap: var(--s2); margin-bottom: var(--s5); max-width: var(--measure); }
+.sec-head h2 { font-size: clamp(24px, 3vw, 32px); line-height: 1.15; font-weight: 500; }
+.sec-head p { color: var(--fg-2); }
+.clock { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: var(--s5); align-items: end; }
+@media (max-width: 760px) { .clock { grid-template-columns: 1fr; } }
+.countdown { display: grid; gap: var(--s1); justify-items: start; }
+.countdown .big { font: 600 clamp(56px, 9vw, 96px)/0.95 var(--font-body); letter-spacing: -0.03em; color: var(--emph); font-variant-numeric: tabular-nums lining-nums; }
+.countdown .lbl { color: var(--fg-2); font-size: 14px; }
+.timeline { position: relative; overflow-x: auto; padding-bottom: var(--s2); }
+.timeline svg { display: block; min-width: 640px; width: 100%; height: auto; }
+.tl-axis { stroke: var(--rule); stroke-width: 2; }
+.tl-done { stroke: var(--emph); stroke-width: 4; stroke-linecap: round; }
+.tl-dot { fill: var(--card); stroke: var(--fg); stroke-width: 2; }
+.tl-dot.past { fill: var(--emph); stroke: var(--emph); }
+.tl-dot.key { fill: var(--fg); stroke: var(--fg); }
+.tl-date { font: 600 12px var(--font-mono); fill: var(--fg); }
+.tl-text { font: 400 12px var(--font-body); fill: var(--fg-2); }
+.tl-today-mark { fill: var(--emph); stroke: var(--bg); stroke-width: 1.5; }
+.tl-legend { font: 500 12px var(--font-body); fill: var(--fg-2); }
+.live-pill { display: inline-flex; align-items: center; gap: var(--s2); font-size: 13px; color: var(--fg-2); }
+.live-pill i { width: 8px; height: 8px; border-radius: 50%; background: var(--rag-green); box-shadow: 0 0 0 3px color-mix(in srgb, var(--rag-green) 25%, transparent); }
+
+/* Numbers */
+.numbers { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; border-top: 2px solid var(--fg); }
+@media (max-width: 900px) { .numbers { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 460px) { .numbers { grid-template-columns: 1fr; } }
+.num { padding: var(--s4) var(--s4) var(--s4) 0; display: grid; gap: var(--s1); align-content: start; }
+.num .v { font: 600 clamp(28px, 3.4vw, 40px)/1.05 var(--font-body); letter-spacing: -0.02em; font-variant-numeric: tabular-nums lining-nums; color: var(--fg); }
+.num .v.signal { color: var(--signal-fg); }
+.num .v.emph { color: var(--emph); }
+.num .k { font-size: 14px; color: var(--fg-2); max-width: 30ch; }
+.num .src { font-size: 12px; color: var(--muted); }
+
+/* Filters */
+.filters { display: flex; flex-wrap: wrap; gap: var(--s2); margin-bottom: var(--s5); align-items: center; }
+.filters .eyebrow { margin-right: var(--s2); }
+.chip { font: 500 13px/1 var(--font-body); color: var(--fg-2); background: transparent; border: 1px solid var(--rule); border-radius: 999px; padding: 8px 12px; cursor: pointer; }
+.chip[aria-pressed="true"] { background: var(--fg); color: var(--bg); border-color: var(--fg); }
+
+/* Arc */
+.arc { display: grid; gap: var(--s6); }
+.phase { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: var(--s5); }
+@media (max-width: 860px) { .phase { grid-template-columns: 1fr; gap: var(--s3); } }
+.phase-label { display: grid; gap: var(--s2); align-content: start; border-top: 2px solid var(--fg); padding-top: var(--s3); }
+.phase-label .step { font: 500 12px var(--font-mono); color: var(--muted); }
+.phase-label h3 { font-size: 24px; font-weight: 500; }
+.phase-label p { font-size: 14px; color: var(--fg-2); }
+.cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: var(--s4); align-content: start; }
+.card { background: var(--card); border: 1px solid var(--rule); border-radius: var(--r3); padding: var(--s4); display: grid; grid-template-rows: auto auto 1fr auto; gap: var(--s3); min-width: 0; transition: border-color .15s ease, box-shadow .15s ease, opacity .2s ease; }
+.card:hover { border-color: var(--emph); box-shadow: var(--shadow); }
+.card.dim { opacity: .35; }
+.card-top { display: flex; justify-content: space-between; align-items: center; gap: var(--s2); }
+.fmt { font: 600 10.5px/1 var(--font-body); letter-spacing: .12em; text-transform: uppercase; color: var(--emph-strong); background: var(--tint); padding: 5px 8px; border-radius: var(--r1); }
+.id { font: 500 11px var(--font-mono); color: var(--muted); }
+.card h4 { font: 500 19px/1.25 var(--font-display); margin: 0; color: var(--fg); }
+.card p { font-size: 14px; color: var(--fg-2); }
+.card .aud { font-size: 12.5px; color: var(--muted); }
+.card .go { display: inline-flex; align-items: center; gap: 6px; font: 600 14px var(--font-body); color: var(--emph); text-decoration: none; }
+.card .go:hover { text-decoration: underline; }
+.card .pending { font-size: 13px; color: var(--muted); font-style: italic; }
+
+.card .file { font-size: 13px; color: var(--fg-2); }
+
+/* Playbook */
+.table-wrap { overflow-x: auto; border-top: 2px solid var(--fg); }
+table { width: 100%; border-collapse: collapse; min-width: 720px; font-size: 14px; }
+th, td { text-align: left; vertical-align: top; padding: var(--s3) var(--s3) var(--s3) 0; border-bottom: 1px solid var(--rule); }
+th { font: 600 11px var(--font-body); letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+td.wk { font: 500 13px var(--font-mono); color: var(--fg); white-space: nowrap; }
+td .tag { display: inline-block; font: 500 11px var(--font-mono); color: var(--fg-2); border: 1px solid var(--rule); border-radius: var(--r1); padding: 2px 5px; margin: 0 4px 4px 0; }
+
+/* Two-col panels */
+.two { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s6); }
+@media (max-width: 860px) { .two { grid-template-columns: 1fr; } }
+ol.steps { margin: 0; padding: 0; list-style: none; counter-reset: s; display: grid; gap: var(--s4); }
+ol.steps li { counter-increment: s; display: grid; grid-template-columns: 32px minmax(0, 1fr); gap: var(--s3); }
+ol.steps li::before { content: counter(s); font: 600 14px/28px var(--font-mono); width: 28px; height: 28px; text-align: center; border: 1px solid var(--fg); border-radius: 50%; color: var(--fg); }
+ol.steps b { display: block; font-weight: 600; color: var(--fg); }
+ol.steps span { color: var(--fg-2); font-size: 14px; }
+.facts { display: grid; gap: var(--s3); margin: 0; padding: 0; list-style: none; }
+.facts li { display: grid; grid-template-columns: 92px minmax(0, 1fr); gap: var(--s3); padding-bottom: var(--s3); border-bottom: 1px solid var(--rule); font-size: 14px; }
+.facts .d { font: 500 12.5px var(--font-mono); color: var(--fg); }
+.facts span { color: var(--fg-2); }
+.callout { border-left: 3px solid var(--signal-fg); padding: var(--s3) var(--s4); background: var(--fill); border-radius: 0 var(--r2) var(--r2) 0; font-size: 14px; color: var(--fg-2); }
+.callout b { color: var(--fg); }
+
+footer { padding-block: var(--s6) var(--s7); border-top: 1px solid var(--rule); color: var(--muted); font-size: 13px; display: grid; gap: var(--s2); }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+
+<div class="wrap">
+  <header class="mast">
+    <div class="mast-top">
+      <span class="wordmark" aria-label="Advisory">ADVISORY</span>
+      <div class="meta tabular"><span>Version 1.0</span><span>Issued 31 Oct 2026</span><span>Facts verified to 30 Oct 2026</span><span>Prepared by [Advisor]</span></div>
+    </div>
+    <p class="eyebrow" style="margin-top:var(--s6)">EU Cyber Resilience Act · Regulation (EU) 2024/2847</p>
+    <h1>The CRA Readiness Programme Pack</h1>
+    <p class="lede">Everything a client needs to go from “what does the CRA mean for us?” to a board-approved, funded and governed programme: decks, communications, research, surveys, a live diagnostic, models and management reporting, built on one design system.</p>
+    <p class="illus"><b>Illustrative engagement.</b> Example Group (fictional manufacturer of connected products) · Project Rampart. Every client number is illustrative; regulatory facts are real and dated.</p>
+  </header>
+
+  <section aria-labelledby="clock-h">
+    <div class="sec-head">
+      <p class="eyebrow">The regulatory clock</p>
+      <h2 id="clock-h">Reporting is already law. Everything else applies on 11 Dec 2027.</h2>
+    </div>
+    <div class="clock">
+      <div class="timeline" id="timeline" aria-label="CRA timeline from 10 Dec 2024 to 11 Dec 2027"></div>
+      <div class="countdown">
+        <span class="big" id="days">406</span>
+        <span class="lbl">days until full application on 11 Dec 2027</span>
+        <span class="live-pill"><i aria-hidden="true"></i><span id="live">Article 14 reporting live since 11 Sep 2026</span></span>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="num-h">
+    <div class="sec-head">
+      <p class="eyebrow">The engagement in four numbers · Illustrative</p>
+      <h2 id="num-h">Market access, not engineering, sets Example Group's critical path.</h2>
+    </div>
+    <div class="numbers">
+      <div class="num"><span class="v signal tabular">EUR 468m</span><span class="k">of annual EU revenue sits in Class I and II products that need a notified body. None is designated yet.</span><span class="src">Portfolio analysis; Annex III; Commission, checks to 8 Sep 2026</span></div>
+      <div class="num"><span class="v tabular">44%</span><span class="k">baseline readiness across 13 product families. Conformity and market access is weakest at 16%.</span><span class="src">Readiness diagnostic, 28 Oct 2026</span></div>
+      <div class="num"><span class="v emph tabular">EUR 9.3m</span><span class="k">to Dec 2027, then EUR 1.8m a year: 0.77% of one year’s revenue.</span><span class="src">Business case, base scenario incl. 15% contingency</span></div>
+      <div class="num"><span class="v tabular">9h 40m</span><span class="k">to file an early warning in the first Article 14 drill, against a 24-hour legal clock.</span><span class="src">Drill record, 22 Oct 2026</span></div>
+    </div>
+  </section>
+
+  <section aria-labelledby="arc-h">
+    <div class="sec-head">
+      <p class="eyebrow">The pack</p>
+      <h2 id="arc-h">Twelve deliverables and the fact base, in the order an engagement uses them.</h2>
+      <p>Each piece stands alone and shares one storyline, one data set and one design system, so the numbers agree everywhere.</p>
+    </div>
+    <div class="filters" role="group" aria-label="Filter by audience">
+      <span class="eyebrow">Show for</span>
+      <button class="chip" type="button" data-aud="all" aria-pressed="true">Everyone</button>
+      <button class="chip" type="button" data-aud="board" aria-pressed="false">Board and executives</button>
+      <button class="chip" type="button" data-aud="programme" aria-pressed="false">Programme team</button>
+      <button class="chip" type="button" data-aud="engineering" aria-pressed="false">Engineering and PSIRT</button>
+      <button class="chip" type="button" data-aud="comms" aria-pressed="false">Communications</button>
+      <button class="chip" type="button" data-aud="consultant" aria-pressed="false">Consultant</button>
+    </div>
+    <div class="arc" id="arc"></div>
+  </section>
+
+  <section aria-labelledby="run-h">
+    <div class="sec-head">
+      <p class="eyebrow">How to run it</p>
+      <h2 id="run-h">A twelve-week engagement takes a client from diagnosis to a funded, governed programme.</h2>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Weeks</th><th>Activity</th><th>Pack used</th><th>Client outcome</th></tr></thead>
+        <tbody id="playbook"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section aria-labelledby="own-h">
+    <div class="two">
+      <div>
+        <div class="sec-head">
+          <p class="eyebrow">Make it yours</p>
+          <h2 id="own-h">Swap the illustrative client for a real one in five steps.</h2>
+        </div>
+        <ol class="steps">
+          <li><div><b>Replace the client data first.</b><span>Portfolio, revenue, classes and routes drive every number. Update the cost model inputs and the obligations register before touching the decks.</span></div></li>
+          <li><div><b>Run the diagnostic with real product teams.</b><span>Switch off the illustrative sample in the diagnostic; the portfolio heatmap and readiness index then come from the client's own answers.</span></div></li>
+          <li><div><b>Re-cut the board and SteerCo decks.</b><span>Keep the storyline and action titles; replace exhibits from the model, the diagnostic and the dashboard.</span></div></li>
+          <li><div><b>Localise communications.</b><span>Fill the bracketed placeholders, set approvers and dates, and check messages against the “say / don’t say” table.</span></div></li>
+          <li><div><b>Re-date the fact base.</b><span>Regulatory facts are verified to 30 Oct 2026. Re-check the watchlist before every client issue: standards, notified bodies, guidance and national laws move monthly.</span></div></li>
+        </ol>
+      </div>
+      <div>
+        <div class="sec-head">
+          <p class="eyebrow">Fact base</p>
+          <h2>Dated, sourced and checked.</h2>
+          <p>The pack rests on an engineering compliance knowledge base with implementation guides and requirement checklists, independently fact-checked on 30 Oct 2026.</p>
+        </div>
+        <ul class="facts" id="facts"></ul>
+        <p class="callout" style="margin-top:var(--s5)"><b>Watch next:</b> EN 40000-1-1 and -1-2 publication (expected mid-Nov 2026, per standards trackers), the Product Liability Directive (9 Dec 2026), the Art 35(2) notified-body target (11 Dec 2026), the first harmonised-standard citations and NANDO designations (2027).</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span>CRA Readiness Programme Pack · v1.0 · 31 Oct 2026 · Prepared by [Advisor] · White-label: replace the wordmark and client details before issue.</span>
+    <span>Example Group and Project Rampart are fictional and used for illustration only. Regulatory content summarises Regulation (EU) 2024/2847, Commission guidance and public sources as at 30 Oct 2026; it is not legal advice.</span>
+  </footer>
+</div>
+
+<script>
+(function () {
+  "use strict";
+  // ---- Deliverables (URLs filled by the coordinator) ----
+  var D = [
+    { phase: 0, id: "D08", fmt: "Live tool", title: "CRA Readiness Diagnostic", text: "Product teams self-assess 40 questions across 10 domains; the portfolio heatmap and readiness index update for everyone.", aud: "Product teams, programme", tags: ["programme", "engineering", "consultant"], url: "https://claude.ai/artifact/MgC6yAXNQuKWNmFxpk52iS" },
+    { phase: 0, id: "D07", fmt: "Document", title: "Survey and Interview Instruments", text: "Staff pulse, supplier questionnaire, executive interview guide, customer and engineering surveys, with scoring.", aud: "Programme team, research", tags: ["programme", "consultant"], url: "https://claude.ai/artifact/3fxq7nZGYhb79m3dqAmmE9" },
+    { phase: 0, id: "D06", fmt: "Document", title: "The State of CRA Readiness 2026", text: "Market research report: awareness, capacity crunch, costs, enforcement and what leaders do now.", aud: "Executives, strategy", tags: ["board", "consultant"], url: "https://claude.ai/artifact/W2UALjxXWMUC8R1Jt5qrwJ" },
+    { phase: 1, id: "D01", fmt: "Deck", title: "Board Briefing: Keeping our EU market open", text: "The board story in action titles: exposure, the notified-body constraint, the plan, the money and five decisions.", aud: "Board, executive committee", tags: ["board", "consultant"], url: "https://claude.ai/artifact/PR4UPgQDqUmwV8sR7AnZC9" },
+    { phase: 1, id: "D10", fmt: "Workbook", title: "Business Case and Cost Model", text: "Driver-based model with scenarios, exposure analysis, monthly phasing and check cells.", aud: "CFO, sponsor", tags: ["board", "programme", "consultant"], url: "", file: "Excel workbook (.xlsx), delivered with the pack as a file" },
+    { phase: 2, id: "D05", fmt: "Document", title: "Communication Pack", text: "Stakeholder map, message house, 12-week calendar, ready-to-send drafts, incident holding statements and FAQs.", aud: "Sponsor, communications, BU leaders", tags: ["comms", "board", "consultant"], url: "https://claude.ai/artifact/A9stEDyHgWmeJoWvTDw5JY" },
+    { phase: 2, id: "D03", fmt: "Deck", title: "The CRA for Engineers and Product Teams", text: "The 45-minute core module of the engineering training, with trainer notes: Annex I patterns, release gate, SBOM, updates and the first hour of an exploited vulnerability.", aud: "Engineers, product managers, PSIRT", tags: ["engineering", "programme"], url: "https://claude.ai/artifact/VrWF6W2a9nNfQqedjkBLrZ" },
+    { phase: 2, id: "D04", fmt: "Visual", title: "CRA on a Page", text: "Two print-ready one-pagers: the regulation on a page, and the programme on a page.", aud: "Everyone", tags: ["board", "engineering", "comms", "programme", "consultant"], url: "https://claude.ai/artifact/PkQxF7PPP9BVFoCfrAyAAH" },
+    { phase: 3, id: "D02", fmt: "Deck", title: "Steering Committee #1", text: "The monthly management update, filled for 30 Oct 2026: status on a page, KPIs, milestones, budget, risks, decisions.", aud: "Steering committee", tags: ["programme", "board"], url: "https://claude.ai/artifact/ACHwnCj3vnqpcry1cSpu5c" },
+    { phase: 3, id: "D09", fmt: "Dashboard", title: "Programme Dashboard", text: "The always-current management view: readiness, market access, delivery, money and risk.", aud: "Sponsor, steering committee", tags: ["programme", "board"], url: "https://claude.ai/artifact/KbSnPXQmoZmjuEDroY8eP5" },
+    { phase: 3, id: "D11", fmt: "Workbook", title: "Obligations Register and Programme Tracker", text: "Every obligation with evidence and owner, product-by-obligation matrix, 90-day Gantt, RAID, decisions, KPIs, RACI.", aud: "PMO, compliance", tags: ["programme", "engineering", "consultant"], url: "", file: "Excel workbook (.xlsx), delivered with the pack as a file" },
+    { phase: 4, id: "DS", fmt: "Design system", title: "Advisory Design System", text: "White-label tokens, slide masters and components that every deliverable is built on.", aud: "Consultant, future deliverables", tags: ["consultant"], url: "https://claude.ai/artifact/9AGwnwfY3RVENQQayi6ixN" },
+    { phase: 4, id: "KB", fmt: "Knowledge base", title: "Engineering Compliance Knowledge Base", text: "The law, guidance and standards in 17 sections, with requirement checklists and corporate and application implementation guides.", aud: "Engineering, compliance, legal", tags: ["engineering", "programme", "consultant"], url: "https://claude.ai/artifact/JC24c3EC3qR8Xz8k3858Wj" }
+  ];
+  var P = [
+    { step: "Phase 1", name: "Diagnose", text: "Establish where the client stands and what the market looks like." },
+    { step: "Phase 2", name: "Decide", text: "Turn the diagnosis into a funded decision at the board." },
+    { step: "Phase 3", name: "Mobilise", text: "Tell people, train them and give them one picture." },
+    { step: "Phase 4", name: "Govern and deliver", text: "Run the programme on facts every month until 11 Dec 2027." },
+    { step: "Foundations", name: "Reference", text: "The design system and the fact base under everything." }
+  ];
+  var RUN = [
+    ["1-2", "Mobilise; executive interviews; data request; staff pulse survey", ["D07", "D06"], "Shared view of exposure and priorities"],
+    ["2-4", "Inventory, scope and classification; diagnostic with every product team; first Art 14 drill; SteerCo #1", ["D08", "D11", "D02", "KB"], "Scope register, readiness baseline and a tested reporting chain"],
+    ["4-6", "Business case, routes and notified-body strategy; legacy decisions", ["D10", "D06"], "Costed options and a recommended route per family"],
+    ["6-7", "Board pre-read and decision", ["D01", "D04"], "Budget, accountable executive, signing authority, notified-body mandate"],
+    ["7-9", "Launch communications; engineering training; supplier letters", ["D05", "D03", "D04"], "Organisation informed; engineer training under way"],
+    ["9-12", "Monthly governance: SteerCo, dashboard, tracker", ["D02", "D09", "D11"], "A governed programme with monthly reporting"]
+  ];
+  var FACTS = [
+    ["10 Dec 2024", "Regulation (EU) 2024/2847 entered into force."],
+    ["11 Sep 2026", "Article 14 reporting applies to every in-scope product, including those already on the market: 24h early warning, 72h notification, final report."],
+    ["30 Oct 2026", "No harmonised standard cited; no CRA notified body verifiably designated (checks to 8 Sep 2026). Class I products cannot self-assess."],
+    ["9 Dec 2026", "Product Liability Directive applies: software is a product and a vulnerability can be a defect."],
+    ["11 Dec 2027", "Full application. Fines up to EUR 15m or 2.5% of worldwide turnover, whichever is higher."]
+  ];
+
+  function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
+
+  // ---- Arc ----
+  var arc = document.getElementById("arc");
+  P.forEach(function (p, i) {
+    var row = el("div", "phase");
+    var lab = el("div", "phase-label");
+    lab.appendChild(el("span", "step", p.step));
+    lab.appendChild(el("h3", null, p.name));
+    lab.appendChild(el("p", null, p.text));
+    row.appendChild(lab);
+    var cards = el("div", "cards");
+    D.filter(function (d) { return d.phase === i; }).forEach(function (d) {
+      var c = el("article", "card"); c.dataset.tags = d.tags.join(" ");
+      var top = el("div", "card-top"); top.appendChild(el("span", "fmt", d.fmt)); top.appendChild(el("span", "id", d.id)); c.appendChild(top);
+      c.appendChild(el("h4", null, d.title));
+      var body = el("div"); body.style.display = "grid"; body.style.gap = "8px";
+      body.appendChild(el("p", null, d.text)); body.appendChild(el("span", "aud", "For: " + d.aud)); c.appendChild(body);
+      if (d.url) { var a = el("a", "go", "Open " + d.fmt.toLowerCase() + " →"); a.href = d.url; a.target = "_blank"; a.rel = "noopener"; c.appendChild(a); }
+      else if (d.file) { c.appendChild(el("span", "file", d.file)); }
+      else { c.appendChild(el("span", "pending", "In production")); }
+      cards.appendChild(c);
+    });
+    row.appendChild(cards);
+    arc.appendChild(row);
+  });
+
+  // ---- Filters ----
+  var chips = Array.prototype.slice.call(document.querySelectorAll(".chip"));
+  chips.forEach(function (b) {
+    b.addEventListener("click", function () {
+      chips.forEach(function (x) { x.setAttribute("aria-pressed", x === b ? "true" : "false"); });
+      var aud = b.dataset.aud;
+      document.querySelectorAll(".card").forEach(function (c) {
+        var on = aud === "all" || (c.dataset.tags || "").split(" ").indexOf(aud) >= 0;
+        c.classList.toggle("dim", !on);
+      });
+    });
+  });
+
+  // ---- Playbook ----
+  var pb = document.getElementById("playbook");
+  RUN.forEach(function (r) {
+    var tr = el("tr");
+    tr.appendChild(el("td", "wk", "Wk " + r[0].replace("-", "\u2013")));
+    tr.appendChild(el("td", null, r[1]));
+    var td = el("td"); r[2].forEach(function (t) { td.appendChild(el("span", "tag", t)); }); tr.appendChild(td);
+    tr.appendChild(el("td", null, r[3]));
+    pb.appendChild(tr);
+  });
+
+  // ---- Facts ----
+  var fl = document.getElementById("facts");
+  FACTS.forEach(function (f) { var li = el("li"); li.appendChild(el("span", "d", f[0])); li.appendChild(el("span", null, f[1])); fl.appendChild(li); });
+
+  // ---- Clock (live) ----
+  var DAY = 86400000;
+  function utc(y, m, d) { return Date.UTC(y, m - 1, d); }
+  var now = new Date(); var today = Date.UTC(now.getFullYear(), now.getMonth(), now.getDate());
+  var full = utc(2027, 12, 11), art14 = utc(2026, 9, 11);
+  var left = Math.max(0, Math.round((full - today) / DAY));
+  document.getElementById("days").textContent = String(left);
+  var liveDays = Math.max(0, Math.round((today - art14) / DAY));
+  document.getElementById("live").textContent = today >= art14 ? "Article 14 reporting live for " + liveDays + " days (since 11 Sep 2026)" : "Article 14 reporting applies from 11 Sep 2026";
+
+  var start = utc(2024, 12, 10), end = utc(2027, 12, 11);
+  var W = 760, H = 172, x0 = 24, x1 = W - 24, y = 70;
+  function X(t) { return x0 + (x1 - x0) * (t - start) / (end - start); }
+  var ev = [
+    [utc(2024, 12, 10), "10 Dec 2024", "In force", 0],
+    [utc(2026, 6, 11), "11 Jun 2026", "Notified-body rules", 1],
+    [utc(2026, 9, 11), "11 Sep 2026", "Art 14 reporting", 0],
+    [utc(2026, 12, 9), "9 Dec 2026", "Product liability", 1],
+    [utc(2027, 12, 11), "11 Dec 2027", "Full application", 0]
+  ];
+  var ns = "http://www.w3.org/2000/svg";
+  var svg = document.createElementNS(ns, "svg"); svg.setAttribute("viewBox", "0 0 " + W + " " + H); svg.setAttribute("role", "img");
+  svg.setAttribute("aria-label", "Timeline: in force 10 Dec 2024; notified-body rules 11 Jun 2026; Article 14 reporting 11 Sep 2026; Product Liability Directive 9 Dec 2026; full application 11 Dec 2027.");
+  function s(tag, attrs, text) { var e = document.createElementNS(ns, tag); for (var k in attrs) e.setAttribute(k, attrs[k]); if (text) e.textContent = text; svg.appendChild(e); return e; }
+  s("line", { x1: x0, y1: y, x2: x1, y2: y, "class": "tl-axis" });
+  var tx = Math.min(Math.max(X(today), x0), x1);
+  s("line", { x1: x0, y1: y, x2: tx, y2: y, "class": "tl-done" });
+  ev.forEach(function (e) {
+    var cx = X(e[0]); var past = e[0] <= today; var key = e[2] === "Full application";
+    s("circle", { cx: cx, cy: y, r: key ? 7 : 6, "class": "tl-dot" + (past ? " past" : "") + (key ? " key" : "") });
+    var up = e[3] === 1; var anchor = cx < x0 + 40 ? "start" : (cx > x1 - 40 ? "end" : "middle");
+    s("text", { x: cx, y: up ? y - 30 : y + 30, "text-anchor": anchor, "class": "tl-date" }, e[1]);
+    s("text", { x: cx, y: up ? y - 14 : y + 46, "text-anchor": anchor, "class": "tl-text" }, e[2]);
+  });
+  if (today > start && today < end) {
+    var d = 6;
+    s("path", { d: "M" + tx + " " + (y - d) + " L" + (tx + d) + " " + y + " L" + tx + " " + (y + d) + " L" + (tx - d) + " " + y + " Z", "class": "tl-today-mark" });
+    var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+    var ly = H - 8;
+    s("path", { d: "M" + (x0 + 5) + " " + (ly - 9) + " L" + (x0 + 10) + " " + (ly - 4) + " L" + (x0 + 5) + " " + (ly + 1) + " L" + x0 + " " + (ly - 4) + " Z", "class": "tl-today-mark" });
+    s("text", { x: x0 + 16, y: ly, "class": "tl-legend" }, "Today, " + now.getDate() + " " + months[now.getMonth()] + " " + now.getFullYear());
+    s("circle", { cx: x0 + 150, cy: ly - 4, r: 5, "class": "tl-dot past" });
+    s("text", { x: x0 + 162, y: ly, "class": "tl-legend" }, "Applies now");
+    s("circle", { cx: x0 + 262, cy: ly - 4, r: 5, "class": "tl-dot" });
+    s("text", { x: x0 + 274, y: ly, "class": "tl-legend" }, "Still to come");
+  }
+  document.getElementById("timeline").appendChild(svg);
+})();
+</script>

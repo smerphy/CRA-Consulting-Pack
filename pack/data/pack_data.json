@@ -1,0 +1,3877 @@
+{
+ "meta": {
+  "pack_name": "EU Cyber Resilience Act Readiness Programme",
+  "pack_short": "CRA Readiness Programme Pack",
+  "version": "1.0",
+  "issue_date": "31 Oct 2026",
+  "facts_as_at": "30 Oct 2026",
+  "illustrative_client": "Example Group",
+  "programme_codename": "Project Rampart",
+  "advisor_placeholder": "[Advisor]",
+  "classification_label": "Illustrative engagement — fictional client data; regulatory facts verified to 30 Oct 2026",
+  "days_to_full_application_from_issue": 406,
+  "days_to_full_application_from_board": 387,
+  "board_meeting": "19 Nov 2026",
+  "steerco_1": "30 Oct 2026",
+  "knowledge_base_url": "https://claude.ai/artifact/JC24c3EC3qR8Xz8k3858Wj"
+ },
+ "brand": {
+  "design_system_name": "Advisory Design System (white-label)",
+  "voice": "Calm, exact, decision-oriented. British English. Action titles that state the so-what. No hype, no emoji.",
+  "fonts": {
+   "display": "Source Serif 4",
+   "body": "Inter",
+   "mono": "JetBrains Mono",
+   "fallbacks": "Georgia, 'Times New Roman', serif / system-ui, -apple-system, Segoe UI, Arial, sans-serif"
+  },
+  "colors": {
+   "ink_900": "#0E1A2B",
+   "ink_700": "#26364D",
+   "ink_500": "#56667E",
+   "ink_300": "#C5CDD8",
+   "ink_100": "#EEF1F5",
+   "paper": "#FAFAF7",
+   "surface": "#FFFFFF",
+   "accent_700": "#0A5753",
+   "accent_600": "#0F6E6A",
+   "accent_400": "#2E9C93",
+   "accent_100": "#DCEFEC",
+   "signal": "#C2410C",
+   "rag_red": "#B42318",
+   "rag_amber": "#B54708",
+   "rag_green": "#027A48",
+   "rag_grey": "#8A94A6"
+  },
+  "dataviz_categorical": [
+   "#0F6E6A",
+   "#1F3A5F",
+   "#5B8DB8",
+   "#C9A66B",
+   "#B9573E",
+   "#8A94A6"
+  ],
+  "maturity_scale_colors": {
+   "0": "#B42318",
+   "1": "#E07A5F",
+   "2": "#E9C46A",
+   "3": "#7FB8A4",
+   "4": "#0F6E6A"
+  },
+  "rules": [
+   "Every slide/page has an action title: one full sentence stating the so-what (max ~15 words).",
+   "One message per slide; a tracker/section label top-left; source line bottom-left on any data slide.",
+   "Client numbers carry an 'Illustrative' tag; vendor/survey numbers carry their source and type.",
+   "Money as EUR with 'm'/'k' (EUR 9.3m, EUR 210k) or the euro sign; dates as 11 Dec 2027.",
+   "RAG colours only for status; accent teal for emphasis; signal orange only for the binding constraint.",
+   "No real company names for the client, no named individuals: roles only."
+  ]
+ },
+ "storyline": {
+  "governing_thought": "The CRA turns product cybersecurity into a licence to sell in the EU. Example Group can be ready by 11 Dec 2027, but only if it secures third-party assessment capacity and builds shared compliance infrastructure in the next two quarters.",
+  "scqa": {
+   "situation": "The Cyber Resilience Act (Regulation (EU) 2024/2847) has been in force since 10 Dec 2024. Article 14 reporting has applied since 11 Sep 2026 to every in-scope product, including those already sold. Everything else applies from 11 Dec 2027.",
+   "complication": "Three things make this harder than a normal compliance project: reporting is already live on a 24-hour clock; seven of Example Group's thirteen product families need a notified body or a cited harmonised standard, and neither exists today; and compliance must be proven with evidence for every product version for at least ten years.",
+   "question": "What must Example Group do, by when and at what cost to keep selling in the EU after 11 Dec 2027?",
+   "answer": "Run a 14-month, three-wave programme (Project Rampart): build shared capabilities once (PSIRT, SBOM, secure updates, evidence system), apply them product by product, and lock in notified-body capacity by Q1 2027. Investment is about EUR 9.3m to Dec 2027 and EUR 1.8m a year to run. The board is asked to take five decisions on 19 Nov 2026."
+  },
+  "pillars": [
+   {
+    "title": "Reporting is already law",
+    "message": "Every in-scope product — legacy included — is on a 24-hour reporting clock today.",
+    "proof": "Art 14 applies since 11 Sep 2026 (Art 69(3)); early warning 24h, notification 72h, final report 14 days / 1 month."
+   },
+   {
+    "title": "Market access is the binding constraint",
+    "message": "EUR 468m of annual EU revenue sits in Class I and II products that need a notified body that does not yet exist.",
+    "proof": "No harmonised standard cited; no CRA notified body designated at checks to 8 Sep 2026; vendor estimates of 12-18 months per body."
+   },
+   {
+    "title": "Compliance is an evidence system, not a project",
+    "message": "Build once, apply per product version, sustain for ten years.",
+    "proof": "Annex VII file per version; retention 10 years or support period (Art 13(13)); PLD disclosure from 9 Dec 2026."
+   }
+  ]
+ },
+ "client": {
+  "name": "Example Group",
+  "disclaimer": "Fictional company used to illustrate the method. Replace with the client's data.",
+  "hq": "Germany (main establishment; coordinator CSIRT is Germany's)",
+  "revenue_m": 1200,
+  "eu_revenue_m": 824.0,
+  "eu_share": 0.687,
+  "employees": 3800,
+  "engineers": 920,
+  "suppliers_in_scope": 41,
+  "installed_base_m": 2.3,
+  "existing_assurance": [
+   "ISO/IEC 27001 (corporate IT scope only)",
+   "IEC 62443-4-1 (Industrial Connectivity development process, 2024)",
+   "EN 18031-1 assessments for HBS radio products under the RED delegated act (2025)",
+   "Two-person PSIRT in Industrial Connectivity; no PSIRT in HBS or S&S before Sep 2026"
+  ],
+  "business_units": [
+   {
+    "id": "HBS",
+    "name": "Home & Building Solutions",
+    "revenue_m": 520,
+    "eu_share": 0.74,
+    "profile": "Consumer and building connected devices sold through retail, installers and online; all radio products (RED/EN 18031 assessed 2025)."
+   },
+   {
+    "id": "IC",
+    "name": "Industrial Connectivity",
+    "revenue_m": 560,
+    "eu_share": 0.66,
+    "profile": "Industrial networking and security appliances sold to OEMs, integrators and utilities; IEC 62443-4-1 certified development process (2024)."
+   },
+   {
+    "id": "SS",
+    "name": "Software & Services",
+    "revenue_m": 120,
+    "eu_share": 0.58,
+    "profile": "Device-management software, configuration tools, SDK and a cloud platform (SaaS, EUR 30m) that is remote data processing for several products."
+   }
+  ],
+  "product_families": [
+   {
+    "id": "T200",
+    "name": "T200 Smart Thermostat",
+    "bu": "HBS",
+    "bu_name": "Home & Building Solutions",
+    "cra_class": "Default",
+    "annex_item": "-",
+    "revenue_m": 170,
+    "eu_revenue_m": 125.8,
+    "skus": 6,
+    "wave": "Wave 1 (pilot)",
+    "route": "Module A",
+    "needs_notified_body": false,
+    "support_period_years": 10,
+    "rdps": "Cloud control service; update service",
+    "description": "Thermostat, iOS/Android app and manufacturer cloud; the pilot family."
+   },
+   {
+    "id": "SSR",
+    "name": "S-Series Room Sensors",
+    "bu": "HBS",
+    "bu_name": "Home & Building Solutions",
+    "cra_class": "Default",
+    "annex_item": "-",
+    "revenue_m": 80,
+    "eu_revenue_m": 59.2,
+    "skus": 9,
+    "wave": "Wave 2",
+    "route": "Module A",
+    "needs_notified_body": false,
+    "support_period_years": 8,
+    "rdps": "Via HomeHub H3 and cloud",
+    "description": "Battery room sensors (temperature, presence, air quality)."
+   },
+   {
+    "id": "H3",
+    "name": "HomeHub H3",
+    "bu": "HBS",
+    "bu_name": "Home & Building Solutions",
+    "cra_class": "Default (provisional)",
+    "annex_item": "Under legal review vs Annex III Class I item 17 (optional alarm mode)",
+    "revenue_m": 95,
+    "eu_revenue_m": 70.3,
+    "skus": 3,
+    "wave": "Wave 2",
+    "route": "Module A (B+C if Class I)",
+    "needs_notified_body": false,
+    "support_period_years": 7,
+    "rdps": "Cloud control; remote access relay",
+    "description": "Smart-home hub bridging Zigbee/Thread devices to the app; its optional alarm mode makes the classification borderline."
+   },
+   {
+    "id": "V1",
+    "name": "V1 Video Doorbell",
+    "bu": "HBS",
+    "bu_name": "Home & Building Solutions",
+    "cra_class": "Class I",
+    "annex_item": "Annex III Class I item 17 (security cameras)",
+    "revenue_m": 100,
+    "eu_revenue_m": 74.0,
+    "skus": 4,
+    "wave": "Wave 1",
+    "route": "Module B+C",
+    "needs_notified_body": true,
+    "support_period_years": 7,
+    "rdps": "Video cloud; event notification service",
+    "description": "Video doorbell with camera, two-way audio and cloud recording."
+   },
+   {
+    "id": "L2",
+    "name": "L2 Smart Lock",
+    "bu": "HBS",
+    "bu_name": "Home & Building Solutions",
+    "cra_class": "Class I",
+    "annex_item": "Annex III Class I item 17 (smart door locks)",
+    "revenue_m": 75,
+    "eu_revenue_m": 55.5,
+    "skus": 3,
+    "wave": "Wave 1",
+    "route": "Module B+C",
+    "needs_notified_body": true,
+    "support_period_years": 10,
+    "rdps": "Access-management cloud",
+    "description": "Smart door lock with app keys and guest access."
+   },
+   {
+    "id": "IR500",
+    "name": "IR-500 Industrial Router",
+    "bu": "IC",
+    "bu_name": "Industrial Connectivity",
+    "cra_class": "Class I",
+    "annex_item": "Annex III Class I item 12 (routers, modems, switches)",
+    "revenue_m": 165,
+    "eu_revenue_m": 108.9,
+    "skus": 7,
+    "wave": "Wave 1",
+    "route": "Module H",
+    "needs_notified_body": true,
+    "support_period_years": 12,
+    "rdps": "Optional FleetView Cloud management",
+    "description": "Cellular/fibre industrial routers for OT sites."
+   },
+   {
+    "id": "IS300",
+    "name": "IS-300 Managed Switch",
+    "bu": "IC",
+    "bu_name": "Industrial Connectivity",
+    "cra_class": "Class I",
+    "annex_item": "Annex III Class I item 12 (routers, modems, switches)",
+    "revenue_m": 120,
+    "eu_revenue_m": 79.2,
+    "skus": 10,
+    "wave": "Wave 1",
+    "route": "Module H",
+    "needs_notified_body": true,
+    "support_period_years": 12,
+    "rdps": "Optional FleetView Cloud management",
+    "description": "Managed industrial Ethernet switches."
+   },
+   {
+    "id": "EG700",
+    "name": "EG-700 Edge Gateway",
+    "bu": "IC",
+    "bu_name": "Industrial Connectivity",
+    "cra_class": "Default (provisional)",
+    "annex_item": "Under legal review vs Annex III Class I item 12 (cellular uplink routing)",
+    "revenue_m": 95,
+    "eu_revenue_m": 62.7,
+    "skus": 4,
+    "wave": "Wave 2",
+    "route": "Module A (H if Class I)",
+    "needs_notified_body": false,
+    "support_period_years": 10,
+    "rdps": "Cloud data connector; update service",
+    "description": "Edge gateway for protocol translation and edge compute; its cellular uplink routing makes the classification borderline."
+   },
+   {
+    "id": "SG900",
+    "name": "SG-900 Industrial Firewall/IDS",
+    "bu": "IC",
+    "bu_name": "Industrial Connectivity",
+    "cra_class": "Class II",
+    "annex_item": "Annex III Class II item 2 (firewalls, IDS/IPS)",
+    "revenue_m": 110,
+    "eu_revenue_m": 72.6,
+    "skus": 3,
+    "wave": "Wave 1",
+    "route": "Module H",
+    "needs_notified_body": true,
+    "support_period_years": 10,
+    "rdps": "Threat-signature update service",
+    "description": "Industrial firewall with intrusion detection and prevention."
+   },
+   {
+    "id": "SLINK",
+    "name": "SecureLink Remote Access",
+    "bu": "IC",
+    "bu_name": "Industrial Connectivity",
+    "cra_class": "Class I",
+    "annex_item": "Annex III Class I item 5 (VPN products)",
+    "revenue_m": 70,
+    "eu_revenue_m": 46.2,
+    "skus": 2,
+    "wave": "Wave 1",
+    "route": "Module H",
+    "needs_notified_body": true,
+    "support_period_years": 7,
+    "rdps": "Broker service; licence service",
+    "description": "Remote-access VPN software and appliance for machine builders."
+   },
+   {
+    "id": "FLEET",
+    "name": "FleetView Device Manager",
+    "bu": "SS",
+    "bu_name": "Software & Services",
+    "cra_class": "Class I",
+    "annex_item": "Annex III Class I item 6 (network management systems)",
+    "revenue_m": 55,
+    "eu_revenue_m": 31.9,
+    "skus": 2,
+    "wave": "Wave 1",
+    "route": "Module H",
+    "needs_notified_body": true,
+    "support_period_years": 5,
+    "rdps": "None (on-prem); cloud edition is SaaS",
+    "description": "On-premises network and device management software (per-version support periods)."
+   },
+   {
+    "id": "CSTUDIO",
+    "name": "ConfigStudio",
+    "bu": "SS",
+    "bu_name": "Software & Services",
+    "cra_class": "Default",
+    "annex_item": "-",
+    "revenue_m": 15,
+    "eu_revenue_m": 8.7,
+    "skus": 1,
+    "wave": "Wave 2",
+    "route": "Module A",
+    "needs_notified_body": false,
+    "support_period_years": 5,
+    "rdps": "Licence service",
+    "description": "Desktop configuration and commissioning tool."
+   },
+   {
+    "id": "SDK",
+    "name": "Example IoT SDK",
+    "bu": "SS",
+    "bu_name": "Software & Services",
+    "cra_class": "Default",
+    "annex_item": "-",
+    "revenue_m": 20,
+    "eu_revenue_m": 11.6,
+    "skus": 1,
+    "wave": "Wave 2",
+    "route": "Module A",
+    "needs_notified_body": false,
+    "support_period_years": 5,
+    "rdps": "None",
+    "description": "SDK and libraries licensed to OEMs; integrated into third-party products."
+   }
+  ],
+  "legacy_lines": [
+   {
+    "id": "T100",
+    "name": "T100 Thermostat (gen 1)",
+    "bu": "HBS",
+    "status": "End of sale 2025; support ended Mar 2026",
+    "units_in_field_k": 1100,
+    "still_sold_after_dec_2027": false,
+    "eu_revenue_m": 0
+   },
+   {
+    "id": "H2",
+    "name": "HomeHub H2",
+    "bu": "HBS",
+    "status": "End of sale 2024; security fixes to Dec 2026",
+    "units_in_field_k": 420,
+    "still_sold_after_dec_2027": false,
+    "eu_revenue_m": 0
+   },
+   {
+    "id": "V0",
+    "name": "V0 Indoor Camera",
+    "bu": "HBS",
+    "status": "End of sale 2023; unsupported",
+    "units_in_field_k": 260,
+    "still_sold_after_dec_2027": false,
+    "eu_revenue_m": 0
+   },
+   {
+    "id": "IR300",
+    "name": "IR-300 Router",
+    "bu": "IC",
+    "status": "Still sold to two OEM customers",
+    "units_in_field_k": 95,
+    "still_sold_after_dec_2027": true,
+    "eu_revenue_m": 11
+   },
+   {
+    "id": "IS200",
+    "name": "IS-200 Switch",
+    "bu": "IC",
+    "status": "Still sold as low-cost option",
+    "units_in_field_k": 140,
+    "still_sold_after_dec_2027": true,
+    "eu_revenue_m": 7
+   },
+   {
+    "id": "SL3",
+    "name": "SecureLink 3.x",
+    "bu": "IC",
+    "status": "Support ends Jun 2027",
+    "units_in_field_k": 18,
+    "still_sold_after_dec_2027": false,
+    "eu_revenue_m": 0
+   },
+   {
+    "id": "FV4",
+    "name": "FleetView 4.x",
+    "bu": "SS",
+    "status": "Support ends Dec 2026",
+    "units_in_field_k": 3,
+    "still_sold_after_dec_2027": false,
+    "eu_revenue_m": 0
+   }
+  ],
+  "counts": {
+   "families": 13,
+   "skus": 55,
+   "default": 6,
+   "class_i": 6,
+   "class_ii": 1,
+   "critical": 0,
+   "provisional": 2,
+   "legacy_lines": 7,
+   "saas_revenue_m": 30
+  },
+  "revenue_by_class_m": {
+   "Default": 475,
+   "Class I": 585,
+   "Class II": 110
+  },
+  "eu_revenue_by_class_m": {
+   "Default": 338.3,
+   "Class I": 395.7,
+   "Class II": 72.6
+  },
+  "eu_revenue_in_scope_products_m": 806.6,
+  "eu_revenue_saas_not_a_product_m": 17.4,
+  "eu_revenue_needing_notified_body_m": 468.3,
+  "eu_revenue_needing_notified_body_share_of_group": 0.39,
+  "routes": {
+   "module_a": [
+    "T200",
+    "SSR",
+    "H3",
+    "EG700",
+    "CSTUDIO",
+    "SDK"
+   ],
+   "module_bc": [
+    "V1",
+    "L2"
+   ],
+   "module_h": [
+    "IR500",
+    "IS300",
+    "SG900",
+    "SLINK",
+    "FLEET"
+   ]
+  }
+ },
+ "exposure": {
+  "fine_tiers": [
+   {
+    "tier": "Tier 1 — Annex I essential requirements; Arts 13 and 14",
+    "fixed_m": 15,
+    "pct": 2.5,
+    "example_group_max_m": 30.0,
+    "basis": "Art 64(2)"
+   },
+   {
+    "tier": "Tier 2 — other obligations (e.g. Arts 18-23, 28, 30-33)",
+    "fixed_m": 10,
+    "pct": 2.0,
+    "example_group_max_m": 24.0,
+    "basis": "Art 64(3)"
+   },
+   {
+    "tier": "Tier 3 — incorrect, incomplete or misleading information",
+    "fixed_m": 5,
+    "pct": 1.0,
+    "example_group_max_m": 12.0,
+    "basis": "Art 64(4)"
+   }
+  ],
+  "note": "Fines are the higher of the fixed amount and the percentage of worldwide annual turnover. Enforcement machinery applies from 11 Dec 2027; micro and small enterprises are exempt from fines for missing the 24-hour deadlines (Art 64(10)(a)).",
+  "market_access": {
+   "eu_revenue_needing_notified_body_m": 468.3,
+   "families": [
+    "V1",
+    "L2",
+    "IR500",
+    "IS300",
+    "SG900",
+    "SLINK",
+    "FLEET"
+   ],
+   "note": "Products that cannot be assessed may not be placed on the EU market from 11 Dec 2027; authorities can order withdrawal or recall (Arts 54-58)."
+  },
+  "product_liability": "Directive (EU) 2024/2853 applies to products placed on the market from 9 Dec 2026: software is a product, a vulnerability can be a defect, non-compliance with mandatory safety requirements raises a presumption of defectiveness (Art 10(2)(b)), and courts can order disclosure of evidence (Art 9).",
+  "legacy_decision": {
+   "lines": [
+    "IR300",
+    "IS200"
+   ],
+   "eu_revenue_m": 18,
+   "remediation_cost_estimate_m": 1.4,
+   "recommendation": "Withdraw IR-300 and IS-200 from EU sale before 11 Dec 2027 and migrate customers to IR-500/IS-300; remediation would cost about EUR 1.4m plus notified-body fees for EUR 18m of declining EU revenue."
+  }
+ },
+ "diagnostic": {
+  "name": "CRA Readiness Diagnostic",
+  "scale": [
+   {
+    "level": 0,
+    "name": "Not started",
+    "descriptor": "Nothing exists yet."
+   },
+   {
+    "level": 1,
+    "name": "Initial",
+    "descriptor": "Ad hoc or individual effort; not documented."
+   },
+   {
+    "level": 2,
+    "name": "Defined",
+    "descriptor": "Documented and partly applied; gaps known."
+   },
+   {
+    "level": 3,
+    "name": "Implemented",
+    "descriptor": "Applied consistently for this product, with evidence."
+   },
+   {
+    "level": 4,
+    "name": "Assured",
+    "descriptor": "Measured, independently reviewed and audit-ready."
+   }
+  ],
+  "target_level": 3,
+  "readiness_index_definition": "Mean over questions of min(score, 3) / 3. Level 4 does not offset gaps elsewhere. 100% means every question at level 3 or above.",
+  "domains": [
+   {
+    "id": "D1",
+    "name": "Governance and accountability",
+    "short": "Governance",
+    "questions": [
+     {
+      "id": "Q1.1",
+      "text": "A named executive is accountable for CRA compliance, with written authority to block a release and to sign EU declarations of conformity.",
+      "basis": "Art 13(1); Art 28(4)",
+      "evidence": "Board or ExCo instrument naming the accountable executive and the DoC signatory",
+      "action": "Execute a signing instrument naming the DoC signatory, alternate and scope; write release-blocking authority into the sponsor's mandate."
+     },
+     {
+      "id": "Q1.2",
+      "text": "The core CRA roles (compliance lead, product security officer, PSIRT lead) are filled by named people with deputies.",
+      "basis": "Art 13; BSI TR-03183-3 s4.3",
+      "evidence": "Role descriptions, appointments, deputy chain",
+      "action": "Appoint named role holders and deputies; publish the RACI with one accountable person per decision."
+     },
+     {
+      "id": "Q1.3",
+      "text": "A written product-risk acceptance rule excludes cost, risk appetite and commercial strategy as reasons to leave risk unaddressed.",
+      "basis": "Annex I Part I(1); guidance C(2026) 5252 paras 156-163",
+      "evidence": "Risk policy section for the product-risk category; acceptance log",
+      "action": "Add a product-risk category to the enterprise risk framework with its own acceptance authority and a non-cost appeal route."
+     },
+     {
+      "id": "Q1.4",
+      "text": "A programme board reviews CRA readiness monthly against KPIs drawn from a system of record.",
+      "basis": "Good practice; Annex VIII Module H pt 3.2",
+      "evidence": "Programme board minutes; KPI pack",
+      "action": "Run a monthly programme board with a standing agenda and KPIs read from the system of record."
+     }
+    ]
+   },
+   {
+    "id": "D2",
+    "name": "Scope, inventory and classification",
+    "short": "Scope & class",
+    "questions": [
+     {
+      "id": "Q2.1",
+      "text": "Every product, version, variant, companion app and backend is in a register with a recorded scope decision.",
+      "basis": "Art 2(1); Art 3(1); guidance paras 11-16",
+      "evidence": "Scope register extract; decision records",
+      "action": "Build the register from release, commercial and cloud systems, then record a dated scope decision per row."
+     },
+     {
+      "id": "Q2.2",
+      "text": "Remote data processing boundaries are mapped per product function using the three-element test.",
+      "basis": "Art 3(2); guidance paras 184-205",
+      "evidence": "Remote-function map per product",
+      "action": "Map every remote function to its service, developer and fallback; classify each as RDPS, component or out of scope."
+     },
+     {
+      "id": "Q2.3",
+      "text": "Each product has a documented class (default, Class I, Class II or critical) with a core-functionality rationale.",
+      "basis": "Arts 7-8; Annexes III-IV; Implementing Regulation (EU) 2025/2392",
+      "evidence": "Classification decision record citing the technical description",
+      "action": "Classify on core functionality against the Implementing Regulation's technical descriptions; take legal review on borderline cases."
+     },
+     {
+      "id": "Q2.4",
+      "text": "The economic-operator role per market and the legacy status of each product line are recorded.",
+      "basis": "Arts 18-22; Art 69(2)-(3)",
+      "evidence": "Role-per-market table; legacy flags in the register",
+      "action": "Record manufacturer, importer, distributor or representative per market; flag lines still sold after 11 Dec 2027."
+     }
+    ]
+   },
+   {
+    "id": "D3",
+    "name": "Risk assessment and secure by design",
+    "short": "Risk & design",
+    "questions": [
+     {
+      "id": "Q3.1",
+      "text": "A documented cybersecurity risk assessment exists for the product or family, covering intended purpose, foreseeable use and expected time in use.",
+      "basis": "Art 13(2)-(3); Annex VII point 3",
+      "evidence": "Signed risk assessment",
+      "action": "Run a TR-03183-1-style assessment on the representative product and sign it off through the second line."
+     },
+     {
+      "id": "Q3.2",
+      "text": "The assessment states whether and how each Annex I Part I(2)(a)-(m) item applies, with a justification for every item marked not applicable.",
+      "basis": "Art 13(3)-(4); Recital 55",
+      "evidence": "Applicability matrix with justifications",
+      "action": "Complete the 13-row applicability matrix; no row may be signed with a blank justification."
+     },
+     {
+      "id": "Q3.3",
+      "text": "Threat models and data-flow diagrams are maintained and updated on defined triggers, not on a calendar.",
+      "basis": "Art 13(3); Annex I Part II(3); guidance paras 238-240",
+      "evidence": "Threat model versions with change log",
+      "action": "Wire update triggers (security-relevant release, new vulnerability, new threat) into the release and PSIRT processes."
+     },
+     {
+      "id": "Q3.4",
+      "text": "Secure-by-default configuration (no default credentials, minimal exposed services, reset to original state) is verified at every release.",
+      "basis": "Annex I Part I(2)(b), (j)",
+      "evidence": "Default-configuration export; reset test record",
+      "action": "Add a secure-default configuration check and a reset test to the release gate."
+     }
+    ]
+   },
+   {
+    "id": "D4",
+    "name": "Secure development and testing",
+    "short": "SDLC & testing",
+    "questions": [
+     {
+      "id": "Q4.1",
+      "text": "A documented secure development lifecycle with a release security gate applies to every release.",
+      "basis": "Annex I Part I(1); Annex VIII Module H pt 3.2",
+      "evidence": "SDLC procedure; release gate records",
+      "action": "Define the release security gate and make its signed record a precondition for tagging a release."
+     },
+     {
+      "id": "Q4.2",
+      "text": "Every release is checked for known exploitable vulnerabilities against EUVD, NVD and the CISA KEV catalogue before it ships.",
+      "basis": "Annex I Part I(2)(a); guidance paras 230-237",
+      "evidence": "Scan reports and VEX tied to the release SBOM",
+      "action": "Automate a known-exploitable check that blocks the release unless each finding is fixed or carries a VEX justification."
+     },
+     {
+      "id": "Q4.3",
+      "text": "Security testing (static analysis, fuzzing, dynamic testing, penetration tests) is risk-driven and evidenced per release.",
+      "basis": "Annex I Part II(3); Annex VII point 6",
+      "evidence": "Test plan with review log; test reports",
+      "action": "Write a threat-driven test plan per product and keep a dated review log showing what was re-tested and why."
+     },
+     {
+      "id": "Q4.4",
+      "text": "Each release records a substantial-modification decision using the four-question test.",
+      "basis": "Art 3(30); guidance paras 103-124",
+      "evidence": "Security-delta assessment on the gate record",
+      "action": "Add the four guidance questions to the release gate and route positive answers to a new declaration."
+     }
+    ]
+   },
+   {
+    "id": "D5",
+    "name": "Supply chain, SBOM and open source",
+    "short": "SBOM & supply chain",
+    "questions": [
+     {
+      "id": "Q5.1",
+      "text": "A machine-readable SBOM (CycloneDX 1.6+ or SPDX 3.0.1+) is generated from the shipped artefact for every release.",
+      "basis": "Annex I Part II(1); Annex VII point 2(b); BSI TR-03183-2",
+      "evidence": "Signed SBOM per release with quality score",
+      "action": "Generate SBOMs at build from the artefact, enrich to TR-03183-2 fields, sign and store them with the release."
+     },
+     {
+      "id": "Q5.2",
+      "text": "Third-party and open-source components pass a documented due-diligence gate before use.",
+      "basis": "Art 13(5); Recital 34; guidance paras 167-173",
+      "evidence": "Component intake records",
+      "action": "Run an intake gate on every new dependency recording need, maintenance signals, licence, vulnerability history and exit plan."
+     },
+     {
+      "id": "Q5.3",
+      "text": "Supplier contracts require vulnerability notification, SBOM delivery and support-period commitments.",
+      "basis": "Art 13(5), (8); Art 23",
+      "evidence": "Contract clause register",
+      "action": "Add the CRA clause pack to master agreements, starting with suppliers of security-relevant components."
+     },
+     {
+      "id": "Q5.4",
+      "text": "Vulnerabilities found in components are reported upstream and fixes are shared with maintainers.",
+      "basis": "Art 13(6); guidance paras 222-229",
+      "evidence": "Upstream report log in PSIRT case files",
+      "action": "Give PSIRT or the OSPO ownership of upstream reporting, with a duplicate check and legal pre-clearance for fix sharing."
+     }
+    ]
+   },
+   {
+    "id": "D6",
+    "name": "Vulnerability handling and disclosure",
+    "short": "Vulnerability handling",
+    "questions": [
+     {
+      "id": "Q6.1",
+      "text": "A coordinated vulnerability disclosure policy, a security.txt file and a non-automated contact channel are published.",
+      "basis": "Annex I Part II(5)-(6); Art 13(17)",
+      "evidence": "Published CVD policy URL; security.txt; intake monitoring log",
+      "action": "Publish the CVD policy and security.txt, add an anonymous web form and a monitored human channel."
+     },
+     {
+      "id": "Q6.2",
+      "text": "A PSIRT triages every report and monitoring hit for severity, reachability and active exploitation.",
+      "basis": "Annex I Part II(2); Art 14(1)",
+      "evidence": "PSIRT procedure; case files with UTC timestamps",
+      "action": "Open a case for every report and hit; record reachability and the exploitation decision in UTC."
+     },
+     {
+      "id": "Q6.3",
+      "text": "Fixed vulnerabilities are disclosed in public advisories, machine-readable where appropriate, with VEX for non-affected findings.",
+      "basis": "Annex I Part II(4); BSI TR-03183-3",
+      "evidence": "Advisory index; CSAF documents; VEX files",
+      "action": "Stand up an advisory page and a CSAF provider; publish VEX statements for findings that do not affect the product."
+     },
+     {
+      "id": "Q6.4",
+      "text": "Vulnerability case records are retained and response metrics are reported.",
+      "basis": "Art 13(7), (13)",
+      "evidence": "Quarterly PSIRT metrics; retention rule",
+      "action": "Report acknowledgement and fix times quarterly and retain case files for 10 years or the support period."
+     }
+    ]
+   },
+   {
+    "id": "D7",
+    "name": "Updates and support period",
+    "short": "Updates & support",
+    "questions": [
+     {
+      "id": "Q7.1",
+      "text": "Updates are signed, verified before install, protected against rollback and recoverable after a failed install.",
+      "basis": "Annex I Part I(2)(c), (f); Annex I Part II(7)",
+      "evidence": "Update design note; acceptance tests",
+      "action": "Move signing keys into an HSM, add anti-rollback counters and atomic install with recovery."
+     },
+     {
+      "id": "Q7.2",
+      "text": "Security updates install automatically by default where applicable, with user notification and a clear opt-out.",
+      "basis": "Annex I Part I(2)(c); Recital 56",
+      "evidence": "Default configuration export; Annex II point 8(e) text",
+      "action": "Turn automatic security updates on by default, or record the Recital 56 carve-out in the risk assessment."
+     },
+     {
+      "id": "Q7.3",
+      "text": "Security fixes can ship separately from feature releases and remain available for at least 10 years.",
+      "basis": "Annex I Part II(2), (8); Art 13(9)",
+      "evidence": "Maintenance branch policy; update repository retention",
+      "action": "Run security-only maintenance branches and an immutable update repository retained for 10 years."
+     },
+     {
+      "id": "Q7.4",
+      "text": "A support period is set per product from expected time in use, and the end date is shown at purchase.",
+      "basis": "Art 13(8), (19); Annex II point 7",
+      "evidence": "Support-period determination record; product page",
+      "action": "Determine the support period from expected use time (five years is a floor) and publish the end month and year."
+     }
+    ]
+   },
+   {
+    "id": "D8",
+    "name": "Article 14 reporting readiness",
+    "short": "Art 14 reporting",
+    "questions": [
+     {
+      "id": "Q8.1",
+      "text": "At least two Assigned Representatives are registered on the ENISA Single Reporting Platform with MFA, and the coordinator CSIRT is decided.",
+      "basis": "Art 14(7); ENISA SRP FAQ 9, 18",
+      "evidence": "SRP roster; coordinator CSIRT decision record",
+      "action": "Register two or more personal EU Logins with MFA and record the main-establishment decision before any incident."
+     },
+     {
+      "id": "Q8.2",
+      "text": "Written awareness criteria and a 24/7 on-call chain allow an early warning to be filed within 24 hours, including at weekends.",
+      "basis": "Art 14(2)(a), (4)(a); guidance para 213",
+      "evidence": "PSIRT runbook; on-call rota; deputy chain",
+      "action": "Write the awareness test into the runbook and give the PSIRT lead and deputies authority to file without prior approval."
+     },
+     {
+      "id": "Q8.3",
+      "text": "Templates for the 24-hour, 72-hour and final reports and for user notification exist and have been rehearsed.",
+      "basis": "Art 14(2)-(4), (8); ENISA SRP glossary",
+      "evidence": "Templates; drill records",
+      "action": "Draft templates on the SRP glossary fields and run two paper drills a year, one vulnerability and one incident."
+     },
+     {
+      "id": "Q8.4",
+      "text": "Legacy and end-of-support products are included in the reportable inventory.",
+      "basis": "Art 69(3); guidance para 210",
+      "evidence": "Reportable inventory including legacy lines",
+      "action": "Add every in-scope product still in use to the reportable inventory, including lines no longer sold or supported."
+     }
+    ]
+   },
+   {
+    "id": "D9",
+    "name": "Documentation, user information and declaration",
+    "short": "Documentation & DoC",
+    "questions": [
+     {
+      "id": "Q9.1",
+      "text": "An Annex VII technical file exists for each product version and is versioned with releases.",
+      "basis": "Art 31; Art 13(12)-(13); Annex VII",
+      "evidence": "Technical file index per version",
+      "action": "Adopt the 13-part file outline and generate version-linked contents from the release pipeline."
+     },
+     {
+      "id": "Q9.2",
+      "text": "Annex II user information, including the support end date and the vulnerability contact, is drafted and ready to publish.",
+      "basis": "Art 13(18)-(19); Annex II",
+      "evidence": "Annex II document per product",
+      "action": "Draft the Annex II document per product family and publish it at a stable, versioned URL."
+     },
+     {
+      "id": "Q9.3",
+      "text": "The EU declaration of conformity format, signing authority and CE marking placement are decided.",
+      "basis": "Arts 28-30; Annexes V-VI",
+      "evidence": "DoC template; signing instrument; CE placement record",
+      "action": "Agree the DoC template and languages, the signing instrument and where the CE marking sits for hardware and software."
+     },
+     {
+      "id": "Q9.4",
+      "text": "Evidence sits in a system of record with 10-year retention and can answer a reasoned request within 10 working days.",
+      "basis": "Art 13(13), (22); Art 64(4)",
+      "evidence": "System of record; tested request export",
+      "action": "Select a system of record, compute retention per version and test an end-to-end reasoned-request export."
+     }
+    ]
+   },
+   {
+    "id": "D10",
+    "name": "Conformity assessment and market access",
+    "short": "Conformity & access",
+    "questions": [
+     {
+      "id": "Q10.1",
+      "text": "The conformity route for the product (Module A, B+C or H) is decided, with a fallback.",
+      "basis": "Art 32; Annex VIII",
+      "evidence": "Route decision record",
+      "action": "Decide the route per family; for Class I, plan third-party assessment until a harmonised standard is cited."
+     },
+     {
+      "id": "Q10.2",
+      "text": "Candidate notified bodies are shortlisted and a pre-assessment is contracted where the route needs one.",
+      "basis": "Art 32(2)-(3); Arts 35-43",
+      "evidence": "Shortlist; pre-assessment contract",
+      "action": "Shortlist three candidates, contract pre-assessments with conversion options, and check NANDO at every programme board."
+     },
+     {
+      "id": "Q10.3",
+      "text": "A complete Module A internal-control record is kept for the product, even where a notified body will be used.",
+      "basis": "Annex VIII Module A",
+      "evidence": "Internal-control record with evidence index",
+      "action": "Build the Module A record and evidence index now; it is the fallback and the body's application pack."
+     },
+     {
+      "id": "Q10.4",
+      "text": "EU representation, importer and distributor duties and marketplace arrangements are settled for each market.",
+      "basis": "Arts 18-20; Regulation (EU) 2019/1020 Art 4",
+      "evidence": "Representation decision per market; mandates",
+      "action": "Confirm the role per market, appoint an authorised representative where useful and brief importers on their checks."
+     }
+    ]
+   }
+  ],
+  "baseline_date": "28 Oct 2026",
+  "baseline_label": "Illustrative baseline — Example Group, self-assessed by product teams and moderated by the programme, 28 Oct 2026",
+  "baseline_scores": {
+   "T200": {
+    "Q1.1": 2,
+    "Q1.2": 2,
+    "Q1.3": 1,
+    "Q1.4": 2,
+    "Q2.1": 2,
+    "Q2.2": 1,
+    "Q2.3": 2,
+    "Q2.4": 1,
+    "Q3.1": 2,
+    "Q3.2": 2,
+    "Q3.3": 2,
+    "Q3.4": 2,
+    "Q4.1": 1,
+    "Q4.2": 1,
+    "Q4.3": 1,
+    "Q4.4": 1,
+    "Q5.1": 1,
+    "Q5.2": 1,
+    "Q5.3": 1,
+    "Q5.4": 2,
+    "Q6.1": 1,
+    "Q6.2": 1,
+    "Q6.3": 0,
+    "Q6.4": 0,
+    "Q7.1": 2,
+    "Q7.2": 2,
+    "Q7.3": 1,
+    "Q7.4": 2,
+    "Q8.1": 3,
+    "Q8.2": 2,
+    "Q8.3": 2,
+    "Q8.4": 1,
+    "Q9.1": 1,
+    "Q9.2": 1,
+    "Q9.3": 1,
+    "Q9.4": 1,
+    "Q10.1": 2,
+    "Q10.2": 1,
+    "Q10.3": 1,
+    "Q10.4": 0
+   },
+   "SSR": {
+    "Q1.1": 2,
+    "Q1.2": 2,
+    "Q1.3": 1,
+    "Q1.4": 2,
+    "Q2.1": 1,
+    "Q2.2": 1,
+    "Q2.3": 1,
+    "Q2.4": 1,
+    "Q3.1": 2,
+    "Q3.2": 1,
+    "Q3.3": 1,
+    "Q3.4": 1,
+    "Q4.1": 1,
+    "Q4.2": 1,
+    "Q4.3": 1,
+    "Q4.4": 1,
+    "Q5.1": 1,
+    "Q5.2": 0,
+    "Q5.3": 0,
+    "Q5.4": 1,
+    "Q6.1": 1,
+    "Q6.2": 1,
+    "Q6.3": 1,
+    "Q6.4": 0,
+    "Q7.1": 2,
+    "Q7.2": 2,
+    "Q7.3": 2,
+    "Q7.4": 2,
+    "Q8.1": 3,
+    "Q8.2": 2,
+    "Q8.3": 2,
+    "Q8.4": 1,
+    "Q9.1": 0,
+    "Q9.2": 1,
+    "Q9.3": 1,
+    "Q9.4": 0,
+    "Q10.1": 1,
+    "Q10.2": 1,
+    "Q10.3": 0,
+    "Q10.4": 0
+   },
+   "H3": {
+    "Q1.1": 2,
+    "Q1.2": 2,
+    "Q1.3": 1,
+    "Q1.4": 2,
+    "Q2.1": 1,
+    "Q2.2": 1,
+    "Q2.3": 1,
+    "Q2.4": 0,
+    "Q3.1": 2,
+    "Q3.2": 1,
+    "Q3.3": 1,
+    "Q3.4": 1,
+    "Q4.1": 1,
+    "Q4.2": 1,
+    "Q4.3": 1,
+    "Q4.4": 1,
+    "Q5.1": 1,
+    "Q5.2": 1,
+    "Q5.3": 0,
+    "Q5.4": 0,
+    "Q6.1": 1,
+    "Q6.2": 1,
+    "Q6.3": 1,
+    "Q6.4": 1,
+    "Q7.1": 2,
+    "Q7.2": 1,
+    "Q7.3": 2,
+    "Q7.4": 2,
+    "Q8.1": 3,
+    "Q8.2": 2,
+    "Q8.3": 2,
+    "Q8.4": 1,
+    "Q9.1": 1,
+    "Q9.2": 0,
+    "Q9.3": 1,
+    "Q9.4": 1,
+    "Q10.1": 1,
+    "Q10.2": 1,
+    "Q10.3": 0,
+    "Q10.4": 0
+   },
+   "V1": {
+    "Q1.1": 2,
+    "Q1.2": 2,
+    "Q1.3": 1,
+    "Q1.4": 2,
+    "Q2.1": 2,
+    "Q2.2": 1,
+    "Q2.3": 1,
+    "Q2.4": 1,
+    "Q3.1": 2,
+    "Q3.2": 1,
+    "Q3.3": 1,
+    "Q3.4": 2,
+    "Q4.1": 1,
+    "Q4.2": 2,
+    "Q4.3": 1,
+    "Q4.4": 0,
+    "Q5.1": 1,
+    "Q5.2": 1,
+    "Q5.3": 1,
+    "Q5.4": 1,
+    "Q6.1": 1,
+    "Q6.2": 1,
+    "Q6.3": 0,
+    "Q6.4": 0,
+    "Q7.1": 2,
+    "Q7.2": 2,
+    "Q7.3": 2,
+    "Q7.4": 1,
+    "Q8.1": 3,
+    "Q8.2": 2,
+    "Q8.3": 2,
+    "Q8.4": 1,
+    "Q9.1": 0,
+    "Q9.2": 0,
+    "Q9.3": 1,
+    "Q9.4": 1,
+    "Q10.1": 1,
+    "Q10.2": 0,
+    "Q10.3": 0,
+    "Q10.4": 0
+   },
+   "L2": {
+    "Q1.1": 2,
+    "Q1.2": 2,
+    "Q1.3": 1,
+    "Q1.4": 2,
+    "Q2.1": 1,
+    "Q2.2": 1,
+    "Q2.3": 1,
+    "Q2.4": 1,
+    "Q3.1": 1,
+    "Q3.2": 1,
+    "Q3.3": 1,
+    "Q3.4": 2,
+    "Q4.1": 1,
+    "Q4.2": 2,
+    "Q4.3": 1,
+    "Q4.4": 0,
+    "Q5.1": 1,
+    "Q5.2": 1,
+    "Q5.3": 0,
+    "Q5.4": 0,
+    "Q6.1": 1,
+    "Q6.2": 1,
+    "Q6.3": 1,
+    "Q6.4": 0,
+    "Q7.1": 2,
+    "Q7.2": 1,
+    "Q7.3": 2,
+    "Q7.4": 1,
+    "Q8.1": 3,
+    "Q8.2": 2,
+    "Q8.3": 2,
+    "Q8.4": 1,
+    "Q9.1": 0,
+    "Q9.2": 0,
+    "Q9.3": 1,
+    "Q9.4": 1,
+    "Q10.1": 1,
+    "Q10.2": 0,
+    "Q10.3": 0,
+    "Q10.4": 0
+   },
+   "IR500": {
+    "Q1.1": 2,
+    "Q1.2": 2,
+    "Q1.3": 1,
+    "Q1.4": 2,
+    "Q2.1": 2,
+    "Q2.2": 1,
+    "Q2.3": 2,
+    "Q2.4": 1,
+    "Q3.1": 2,
+    "Q3.2": 1,
+    "Q3.3": 2,
+    "Q3.4": 1,
+    "Q4.1": 3,
+    "Q4.2": 3,
+    "Q4.3": 2,
+    "Q4.4": 2,
+    "Q5.1": 1,
+    "Q5.2": 1,
+    "Q5.3": 1,
+    "Q5.4": 1,
+    "Q6.1": 2,
+    "Q6.2": 2,
+    "Q6.3": 2,
+    "Q6.4": 1,
+    "Q7.1": 2,
+    "Q7.2": 2,
+    "Q7.3": 1,
+    "Q7.4": 2,
+    "Q8.1": 3,
+    "Q8.2": 2,
+    "Q8.3": 2,
+    "Q8.4": 2,
+    "Q9.1": 0,
+    "Q9.2": 1,
+    "Q9.3": 1,
+    "Q9.4": 1,
+    "Q10.1": 1,
+    "Q10.2": 0,
+    "Q10.3": 0,
+    "Q10.4": 0
+   },
+   "IS300": {
+    "Q1.1": 2,
+    "Q1.2": 2,
+    "Q1.3": 1,
+    "Q1.4": 2,
+    "Q2.1": 2,
+    "Q2.2": 2,
+    "Q2.3": 2,
+    "Q2.4": 1,
+    "Q3.1": 2,
+    "Q3.2": 1,
+    "Q3.3": 1,
+    "Q3.4": 2,
+    "Q4.1": 3,
+    "Q4.2": 2,
+    "Q4.3": 3,
+    "Q4.4": 2,
+    "Q5.1": 1,
+    "Q5.2": 1,
+    "Q5.3": 1,
+    "Q5.4": 2,
+    "Q6.1": 2,
+    "Q6.2": 2,
+    "Q6.3": 1,
+    "Q6.4": 2,
+    "Q7.1": 1,
+    "Q7.2": 2,
+    "Q7.3": 1,
+    "Q7.4": 2,
+    "Q8.1": 3,
+    "Q8.2": 2,
+    "Q8.3": 2,
+    "Q8.4": 2,
+    "Q9.1": 1,
+    "Q9.2": 1,
+    "Q9.3": 1,
+    "Q9.4": 1,
+    "Q10.1": 1,
+    "Q10.2": 0,
+    "Q10.3": 1,
+    "Q10.4": 0
+   },
+   "EG700": {
+    "Q1.1": 2,
+    "Q1.2": 2,
+    "Q1.3": 1,
+    "Q1.4": 2,
+    "Q2.1": 2,
+    "Q2.2": 1,
+    "Q2.3": 2,
+    "Q2.4": 1,
+    "Q3.1": 2,
+    "Q3.2": 1,
+    "Q3.3": 2,
+    "Q3.4": 2,
+    "Q4.1": 2,
+    "Q4.2": 2,
+    "Q4.3": 2,
+    "Q4.4": 2,
+    "Q5.1": 1,
+    "Q5.2": 1,
+    "Q5.3": 1,
+    "Q5.4": 1,
+    "Q6.1": 2,
+    "Q6.2": 2,
+    "Q6.3": 2,
+    "Q6.4": 1,
+    "Q7.1": 2,
+    "Q7.2": 2,
+    "Q7.3": 1,
+    "Q7.4": 2,
+    "Q8.1": 3,
+    "Q8.2": 2,
+    "Q8.3": 2,
+    "Q8.4": 2,
+    "Q9.1": 0,
+    "Q9.2": 1,
+    "Q9.3": 1,
+    "Q9.4": 0,
+    "Q10.1": 1,
+    "Q10.2": 0,
+    "Q10.3": 1,
+    "Q10.4": 0
+   },
+   "SG900": {
+    "Q1.1": 2,
+    "Q1.2": 2,
+    "Q1.3": 1,
+    "Q1.4": 2,
+    "Q2.1": 2,
+    "Q2.2": 1,
+    "Q2.3": 1,
+    "Q2.4": 1,
+    "Q3.1": 2,
+    "Q3.2": 2,
+    "Q3.3": 2,
+    "Q3.4": 2,
+    "Q4.1": 3,
+    "Q4.2": 2,
+    "Q4.3": 3,
+    "Q4.4": 2,
+    "Q5.1": 2,
+    "Q5.2": 1,
+    "Q5.3": 1,
+    "Q5.4": 1,
+    "Q6.1": 2,
+    "Q6.2": 3,
+    "Q6.3": 2,
+    "Q6.4": 1,
+    "Q7.1": 1,
+    "Q7.2": 2,
+    "Q7.3": 1,
+    "Q7.4": 1,
+    "Q8.1": 3,
+    "Q8.2": 2,
+    "Q8.3": 2,
+    "Q8.4": 2,
+    "Q9.1": 1,
+    "Q9.2": 1,
+    "Q9.3": 1,
+    "Q9.4": 1,
+    "Q10.1": 1,
+    "Q10.2": 1,
+    "Q10.3": 1,
+    "Q10.4": 1
+   },
+   "SLINK": {
+    "Q1.1": 2,
+    "Q1.2": 2,
+    "Q1.3": 1,
+    "Q1.4": 2,
+    "Q2.1": 2,
+    "Q2.2": 2,
+    "Q2.3": 1,
+    "Q2.4": 1,
+    "Q3.1": 2,
+    "Q3.2": 1,
+    "Q3.3": 1,
+    "Q3.4": 2,
+    "Q4.1": 3,
+    "Q4.2": 2,
+    "Q4.3": 2,
+    "Q4.4": 2,
+    "Q5.1": 2,
+    "Q5.2": 1,
+    "Q5.3": 1,
+    "Q5.4": 2,
+    "Q6.1": 2,
+    "Q6.2": 2,
+    "Q6.3": 1,
+    "Q6.4": 2,
+    "Q7.1": 2,
+    "Q7.2": 1,
+    "Q7.3": 2,
+    "Q7.4": 2,
+    "Q8.1": 3,
+    "Q8.2": 2,
+    "Q8.3": 2,
+    "Q8.4": 2,
+    "Q9.1": 0,
+    "Q9.2": 1,
+    "Q9.3": 1,
+    "Q9.4": 1,
+    "Q10.1": 1,
+    "Q10.2": 1,
+    "Q10.3": 1,
+    "Q10.4": 0
+   },
+   "FLEET": {
+    "Q1.1": 2,
+    "Q1.2": 2,
+    "Q1.3": 1,
+    "Q1.4": 2,
+    "Q2.1": 2,
+    "Q2.2": 2,
+    "Q2.3": 2,
+    "Q2.4": 1,
+    "Q3.1": 2,
+    "Q3.2": 0,
+    "Q3.3": 1,
+    "Q3.4": 1,
+    "Q4.1": 2,
+    "Q4.2": 2,
+    "Q4.3": 2,
+    "Q4.4": 1,
+    "Q5.1": 1,
+    "Q5.2": 1,
+    "Q5.3": 1,
+    "Q5.4": 2,
+    "Q6.1": 2,
+    "Q6.2": 1,
+    "Q6.3": 0,
+    "Q6.4": 0,
+    "Q7.1": 1,
+    "Q7.2": 1,
+    "Q7.3": 1,
+    "Q7.4": 1,
+    "Q8.1": 3,
+    "Q8.2": 2,
+    "Q8.3": 2,
+    "Q8.4": 2,
+    "Q9.1": 0,
+    "Q9.2": 0,
+    "Q9.3": 1,
+    "Q9.4": 1,
+    "Q10.1": 1,
+    "Q10.2": 0,
+    "Q10.3": 0,
+    "Q10.4": 0
+   },
+   "CSTUDIO": {
+    "Q1.1": 2,
+    "Q1.2": 2,
+    "Q1.3": 1,
+    "Q1.4": 2,
+    "Q2.1": 2,
+    "Q2.2": 2,
+    "Q2.3": 2,
+    "Q2.4": 1,
+    "Q3.1": 1,
+    "Q3.2": 1,
+    "Q3.3": 1,
+    "Q3.4": 1,
+    "Q4.1": 2,
+    "Q4.2": 2,
+    "Q4.3": 2,
+    "Q4.4": 1,
+    "Q5.1": 2,
+    "Q5.2": 2,
+    "Q5.3": 2,
+    "Q5.4": 1,
+    "Q6.1": 1,
+    "Q6.2": 1,
+    "Q6.3": 1,
+    "Q6.4": 1,
+    "Q7.1": 1,
+    "Q7.2": 1,
+    "Q7.3": 0,
+    "Q7.4": 0,
+    "Q8.1": 3,
+    "Q8.2": 2,
+    "Q8.3": 2,
+    "Q8.4": 2,
+    "Q9.1": 1,
+    "Q9.2": 1,
+    "Q9.3": 1,
+    "Q9.4": 1,
+    "Q10.1": 1,
+    "Q10.2": 0,
+    "Q10.3": 0,
+    "Q10.4": 0
+   },
+   "SDK": {
+    "Q1.1": 2,
+    "Q1.2": 2,
+    "Q1.3": 1,
+    "Q1.4": 2,
+    "Q2.1": 1,
+    "Q2.2": 1,
+    "Q2.3": 1,
+    "Q2.4": 1,
+    "Q3.1": 1,
+    "Q3.2": 1,
+    "Q3.3": 0,
+    "Q3.4": 1,
+    "Q4.1": 2,
+    "Q4.2": 2,
+    "Q4.3": 1,
+    "Q4.4": 1,
+    "Q5.1": 2,
+    "Q5.2": 2,
+    "Q5.3": 2,
+    "Q5.4": 2,
+    "Q6.1": 1,
+    "Q6.2": 1,
+    "Q6.3": 1,
+    "Q6.4": 0,
+    "Q7.1": 1,
+    "Q7.2": 0,
+    "Q7.3": 0,
+    "Q7.4": 1,
+    "Q8.1": 3,
+    "Q8.2": 2,
+    "Q8.3": 2,
+    "Q8.4": 2,
+    "Q9.1": 1,
+    "Q9.2": 1,
+    "Q9.3": 1,
+    "Q9.4": 0,
+    "Q10.1": 1,
+    "Q10.2": 0,
+    "Q10.3": 0,
+    "Q10.4": 0
+   }
+  },
+  "domain_scores": {
+   "T200": {
+    "D1": 1.75,
+    "D2": 1.5,
+    "D3": 2.0,
+    "D4": 1.0,
+    "D5": 1.25,
+    "D6": 0.5,
+    "D7": 1.75,
+    "D8": 2.0,
+    "D9": 1.0,
+    "D10": 1.0
+   },
+   "SSR": {
+    "D1": 1.75,
+    "D2": 1.0,
+    "D3": 1.25,
+    "D4": 1.0,
+    "D5": 0.5,
+    "D6": 0.75,
+    "D7": 2.0,
+    "D8": 2.0,
+    "D9": 0.5,
+    "D10": 0.5
+   },
+   "H3": {
+    "D1": 1.75,
+    "D2": 0.75,
+    "D3": 1.25,
+    "D4": 1.0,
+    "D5": 0.5,
+    "D6": 1.0,
+    "D7": 1.75,
+    "D8": 2.0,
+    "D9": 0.75,
+    "D10": 0.5
+   },
+   "V1": {
+    "D1": 1.75,
+    "D2": 1.25,
+    "D3": 1.5,
+    "D4": 1.0,
+    "D5": 1.0,
+    "D6": 0.5,
+    "D7": 1.75,
+    "D8": 2.0,
+    "D9": 0.5,
+    "D10": 0.25
+   },
+   "L2": {
+    "D1": 1.75,
+    "D2": 1.0,
+    "D3": 1.25,
+    "D4": 1.0,
+    "D5": 0.5,
+    "D6": 0.75,
+    "D7": 1.5,
+    "D8": 2.0,
+    "D9": 0.5,
+    "D10": 0.25
+   },
+   "IR500": {
+    "D1": 1.75,
+    "D2": 1.5,
+    "D3": 1.5,
+    "D4": 2.5,
+    "D5": 1.0,
+    "D6": 1.75,
+    "D7": 1.75,
+    "D8": 2.25,
+    "D9": 0.75,
+    "D10": 0.25
+   },
+   "IS300": {
+    "D1": 1.75,
+    "D2": 1.75,
+    "D3": 1.5,
+    "D4": 2.5,
+    "D5": 1.25,
+    "D6": 1.75,
+    "D7": 1.5,
+    "D8": 2.25,
+    "D9": 1.0,
+    "D10": 0.5
+   },
+   "EG700": {
+    "D1": 1.75,
+    "D2": 1.5,
+    "D3": 1.75,
+    "D4": 2.0,
+    "D5": 1.0,
+    "D6": 1.75,
+    "D7": 1.75,
+    "D8": 2.25,
+    "D9": 0.5,
+    "D10": 0.5
+   },
+   "SG900": {
+    "D1": 1.75,
+    "D2": 1.25,
+    "D3": 2.0,
+    "D4": 2.5,
+    "D5": 1.25,
+    "D6": 2.0,
+    "D7": 1.25,
+    "D8": 2.25,
+    "D9": 1.0,
+    "D10": 1.0
+   },
+   "SLINK": {
+    "D1": 1.75,
+    "D2": 1.5,
+    "D3": 1.5,
+    "D4": 2.25,
+    "D5": 1.5,
+    "D6": 1.75,
+    "D7": 1.75,
+    "D8": 2.25,
+    "D9": 0.75,
+    "D10": 0.75
+   },
+   "FLEET": {
+    "D1": 1.75,
+    "D2": 1.75,
+    "D3": 1.0,
+    "D4": 1.75,
+    "D5": 1.25,
+    "D6": 0.75,
+    "D7": 1.0,
+    "D8": 2.25,
+    "D9": 0.5,
+    "D10": 0.25
+   },
+   "CSTUDIO": {
+    "D1": 1.75,
+    "D2": 1.75,
+    "D3": 1.0,
+    "D4": 1.75,
+    "D5": 1.75,
+    "D6": 1.0,
+    "D7": 0.5,
+    "D8": 2.25,
+    "D9": 1.0,
+    "D10": 0.25
+   },
+   "SDK": {
+    "D1": 1.75,
+    "D2": 1.0,
+    "D3": 0.75,
+    "D4": 1.5,
+    "D5": 2.0,
+    "D6": 0.75,
+    "D7": 0.5,
+    "D8": 2.25,
+    "D9": 0.75,
+    "D10": 0.25
+   }
+  },
+  "family_readiness_index": {
+   "T200": 0.458,
+   "SSR": 0.375,
+   "H3": 0.375,
+   "V1": 0.383,
+   "L2": 0.35,
+   "IR500": 0.5,
+   "IS300": 0.525,
+   "EG700": 0.492,
+   "SG900": 0.542,
+   "SLINK": 0.525,
+   "FLEET": 0.408,
+   "CSTUDIO": 0.433,
+   "SDK": 0.383
+  },
+  "portfolio_readiness_index": 0.442,
+  "domain_average_level": {
+   "D1": 1.75,
+   "D2": 1.35,
+   "D3": 1.4,
+   "D4": 1.67,
+   "D5": 1.13,
+   "D6": 1.15,
+   "D7": 1.44,
+   "D8": 2.15,
+   "D9": 0.73,
+   "D10": 0.48
+  },
+  "domain_readiness_index": {
+   "D1": 0.583,
+   "D2": 0.449,
+   "D3": 0.468,
+   "D4": 0.558,
+   "D5": 0.378,
+   "D6": 0.385,
+   "D7": 0.481,
+   "D8": 0.718,
+   "D9": 0.244,
+   "D10": 0.16
+  },
+  "bu_readiness_index": {
+   "HBS": 0.388,
+   "IC": 0.517,
+   "SS": 0.408
+  },
+  "class_readiness_index": {
+   "Default": 0.419,
+   "Class I": 0.448,
+   "Class II": 0.542
+  },
+  "weakest_questions": [
+   {
+    "id": "Q10.4",
+    "avg": 0.08,
+    "text": "EU representation, importer and distributor duties and marketplace arrangements are settled for each market.",
+    "action": "Confirm the role per market, appoint an authorised representative where useful and brief importers on their checks."
+   },
+   {
+    "id": "Q10.2",
+    "avg": 0.38,
+    "text": "Candidate notified bodies are shortlisted and a pre-assessment is contracted where the route needs one.",
+    "action": "Shortlist three candidates, contract pre-assessments with conversion options, and check NANDO at every programme board."
+   },
+   {
+    "id": "Q10.3",
+    "avg": 0.38,
+    "text": "A complete Module A internal-control record is kept for the product, even where a notified body will be used.",
+    "action": "Build the Module A record and evidence index now; it is the fallback and the body's application pack."
+   },
+   {
+    "id": "Q9.1",
+    "avg": 0.46,
+    "text": "An Annex VII technical file exists for each product version and is versioned with releases.",
+    "action": "Adopt the 13-part file outline and generate version-linked contents from the release pipeline."
+   },
+   {
+    "id": "Q6.4",
+    "avg": 0.69,
+    "text": "Vulnerability case records are retained and response metrics are reported.",
+    "action": "Report acknowledgement and fix times quarterly and retain case files for 10 years or the support period."
+   },
+   {
+    "id": "Q9.2",
+    "avg": 0.69,
+    "text": "Annex II user information, including the support end date and the vulnerability contact, is drafted and ready to publish.",
+    "action": "Draft the Annex II document per product family and publish it at a stable, versioned URL."
+   },
+   {
+    "id": "Q9.4",
+    "avg": 0.77,
+    "text": "Evidence sits in a system of record with 10-year retention and can answer a reasoned request within 10 working days.",
+    "action": "Select a system of record, compute retention per version and test an end-to-end reasoned-request export."
+   },
+   {
+    "id": "Q2.4",
+    "avg": 0.92,
+    "text": "The economic-operator role per market and the legacy status of each product line are recorded.",
+    "action": "Record manufacturer, importer, distributor or representative per market; flag lines still sold after 11 Dec 2027."
+   },
+   {
+    "id": "Q5.3",
+    "avg": 0.92,
+    "text": "Supplier contracts require vulnerability notification, SBOM delivery and support-period commitments.",
+    "action": "Add the CRA clause pack to master agreements, starting with suppliers of security-relevant components."
+   },
+   {
+    "id": "Q1.3",
+    "avg": 1.0,
+    "text": "A written product-risk acceptance rule excludes cost, risk appetite and commercial strategy as reasons to leave risk unaddressed.",
+    "action": "Add a product-risk category to the enterprise risk framework with its own acceptance authority and a non-cost appeal route."
+   }
+  ],
+  "targets": {
+   "by_jun_2027": 0.7,
+   "by_nov_2027": 0.9,
+   "art14_domain_now": 1.0
+  }
+ },
+ "cost_model": {
+  "label": "Illustrative business case — Example Group (EUR, real 2026 terms, excl. VAT)",
+  "assumptions": {
+   "fte_cost_programme": 150000,
+   "fte_cost_psirt": 130000,
+   "fte_cost_engineering": 120000,
+   "programme_team_fte": 5,
+   "programme_team_run_fte": 2.5,
+   "psirt_incremental_fte": 2,
+   "psirt_oncall_allowance": 60000,
+   "remediation_fte_years": {
+    "default": 1.2,
+    "class_i": 2.5,
+    "class_ii": 4.0
+   },
+   "remediation_phasing": {
+    "q4_2026": 0.15,
+    "y2027": 0.85
+   },
+   "platforms_build": 850000,
+   "platforms_phasing": {
+    "q4_2026": 0.25,
+    "y2027": 0.75
+   },
+   "platforms_run": 210000,
+   "platforms_build_detail": {
+    "sbom_vex_csaf_tooling": 220000,
+    "signing_hsm_update_infrastructure": 380000,
+    "system_of_record": 160000,
+    "psirt_tooling_advisory_portal": 90000
+   },
+   "risk_assessment_per_family": 45000,
+   "risk_assessment_phasing": {
+    "q4_2026": 0.3,
+    "y2027": 0.7
+   },
+   "testing_per_family_per_year": {
+    "default": 35000,
+    "class_i": 60000,
+    "class_ii": 90000
+   },
+   "documentation_per_family": 40000,
+   "documentation_run_per_family": 8000,
+   "nb_pre_assessments": {
+    "count": 3,
+    "unit": 20000,
+    "q4_2026": 20000,
+    "y2027": 40000
+   },
+   "nb_module_b_examinations": {
+    "count": 3,
+    "unit": 40000,
+    "note": "V1 two types, L2 one type"
+   },
+   "nb_module_h": {
+    "initial": 115000,
+    "extra_categories": 3,
+    "per_extra_category": 20000
+   },
+   "nb_surveillance_run": {
+    "module_h": 35000,
+    "module_b_audits": 20000
+   },
+   "training": {
+    "q4_2026": 30000,
+    "y2027": 110000,
+    "run": 40000
+   },
+   "legal": {
+    "external_q4_2026": 60000,
+    "external_2027": 120000,
+    "translations_per_family": 6000,
+    "run": 50000
+   },
+   "supplier_programme": {
+    "y2027": 90000,
+    "run": 30000
+   },
+   "contingency_rate": 0.15
+  },
+  "engineering_fte_years": 26.2,
+  "testing_per_year": 660000,
+  "base_lines": [
+   {
+    "workstream": "Programme & governance",
+    "line": "Programme team (director, compliance lead, product security officer, PMO)",
+    "driver": "5 FTE x EUR 150,000 loaded; run 2.5 FTE",
+    "q4_2026": 187500,
+    "y2027": 750000,
+    "run_2028": 375000
+   },
+   {
+    "workstream": "Reporting & PSIRT",
+    "line": "Incremental PSIRT (lead + analyst) and 24/7 on-call allowance",
+    "driver": "2 FTE x EUR 130,000 + EUR 60,000 on-call",
+    "q4_2026": 80000,
+    "y2027": 320000,
+    "run_2028": 320000
+   },
+   {
+    "workstream": "Secure engineering",
+    "line": "Engineering remediation of Annex I gaps",
+    "driver": "26.2 FTE-years (default 1.2, Class I 2.5, Class II 4.0 per family) x EUR 120,000",
+    "q4_2026": 471600,
+    "y2027": 2672400,
+    "run_2028": 0
+   },
+   {
+    "workstream": "Shared platforms",
+    "line": "SBOM/VEX/CSAF tooling, signing HSM and update infrastructure, system of record, PSIRT tooling",
+    "driver": "EUR 850k build (25% Q4 2026, 75% 2027); EUR 210k a year run from mid-2027",
+    "q4_2026": 212500,
+    "y2027": 742500,
+    "run_2028": 210000
+   },
+   {
+    "workstream": "Secure engineering",
+    "line": "Risk assessments and threat models",
+    "driver": "13 families x EUR 45,000",
+    "q4_2026": 175500,
+    "y2027": 409500,
+    "run_2028": 0
+   },
+   {
+    "workstream": "Secure engineering",
+    "line": "Security testing (penetration tests, fuzzing, re-tests)",
+    "driver": "Per family per year: default EUR 35k, Class I EUR 60k, Class II EUR 90k",
+    "q4_2026": 0,
+    "y2027": 660000,
+    "run_2028": 660000
+   },
+   {
+    "workstream": "Documentation & evidence",
+    "line": "Technical files and Annex II user information",
+    "driver": "13 families x EUR 40,000; run EUR 8,000 per family",
+    "q4_2026": 0,
+    "y2027": 520000,
+    "run_2028": 104000
+   },
+   {
+    "workstream": "Conformity & market access",
+    "line": "Notified bodies: pre-assessments, Module B examinations, Module H approval",
+    "driver": "3 pre-assessments x EUR 20k; 3 Module B examinations x EUR 40k; Module H EUR 115k + 3 categories x EUR 20k (vendor estimates)",
+    "q4_2026": 20000,
+    "y2027": 335000,
+    "run_2028": 55000
+   },
+   {
+    "workstream": "People & change",
+    "line": "Training and awareness",
+    "driver": "Role-based training, drills, e-learning",
+    "q4_2026": 30000,
+    "y2027": 110000,
+    "run_2028": 40000
+   },
+   {
+    "workstream": "Conformity & market access",
+    "line": "Legal, EU representation and translations",
+    "driver": "External legal EUR 180k; DoC/Annex II translations 13 x EUR 6k",
+    "q4_2026": 60000,
+    "y2027": 198000,
+    "run_2028": 50000
+   },
+   {
+    "workstream": "Supply chain",
+    "line": "Supplier contract remediation and questionnaire programme",
+    "driver": "41 in-scope suppliers",
+    "q4_2026": 0,
+    "y2027": 90000,
+    "run_2028": 30000
+   }
+  ],
+  "base_totals": {
+   "q4_2026": 1237100,
+   "y2027": 6807400,
+   "contingency_q4_2026": 185565,
+   "contingency_2027": 1021110,
+   "q4_2026_incl_contingency": 1422665,
+   "y2027_incl_contingency": 7828510,
+   "one_off_total_incl_contingency": 9251175,
+   "run_2028": 1844000,
+   "contingency_rate": 0.15
+  },
+  "by_workstream": {
+   "Programme & governance": {
+    "q4_2026": 187500,
+    "y2027": 750000,
+    "run_2028": 375000,
+    "one_off": 937500
+   },
+   "Reporting & PSIRT": {
+    "q4_2026": 80000,
+    "y2027": 320000,
+    "run_2028": 320000,
+    "one_off": 400000
+   },
+   "Secure engineering": {
+    "q4_2026": 647100,
+    "y2027": 3741900,
+    "run_2028": 660000,
+    "one_off": 4389000
+   },
+   "Shared platforms": {
+    "q4_2026": 212500,
+    "y2027": 742500,
+    "run_2028": 210000,
+    "one_off": 955000
+   },
+   "Documentation & evidence": {
+    "q4_2026": 0,
+    "y2027": 520000,
+    "run_2028": 104000,
+    "one_off": 520000
+   },
+   "Conformity & market access": {
+    "q4_2026": 80000,
+    "y2027": 533000,
+    "run_2028": 105000,
+    "one_off": 613000
+   },
+   "People & change": {
+    "q4_2026": 30000,
+    "y2027": 110000,
+    "run_2028": 40000,
+    "one_off": 140000
+   },
+   "Supply chain": {
+    "q4_2026": 0,
+    "y2027": 90000,
+    "run_2028": 30000,
+    "one_off": 90000
+   }
+  },
+  "scenarios": {
+   "low": {
+    "label": "Low",
+    "description": "Harmonised standards cited mid-2027; less remediation than assessed; fewer notified-body days.",
+    "multipliers": {
+     "engineering": 0.8,
+     "notified_body": 0.6,
+     "testing": 0.9
+    },
+    "lines": [
+     {
+      "workstream": "Programme & governance",
+      "line": "Programme team (director, compliance lead, product security officer, PMO)",
+      "driver": "5 FTE x EUR 150,000 loaded; run 2.5 FTE",
+      "q4_2026": 187500,
+      "y2027": 750000,
+      "run_2028": 375000
+     },
+     {
+      "workstream": "Reporting & PSIRT",
+      "line": "Incremental PSIRT (lead + analyst) and 24/7 on-call allowance",
+      "driver": "2 FTE x EUR 130,000 + EUR 60,000 on-call",
+      "q4_2026": 80000,
+      "y2027": 320000,
+      "run_2028": 320000
+     },
+     {
+      "workstream": "Secure engineering",
+      "line": "Engineering remediation of Annex I gaps",
+      "driver": "26.2 FTE-years (default 1.2, Class I 2.5, Class II 4.0 per family) x EUR 120,000 x 0.8",
+      "q4_2026": 377280,
+      "y2027": 2137920,
+      "run_2028": 0
+     },
+     {
+      "workstream": "Shared platforms",
+      "line": "SBOM/VEX/CSAF tooling, signing HSM and update infrastructure, system of record, PSIRT tooling",
+      "driver": "EUR 850k build (25% Q4 2026, 75% 2027); EUR 210k a year run from mid-2027",
+      "q4_2026": 212500,
+      "y2027": 742500,
+      "run_2028": 210000
+     },
+     {
+      "workstream": "Secure engineering",
+      "line": "Risk assessments and threat models",
+      "driver": "13 families x EUR 45,000",
+      "q4_2026": 175500,
+      "y2027": 409500,
+      "run_2028": 0
+     },
+     {
+      "workstream": "Secure engineering",
+      "line": "Security testing (penetration tests, fuzzing, re-tests)",
+      "driver": "Per family per year: default EUR 35k, Class I EUR 60k, Class II EUR 90k x 0.9",
+      "q4_2026": 0,
+      "y2027": 594000,
+      "run_2028": 594000
+     },
+     {
+      "workstream": "Documentation & evidence",
+      "line": "Technical files and Annex II user information",
+      "driver": "13 families x EUR 40,000; run EUR 8,000 per family",
+      "q4_2026": 0,
+      "y2027": 520000,
+      "run_2028": 104000
+     },
+     {
+      "workstream": "Conformity & market access",
+      "line": "Notified bodies: pre-assessments, Module B examinations, Module H approval",
+      "driver": "3 pre-assessments x EUR 20k; 3 Module B examinations x EUR 40k; Module H EUR 115k + 3 categories x EUR 20k (vendor estimates) x 0.6",
+      "q4_2026": 12000,
+      "y2027": 201000,
+      "run_2028": 33000
+     },
+     {
+      "workstream": "People & change",
+      "line": "Training and awareness",
+      "driver": "Role-based training, drills, e-learning",
+      "q4_2026": 30000,
+      "y2027": 110000,
+      "run_2028": 40000
+     },
+     {
+      "workstream": "Conformity & market access",
+      "line": "Legal, EU representation and translations",
+      "driver": "External legal EUR 180k; DoC/Annex II translations 13 x EUR 6k",
+      "q4_2026": 60000,
+      "y2027": 198000,
+      "run_2028": 50000
+     },
+     {
+      "workstream": "Supply chain",
+      "line": "Supplier contract remediation and questionnaire programme",
+      "driver": "41 in-scope suppliers",
+      "q4_2026": 0,
+      "y2027": 90000,
+      "run_2028": 30000
+     }
+    ],
+    "totals": {
+     "q4_2026": 1134780,
+     "y2027": 6072920,
+     "contingency_q4_2026": 113478,
+     "contingency_2027": 607292,
+     "q4_2026_incl_contingency": 1248258,
+     "y2027_incl_contingency": 6680212,
+     "one_off_total_incl_contingency": 7928470,
+     "run_2028": 1756000,
+     "contingency_rate": 0.1
+    }
+   },
+   "base": {
+    "label": "Base",
+    "description": "Plan as assessed at the 28 Oct 2026 baseline.",
+    "multipliers": {},
+    "lines": [
+     {
+      "workstream": "Programme & governance",
+      "line": "Programme team (director, compliance lead, product security officer, PMO)",
+      "driver": "5 FTE x EUR 150,000 loaded; run 2.5 FTE",
+      "q4_2026": 187500,
+      "y2027": 750000,
+      "run_2028": 375000
+     },
+     {
+      "workstream": "Reporting & PSIRT",
+      "line": "Incremental PSIRT (lead + analyst) and 24/7 on-call allowance",
+      "driver": "2 FTE x EUR 130,000 + EUR 60,000 on-call",
+      "q4_2026": 80000,
+      "y2027": 320000,
+      "run_2028": 320000
+     },
+     {
+      "workstream": "Secure engineering",
+      "line": "Engineering remediation of Annex I gaps",
+      "driver": "26.2 FTE-years (default 1.2, Class I 2.5, Class II 4.0 per family) x EUR 120,000",
+      "q4_2026": 471600,
+      "y2027": 2672400,
+      "run_2028": 0
+     },
+     {
+      "workstream": "Shared platforms",
+      "line": "SBOM/VEX/CSAF tooling, signing HSM and update infrastructure, system of record, PSIRT tooling",
+      "driver": "EUR 850k build (25% Q4 2026, 75% 2027); EUR 210k a year run from mid-2027",
+      "q4_2026": 212500,
+      "y2027": 742500,
+      "run_2028": 210000
+     },
+     {
+      "workstream": "Secure engineering",
+      "line": "Risk assessments and threat models",
+      "driver": "13 families x EUR 45,000",
+      "q4_2026": 175500,
+      "y2027": 409500,
+      "run_2028": 0
+     },
+     {
+      "workstream": "Secure engineering",
+      "line": "Security testing (penetration tests, fuzzing, re-tests)",
+      "driver": "Per family per year: default EUR 35k, Class I EUR 60k, Class II EUR 90k",
+      "q4_2026": 0,
+      "y2027": 660000,
+      "run_2028": 660000
+     },
+     {
+      "workstream": "Documentation & evidence",
+      "line": "Technical files and Annex II user information",
+      "driver": "13 families x EUR 40,000; run EUR 8,000 per family",
+      "q4_2026": 0,
+      "y2027": 520000,
+      "run_2028": 104000
+     },
+     {
+      "workstream": "Conformity & market access",
+      "line": "Notified bodies: pre-assessments, Module B examinations, Module H approval",
+      "driver": "3 pre-assessments x EUR 20k; 3 Module B examinations x EUR 40k; Module H EUR 115k + 3 categories x EUR 20k (vendor estimates)",
+      "q4_2026": 20000,
+      "y2027": 335000,
+      "run_2028": 55000
+     },
+     {
+      "workstream": "People & change",
+      "line": "Training and awareness",
+      "driver": "Role-based training, drills, e-learning",
+      "q4_2026": 30000,
+      "y2027": 110000,
+      "run_2028": 40000
+     },
+     {
+      "workstream": "Conformity & market access",
+      "line": "Legal, EU representation and translations",
+      "driver": "External legal EUR 180k; DoC/Annex II translations 13 x EUR 6k",
+      "q4_2026": 60000,
+      "y2027": 198000,
+      "run_2028": 50000
+     },
+     {
+      "workstream": "Supply chain",
+      "line": "Supplier contract remediation and questionnaire programme",
+      "driver": "41 in-scope suppliers",
+      "q4_2026": 0,
+      "y2027": 90000,
+      "run_2028": 30000
+     }
+    ],
+    "totals": {
+     "q4_2026": 1237100,
+     "y2027": 6807400,
+     "contingency_q4_2026": 185565,
+     "contingency_2027": 1021110,
+     "q4_2026_incl_contingency": 1422665,
+     "y2027_incl_contingency": 7828510,
+     "one_off_total_incl_contingency": 9251175,
+     "run_2028": 1844000,
+     "contingency_rate": 0.15
+    }
+   },
+   "high": {
+    "label": "High",
+    "description": "Notified-body scarcity forces a second body and premium fees; remediation 30% above estimate; extra programme FTE.",
+    "multipliers": {
+     "engineering": 1.3,
+     "notified_body": 1.6,
+     "programme_team_fte": 6,
+     "legal": 1.5
+    },
+    "lines": [
+     {
+      "workstream": "Programme & governance",
+      "line": "Programme team (director, compliance lead, product security officer, PMO)",
+      "driver": "6 FTE x EUR 150,000 loaded; run 2.5 FTE",
+      "q4_2026": 225000,
+      "y2027": 900000,
+      "run_2028": 375000
+     },
+     {
+      "workstream": "Reporting & PSIRT",
+      "line": "Incremental PSIRT (lead + analyst) and 24/7 on-call allowance",
+      "driver": "2 FTE x EUR 130,000 + EUR 60,000 on-call",
+      "q4_2026": 80000,
+      "y2027": 320000,
+      "run_2028": 320000
+     },
+     {
+      "workstream": "Secure engineering",
+      "line": "Engineering remediation of Annex I gaps",
+      "driver": "26.2 FTE-years (default 1.2, Class I 2.5, Class II 4.0 per family) x EUR 120,000 x 1.3",
+      "q4_2026": 613080,
+      "y2027": 3474120,
+      "run_2028": 0
+     },
+     {
+      "workstream": "Shared platforms",
+      "line": "SBOM/VEX/CSAF tooling, signing HSM and update infrastructure, system of record, PSIRT tooling",
+      "driver": "EUR 850k build (25% Q4 2026, 75% 2027); EUR 210k a year run from mid-2027",
+      "q4_2026": 212500,
+      "y2027": 742500,
+      "run_2028": 210000
+     },
+     {
+      "workstream": "Secure engineering",
+      "line": "Risk assessments and threat models",
+      "driver": "13 families x EUR 45,000",
+      "q4_2026": 175500,
+      "y2027": 409500,
+      "run_2028": 0
+     },
+     {
+      "workstream": "Secure engineering",
+      "line": "Security testing (penetration tests, fuzzing, re-tests)",
+      "driver": "Per family per year: default EUR 35k, Class I EUR 60k, Class II EUR 90k",
+      "q4_2026": 0,
+      "y2027": 660000,
+      "run_2028": 660000
+     },
+     {
+      "workstream": "Documentation & evidence",
+      "line": "Technical files and Annex II user information",
+      "driver": "13 families x EUR 40,000; run EUR 8,000 per family",
+      "q4_2026": 0,
+      "y2027": 520000,
+      "run_2028": 104000
+     },
+     {
+      "workstream": "Conformity & market access",
+      "line": "Notified bodies: pre-assessments, Module B examinations, Module H approval",
+      "driver": "3 pre-assessments x EUR 20k; 3 Module B examinations x EUR 40k; Module H EUR 115k + 3 categories x EUR 20k (vendor estimates) x 1.6",
+      "q4_2026": 32000,
+      "y2027": 536000,
+      "run_2028": 88000
+     },
+     {
+      "workstream": "People & change",
+      "line": "Training and awareness",
+      "driver": "Role-based training, drills, e-learning",
+      "q4_2026": 30000,
+      "y2027": 110000,
+      "run_2028": 40000
+     },
+     {
+      "workstream": "Conformity & market access",
+      "line": "Legal, EU representation and translations",
+      "driver": "External legal EUR 180k; DoC/Annex II translations 13 x EUR 6k x 1.5",
+      "q4_2026": 90000,
+      "y2027": 297000,
+      "run_2028": 75000
+     },
+     {
+      "workstream": "Supply chain",
+      "line": "Supplier contract remediation and questionnaire programme",
+      "driver": "41 in-scope suppliers",
+      "q4_2026": 0,
+      "y2027": 90000,
+      "run_2028": 30000
+     }
+    ],
+    "totals": {
+     "q4_2026": 1458080,
+     "y2027": 8059120,
+     "contingency_q4_2026": 291616,
+     "contingency_2027": 1611824,
+     "q4_2026_incl_contingency": 1749696,
+     "y2027_incl_contingency": 9670944,
+     "one_off_total_incl_contingency": 11420640,
+     "run_2028": 1902000,
+     "contingency_rate": 0.2
+    }
+   }
+  },
+  "one_off_pct_of_revenue": 0.0077,
+  "run_pct_of_revenue": 0.0015,
+  "monthly_plan": [
+   {
+    "month": "Oct 2026",
+    "plan": 384120,
+    "cumulative_plan": 384120
+   },
+   {
+    "month": "Nov 2026",
+    "plan": 469479,
+    "cumulative_plan": 853599
+   },
+   {
+    "month": "Dec 2026",
+    "plan": 569066,
+    "cumulative_plan": 1422665
+   },
+   {
+    "month": "Jan 2027",
+    "plan": 430568,
+    "cumulative_plan": 1853233
+   },
+   {
+    "month": "Feb 2027",
+    "plan": 508853,
+    "cumulative_plan": 2362086
+   },
+   {
+    "month": "Mar 2027",
+    "plan": 587138,
+    "cumulative_plan": 2949224
+   },
+   {
+    "month": "Apr 2027",
+    "plan": 665423,
+    "cumulative_plan": 3614648
+   },
+   {
+    "month": "May 2027",
+    "plan": 704566,
+    "cumulative_plan": 4319214
+   },
+   {
+    "month": "Jun 2027",
+    "plan": 743708,
+    "cumulative_plan": 5062922
+   },
+   {
+    "month": "Jul 2027",
+    "plan": 743708,
+    "cumulative_plan": 5806631
+   },
+   {
+    "month": "Aug 2027",
+    "plan": 704566,
+    "cumulative_plan": 6511197
+   },
+   {
+    "month": "Sep 2027",
+    "plan": 704566,
+    "cumulative_plan": 7215762
+   },
+   {
+    "month": "Oct 2027",
+    "plan": 704566,
+    "cumulative_plan": 7920328
+   },
+   {
+    "month": "Nov 2027",
+    "plan": 704566,
+    "cumulative_plan": 8624894
+   },
+   {
+    "month": "Dec 2027",
+    "plan": 626281,
+    "cumulative_plan": 9251175
+   }
+  ],
+  "actual_to_date": {
+   "month": "Oct 2026",
+   "actual": 410000,
+   "plan": 384120
+  },
+  "benchmarks": [
+   {
+    "item": "Module B examination",
+    "value": "EUR 20,000-60,000",
+    "source": "CRA Decoded (commentary); sota.io gives EUR 15,000-80,000 (vendor, unsourced)"
+   },
+   {
+    "item": "First Module H engagement",
+    "value": "EUR 80,000-150,000; surveillance every 1-2 years",
+    "source": "CRA Decoded (commentary)"
+   },
+   {
+    "item": "Three default products, medium readiness",
+    "value": "EUR 78,300 one-off; EUR 13,500 a year",
+    "source": "cyberresilienceact.eu cost calculator (independent model, illustrative)"
+   },
+   {
+    "item": "Expected cost increase",
+    "value": "50% of 12 companies expect <20% cost increase",
+    "source": "KONE-authored industrial study, 2024 (survey)"
+   },
+   {
+    "item": "CRA team size",
+    "value": "28% up to 10 people; 22% larger; 16% up to 3",
+    "source": "ONEKEY, Sep 2026, 200 German industrial firms (vendor survey)"
+   }
+  ]
+ },
+ "programme": {
+  "name": "Project Rampart",
+  "kickoff": "5 Oct 2026",
+  "phases": [
+   {
+    "id": "P0",
+    "name": "Reporting readiness",
+    "start": "1 Sep 2026",
+    "end": "30 Oct 2026",
+    "status": "Complete",
+    "gate": "Early warning can be filed within 24 hours on a weekend"
+   },
+   {
+    "id": "P1",
+    "name": "Inventory, scope and classification",
+    "start": "2 Nov 2026",
+    "end": "18 Dec 2026",
+    "status": "In progress",
+    "gate": "Every product has a class, a route and an owner"
+   },
+   {
+    "id": "P2",
+    "name": "Risk assessment and gap analysis",
+    "start": "1 Dec 2026",
+    "end": "26 Feb 2027",
+    "status": "Planned",
+    "gate": "Applicability matrices signed for Wave 1"
+   },
+   {
+    "id": "P3",
+    "name": "Remediation and SDLC changes",
+    "start": "4 Jan 2027",
+    "end": "31 Aug 2027",
+    "status": "Planned",
+    "gate": "Pipeline evidence generated automatically for one release per family"
+   },
+   {
+    "id": "P4",
+    "name": "Documentation and declarations",
+    "start": "1 Jun 2027",
+    "end": "30 Sep 2027",
+    "status": "Planned",
+    "gate": "Technical files complete and reviewed outside engineering"
+   },
+   {
+    "id": "P5",
+    "name": "Conformity assessment",
+    "start": "1 Apr 2027",
+    "end": "30 Nov 2027",
+    "status": "Planned",
+    "gate": "Certificate or internal-control record in hand per family"
+   },
+   {
+    "id": "P6",
+    "name": "Go-live and operations",
+    "start": "11 Dec 2027",
+    "end": "ongoing",
+    "status": "Planned",
+    "gate": "Only declared products placed on the EU market"
+   }
+  ],
+  "waves": [
+   {
+    "id": "W1",
+    "name": "Wave 1",
+    "families": [
+     "T200",
+     "V1",
+     "L2",
+     "IR500",
+     "IS300",
+     "SG900",
+     "SLINK",
+     "FLEET"
+    ],
+    "window": "Nov 2026 - Nov 2027",
+    "rationale": "All seven families that need a notified body, plus T200 as the pilot that produces the templates."
+   },
+   {
+    "id": "W2",
+    "name": "Wave 2",
+    "families": [
+     "SSR",
+     "H3",
+     "EG700",
+     "CSTUDIO",
+     "SDK"
+    ],
+    "window": "Jan 2027 - Oct 2027",
+    "rationale": "Default families on Module A, reusing Wave 1 templates; H3 and EG-700 move to Wave 1 if classified Class I."
+   },
+   {
+    "id": "W3",
+    "name": "Wave 3",
+    "families": [
+     "T100",
+     "H2",
+     "V0",
+     "IR300",
+     "IS200",
+     "SL3",
+     "FV4"
+    ],
+    "window": "Continuous",
+    "rationale": "Legacy lines: Art 14 reporting only, plus end-of-sale decisions for lines still sold in the EU."
+   }
+  ],
+  "milestones": [
+   {
+    "id": "M0",
+    "name": "SRP registration and coordinator CSIRT decision",
+    "date": "10 Sep 2026",
+    "status": "Complete"
+   },
+   {
+    "id": "M1",
+    "name": "First Art 14 tabletop drill (actively exploited vulnerability)",
+    "date": "22 Oct 2026",
+    "status": "Complete"
+   },
+   {
+    "id": "M2",
+    "name": "Programme mobilised; SteerCo #1",
+    "date": "30 Oct 2026",
+    "status": "Complete"
+   },
+   {
+    "id": "M3",
+    "name": "Board decisions (budget, signing authority, notified-body strategy, legacy lines)",
+    "date": "19 Nov 2026",
+    "status": "Planned"
+   },
+   {
+    "id": "M4",
+    "name": "Scope and classification register baselined",
+    "date": "18 Dec 2026",
+    "status": "On track"
+   },
+   {
+    "id": "M5",
+    "name": "Notified-body pre-assessments contracted (3 candidates)",
+    "date": "29 Jan 2027",
+    "status": "At risk"
+   },
+   {
+    "id": "M6",
+    "name": "Wave 1 risk assessments signed",
+    "date": "26 Feb 2027",
+    "status": "On track"
+   },
+   {
+    "id": "M7",
+    "name": "Formal notified-body engagements contracted (Module H; Module B+C)",
+    "date": "31 Mar 2027",
+    "status": "At risk"
+   },
+   {
+    "id": "M8",
+    "name": "SBOM pipeline live on all Wave 1 release trains",
+    "date": "31 Mar 2027",
+    "status": "At risk"
+   },
+   {
+    "id": "M9",
+    "name": "Second Art 14 drill (weekend severe-incident scenario)",
+    "date": "16 Apr 2027",
+    "status": "Planned"
+   },
+   {
+    "id": "M10",
+    "name": "Update infrastructure hardened (HSM signing, anti-rollback)",
+    "date": "30 Jun 2027",
+    "status": "Planned"
+   },
+   {
+    "id": "M11",
+    "name": "Wave 1 technical files complete",
+    "date": "30 Sep 2027",
+    "status": "Planned"
+   },
+   {
+    "id": "M12",
+    "name": "Module H approval and Module B certificates",
+    "date": "30 Nov 2027",
+    "status": "Planned"
+   },
+   {
+    "id": "M13",
+    "name": "Declarations signed; CE marking; Annex II published",
+    "date": "3 Dec 2027",
+    "status": "Planned"
+   },
+   {
+    "id": "M14",
+    "name": "Full application of the CRA",
+    "date": "11 Dec 2027",
+    "status": "Fixed"
+   }
+  ],
+  "workstreams": [
+   {
+    "id": "WS1",
+    "name": "Governance & PMO",
+    "lead": "Programme director",
+    "rag": "Green",
+    "note": "Sponsor named; programme board running; signing instrument drafted for board approval."
+   },
+   {
+    "id": "WS2",
+    "name": "Portfolio & classification",
+    "lead": "Compliance lead",
+    "rag": "Amber",
+    "note": "11 of 13 families classified; EG-700 and HomeHub H3 need legal opinion (borderline Class I)."
+   },
+   {
+    "id": "WS3",
+    "name": "Reporting & PSIRT",
+    "lead": "PSIRT lead",
+    "rag": "Green",
+    "note": "SRP live with 3 Assigned Representatives; first drill filed early warning in 9h 40m."
+   },
+   {
+    "id": "WS4",
+    "name": "Secure engineering & SDLC",
+    "lead": "Product security officer",
+    "rag": "Amber",
+    "note": "T200 pilot risk assessment in review; release gate designed, not yet enforced."
+   },
+   {
+    "id": "WS5",
+    "name": "SBOM & supply chain",
+    "lead": "Head of platform engineering",
+    "rag": "Red",
+    "note": "Signed SBOMs on 38% of releases; HBS firmware builds lack binary SCA; 6 of 41 suppliers on CRA clauses."
+   },
+   {
+    "id": "WS6",
+    "name": "Documentation & evidence",
+    "lead": "Compliance lead",
+    "rag": "Amber",
+    "note": "System of record not yet selected; Annex VII outline agreed."
+   },
+   {
+    "id": "WS7",
+    "name": "Conformity & market access",
+    "lead": "Head of quality & regulatory",
+    "rag": "Red",
+    "note": "No CRA notified body designated (external); 3 candidates shortlisted; V1/L2 route undecided."
+   },
+   {
+    "id": "WS8",
+    "name": "People & change",
+    "lead": "Head of engineering enablement",
+    "rag": "Amber",
+    "note": "140 of 920 engineers trained; works council consultation on PSIRT on-call opened."
+   }
+  ],
+  "mobilisation_plan": [
+   {
+    "id": "T01",
+    "workstream": "WS1",
+    "task": "Board paper and pre-read issued",
+    "owner": "Programme director",
+    "start": "2 Nov 2026",
+    "end": "12 Nov 2026",
+    "status": "In progress",
+    "depends_on": ""
+   },
+   {
+    "id": "T02",
+    "workstream": "WS1",
+    "task": "Board decisions on budget, signing authority, NB strategy, legacy lines",
+    "owner": "Executive sponsor",
+    "start": "19 Nov 2026",
+    "end": "19 Nov 2026",
+    "status": "Not started",
+    "depends_on": "T01"
+   },
+   {
+    "id": "T03",
+    "workstream": "WS1",
+    "task": "DoC signing instrument executed",
+    "owner": "General Counsel",
+    "start": "20 Nov 2026",
+    "end": "4 Dec 2026",
+    "status": "Not started",
+    "depends_on": "T02"
+   },
+   {
+    "id": "T04",
+    "workstream": "WS1",
+    "task": "Product-risk acceptance rule added to enterprise risk framework",
+    "owner": "Chief Risk Officer",
+    "start": "2 Nov 2026",
+    "end": "11 Dec 2026",
+    "status": "In progress",
+    "depends_on": ""
+   },
+   {
+    "id": "T05",
+    "workstream": "WS1",
+    "task": "System-of-record selection (criteria, shortlist, decision)",
+    "owner": "Compliance lead",
+    "start": "2 Nov 2026",
+    "end": "18 Dec 2026",
+    "status": "In progress",
+    "depends_on": ""
+   },
+   {
+    "id": "T06",
+    "workstream": "WS2",
+    "task": "Reconcile release, commercial and cloud inventories into the scope register",
+    "owner": "Compliance lead",
+    "start": "2 Nov 2026",
+    "end": "4 Dec 2026",
+    "status": "In progress",
+    "depends_on": ""
+   },
+   {
+    "id": "T07",
+    "workstream": "WS2",
+    "task": "Legal opinion on EG-700 and HomeHub H3 classification",
+    "owner": "General Counsel",
+    "start": "2 Nov 2026",
+    "end": "27 Nov 2026",
+    "status": "In progress",
+    "depends_on": ""
+   },
+   {
+    "id": "T08",
+    "workstream": "WS2",
+    "task": "Remote-function maps for all 13 families",
+    "owner": "Product security officer",
+    "start": "9 Nov 2026",
+    "end": "11 Dec 2026",
+    "status": "Not started",
+    "depends_on": "T06"
+   },
+   {
+    "id": "T09",
+    "workstream": "WS2",
+    "task": "Scope and classification register baselined",
+    "owner": "Compliance lead",
+    "start": "14 Dec 2026",
+    "end": "18 Dec 2026",
+    "status": "Not started",
+    "depends_on": "T06,T07,T08"
+   },
+   {
+    "id": "T10",
+    "workstream": "WS3",
+    "task": "Distribution map per product refreshed for SRP 'Member States' field",
+    "owner": "Product management",
+    "start": "2 Nov 2026",
+    "end": "20 Nov 2026",
+    "status": "In progress",
+    "depends_on": ""
+   },
+   {
+    "id": "T11",
+    "workstream": "WS3",
+    "task": "Works council agreement on 24/7 PSIRT on-call",
+    "owner": "HR business partner",
+    "start": "2 Nov 2026",
+    "end": "18 Dec 2026",
+    "status": "In progress",
+    "depends_on": ""
+   },
+   {
+    "id": "T12",
+    "workstream": "WS3",
+    "task": "PSIRT lead hired; analyst seconded from IC",
+    "owner": "PSIRT lead",
+    "start": "2 Nov 2026",
+    "end": "29 Jan 2027",
+    "status": "In progress",
+    "depends_on": ""
+   },
+   {
+    "id": "T13",
+    "workstream": "WS3",
+    "task": "HBS and S&S security.txt and CVD policy published",
+    "owner": "PSIRT lead",
+    "start": "9 Nov 2026",
+    "end": "4 Dec 2026",
+    "status": "Not started",
+    "depends_on": ""
+   },
+   {
+    "id": "T14",
+    "workstream": "WS3",
+    "task": "Legacy reportable inventory completed (T100, H2, V0 fleets)",
+    "owner": "PSIRT lead",
+    "start": "2 Nov 2026",
+    "end": "11 Dec 2026",
+    "status": "In progress",
+    "depends_on": ""
+   },
+   {
+    "id": "T15",
+    "workstream": "WS4",
+    "task": "T200 pilot risk assessment signed (applicability matrix)",
+    "owner": "Product security officer",
+    "start": "2 Nov 2026",
+    "end": "27 Nov 2026",
+    "status": "In progress",
+    "depends_on": ""
+   },
+   {
+    "id": "T16",
+    "workstream": "WS4",
+    "task": "Release security gate enforced on T200 and IR-500 trains",
+    "owner": "Product security officer",
+    "start": "16 Nov 2026",
+    "end": "22 Jan 2027",
+    "status": "Not started",
+    "depends_on": "T15"
+   },
+   {
+    "id": "T17",
+    "workstream": "WS4",
+    "task": "Wave 1 threat-modelling sprints (7 families)",
+    "owner": "Product security officer",
+    "start": "30 Nov 2026",
+    "end": "26 Feb 2027",
+    "status": "Not started",
+    "depends_on": "T15"
+   },
+   {
+    "id": "T18",
+    "workstream": "WS5",
+    "task": "SBOM generation from artefact on HBS firmware builds (Yocto + binary SCA)",
+    "owner": "Head of platform engineering",
+    "start": "2 Nov 2026",
+    "end": "15 Jan 2027",
+    "status": "In progress",
+    "depends_on": ""
+   },
+   {
+    "id": "T19",
+    "workstream": "WS5",
+    "task": "Dependency-Track and EUVD watch for all supported versions",
+    "owner": "Head of platform engineering",
+    "start": "9 Nov 2026",
+    "end": "18 Dec 2026",
+    "status": "Not started",
+    "depends_on": ""
+   },
+   {
+    "id": "T20",
+    "workstream": "WS5",
+    "task": "CRA clause pack issued to top 15 security-relevant suppliers",
+    "owner": "Head of procurement",
+    "start": "16 Nov 2026",
+    "end": "29 Jan 2027",
+    "status": "Not started",
+    "depends_on": ""
+   },
+   {
+    "id": "T21",
+    "workstream": "WS5",
+    "task": "Supplier questionnaire sent to all 41 in-scope suppliers",
+    "owner": "Head of procurement",
+    "start": "23 Nov 2026",
+    "end": "18 Dec 2026",
+    "status": "Not started",
+    "depends_on": ""
+   },
+   {
+    "id": "T22",
+    "workstream": "WS6",
+    "task": "Annex VII 13-part file template and evidence index adopted",
+    "owner": "Compliance lead",
+    "start": "2 Nov 2026",
+    "end": "4 Dec 2026",
+    "status": "In progress",
+    "depends_on": ""
+   },
+   {
+    "id": "T23",
+    "workstream": "WS6",
+    "task": "Annex II user-information template drafted (T200 first)",
+    "owner": "Technical writing lead",
+    "start": "16 Nov 2026",
+    "end": "18 Dec 2026",
+    "status": "Not started",
+    "depends_on": ""
+   },
+   {
+    "id": "T24",
+    "workstream": "WS7",
+    "task": "Pre-assessment proposals from 3 candidate notified bodies",
+    "owner": "Head of quality & regulatory",
+    "start": "2 Nov 2026",
+    "end": "11 Dec 2026",
+    "status": "In progress",
+    "depends_on": ""
+   },
+   {
+    "id": "T25",
+    "workstream": "WS7",
+    "task": "Pre-assessment contracts signed with conversion options",
+    "owner": "Head of quality & regulatory",
+    "start": "14 Dec 2026",
+    "end": "29 Jan 2027",
+    "status": "Not started",
+    "depends_on": "T02,T24"
+   },
+   {
+    "id": "T26",
+    "workstream": "WS7",
+    "task": "Module H scope statement for IC + FleetView quality system",
+    "owner": "Head of quality & regulatory",
+    "start": "16 Nov 2026",
+    "end": "22 Jan 2027",
+    "status": "Not started",
+    "depends_on": ""
+   },
+   {
+    "id": "T27",
+    "workstream": "WS7",
+    "task": "Withdraw-or-remediate plan for IR-300 and IS-200 EU sales",
+    "owner": "BU president IC",
+    "start": "20 Nov 2026",
+    "end": "18 Dec 2026",
+    "status": "Not started",
+    "depends_on": "T02"
+   },
+   {
+    "id": "T28",
+    "workstream": "WS8",
+    "task": "Engineering awareness training to 400 engineers",
+    "owner": "Head of engineering enablement",
+    "start": "2 Nov 2026",
+    "end": "29 Jan 2027",
+    "status": "In progress",
+    "depends_on": ""
+   },
+   {
+    "id": "T29",
+    "workstream": "WS8",
+    "task": "Sales and support briefing and customer FAQ live",
+    "owner": "Head of customer operations",
+    "start": "16 Nov 2026",
+    "end": "11 Dec 2026",
+    "status": "Not started",
+    "depends_on": ""
+   },
+   {
+    "id": "T30",
+    "workstream": "WS8",
+    "task": "Staff awareness pulse survey #1",
+    "owner": "Head of engineering enablement",
+    "start": "23 Nov 2026",
+    "end": "4 Dec 2026",
+    "status": "Not started",
+    "depends_on": ""
+   }
+  ],
+  "overall_rag": "Amber",
+  "overall_status": "Reporting capability on track; market access at risk because no notified body is designated (external dependency)."
+ },
+ "kpis": [
+  {
+   "id": "K01",
+   "name": "Portfolio readiness index",
+   "value": 0.442,
+   "display": "44%",
+   "target": "70% by Jun 2027; 90% by Nov 2027",
+   "rag": "Amber",
+   "trend": "Baseline",
+   "source": "Readiness diagnostic, 28 Oct 2026"
+  },
+  {
+   "id": "K02",
+   "name": "Families with final scope and class decision",
+   "value": 11,
+   "display": "11 / 13",
+   "target": "13 / 13 by 18 Dec 2026",
+   "rag": "Amber",
+   "trend": "New",
+   "source": "Scope register"
+  },
+  {
+   "id": "K03",
+   "name": "Class I/II families with route and notified-body plan",
+   "value": 5,
+   "display": "5 / 7",
+   "target": "7 / 7 by 19 Nov 2026",
+   "rag": "Amber",
+   "trend": "New",
+   "source": "Scope register"
+  },
+  {
+   "id": "K04",
+   "name": "SRP Assigned Representatives registered",
+   "value": 3,
+   "display": "3",
+   "target": ">= 2 at all times",
+   "rag": "Green",
+   "trend": "Stable",
+   "source": "SRP roster"
+  },
+  {
+   "id": "K05",
+   "name": "Art 14 drill: time to early warning",
+   "value": 9.67,
+   "display": "9h 40m",
+   "target": "< 24h incl. weekends",
+   "rag": "Green",
+   "trend": "First drill",
+   "source": "Drill record 22 Oct 2026"
+  },
+  {
+   "id": "K06",
+   "name": "Art 14 cases assessed (reportable / not reportable)",
+   "value": 4,
+   "display": "0 / 4",
+   "target": "100% decided with UTC timeline",
+   "rag": "Green",
+   "trend": "Stable",
+   "source": "PSIRT case files"
+  },
+  {
+   "id": "K07",
+   "name": "Releases with signed SBOM (last 30 days)",
+   "value": 0.38,
+   "display": "38% (9 / 24)",
+   "target": "100% by 31 Mar 2027",
+   "rag": "Red",
+   "trend": "Up from 21%",
+   "source": "Build pipeline"
+  },
+  {
+   "id": "K08",
+   "name": "Families with signed risk assessment",
+   "value": 0,
+   "display": "0 / 13 (T200 in review)",
+   "target": "Wave 1 (8) by 26 Feb 2027",
+   "rag": "Green",
+   "trend": "On plan",
+   "source": "System of record"
+  },
+  {
+   "id": "K09",
+   "name": "In-scope suppliers on CRA clauses",
+   "value": 6,
+   "display": "6 / 41 (15%)",
+   "target": "Top 15 by Jan 2027; all by Jun 2027",
+   "rag": "Amber",
+   "trend": "New",
+   "source": "Contract register"
+  },
+  {
+   "id": "K10",
+   "name": "Engineers trained",
+   "value": 140,
+   "display": "140 / 920 (15%)",
+   "target": "60% by Mar 2027",
+   "rag": "Amber",
+   "trend": "Up",
+   "source": "LMS"
+  },
+  {
+   "id": "K11",
+   "name": "Spend to date vs plan",
+   "value": 410000,
+   "display": "EUR 0.41m vs EUR 0.38m",
+   "target": "Within +/-10% of plan",
+   "rag": "Green",
+   "trend": "Oct 2026",
+   "source": "Finance"
+  },
+  {
+   "id": "K12",
+   "name": "Notified-body candidates",
+   "value": 3,
+   "display": "3 shortlisted; 1 proposal",
+   "target": "3 pre-assessments contracted by 29 Jan 2027",
+   "rag": "Amber",
+   "trend": "New",
+   "source": "Programme"
+  }
+ ],
+ "kpi_trajectories": {
+  "readiness_index_plan": {
+   "Oct 2026": 0.442,
+   "Nov 2026": 0.457,
+   "Dec 2026": 0.481,
+   "Jan 2027": 0.51,
+   "Feb 2027": 0.544,
+   "Mar 2027": 0.584,
+   "Apr 2027": 0.623,
+   "May 2027": 0.662,
+   "Jun 2027": 0.706,
+   "Jul 2027": 0.745,
+   "Aug 2027": 0.784,
+   "Sep 2027": 0.828,
+   "Oct 2027": 0.867,
+   "Nov 2027": 0.906,
+   "Dec 2027": 0.93
+  },
+  "sbom_coverage_plan_and_actual": {
+   "Sep 2026": 0.21,
+   "Oct 2026": 0.38,
+   "Nov 2026": 0.45,
+   "Dec 2026": 0.55,
+   "Jan 2027": 0.7,
+   "Feb 2027": 0.85,
+   "Mar 2027": 1.0
+  },
+  "note": "Oct 2026 values are actuals (illustrative); later months are plan. SBOM Sep 2026 is the pre-programme measurement."
+ },
+ "risks": [
+  {
+   "id": "R01",
+   "title": "No notified-body capacity in time",
+   "description": "No CRA notified body is designated with capacity before Q2 2027, so Class I/II families cannot be certified by 11 Dec 2027.",
+   "likelihood": 4,
+   "impact": 5,
+   "score": 20,
+   "rating": "High",
+   "owner": "Head of quality & regulatory",
+   "mitigations": "Pre-contract three candidates with conversion options; Module H for IC to cover five families with one body; check NANDO at every programme board; prioritise top-revenue SKUs.",
+   "trend": "Rising"
+  },
+  {
+   "id": "R02",
+   "title": "Engineering capacity",
+   "description": "Remediation competes with the 2027 product roadmap for the same engineers.",
+   "likelihood": 4,
+   "impact": 4,
+   "score": 16,
+   "rating": "High",
+   "owner": "CTO",
+   "mitigations": "Ring-fence 26 FTE-years in the 2027 plan; defer two roadmap features; contractors for documentation and testing.",
+   "trend": "Stable"
+  },
+  {
+   "id": "R03",
+   "title": "No harmonised standard cited for Class I",
+   "description": "EN 304 6xx verticals are not cited in time, so Class I products cannot use Module A.",
+   "likelihood": 4,
+   "impact": 3,
+   "score": 12,
+   "rating": "High",
+   "owner": "Compliance lead",
+   "mitigations": "Plan Class I on third-party routes; align files to draft clause structure; switch to Module A only if a citation lands before assessment.",
+   "trend": "Stable"
+  },
+  {
+   "id": "R04",
+   "title": "SBOM and supplier transparency gaps",
+   "description": "Binary blobs and supplier components without SBOMs or vulnerability notification undermine Annex I Part II(1) and the 24-hour determination.",
+   "likelihood": 3,
+   "impact": 4,
+   "score": 12,
+   "rating": "High",
+   "owner": "Head of platform engineering",
+   "mitigations": "Binary SCA on firmware images; clause pack to top 15 suppliers first; exit plans for refusers.",
+   "trend": "Stable"
+  },
+  {
+   "id": "R05",
+   "title": "Legacy lines still sold after 11 Dec 2027",
+   "description": "IR-300 and IS-200 units placed after 11 Dec 2027 must comply with Annex I.",
+   "likelihood": 3,
+   "impact": 4,
+   "score": 12,
+   "rating": "High",
+   "owner": "BU president IC",
+   "mitigations": "Board decision on 19 Nov 2026 to withdraw from EU sale and migrate customers; remediate only if the decision changes.",
+   "trend": "New"
+  },
+  {
+   "id": "R06",
+   "title": "Late or wrong Art 14 filing",
+   "description": "Awareness misjudged or a stale distribution map delays the 24-hour early warning.",
+   "likelihood": 2,
+   "impact": 5,
+   "score": 10,
+   "rating": "Medium",
+   "owner": "PSIRT lead",
+   "mitigations": "Written awareness criteria; deputies with authority to file; distribution map refresh (T10); two drills a year.",
+   "trend": "Falling"
+  },
+  {
+   "id": "R07",
+   "title": "Scope undercount",
+   "description": "Versions, companion apps and backends found late enlarge the portfolio.",
+   "likelihood": 3,
+   "impact": 3,
+   "score": 9,
+   "rating": "Medium",
+   "owner": "Compliance lead",
+   "mitigations": "Build the register from release and cloud systems; second reconciliation after the first gate run.",
+   "trend": "Stable"
+  },
+  {
+   "id": "R08",
+   "title": "Key-person dependency in PSIRT",
+   "description": "Two people hold most PSIRT knowledge; on-call cannot be sustained.",
+   "likelihood": 3,
+   "impact": 3,
+   "score": 9,
+   "rating": "Medium",
+   "owner": "PSIRT lead",
+   "mitigations": "Hire PSIRT lead; second analyst; documented runbook; cross-training from IC.",
+   "trend": "Stable"
+  },
+  {
+   "id": "R09",
+   "title": "Guidance changes",
+   "description": "Formal adoption of C(2026) 5252 or later FAQ versions change scope or support-period decisions.",
+   "likelihood": 3,
+   "impact": 2,
+   "score": 6,
+   "rating": "Medium",
+   "owner": "Compliance lead",
+   "mitigations": "Decision records cite the guidance version; quarterly standards and guidance review.",
+   "trend": "Stable"
+  },
+  {
+   "id": "R10",
+   "title": "Product-liability disclosure",
+   "description": "From 9 Dec 2026 claimants can seek disclosure of technical files and update logs under the PLD.",
+   "likelihood": 2,
+   "impact": 4,
+   "score": 8,
+   "rating": "Medium",
+   "owner": "General Counsel",
+   "mitigations": "Write records for disclosure; legal review of risk acceptances; align with product liability insurance.",
+   "trend": "New"
+  }
+ ],
+ "issues": [
+  {
+   "id": "I01",
+   "title": "Distribution map stale",
+   "description": "The 22 Oct drill showed the 'Member States where available' field could not be completed for two products from current data.",
+   "owner": "Product management",
+   "due": "20 Nov 2026"
+  },
+  {
+   "id": "I02",
+   "title": "Borderline classifications",
+   "description": "EG-700 (cellular uplink routing) and HomeHub H3 (optional alarm mode) could be Class I; notified-body capacity planning includes them until the legal opinion lands.",
+   "owner": "General Counsel",
+   "due": "27 Nov 2026"
+  },
+  {
+   "id": "I03",
+   "title": "HBS firmware SBOM depth",
+   "description": "Manifest-only SBOMs on HBS firmware miss vendored code; binary SCA needed.",
+   "owner": "Head of platform engineering",
+   "due": "15 Jan 2027"
+  }
+ ],
+ "decisions": {
+  "steerco_1": [
+   {
+    "id": "SD1",
+    "decision": "Endorse Module H as the route for Industrial Connectivity and FleetView (five families), using the IEC 62443-4-1 process as the base.",
+    "outcome": "Endorsed (illustrative)"
+   },
+   {
+    "id": "SD2",
+    "decision": "Apply the stricter reading to EG-700 and HomeHub H3 until the legal opinion lands on 27 Nov 2026: include them in notified-body capacity planning, keep them in Wave 2 for remediation.",
+    "outcome": "Endorsed (illustrative)"
+   },
+   {
+    "id": "SD3",
+    "decision": "Release EUR 0.75m of pre-approval spend ahead of the 19 Nov board.",
+    "outcome": "Endorsed (illustrative)"
+   },
+   {
+    "id": "SD4",
+    "decision": "Approve system-of-record selection criteria.",
+    "outcome": "Endorsed (illustrative)"
+   }
+  ],
+  "board": [
+   {
+    "id": "BD1",
+    "decision": "Approve the Project Rampart investment envelope.",
+    "detail": "EUR 9.3m one-off to Dec 2027 (incl. 15% contingency) and EUR 1.8m a year run from 2028."
+   },
+   {
+    "id": "BD2",
+    "decision": "Appoint the accountable executive and execute the DoC signing instrument.",
+    "detail": "CTO as accountable executive; CEO signs declarations or delegates in writing; compliance lead counter-signs the pre-signature checklist."
+   },
+   {
+    "id": "BD3",
+    "decision": "Authorise notified-body pre-contracting.",
+    "detail": "Pre-assessments with three candidate bodies (up to EUR 60k) and formal contracts by Q1 2027 (Module H for IC + FleetView; Module B+C for V1 and L2)."
+   },
+   {
+    "id": "BD4",
+    "decision": "Adopt the product-risk acceptance rule.",
+    "detail": "Cost, risk appetite and commercial strategy are not grounds to leave product risk unaddressed (guidance paras 156-163); appeals go to the executive sponsor."
+   },
+   {
+    "id": "BD5",
+    "decision": "Withdraw IR-300 and IS-200 from EU sale before 11 Dec 2027.",
+    "detail": "EUR 18m of declining EU revenue versus about EUR 1.4m remediation plus notified-body fees; migrate customers to IR-500 and IS-300."
+   }
+  ]
+ },
+ "stakeholders": [
+  {
+   "id": "ST01",
+   "name": "Board of directors",
+   "group": "Internal - governance",
+   "power": 5,
+   "interest": 3,
+   "stance_now": "Aware",
+   "stance_target": "Committed",
+   "key_concern": "Liability, fines, market access, cost",
+   "key_message": "A funded 14-month programme protects EUR 468m of EU revenue; five decisions now.",
+   "channel": "Board paper and briefing",
+   "owner": "Executive sponsor",
+   "frequency": "Quarterly"
+  },
+  {
+   "id": "ST02",
+   "name": "CEO and executive committee",
+   "group": "Internal - governance",
+   "power": 5,
+   "interest": 4,
+   "stance_now": "Supportive",
+   "stance_target": "Committed",
+   "key_concern": "Revenue at risk, roadmap impact",
+   "key_message": "Reporting is live; market access is the constraint; build once, apply per product.",
+   "channel": "ExCo agenda item; monthly dashboard",
+   "owner": "Executive sponsor",
+   "frequency": "Monthly"
+  },
+  {
+   "id": "ST03",
+   "name": "CTO (accountable executive)",
+   "group": "Internal - leadership",
+   "power": 5,
+   "interest": 5,
+   "stance_now": "Committed",
+   "stance_target": "Leading",
+   "key_concern": "Engineering capacity, release gates",
+   "key_message": "You own the release gate and the evidence; the programme gives you shared tooling.",
+   "channel": "SteerCo; 1:1",
+   "owner": "Programme director",
+   "frequency": "Fortnightly"
+  },
+  {
+   "id": "ST04",
+   "name": "General Counsel",
+   "group": "Internal - leadership",
+   "power": 4,
+   "interest": 4,
+   "stance_now": "Supportive",
+   "stance_target": "Committed",
+   "key_concern": "DoC liability, PLD disclosure, classification calls",
+   "key_message": "Decision records and the signing instrument limit personal and corporate exposure.",
+   "channel": "SteerCo; legal working group",
+   "owner": "Compliance lead",
+   "frequency": "Fortnightly"
+  },
+  {
+   "id": "ST05",
+   "name": "CISO",
+   "group": "Internal - leadership",
+   "power": 4,
+   "interest": 5,
+   "stance_now": "Committed",
+   "stance_target": "Leading",
+   "key_concern": "PSIRT vs CSIRT split, NIS2/GDPR overlap",
+   "key_message": "Product PSIRT is separate from the infrastructure CSIRT; one coordination cell for multi-regime incidents.",
+   "channel": "SteerCo; incident cell",
+   "owner": "PSIRT lead",
+   "frequency": "Weekly"
+  },
+  {
+   "id": "ST06",
+   "name": "BU presidents (HBS, IC, S&S)",
+   "group": "Internal - leadership",
+   "power": 5,
+   "interest": 4,
+   "stance_now": "Mixed",
+   "stance_target": "Committed",
+   "key_concern": "Margin, roadmap, legacy lines",
+   "key_message": "Your EU revenue depends on notified-body slots we must book now.",
+   "channel": "BU reviews; SteerCo",
+   "owner": "Executive sponsor",
+   "frequency": "Monthly"
+  },
+  {
+   "id": "ST07",
+   "name": "Engineering leads and developers",
+   "group": "Internal - delivery",
+   "power": 3,
+   "interest": 4,
+   "stance_now": "Unaware to aware",
+   "stance_target": "Practising",
+   "key_concern": "Extra process, release friction",
+   "key_message": "Evidence comes from the pipeline, not from paperwork; the gate checks what you already test.",
+   "channel": "Engineering all-hands; training; Slack",
+   "owner": "Product security officer",
+   "frequency": "Fortnightly"
+  },
+  {
+   "id": "ST08",
+   "name": "Product management",
+   "group": "Internal - delivery",
+   "power": 3,
+   "interest": 4,
+   "stance_now": "Aware",
+   "stance_target": "Committed",
+   "key_concern": "Support periods, roadmap trade-offs",
+   "key_message": "Support period and Annex II content are product decisions with legal weight.",
+   "channel": "PM forum; briefing pack",
+   "owner": "Compliance lead",
+   "frequency": "Monthly"
+  },
+  {
+   "id": "ST09",
+   "name": "PSIRT and on-call staff",
+   "group": "Internal - delivery",
+   "power": 2,
+   "interest": 5,
+   "stance_now": "Committed",
+   "stance_target": "Committed",
+   "key_concern": "Workload, 24/7 on-call, authority to file",
+   "key_message": "You may file an early warning without prior approval; legal reviews the 72-hour report.",
+   "channel": "Runbook; drills",
+   "owner": "PSIRT lead",
+   "frequency": "Weekly"
+  },
+  {
+   "id": "ST10",
+   "name": "Quality & regulatory (CE/RED team)",
+   "group": "Internal - delivery",
+   "power": 3,
+   "interest": 5,
+   "stance_now": "Supportive",
+   "stance_target": "Leading",
+   "key_concern": "Notified-body capacity, RED transition",
+   "key_message": "Your CE experience runs conformity; RED delegated act ends 11 Dec 2027.",
+   "channel": "Workstream meetings",
+   "owner": "Programme director",
+   "frequency": "Weekly"
+  },
+  {
+   "id": "ST11",
+   "name": "Procurement",
+   "group": "Internal - enabling",
+   "power": 3,
+   "interest": 3,
+   "stance_now": "Aware",
+   "stance_target": "Committed",
+   "key_concern": "Supplier pushback, contract renegotiation",
+   "key_message": "Clause pack and questionnaire; refusals go to the intake gate as high risk.",
+   "channel": "Procurement council",
+   "owner": "Head of procurement",
+   "frequency": "Monthly"
+  },
+  {
+   "id": "ST12",
+   "name": "Sales, key accounts and customer support",
+   "group": "Internal - enabling",
+   "power": 2,
+   "interest": 3,
+   "stance_now": "Unaware",
+   "stance_target": "Informed",
+   "key_concern": "Customer questions, competitive positioning",
+   "key_message": "Say what we do, not 'CRA certified'; use the FAQ; route vulnerability reports to PSIRT within the hour.",
+   "channel": "Briefing; FAQ; LMS module",
+   "owner": "Head of customer operations",
+   "frequency": "At launch, then quarterly"
+  },
+  {
+   "id": "ST13",
+   "name": "Works council",
+   "group": "Internal - employee representation",
+   "power": 4,
+   "interest": 3,
+   "stance_now": "Neutral",
+   "stance_target": "Supportive",
+   "key_concern": "On-call arrangements, training time, monitoring",
+   "key_message": "On-call is voluntary-rota based with allowances; training is in working time.",
+   "channel": "Formal consultation",
+   "owner": "HR business partner",
+   "frequency": "As required"
+  },
+  {
+   "id": "ST14",
+   "name": "All employees",
+   "group": "Internal - wider",
+   "power": 1,
+   "interest": 2,
+   "stance_now": "Unaware",
+   "stance_target": "Informed",
+   "key_concern": "What it means for me",
+   "key_message": "Security is now part of what we sell; know where to report a vulnerability.",
+   "channel": "Intranet; town hall",
+   "owner": "Internal communications",
+   "frequency": "Quarterly"
+  },
+  {
+   "id": "ST15",
+   "name": "B2B customers and integrators",
+   "group": "External - market",
+   "power": 4,
+   "interest": 4,
+   "stance_now": "Asking",
+   "stance_target": "Confident",
+   "key_concern": "Supply-chain evidence for their own NIS2/CRA duties",
+   "key_message": "Support periods, CVD contact, SBOM on request and declarations on a published timetable.",
+   "channel": "Account letters; customer FAQ; trust page",
+   "owner": "Head of customer operations",
+   "frequency": "Quarterly"
+  },
+  {
+   "id": "ST16",
+   "name": "Consumers (via retail and app)",
+   "group": "External - market",
+   "power": 2,
+   "interest": 2,
+   "stance_now": "Unaware",
+   "stance_target": "Informed",
+   "key_concern": "Updates, privacy, support length",
+   "key_message": "Automatic security updates by default and a clear support end date at purchase.",
+   "channel": "Product pages; app notices",
+   "owner": "Marketing",
+   "frequency": "At launch"
+  },
+  {
+   "id": "ST17",
+   "name": "Distributors, importers and retail partners",
+   "group": "External - channel",
+   "power": 3,
+   "interest": 3,
+   "stance_now": "Asking",
+   "stance_target": "Confident",
+   "key_concern": "Their Art 19-20 checks, labelling, stock after 11 Dec 2027",
+   "key_message": "We will supply DoCs, Annex II information and CE marking per product before 11 Dec 2027.",
+   "channel": "Channel letter; partner portal",
+   "owner": "Head of channel",
+   "frequency": "Quarterly"
+  },
+  {
+   "id": "ST18",
+   "name": "Suppliers (chipsets, modules, ODMs, software)",
+   "group": "External - supply chain",
+   "power": 3,
+   "interest": 3,
+   "stance_now": "Mixed",
+   "stance_target": "Cooperative",
+   "key_concern": "Contract changes, SBOM effort",
+   "key_message": "We need vulnerability notification, SBOMs and support commitments; here is the clause pack.",
+   "channel": "Supplier letter; questionnaire",
+   "owner": "Head of procurement",
+   "frequency": "Quarterly"
+  },
+  {
+   "id": "ST19",
+   "name": "Notified bodies (candidates)",
+   "group": "External - assurance",
+   "power": 5,
+   "interest": 3,
+   "stance_now": "Engaged",
+   "stance_target": "Contracted",
+   "key_concern": "Capacity, designation timing",
+   "key_message": "We are assessment-ready early and want a slot with conversion options.",
+   "channel": "Pre-assessment meetings",
+   "owner": "Head of quality & regulatory",
+   "frequency": "Monthly"
+  },
+  {
+   "id": "ST20",
+   "name": "Coordinator CSIRT and market surveillance (Germany)",
+   "group": "External - regulator",
+   "power": 5,
+   "interest": 3,
+   "stance_now": "Neutral",
+   "stance_target": "Trusting",
+   "key_concern": "Timely, accurate reporting",
+   "key_message": "We report on time with complete data and answer reasoned requests within 10 working days.",
+   "channel": "SRP; formal correspondence",
+   "owner": "PSIRT lead / Compliance lead",
+   "frequency": "As required"
+  },
+  {
+   "id": "ST21",
+   "name": "Open-source communities and maintainers",
+   "group": "External - ecosystem",
+   "power": 2,
+   "interest": 3,
+   "stance_now": "Neutral",
+   "stance_target": "Collaborative",
+   "key_concern": "Burden shifted to unpaid maintainers",
+   "key_message": "We report upstream through your CVD channel and share fixes; we do not demand compliance from you.",
+   "channel": "OSPO; upstream channels",
+   "owner": "OSPO lead",
+   "frequency": "As required"
+  },
+  {
+   "id": "ST22",
+   "name": "Insurers (product liability, cyber)",
+   "group": "External - finance",
+   "power": 3,
+   "interest": 2,
+   "stance_now": "Unaware",
+   "stance_target": "Informed",
+   "key_concern": "PLD exposure from 9 Dec 2026",
+   "key_message": "Our evidence system lowers defect and disclosure risk.",
+   "channel": "Broker briefing",
+   "owner": "CFO office",
+   "frequency": "At renewal"
+  }
+ ],
+ "facts": [
+  {
+   "id": "F01",
+   "statement": "The CRA is Regulation (EU) 2024/2847; it entered into force on 10 Dec 2024.",
+   "basis": "Art 71; EUR-Lex",
+   "url": "https://eur-lex.europa.eu/eli/reg/2024/2847/oj"
+  },
+  {
+   "id": "F02",
+   "statement": "Article 14 reporting applies from 11 Sep 2026 to all in-scope products, including those placed on the market before 11 Dec 2027.",
+   "basis": "Art 71(2); Art 69(3)",
+   "url": "https://eur-lex.europa.eu/eli/reg/2024/2847/oj"
+  },
+  {
+   "id": "F03",
+   "statement": "Chapter IV (notification of conformity assessment bodies) applies from 11 Jun 2026; all other provisions from 11 Dec 2027.",
+   "basis": "Art 71(2)",
+   "url": "https://eur-lex.europa.eu/eli/reg/2024/2847/oj"
+  },
+  {
+   "id": "F04",
+   "statement": "Reporting clocks: actively exploited vulnerability 24h early warning, 72h notification, final report 14 days after a corrective measure is available; severe incident 24h, 72h, final report 1 month after the 72h notification.",
+   "basis": "Art 14(2), (4)",
+   "url": "https://eur-lex.europa.eu/eli/reg/2024/2847/oj"
+  },
+  {
+   "id": "F05",
+   "statement": "Reports go through ENISA's Single Reporting Platform to the coordinator CSIRT of the main-establishment Member State; the platform has been live since 11 Sep 2026 (web form, English only, no API).",
+   "basis": "Art 14(7); ENISA",
+   "url": "https://www.enisa.europa.eu/topics/product-security/single-reporting-platform-srp"
+  },
+  {
+   "id": "F06",
+   "statement": "Fines: up to EUR 15m or 2.5% of worldwide annual turnover (Annex I, Arts 13-14); EUR 10m or 2% (other obligations); EUR 5m or 1% (misleading information), whichever is higher.",
+   "basis": "Art 64(2)-(4)",
+   "url": "https://eur-lex.europa.eu/eli/reg/2024/2847/oj"
+  },
+  {
+   "id": "F07",
+   "statement": "No harmonised standard is cited in the OJ and no common specification is adopted (30 Oct 2026); Class I products cannot use Module A until one is cited and applied in full.",
+   "basis": "Art 32(2); guidance para 149",
+   "url": "https://digital-strategy.ec.europa.eu/en/factpages/cyber-resilience-act-implementation"
+  },
+  {
+   "id": "F08",
+   "statement": "No CRA notified body was verifiably designated in NANDO at checks to 8 Sep 2026; Member States must 'strive' for enough bodies by 11 Dec 2026.",
+   "basis": "Art 35(2); Commission",
+   "url": "https://digital-strategy.ec.europa.eu/en/policies/cra-conformity-assessment"
+  },
+  {
+   "id": "F09",
+   "statement": "Annexes III and IV list 19 Class I, 4 Class II and 3 critical categories (26 in total); Implementing Regulation (EU) 2025/2392 gives their technical descriptions (in force 21 Dec 2025).",
+   "basis": "Art 7; Art 8",
+   "url": "https://eur-lex.europa.eu/eli/reg_impl/2025/2392/oj/eng"
+  },
+  {
+   "id": "F10",
+   "statement": "Commission guidance C(2026) 5252 (content approved 27 Jul 2026) is non-binding and formally pending adoption in all languages; FAQ v1.4 is dated 4 Sep 2026.",
+   "basis": "Art 26",
+   "url": "https://ec.europa.eu/newsroom/dae/redirection/document/131456"
+  },
+  {
+   "id": "F11",
+   "statement": "Support period must reflect expected time in use and be at least five years unless the product is expected to be used for less; security updates stay available for at least 10 years or the rest of the support period.",
+   "basis": "Art 13(8)-(9)",
+   "url": "https://eur-lex.europa.eu/eli/reg/2024/2847/oj"
+  },
+  {
+   "id": "F12",
+   "statement": "Technical documentation and the declaration are kept for 10 years after placing on the market or the support period, whichever is longer.",
+   "basis": "Art 13(13)",
+   "url": "https://eur-lex.europa.eu/eli/reg/2024/2847/oj"
+  },
+  {
+   "id": "F13",
+   "statement": "The SBOM is part of the technical documentation; manufacturers are not obliged to make it public.",
+   "basis": "Annex I Part II(1); Annex VII; Recital 77",
+   "url": "https://eur-lex.europa.eu/eli/reg/2024/2847/oj"
+  },
+  {
+   "id": "F14",
+   "statement": "Manufacturer-built backends a product needs for a function are remote data processing and part of the product.",
+   "basis": "Art 3(2); guidance paras 184-205",
+   "url": "https://ec.europa.eu/newsroom/dae/redirection/document/131456"
+  },
+  {
+   "id": "F15",
+   "statement": "The Product Liability Directive (EU) 2024/2853 applies from 9 Dec 2026; software is a product and a vulnerability can be a defect.",
+   "basis": "PLD Arts 4, 7, 9-10",
+   "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32024L2853"
+  },
+  {
+   "id": "F16",
+   "statement": "National enforcement acts adopted by 30 Oct 2026: Finland (Act 439/2026), Hungary (Act CXXXV/2025), Malta (LN 238/2026); Germany's law passed the Bundestag plenary on 15 Oct 2026, promulgation pending. France has named ANSSI as notifying authority.",
+   "basis": "KB: Enforcement",
+   "url": ""
+  },
+  {
+   "id": "F17",
+   "statement": "The Digital Omnibus COM(2025) 837 does not amend the CRA; Council mandate agreed 21 Oct 2026 (ST 14756/26); not adopted.",
+   "basis": "KB: Interplay",
+   "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:52025PC0837"
+  },
+  {
+   "id": "F18",
+   "statement": "RED cybersecurity delegated act 2022/30 is repealed with effect from 11 Dec 2027 by Delegated Regulation (EU) 2026/339.",
+   "basis": "KB: Interplay",
+   "url": "https://eur-lex.europa.eu/eli/reg_del/2026/339/oj/eng"
+  },
+  {
+   "id": "F19",
+   "statement": "EUCC: 111 valid certificates from 9 certification bodies on 30 Oct 2026; the Art 27(9) act that would let EUCC replace third-party assessment is planned, not adopted.",
+   "basis": "KB: Standards; verification",
+   "url": ""
+  },
+  {
+   "id": "F20",
+   "statement": "Open-source stewards have a light-touch regime (Art 24) and are exempt from fines (Art 64(10)(b)); integrating FOSS never transfers the manufacturer's duty (Art 13(5)).",
+   "basis": "Arts 13(5), 24, 64(10)",
+   "url": "https://eur-lex.europa.eu/eli/reg/2024/2847/oj"
+  }
+ ],
+ "research_datapoints": [
+  {
+   "id": "RD01",
+   "stat": "German companies that know what the CRA means for them",
+   "value": "29%",
+   "detail": "67% have heard of it; 38% cannot assess it; 28% unaware",
+   "sample": "1,003 German companies with 10+ employees",
+   "date": "Apr-Jun 2026",
+   "source": "Bitkom Research via IT Finanzmagazin, 11 Sep 2026",
+   "type": "Survey",
+   "url": "https://www.it-finanzmagazin.de/cyber-resilience-act-cra-nur-jedes-dritte-unternehmen-vorbereitet-250594/"
+  },
+  {
+   "id": "RD02",
+   "stat": "CRA-aware respondents unaware of CRA penalties",
+   "value": "56%",
+   "detail": "Only 34% identify 2027 as the compliance year; 66% of all 843 respondents are not or only slightly familiar with the CRA",
+   "sample": "404 CRA-aware respondents (of 843 surveyed)",
+   "date": "early 2026",
+   "source": "Linux Foundation Research, CRA awareness report 2026",
+   "type": "Survey",
+   "url": "https://www.linuxfoundation.org/hubfs/Research%20Reports/lfr_2026_cra_awareness_report_060826.pdf?hsLang=en"
+  },
+  {
+   "id": "RD03",
+   "stat": "Manufacturers relying passively on upstream projects for security fixes",
+   "value": "51%",
+   "detail": "Separately, LF's 2025 Open Source ROI survey (n=236), cited in the 2026 report, found an average of 86 private forks per organisation at about 60 hours each per release cycle",
+   "sample": "Manufacturer module (n=194-219) of the 843-respondent survey",
+   "date": "early 2026",
+   "source": "Linux Foundation Research 2026",
+   "type": "Survey",
+   "url": "https://www.linuxfoundation.org/hubfs/Research%20Reports/lfr_2026_cra_awareness_report_060826.pdf?hsLang=en"
+  },
+  {
+   "id": "RD04",
+   "stat": "SME manufacturers planning to raise prices to cover compliance",
+   "value": "47%",
+   "detail": "Stewards' top support needs in 2026: financial support 50%, legal guidance 39% (n=28); the 2025 legal-guidance figure was 47% (n=34)",
+   "sample": "54 SME manufacturers",
+   "date": "early 2026",
+   "source": "Linux Foundation Research 2026",
+   "type": "Survey (small subsample)",
+   "url": "https://www.linuxfoundation.org/hubfs/Research%20Reports/lfr_2026_cra_awareness_report_060826.pdf?hsLang=en"
+  },
+  {
+   "id": "RD05",
+   "stat": "SMEs asking for technical documentation templates",
+   "value": "73%",
+   "detail": "13% rate their understanding of documentation requirements as good",
+   "sample": "194 responses, not representative",
+   "date": "Jun 2026 report",
+   "source": "ENISA SME CRA survey",
+   "type": "Survey (official)",
+   "url": "https://www.enisa.europa.eu/sites/default/files/2026-06/SME%20CRA%20survey%20report.pdf"
+  },
+  {
+   "id": "RD06",
+   "stat": "Firms expecting longer product development under the CRA",
+   "value": ">60%",
+   "detail": "28% 'significantly longer'; 28% have CRA teams of up to 10 people, 22% larger, 16% up to 3",
+   "sample": "200 German industrial firms",
+   "date": "Sep 2026",
+   "source": "ONEKEY IoT/OT Cybersecurity Report 2026",
+   "type": "Vendor survey",
+   "url": "https://www.onekey.com/press-release/onkey-iot-ot-cybersecurity-report-2026-half-of-all-companies-have-formed-cra-teams"
+  },
+  {
+   "id": "RD07",
+   "stat": "Respondents with partly or fully automated SBOM generation",
+   "value": "74%",
+   "detail": "Completeness is the top challenge (62%); 44% CycloneDX, 29% SPDX; 39% generate at build",
+   "sample": "334 responses",
+   "date": "Jun 2026",
+   "source": "ENISA SBOM Adoption State of Play 2026",
+   "type": "Survey (official)",
+   "url": "https://www.enisa.europa.eu/sites/default/files/2026-06/SBOM%20Adoption%20State%20of%20Play%202026.pdf"
+  },
+  {
+   "id": "RD08",
+   "stat": "Companies expecting cost increase under 20%",
+   "value": "50%",
+   "detail": "25% expect 20-40%; 25% no impact",
+   "sample": "12 companies",
+   "date": "2024",
+   "source": "KONE-authored industrial study (arXiv 2505.14325)",
+   "type": "Survey (small sample)",
+   "url": "https://arxiv.org/pdf/2505.14325"
+  },
+  {
+   "id": "RD09",
+   "stat": "Illustrative cost for three default products at medium readiness",
+   "value": "EUR 78,300 one-off; EUR 13,500 a year",
+   "detail": "At EUR 45 per hour; 'illustrative and intended for planning only'",
+   "sample": "Model",
+   "date": "2026",
+   "source": "cyberresilienceact.eu cost calculator",
+   "type": "Independent model",
+   "url": "https://www.cyberresilienceact.eu/cra-compliance-cost-calculator/"
+  },
+  {
+   "id": "RD10",
+   "stat": "CRA notified bodies verifiably designated",
+   "value": "0",
+   "detail": "Checks to 8 Sep 2026; Brightsight (RvA accreditation, pending Dutch notification) and Applus+ in the pipeline per vendor statements",
+   "sample": "NANDO / Single Market Compliance Space",
+   "date": "8 Sep 2026",
+   "source": "European Commission; vendor statements",
+   "type": "Official + vendor",
+   "url": "https://digital-strategy.ec.europa.eu/en/policies/cra-conformity-assessment"
+  },
+  {
+   "id": "RD11",
+   "stat": "Valid EUCC certificates",
+   "value": "111 from 9 certification bodies",
+   "detail": "EUCC is the only adopted EU cybersecurity certification scheme",
+   "sample": "ENISA register",
+   "date": "30 Oct 2026",
+   "source": "ENISA EUCC register (fact-checked)",
+   "type": "Official",
+   "url": ""
+  },
+  {
+   "id": "RD12",
+   "stat": "Time to designate a notified body",
+   "value": "12-18 months",
+   "detail": "2-4 months to contract; 3-6 months per Module B+C engagement",
+   "sample": "Commentary",
+   "date": "2026",
+   "source": "CRA Decoded",
+   "type": "Commentary (unverified)",
+   "url": "https://cra-decoded.com/blog/posts/cra-notified-body-capacity-crisis/"
+  }
+ ]
+}

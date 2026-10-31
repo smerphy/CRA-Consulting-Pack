@@ -1,0 +1,36 @@
+# Brief D10 + D11 — Excel workbooks (business case model; obligations register and programme tracker)
+
+Load the `xlsx` skill (Skill tool, name `anthropic-skills:xlsx` or `xlsx` as listed) before building, and follow it. Build with real Excel formulas (not pasted values) wherever a number is derived, so the client can change inputs. Recalculate and verify values (e.g. with LibreOffice headless if available, as the skill describes) before delivering. Save to `/home/claude/pack/out/excel/`. Brand: Inter-like clean font (Calibri/Arial fallback is fine in Excel), ink-900 `#0E1A2B` headers with white text, teal `#0F6E6A` for input cells' accent and key outputs, RAG fills (`#B42318` / `#B54708` / `#027A48` with white text), hairline borders, frozen header rows, filters on tables, print setup (landscape, fit to width), a cover sheet on each workbook with title, version 1.0, date 31 Oct 2026, "Illustrative engagement — Example Group (fictional)", "Prepared by [Advisor]", contents list with hyperlinks to sheets, and a colour legend (inputs blue font / formulas black / links green — standard modelling convention; state it).
+
+## D10 — "Project Rampart — CRA Business Case and Cost Model.xlsx"
+
+Source: `pack_data.json` → `cost_model` (assumptions `A`, base_lines, scenarios with multipliers and contingency, totals, monthly_plan, actual_to_date, benchmarks), `client` (families, classes, revenue, EU share by BU), `exposure` (fine tiers), `meta`.
+
+Sheets:
+1. **Cover** (as above) + one-paragraph purpose + how to use (change Inputs; pick scenario).
+2. **Summary** — headline outputs linked by formula: one-off to Dec 2027 incl. contingency, Q4 2026 and 2027 split, run-rate 2028, % of revenue, by workstream table, scenario comparison table (low/base/high), exposure box (max fine per tier, EU revenue needing a notified body), plus 3 native Excel charts (one-off by workstream bar; scenario comparison; cumulative monthly plan vs actual line).
+3. **Inputs** — every assumption from `cost_model.assumptions` as a labelled input cell with unit and source/comment; portfolio table (13 families: BU, class, revenue, EU share, EU revenue = formula); scenario selector cell (data-validation list Low/Base/High) driving multipliers looked up from a small scenario table (engineering, notified body, testing, legal multipliers; programme FTE; contingency rate) — base values must reproduce the base case.
+4. **Cost build** — the 11 lines with workstream, line, driver text, Q4 2026, 2027, run 2028, each a formula on Inputs and the selected scenario; subtotal, contingency, total. **Check:** with "Base" selected, totals must equal Q4 2026 EUR 1,237,100 + contingency 185,565 = 1,422,665; 2027 EUR 6,807,400 + 1,021,110 = 7,828,510; one-off total EUR 9,251,175; run 2028 EUR 1,844,000. With "Low": one-off 7,928,470, run 1,756,000. With "High": one-off 11,420,640, run 1,902,000. Add a visible check cell that shows "OK" when the base reproduces these.
+5. **Scenarios** — static side-by-side of all three scenarios computed independently of the selector (so the comparison always shows), with descriptions.
+6. **Exposure** — fine tiers (fixed amount, % of turnover, formula max(fixed, % x revenue) → EUR 30m / 24m / 12m), EU revenue by class (formula from portfolio), EU revenue needing a notified body (EUR 468.3m) and as % of group revenue; legacy decision table (IR-300, IS-200: EU revenue EUR 18m vs remediation estimate EUR 1.4m) — label all as illustrative.
+7. **Monthly plan** — Oct 2026 to Dec 2027 monthly plan and cumulative (from monthly_plan; note the phasing weights as inputs), actual column (Oct 2026 EUR 410,000; others blank), variance.
+8. **Benchmarks** — the benchmark table with source and type labels (vendor estimate / commentary / model / survey).
+9. **Assumptions log** — each assumption, rationale, owner, confidence (H/M/L), date.
+
+## D11 — "Project Rampart — CRA Obligations Register and Programme Tracker.xlsx"
+
+Sources: knowledge base sections 07-10, 12, 14 and the guides; the "Requirement checklists" tab of the knowledge-base doc (read it with `mcp__Claude_Docs__read` — project id `8b353179-4627-4a55-9904-668e64156948`, tab file `b0371d95-0936`; see the connector's guide for how to read) — use it as the backbone of the register; `pack_data.json` for programme data.
+
+Sheets:
+1. **Cover** (as above).
+2. **Obligations register** — one row per obligation (target 110-150 rows) covering: Art 13 (1)-(25); Annex I Part I point 1 and 2(a)-(m); Annex I Part II points 1-8; Art 14 (1)-(8) and Art 69(3); Annex II points 1-9; Annex VII points 1-8; Arts 28-31 (DoC, CE, technical documentation); Art 32 routes; Arts 18-23 (representative, importer, distributor, other cases, identification, traceability); Art 24 (stewards); Art 64 (penalties, as reference). Columns: ID (e.g. A13-08), Source (article/annex point), Obligation (plain-English paraphrase, one sentence), Applies to (Manufacturer / Importer / Distributor / AR / Steward), Effective from (11 Sep 2026 / 11 Dec 2027 / etc.), Product-level or organisation-level, Evidence artefact (what proves it), Owner role (from the corporate guide RACI), Diagnostic question (map to Q1.1-Q10.4 from pack_data where one fits), Example Group status (Not started / In progress / Implemented / Assured — derive from the diagnostic portfolio average of the mapped question: <0.75 Not started, <1.75 In progress, <2.75 Implemented, else Assured; label Illustrative), Notes/guidance reference. Data validation lists, filters, conditional formatting on status.
+3. **Product x obligation matrix** — 13 families (rows) x the 10 domains or ~20 key obligations (columns) showing the illustrative 0-4 scores from `diagnostic.domain_scores` with heatmap conditional formatting (0-4 colours from BRIEF.md), readiness index column (formula), and portfolio averages (formula). Must reproduce portfolio index 44%.
+4. **90-day plan** — the 30 tasks T01-T30 from `programme.mobilisation_plan` (workstream, task, owner, start, end, status, dependency) with a formula-driven Gantt (weekly columns from 2 Nov 2026 to 29 Jan 2027, conditional-format bars, today marker at 31 Oct 2026), plus milestones M0-M14 on a second block.
+5. **RAID log** — risks R01-R10 (likelihood, impact, score formula, rating formula, owner, mitigations, trend), issues I01-I03, assumptions (5-8, e.g. "No harmonised standard cited before Q3 2027", "One notified body designated by Q1 2027", "Guidance C(2026) 5252 adopted without material change"), dependencies (e.g. notified-body designation, legal opinion on EG-700/H3, works council agreement). Include a 5x5 risk heatmap built with formulas/conditional formatting.
+6. **Decision log** — SD1-SD4 (SteerCo #1, 30 Oct 2026) and BD1-BD5 (board 19 Nov 2026, status "Proposed"), with date, forum, decision, rationale, owner, status.
+7. **KPI tracker** — K01-K12 with target, Oct 2026 actual, RAG, plus monthly columns Nov 2026-Dec 2027 for actuals (blank) and the readiness and SBOM plan trajectories from `kpi_trajectories`.
+8. **RACI** — the decision RACI from corporate guide 02 (decisions x roles), with the legend.
+9. **Stakeholder register** — ST01-ST22 with power, interest, stance, owner, frequency.
+
+## Report
+Return both file paths, sheet lists, the check-cell results (base/low/high totals), and anything you could not source.
