@@ -1,0 +1,25 @@
+<section id="documentation" style="background:#FAFAF7;color:#26364D;font-family:Inter, Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:48px">
+<p style="position:absolute;left:128px;top:64px;width:1664px;font-size:24px;line-height:32px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#0A5753">05 · Evidence</p>
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:56px;line-height:64px;font-weight:500;letter-spacing:-0.5px;color:#0E1A2B">The technical file is assembled from what engineering already produces, if CI captures it</h2>
+<div style="flex:1;display:flex;flex-direction:column;gap:24px">
+<table style="font-size:24px;line-height:32px;color:#26364D;border:1px solid #C5CDD8">
+<tr style="background:#EEF1F5"><th style="width:24%;padding:6px 14px;font-weight:600;color:#0E1A2B">Annex VII point</th><th style="width:42%;padding:6px 14px;font-weight:600;color:#0E1A2B">What engineering supplies</th><th style="width:34%;padding:6px 14px;font-weight:600;color:#0E1A2B">Captured from</th></tr>
+<tr><td style="padding:6px 14px">1 · General description</td><td style="padding:6px 14px">Intended purpose, versions, photos, user information</td><td style="padding:6px 14px">Product definition record</td></tr>
+<tr><td style="padding:6px 14px">2(a) · Design</td><td style="padding:6px 14px">Architecture, interfaces, controls per Annex I item</td><td style="padding:6px 14px">Design review records</td></tr>
+<tr><td style="padding:6px 14px">2(b) · Vulnerability handling</td><td style="padding:6px 14px">SBOM, CVD policy, update design note</td><td style="padding:6px 14px">Signed SBOM; PSIRT records</td></tr>
+<tr><td style="padding:6px 14px">2(c) · Production</td><td style="padding:6px 14px">Build, signing and release process</td><td style="padding:6px 14px"><b>Gate record per release</b></td></tr>
+<tr><td style="padding:6px 14px">3 · Risk assessment</td><td style="padding:6px 14px">Threat model, applicability matrix, change log</td><td style="padding:6px 14px">Versioned assessment</td></tr>
+<tr><td style="padding:6px 14px">4 · Support period</td><td style="padding:6px 14px">Rationale and version-support register</td><td style="padding:6px 14px">Product management records</td></tr>
+<tr><td style="padding:6px 14px">5 · Standards applied</td><td style="padding:6px 14px">Standards or drafts used, labelled as drafts</td><td style="padding:6px 14px">Compliance lead</td></tr>
+<tr><td style="padding:6px 14px">6 · Test reports</td><td style="padding:6px 14px">Product and process tests, indexed by requirement</td><td style="padding:6px 14px">SARIF and test logs from CI</td></tr>
+<tr><td style="padding:6px 14px">7, 8 · Declaration, SBOM</td><td style="padding:6px 14px">Declaration copy; SBOM on reasoned request</td><td style="padding:6px 14px">Compliance; artefact store</td></tr>
+</table>
+<p style="font-size:24px;line-height:32px;color:#26364D"><b>Kept</b> 10 years after placing on the market or for the support period, whichever is longer · documentation readiness today: 24%</p>
+</div>
+<p style="font-size:24px;line-height:32px;color:#56667E">Source: CRA Annex VII and Art 13(13); application guide ss. 5, 11 and 12; readiness diagnostic, 28 Oct 2026; Illustrative</p>
+<div style="position:absolute;left:128px;bottom:64px;width:1664px;display:flex;flex-direction:row;justify-content:space-between;border-top:1px solid #C5CDD8;padding:16px 0px 0px 0px">
+<p style="font-size:24px;line-height:32px;color:#56667E">Project Rampart · Engineering training · v1.0 · 31 Oct 2026</p>
+<p style="font-size:24px;line-height:32px;color:#56667E">Illustrative · <b>19</b></p>
+</div>
+<aside>The technical file is not written at the end; it is assembled from what engineering already produces. Annex VII sets the contents. Point 1 describes the product. Point 2 covers design, vulnerability handling, including the SBOM and the update design, and production, including your gate records. Point 3 is the risk assessment, point 4 the support-period rationale, point 5 the standards or specifications applied, which today means drafts labelled as such, and point 6 the test reports. A copy of the declaration and the SBOM complete it. For this to work, CI must emit the evidence: SARIF scan results, signed SBOM attestations, signed artefacts and the gate record committed with the release tag. Everything is kept for ten years after placing on the market or for the support period, whichever is longer. Documentation and declaration is our second-least-ready domain at 24%, so this is where pipeline automation pays most.</aside>
+</section>

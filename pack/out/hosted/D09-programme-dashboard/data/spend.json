@@ -1,0 +1,107 @@
+[
+ {
+  "month": "Oct 2026",
+  "month_iso": "2026-10-01",
+  "plan_month": 384120,
+  "cumulative_plan": 384120,
+  "cumulative_actual": 410000
+ },
+ {
+  "month": "Nov 2026",
+  "month_iso": "2026-11-01",
+  "plan_month": 469479,
+  "cumulative_plan": 853599,
+  "cumulative_actual": null
+ },
+ {
+  "month": "Dec 2026",
+  "month_iso": "2026-12-01",
+  "plan_month": 569066,
+  "cumulative_plan": 1422665,
+  "cumulative_actual": null
+ },
+ {
+  "month": "Jan 2027",
+  "month_iso": "2027-01-01",
+  "plan_month": 430568,
+  "cumulative_plan": 1853233,
+  "cumulative_actual": null
+ },
+ {
+  "month": "Feb 2027",
+  "month_iso": "2027-02-01",
+  "plan_month": 508853,
+  "cumulative_plan": 2362086,
+  "cumulative_actual": null
+ },
+ {
+  "month": "Mar 2027",
+  "month_iso": "2027-03-01",
+  "plan_month": 587138,
+  "cumulative_plan": 2949224,
+  "cumulative_actual": null
+ },
+ {
+  "month": "Apr 2027",
+  "month_iso": "2027-04-01",
+  "plan_month": 665423,
+  "cumulative_plan": 3614648,
+  "cumulative_actual": null
+ },
+ {
+  "month": "May 2027",
+  "month_iso": "2027-05-01",
+  "plan_month": 704566,
+  "cumulative_plan": 4319214,
+  "cumulative_actual": null
+ },
+ {
+  "month": "Jun 2027",
+  "month_iso": "2027-06-01",
+  "plan_month": 743708,
+  "cumulative_plan": 5062922,
+  "cumulative_actual": null
+ },
+ {
+  "month": "Jul 2027",
+  "month_iso": "2027-07-01",
+  "plan_month": 743708,
+  "cumulative_plan": 5806631,
+  "cumulative_actual": null
+ },
+ {
+  "month": "Aug 2027",
+  "month_iso": "2027-08-01",
+  "plan_month": 704566,
+  "cumulative_plan": 6511197,
+  "cumulative_actual": null
+ },
+ {
+  "month": "Sep 2027",
+  "month_iso": "2027-09-01",
+  "plan_month": 704566,
+  "cumulative_plan": 7215762,
+  "cumulative_actual": null
+ },
+ {
+  "month": "Oct 2027",
+  "month_iso": "2027-10-01",
+  "plan_month": 704566,
+  "cumulative_plan": 7920328,
+  "cumulative_actual": null
+ },
+ {
+  "month": "Nov 2027",
+  "month_iso": "2027-11-01",
+  "plan_month": 704566,
+  "cumulative_plan": 8624894,
+  "cumulative_actual": null
+ },
+ {
+  "month": "Dec 2027",
+  "month_iso": "2027-12-01",
+  "plan_month": 626281,
+  "cumulative_plan": 9251175,
+  "cumulative_actual": null
+ }
+]

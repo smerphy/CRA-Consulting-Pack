@@ -1,0 +1,16 @@
+[
+ {
+  "q4_2026": 1237100,
+  "y2027": 6807400,
+  "contingency_q4_2026": 185565,
+  "contingency_2027": 1021110,
+  "q4_2026_incl_contingency": 1422665,
+  "y2027_incl_contingency": 7828510,
+  "one_off_total": 9251175,
+  "run_2028": 1844000,
+  "contingency_rate": 0.15,
+  "one_off_pct_revenue": 0.0077,
+  "run_pct_revenue": 0.0015,
+  "engineering_fte_years": 26.2
+ }
+]

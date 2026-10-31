@@ -1,0 +1,31 @@
+id,workstream,task,owner,start,end,start_iso,end_iso,status,depends_on
+T01,WS1,Board paper and pre-read issued,Programme director,2 Nov 2026,12 Nov 2026,2026-11-02,2026-11-12,In progress,
+T02,WS1,"Board decisions on budget, signing authority, NB strategy, legacy lines",Executive sponsor,19 Nov 2026,19 Nov 2026,2026-11-19,2026-11-19,Not started,T01
+T03,WS1,DoC signing instrument executed,General Counsel,20 Nov 2026,4 Dec 2026,2026-11-20,2026-12-04,Not started,T02
+T04,WS1,Product-risk acceptance rule added to enterprise risk framework,Chief Risk Officer,2 Nov 2026,11 Dec 2026,2026-11-02,2026-12-11,In progress,
+T05,WS1,"System-of-record selection (criteria, shortlist, decision)",Compliance lead,2 Nov 2026,18 Dec 2026,2026-11-02,2026-12-18,In progress,
+T06,WS2,"Reconcile release, commercial and cloud inventories into the scope register",Compliance lead,2 Nov 2026,4 Dec 2026,2026-11-02,2026-12-04,In progress,
+T07,WS2,Legal opinion on EG-700 and HomeHub H3 classification,General Counsel,2 Nov 2026,27 Nov 2026,2026-11-02,2026-11-27,In progress,
+T08,WS2,Remote-function maps for all 13 families,Product security officer,9 Nov 2026,11 Dec 2026,2026-11-09,2026-12-11,Not started,T06
+T09,WS2,Scope and classification register baselined,Compliance lead,14 Dec 2026,18 Dec 2026,2026-12-14,2026-12-18,Not started,"T06,T07,T08"
+T10,WS3,Distribution map per product refreshed for SRP 'Member States' field,Product management,2 Nov 2026,20 Nov 2026,2026-11-02,2026-11-20,In progress,
+T11,WS3,Works council agreement on 24/7 PSIRT on-call,HR business partner,2 Nov 2026,18 Dec 2026,2026-11-02,2026-12-18,In progress,
+T12,WS3,PSIRT lead hired; analyst seconded from IC,PSIRT lead,2 Nov 2026,29 Jan 2027,2026-11-02,2027-01-29,In progress,
+T13,WS3,HBS and S&S security.txt and CVD policy published,PSIRT lead,9 Nov 2026,4 Dec 2026,2026-11-09,2026-12-04,Not started,
+T14,WS3,"Legacy reportable inventory completed (T100, H2, V0 fleets)",PSIRT lead,2 Nov 2026,11 Dec 2026,2026-11-02,2026-12-11,In progress,
+T15,WS4,T200 pilot risk assessment signed (applicability matrix),Product security officer,2 Nov 2026,27 Nov 2026,2026-11-02,2026-11-27,In progress,
+T16,WS4,Release security gate enforced on T200 and IR-500 trains,Product security officer,16 Nov 2026,22 Jan 2027,2026-11-16,2027-01-22,Not started,T15
+T17,WS4,Wave 1 threat-modelling sprints (7 families),Product security officer,30 Nov 2026,26 Feb 2027,2026-11-30,2027-02-26,Not started,T15
+T18,WS5,SBOM generation from artefact on HBS firmware builds (Yocto + binary SCA),Head of platform engineering,2 Nov 2026,15 Jan 2027,2026-11-02,2027-01-15,In progress,
+T19,WS5,Dependency-Track and EUVD watch for all supported versions,Head of platform engineering,9 Nov 2026,18 Dec 2026,2026-11-09,2026-12-18,Not started,
+T20,WS5,CRA clause pack issued to top 15 security-relevant suppliers,Head of procurement,16 Nov 2026,29 Jan 2027,2026-11-16,2027-01-29,Not started,
+T21,WS5,Supplier questionnaire sent to all 41 in-scope suppliers,Head of procurement,23 Nov 2026,18 Dec 2026,2026-11-23,2026-12-18,Not started,
+T22,WS6,Annex VII 13-part file template and evidence index adopted,Compliance lead,2 Nov 2026,4 Dec 2026,2026-11-02,2026-12-04,In progress,
+T23,WS6,Annex II user-information template drafted (T200 first),Technical writing lead,16 Nov 2026,18 Dec 2026,2026-11-16,2026-12-18,Not started,
+T24,WS7,Pre-assessment proposals from 3 candidate notified bodies,Head of quality & regulatory,2 Nov 2026,11 Dec 2026,2026-11-02,2026-12-11,In progress,
+T25,WS7,Pre-assessment contracts signed with conversion options,Head of quality & regulatory,14 Dec 2026,29 Jan 2027,2026-12-14,2027-01-29,Not started,"T02,T24"
+T26,WS7,Module H scope statement for IC + FleetView quality system,Head of quality & regulatory,16 Nov 2026,22 Jan 2027,2026-11-16,2027-01-22,Not started,
+T27,WS7,Withdraw-or-remediate plan for IR-300 and IS-200 EU sales,BU president IC,20 Nov 2026,18 Dec 2026,2026-11-20,2026-12-18,Not started,T02
+T28,WS8,Engineering awareness training to 400 engineers,Head of engineering enablement,2 Nov 2026,29 Jan 2027,2026-11-02,2027-01-29,In progress,
+T29,WS8,Sales and support briefing and customer FAQ live,Head of customer operations,16 Nov 2026,11 Dec 2026,2026-11-16,2026-12-11,Not started,
+T30,WS8,Staff awareness pulse survey #1,Head of engineering enablement,23 Nov 2026,4 Dec 2026,2026-11-23,2026-12-04,Not started,

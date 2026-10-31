@@ -1,0 +1,122 @@
+[
+ {
+  "id": "K01",
+  "name": "Portfolio readiness index",
+  "value": 0.442,
+  "display": "44%",
+  "target": "70% by Jun 2027; 90% by Nov 2027",
+  "rag": "Amber",
+  "trend": "Baseline",
+  "source": "Readiness diagnostic, 28 Oct 2026"
+ },
+ {
+  "id": "K02",
+  "name": "Families with final scope and class decision",
+  "value": 11,
+  "display": "11 / 13",
+  "target": "13 / 13 by 18 Dec 2026",
+  "rag": "Amber",
+  "trend": "New",
+  "source": "Scope register"
+ },
+ {
+  "id": "K03",
+  "name": "Class I/II families with route and notified-body plan",
+  "value": 5,
+  "display": "5 / 7",
+  "target": "7 / 7 by 19 Nov 2026",
+  "rag": "Amber",
+  "trend": "New",
+  "source": "Scope register"
+ },
+ {
+  "id": "K04",
+  "name": "SRP Assigned Representatives registered",
+  "value": 3,
+  "display": "3",
+  "target": ">= 2 at all times",
+  "rag": "Green",
+  "trend": "Stable",
+  "source": "SRP roster"
+ },
+ {
+  "id": "K05",
+  "name": "Art 14 drill: time to early warning",
+  "value": 9.67,
+  "display": "9h 40m",
+  "target": "< 24h incl. weekends",
+  "rag": "Green",
+  "trend": "First drill",
+  "source": "Drill record 22 Oct 2026"
+ },
+ {
+  "id": "K06",
+  "name": "Art 14 cases assessed (reportable / not reportable)",
+  "value": 4,
+  "display": "0 / 4",
+  "target": "100% decided with UTC timeline",
+  "rag": "Green",
+  "trend": "Stable",
+  "source": "PSIRT case files"
+ },
+ {
+  "id": "K07",
+  "name": "Releases with signed SBOM (last 30 days)",
+  "value": 0.38,
+  "display": "38% (9 / 24)",
+  "target": "100% by 31 Mar 2027",
+  "rag": "Red",
+  "trend": "Up from 21%",
+  "source": "Build pipeline"
+ },
+ {
+  "id": "K08",
+  "name": "Families with signed risk assessment",
+  "value": 0,
+  "display": "0 / 13 (T200 in review)",
+  "target": "Wave 1 (8) by 26 Feb 2027",
+  "rag": "Green",
+  "trend": "On plan",
+  "source": "System of record"
+ },
+ {
+  "id": "K09",
+  "name": "In-scope suppliers on CRA clauses",
+  "value": 6,
+  "display": "6 / 41 (15%)",
+  "target": "Top 15 by Jan 2027; all by Jun 2027",
+  "rag": "Amber",
+  "trend": "New",
+  "source": "Contract register"
+ },
+ {
+  "id": "K10",
+  "name": "Engineers trained",
+  "value": 140,
+  "display": "140 / 920 (15%)",
+  "target": "60% by Mar 2027",
+  "rag": "Amber",
+  "trend": "Up",
+  "source": "LMS"
+ },
+ {
+  "id": "K11",
+  "name": "Spend to date vs plan",
+  "value": 410000,
+  "display": "EUR 0.41m vs EUR 0.38m",
+  "target": "Within +/-10% of plan",
+  "rag": "Green",
+  "trend": "Oct 2026",
+  "source": "Finance"
+ },
+ {
+  "id": "K12",
+  "name": "Notified-body candidates",
+  "value": 3,
+  "display": "3 shortlisted; 1 proposal",
+  "target": "3 pre-assessments contracted by 29 Jan 2027",
+  "rag": "Amber",
+  "trend": "New",
+  "source": "Programme"
+ }
+]

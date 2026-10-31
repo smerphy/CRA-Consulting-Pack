@@ -1,0 +1,58 @@
+[
+ {
+  "id": "WS1",
+  "workstream": "Governance & PMO",
+  "lead": "Programme director",
+  "rag": "Green",
+  "note": "Sponsor named; programme board running; signing instrument drafted for board approval."
+ },
+ {
+  "id": "WS2",
+  "workstream": "Portfolio & classification",
+  "lead": "Compliance lead",
+  "rag": "Amber",
+  "note": "11 of 13 families classified; EG-700 and HomeHub H3 need legal opinion (borderline Class I)."
+ },
+ {
+  "id": "WS3",
+  "workstream": "Reporting & PSIRT",
+  "lead": "PSIRT lead",
+  "rag": "Green",
+  "note": "SRP live with 3 Assigned Representatives; first drill filed early warning in 9h 40m."
+ },
+ {
+  "id": "WS4",
+  "workstream": "Secure engineering & SDLC",
+  "lead": "Product security officer",
+  "rag": "Amber",
+  "note": "T200 pilot risk assessment in review; release gate designed, not yet enforced."
+ },
+ {
+  "id": "WS5",
+  "workstream": "SBOM & supply chain",
+  "lead": "Head of platform engineering",
+  "rag": "Red",
+  "note": "Signed SBOMs on 38% of releases; HBS firmware builds lack binary SCA; 6 of 41 suppliers on CRA clauses."
+ },
+ {
+  "id": "WS6",
+  "workstream": "Documentation & evidence",
+  "lead": "Compliance lead",
+  "rag": "Amber",
+  "note": "System of record not yet selected; Annex VII outline agreed."
+ },
+ {
+  "id": "WS7",
+  "workstream": "Conformity & market access",
+  "lead": "Head of quality & regulatory",
+  "rag": "Red",
+  "note": "No CRA notified body designated at checks to 8 Sep 2026 (external); 3 candidates shortlisted; V1/L2 route undecided."
+ },
+ {
+  "id": "WS8",
+  "workstream": "People & change",
+  "lead": "Head of engineering enablement",
+  "rag": "Amber",
+  "note": "140 of 920 engineers trained; works council consultation on PSIRT on-call opened."
+ }
+]

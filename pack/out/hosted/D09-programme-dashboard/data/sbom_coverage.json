@@ -1,0 +1,44 @@
+[
+ {
+  "month": "Sep 2026",
+  "month_iso": "2026-09-01",
+  "coverage": 0.21,
+  "basis": "Pre-programme measurement"
+ },
+ {
+  "month": "Oct 2026",
+  "month_iso": "2026-10-01",
+  "coverage": 0.38,
+  "basis": "Actual"
+ },
+ {
+  "month": "Nov 2026",
+  "month_iso": "2026-11-01",
+  "coverage": 0.45,
+  "basis": "Plan"
+ },
+ {
+  "month": "Dec 2026",
+  "month_iso": "2026-12-01",
+  "coverage": 0.55,
+  "basis": "Plan"
+ },
+ {
+  "month": "Jan 2027",
+  "month_iso": "2027-01-01",
+  "coverage": 0.7,
+  "basis": "Plan"
+ },
+ {
+  "month": "Feb 2027",
+  "month_iso": "2027-02-01",
+  "coverage": 0.85,
+  "basis": "Plan"
+ },
+ {
+  "month": "Mar 2027",
+  "month_iso": "2027-03-01",
+  "coverage": 1.0,
+  "basis": "Plan"
+ }
+]

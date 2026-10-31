@@ -1,0 +1,51 @@
+{
+  "corners": "4px",
+  "dark": {
+    "bad": "#F97066",
+    "border": "#2C3C55",
+    "card": "#16243A",
+    "charts": [
+      "#1A9389",
+      "#5B67C2",
+      "#73B1E6",
+      "#C9A66B",
+      "#B9573E"
+    ],
+    "good": "#50C587",
+    "ground": "#0E1A2B",
+    "muted": "#A3AFC0",
+    "text": "#FAFAF7",
+    "warning": "#F79643"
+  },
+  "fonts": {
+    "display": "'Source Serif 4', Georgia, 'Times New Roman', serif",
+    "text": "Inter, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, system-ui, sans-serif"
+  },
+  "light": {
+    "bad": "#B42318",
+    "border": "#C5CDD8",
+    "card": "#FFFFFF",
+    "charts": [
+      "#0F6E6A",
+      "#1F3A5F",
+      "#5B8DB8",
+      "#C9A66B",
+      "#B9573E"
+    ],
+    "good": "#027A48",
+    "ground": "#FAFAF7",
+    "muted": "#56667E",
+    "text": "#0E1A2B",
+    "warning": "#B54708"
+  },
+  "sizes": {
+    "body": "14px",
+    "caption": "12px",
+    "heading": "16px",
+    "title": "32px"
+  },
+  "system": {
+    "name": "Advisory Design System (white-label)",
+    "url": "https://claude.ai/artifact/9AGwnwfY3RVENQQayi6ixN"
+  }
+}

@@ -1,0 +1,48 @@
+<section id="secure-updates" style="background:#FAFAF7;color:#26364D;font-family:Inter, Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:48px">
+<p style="position:absolute;left:128px;top:64px;width:1664px;font-size:24px;line-height:32px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#0A5753">04 · Ship and support</p>
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:56px;line-height:64px;font-weight:500;letter-spacing:-0.5px;color:#0E1A2B">Engineer the update path like a product: it keeps every other requirement true after shipment</h2>
+<div style="flex:1;display:flex;flex-direction:column;gap:32px">
+<div style="display:flex;flex-direction:row;gap:16px">
+<div style="flex:1;display:flex;flex-direction:column;gap:4px;background:#FFFFFF;border:1px solid #C5CDD8;border-radius:4px;padding:20px">
+<p style="font-size:28px;line-height:36px;font-weight:600;color:#0E1A2B"><span style="color:#56667E">01</span> Sign</p>
+<p style="font-size:24px;line-height:32px;color:#26364D">Offline root and online key in an HSM; duties separated</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:4px;background:#FFFFFF;border:1px solid #C5CDD8;border-radius:4px;padding:20px">
+<p style="font-size:28px;line-height:36px;font-weight:600;color:#0E1A2B"><span style="color:#56667E">02</span> Publish</p>
+<p style="font-size:24px;line-height:32px;color:#26364D">TUF-style metadata: version, expiry, monotonic counter</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:4px;background:#FFFFFF;border:2px solid #0F6E6A;border-radius:4px;padding:20px">
+<p style="font-size:28px;line-height:36px;font-weight:600;color:#0E1A2B"><span style="color:#0F6E6A">03</span> Verify</p>
+<p style="font-size:24px;line-height:32px;color:#26364D">Signature, applicability, freshness; reject older versions</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:4px;background:#FFFFFF;border:1px solid #C5CDD8;border-radius:4px;padding:20px">
+<p style="font-size:28px;line-height:36px;font-weight:600;color:#0E1A2B"><span style="color:#56667E">04</span> Install</p>
+<p style="font-size:24px;line-height:32px;color:#26364D">Atomic A/B slots; power loss never bricks a unit</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:4px;background:#FFFFFF;border:1px solid #C5CDD8;border-radius:4px;padding:20px">
+<p style="font-size:28px;line-height:36px;font-weight:600;color:#0E1A2B"><span style="color:#56667E">05</span> Record</p>
+<p style="font-size:24px;line-height:32px;color:#26364D">Outcome logged per unit; recovery image kept</p>
+</div>
+</div>
+<div style="display:flex;flex-direction:row;gap:40px">
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;border-top:4px solid #0E1A2B;padding:24px 0px 0px 0px">
+<p style="font-size:24px;line-height:32px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#56667E">What users get</p>
+<p style="font-size:24px;line-height:32px;color:#26364D"><b>Automatic by default</b> for consumer products, with notice, a bounded postpone and a clear opt-out, Annex II 8(e)</p>
+<p style="font-size:24px;line-height:32px;color:#26364D"><b>Security fixes on their own train</b>, free of charge and each with an advisory message</p>
+<p style="font-size:24px;line-height:32px;color:#26364D"><b>Each update available</b> for at least 10 years after issue, or the rest of the support period if longer</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;border-top:4px solid #0E1A2B;padding:24px 0px 0px 0px">
+<p style="font-size:24px;line-height:32px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#56667E">T200 and the programme</p>
+<p style="font-size:24px;line-height:32px;color:#26364D"><b>T200:</b> TUF roles, A/B slots, monotonic counter; in-app postpone up to 7 days; installers set maintenance windows</p>
+<p style="font-size:24px;line-height:32px;color:#26364D"><b>Repository</b> on immutable storage, budgeted for 10 years after the last release</p>
+<p style="font-size:24px;line-height:32px;color:#26364D"><b>Milestone M10:</b> HSM signing and anti-rollback hardened by 30 Jun 2027</p>
+</div>
+</div>
+</div>
+<p style="font-size:24px;line-height:32px;color:#56667E">Source: CRA Annex I, Art 13(9); ENISA secure-update advisory v0.1 (draft); application guide ss. 7 and 13; plan of record; Illustrative</p>
+<div style="position:absolute;left:128px;bottom:64px;width:1664px;display:flex;flex-direction:row;justify-content:space-between;border-top:1px solid #C5CDD8;padding:16px 0px 0px 0px">
+<p style="font-size:24px;line-height:32px;color:#56667E">Project Rampart · Engineering training · v1.0 · 31 Oct 2026</p>
+<p style="font-size:24px;line-height:32px;color:#56667E">Illustrative · <b>15</b></p>
+</div>
+<aside>The update mechanism keeps every other requirement true after shipment, so design it as a security product. Keys: an offline root and an online signing key, both in an HSM or cloud KMS, with build, release approval and key custody held by different people. Metadata follows TUF or Uptane, with expiry and a monotonic counter. The device verifies signature, applicability and freshness before writing anything, rejects older versions unless a downgrade is explicitly authorised and audited, and installs atomically to an A/B slot so power loss never bricks a unit. For consumer products, automatic security updates are on by default, with notification, postponement and a clear opt-out; managed estates use scheduling instead, a carve-out claimed only in the risk assessment. Security fixes ship on their own train, free, with an advisory, and each stays available for at least ten years. HSM signing and anti-rollback are due by 30 Jun 2027.</aside>
+</section>

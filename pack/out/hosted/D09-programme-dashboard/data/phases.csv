@@ -1,0 +1,8 @@
+id,phase,start,end,start_iso,end_iso,status,gate
+P0,Reporting readiness,1 Sep 2026,30 Oct 2026,2026-09-01,2026-10-30,Complete,Early warning can be filed within 24 hours on a weekend
+P1,"Inventory, scope and classification",2 Nov 2026,18 Dec 2026,2026-11-02,2026-12-18,In progress,"Every product has a class, a route and an owner"
+P2,Risk assessment and gap analysis,1 Dec 2026,26 Feb 2027,2026-12-01,2027-02-26,Planned,Applicability matrices signed for Wave 1
+P3,Remediation and SDLC changes,4 Jan 2027,31 Aug 2027,2027-01-04,2027-08-31,Planned,Pipeline evidence generated automatically for one release per family
+P4,Documentation and declarations,1 Jun 2027,30 Sep 2027,2027-06-01,2027-09-30,Planned,Technical files complete and reviewed outside engineering
+P5,Conformity assessment,1 Apr 2027,30 Nov 2027,2027-04-01,2027-11-30,Planned,Certificate or internal-control record in hand per family
+P6,Go-live and operations,11 Dec 2027,ongoing,2027-12-11,,Planned,Only declared products placed on the EU market

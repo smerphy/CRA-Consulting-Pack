@@ -1,0 +1,49 @@
+{
+  "v": 4,
+  "createdOnFiles": {"v": 1, "at": "2026-10-31T15:56:00Z"},
+  "lists": "css",
+  "title": "The CRA for Engineers and Product Teams — Training",
+  "cover": "cover",
+  "order": [
+    "cover",
+    "why-it-matters",
+    "cra-in-60-seconds",
+    "what-changes",
+    "product-boundary",
+    "risk-assessment",
+    "annex-i-defaults",
+    "annex-i-data",
+    "annex-i-resilience",
+    "release-gate",
+    "known-exploitable",
+    "substantial-modification",
+    "sbom",
+    "open-source",
+    "secure-updates",
+    "vulnerability-handling",
+    "first-hour",
+    "support-period",
+    "documentation",
+    "t200-end-to-end",
+    "pitfalls",
+    "knowledge-check",
+    "get-help",
+    "summary"
+  ],
+  "sections": {
+    "s1": {"description": "Why the CRA matters to engineers and product teams, and what it changes", "start": "cover"},
+    "s2": {"description": "Design: the product boundary, the risk assessment and the 13 Annex I items as patterns", "start": "product-boundary"},
+    "s3": {"description": "Build and release: the security gate, known exploitable vulnerabilities, substantial modification, SBOM and open source", "start": "release-gate"},
+    "s4": {"description": "Ship and support: secure updates, vulnerability handling, the first hour of an exploitation case and support periods", "start": "secure-updates"},
+    "s5": {"description": "Evidence: the documentation engineering produces and the T200 walk-through", "start": "documentation"},
+    "s6": {"description": "Check and close: pitfalls, knowledge check, where to get help and the five things to remember", "start": "pitfalls"}
+  },
+  "faces": {
+    "source-serif-4": {"family": "Source Serif 4", "href": "https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400..700&display=swap"},
+    "inter": {"family": "Inter", "href": "https://fonts.googleapis.com/css2?family=Inter:wght@400..700&display=swap"},
+    "jetbrains-mono": {"family": "JetBrains Mono", "href": "https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400..600&display=swap"}
+  },
+  "designSystems": [
+    {"title": "Advisory Design System (white-label)", "namespace": "advisory", "artifact": "https://claude.ai/artifact/9AGwnwfY3RVENQQayi6ixN", "version": "1793461538-94a7", "copiedAt": "2026-10-31T15:56:00Z"}
+  ]
+}

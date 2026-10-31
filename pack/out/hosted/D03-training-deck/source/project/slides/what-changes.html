@@ -1,0 +1,26 @@
+<section id="what-changes" style="background:#FAFAF7;color:#26364D;font-family:Inter, Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:48px">
+<p style="position:absolute;left:128px;top:64px;width:1664px;font-size:24px;line-height:32px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#0A5753">01 · Why it matters</p>
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:56px;line-height:64px;font-weight:500;letter-spacing:-0.5px;color:#0E1A2B">Most of the change is proof: every design decision and release must leave a trail</h2>
+<div style="flex:1;display:flex;flex-direction:column;gap:32px">
+<table style="font-size:24px;line-height:32px;color:#26364D;border:1px solid #C5CDD8">
+<tr style="background:#EEF1F5"><th style="width:20%;padding:6px 14px;font-weight:600;color:#0E1A2B">Area</th><th style="width:32%;padding:6px 14px;font-weight:600;color:#0E1A2B">Until now</th><th style="width:48%;padding:6px 14px;font-weight:600;color:#0E1A2B">Under the CRA</th></tr>
+<tr><td style="padding:6px 14px">Threat model</td><td style="padding:6px 14px">Optional, per feature, in a wiki</td><td style="padding:6px 14px">Signed risk assessment per product, updated on triggers</td></tr>
+<tr><td style="padding:6px 14px">Dependencies</td><td style="padding:6px 14px">Added when needed</td><td style="padding:6px 14px">Intake gate with a due-diligence record</td></tr>
+<tr><td style="padding:6px 14px">SBOM</td><td style="padding:6px 14px">On request, from the manifest</td><td style="padding:6px 14px">From the shipped artefact, signed, every release</td></tr>
+<tr><td style="padding:6px 14px">Release</td><td style="padding:6px 14px">Tests green, tag and ship</td><td style="padding:6px 14px">Gate record: SBOM hash, exploit check, delta decision</td></tr>
+<tr><td style="padding:6px 14px">Security fixes</td><td style="padding:6px 14px">Ride the next feature release</td><td style="padding:6px 14px">Separate, free, with an advisory; available for 10 years</td></tr>
+<tr><td style="padding:6px 14px">Vulnerability reports</td><td style="padding:6px 14px">Whoever reads the inbox</td><td style="padding:6px 14px">One PSIRT process; 24-hour warning if exploited</td></tr>
+<tr><td style="padding:6px 14px">Support</td><td style="padding:6px 14px">Until the next generation ships</td><td style="padding:6px 14px">Declared from expected use; end date shown at purchase</td></tr>
+</table>
+<div style="display:flex;flex-direction:row;gap:40px;align-items:center;background:#DCEFEC;padding:24px 40px;border-radius:4px">
+<p style="width:220px;font-size:24px;line-height:32px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#0A5753">Key insight</p>
+<p style="flex:1;font-size:28px;line-height:40px;color:#0E1A2B">Most teams already threat-model, scan and sign. The gap is the record: per product, per version, retrievable for 10 years.</p>
+</div>
+</div>
+<p style="font-size:24px;line-height:32px;color:#56667E">Source: Application implementation guide ss. 3–11; CRA Art 13 and Annex I; knowledge base, facts as at 30 Oct 2026</p>
+<div style="position:absolute;left:128px;bottom:64px;width:1664px;display:flex;flex-direction:row;justify-content:space-between;border-top:1px solid #C5CDD8;padding:16px 0px 0px 0px">
+<p style="font-size:24px;line-height:32px;color:#56667E">Project Rampart · Engineering training · v1.0 · 31 Oct 2026</p>
+<p style="font-size:24px;line-height:32px;color:#56667E">Illustrative · <b>4</b></p>
+</div>
+<aside>If you remember one slide, make it this one. Most of what changes is not new security engineering; many teams already threat-model, scan and sign. What changes is that every decision must leave a trail that an authority or notified body can follow, per product and per version, for at least ten years. Walk the rows. Threat models become a signed risk assessment per product. Dependencies pass an intake gate. The SBOM is generated from what we ship and signed. Releases pass a security gate that produces a record. Security fixes ship separately, free and with an advisory. Vulnerability reports go to PSIRT, and active exploitation starts a 24-hour clock. Support periods are declared from expected use and shown at purchase. Ask the room which row is furthest from how their team works today, and note the answers for the programme team.</aside>
+</section>

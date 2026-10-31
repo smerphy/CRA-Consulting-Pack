@@ -1,0 +1,72 @@
+[
+ {
+  "id": "D1",
+  "domain": "Governance",
+  "name": "Governance and accountability",
+  "avg_level": 1.75,
+  "readiness": 0.583
+ },
+ {
+  "id": "D2",
+  "domain": "Scope & class",
+  "name": "Scope, inventory and classification",
+  "avg_level": 1.35,
+  "readiness": 0.449
+ },
+ {
+  "id": "D3",
+  "domain": "Risk & design",
+  "name": "Risk assessment and secure by design",
+  "avg_level": 1.4,
+  "readiness": 0.468
+ },
+ {
+  "id": "D4",
+  "domain": "SDLC & testing",
+  "name": "Secure development and testing",
+  "avg_level": 1.67,
+  "readiness": 0.558
+ },
+ {
+  "id": "D5",
+  "domain": "SBOM & supply chain",
+  "name": "Supply chain, SBOM and open source",
+  "avg_level": 1.13,
+  "readiness": 0.378
+ },
+ {
+  "id": "D6",
+  "domain": "Vulnerability handling",
+  "name": "Vulnerability handling and disclosure",
+  "avg_level": 1.15,
+  "readiness": 0.385
+ },
+ {
+  "id": "D7",
+  "domain": "Updates & support",
+  "name": "Updates and support period",
+  "avg_level": 1.44,
+  "readiness": 0.481
+ },
+ {
+  "id": "D8",
+  "domain": "Art 14 reporting",
+  "name": "Article 14 reporting readiness",
+  "avg_level": 2.15,
+  "readiness": 0.718
+ },
+ {
+  "id": "D9",
+  "domain": "Documentation & DoC",
+  "name": "Documentation, user information and declaration",
+  "avg_level": 0.73,
+  "readiness": 0.244
+ },
+ {
+  "id": "D10",
+  "domain": "Conformity & access",
+  "name": "Conformity assessment and market access",
+  "avg_level": 0.48,
+  "readiness": 0.16
+ }
+]

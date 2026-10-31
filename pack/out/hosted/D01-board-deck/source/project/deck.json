@@ -1,0 +1,26 @@
+{
+  "v": 4,
+  "createdOnFiles": {"v": 1, "at": "2026-10-31T15:57:00Z"},
+  "lists": "css",
+  "title": "Keeping our EU market open — CRA Board Briefing",
+  "cover": "cover",
+  "order": ["cover", "summary", "decisions", "cra", "clock", "portfolio", "constraint", "critical", "stakes", "market", "baseline", "reporting", "response", "roadmap", "rights", "investment", "legacy", "risks", "next90", "appA", "appB", "appC"],
+  "sections": {
+    "s1": {"description": "Executive summary and the five decisions we ask of the board", "start": "cover"},
+    "s2": {"description": "The regulation: what the CRA requires and when", "start": "cra"},
+    "s3": {"description": "Our exposure: EUR 468m of EU revenue is gated by notified-body capacity", "start": "portfolio"},
+    "s4": {"description": "Our readiness: 44% today, with reporting already working", "start": "baseline"},
+    "s5": {"description": "Our response: Project Rampart’s operating model, plan and decision rights", "start": "response"},
+    "s6": {"description": "Investment, legacy lines and risks", "start": "investment"},
+    "s7": {"description": "The next 90 days", "start": "next90"},
+    "s8": {"description": "Appendix: classification, cost model, glossary and method", "start": "appA"}
+  },
+  "faces": {
+    "source-serif-4": {"family": "Source Serif 4", "href": "https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400..700&display=swap"},
+    "inter": {"family": "Inter", "href": "https://fonts.googleapis.com/css2?family=Inter:wght@400..700&display=swap"},
+    "jetbrains-mono": {"family": "JetBrains Mono", "href": "https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400..600&display=swap"}
+  },
+  "designSystems": [
+    {"title": "Advisory Design System (white-label)", "namespace": "advisory", "artifact": "https://claude.ai/artifact/9AGwnwfY3RVENQQayi6ixN", "version": "1793461538-94a7", "copiedAt": "2026-10-31T15:57:00Z"}
+  ]
+}

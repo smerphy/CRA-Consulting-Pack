@@ -1,0 +1,74 @@
+[
+ {
+  "id": "SD1",
+  "forum": "SteerCo #1",
+  "forum_date": "30 Oct 2026",
+  "decision": "Endorse Module H as the route for Industrial Connectivity and FleetView (five families), using the IEC 62443-4-1 process as the base.",
+  "detail": "",
+  "status": "Endorsed (illustrative)"
+ },
+ {
+  "id": "SD2",
+  "forum": "SteerCo #1",
+  "forum_date": "30 Oct 2026",
+  "decision": "Apply the stricter reading to EG-700 and HomeHub H3 until the legal opinion lands on 27 Nov 2026: include them in notified-body capacity planning, keep them in Wave 2 for remediation.",
+  "detail": "",
+  "status": "Endorsed (illustrative)"
+ },
+ {
+  "id": "SD3",
+  "forum": "SteerCo #1",
+  "forum_date": "30 Oct 2026",
+  "decision": "Release EUR 0.75m of pre-approval spend ahead of the 19 Nov board.",
+  "detail": "",
+  "status": "Endorsed (illustrative)"
+ },
+ {
+  "id": "SD4",
+  "forum": "SteerCo #1",
+  "forum_date": "30 Oct 2026",
+  "decision": "Approve system-of-record selection criteria.",
+  "detail": "",
+  "status": "Endorsed (illustrative)"
+ },
+ {
+  "id": "BD1",
+  "forum": "Board",
+  "forum_date": "19 Nov 2026",
+  "decision": "Approve the Project Rampart investment envelope.",
+  "detail": "EUR 9.3m one-off to Dec 2027 (incl. 15% contingency) and EUR 1.8m a year run from 2028.",
+  "status": "Proposed"
+ },
+ {
+  "id": "BD2",
+  "forum": "Board",
+  "forum_date": "19 Nov 2026",
+  "decision": "Appoint the accountable executive and execute the DoC signing instrument.",
+  "detail": "CTO as accountable executive; CEO signs declarations or delegates in writing; compliance lead counter-signs the pre-signature checklist.",
+  "status": "Proposed"
+ },
+ {
+  "id": "BD3",
+  "forum": "Board",
+  "forum_date": "19 Nov 2026",
+  "decision": "Authorise notified-body pre-contracting.",
+  "detail": "Pre-assessments with three candidate bodies (up to EUR 60k) and formal contracts by Q1 2027 (Module H for IC + FleetView; Module B+C for V1 and L2).",
+  "status": "Proposed"
+ },
+ {
+  "id": "BD4",
+  "forum": "Board",
+  "forum_date": "19 Nov 2026",
+  "decision": "Adopt the product-risk acceptance rule.",
+  "detail": "Cost, risk appetite and commercial strategy are not grounds to leave product risk unaddressed (guidance paras 156-163); appeals go to the executive sponsor.",
+  "status": "Proposed"
+ },
+ {
+  "id": "BD5",
+  "forum": "Board",
+  "forum_date": "19 Nov 2026",
+  "decision": "Withdraw IR-300 and IS-200 from EU sale before 11 Dec 2027.",
+  "detail": "EUR 18m of declining EU revenue versus about EUR 1.4m remediation plus notified-body fees; migrate customers to IR-500 and IS-300.",
+  "status": "Proposed"
+ }
+]

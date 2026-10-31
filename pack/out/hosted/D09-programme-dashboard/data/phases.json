@@ -1,0 +1,72 @@
+[
+ {
+  "id": "P0",
+  "phase": "Reporting readiness",
+  "start": "1 Sep 2026",
+  "end": "30 Oct 2026",
+  "start_iso": "2026-09-01",
+  "end_iso": "2026-10-30",
+  "status": "Complete",
+  "gate": "Early warning can be filed within 24 hours on a weekend"
+ },
+ {
+  "id": "P1",
+  "phase": "Inventory, scope and classification",
+  "start": "2 Nov 2026",
+  "end": "18 Dec 2026",
+  "start_iso": "2026-11-02",
+  "end_iso": "2026-12-18",
+  "status": "In progress",
+  "gate": "Every product has a class, a route and an owner"
+ },
+ {
+  "id": "P2",
+  "phase": "Risk assessment and gap analysis",
+  "start": "1 Dec 2026",
+  "end": "26 Feb 2027",
+  "start_iso": "2026-12-01",
+  "end_iso": "2027-02-26",
+  "status": "Planned",
+  "gate": "Applicability matrices signed for Wave 1"
+ },
+ {
+  "id": "P3",
+  "phase": "Remediation and SDLC changes",
+  "start": "4 Jan 2027",
+  "end": "31 Aug 2027",
+  "start_iso": "2027-01-04",
+  "end_iso": "2027-08-31",
+  "status": "Planned",
+  "gate": "Pipeline evidence generated automatically for one release per family"
+ },
+ {
+  "id": "P4",
+  "phase": "Documentation and declarations",
+  "start": "1 Jun 2027",
+  "end": "30 Sep 2027",
+  "start_iso": "2027-06-01",
+  "end_iso": "2027-09-30",
+  "status": "Planned",
+  "gate": "Technical files complete and reviewed outside engineering"
+ },
+ {
+  "id": "P5",
+  "phase": "Conformity assessment",
+  "start": "1 Apr 2027",
+  "end": "30 Nov 2027",
+  "start_iso": "2027-04-01",
+  "end_iso": "2027-11-30",
+  "status": "Planned",
+  "gate": "Certificate or internal-control record in hand per family"
+ },
+ {
+  "id": "P6",
+  "phase": "Go-live and operations",
+  "start": "11 Dec 2027",
+  "end": "ongoing",
+  "start_iso": "2027-12-11",
+  "end_iso": null,
+  "status": "Planned",
+  "gate": "Only declared products placed on the EU market"
+ }
+]

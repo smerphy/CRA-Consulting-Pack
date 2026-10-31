@@ -1,0 +1,9 @@
+id,workstream,lead,rag,note
+WS1,Governance & PMO,Programme director,Green,Sponsor named; programme board running; signing instrument drafted for board approval.
+WS2,Portfolio & classification,Compliance lead,Amber,11 of 13 families classified; EG-700 and HomeHub H3 need legal opinion (borderline Class I).
+WS3,Reporting & PSIRT,PSIRT lead,Green,SRP live with 3 Assigned Representatives; first drill filed early warning in 9h 40m.
+WS4,Secure engineering & SDLC,Product security officer,Amber,"T200 pilot risk assessment in review; release gate designed, not yet enforced."
+WS5,SBOM & supply chain,Head of platform engineering,Red,Signed SBOMs on 38% of releases; HBS firmware builds lack binary SCA; 6 of 41 suppliers on CRA clauses.
+WS6,Documentation & evidence,Compliance lead,Amber,System of record not yet selected; Annex VII outline agreed.
+WS7,Conformity & market access,Head of quality & regulatory,Red,No CRA notified body designated at checks to 8 Sep 2026 (external); 3 candidates shortlisted; V1/L2 route undecided.
+WS8,People & change,Head of engineering enablement,Amber,140 of 920 engineers trained; works council consultation on PSIRT on-call opened.

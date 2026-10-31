@@ -1,0 +1,23 @@
+<section id="annex-i-data" style="background:#FAFAF7;color:#26364D;font-family:Inter, Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:48px">
+<p style="position:absolute;left:128px;top:64px;width:1664px;font-size:24px;line-height:32px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#0A5753">02 · Design · Annex I 2 of 3 · Data protection and integrity</p>
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:56px;line-height:64px;font-weight:500;letter-spacing:-0.5px;color:#0E1A2B">Protect data and integrity by design: encrypt, sign, minimise and harden what we ship</h2>
+<div style="flex:1;display:flex;flex-direction:column;gap:32px">
+<table style="font-size:24px;line-height:32px;color:#26364D;border:1px solid #C5CDD8">
+<tr style="background:#EEF1F5"><th style="width:20%;padding:8px 14px;font-weight:600;color:#0E1A2B">Annex I item</th><th style="width:40%;padding:8px 14px;font-weight:600;color:#0E1A2B">Build this</th><th style="width:40%;padding:8px 14px;font-weight:600;color:#0E1A2B">Prove it with</th></tr>
+<tr><td style="padding:8px 14px"><b>(e)</b> Confidentiality</td><td style="padding:8px 14px">TLS 1.3, mutual TLS for machine links, no plaintext fallback; keys in a secure element or KMS</td><td style="padding:8px 14px">Crypto inventory checked against a catalogue; downgrade tests fail closed; no keys in images or logs</td></tr>
+<tr><td style="padding:8px 14px"><b>(f)</b> Integrity and corruption reporting</td><td style="padding:8px 14px">Verified boot; signed firmware, configuration and commands; corruption raises a logged event</td><td style="padding:8px 14px">Tampered image, configuration or command is rejected and logged; key rotation does not brick units</td></tr>
+<tr><td style="padding:8px 14px"><b>(g)</b> Data minimisation</td><td style="padding:8px 14px">Collect only what each function needs; telemetry off by default; retention enforced in code</td><td style="padding:8px 14px">Default export shows telemetry off; log scan finds no personal data or secrets</td></tr>
+<tr><td style="padding:8px 14px"><b>(k)</b> Exploitation mitigation</td><td style="padding:8px 14px">Memory-safe languages for new code; else stack protection, ASLR, W^X and CFI; sandboxed parsers</td><td style="padding:8px 14px">Hardening scan of the shipped binary; CI fuzzing of every external parser with no open crashes</td></tr>
+</table>
+<div style="display:flex;flex-direction:row;gap:32px;background:#EEF1F5;padding:20px 32px;border-radius:4px">
+<p style="width:96px;font-size:24px;line-height:32px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#0A5753">T200</p>
+<p style="flex:1;font-size:24px;line-height:32px;color:#26364D">Presence data used only on the device · the cloud receives setpoints only · remote commands signed with a nonce, so replays are rejected and logged · telemetry off by default</p>
+</div>
+</div>
+<p style="font-size:24px;line-height:32px;color:#56667E">Source: Application guide ss. 3, 4 and 13; ENISA Secure by Design and Default Playbook v1.0; ETSI EN 304 621 (draft)</p>
+<div style="position:absolute;left:128px;bottom:64px;width:1664px;display:flex;flex-direction:row;justify-content:space-between;border-top:1px solid #C5CDD8;padding:16px 0px 0px 0px">
+<p style="font-size:24px;line-height:32px;color:#56667E">Project Rampart · Engineering training · v1.0 · 31 Oct 2026</p>
+<p style="font-size:24px;line-height:32px;color:#56667E">Illustrative · <b>8</b></p>
+</div>
+<aside>Data protection and integrity. Item (e): TLS 1.3 or equivalent, mutual authentication on machine-to-machine links, no plaintext fallback, and data at rest encrypted with keys held in a secure element, TEE or key-management service. Keep a cryptographic inventory against a published catalogue. Item (f): verified boot from a root of trust, signed firmware and configuration, authenticated commands, and a logged or visible event when corruption is detected; silent repair is not enough. Item (g): collect only what each function needs, keep telemetry off by default with opt-in, and enforce retention in code rather than in policy. Item (k): use memory-safe languages for new code where possible; otherwise harden the build, sandbox parsers and verify the flags on the shipped binary. The T200 shows the pattern: presence data stays on the device, the cloud sees setpoints only, and signed commands with a nonce defeat replay.</aside>
+</section>

@@ -1,0 +1,107 @@
+[
+ {
+  "month": "Oct 2026",
+  "month_iso": "2026-10-01",
+  "plan": 0.442,
+  "actual": 0.442,
+  "target": null
+ },
+ {
+  "month": "Nov 2026",
+  "month_iso": "2026-11-01",
+  "plan": 0.457,
+  "actual": null,
+  "target": null
+ },
+ {
+  "month": "Dec 2026",
+  "month_iso": "2026-12-01",
+  "plan": 0.481,
+  "actual": null,
+  "target": null
+ },
+ {
+  "month": "Jan 2027",
+  "month_iso": "2027-01-01",
+  "plan": 0.51,
+  "actual": null,
+  "target": null
+ },
+ {
+  "month": "Feb 2027",
+  "month_iso": "2027-02-01",
+  "plan": 0.544,
+  "actual": null,
+  "target": null
+ },
+ {
+  "month": "Mar 2027",
+  "month_iso": "2027-03-01",
+  "plan": 0.584,
+  "actual": null,
+  "target": null
+ },
+ {
+  "month": "Apr 2027",
+  "month_iso": "2027-04-01",
+  "plan": 0.623,
+  "actual": null,
+  "target": null
+ },
+ {
+  "month": "May 2027",
+  "month_iso": "2027-05-01",
+  "plan": 0.662,
+  "actual": null,
+  "target": null
+ },
+ {
+  "month": "Jun 2027",
+  "month_iso": "2027-06-01",
+  "plan": 0.706,
+  "actual": null,
+  "target": 0.7
+ },
+ {
+  "month": "Jul 2027",
+  "month_iso": "2027-07-01",
+  "plan": 0.745,
+  "actual": null,
+  "target": null
+ },
+ {
+  "month": "Aug 2027",
+  "month_iso": "2027-08-01",
+  "plan": 0.784,
+  "actual": null,
+  "target": null
+ },
+ {
+  "month": "Sep 2027",
+  "month_iso": "2027-09-01",
+  "plan": 0.828,
+  "actual": null,
+  "target": null
+ },
+ {
+  "month": "Oct 2027",
+  "month_iso": "2027-10-01",
+  "plan": 0.867,
+  "actual": null,
+  "target": null
+ },
+ {
+  "month": "Nov 2027",
+  "month_iso": "2027-11-01",
+  "plan": 0.906,
+  "actual": null,
+  "target": 0.9
+ },
+ {
+  "month": "Dec 2027",
+  "month_iso": "2027-12-01",
+  "plan": 0.93,
+  "actual": null,
+  "target": null
+ }
+]

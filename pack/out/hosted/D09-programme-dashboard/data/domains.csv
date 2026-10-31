@@ -1,0 +1,11 @@
+id,domain,name,avg_level,readiness
+D1,Governance,Governance and accountability,1.75,0.583
+D2,Scope & class,"Scope, inventory and classification",1.35,0.449
+D3,Risk & design,Risk assessment and secure by design,1.4,0.468
+D4,SDLC & testing,Secure development and testing,1.67,0.558
+D5,SBOM & supply chain,"Supply chain, SBOM and open source",1.13,0.378
+D6,Vulnerability handling,Vulnerability handling and disclosure,1.15,0.385
+D7,Updates & support,Updates and support period,1.44,0.481
+D8,Art 14 reporting,Article 14 reporting readiness,2.15,0.718
+D9,Documentation & DoC,"Documentation, user information and declaration",0.73,0.244
+D10,Conformity & access,Conformity assessment and market access,0.48,0.16

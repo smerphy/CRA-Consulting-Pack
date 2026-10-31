@@ -1,0 +1,34 @@
+<section id="open-source" style="background:#FAFAF7;color:#26364D;font-family:Inter, Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:48px">
+<p style="position:absolute;left:128px;top:64px;width:1664px;font-size:24px;line-height:32px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#0A5753">03 · Build and release</p>
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:56px;line-height:64px;font-weight:500;letter-spacing:-0.5px;color:#0E1A2B">Treat open-source components as suppliers we cannot contract with</h2>
+<div style="flex:1;display:flex;flex-direction:row;gap:56px">
+<div style="width:980px;display:flex;flex-direction:column;gap:12px">
+<p style="font-size:24px;line-height:32px;color:#56667E">Component intake gate: the due-diligence record, Art 13(5)</p>
+<table style="font-size:24px;line-height:32px;color:#26364D;border:1px solid #C5CDD8">
+<tr style="background:#EEF1F5"><th style="width:30%;padding:6px 14px;font-weight:600;color:#0E1A2B">Field</th><th style="width:70%;padding:6px 14px;font-weight:600;color:#0E1A2B">What to record</th></tr>
+<tr><td style="padding:6px 14px">Need</td><td style="padding:6px 14px">Function we use and security properties we rely on</td></tr>
+<tr><td style="padding:6px 14px">Maintenance</td><td style="padding:6px 14px">Cadence, fix times, maintainers, OpenSSF Scorecard</td></tr>
+<tr><td style="padding:6px 14px">Licence</td><td style="padding:6px 14px">SPDX identifier; duties when we share fixes upstream</td></tr>
+<tr><td style="padding:6px 14px">Vulnerability history</td><td style="padding:6px 14px">EUVD, NVD and OSV entries; fixes in supported branches</td></tr>
+<tr><td style="padding:6px 14px">Support horizon</td><td style="padding:6px 14px">Upstream end of life against our support period</td></tr>
+<tr><td style="padding:6px 14px">Exit plan</td><td style="padding:6px 14px">Replacements, effort to swap, isolation if it stays</td></tr>
+<tr><td style="padding:6px 14px">Decision</td><td style="padding:6px 14px">Approved, with conditions or rejected; owner and date</td></tr>
+</table>
+<p style="font-size:24px;line-height:32px;color:#26364D;padding:12px 0px 0px 0px"><b>Survey:</b> 51% of manufacturers rely passively on upstream projects for security fixes; integrating never transfers our duty.</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:16px;border-top:4px solid #0F6E6A;padding:24px 0px 0px 0px">
+<p style="font-size:24px;line-height:32px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#0A5753">Found a bug in a component?</p>
+<p style="font-size:24px;line-height:32px;color:#26364D"><b>1</b> · Check it is not already known: databases, advisories, issue tracker</p>
+<p style="font-size:24px;line-height:32px;color:#26364D"><b>2</b> · Report the version we integrate through the maintainer’s disclosure channel, Art 13(6)</p>
+<p style="font-size:24px;line-height:32px;color:#26364D"><b>3</b> · Share our fix as a licence-compatible patch, machine-readable where appropriate</p>
+<p style="font-size:24px;line-height:32px;color:#26364D"><b>4</b> · Log it in the PSIRT case; carry the patch on a vendor branch named by CVE</p>
+<p style="font-size:24px;line-height:32px;color:#56667E">No duty that the fix is merged; with no maintainer, the product duty stays ours alone.</p>
+</div>
+</div>
+<p style="font-size:24px;line-height:32px;color:#56667E">Source: CRA Art 13(5)–(6); guidance paras 222–229; Linux Foundation 2026 (survey, manufacturer module n = 194–219)</p>
+<div style="position:absolute;left:128px;bottom:64px;width:1664px;display:flex;flex-direction:row;justify-content:space-between;border-top:1px solid #C5CDD8;padding:16px 0px 0px 0px">
+<p style="font-size:24px;line-height:32px;color:#56667E">Project Rampart · Engineering training · v1.0 · 31 Oct 2026</p>
+<p style="font-size:24px;line-height:32px;color:#56667E">Illustrative · <b>14</b></p>
+</div>
+<aside>Open source is most of what we ship, and integrating it never transfers our duty. Treat each component as a supplier you cannot contract with. Before a dependency enters the product, the intake gate records the need, maintenance signals such as release cadence and the OpenSSF Scorecard, the licence, vulnerability history, the upstream support horizon against our support period, and an exit plan. A component whose upstream support ends inside our support period needs that exit plan at intake. When we find a vulnerability in a component, Article 13(6) requires us to report it to the maintainer through their disclosure channel and to share any fix we develop. There is no duty that it is merged, and none where no maintainer exists, but then the product duty is ours alone. Keep patches as discrete commits on a vendor branch named by CVE; silent forks become our maintenance burden.</aside>
+</section>

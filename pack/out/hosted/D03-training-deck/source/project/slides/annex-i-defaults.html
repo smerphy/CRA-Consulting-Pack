@@ -1,0 +1,23 @@
+<section id="annex-i-defaults" style="background:#FAFAF7;color:#26364D;font-family:Inter, Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:48px">
+<p style="position:absolute;left:128px;top:64px;width:1664px;font-size:24px;line-height:32px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#0A5753">02 · Design · Annex I 1 of 3 · Secure by default and access</p>
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:56px;line-height:64px;font-weight:500;letter-spacing:-0.5px;color:#0E1A2B">Ship clean and locked down: no known exploits, no default passwords, no open debug ports</h2>
+<div style="flex:1;display:flex;flex-direction:column;gap:32px">
+<table style="font-size:24px;line-height:32px;color:#26364D;border:1px solid #C5CDD8">
+<tr style="background:#EEF1F5"><th style="width:20%;padding:8px 14px;font-weight:600;color:#0E1A2B">Annex I item</th><th style="width:40%;padding:8px 14px;font-weight:600;color:#0E1A2B">Build this</th><th style="width:40%;padding:8px 14px;font-weight:600;color:#0E1A2B">Prove it with</th></tr>
+<tr><td style="padding:8px 14px"><b>(a)</b> No known exploitable vulnerabilities</td><td style="padding:8px 14px">Release gate matching the SBOM against EUVD, NVD and CISA KEV; security updates at first use</td><td style="padding:8px 14px">Every finding fixed, mitigated or VEX-justified; first-use update test passes on a release unit</td></tr>
+<tr><td style="padding:8px 14px"><b>(b)</b> Secure by default, with reset</td><td style="padding:8px 14px">No shared credentials, optional services off, onboarding that cannot be skipped, full reset</td><td style="padding:8px 14px">Fresh-install export shows no default account; reset leaves no data, credentials or cloud binding</td></tr>
+<tr><td style="padding:8px 14px"><b>(d)</b> Access control and intrusion reporting</td><td style="padding:8px 14px">Authenticate every interface, cloud links included; roles, lockout, alerts on possible intrusion</td><td style="padding:8px 14px">Scans find no unauthenticated interface; wrong role and revoked token denied; 10 failed logins lock out</td></tr>
+<tr><td style="padding:8px 14px"><b>(j)</b> Limit attack surfaces</td><td style="padding:8px 14px">Justify every interface in every state; lock JTAG, SWD and UART; strip debug code from releases</td><td style="padding:8px 14px">A debugger attach fails on a production unit; scans show only documented listeners</td></tr>
+</table>
+<div style="display:flex;flex-direction:row;gap:32px;background:#EEF1F5;padding:20px 32px;border-radius:4px">
+<p style="width:96px;font-size:24px;line-height:32px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#0A5753">T200</p>
+<p style="flex:1;font-size:24px;line-height:32px;color:#26364D">Per-unit pairing codes printed under the faceplate · no default account · debug UART locked by fuse in production · Bluetooth pairing open only during onboarding</p>
+</div>
+</div>
+<p style="font-size:24px;line-height:32px;color:#56667E">Source: Application guide ss. 4 and 13; ENISA Secure by Design and Default Playbook v1.0; ETSI EN 304 621 (draft)</p>
+<div style="position:absolute;left:128px;bottom:64px;width:1664px;display:flex;flex-direction:row;justify-content:space-between;border-top:1px solid #C5CDD8;padding:16px 0px 0px 0px">
+<p style="font-size:24px;line-height:32px;color:#56667E">Project Rampart · Engineering training · v1.0 · 31 Oct 2026</p>
+<p style="font-size:24px;line-height:32px;color:#56667E">Illustrative · <b>7</b></p>
+</div>
+<aside>The next three slides turn the thirteen items into patterns: what to build, and the acceptance test that proves it. Each test produces evidence for the technical file. The four items here are treated as near-universal in the draft standards, so expect to apply them. Item (a): ship without known exploitable vulnerabilities; we cover the release check in detail shortly. Item (b): no shared or default credentials, optional services off, and a reset that truly wipes data, credentials and cloud bindings. Item (d): authenticate every interface, including device-to-cloud and management paths, and surface possible unauthorised access; that reporting half is often missed. Item (j): justify every exposed interface in every product state, and lock debug ports in production. On the T200 that means per-unit pairing codes, no default account, a fused UART and Bluetooth pairing only during onboarding.</aside>
+</section>

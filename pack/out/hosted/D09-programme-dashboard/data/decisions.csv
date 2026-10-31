@@ -1,0 +1,10 @@
+id,forum,forum_date,decision,detail,status
+SD1,SteerCo #1,30 Oct 2026,"Endorse Module H as the route for Industrial Connectivity and FleetView (five families), using the IEC 62443-4-1 process as the base.",,Endorsed (illustrative)
+SD2,SteerCo #1,30 Oct 2026,"Apply the stricter reading to EG-700 and HomeHub H3 until the legal opinion lands on 27 Nov 2026: include them in notified-body capacity planning, keep them in Wave 2 for remediation.",,Endorsed (illustrative)
+SD3,SteerCo #1,30 Oct 2026,Release EUR 0.75m of pre-approval spend ahead of the 19 Nov board.,,Endorsed (illustrative)
+SD4,SteerCo #1,30 Oct 2026,Approve system-of-record selection criteria.,,Endorsed (illustrative)
+BD1,Board,19 Nov 2026,Approve the Project Rampart investment envelope.,EUR 9.3m one-off to Dec 2027 (incl. 15% contingency) and EUR 1.8m a year run from 2028.,Proposed
+BD2,Board,19 Nov 2026,Appoint the accountable executive and execute the DoC signing instrument.,CTO as accountable executive; CEO signs declarations or delegates in writing; compliance lead counter-signs the pre-signature checklist.,Proposed
+BD3,Board,19 Nov 2026,Authorise notified-body pre-contracting.,Pre-assessments with three candidate bodies (up to EUR 60k) and formal contracts by Q1 2027 (Module H for IC + FleetView; Module B+C for V1 and L2).,Proposed
+BD4,Board,19 Nov 2026,Adopt the product-risk acceptance rule.,"Cost, risk appetite and commercial strategy are not grounds to leave product risk unaddressed (guidance paras 156-163); appeals go to the executive sponsor.",Proposed
+BD5,Board,19 Nov 2026,Withdraw IR-300 and IS-200 from EU sale before 11 Dec 2027.,EUR 18m of declining EU revenue versus about EUR 1.4m remediation plus notified-body fees; migrate customers to IR-500 and IS-300.,Proposed

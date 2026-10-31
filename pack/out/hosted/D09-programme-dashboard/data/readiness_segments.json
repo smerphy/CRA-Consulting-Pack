@@ -1,0 +1,44 @@
+[
+ {
+  "cut": "Business unit",
+  "segment": "HBS",
+  "name": "Home & Building Solutions",
+  "readiness": 0.388
+ },
+ {
+  "cut": "Business unit",
+  "segment": "IC",
+  "name": "Industrial Connectivity",
+  "readiness": 0.517
+ },
+ {
+  "cut": "Business unit",
+  "segment": "SS",
+  "name": "Software & Services",
+  "readiness": 0.408
+ },
+ {
+  "cut": "CRA class",
+  "segment": "Default",
+  "name": "Default",
+  "readiness": 0.419
+ },
+ {
+  "cut": "CRA class",
+  "segment": "Class I",
+  "name": "Class I",
+  "readiness": 0.448
+ },
+ {
+  "cut": "CRA class",
+  "segment": "Class II",
+  "name": "Class II",
+  "readiness": 0.542
+ },
+ {
+  "cut": "Portfolio",
+  "segment": "All",
+  "name": "Portfolio",
+  "readiness": 0.442
+ }
+]

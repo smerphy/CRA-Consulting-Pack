@@ -1,0 +1,37 @@
+<section id="product-boundary" style="background:#FAFAF7;color:#26364D;font-family:Inter, Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:48px">
+<p style="position:absolute;left:128px;top:64px;width:1664px;font-size:24px;line-height:32px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#0A5753">02 · Design</p>
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:56px;line-height:64px;font-weight:500;letter-spacing:-0.5px;color:#0E1A2B">If we built the backend and the product needs it, the backend is part of the product</h2>
+<div style="flex:1;display:flex;flex-direction:column;gap:32px">
+<div style="display:flex;flex-direction:column;gap:12px">
+<p style="font-size:24px;line-height:32px;color:#56667E">Remote data processing is part of the product when all three elements hold; elements 2 and 3 are decisive</p>
+<div style="display:flex;flex-direction:row;gap:24px">
+<div style="flex:1;display:flex;flex-direction:column;gap:8px;background:#FFFFFF;border:1px solid #C5CDD8;border-radius:4px;padding:24px 28px">
+<p style="font-size:28px;line-height:36px;font-weight:600;color:#0E1A2B"><span style="color:#56667E">01</span> At a distance</p>
+<p style="font-size:24px;line-height:32px;color:#26364D">Public cloud, edge, on-premises or private cloud all count</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:8px;background:#FFFFFF;border:1px solid #C5CDD8;border-radius:4px;padding:24px 28px">
+<p style="font-size:28px;line-height:36px;font-weight:600;color:#0E1A2B"><span style="color:#56667E">02</span> Needed for a function</p>
+<p style="font-size:24px;line-height:32px;color:#26364D">Commands, sync, onboarding, configuration, identity, updates</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:8px;background:#FFFFFF;border:1px solid #C5CDD8;border-radius:4px;padding:24px 28px">
+<p style="font-size:28px;line-height:36px;font-weight:600;color:#0E1A2B"><span style="color:#56667E">03</span> Built by or for us</p>
+<p style="font-size:24px;line-height:32px;color:#26364D">Our design, or built solely to our specification; who runs it does not matter</p>
+</div>
+</div>
+</div>
+<table style="font-size:24px;line-height:32px;color:#26364D;border:1px solid #C5CDD8">
+<tr style="background:#EEF1F5"><th style="width:25%;padding:6px 14px;font-weight:600;color:#0E1A2B">T200 service</th><th style="width:25%;padding:6px 14px;font-weight:600;color:#0E1A2B">Function it serves</th><th style="width:22%;padding:6px 14px;font-weight:600;color:#0E1A2B">Built by</th><th style="width:28%;padding:6px 14px;font-weight:600;color:#0E1A2B">Verdict</th></tr>
+<tr><td style="padding:6px 14px">Remote-control service</td><td style="padding:6px 14px">Commands from app to device</td><td style="padding:6px 14px">Us, on third-party IaaS</td><td style="padding:6px 14px;color:#0F6E6A"><b>Part of the product</b></td></tr>
+<tr><td style="padding:6px 14px">Update service</td><td style="padding:6px 14px">Firmware and app updates</td><td style="padding:6px 14px">Us</td><td style="padding:6px 14px;color:#0F6E6A"><b>Part of the product</b></td></tr>
+<tr><td style="padding:6px 14px">Weather API</td><td style="padding:6px 14px">Scheduling input</td><td style="padding:6px 14px">Licensed third party</td><td style="padding:6px 14px">Component: due diligence</td></tr>
+<tr><td style="padding:6px 14px">Analytics telemetry</td><td style="padding:6px 14px">Statistics only</td><td style="padding:6px 14px">Us</td><td style="padding:6px 14px">Not part; 2(g) still applies</td></tr>
+<tr><td style="padding:6px 14px">IaaS hypervisor</td><td style="padding:6px 14px">Hosting only</td><td style="padding:6px 14px">Cloud provider</td><td style="padding:6px 14px">Outside: a dependency</td></tr>
+</table>
+</div>
+<p style="font-size:24px;line-height:32px;color:#56667E">Source: Commission guidance C(2026) 5252 paras 184–205 (approved draft, non-binding); application guide ss. 2 and 13; Illustrative</p>
+<div style="position:absolute;left:128px;bottom:64px;width:1664px;display:flex;flex-direction:row;justify-content:space-between;border-top:1px solid #C5CDD8;padding:16px 0px 0px 0px">
+<p style="font-size:24px;line-height:32px;color:#56667E">Project Rampart · Engineering training · v1.0 · 31 Oct 2026</p>
+<p style="font-size:24px;line-height:32px;color:#56667E">Illustrative · <b>5</b></p>
+</div>
+<aside>First design question: where does our product end? The Commission guidance gives a three-element test for remote data processing. One, the processing happens at a distance, and edge, on-premises and private cloud all count. Two, without it the product cannot perform one of its functions; functions include sending commands, sync, onboarding, configuration, identity and update distribution. Three, we designed and developed it, or had it built solely to our specification. Elements two and three are decisive and cumulative; who operates it does not matter. Apply it to the T200. Our remote-control and update services are part of the product even though they run on third-party IaaS. The licensed weather API fails element three, so it is a component that needs due diligence instead. Analytics telemetry is not remote data processing, but data minimisation still applies. Record the result as a remote-function map.</aside>
+</section>

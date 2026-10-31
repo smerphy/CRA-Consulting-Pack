@@ -1,0 +1,16 @@
+id,milestone,date,date_iso,status
+M0,SRP registration and coordinator CSIRT decision,10 Sep 2026,2026-09-10,Complete
+M1,First Art 14 tabletop drill (actively exploited vulnerability),22 Oct 2026,2026-10-22,Complete
+M2,Programme mobilised; SteerCo #1,30 Oct 2026,2026-10-30,Complete
+M3,"Board decisions (budget, signing authority, notified-body strategy, legacy lines)",19 Nov 2026,2026-11-19,Planned
+M4,Scope and classification register baselined,18 Dec 2026,2026-12-18,On track
+M5,Notified-body pre-assessments contracted (3 candidates),29 Jan 2027,2027-01-29,At risk
+M6,Wave 1 risk assessments signed,26 Feb 2027,2027-02-26,On track
+M7,Formal notified-body engagements contracted (Module H; Module B+C),31 Mar 2027,2027-03-31,At risk
+M8,SBOM pipeline live on all Wave 1 release trains,31 Mar 2027,2027-03-31,At risk
+M9,Second Art 14 drill (weekend severe-incident scenario),16 Apr 2027,2027-04-16,Planned
+M10,"Update infrastructure hardened (HSM signing, anti-rollback)",30 Jun 2027,2027-06-30,Planned
+M11,Wave 1 technical files complete,30 Sep 2027,2027-09-30,Planned
+M12,Module H approval and Module B certificates,30 Nov 2027,2027-11-30,Planned
+M13,Declarations signed; CE marking; Annex II published,3 Dec 2027,2027-12-03,Planned
+M14,Full application of the CRA,11 Dec 2027,2027-12-11,Fixed

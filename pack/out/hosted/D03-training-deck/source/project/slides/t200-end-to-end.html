@@ -1,0 +1,50 @@
+<section id="t200-end-to-end" style="background:#FAFAF7;color:#26364D;font-family:Inter, Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:48px">
+<p style="position:absolute;left:128px;top:64px;width:1664px;font-size:24px;line-height:32px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#0A5753">05 · Evidence · Worked example</p>
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:56px;line-height:64px;font-weight:500;letter-spacing:-0.5px;color:#0E1A2B">The T200 shows the whole chain: one evidence trail from product boundary to declaration</h2>
+<div style="flex:1;display:flex;flex-direction:column;gap:24px">
+<div style="display:grid;grid-template-columns:repeat(4, 1fr);gap:24px">
+<div style="display:flex;flex-direction:column;gap:8px;background:#FFFFFF;border:1px solid #C5CDD8;border-radius:4px;padding:20px 24px">
+<p style="font-size:24px;line-height:32px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#0A5753">01 · Boundary</p>
+<p style="font-size:24px;line-height:32px;color:#26364D">Device, two apps, control and update services; weather API is a component</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px;background:#FFFFFF;border:1px solid #C5CDD8;border-radius:4px;padding:20px 24px">
+<p style="font-size:24px;line-height:32px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#0A5753">02 · Class and route</p>
+<p style="font-size:24px;line-height:32px;color:#26364D">No Annex III match: default class, Module A; re-check if a camera is added</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px;background:#FFFFFF;border:1px solid #C5CDD8;border-radius:4px;padding:20px 24px">
+<p style="font-size:24px;line-height:32px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#0A5753">03 · Risk</p>
+<p style="font-size:24px;line-height:32px;color:#26364D">BSI TR-03183-1 with STRIDE; every item applies except transfer under (m)</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px;background:#FFFFFF;border:1px solid #C5CDD8;border-radius:4px;padding:20px 24px">
+<p style="font-size:24px;line-height:32px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#0A5753">04 · Controls</p>
+<p style="font-size:24px;line-height:32px;color:#26364D">Per-unit codes, fused UART, signed commands, local heating if the cloud fails</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px;background:#FFFFFF;border:1px solid #C5CDD8;border-radius:4px;padding:20px 24px">
+<p style="font-size:24px;line-height:32px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#0A5753">05 · Release</p>
+<p style="font-size:24px;line-height:32px;color:#26364D">SAST, parser fuzzing, API DAST; 2.4.1 shipped under the existing declaration</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px;background:#FFFFFF;border:1px solid #C5CDD8;border-radius:4px;padding:20px 24px">
+<p style="font-size:24px;line-height:32px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#0A5753">06 · SBOM, updates</p>
+<p style="font-size:24px;line-height:32px;color:#26364D">Yocto, cdxgen and Syft SBOMs, signed and monitored; TUF and A/B slots</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px;background:#FFFFFF;border:1px solid #C5CDD8;border-radius:4px;padding:20px 24px">
+<p style="font-size:24px;line-height:32px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#0A5753">07 · Reporting</p>
+<p style="font-size:24px;line-height:32px;color:#26364D">Replay flaw: probing only, no Art 14 report; fix shipped with a CSAF advisory</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px;background:#FFFFFF;border:1px solid #C5CDD8;border-radius:4px;padding:20px 24px">
+<p style="font-size:24px;line-height:32px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#0A5753">08 · Documentation</p>
+<p style="font-size:24px;line-height:32px;color:#26364D">One family file, Annex II at a versioned URL, Module A record, declaration</p>
+</div>
+</div>
+<div style="display:flex;flex-direction:row;gap:32px;background:#EEF1F5;padding:20px 32px;border-radius:4px">
+<p style="width:120px;font-size:24px;line-height:32px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#0A5753">Status</p>
+<p style="flex:1;font-size:24px;line-height:32px;color:#26364D">Reference walk-through, not today’s status: T200 readiness is 46% and its risk assessment is in review</p>
+</div>
+</div>
+<p style="font-size:24px;line-height:32px;color:#56667E">Source: Application guide s. 13 (reference walk-through); readiness diagnostic, 28 Oct 2026; KPI K08, 30 Oct 2026; Illustrative</p>
+<div style="position:absolute;left:128px;bottom:64px;width:1664px;display:flex;flex-direction:row;justify-content:space-between;border-top:1px solid #C5CDD8;padding:16px 0px 0px 0px">
+<p style="font-size:24px;line-height:32px;color:#56667E">Project Rampart · Engineering training · v1.0 · 31 Oct 2026</p>
+<p style="font-size:24px;line-height:32px;color:#56667E">Illustrative · <b>20</b></p>
+</div>
+<aside>Here is the T200 reference walk-through on one page. Boundary: the device, two apps and two cloud modules, with the weather API treated as a component. Class: heating control matches no Annex III category, so default class and Module A, re-checked if a camera or door sensor is ever added. Risk: BSI structure with STRIDE; every item applies except the transfer half of (m). Controls: per-unit codes, a fused UART, signed commands and local heating when the cloud fails. Release: SAST, parser fuzzing, API testing and a gate record per release. SBOMs and updates: signed, monitored SBOMs, TUF metadata and A/B slots. Reporting: telemetry on the replay flaw showed probing but no successful exploitation, so the incident commander recorded no awareness and no report was filed; the fix then shipped with a CSAF advisory. Documentation: one family file. This is the target state, not today’s status.</aside>
+</section>

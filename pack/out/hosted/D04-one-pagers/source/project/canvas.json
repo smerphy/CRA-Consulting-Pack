@@ -1,0 +1,18 @@
+{
+ "v": 3,
+ "createdOnFiles": {"v": 1, "at": "2026-10-31T16:23:02Z"},
+ "title": "CRA on a Page",
+ "launch": {"view": "canvas"},
+ "pages": [],
+ "boards": {
+  "Main.dc.html": {"x": 0, "y": 0, "w": 1587, "h": 1123, "title": "The EU Cyber Resilience Act on a page"},
+  "Rampart.dc.html": {"x": 1667, "y": 0, "w": 1587, "h": 1123, "title": "Project Rampart on a page"}
+ },
+ "order": ["Main.dc.html", "Rampart.dc.html"],
+ "notes": {
+  "canvasTitle": {"x": 0, "y": -300, "text": "CRA on a Page — two A3 landscape one-pagers", "kind": "title1", "maxW": 3254}
+ },
+ "designSystems": [
+  {"title": "Advisory Design System (white-label)", "namespace": "advisory", "artifact": "https://claude.ai/artifact/9AGwnwfY3RVENQQayi6ixN", "version": "1793461538-94a7", "copiedAt": "2026-10-31T16:23:02Z"}
+ ]
+}

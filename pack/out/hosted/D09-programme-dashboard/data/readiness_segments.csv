@@ -1,0 +1,8 @@
+cut,segment,name,readiness
+Business unit,HBS,Home & Building Solutions,0.388
+Business unit,IC,Industrial Connectivity,0.517
+Business unit,SS,Software & Services,0.408
+CRA class,Default,Default,0.419
+CRA class,Class I,Class I,0.448
+CRA class,Class II,Class II,0.542
+Portfolio,All,Portfolio,0.442

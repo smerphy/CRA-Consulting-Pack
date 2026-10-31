@@ -1,0 +1,58 @@
+[
+ {
+  "workstream": "Programme & governance",
+  "q4_2026": 187500,
+  "y2027": 750000,
+  "one_off": 937500,
+  "run_2028": 375000
+ },
+ {
+  "workstream": "Reporting & PSIRT",
+  "q4_2026": 80000,
+  "y2027": 320000,
+  "one_off": 400000,
+  "run_2028": 320000
+ },
+ {
+  "workstream": "Secure engineering",
+  "q4_2026": 647100,
+  "y2027": 3741900,
+  "one_off": 4389000,
+  "run_2028": 660000
+ },
+ {
+  "workstream": "Shared platforms",
+  "q4_2026": 212500,
+  "y2027": 742500,
+  "one_off": 955000,
+  "run_2028": 210000
+ },
+ {
+  "workstream": "Documentation & evidence",
+  "q4_2026": 0,
+  "y2027": 520000,
+  "one_off": 520000,
+  "run_2028": 104000
+ },
+ {
+  "workstream": "Conformity & market access",
+  "q4_2026": 80000,
+  "y2027": 533000,
+  "one_off": 613000,
+  "run_2028": 105000
+ },
+ {
+  "workstream": "People & change",
+  "q4_2026": 30000,
+  "y2027": 110000,
+  "one_off": 140000,
+  "run_2028": 40000
+ },
+ {
+  "workstream": "Supply chain",
+  "q4_2026": 0,
+  "y2027": 90000,
+  "one_off": 90000,
+  "run_2028": 30000
+ }
+]

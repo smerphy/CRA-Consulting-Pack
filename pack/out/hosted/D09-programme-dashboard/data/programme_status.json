@@ -1,0 +1,17 @@
+[
+ {
+  "programme": "Project Rampart",
+  "client": "Example Group",
+  "overall_rag": "Amber",
+  "overall_status": "Reporting capability on track; market access at risk because no CRA notified body was designated at checks to 8 Sep 2026 (external dependency).",
+  "data_as_at": "30 Oct 2026",
+  "data_as_at_iso": "2026-10-30",
+  "pack_issue": "31 Oct 2026",
+  "facts_verified_to": "30 Oct 2026",
+  "kickoff": "5 Oct 2026",
+  "steerco_1": "30 Oct 2026",
+  "board_meeting": "19 Nov 2026",
+  "days_to_full_application": 406,
+  "days_from_board": 387
+ }
+]

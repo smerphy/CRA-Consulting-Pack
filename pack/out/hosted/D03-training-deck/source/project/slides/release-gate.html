@@ -1,0 +1,47 @@
+<section id="release-gate" style="background:#FAFAF7;color:#26364D;font-family:Inter, Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:48px">
+<p style="position:absolute;left:128px;top:64px;width:1664px;font-size:24px;line-height:32px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#0A5753">03 · Build and release</p>
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:56px;line-height:64px;font-weight:500;letter-spacing:-0.5px;color:#0E1A2B">Every release passes a security gate, and its signed record is what assessors ask for first</h2>
+<div style="flex:1;display:flex;flex-direction:row;gap:40px">
+<div style="width:1096px;display:flex;flex-direction:column;gap:24px">
+<table style="font-size:24px;line-height:32px;color:#26364D;border:1px solid #C5CDD8">
+<tr style="background:#EEF1F5"><th style="width:60%;padding:6px 14px;font-weight:600;color:#0E1A2B">Gate check, before tagging any release</th><th style="width:40%;padding:6px 14px;font-weight:600;color:#0E1A2B">Evidence in the record</th></tr>
+<tr><td style="padding:6px 14px">Threat model and matrix rows reviewed</td><td style="padding:6px 14px">Design review minute</td></tr>
+<tr><td style="padding:6px 14px">Code reviewed; security changes labelled</td><td style="padding:6px 14px">Review approvals</td></tr>
+<tr><td style="padding:6px 14px">SAST, fuzzing, DAST: no open critical or high</td><td style="padding:6px 14px">SARIF reports</td></tr>
+<tr><td style="padding:6px 14px">SBOM from the shipped artefact, signed</td><td style="padding:6px 14px">SBOM SHA-512, attestation</td></tr>
+<tr><td style="padding:6px 14px">Exploit check against EUVD, NVD and KEV</td><td style="padding:6px 14px">Scan output, VEX</td></tr>
+<tr><td style="padding:6px 14px">Secure defaults; update signed, counter raised</td><td style="padding:6px 14px">Config export, update test log</td></tr>
+<tr><td style="padding:6px 14px">Four security-delta questions answered</td><td style="padding:6px 14px">Answers, assessor, decision</td></tr>
+<tr><td style="padding:6px 14px">Annex II, advisory and declaration decided</td><td style="padding:6px 14px">Annex II delta; declaration ID</td></tr>
+</table>
+<div style="display:flex;flex-direction:row;gap:16px;align-items:center">
+<p style="background:#B54708;color:#FFFFFF;font-size:24px;line-height:32px;font-weight:600;padding:4px 20px;border-radius:999px">Amber</p>
+<p style="flex:1;font-size:24px;line-height:32px;color:#26364D">Gate designed, not yet enforced; the T200 is the pilot product</p>
+</div>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px">
+<p style="font-size:24px;line-height:32px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#56667E">Gate record, per release</p>
+<div style="display:flex;flex-direction:column;background:#EEF1F5;padding:24px;border-radius:4px">
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;line-height:32px;color:#0E1A2B;white-space:nowrap">{</p>
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;line-height:32px;color:#0E1A2B;white-space:nowrap;padding:0px 0px 0px 14px">"release": "t200-fw-2.4.1",</p>
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;line-height:32px;color:#0E1A2B;white-space:nowrap;padding:0px 0px 0px 14px">"sbom_sha512": "1a7e…c03b",</p>
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;line-height:32px;color:#0E1A2B;white-space:nowrap;padding:0px 0px 0px 14px">"exploit_check": "pass",</p>
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;line-height:32px;color:#0E1A2B;white-space:nowrap;padding:0px 0px 0px 14px">"vex": "V-031",</p>
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;line-height:32px;color:#0E1A2B;white-space:nowrap;padding:0px 0px 0px 14px">"defaults": "FC-09 match",</p>
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;line-height:32px;color:#0E1A2B;white-space:nowrap;padding:0px 0px 0px 14px">"delta": "no,no,no,no",</p>
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;line-height:32px;color:#0E1A2B;white-space:nowrap;padding:0px 0px 0px 14px">"substantial": false,</p>
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;line-height:32px;color:#0E1A2B;white-space:nowrap;padding:0px 0px 0px 14px">"declaration": "existing",</p>
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;line-height:32px;color:#0E1A2B;white-space:nowrap;padding:0px 0px 0px 14px">"signed_by": [</p>
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;line-height:32px;color:#0E1A2B;white-space:nowrap;padding:0px 0px 0px 42px">"release manager",</p>
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;line-height:32px;color:#0E1A2B;white-space:nowrap;padding:0px 0px 0px 42px">"product security"]</p>
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;line-height:32px;color:#0E1A2B;white-space:nowrap">}</p>
+</div>
+</div>
+</div>
+<p style="font-size:24px;line-height:32px;color:#56667E">Source: Application guide ss. 5, 12 and 13; workstream status, SteerCo #1, 30 Oct 2026; record shown is illustrative</p>
+<div style="position:absolute;left:128px;bottom:64px;width:1664px;display:flex;flex-direction:row;justify-content:space-between;border-top:1px solid #C5CDD8;padding:16px 0px 0px 0px">
+<p style="font-size:24px;line-height:32px;color:#56667E">Project Rampart · Engineering training · v1.0 · 31 Oct 2026</p>
+<p style="font-size:24px;line-height:32px;color:#56667E">Illustrative · <b>10</b></p>
+</div>
+<aside>The release security gate is where design meets evidence. It runs before tagging any release and checks four things: the build was reviewed and tested; the supply chain is clean, meaning a signed SBOM and a known-exploitable check; the shipped configuration is secure and the update is signed with its rollback counter raised; and the market decisions are made: whether this is a substantial modification, what documentation changes, and whether the existing declaration still covers it. The output is the gate record, a structured file committed with the release tag and signed by the release manager and the product security owner. The implementation guide calls it the single most useful artefact in the file, because it ties a shipped artefact to its tests, SBOM and decisions. Status: the gate is designed but not yet enforced, and the T200 is the pilot product.</aside>
+</section>

@@ -1,0 +1,52 @@
+<section id="sbom" style="background:#FAFAF7;color:#26364D;font-family:Inter, Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:48px">
+<p style="position:absolute;left:128px;top:64px;width:1664px;font-size:24px;line-height:32px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#0A5753">03 · Build and release</p>
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:56px;line-height:64px;font-weight:500;letter-spacing:-0.5px;color:#0E1A2B">Generate the SBOM from what we ship, sign it, and keep vulnerability data out of it</h2>
+<div style="flex:1;display:flex;flex-direction:column;gap:32px">
+<div style="display:flex;flex-direction:row;gap:16px">
+<div style="flex:1;display:flex;flex-direction:column;gap:4px;background:#FFFFFF;border:1px solid #C5CDD8;border-radius:4px;padding:20px">
+<p style="font-size:28px;line-height:36px;font-weight:600;color:#0E1A2B"><span style="color:#56667E">01</span> Build</p>
+<p style="font-size:24px;line-height:32px;color:#26364D">Compile or assemble the image</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:4px;background:#FFFFFF;border:2px solid #0F6E6A;border-radius:4px;padding:20px">
+<p style="font-size:28px;line-height:36px;font-weight:600;color:#0E1A2B"><span style="color:#0F6E6A">02</span> Generate</p>
+<p style="font-size:24px;line-height:32px;color:#26364D">From the artefact: Yocto, Syft, cdxgen</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:4px;background:#FFFFFF;border:1px solid #C5CDD8;border-radius:4px;padding:20px">
+<p style="font-size:28px;line-height:36px;font-weight:600;color:#0E1A2B"><span style="color:#56667E">03</span> Enrich</p>
+<p style="font-size:24px;line-height:32px;color:#26364D">BSI fields: SHA-512, licence, completeness</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:4px;background:#FFFFFF;border:1px solid #C5CDD8;border-radius:4px;padding:20px">
+<p style="font-size:28px;line-height:36px;font-weight:600;color:#0E1A2B"><span style="color:#56667E">04</span> Validate</p>
+<p style="font-size:24px;line-height:32px;color:#26364D">Schema check and sbomqs score gate</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:4px;background:#FFFFFF;border:1px solid #C5CDD8;border-radius:4px;padding:20px">
+<p style="font-size:28px;line-height:36px;font-weight:600;color:#0E1A2B"><span style="color:#56667E">05</span> Sign, store</p>
+<p style="font-size:24px;line-height:32px;color:#26364D">cosign attestation; monitored with an EUVD watch</p>
+</div>
+</div>
+<div style="display:flex;flex-direction:row;gap:40px">
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;border-top:4px solid #0E1A2B;padding:24px 0px 0px 0px">
+<p style="font-size:24px;line-height:32px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#56667E">What goes in</p>
+<p style="font-size:24px;line-height:32px;color:#26364D">Per component: name, version, creator, filename, SHA-512 hash, licence and dependencies with completeness marked. CycloneDX 1.6+ or SPDX 3.0.1+.</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:12px;border-top:4px solid #0E1A2B;padding:24px 0px 0px 0px">
+<p style="font-size:24px;line-height:32px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#56667E">What stays out</p>
+<p style="font-size:24px;line-height:32px;color:#26364D">Vulnerability status: the SBOM is static inventory, and status lives in VEX and CSAF. It sits in the technical file and need not be published.</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:8px;background:#FFFFFF;border:1px solid #C5CDD8;border-radius:4px;padding:24px 32px">
+<p style="font-size:24px;line-height:32px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#56667E">K07 · Signed SBOMs</p>
+<div style="display:flex;flex-direction:row;gap:24px;align-items:center">
+<p style="font-size:64px;line-height:72px;font-weight:600;letter-spacing:-1px;color:#0E1A2B;font-variant-numeric:tabular-nums">38%</p>
+<p style="background:#B42318;color:#FFFFFF;font-size:24px;line-height:32px;font-weight:600;padding:4px 20px;border-radius:999px">Red</p>
+</div>
+<p style="font-size:24px;line-height:32px;color:#26364D">9 of 24 releases in the last 30 days; target 100% by 31 Mar 2027</p>
+</div>
+</div>
+</div>
+<p style="font-size:24px;line-height:32px;color:#56667E">Source: BSI TR-03183-2 v2.1.0 (non-binding); CRA Annex I Part II(1), Recital 77; KPI K07, 30 Oct 2026; Illustrative</p>
+<div style="position:absolute;left:128px;bottom:64px;width:1664px;display:flex;flex-direction:row;justify-content:space-between;border-top:1px solid #C5CDD8;padding:16px 0px 0px 0px">
+<p style="font-size:24px;line-height:32px;color:#56667E">Project Rampart · Engineering training · v1.0 · 31 Oct 2026</p>
+<p style="font-size:24px;line-height:32px;color:#56667E">Illustrative · <b>13</b></p>
+</div>
+<aside>The SBOM must come from what we ship. A manifest-only SBOM misses vendored code, statically linked libraries and binaries copied into images. Generate it straight after the build, and where the build cannot see a component, scan the final image and merge the results. Our profile is BSI TR-03183-2: CycloneDX 1.6 or SPDX 3.0.1 or later, with per-component name, version, SHA-512 hash, licence and dependencies with completeness marked. Two rules matter. No vulnerability data in the SBOM: it is a static inventory, and status lives in VEX and CSAF. And sign it, bound to the artefact digest, with its hash in the gate record. The SBOM is part of the technical file; we need not publish it. Today only 38% of releases ship a signed SBOM, against a target of all by 31 Mar 2027, and home-product firmware SBOMs are still manifest-only, so binary scanning is being added.</aside>
+</section>

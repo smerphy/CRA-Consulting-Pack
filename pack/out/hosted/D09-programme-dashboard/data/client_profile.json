@@ -1,0 +1,21 @@
+[
+ {
+  "client": "Example Group",
+  "hq": "Germany (main establishment; coordinator CSIRT is Germany's)",
+  "revenue_m": 1200,
+  "revenue_eur": 1200000000,
+  "eu_revenue_m": 824.0,
+  "eu_share": 0.687,
+  "employees": 3800,
+  "engineers": 920,
+  "families": 13,
+  "skus": 55,
+  "legacy_lines": 7,
+  "suppliers_in_scope": 41,
+  "installed_base_m": 2.3,
+  "eu_revenue_needing_nb_m": 468.3,
+  "eu_revenue_needing_nb_share_of_group": 0.39,
+  "legacy_eu_revenue_still_sold_m": 18,
+  "max_fine_tier1_m": 30.0
+ }
+]

@@ -1,0 +1,4 @@
+id,issue,description,owner,due,due_iso
+I01,Distribution map stale,The 22 Oct drill showed the 'Member States where available' field could not be completed for two products from current data.,Product management,20 Nov 2026,2026-11-20
+I02,Borderline classifications,EG-700 (cellular uplink routing) and HomeHub H3 (optional alarm mode) could be Class I; notified-body capacity planning includes them until the legal opinion lands.,General Counsel,27 Nov 2026,2026-11-27
+I03,HBS firmware SBOM depth,Manifest-only SBOMs on HBS firmware miss vendored code; binary SCA needed.,Head of platform engineering,15 Jan 2027,2027-01-15

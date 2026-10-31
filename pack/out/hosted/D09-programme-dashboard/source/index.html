@@ -1,0 +1,532 @@
+<meta name="dash-one-writer">
+<link rel="stylesheet" href="rampart.css">
+<div class="rp" id="rampart">
+
+  <header class="rp-mast" id="top">
+    <p class="rp-eyebrow"><span>Project Rampart</span><span>Programme dashboard</span><span class="rp-badge">Illustrative — Example Group</span></p>
+    <h1 class="rp-h1">Reporting is on track; market access is the binding constraint</h1>
+    <p class="rp-sub">The weekly management view for the executive sponsor and Steering Committee of the EU Cyber Resilience Act readiness programme. Status as at <span data-draw="v" data-source="programme_status" data-field="data_as_at" data-row="0">—</span> (SteerCo #1). Example Group is a fictional client and every client figure is illustrative.</p>
+    <nav class="rp-nav" aria-label="Sections">
+      <button type="button" data-target="kpis">KPIs</button>
+      <button type="button" data-target="readiness">Readiness</button>
+      <button type="button" data-target="market-access">Market access</button>
+      <button type="button" data-target="delivery">Delivery</button>
+      <button type="button" data-target="money">Money</button>
+      <button type="button" data-target="risk">Risk and decisions</button>
+    </nav>
+  </header>
+
+  <section class="rp-strip" id="status" aria-label="Programme status">
+    <div class="rp-strip__cell rp-strip__cell--rag" id="status-rag">
+      <p class="rp-label">Overall programme status</p>
+      <p class="rp-strip__ragline"><span class="rp-chip rp-chip--lg" data-draw="rag" data-size="lg" data-source="programme_status" data-field="overall_rag" data-row="0">—</span></p>
+      <p class="rp-strip__text" data-draw="v" data-source="programme_status" data-field="overall_status" data-row="0">—</p>
+      <p class="rp-strip__small">Next decision point: the board on <span data-draw="v" data-source="programme_status" data-field="board_meeting" data-row="0">—</span> (asks <span class="rp-nw">BD1–BD5</span> below).</p>
+    </div>
+    <div class="rp-strip__cell" id="status-countdown">
+      <p class="rp-label">Countdown</p>
+      <p class="rp-hero" data-draw="v" data-source="programme_status" data-field="days_to_full_application" data-row="0" data-fmt="int">—</p>
+      <p class="rp-strip__text">days to full application of the CRA on <span class="rp-strong" data-draw="v" data-source="reg_facts" data-field="date" data-where="id=F03">—</span></p>
+      <p class="rp-strip__small">Counted from pack issue on <span data-draw="v" data-source="programme_status" data-field="pack_issue" data-row="0">—</span>; <span data-draw="v" data-source="programme_status" data-field="days_from_board" data-row="0" data-fmt="int">—</span> days from the board.</p>
+    </div>
+    <div class="rp-strip__cell" id="status-art14">
+      <p class="rp-label">Article 14 reporting</p>
+      <p class="rp-strip__big">Live since <span data-draw="v" data-source="reg_facts" data-field="date" data-where="id=F02">—</span></p>
+      <p class="rp-strip__text">An early warning is due within <span class="rp-strong" data-draw="v" data-source="reg_facts" data-field="value" data-where="id=F04" data-fmt="int">—</span> hours for every in-scope product, including those already on the market.</p>
+      <p class="rp-strip__small">First drill filed its early warning in <span class="rp-nw" data-draw="v" data-source="kpis" data-field="display" data-where="id=K05">—</span>.</p>
+    </div>
+    <div class="rp-strip__cell" id="status-client">
+      <p class="rp-label">Illustrative engagement</p>
+      <p class="rp-strip__big">Example Group</p>
+      <p class="rp-strip__text">Fictional maker of connected products: <span data-draw="v" data-source="client_profile" data-field="revenue_eur" data-row="0" data-fmt="eurbn">—</span> revenue, <span data-draw="v" data-source="client_profile" data-field="families" data-row="0" data-fmt="int">—</span> product families and <span data-draw="v" data-source="client_profile" data-field="skus" data-row="0" data-fmt="int">—</span> SKUs in scope.</p>
+      <p class="rp-strip__small">Client data as at <span data-draw="v" data-source="programme_status" data-field="data_as_at" data-row="0">—</span>; regulatory facts verified to <span data-draw="v" data-source="programme_status" data-field="facts_verified_to" data-row="0">—</span> (notified-body count: checks to <span data-draw="v" data-source="reg_facts" data-field="date" data-where="id=F08">—</span>).</p>
+    </div>
+  </section>
+
+  <!-- ================= KPIs ================= -->
+  <section class="rp-sec" id="kpis" data-sec>
+    <div class="rp-sec__head">
+      <p class="rp-tracker">KPIs</p>
+      <h2 class="rp-h2">Reporting KPIs are Green; signed SBOM coverage is the KPI in Red</h2>
+      <div class="rp-ragsum">
+        <p><span class="rp-strong" data-draw="v" data-source="kpi_rag_counts" data-field="kpis" data-where="rag=Green" data-fmt="int">—</span> Green · <span class="rp-strong" data-draw="v" data-source="kpi_rag_counts" data-field="kpis" data-where="rag=Amber" data-fmt="int">—</span> Amber · <span class="rp-strong" data-draw="v" data-source="kpi_rag_counts" data-field="kpis" data-where="rag=Red" data-fmt="int">—</span> Red across the SteerCo KPI pack</p>
+        <div class="rp-ragsum__bar" data-draw="ragbar" data-source="kpi_rag_counts" role="img" aria-label="KPIs by RAG status"></div>
+      </div>
+    </div>
+    <div class="rp-kpis">
+      <div class="rp-kgroup">
+        <h3 class="rp-kgroup__title">Readiness and scope</h3>
+        <article class="rp-kpi" id="kpi-K01">
+          <div class="rp-kpi__top"><span class="rp-id">K01</span><span class="rp-chip" data-draw="rag" data-source="kpis" data-field="rag" data-where="id=K01">—</span></div>
+          <h4 class="rp-kpi__name">Portfolio readiness index</h4>
+          <p class="rp-kpi__value" data-draw="v" data-source="kpis" data-field="value" data-where="id=K01" data-fmt="pct">—</p>
+          <dl class="rp-kpi__meta"><div><dt>Target</dt><dd data-draw="v" data-source="kpis" data-field="target" data-where="id=K01" data-fmt="prose">—</dd></div><div><dt>Trend</dt><dd data-draw="v" data-source="kpis" data-field="trend" data-where="id=K01">—</dd></div></dl>
+          <p class="rp-kpi__src">Source: <span data-draw="v" data-source="kpis" data-field="source" data-where="id=K01">—</span> · Illustrative</p>
+        </article>
+        <article class="rp-kpi" id="kpi-K02">
+          <div class="rp-kpi__top"><span class="rp-id">K02</span><span class="rp-chip" data-draw="rag" data-source="kpis" data-field="rag" data-where="id=K02">—</span></div>
+          <h4 class="rp-kpi__name">Families with final scope and class decision</h4>
+          <p class="rp-kpi__value" data-draw="v" data-source="kpis" data-field="display" data-where="id=K02">—</p>
+          <dl class="rp-kpi__meta"><div><dt>Target</dt><dd data-draw="v" data-source="kpis" data-field="target" data-where="id=K02" data-fmt="prose">—</dd></div><div><dt>Trend</dt><dd data-draw="v" data-source="kpis" data-field="trend" data-where="id=K02">—</dd></div></dl>
+          <p class="rp-kpi__src">Source: <span data-draw="v" data-source="kpis" data-field="source" data-where="id=K02">—</span> · Illustrative</p>
+        </article>
+        <article class="rp-kpi" id="kpi-K03">
+          <div class="rp-kpi__top"><span class="rp-id">K03</span><span class="rp-chip" data-draw="rag" data-source="kpis" data-field="rag" data-where="id=K03">—</span></div>
+          <h4 class="rp-kpi__name">Class I/II families with route and notified-body plan</h4>
+          <p class="rp-kpi__value" data-draw="v" data-source="kpis" data-field="display" data-where="id=K03">—</p>
+          <dl class="rp-kpi__meta"><div><dt>Target</dt><dd data-draw="v" data-source="kpis" data-field="target" data-where="id=K03" data-fmt="prose">—</dd></div><div><dt>Trend</dt><dd data-draw="v" data-source="kpis" data-field="trend" data-where="id=K03">—</dd></div></dl>
+          <p class="rp-kpi__src">Source: <span data-draw="v" data-source="kpis" data-field="source" data-where="id=K03">—</span> · Illustrative</p>
+        </article>
+      </div>
+      <div class="rp-kgroup">
+        <h3 class="rp-kgroup__title">Article 14 reporting</h3>
+        <article class="rp-kpi" id="kpi-K04">
+          <div class="rp-kpi__top"><span class="rp-id">K04</span><span class="rp-chip" data-draw="rag" data-source="kpis" data-field="rag" data-where="id=K04">—</span></div>
+          <h4 class="rp-kpi__name">SRP Assigned Representatives registered</h4>
+          <p class="rp-kpi__value" data-draw="v" data-source="kpis" data-field="value" data-where="id=K04" data-fmt="int">—</p>
+          <dl class="rp-kpi__meta"><div><dt>Target</dt><dd data-draw="v" data-source="kpis" data-field="target" data-where="id=K04" data-fmt="prose">—</dd></div><div><dt>Trend</dt><dd data-draw="v" data-source="kpis" data-field="trend" data-where="id=K04">—</dd></div></dl>
+          <p class="rp-kpi__src">Source: <span data-draw="v" data-source="kpis" data-field="source" data-where="id=K04">—</span> · Illustrative</p>
+        </article>
+        <article class="rp-kpi" id="kpi-K05">
+          <div class="rp-kpi__top"><span class="rp-id">K05</span><span class="rp-chip" data-draw="rag" data-source="kpis" data-field="rag" data-where="id=K05">—</span></div>
+          <h4 class="rp-kpi__name">Art 14 drill: time to early warning</h4>
+          <p class="rp-kpi__value" data-draw="v" data-source="kpis" data-field="display" data-where="id=K05">—</p>
+          <dl class="rp-kpi__meta"><div><dt>Target</dt><dd data-draw="v" data-source="kpis" data-field="target" data-where="id=K05" data-fmt="prose">—</dd></div><div><dt>Trend</dt><dd data-draw="v" data-source="kpis" data-field="trend" data-where="id=K05">—</dd></div></dl>
+          <p class="rp-kpi__src">Source: <span data-draw="v" data-source="kpis" data-field="source" data-where="id=K05">—</span> · Illustrative</p>
+        </article>
+        <article class="rp-kpi" id="kpi-K06">
+          <div class="rp-kpi__top"><span class="rp-id">K06</span><span class="rp-chip" data-draw="rag" data-source="kpis" data-field="rag" data-where="id=K06">—</span></div>
+          <h4 class="rp-kpi__name">Art 14 cases assessed (reportable / not reportable)</h4>
+          <p class="rp-kpi__value" data-draw="v" data-source="kpis" data-field="display" data-where="id=K06">—</p>
+          <dl class="rp-kpi__meta"><div><dt>Target</dt><dd data-draw="v" data-source="kpis" data-field="target" data-where="id=K06" data-fmt="prose">—</dd></div><div><dt>Trend</dt><dd data-draw="v" data-source="kpis" data-field="trend" data-where="id=K06">—</dd></div></dl>
+          <p class="rp-kpi__src">Source: <span data-draw="v" data-source="kpis" data-field="source" data-where="id=K06">—</span> · Illustrative</p>
+        </article>
+      </div>
+      <div class="rp-kgroup">
+        <h3 class="rp-kgroup__title">Engineering and supply chain</h3>
+        <article class="rp-kpi" id="kpi-K07">
+          <div class="rp-kpi__top"><span class="rp-id">K07</span><span class="rp-chip" data-draw="rag" data-source="kpis" data-field="rag" data-where="id=K07">—</span></div>
+          <h4 class="rp-kpi__name">Releases with signed SBOM (last 30 days)</h4>
+          <p class="rp-kpi__value" data-draw="v" data-source="kpis" data-field="display" data-where="id=K07">—</p>
+          <dl class="rp-kpi__meta"><div><dt>Target</dt><dd data-draw="v" data-source="kpis" data-field="target" data-where="id=K07" data-fmt="prose">—</dd></div><div><dt>Trend</dt><dd data-draw="v" data-source="kpis" data-field="trend" data-where="id=K07">—</dd></div></dl>
+          <p class="rp-kpi__src">Source: <span data-draw="v" data-source="kpis" data-field="source" data-where="id=K07">—</span> · Illustrative</p>
+        </article>
+        <article class="rp-kpi" id="kpi-K08">
+          <div class="rp-kpi__top"><span class="rp-id">K08</span><span class="rp-chip" data-draw="rag" data-source="kpis" data-field="rag" data-where="id=K08">—</span></div>
+          <h4 class="rp-kpi__name">Families with signed risk assessment</h4>
+          <p class="rp-kpi__value" data-draw="v" data-source="kpis" data-field="display" data-where="id=K08">—</p>
+          <dl class="rp-kpi__meta"><div><dt>Target</dt><dd data-draw="v" data-source="kpis" data-field="target" data-where="id=K08" data-fmt="prose">—</dd></div><div><dt>Trend</dt><dd data-draw="v" data-source="kpis" data-field="trend" data-where="id=K08">—</dd></div></dl>
+          <p class="rp-kpi__src">Source: <span data-draw="v" data-source="kpis" data-field="source" data-where="id=K08">—</span> · Illustrative</p>
+        </article>
+        <article class="rp-kpi" id="kpi-K09">
+          <div class="rp-kpi__top"><span class="rp-id">K09</span><span class="rp-chip" data-draw="rag" data-source="kpis" data-field="rag" data-where="id=K09">—</span></div>
+          <h4 class="rp-kpi__name">In-scope suppliers on CRA clauses</h4>
+          <p class="rp-kpi__value" data-draw="v" data-source="kpis" data-field="display" data-where="id=K09">—</p>
+          <dl class="rp-kpi__meta"><div><dt>Target</dt><dd data-draw="v" data-source="kpis" data-field="target" data-where="id=K09" data-fmt="prose">—</dd></div><div><dt>Trend</dt><dd data-draw="v" data-source="kpis" data-field="trend" data-where="id=K09">—</dd></div></dl>
+          <p class="rp-kpi__src">Source: <span data-draw="v" data-source="kpis" data-field="source" data-where="id=K09">—</span> · Illustrative</p>
+        </article>
+      </div>
+      <div class="rp-kgroup">
+        <h3 class="rp-kgroup__title">People, money and market access</h3>
+        <article class="rp-kpi" id="kpi-K10">
+          <div class="rp-kpi__top"><span class="rp-id">K10</span><span class="rp-chip" data-draw="rag" data-source="kpis" data-field="rag" data-where="id=K10">—</span></div>
+          <h4 class="rp-kpi__name">Engineers trained</h4>
+          <p class="rp-kpi__value" data-draw="v" data-source="kpis" data-field="display" data-where="id=K10">—</p>
+          <dl class="rp-kpi__meta"><div><dt>Target</dt><dd data-draw="v" data-source="kpis" data-field="target" data-where="id=K10" data-fmt="prose">—</dd></div><div><dt>Trend</dt><dd data-draw="v" data-source="kpis" data-field="trend" data-where="id=K10">—</dd></div></dl>
+          <p class="rp-kpi__src">Source: <span data-draw="v" data-source="kpis" data-field="source" data-where="id=K10">—</span> · Illustrative</p>
+        </article>
+        <article class="rp-kpi" id="kpi-K11">
+          <div class="rp-kpi__top"><span class="rp-id">K11</span><span class="rp-chip" data-draw="rag" data-source="kpis" data-field="rag" data-where="id=K11">—</span></div>
+          <h4 class="rp-kpi__name">Spend to date vs plan</h4>
+          <p class="rp-kpi__value" data-draw="v" data-source="kpis" data-field="display" data-where="id=K11">—</p>
+          <dl class="rp-kpi__meta"><div><dt>Target</dt><dd data-draw="v" data-source="kpis" data-field="target" data-where="id=K11" data-fmt="prose">—</dd></div><div><dt>Period</dt><dd data-draw="v" data-source="kpis" data-field="trend" data-where="id=K11">—</dd></div></dl>
+          <p class="rp-kpi__src">Source: <span data-draw="v" data-source="kpis" data-field="source" data-where="id=K11">—</span> · Illustrative</p>
+        </article>
+        <article class="rp-kpi" id="kpi-K12">
+          <div class="rp-kpi__top"><span class="rp-id">K12</span><span class="rp-chip" data-draw="rag" data-source="kpis" data-field="rag" data-where="id=K12">—</span></div>
+          <h4 class="rp-kpi__name">Notified-body candidates</h4>
+          <p class="rp-kpi__value" data-draw="v" data-source="kpis" data-field="display" data-where="id=K12">—</p>
+          <dl class="rp-kpi__meta"><div><dt>Target</dt><dd data-draw="v" data-source="kpis" data-field="target" data-where="id=K12" data-fmt="prose">—</dd></div><div><dt>Trend</dt><dd data-draw="v" data-source="kpis" data-field="trend" data-where="id=K12">—</dd></div></dl>
+          <p class="rp-kpi__src">Source: <span data-draw="v" data-source="kpis" data-field="source" data-where="id=K12">—</span> · Illustrative</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= Readiness ================= -->
+  <section class="rp-sec" id="readiness" data-sec>
+    <div class="rp-sec__head">
+      <p class="rp-tracker">Readiness</p>
+      <h2 class="rp-h2">Readiness is <span class="rp-key" data-draw="v" data-source="kpis" data-field="value" data-where="id=K01" data-fmt="pct">—</span> and must reach <span class="rp-key" data-draw="v" data-source="readiness_plan" data-field="plan" data-where="month=Dec 2027" data-fmt="pct">—</span> by <span data-draw="v" data-source="readiness_plan" data-field="month" data-where="month=Dec 2027">—</span>; conformity is weakest at <span class="rp-key--signal" data-draw="v" data-source="domains" data-field="readiness" data-where="id=D10" data-fmt="pct">—</span></h2>
+      <p class="rp-lede">Class I home products are least ready at <span class="rp-strong" data-draw="v" data-source="hbs_class_i" data-field="readiness" data-row="0" data-fmt="pct">—</span> (L2 <span class="rp-strong" data-draw="v" data-source="families" data-field="readiness" data-where="id=L2" data-fmt="pct">—</span>, V1 <span class="rp-strong" data-draw="v" data-source="families" data-field="readiness" data-where="id=V1" data-fmt="pct">—</span>). By business unit: Home &amp; Building Solutions <span class="rp-strong" data-draw="v" data-source="readiness_segments" data-field="readiness" data-where="segment=HBS" data-fmt="pct">—</span>, Industrial Connectivity <span class="rp-strong" data-draw="v" data-source="readiness_segments" data-field="readiness" data-where="segment=IC" data-fmt="pct">—</span>, Software &amp; Services <span class="rp-strong" data-draw="v" data-source="readiness_segments" data-field="readiness" data-where="segment=SS" data-fmt="pct">—</span>. Art 14 reporting is the strongest domain at <span class="rp-strong" data-draw="v" data-source="domains" data-field="readiness" data-where="id=D8" data-fmt="pct">—</span>.</p>
+    </div>
+    <div class="rp-grid">
+      <article class="rp-card rp-s7 rp-stretch" id="card-readiness-trajectory">
+        <header class="rp-card__head">
+          <h3 class="rp-card__title">Portfolio readiness index: plan and actual</h3>
+          <p class="rp-card__note">Average question score, capped at level 3 and shown as a share of level 3. Baseline self-assessed by product teams and moderated by the programme.</p>
+        </header>
+        <div class="rp-legend"><span><i class="rp-sw rp-sw--dash"></i>Plan</span><span><i class="rp-sw rp-sw--dot"></i>Actual</span><span><i class="rp-sw rp-sw--diamond"></i><span>Target: <span data-draw="v" data-source="kpis" data-field="target" data-where="id=K01" data-fmt="prose">—</span></span></span></div>
+        <div class="rp-chart rp-ch-readiness" id="chart-readiness" data-draw="ch-readiness" data-source="readiness_plan" role="img" aria-label="Line chart of the portfolio readiness index plan by month from Oct 2026 to Dec 2027, with the Oct 2026 actual and the two targets"></div>
+        <p class="rp-src">Source: Readiness diagnostic, 28 Oct 2026 (actual); programme plan (trajectory and targets) · Illustrative</p>
+      </article>
+      <article class="rp-card rp-s5 rp-stretch" id="card-sbom">
+        <header class="rp-card__head">
+          <h3 class="rp-card__title">Signed SBOM coverage: plan and actual</h3>
+          <p class="rp-card__note"><span data-draw="v" data-source="kpis" data-field="name" data-where="id=K07">—</span>. Target: <span data-draw="v" data-source="kpis" data-field="target" data-where="id=K07" data-fmt="prose">—</span>.</p>
+        </header>
+        <div class="rp-legend"><span><i class="rp-sw rp-sw--line"></i>Measured</span><span><i class="rp-sw rp-sw--dash"></i>Plan</span></div>
+        <div class="rp-chart rp-ch-sbom" id="chart-sbom" data-draw="ch-sbom" data-source="sbom_coverage" role="img" aria-label="Line chart of signed SBOM coverage: measured in Sep and Oct 2026, plan to Mar 2027"></div>
+        <p class="rp-src">Source: Build pipeline; Sep 2026 is the pre-programme measurement · Illustrative</p>
+      </article>
+      <article class="rp-card rp-s6" id="card-domains">
+        <header class="rp-card__head">
+          <h3 class="rp-card__title">Readiness by diagnostic domain</h3>
+          <p class="rp-card__note">Ranked. Dashed line: the <span data-draw="v" data-source="readiness_plan" data-field="month" data-where="month=Jun 2027">—</span> portfolio target of <span data-draw="v" data-source="readiness_plan" data-field="target" data-where="month=Jun 2027" data-fmt="pct">—</span>.</p>
+        </header>
+        <div class="rp-legend"><span><i class="rp-sw rp-sw--signal"></i>Binding constraint</span><span><i class="rp-sw rp-sw--c1"></i>Strongest domain</span><span><i class="rp-sw rp-sw--muted"></i>Other domains</span></div>
+        <div class="rp-chart rp-ch-domains" id="chart-domains" data-draw="ch-domains" data-source="domains readiness_plan" role="img" aria-label="Bar chart of readiness by diagnostic domain, ranked"></div>
+        <p class="rp-src">Source: Readiness diagnostic, 28 Oct 2026 · Illustrative</p>
+      </article>
+      <article class="rp-card rp-s6" id="card-families">
+        <header class="rp-card__head">
+          <h3 class="rp-card__title">Readiness by product family</h3>
+          <p class="rp-card__note">Ranked; colour shows CRA class. Dashed line: portfolio index of <span data-draw="v" data-source="kpis" data-field="value" data-where="id=K01" data-fmt="pct">—</span>.</p>
+        </header>
+        <div class="rp-legend"><span><i class="rp-sw rp-sw--c2"></i>Class II</span><span><i class="rp-sw rp-sw--c1"></i>Class I</span><span><i class="rp-sw rp-sw--c3"></i>Default</span><span><span>* Provisional default class: legal opinion due <span data-draw="v" data-source="issues" data-field="due" data-where="id=I02">—</span></span></span></div>
+        <div class="rp-chart rp-ch-families" id="chart-families" data-draw="ch-families" data-source="families kpis" role="img" aria-label="Bar chart of readiness by product family, ranked and coloured by CRA class"></div>
+        <p class="rp-src">Source: Readiness diagnostic, 28 Oct 2026; scope register · Illustrative</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ================= Market access ================= -->
+  <section class="rp-sec" id="market-access" data-sec>
+    <div class="rp-sec__head">
+      <p class="rp-tracker">Market access <span class="rp-flag">Binding constraint</span></p>
+      <h2 class="rp-h2"><span class="rp-key--signal" data-draw="v" data-source="client_profile" data-field="eu_revenue_needing_nb_m" data-row="0" data-fmt="eurm">—</span> of EU revenue needs a notified body; none was verifiably designated at checks to <span data-draw="v" data-source="reg_facts" data-field="date" data-where="id=F08">—</span></h2>
+      <p class="rp-lede"><span class="rp-strong" data-draw="v" data-source="nb_need" data-field="families" data-row="0" data-fmt="int">—</span> of <span class="rp-strong" data-draw="v" data-source="client_profile" data-field="families" data-row="0" data-fmt="int">—</span> product families are Class I or Class II. Class II always needs a notified body, and Class I needs one until a harmonised standard is cited, so each of them needs an assessment slot before full application on <span data-draw="v" data-source="reg_facts" data-field="date" data-where="id=F03">—</span>.</p>
+    </div>
+    <div class="rp-grid">
+      <article class="rp-card rp-s7 rp-stretch" id="card-revenue">
+        <header class="rp-card__head">
+          <h3 class="rp-card__title">EU revenue by CRA class</h3>
+          <p class="rp-card__note"><span class="rp-key--signal" data-draw="v" data-source="client_profile" data-field="eu_revenue_needing_nb_m" data-row="0" data-fmt="eurm">—</span> sits in Class I and Class II families and needs a notified body: <span class="rp-strong" data-draw="v" data-source="client_profile" data-field="eu_revenue_needing_nb_share_of_group" data-row="0" data-fmt="pct">—</span> of group revenue.</p>
+        </header>
+        <div class="rp-chart rp-ch-revenue" id="chart-revenue" data-draw="ch-revenue" data-source="revenue_by_class" role="img" aria-label="Segmented bar of EU revenue by CRA class with the share that needs a notified body bracketed"></div>
+        <div class="rp-legend"><span><i class="rp-sw rp-sw--c3"></i>Default</span><span><i class="rp-sw rp-sw--c1"></i>Class I</span><span><i class="rp-sw rp-sw--c2"></i>Class II</span></div>
+        <div class="rp-tablewrap">
+          <table class="rp-table" id="table-classes" data-source="revenue_by_class" data-row-key="class" aria-label="EU revenue by CRA class">
+            <thead><tr>
+              <th data-field="class" data-cls="rp-col-strong">CRA class</th>
+              <th data-field="families" data-fmt="int" class="rp-num">Families</th>
+              <th data-field="eu_revenue_m" data-fmt="num1" class="rp-num">EU revenue (EUR m)</th>
+              <th data-field="revenue_m" data-fmt="int" class="rp-num rp-hide-sm">Group revenue (EUR m)</th>
+              <th data-field="needs_nb" data-fmt="yesno">Needs a notified body</th>
+            </tr></thead>
+            <tbody data-draw="tbl"></tbody>
+          </table>
+        </div>
+        <p class="rp-card__note">Covers the in-scope product families. Legacy lines still sold in the EU (IR-300 and IS-200, <span data-draw="v" data-source="client_profile" data-field="legacy_eu_revenue_still_sold_m" data-row="0" data-fmt="eurm">—</span> of EU revenue) are excluded; board ask BD5 proposes their withdrawal.</p>
+        <p class="rp-src">Source: Finance; scope register · Illustrative</p>
+      </article>
+      <article class="rp-card rp-s5 rp-stretch" id="card-nb">
+        <header class="rp-card__head">
+          <h3 class="rp-card__title">Notified-body readiness</h3>
+          <p class="rp-card__note">External capacity is the dependency the programme cannot build itself.</p>
+        </header>
+        <div class="rp-facts">
+          <div class="rp-fact"><p class="rp-fact__k">CRA notified bodies verifiably designated (NANDO, checks to <span data-draw="v" data-source="reg_facts" data-field="date" data-where="id=F08">—</span>)</p><p class="rp-fact__v rp-key--signal" data-draw="v" data-source="reg_facts" data-field="value" data-where="id=F08" data-fmt="int">—</p><p class="rp-fact__n" data-draw="v" data-source="reg_facts" data-field="statement" data-where="id=F08">—</p></div>
+          <div class="rp-fact"><p class="rp-fact__k">Harmonised standards cited in the Official Journal</p><p class="rp-fact__v" data-draw="v" data-source="reg_facts" data-field="value" data-where="id=F07" data-fmt="int">—</p><p class="rp-fact__n" data-draw="v" data-source="reg_facts" data-field="statement" data-where="id=F07">—</p></div>
+          <div class="rp-fact"><p class="rp-fact__k">Candidate notified bodies (K12)</p><p class="rp-fact__v" data-draw="v" data-source="kpis" data-field="display" data-where="id=K12">—</p><p class="rp-fact__n">Target: <span data-draw="v" data-source="kpis" data-field="target" data-where="id=K12" data-fmt="prose">—</span>.</p></div>
+          <div class="rp-fact"><p class="rp-fact__k">Pre-assessments contracted (M5)</p><p class="rp-fact__v" data-draw="v" data-source="milestones" data-field="date" data-where="id=M5">—</p><p class="rp-fact__n"><span class="rp-chip" data-draw="rag" data-source="milestones" data-field="status" data-where="id=M5">—</span></p></div>
+          <div class="rp-fact"><p class="rp-fact__k">Formal engagements contracted (M7)</p><p class="rp-fact__v" data-draw="v" data-source="milestones" data-field="date" data-where="id=M7">—</p><p class="rp-fact__n"><span class="rp-chip" data-draw="rag" data-source="milestones" data-field="status" data-where="id=M7">—</span></p></div>
+        </div>
+        <p class="rp-src">Source: NANDO and Single Market Compliance Space: no CRA notified body verifiably designated (checks to 8 Sep 2026); Official Journal: no harmonised standard cited (30 Oct 2026); SteerCo #1 KPI pack and programme plan · Illustrative</p>
+      </article>
+      <article class="rp-card rp-s12" id="card-routes">
+        <header class="rp-card__head">
+          <h3 class="rp-card__title">Conformity route by product family</h3>
+          <p class="rp-card__note">Module A: internal control (self-assessment). Module B+C: EU-type examination by a notified body. Module H: full quality assurance approved by a notified body. Families that need a notified body are listed first.</p>
+        </header>
+        <div class="rp-tablewrap">
+          <table class="rp-table" id="table-routes" data-source="families" data-row-key="id" data-sort="-needs_nb,-eu_revenue_m" aria-label="Conformity route by product family">
+            <thead><tr>
+              <th data-field="family" data-cls="rp-col-strong">Family</th>
+              <th data-field="bu" class="rp-hide-sm">BU</th>
+              <th data-field="cra_class">CRA class</th>
+              <th data-field="route">Route</th>
+              <th data-field="wave" class="rp-hide-md">Wave</th>
+              <th data-field="eu_revenue_m" data-fmt="num1" class="rp-num rp-hide-sm">EU revenue (EUR m)</th>
+              <th data-field="support_years" data-fmt="int" class="rp-num rp-hide-md">Support (years)</th>
+              <th data-field="readiness" data-fmt="pct" class="rp-num">Readiness</th>
+            </tr></thead>
+            <tbody data-draw="tbl"></tbody>
+          </table>
+        </div>
+        <p class="rp-src">Source: Scope register; Finance; Readiness diagnostic, 28 Oct 2026 · Illustrative</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ================= Delivery ================= -->
+  <section class="rp-sec" id="delivery" data-sec>
+    <div class="rp-sec__head">
+      <p class="rp-tracker">Delivery</p>
+      <h2 class="rp-h2"><span class="rp-key" data-draw="v" data-source="milestone_status_counts" data-field="milestones" data-where="status=At risk" data-fmt="int">—</span> milestones are at risk: notified-body contracting and the SBOM pipeline</h2>
+      <p class="rp-lede">Workstreams: <span class="rp-strong" data-draw="v" data-source="ws_rag_counts" data-field="workstreams" data-where="rag=Green" data-fmt="int">—</span> Green, <span class="rp-strong" data-draw="v" data-source="ws_rag_counts" data-field="workstreams" data-where="rag=Amber" data-fmt="int">—</span> Amber, <span class="rp-strong" data-draw="v" data-source="ws_rag_counts" data-field="workstreams" data-where="rag=Red" data-fmt="int">—</span> Red. Reporting readiness (P0) is complete; inventory, scope and classification (P1) runs to <span data-draw="v" data-source="phases" data-field="end" data-where="id=P1">—</span>.</p>
+    </div>
+    <div class="rp-grid">
+      <article class="rp-card rp-s12" id="card-plan">
+        <header class="rp-card__head">
+          <h3 class="rp-card__title">Phases and milestones</h3>
+          <p class="rp-card__note">Bars are phase windows; diamonds are milestones; the vertical line is the data date. Hover or focus a mark for detail.</p>
+        </header>
+        <div class="rp-legend"><span class="rp-legend__h">Phases</span><span><i class="rp-sw rp-sw--c1"></i>Complete</span><span><i class="rp-sw rp-sw--c2"></i>In progress</span><span><i class="rp-sw rp-sw--muted"></i>Planned</span><span><i class="rp-sw rp-sw--asat"></i>Data date</span></div>
+        <div class="rp-legend"><span class="rp-legend__h">Milestones</span><span><i class="rp-sw rp-sw--ms rp-sw--ms-complete"></i>Complete</span><span><i class="rp-sw rp-sw--ms rp-sw--ms-ontrack"></i>On track</span><span><i class="rp-sw rp-sw--ms rp-sw--ms-atrisk"></i>At risk</span><span><i class="rp-sw rp-sw--ms rp-sw--ms-planned"></i>Planned</span><span><i class="rp-sw rp-sw--ms rp-sw--ms-fixed"></i>Fixed deadline</span></div>
+        <div class="rp-chart rp-ch-plan" id="chart-plan" data-draw="ch-plan" data-source="phases milestones programme_status" role="img" aria-label="Timeline of programme phases and milestones from Sep 2026 to Dec 2027"></div>
+        <p class="rp-src">Source: Programme plan (phases, waves and milestones), SteerCo #1 · Illustrative</p>
+      </article>
+      <article class="rp-card rp-s7" id="card-workstreams">
+        <header class="rp-card__head">
+          <h3 class="rp-card__title">Workstream status</h3>
+          <p class="rp-card__note">Lead's assessment reported to SteerCo #1.</p>
+        </header>
+        <div class="rp-tablewrap">
+          <table class="rp-table" id="table-workstreams" data-source="workstreams" data-row-key="id" aria-label="Workstream status">
+            <thead><tr>
+              <th data-field="id" data-cls="rp-col-id">ID</th>
+              <th data-field="workstream" data-cls="rp-col-strong">Workstream</th>
+              <th data-field="lead" class="rp-hide-sm">Lead</th>
+              <th data-field="rag" data-fmt="rag">RAG</th>
+              <th data-field="note" data-cls="rp-col-note">Status note</th>
+            </tr></thead>
+            <tbody data-draw="tbl"></tbody>
+          </table>
+        </div>
+        <p class="rp-src">Source: Workstream lead reports, SteerCo #1 · Illustrative</p>
+      </article>
+      <article class="rp-card rp-s5" id="card-due">
+        <header class="rp-card__head">
+          <h3 class="rp-card__title">Due by <span data-draw="v" data-source="tasks_due" data-field="due_by" data-row="0">—</span></h3>
+          <p class="rp-card__note">Mobilisation-plan tasks that finish within a month of SteerCo #1, earliest first. The board decision (T02) unlocks the notified-body pre-assessment contracts (T25), due <span class="rp-strong" data-draw="v" data-source="mobilisation_plan" data-field="end" data-where="id=T25">—</span>.</p>
+        </header>
+        <div class="rp-tablewrap">
+          <table class="rp-table" id="table-due" data-source="tasks_due" data-row-key="id" aria-label="Tasks due within a month">
+            <thead><tr>
+              <th data-field="end" data-cls="rp-nowrap">Due</th>
+              <th data-field="task">Task</th>
+              <th data-field="owner" class="rp-hide-sm">Owner</th>
+              <th data-field="status" data-fmt="rag">Status</th>
+            </tr></thead>
+            <tbody data-draw="tbl"></tbody>
+          </table>
+        </div>
+        <p class="rp-src">Source: Mobilisation plan · Illustrative</p>
+      </article>
+      <article class="rp-card rp-s12" id="card-milestones">
+        <header class="rp-card__head">
+          <h3 class="rp-card__title">Milestones</h3>
+          <p class="rp-card__note">From registration on the Single Reporting Platform to full application of the CRA.</p>
+        </header>
+        <div class="rp-tablewrap">
+          <table class="rp-table" id="table-milestones" data-source="milestones" data-row-key="id" aria-label="Programme milestones">
+            <thead><tr>
+              <th data-field="id" data-cls="rp-col-id">ID</th>
+              <th data-field="date" data-cls="rp-nowrap">Date</th>
+              <th data-field="milestone">Milestone</th>
+              <th data-field="status" data-fmt="rag">Status</th>
+            </tr></thead>
+            <tbody data-draw="tbl"></tbody>
+          </table>
+        </div>
+        <p class="rp-src">Source: Programme plan, SteerCo #1 · Illustrative</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ================= Money ================= -->
+  <section class="rp-sec" id="money" data-sec>
+    <div class="rp-sec__head">
+      <p class="rp-tracker">Money</p>
+      <h2 class="rp-h2">Spend of <span class="rp-key" data-draw="v" data-source="spend" data-field="cumulative_actual" data-where="month=Oct 2026" data-fmt="eur">—</span> is within tolerance of plan; the base case is <span class="rp-key" data-draw="v" data-source="budget_totals" data-field="one_off_total" data-row="0" data-fmt="eur">—</span> to Dec 2027</h2>
+      <p class="rp-lede">The one-off figure includes <span class="rp-strong" data-draw="v" data-source="budget_totals" data-field="contingency_rate" data-row="0" data-fmt="pct">—</span> contingency; running costs are <span class="rp-strong" data-draw="v" data-source="budget_totals" data-field="run_2028" data-row="0" data-fmt="eur">—</span> a year from 2028. Scenarios range from <span class="rp-strong" data-draw="v" data-source="scenarios" data-field="one_off_total" data-where="scenario=Low" data-fmt="eur">—</span> to <span class="rp-strong" data-draw="v" data-source="scenarios" data-field="one_off_total" data-where="scenario=High" data-fmt="eur">—</span>. Detail is in the Business case and cost model (D10).</p>
+    </div>
+    <div class="rp-stats" id="money-stats">
+      <div class="rp-stat"><p class="rp-label">One-off to Dec 2027</p><p class="rp-stat__v" data-draw="v" data-source="budget_totals" data-field="one_off_total" data-row="0" data-fmt="eur">—</p><p class="rp-stat__n">Q4 2026 <span data-draw="v" data-source="budget_totals" data-field="q4_2026_incl_contingency" data-row="0" data-fmt="eur">—</span> · 2027 <span data-draw="v" data-source="budget_totals" data-field="y2027_incl_contingency" data-row="0" data-fmt="eur">—</span>, contingency included</p></div>
+      <div class="rp-stat"><p class="rp-label">Run cost from 2028</p><p class="rp-stat__v" data-draw="v" data-source="budget_totals" data-field="run_2028" data-row="0" data-fmt="eur">—</p><p class="rp-stat__n">A year; <span data-draw="v" data-source="budget_totals" data-field="run_pct_revenue" data-row="0" data-fmt="pct2">—</span> of annual revenue</p></div>
+      <div class="rp-stat"><p class="rp-label">One-off as share of revenue</p><p class="rp-stat__v" data-draw="v" data-source="budget_totals" data-field="one_off_pct_revenue" data-row="0" data-fmt="pct2">—</p><p class="rp-stat__n">Of one year's revenue (<span data-draw="v" data-source="client_profile" data-field="revenue_eur" data-row="0" data-fmt="eurbn">—</span>)</p></div>
+      <div class="rp-stat"><p class="rp-label">Engineering remediation</p><p class="rp-stat__v"><span data-draw="v" data-source="budget_totals" data-field="engineering_fte_years" data-row="0" data-fmt="num1">—</span> FTE‑years</p><p class="rp-stat__n">To ring-fence in the 2027 plan (mitigation for R02)</p></div>
+    </div>
+    <div class="rp-grid">
+      <article class="rp-card rp-s8 rp-stretch" id="card-spend">
+        <header class="rp-card__head">
+          <h3 class="rp-card__title">Cumulative spend: plan and actual</h3>
+          <p class="rp-card__note">EUR, monthly cumulative plan including contingency. The shaded band is the <span data-draw="c-tol">—</span> tolerance around plan.</p>
+        </header>
+        <div class="rp-legend"><span><i class="rp-sw rp-sw--dash"></i>Plan</span><span><i class="rp-sw rp-sw--band"></i>Tolerance</span><span><i class="rp-sw rp-sw--dot"></i>Actual</span></div>
+        <div class="rp-chart rp-ch-spend" id="chart-spend" data-draw="ch-spend" data-source="spend" role="img" aria-label="Line chart of cumulative planned spend from Oct 2026 to Dec 2027 with a tolerance band and the Oct 2026 actual"></div>
+        <p class="rp-src">Source: Finance (actual, Oct 2026); Business case and cost model (D10), base case · Illustrative</p>
+      </article>
+      <article class="rp-card rp-s4 rp-stretch" id="card-variance">
+        <header class="rp-card__head">
+          <h3 class="rp-card__title">Spend to date against plan</h3>
+          <p class="rp-card__note">Cumulative to <span data-draw="v" data-source="spend_variance" data-field="month" data-row="0">—</span>.</p>
+        </header>
+        <p class="rp-stat__v"><span data-draw="v" data-source="spend_variance" data-field="variance_share" data-row="0" data-fmt="spct1">—</span></p>
+        <p class="rp-strip__text"><span class="rp-strong" data-draw="v" data-source="spend_variance" data-field="actual" data-row="0" data-fmt="eur">—</span> actual against <span class="rp-strong" data-draw="v" data-source="spend_variance" data-field="plan" data-row="0" data-fmt="eur">—</span> plan: <span data-draw="v" data-source="spend_variance" data-field="variance" data-row="0" data-fmt="seur">—</span>, inside the <span data-draw="c-tol">—</span> tolerance (K11).</p>
+        <div class="rp-chart rp-ch-variance" id="chart-variance" data-draw="ch-variance" data-source="spend_variance" role="img" aria-label="Bullet chart of actual spend against plan with the tolerance band"></div>
+        <div class="rp-facts rp-facts--compact">
+          <div class="rp-fact"><p class="rp-fact__k">Cumulative plan to <span data-draw="v" data-source="spend" data-field="month" data-where="month=Nov 2026">—</span></p><p class="rp-fact__v" data-draw="v" data-source="spend" data-field="cumulative_plan" data-where="month=Nov 2026" data-fmt="eur">—</p></div>
+          <div class="rp-fact"><p class="rp-fact__k">Cumulative plan to <span data-draw="v" data-source="spend" data-field="month" data-where="month=Dec 2026">—</span> (Q4 budget)</p><p class="rp-fact__v" data-draw="v" data-source="spend" data-field="cumulative_plan" data-where="month=Dec 2026" data-fmt="eur">—</p></div>
+        </div>
+        <p class="rp-src">Source: Finance; cost model monthly plan · Illustrative</p>
+      </article>
+      <article class="rp-card rp-s7" id="card-budget">
+        <header class="rp-card__head">
+          <h3 class="rp-card__title">One-off budget by workstream</h3>
+          <p class="rp-card__note">Base case to Dec 2027; contingency shown as its own line. Secure engineering, mostly Annex I remediation, is the largest line at <span class="rp-strong" data-draw="v" data-source="budget_workstreams" data-field="one_off" data-where="workstream=Secure engineering" data-fmt="eur">—</span>.</p>
+        </header>
+        <div class="rp-chart rp-ch-budget" id="chart-budget" data-draw="ch-budget" data-source="budget_bars" role="img" aria-label="Bar chart of the one-off budget by workstream, with contingency"></div>
+        <p class="rp-src">Source: Business case and cost model (D10), base case · Illustrative</p>
+      </article>
+      <article class="rp-card rp-s5" id="card-scenarios">
+        <header class="rp-card__head">
+          <h3 class="rp-card__title">Cost scenarios</h3>
+          <p class="rp-card__note">One-off to Dec 2027 including contingency, and the yearly run cost from 2028.</p>
+        </header>
+        <div class="rp-chart rp-ch-scenarios" id="chart-scenarios" data-draw="ch-scenarios" data-source="scenarios" role="img" aria-label="Dot plot of low, base and high one-off cost scenarios"></div>
+        <div class="rp-tablewrap">
+          <table class="rp-table" id="table-scenarios" data-source="scenarios" data-row-key="scenario" aria-label="Cost scenarios">
+            <thead><tr>
+              <th data-field="scenario" data-cls="rp-col-strong">Scenario</th>
+              <th data-field="one_off_total" data-fmt="eur" class="rp-num">One-off</th>
+              <th data-field="run_2028" data-fmt="eur" class="rp-num">Run a year</th>
+              <th data-field="description" class="rp-hide-sm" data-cls="rp-col-note">Assumption</th>
+            </tr></thead>
+            <tbody data-draw="tbl"></tbody>
+          </table>
+        </div>
+        <p class="rp-src">Source: Business case and cost model (D10) · Illustrative</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ================= Risk and decisions ================= -->
+  <section class="rp-sec" id="risk" data-sec>
+    <div class="rp-sec__head">
+      <p class="rp-tracker">Risk and decisions</p>
+      <h2 class="rp-h2">Notified-body capacity (R01) is the top risk, and it is still rising</h2>
+      <p class="rp-lede">R01 scores <span class="rp-strong" data-draw="v" data-source="risks" data-field="score" data-where="id=R01" data-fmt="int">—</span> (likelihood <span data-draw="v" data-source="risks" data-field="likelihood" data-where="id=R01" data-fmt="int">—</span>, impact <span data-draw="v" data-source="risks" data-field="impact" data-where="id=R01" data-fmt="int">—</span>) and is owned by the <span data-draw="v" data-source="risks" data-field="owner" data-where="id=R01">—</span>. Engineering capacity (R02) follows at <span class="rp-strong" data-draw="v" data-source="risks" data-field="score" data-where="id=R02" data-fmt="int">—</span>.</p>
+    </div>
+    <div class="rp-grid">
+      <article class="rp-card rp-s5" id="card-matrix">
+        <header class="rp-card__head">
+          <h3 class="rp-card__title">Risk matrix: likelihood by impact</h3>
+          <p class="rp-card__note">Each chip is a risk, marked with its trend: ↑ rising, → stable, ↓ falling, • new. Cell shade shows the rating band.</p>
+        </header>
+        <div class="rp-matrix" id="risk-matrix" data-draw="matrix" data-source="risks" role="group" aria-label="Five by five risk matrix"></div>
+        <p class="rp-src">Source: Programme risk register, SteerCo #1 · Illustrative</p>
+      </article>
+      <article class="rp-card rp-s7" id="card-top-risks">
+        <header class="rp-card__head">
+          <h3 class="rp-card__title">Top five risks</h3>
+          <p class="rp-card__note">Ranked by score (likelihood × impact).</p>
+        </header>
+        <div class="rp-tablewrap">
+          <table class="rp-table" id="table-top-risks" data-source="risks" data-row-key="id" data-sort="-score,id" data-limit="5" aria-label="Top five risks">
+            <thead><tr>
+              <th data-field="id" data-cls="rp-col-id">ID</th>
+              <th data-field="risk" data-cls="rp-col-strong rp-col-wide">Risk</th>
+              <th data-field="score" data-fmt="int" class="rp-num">Score</th>
+              <th data-field="owner" class="rp-hide-sm">Owner</th>
+              <th data-field="mitigation" data-cls="rp-col-note">Mitigation</th>
+              <th data-field="trend" data-fmt="trend" data-cls="rp-nowrap">Trend</th>
+            </tr></thead>
+            <tbody data-draw="tbl"></tbody>
+          </table>
+        </div>
+        <p class="rp-src">Source: Programme risk register, SteerCo #1 · Illustrative</p>
+      </article>
+      <article class="rp-card rp-s6" id="card-watch">
+        <header class="rp-card__head">
+          <h3 class="rp-card__title">Watch list</h3>
+          <p class="rp-card__note">The remaining risks on the register.</p>
+        </header>
+        <div class="rp-tablewrap">
+          <table class="rp-table" id="table-watch" data-source="risks" data-row-key="id" data-sort="-score,id" data-offset="5" aria-label="Other risks">
+            <thead><tr>
+              <th data-field="id" data-cls="rp-col-id">ID</th>
+              <th data-field="risk" data-cls="rp-col-strong">Risk</th>
+              <th data-field="score" data-fmt="int" class="rp-num">Score</th>
+              <th data-field="owner" class="rp-hide-sm">Owner</th>
+              <th data-field="trend" data-fmt="trend" data-cls="rp-nowrap">Trend</th>
+            </tr></thead>
+            <tbody data-draw="tbl"></tbody>
+          </table>
+        </div>
+        <p class="rp-src">Source: Programme risk register, SteerCo #1 · Illustrative</p>
+      </article>
+      <article class="rp-card rp-s6" id="card-issues">
+        <header class="rp-card__head">
+          <h3 class="rp-card__title">Open issues</h3>
+          <p class="rp-card__note">Problems already affecting delivery, with an owner and a due date.</p>
+        </header>
+        <div class="rp-tablewrap">
+          <table class="rp-table" id="table-issues" data-source="issues" data-row-key="id" aria-label="Open issues">
+            <thead><tr>
+              <th data-field="id" data-cls="rp-col-id">ID</th>
+              <th data-field="issue" data-cls="rp-col-strong">Issue</th>
+              <th data-field="description" data-cls="rp-col-note" class="rp-hide-sm">Detail</th>
+              <th data-field="owner">Owner</th>
+              <th data-field="due" data-cls="rp-nowrap">Due</th>
+            </tr></thead>
+            <tbody data-draw="tbl"></tbody>
+          </table>
+        </div>
+        <p class="rp-src">Source: Programme issue log, SteerCo #1 · Illustrative</p>
+      </article>
+      <article class="rp-card rp-s6" id="card-steerco">
+        <header class="rp-card__head">
+          <h3 class="rp-card__title">SteerCo #1 decisions, <span data-draw="v" data-source="programme_status" data-field="steerco_1" data-row="0">—</span></h3>
+          <p class="rp-card__note">Recorded outcomes of the first Steering Committee.</p>
+        </header>
+        <div class="rp-tablewrap">
+          <table class="rp-table" id="table-steerco" data-source="decisions" data-row-key="id" data-subset="forum=SteerCo #1" aria-label="SteerCo #1 decisions">
+            <thead><tr>
+              <th data-field="id" data-cls="rp-col-id">ID</th>
+              <th data-field="decision">Decision</th>
+              <th data-field="status" data-fmt="rag">Outcome</th>
+            </tr></thead>
+            <tbody data-draw="tbl"></tbody>
+          </table>
+        </div>
+        <p class="rp-src">Source: SteerCo #1 decision log · Illustrative</p>
+      </article>
+      <article class="rp-card rp-s6" id="card-board">
+        <header class="rp-card__head">
+          <h3 class="rp-card__title">Board asks, <span data-draw="v" data-source="programme_status" data-field="board_meeting" data-row="0">—</span></h3>
+          <p class="rp-card__note">Decisions the board is asked to take; see the board briefing deck (D01).</p>
+        </header>
+        <div class="rp-tablewrap">
+          <table class="rp-table" id="table-board" data-source="decisions" data-row-key="id" data-subset="forum=Board" aria-label="Board asks">
+            <thead><tr>
+              <th data-field="id" data-cls="rp-col-id">ID</th>
+              <th data-field="decision" data-cls="rp-col-strong">Ask</th>
+              <th data-field="detail" data-cls="rp-col-note">Detail</th>
+            </tr></thead>
+            <tbody data-draw="tbl"></tbody>
+          </table>
+        </div>
+        <p class="rp-src">Source: Board paper for <span data-draw="v" data-source="programme_status" data-field="board_meeting" data-row="0">—</span> · Illustrative</p>
+      </article>
+    </div>
+  </section>
+
+  <footer class="rp-foot" id="footer">
+    <p>Client data as at <span data-draw="v" data-source="programme_status" data-field="data_as_at" data-row="0">—</span> (SteerCo #1). Regulatory facts verified to <span data-draw="v" data-source="programme_status" data-field="facts_verified_to" data-row="0">—</span>, except the notified-body count, which reflects NANDO and Single Market Compliance Space checks to <span data-draw="v" data-source="reg_facts" data-field="date" data-where="id=F08">—</span>. Illustrative engagement: Example Group is fictional and its figures are illustrative; replace them with the client's data.</p>
+    <p>Related deliverables: Business case and cost model (D10); Obligations register and programme tracker (D11); CRA Readiness Diagnostic (D08).</p>
+    <p><strong>Prepared by [Advisor]</strong> · Project Rampart · Illustrative · <span data-draw="v" data-source="programme_status" data-field="pack_issue" data-row="0">—</span></p>
+  </footer>
+</div>
+<script src="rampart.js"></script>

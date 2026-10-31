@@ -1,0 +1,296 @@
+{
+  "budget_totals": {
+    "description": "Illustrative base case from the business case and cost model (D10): one-off cost by period with contingency, run cost from 2028, shares of annual revenue and engineering remediation effort.",
+    "fixed": true,
+    "source": {
+      "kind": "file",
+      "name": "budget_totals.json",
+      "url": "/_blob/3788132c514f4223dbce4c0b1e824e26"
+    },
+    "title": "Business case totals",
+    "updated": {
+      "at": "2026-10-31T15:41:32Z",
+      "by": "Claude, from the programme pack data (v1.0)"
+    }
+  },
+  "budget_workstreams": {
+    "description": "Illustrative base case from the business case and cost model (D10): one-off cost in EUR, excluding contingency, for Q4 2026 and 2027, and the yearly run cost from 2028, by workstream.",
+    "fixed": true,
+    "source": {
+      "kind": "file",
+      "name": "budget_workstreams.json",
+      "url": "/_blob/5880b5249fd15ae8268ad0f3d03da77e"
+    },
+    "title": "Budget by workstream",
+    "updated": {
+      "at": "2026-10-31T15:41:32Z",
+      "by": "Claude, from the programme pack data (v1.0)"
+    }
+  },
+  "client_profile": {
+    "description": "Illustrative client profile: group and EU revenue, product families and SKUs in scope, EU revenue that needs a notified body, and EU revenue of legacy lines still sold. Fictional client.",
+    "fixed": true,
+    "source": {
+      "kind": "file",
+      "name": "client_profile.json",
+      "url": "/_blob/67ff060a94685b109f85dce7d0410910"
+    },
+    "title": "Example Group profile",
+    "updated": {
+      "at": "2026-10-31T15:41:32Z",
+      "by": "Claude, from the programme pack data (v1.0)"
+    }
+  },
+  "decisions": {
+    "description": "Illustrative: decisions endorsed at SteerCo #1 on 30 Oct 2026 and the asks for the board on 19 Nov 2026.",
+    "fixed": true,
+    "source": {
+      "kind": "file",
+      "name": "decisions.json",
+      "url": "/_blob/c8c5fd394b69bb6895084b582857be72"
+    },
+    "title": "Decision log and board asks",
+    "updated": {
+      "at": "2026-10-31T21:30:00Z",
+      "by": "Claude, from the programme pack data (v1.0): board asks status aligned to the tracker (Proposed)"
+    }
+  },
+  "domains": {
+    "description": "Illustrative: average maturity level (scale 0 to 4, target 3) and readiness index for each of the ten diagnostic domains, baseline 28 Oct 2026.",
+    "fixed": true,
+    "source": {
+      "kind": "file",
+      "name": "domains.json",
+      "url": "/_blob/d980270f4417f77a419859c8db6157d3"
+    },
+    "title": "Readiness by domain",
+    "updated": {
+      "at": "2026-10-31T15:41:32Z",
+      "by": "Claude, from the programme pack data (v1.0)"
+    }
+  },
+  "families": {
+    "description": "Illustrative: the thirteen in-scope product families with business unit, CRA class, conformity route, wave, revenue, support period and readiness index. From the scope register and the readiness diagnostic.",
+    "fixed": true,
+    "source": {
+      "kind": "file",
+      "name": "families.json",
+      "url": "/_blob/45af83659bf1f1a41f0a3d14fdeca28c"
+    },
+    "title": "Product family register",
+    "updated": {
+      "at": "2026-10-31T15:41:32Z",
+      "by": "Claude, from the programme pack data (v1.0)"
+    }
+  },
+  "issues": {
+    "description": "Illustrative: open issues with owner and due date at SteerCo #1.",
+    "fixed": true,
+    "source": {
+      "kind": "file",
+      "name": "issues.json",
+      "url": "/_blob/0d500f63be27afdc6b0b0c20d3de55a8"
+    },
+    "title": "Issue log",
+    "updated": {
+      "at": "2026-10-31T15:41:32Z",
+      "by": "Claude, from the programme pack data (v1.0)"
+    }
+  },
+  "kpis": {
+    "description": "Illustrative: the twelve programme KPIs reported to SteerCo #1 on 30 Oct 2026 with value, target, RAG and trend; each row names its system of record in the source column.",
+    "fixed": true,
+    "source": {
+      "kind": "file",
+      "name": "kpis.json",
+      "url": "/_blob/680c06f1de1cb69ffa721b9399f66c1e"
+    },
+    "title": "SteerCo #1 KPI pack",
+    "updated": {
+      "at": "2026-10-31T15:41:32Z",
+      "by": "Claude, from the programme pack data (v1.0)"
+    }
+  },
+  "milestones": {
+    "description": "Illustrative: milestones M0 to M14 with date and status at SteerCo #1.",
+    "fixed": true,
+    "source": {
+      "kind": "file",
+      "name": "milestones.json",
+      "url": "/_blob/89925c6800cf26ada1f3ab722c0a4d3f"
+    },
+    "title": "Programme milestones",
+    "updated": {
+      "at": "2026-10-31T15:41:32Z",
+      "by": "Claude, from the programme pack data (v1.0)"
+    }
+  },
+  "mobilisation_plan": {
+    "description": "Illustrative: the mobilisation tasks from Nov 2026 to Jan 2027 with workstream, owner, dates, status and dependencies.",
+    "fixed": true,
+    "source": {
+      "kind": "file",
+      "name": "mobilisation_plan.json",
+      "url": "/_blob/632ceaed3bd6f098d5d01a46e57ba1c8"
+    },
+    "title": "Mobilisation plan",
+    "updated": {
+      "at": "2026-10-31T15:41:32Z",
+      "by": "Claude, from the programme pack data (v1.0)"
+    }
+  },
+  "phases": {
+    "description": "Illustrative: the seven programme phases with start and end dates, status and exit gate.",
+    "fixed": true,
+    "source": {
+      "kind": "file",
+      "name": "phases.json",
+      "url": "/_blob/c61f319df96cfa035cd06ebbb20546cb"
+    },
+    "title": "Programme phases",
+    "updated": {
+      "at": "2026-10-31T15:41:32Z",
+      "by": "Claude, from the programme pack data (v1.0)"
+    }
+  },
+  "programme_status": {
+    "description": "Illustrative: overall RAG and status line agreed at SteerCo #1 on 30 Oct 2026, programme dates, and the days to full application of the CRA counted from pack issue (31 Oct 2026) and from the 19 Nov 2026 board. Example Group is a fictional client.",
+    "fixed": true,
+    "source": {
+      "kind": "file",
+      "name": "programme_status.json",
+      "url": "/_blob/2e314672899888ccea549045d9cfd94c"
+    },
+    "title": "Programme status, SteerCo #1",
+    "updated": {
+      "at": "2026-10-31T20:45:00Z",
+      "by": "Claude, from the programme pack data (v1.0): notified-body status dated to checks to 8 Sep 2026"
+    }
+  },
+  "readiness_plan": {
+    "description": "Illustrative: planned portfolio readiness index by month from Oct 2026 to Dec 2027, with the Oct 2026 actual from the diagnostic baseline of 28 Oct 2026 and the Jun 2027 and Nov 2027 targets.",
+    "fixed": true,
+    "source": {
+      "kind": "file",
+      "name": "readiness_plan.json",
+      "url": "/_blob/fd1a3169d35932904f032ac7ecf57dc0"
+    },
+    "title": "Readiness index trajectory",
+    "updated": {
+      "at": "2026-10-31T15:41:32Z",
+      "by": "Claude, from the programme pack data (v1.0)"
+    }
+  },
+  "readiness_segments": {
+    "description": "Illustrative: readiness index by business unit and by CRA class, and for the portfolio, from the diagnostic baseline of 28 Oct 2026.",
+    "fixed": true,
+    "source": {
+      "kind": "file",
+      "name": "readiness_segments.json",
+      "url": "/_blob/333f255d8c523b498f100227d71d76c9"
+    },
+    "title": "Readiness by unit and class",
+    "updated": {
+      "at": "2026-10-31T15:41:32Z",
+      "by": "Claude, from the programme pack data (v1.0)"
+    }
+  },
+  "reg_facts": {
+    "description": "Regulatory facts used on the page, from the engagement knowledge base: Article 14 reporting, full application, the early-warning deadline, harmonised standards and the Product Liability Directive (verified to 30 Oct 2026), and the notified-body count (NANDO and Single Market Compliance Space, checks to 8 Sep 2026), each with its legal basis and source URL.",
+    "fixed": true,
+    "source": {
+      "kind": "file",
+      "name": "reg_facts.json",
+      "url": "/_blob/81829e7e04b726b6bed20d745ad08229"
+    },
+    "title": "CRA regulatory facts",
+    "updated": {
+      "at": "2026-10-31T15:41:32Z",
+      "by": "Claude, from the programme pack data (v1.0)"
+    }
+  },
+  "revenue_by_class": {
+    "description": "Illustrative: group and EU revenue (EUR m) of the in-scope families by CRA class, with the number of families and whether the class needs a notified body.",
+    "fixed": true,
+    "source": {
+      "kind": "file",
+      "name": "revenue_by_class.json",
+      "url": "/_blob/e0aa8c66759091a06979cb2da426329a"
+    },
+    "title": "EU revenue by CRA class",
+    "updated": {
+      "at": "2026-10-31T15:41:32Z",
+      "by": "Claude, from the programme pack data (v1.0)"
+    }
+  },
+  "risks": {
+    "description": "Illustrative: the ten programme risks with likelihood, impact, score, rating, owner, mitigation and trend at SteerCo #1.",
+    "fixed": true,
+    "source": {
+      "kind": "file",
+      "name": "risks.json",
+      "url": "/_blob/6ad69f80c6a43ace05a6104c320ea6b1"
+    },
+    "title": "Risk register",
+    "updated": {
+      "at": "2026-10-31T15:41:32Z",
+      "by": "Claude, from the programme pack data (v1.0)"
+    }
+  },
+  "sbom_coverage": {
+    "description": "Illustrative, from the build pipeline: share of releases in the last 30 days with a signed SBOM. Sep 2026 is the pre-programme measurement, Oct 2026 the actual, later months the plan.",
+    "fixed": true,
+    "source": {
+      "kind": "file",
+      "name": "sbom_coverage.json",
+      "url": "/_blob/970a4ff8539bba83d1b2c3233e411ec0"
+    },
+    "title": "Signed SBOM coverage",
+    "updated": {
+      "at": "2026-10-31T15:41:32Z",
+      "by": "Claude, from the programme pack data (v1.0)"
+    }
+  },
+  "scenarios": {
+    "description": "Illustrative low, base and high scenarios from the business case and cost model (D10): one-off cost to Dec 2027 including contingency, run cost from 2028 and the assumptions behind each.",
+    "fixed": true,
+    "source": {
+      "kind": "file",
+      "name": "scenarios.json",
+      "url": "/_blob/a033b51ef57502311593a4f848fa0ea8"
+    },
+    "title": "Cost scenarios",
+    "updated": {
+      "at": "2026-10-31T15:41:32Z",
+      "by": "Claude, from the programme pack data (v1.0)"
+    }
+  },
+  "spend": {
+    "description": "Illustrative: monthly and cumulative planned spend in EUR (including contingency) from Oct 2026 to Dec 2027, with the cumulative actual from Finance for Oct 2026.",
+    "fixed": true,
+    "source": {
+      "kind": "file",
+      "name": "spend.json",
+      "url": "/_blob/6f18a65f10058be9a916128a0850b108"
+    },
+    "title": "Spend plan and actual",
+    "updated": {
+      "at": "2026-10-31T15:41:32Z",
+      "by": "Claude, from the programme pack data (v1.0)"
+    }
+  },
+  "workstreams": {
+    "description": "Illustrative: RAG and status note for the eight workstreams as reported by their leads to SteerCo #1.",
+    "fixed": true,
+    "source": {
+      "kind": "file",
+      "name": "workstreams.json",
+      "url": "/_blob/7d6d28d10d97cf281ce5600a59357feb"
+    },
+    "title": "Workstream status",
+    "updated": {
+      "at": "2026-10-31T20:45:00Z",
+      "by": "Claude, from the programme pack data (v1.0): notified-body status dated to checks to 8 Sep 2026"
+    }
+  }
+}

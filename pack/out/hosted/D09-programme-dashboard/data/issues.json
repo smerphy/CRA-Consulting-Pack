@@ -1,0 +1,26 @@
+[
+ {
+  "id": "I01",
+  "issue": "Distribution map stale",
+  "description": "The 22 Oct drill showed the 'Member States where available' field could not be completed for two products from current data.",
+  "owner": "Product management",
+  "due": "20 Nov 2026",
+  "due_iso": "2026-11-20"
+ },
+ {
+  "id": "I02",
+  "issue": "Borderline classifications",
+  "description": "EG-700 (cellular uplink routing) and HomeHub H3 (optional alarm mode) could be Class I; notified-body capacity planning includes them until the legal opinion lands.",
+  "owner": "General Counsel",
+  "due": "27 Nov 2026",
+  "due_iso": "2026-11-27"
+ },
+ {
+  "id": "I03",
+  "issue": "HBS firmware SBOM depth",
+  "description": "Manifest-only SBOMs on HBS firmware miss vendored code; binary SCA needed.",
+  "owner": "Head of platform engineering",
+  "due": "15 Jan 2027",
+  "due_iso": "2027-01-15"
+ }
+]

@@ -1,0 +1,23 @@
+[
+ {
+  "class": "Default",
+  "families": 6,
+  "revenue_m": 475,
+  "eu_revenue_m": 338.3,
+  "needs_nb": false
+ },
+ {
+  "class": "Class I",
+  "families": 6,
+  "revenue_m": 585,
+  "eu_revenue_m": 395.7,
+  "needs_nb": true
+ },
+ {
+  "class": "Class II",
+  "families": 1,
+  "revenue_m": 110,
+  "eu_revenue_m": 72.6,
+  "needs_nb": true
+ }
+]

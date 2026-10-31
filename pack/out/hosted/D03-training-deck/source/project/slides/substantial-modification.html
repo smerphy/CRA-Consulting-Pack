@@ -1,0 +1,53 @@
+<section id="substantial-modification" style="background:#FAFAF7;color:#26364D;font-family:Inter, Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:48px">
+<p style="position:absolute;left:128px;top:64px;width:1664px;font-size:24px;line-height:32px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#0A5753">03 · Build and release</p>
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:56px;line-height:64px;font-weight:500;letter-spacing:-0.5px;color:#0E1A2B">Four questions decide whether a release is a new product with its own declaration</h2>
+<div style="flex:1;display:flex;flex-direction:column;gap:32px">
+<div style="display:flex;flex-direction:column;gap:12px">
+<p style="font-size:24px;line-height:32px;color:#56667E">Security-delta assessment, answered and recorded at every release gate: does the change bring…</p>
+<div style="display:flex;flex-direction:row;gap:24px">
+<div style="flex:1;display:flex;flex-direction:column;gap:4px;background:#FFFFFF;border:1px solid #C5CDD8;border-radius:4px;padding:24px">
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;line-height:32px;color:#56667E">Q1</p>
+<p style="font-size:28px;line-height:36px;font-weight:600;color:#0E1A2B">New threat vectors?</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:4px;background:#FFFFFF;border:1px solid #C5CDD8;border-radius:4px;padding:24px">
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;line-height:32px;color:#56667E">Q2</p>
+<p style="font-size:28px;line-height:36px;font-weight:600;color:#0E1A2B">New attack scenarios?</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:4px;background:#FFFFFF;border:1px solid #C5CDD8;border-radius:4px;padding:24px">
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;line-height:32px;color:#56667E">Q3</p>
+<p style="font-size:28px;line-height:36px;font-weight:600;color:#0E1A2B">Changed likelihood?</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:4px;background:#FFFFFF;border:1px solid #C5CDD8;border-radius:4px;padding:24px">
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;line-height:32px;color:#56667E">Q4</p>
+<p style="font-size:28px;line-height:36px;font-weight:600;color:#0E1A2B">Changed impact?</p>
+</div>
+</div>
+</div>
+<div style="display:flex;flex-direction:row;gap:40px">
+<div style="flex:1;display:flex;flex-direction:column;gap:16px;border-top:4px solid #0F6E6A;padding:24px 0px 0px 0px">
+<p style="font-size:24px;line-height:32px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#0A5753">Four answers “no”</p>
+<p style="font-size:32px;line-height:44px;font-weight:600;color:#0E1A2B">Not substantial: same declaration</p>
+<div style="display:flex;flex-direction:column;gap:12px">
+<p style="font-size:24px;line-height:32px;color:#26364D">Security updates that reduce risk, even large ones</p>
+<p style="font-size:24px;line-height:32px;color:#26364D">Features already foreseen in the risk assessment</p>
+<p style="font-size:24px;line-height:32px;color:#26364D"><b>T200 firmware 2.4.1:</b> replay fix, four “no” answers</p>
+</div>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:16px;border-top:4px solid #0E1A2B;padding:24px 0px 0px 0px">
+<p style="font-size:24px;line-height:32px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#56667E">Any answer “yes”</p>
+<p style="font-size:32px;line-height:44px;font-weight:600;color:#0E1A2B">Assess: it may be a new placing</p>
+<div style="display:flex;flex-direction:column;gap:12px">
+<p style="font-size:24px;line-height:32px;color:#26364D">If substantial: new declaration and support period</p>
+<p style="font-size:24px;line-height:32px;color:#26364D">A “remember me” token or unencrypted log export</p>
+<p style="font-size:24px;line-height:32px;color:#26364D">Firmware adding new connectivity or remote control</p>
+</div>
+</div>
+</div>
+</div>
+<p style="font-size:24px;line-height:32px;color:#56667E">Source: Guidance C(2026) 5252 paras 103–112, Examples 40–48 (approved draft); application guide ss. 5, 12 and 13; Illustrative</p>
+<div style="position:absolute;left:128px;bottom:64px;width:1664px;display:flex;flex-direction:row;justify-content:space-between;border-top:1px solid #C5CDD8;padding:16px 0px 0px 0px">
+<p style="font-size:24px;line-height:32px;color:#56667E">Project Rampart · Engineering training · v1.0 · 31 Oct 2026</p>
+<p style="font-size:24px;line-height:32px;color:#56667E">Illustrative · <b>12</b></p>
+</div>
+<aside>Every release answers one question: is it a substantial modification? If it is, the release is a new placing, with its own declaration and support period, and a notified body must be informed where one is involved. The test is about risk, not size. Ask the four questions from guidance paragraph 110: does the change bring new threat vectors, new attack scenarios, a changed likelihood of a known scenario, or a changed impact? Four “no” answers, with the risk assessment still valid, mean it is not substantial. Security updates that reduce risk and keep the intended purpose are generally not substantial, even when large. Small features can be: a “remember me” token or an unencrypted log export added risk nobody assessed. The T200 firmware 2.4.1 security fix answered four “no”s and shipped under the existing declaration. Record the answers, the assessor and the decision on the gate record.</aside>
+</section>

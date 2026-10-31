@@ -1,0 +1,107 @@
+[
+ {
+  "id": "M0",
+  "milestone": "SRP registration and coordinator CSIRT decision",
+  "date": "10 Sep 2026",
+  "date_iso": "2026-09-10",
+  "status": "Complete"
+ },
+ {
+  "id": "M1",
+  "milestone": "First Art 14 tabletop drill (actively exploited vulnerability)",
+  "date": "22 Oct 2026",
+  "date_iso": "2026-10-22",
+  "status": "Complete"
+ },
+ {
+  "id": "M2",
+  "milestone": "Programme mobilised; SteerCo #1",
+  "date": "30 Oct 2026",
+  "date_iso": "2026-10-30",
+  "status": "Complete"
+ },
+ {
+  "id": "M3",
+  "milestone": "Board decisions (budget, signing authority, notified-body strategy, legacy lines)",
+  "date": "19 Nov 2026",
+  "date_iso": "2026-11-19",
+  "status": "Planned"
+ },
+ {
+  "id": "M4",
+  "milestone": "Scope and classification register baselined",
+  "date": "18 Dec 2026",
+  "date_iso": "2026-12-18",
+  "status": "On track"
+ },
+ {
+  "id": "M5",
+  "milestone": "Notified-body pre-assessments contracted (3 candidates)",
+  "date": "29 Jan 2027",
+  "date_iso": "2027-01-29",
+  "status": "At risk"
+ },
+ {
+  "id": "M6",
+  "milestone": "Wave 1 risk assessments signed",
+  "date": "26 Feb 2027",
+  "date_iso": "2027-02-26",
+  "status": "On track"
+ },
+ {
+  "id": "M7",
+  "milestone": "Formal notified-body engagements contracted (Module H; Module B+C)",
+  "date": "31 Mar 2027",
+  "date_iso": "2027-03-31",
+  "status": "At risk"
+ },
+ {
+  "id": "M8",
+  "milestone": "SBOM pipeline live on all Wave 1 release trains",
+  "date": "31 Mar 2027",
+  "date_iso": "2027-03-31",
+  "status": "At risk"
+ },
+ {
+  "id": "M9",
+  "milestone": "Second Art 14 drill (weekend severe-incident scenario)",
+  "date": "16 Apr 2027",
+  "date_iso": "2027-04-16",
+  "status": "Planned"
+ },
+ {
+  "id": "M10",
+  "milestone": "Update infrastructure hardened (HSM signing, anti-rollback)",
+  "date": "30 Jun 2027",
+  "date_iso": "2027-06-30",
+  "status": "Planned"
+ },
+ {
+  "id": "M11",
+  "milestone": "Wave 1 technical files complete",
+  "date": "30 Sep 2027",
+  "date_iso": "2027-09-30",
+  "status": "Planned"
+ },
+ {
+  "id": "M12",
+  "milestone": "Module H approval and Module B certificates",
+  "date": "30 Nov 2027",
+  "date_iso": "2027-11-30",
+  "status": "Planned"
+ },
+ {
+  "id": "M13",
+  "milestone": "Declarations signed; CE marking; Annex II published",
+  "date": "3 Dec 2027",
+  "date_iso": "2027-12-03",
+  "status": "Planned"
+ },
+ {
+  "id": "M14",
+  "milestone": "Full application of the CRA",
+  "date": "11 Dec 2027",
+  "date_iso": "2027-12-11",
+  "status": "Fixed"
+ }
+]

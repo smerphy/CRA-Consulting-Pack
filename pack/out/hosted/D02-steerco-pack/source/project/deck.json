@@ -1,0 +1,23 @@
+{
+  "v": 4,
+  "createdOnFiles": {"v": 1, "at": "2026-10-31T15:58:31Z"},
+  "lists": "css",
+  "title": "Project Rampart — Steering Committee #1",
+  "cover": "cover",
+  "order": ["cover", "agenda", "status", "kpis", "readiness", "milestones", "reporting", "market-access", "budget", "risks", "decisions", "next-30-days", "a1-workstreams", "a2-workstreams", "a3-template"],
+  "sections": {
+    "s1": {"description": "Status: where Project Rampart stands on 30 Oct 2026 and the four decisions needed today", "start": "cover"},
+    "s2": {"description": "Performance: the KPI scorecard and the readiness baseline", "start": "kpis"},
+    "s3": {"description": "Delivery: milestones, Art 14 reporting, market access and budget", "start": "milestones"},
+    "s4": {"description": "Risks, decisions, board escalations and the next 30 days", "start": "risks"},
+    "s5": {"description": "Appendix: workstream detail and how to refresh this pack each month", "start": "a1-workstreams"}
+  },
+  "faces": {
+    "source-serif-4": {"family": "Source Serif 4", "href": "https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400..700&display=swap"},
+    "inter": {"family": "Inter", "href": "https://fonts.googleapis.com/css2?family=Inter:wght@400..700&display=swap"},
+    "jetbrains-mono": {"family": "JetBrains Mono", "href": "https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400..600&display=swap"}
+  },
+  "designSystems": [
+    {"title": "Advisory Design System (white-label)", "namespace": "advisory", "artifact": "https://claude.ai/artifact/9AGwnwfY3RVENQQayi6ixN", "version": "1793461538-94a7", "copiedAt": "2026-10-31T15:58:31Z"}
+  ]
+}

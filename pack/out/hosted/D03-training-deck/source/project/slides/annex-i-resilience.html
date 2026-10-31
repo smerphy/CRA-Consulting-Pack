@@ -1,0 +1,24 @@
+<section id="annex-i-resilience" style="background:#FAFAF7;color:#26364D;font-family:Inter, Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:48px">
+<p style="position:absolute;left:128px;top:64px;width:1664px;font-size:24px;line-height:32px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#0A5753">02 · Design · Annex I 3 of 3 · Resilience, logging, erase and updates</p>
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:56px;line-height:64px;font-weight:500;letter-spacing:-0.5px;color:#0E1A2B">Stay resilient after shipping: survive outages, log securely, erase fully, update by default</h2>
+<div style="flex:1;display:flex;flex-direction:column;gap:32px">
+<table style="font-size:24px;line-height:32px;color:#26364D;border:1px solid #C5CDD8">
+<tr style="background:#EEF1F5"><th style="width:20%;padding:6px 14px;font-weight:600;color:#0E1A2B">Annex I item</th><th style="width:40%;padding:6px 14px;font-weight:600;color:#0E1A2B">Build this</th><th style="width:40%;padding:6px 14px;font-weight:600;color:#0E1A2B">Prove it with</th></tr>
+<tr><td style="padding:6px 14px"><b>(h)</b> Availability and DoS resilience</td><td style="padding:6px 14px">Essential functions keep working under load and without the backend; rate limits, watchdogs</td><td style="padding:6px 14px">Load test at the documented ceiling; backend-outage test with automatic recovery</td></tr>
+<tr><td style="padding:6px 14px"><b>(i)</b> Limit impact on other networks</td><td style="padding:6px 14px">Inventory every emitter; bound outbound traffic; back-off with jitter; no amplification</td><td style="padding:6px 14px">Amplification factor below one; retry storms bounded in an outage test</td></tr>
+<tr><td style="padding:6px 14px"><b>(l)</b> Logging with user opt-out</td><td style="padding:6px 14px">Structured, tamper-evident security logs with SIEM export and a documented user opt-out</td><td style="padding:6px 14px">Every catalogued event in a sample log; opt-out works; no personal data or secrets logged</td></tr>
+<tr><td style="padding:6px 14px"><b>(m)</b> Secure erase and transfer</td><td style="padding:6px 14px">Permanent erase across device, app and cloud; transfer revokes the previous owner</td><td style="padding:6px 14px">Write-erase-read test per data type; previous owner locked out; steps in Annex II 8(d)</td></tr>
+<tr><td style="padding:6px 14px"><b>(c)</b> Security updates</td><td style="padding:6px 14px">On by default; notice, postpone, opt-out (slide 15)</td><td style="padding:6px 14px">Default export shows them on; opt-out in Annex II 8(e)</td></tr>
+</table>
+<div style="display:flex;flex-direction:row;gap:32px;background:#EEF1F5;padding:20px 32px;border-radius:4px">
+<p style="width:96px;font-size:24px;line-height:32px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#0A5753">T200</p>
+<p style="flex:1;font-size:24px;line-height:32px;color:#26364D">Local heating schedule held through a 72-hour cloud outage · log opt-out keeps update and integrity events</p>
+</div>
+</div>
+<p style="font-size:24px;line-height:32px;color:#56667E">Source: Application guide ss. 4 and 13; ENISA Secure by Design and Default Playbook v1.0; ETSI EN 304 621 (draft)</p>
+<div style="position:absolute;left:128px;bottom:64px;width:1664px;display:flex;flex-direction:row;justify-content:space-between;border-top:1px solid #C5CDD8;padding:16px 0px 0px 0px">
+<p style="font-size:24px;line-height:32px;color:#56667E">Project Rampart · Engineering training · v1.0 · 31 Oct 2026</p>
+<p style="font-size:24px;line-height:32px;color:#56667E">Illustrative · <b>9</b></p>
+</div>
+<aside>The last group. Item (h): list the essential functions and keep them working under load and when the backend is down; the T200 kept heating on its local schedule through a 72-hour cloud outage test. Item (i): do not harm other networks. Inventory every emitter, bound retries with back-off and jitter, and never let the product act as an amplifier or relay. Item (l): log security events in structured, tamper-evident form with export to the customer’s SIEM and a user opt-out; document which security events persist after opt-out and why. Item (m): erase must be permanent across device, app and cloud, and a transfer must revoke the previous owner. Item (c), security updates, gets its own slide later. Remember that any “not applicable” needs a justification in the risk assessment: the T200 marks only the transfer half of (m), because no exportable data exists beyond schedules.</aside>
+</section>

@@ -1,0 +1,23 @@
+[
+ {
+  "scenario": "Low",
+  "one_off_total": 7928470,
+  "run_2028": 1756000,
+  "contingency_rate": 0.1,
+  "description": "Harmonised standards cited mid-2027; less remediation than assessed; fewer notified-body days."
+ },
+ {
+  "scenario": "Base",
+  "one_off_total": 9251175,
+  "run_2028": 1844000,
+  "contingency_rate": 0.15,
+  "description": "Plan as assessed at the 28 Oct 2026 baseline."
+ },
+ {
+  "scenario": "High",
+  "one_off_total": 11420640,
+  "run_2028": 1902000,
+  "contingency_rate": 0.2,
+  "description": "Notified-body scarcity forces a second body and premium fees; remediation 30% above estimate; extra programme FTE."
+ }
+]

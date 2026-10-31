@@ -1,0 +1,14 @@
+id,family,bu,cra_class,class_group,provisional,annex_item,revenue_m,eu_revenue_m,skus,wave,route,needs_nb,support_years,readiness
+T200,T200 Smart Thermostat,HBS,Default,Default,False,-,170,125.8,6,Wave 1 (pilot),Module A,False,10,0.458
+SSR,S-Series Room Sensors,HBS,Default,Default,False,-,80,59.2,9,Wave 2,Module A,False,8,0.375
+H3,HomeHub H3,HBS,Default (provisional),Default,True,Under legal review vs Annex III Class I item 17 (optional alarm mode),95,70.3,3,Wave 2,Module A (B+C if Class I),False,7,0.375
+V1,V1 Video Doorbell,HBS,Class I,Class I,False,Annex III Class I item 17 (security cameras),100,74.0,4,Wave 1,Module B+C,True,7,0.383
+L2,L2 Smart Lock,HBS,Class I,Class I,False,Annex III Class I item 17 (smart door locks),75,55.5,3,Wave 1,Module B+C,True,10,0.35
+IR500,IR-500 Industrial Router,IC,Class I,Class I,False,"Annex III Class I item 12 (routers, modems, switches)",165,108.9,7,Wave 1,Module H,True,12,0.5
+IS300,IS-300 Managed Switch,IC,Class I,Class I,False,"Annex III Class I item 12 (routers, modems, switches)",120,79.2,10,Wave 1,Module H,True,12,0.525
+EG700,EG-700 Edge Gateway,IC,Default (provisional),Default,True,Under legal review vs Annex III Class I item 12 (cellular uplink routing),95,62.7,4,Wave 2,Module A (H if Class I),False,10,0.492
+SG900,SG-900 Industrial Firewall/IDS,IC,Class II,Class II,False,"Annex III Class II item 2 (firewalls, IDS/IPS)",110,72.6,3,Wave 1,Module H,True,10,0.542
+SLINK,SecureLink Remote Access,IC,Class I,Class I,False,Annex III Class I item 5 (VPN products),70,46.2,2,Wave 1,Module H,True,7,0.525
+FLEET,FleetView Device Manager,SS,Class I,Class I,False,Annex III Class I item 6 (network management systems),55,31.9,2,Wave 1,Module H,True,5,0.408
+CSTUDIO,ConfigStudio,SS,Default,Default,False,-,15,8.7,1,Wave 2,Module A,False,5,0.433
+SDK,Example IoT SDK,SS,Default,Default,False,-,20,11.6,1,Wave 2,Module A,False,5,0.383

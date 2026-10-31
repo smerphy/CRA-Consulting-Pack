@@ -1,0 +1,122 @@
+[
+ {
+  "id": "R01",
+  "risk": "No notified-body capacity in time",
+  "description": "No CRA notified body is designated with capacity before Q2 2027, so Class I/II families cannot be certified by 11 Dec 2027.",
+  "likelihood": 4,
+  "impact": 5,
+  "score": 20,
+  "rating": "High",
+  "owner": "Head of quality & regulatory",
+  "mitigation": "Pre-contract three candidates with conversion options; Module H for IC to cover five families with one body; check NANDO at every programme board; prioritise top-revenue SKUs.",
+  "trend": "Rising"
+ },
+ {
+  "id": "R02",
+  "risk": "Engineering capacity",
+  "description": "Remediation competes with the 2027 product roadmap for the same engineers.",
+  "likelihood": 4,
+  "impact": 4,
+  "score": 16,
+  "rating": "High",
+  "owner": "CTO",
+  "mitigation": "Ring-fence 26 FTE-years in the 2027 plan; defer two roadmap features; contractors for documentation and testing.",
+  "trend": "Stable"
+ },
+ {
+  "id": "R03",
+  "risk": "No harmonised standard cited for Class I",
+  "description": "EN 304 6xx verticals are not cited in time, so Class I products cannot use Module A.",
+  "likelihood": 4,
+  "impact": 3,
+  "score": 12,
+  "rating": "High",
+  "owner": "Compliance lead",
+  "mitigation": "Plan Class I on third-party routes; align files to draft clause structure; switch to Module A only if a citation lands before assessment.",
+  "trend": "Stable"
+ },
+ {
+  "id": "R04",
+  "risk": "SBOM and supplier transparency gaps",
+  "description": "Binary blobs and supplier components without SBOMs or vulnerability notification undermine Annex I Part II(1) and the 24-hour determination.",
+  "likelihood": 3,
+  "impact": 4,
+  "score": 12,
+  "rating": "High",
+  "owner": "Head of platform engineering",
+  "mitigation": "Binary SCA on firmware images; clause pack to top 15 suppliers first; exit plans for refusers.",
+  "trend": "Stable"
+ },
+ {
+  "id": "R05",
+  "risk": "Legacy lines still sold after 11 Dec 2027",
+  "description": "IR-300 and IS-200 units placed after 11 Dec 2027 must comply with Annex I.",
+  "likelihood": 3,
+  "impact": 4,
+  "score": 12,
+  "rating": "High",
+  "owner": "BU president IC",
+  "mitigation": "Board decision on 19 Nov 2026 to withdraw from EU sale and migrate customers; remediate only if the decision changes.",
+  "trend": "New"
+ },
+ {
+  "id": "R06",
+  "risk": "Late or wrong Art 14 filing",
+  "description": "Awareness misjudged or a stale distribution map delays the 24-hour early warning.",
+  "likelihood": 2,
+  "impact": 5,
+  "score": 10,
+  "rating": "Medium",
+  "owner": "PSIRT lead",
+  "mitigation": "Written awareness criteria; deputies with authority to file; distribution map refresh (T10); two drills a year.",
+  "trend": "Falling"
+ },
+ {
+  "id": "R07",
+  "risk": "Scope undercount",
+  "description": "Versions, companion apps and backends found late enlarge the portfolio.",
+  "likelihood": 3,
+  "impact": 3,
+  "score": 9,
+  "rating": "Medium",
+  "owner": "Compliance lead",
+  "mitigation": "Build the register from release and cloud systems; second reconciliation after the first gate run.",
+  "trend": "Stable"
+ },
+ {
+  "id": "R08",
+  "risk": "Key-person dependency in PSIRT",
+  "description": "Two people hold most PSIRT knowledge; on-call cannot be sustained.",
+  "likelihood": 3,
+  "impact": 3,
+  "score": 9,
+  "rating": "Medium",
+  "owner": "PSIRT lead",
+  "mitigation": "Hire PSIRT lead; second analyst; documented runbook; cross-training from IC.",
+  "trend": "Stable"
+ },
+ {
+  "id": "R09",
+  "risk": "Guidance changes",
+  "description": "Formal adoption of C(2026) 5252 or later FAQ versions change scope or support-period decisions.",
+  "likelihood": 3,
+  "impact": 2,
+  "score": 6,
+  "rating": "Medium",
+  "owner": "Compliance lead",
+  "mitigation": "Decision records cite the guidance version; quarterly standards and guidance review.",
+  "trend": "Stable"
+ },
+ {
+  "id": "R10",
+  "risk": "Product-liability disclosure",
+  "description": "From 9 Dec 2026 claimants can seek disclosure of technical files and update logs under the PLD.",
+  "likelihood": 2,
+  "impact": 4,
+  "score": 8,
+  "rating": "Medium",
+  "owner": "General Counsel",
+  "mitigation": "Write records for disclosure; legal review of risk acceptances; align with product liability insurance.",
+  "trend": "New"
+ }
+]
