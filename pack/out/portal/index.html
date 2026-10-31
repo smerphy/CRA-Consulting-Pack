@@ -199,7 +199,7 @@ footer { padding-block: var(--s6) var(--s7); border-top: 1px solid var(--rule); 
   <section aria-labelledby="arc-h">
     <div class="sec-head">
       <p class="eyebrow">The pack</p>
-      <h2 id="arc-h">Thirteen deliverables and the fact base, in the order an engagement uses them.</h2>
+      <h2 id="arc-h">Fourteen deliverables and the fact base, in the order an engagement uses them.</h2>
       <p>Each piece stands alone and shares one storyline, one data set and one design system, so the numbers agree everywhere.</p>
     </div>
     <div class="filters" role="group" aria-label="Filter by audience">
@@ -265,6 +265,7 @@ footer { padding-block: var(--s6) var(--s7); border-top: 1px solid var(--rule); 
   "use strict";
   // ---- Deliverables (URLs filled by the coordinator) ----
   var D = [
+    { phase: 2, id: "D14", fmt: "Document", title: "CRA Compliance Templates Kit", text: "Ten fill-in templates: classification, risk assessment, support period, Annex VII index, EU declaration, user information, disclosure policy, Article 14 notices, supplier clauses and substantial modification.", aud: "Compliance, engineering, legal, procurement", tags: ["engineering", "programme", "consultant"], url: "https://claude.ai/artifact/EkH2mzWezJ1c24mVLFSZA6" },
     { phase: 0, id: "D13", fmt: "Live tool", title: "CRA Product Classifier", text: "Takes each product through scope, exclusions and core functionality to its class, legal basis and conformity routes, with a record for the SKU register.", aud: "Product, compliance, legal", tags: ["engineering", "consultant"], url: "https://claude.ai/artifact/YWYBcMjziz1s7Jmpki8wyQ" },
     { phase: 0, id: "D08", fmt: "Live tool", title: "CRA Readiness Diagnostic", text: "Product teams self-assess 40 questions across 10 domains; the portfolio heatmap and readiness index update for everyone.", aud: "Product teams, programme", tags: ["programme", "engineering", "consultant"], url: "https://claude.ai/artifact/MgC6yAXNQuKWNmFxpk52iS" },
     { phase: 0, id: "D07", fmt: "Document", title: "Survey and Interview Instruments", text: "Staff pulse, supplier questionnaire, executive interview guide, customer and engineering surveys, with scoring.", aud: "Programme team, research", tags: ["programme", "consultant"], url: "https://claude.ai/artifact/3fxq7nZGYhb79m3dqAmmE9" },
@@ -292,7 +293,7 @@ footer { padding-block: var(--s6) var(--s7); border-top: 1px solid var(--rule); 
     ["2-4", "Inventory, scope and classification; diagnostic with every product team; first Art 14 drill; SteerCo #1", ["D13", "D08", "D11", "D02", "KB"], "Scope register, readiness baseline and a tested reporting chain"],
     ["4-6", "Business case, routes and notified-body strategy; legacy decisions", ["D10", "D06"], "Costed options and a recommended route per family"],
     ["6-7", "Board pre-read and decision", ["D01", "D04"], "Budget, accountable executive, signing authority, notified-body mandate"],
-    ["7-9", "Launch communications; engineering training; supplier letters", ["D05", "D03", "D04"], "Organisation informed; engineer training under way"],
+    ["7-9", "Launch communications; engineering training; supplier letters; templates issued to product teams", ["D05", "D03", "D04", "D14"], "Organisation informed; engineer training under way"],
     ["9-12", "Monthly governance: SteerCo, dashboard, tracker", ["D02", "D09", "D11"], "A governed programme with monthly reporting"]
   ];
   var FACTS = [

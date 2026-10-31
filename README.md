@@ -18,6 +18,7 @@ White-label consulting pack for the EU Cyber Resilience Act (Regulation (EU) 202
 | D10 | Business case and cost model | `pack/out/excel/` |
 | D11 | Obligations register and programme tracker | `pack/out/excel/` |
 | D13 | Product classifier (scope, class, conformity routes, SKU register) | `pack/out/classifier/index.html` and published artifact |
+| D14 | Compliance templates kit (10 fill-in templates) | Published doc |
 | D12 | Portal (index of everything) | `pack/out/portal/index.html` and published artifact |
 | DS | Advisory design system | Published artifact |
 
