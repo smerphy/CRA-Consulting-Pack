@@ -1,0 +1,309 @@
+<title>CRA Framework Crosswalk</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400..700&family=JetBrains+Mono:wght@400..600&family=Source+Serif+4:opsz,wght@8..60,400..700&display=swap">
+<style>
+/* Layout: "what you hold" selector and coverage summary on top; a requirement x framework matrix (scrolls sideways on its own) with a detail panel for the selected row. Advisory Design System tokens. */
+:root {
+  --ink-900: #0E1A2B; --ink-700: #26364D; --ink-500: #56667E; --ink-300: #C5CDD8; --ink-100: #EEF1F5;
+  --paper: #FAFAF7; --surface: #FFFFFF;
+  --accent-700: #0A5753; --accent-600: #0F6E6A; --accent-400: #2E9C93; --accent-100: #DCEFEC;
+  --bg: var(--paper); --fg: var(--ink-900); --fg-2: var(--ink-700); --muted: var(--ink-500); --rule: var(--ink-300);
+  --fill: var(--ink-100); --card: var(--surface); --emph: var(--accent-600); --tint: var(--accent-100);
+  --cov-strong: #0F6E6A; --cov-partial: #6FB3AA; --cov-weak: #CFE6E2; --cov-none: transparent;
+  --cov-strong-fg: #FFFFFF; --cov-partial-fg: #0E1A2B; --cov-weak-fg: #26364D;
+  --gap: #B54708; --gap-tint: #FCF0DF;
+  --shadow: 0 1px 2px #0E1A2B0F, 0 4px 12px #0E1A2B14;
+  --font-display: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --font-body: Inter, system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --s1: 4px; --s2: 8px; --s3: 12px; --s4: 16px; --s5: 24px; --s6: 32px; --s7: 48px;
+  --r2: 4px; --r3: 6px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0E1A2B; --fg: #FAFAF7; --fg-2: #D5DCE6; --muted: #A3AFC0; --rule: #2C3C55; --fill: #1F2E45;
+    --card: #16243A; --emph: #2E9C93; --tint: #123F3D;
+    --cov-strong: #2E9C93; --cov-partial: #1F6B65; --cov-weak: #1C3B44; --cov-strong-fg: #0E1A2B; --cov-partial-fg: #EAF6F4; --cov-weak-fg: #C9DCE0;
+    --gap: #F5B556; --gap-tint: #3A2C14;
+    --shadow: 0 1px 2px #00000066, 0 4px 12px #00000080; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0E1A2B; --fg: #FAFAF7; --fg-2: #D5DCE6; --muted: #A3AFC0; --rule: #2C3C55; --fill: #1F2E45;
+  --card: #16243A; --emph: #2E9C93; --tint: #123F3D;
+  --cov-strong: #2E9C93; --cov-partial: #1F6B65; --cov-weak: #1C3B44; --cov-strong-fg: #0E1A2B; --cov-partial-fg: #EAF6F4; --cov-weak-fg: #C9DCE0;
+  --gap: #F5B556; --gap-tint: #3A2C14;
+  --shadow: 0 1px 2px #00000066, 0 4px 12px #00000080; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+body { background: var(--bg); color: var(--fg); font: 400 15px/1.55 var(--font-body); -webkit-font-smoothing: antialiased; }
+a { color: var(--emph); text-underline-offset: 3px; }
+:focus-visible { outline: 2px solid var(--emph); outline-offset: 2px; }
+h1, h2, h3 { font-family: var(--font-display); font-weight: 500; text-wrap: balance; margin: 0; }
+p { margin: 0; }
+.wrap { max-width: 1320px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.eyebrow { font: 600 11px/1.2 var(--font-body); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.mono { font-family: var(--font-mono); }
+
+header.mast { padding-block: var(--s6) var(--s5); border-bottom: 1px solid var(--rule); }
+.mast-top { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--s3); align-items: baseline; }
+.wordmark { font: 600 12px/1 var(--font-body); letter-spacing: .32em; }
+.meta { display: flex; flex-wrap: wrap; gap: var(--s2) var(--s4); color: var(--muted); font-size: 13px; }
+.mast h1 { font-size: clamp(30px, 4.4vw, 46px); line-height: 1.06; margin-top: var(--s5); max-width: 24ch; }
+.mast .lede { font-family: var(--font-display); font-size: clamp(17px, 1.9vw, 20px); line-height: 1.45; color: var(--fg-2); margin-top: var(--s3); max-width: 66ch; }
+
+section.hold { padding-block: var(--s5); display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: var(--s6); align-items: start; border-bottom: 1px solid var(--rule); }
+@media (max-width: 900px) { section.hold { grid-template-columns: minmax(0, 1fr); } }
+.chips { display: flex; flex-wrap: wrap; gap: var(--s2); margin-top: var(--s3); }
+.chip { font: 500 13.5px/1.2 var(--font-body); padding: 9px 12px; border-radius: 999px; border: 1px solid var(--rule); background: var(--card); color: var(--fg); cursor: pointer; display: inline-flex; gap: 8px; align-items: center; }
+.chip:hover { border-color: var(--emph); }
+.chip[aria-pressed="true"] { background: var(--fg); color: var(--bg); border-color: var(--fg); }
+.chip .tick { width: 14px; height: 14px; border-radius: 3px; border: 1.5px solid currentColor; display: inline-grid; place-items: center; font-size: 10px; }
+.chip[aria-pressed="true"] .tick::after { content: "✓"; }
+.hold-actions { display: flex; flex-wrap: wrap; gap: var(--s3); margin-top: var(--s3); font-size: 13px; }
+.linkbtn { background: none; border: 0; padding: 0; color: var(--emph); cursor: pointer; font: inherit; text-decoration: underline; text-underline-offset: 3px; }
+
+.summary { display: grid; gap: var(--s3); }
+.big { display: flex; align-items: baseline; gap: var(--s3); flex-wrap: wrap; }
+.big b { font: 600 52px/1 var(--font-body); font-variant-numeric: tabular-nums; letter-spacing: -.02em; color: var(--emph); }
+.big span { color: var(--fg-2); font-size: 14px; max-width: 34ch; }
+.bar { display: flex; height: 14px; border-radius: 3px; overflow: hidden; border: 1px solid var(--rule); background: var(--card); }
+.bar i { display: block; height: 100%; }
+.legend { display: flex; flex-wrap: wrap; gap: var(--s2) var(--s4); font-size: 12.5px; color: var(--fg-2); }
+.legend span { display: inline-flex; align-items: center; gap: 6px; }
+.sw { width: 12px; height: 12px; border-radius: 2px; display: inline-block; border: 1px solid var(--rule); }
+.cov-strong { background: var(--cov-strong); color: var(--cov-strong-fg); border-color: var(--cov-strong); }
+.cov-partial { background: var(--cov-partial); color: var(--cov-partial-fg); border-color: var(--cov-partial); }
+.cov-weak { background: var(--cov-weak); color: var(--cov-weak-fg); border-color: var(--cov-weak); }
+.cov-none { background: var(--cov-none); color: var(--muted); }
+.gaps { font-size: 13.5px; color: var(--fg-2); }
+.gaps b { color: var(--fg); }
+
+.tools { display: flex; flex-wrap: wrap; gap: var(--s3); align-items: center; justify-content: space-between; padding-block: var(--s4) var(--s3); }
+.tools .left { display: flex; flex-wrap: wrap; gap: var(--s3); align-items: center; }
+select, input[type="search"] { font: inherit; font-size: 14px; color: var(--fg); background: var(--card); border: 1px solid var(--rule); border-radius: var(--r3); padding: 8px 10px; }
+label.tog { display: inline-flex; gap: 8px; align-items: center; font-size: 14px; color: var(--fg-2); cursor: pointer; }
+label.tog input { accent-color: var(--emph); width: 16px; height: 16px; }
+.btn { font: 600 13.5px/1 var(--font-body); padding: 10px 14px; border-radius: var(--r2); border: 1px solid var(--rule); background: var(--card); color: var(--fg); cursor: pointer; }
+.status { font-size: 12.5px; color: var(--muted); min-height: 1.3em; }
+
+main.grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 380px); gap: var(--s5); align-items: start; padding-bottom: var(--s7); }
+@media (max-width: 1100px) { main.grid { grid-template-columns: minmax(0, 1fr); } }
+.mx-wrap { overflow-x: auto; border: 1px solid var(--rule); border-radius: var(--r3); background: var(--card); }
+table.mx { border-collapse: separate; border-spacing: 0; width: 100%; min-width: 980px; font-size: 13px; }
+.mx th, .mx td { padding: 8px 8px; border-bottom: 1px solid var(--rule); text-align: left; vertical-align: middle; }
+.mx thead th { font: 600 11px/1.25 var(--font-body); letter-spacing: .04em; color: var(--muted); background: var(--fill); position: sticky; top: 0; z-index: 2; vertical-align: bottom; }
+.mx thead th.fw { width: 86px; text-align: center; }
+.mx thead th.fw.held { color: var(--fg); box-shadow: inset 0 -3px 0 var(--emph); }
+.mx th.req { position: sticky; left: 0; background: var(--card); z-index: 1; min-width: 260px; max-width: 320px; font-weight: 400; }
+.mx thead th.req { z-index: 3; background: var(--fill); }
+.mx td.cell { text-align: center; padding: 6px 5px; }
+.mx td.best { text-align: center; border-left: 1px solid var(--rule); }
+.mx tr.grp th { background: var(--fill); font: 600 11px/1.2 var(--font-body); letter-spacing: .12em; text-transform: uppercase; color: var(--muted); padding-block: 10px; position: static; }
+.mx tbody tr.row { cursor: pointer; }
+.mx tbody tr.row:hover th.req, .mx tbody tr.row:hover td { background: var(--fill); }
+.mx tbody tr.row.sel th.req, .mx tbody tr.row.sel td { background: var(--tint); }
+.rq-ref { font: 500 11px var(--font-mono); color: var(--muted); display: block; }
+.rq-title { color: var(--fg); font-size: 13.5px; }
+.pill { display: inline-block; min-width: 64px; padding: 4px 6px; border-radius: 3px; font: 600 10.5px/1.2 var(--font-body); letter-spacing: .02em; border: 1px solid transparent; }
+.pill.cov-none { border: 1px dashed var(--rule); }
+.dim { opacity: .45; }
+.kit { font-size: 10px; vertical-align: super; color: var(--muted); margin-left: 1px; }
+.gapflag { display: inline-block; font: 600 10.5px/1.2 var(--font-body); color: var(--gap); background: var(--gap-tint); padding: 4px 6px; border-radius: 3px; }
+
+aside.detail { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 16px); max-height: calc(100vh - 32px); overflow-y: auto; background: var(--card); border: 1px solid var(--rule); border-radius: var(--r3); box-shadow: var(--shadow); }
+@media (max-width: 1100px) { aside.detail { position: static; max-height: none; } }
+.d-top { padding: var(--s4) var(--s5); border-bottom: 1px solid var(--rule); display: grid; gap: var(--s2); }
+.d-top h2 { font-size: 22px; line-height: 1.2; }
+.d-sec { padding: var(--s3) var(--s5); border-bottom: 1px solid var(--rule); display: grid; gap: 6px; font-size: 13.5px; }
+.d-sec:last-child { border-bottom: 0; }
+.d-fw { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px var(--s3); align-items: start; }
+.d-fw b { font-weight: 600; }
+.d-fw .refs { grid-column: 1 / -1; font: 12px/1.5 var(--font-mono); color: var(--fg-2); word-break: break-word; }
+.d-fw .note { grid-column: 1 / -1; color: var(--fg-2); }
+.d-fw.held b::after { content: " · held"; color: var(--emph); font-weight: 500; }
+
+section.fws { padding-block: var(--s6); border-top: 1px solid var(--rule); }
+.fw-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: var(--s4); margin-top: var(--s4); }
+.fw-card { border: 1px solid var(--rule); border-radius: var(--r3); background: var(--card); padding: var(--s4); display: grid; gap: 6px; font-size: 13.5px; align-content: start; }
+.fw-card h3 { font-size: 18px; }
+.fw-card .kind { font-size: 12px; color: var(--muted); }
+.fw-card dt { font-weight: 600; margin-top: 4px; }
+.fw-card dd { margin: 0; color: var(--fg-2); }
+footer { padding-block: var(--s5) var(--s6); border-top: 1px solid var(--rule); font-size: 12.5px; color: var(--muted); display: grid; gap: var(--s2); }
+footer p { max-width: 115ch; }
+</style>
+
+<header class="mast">
+  <div class="wrap">
+    <div class="mast-top">
+      <span class="wordmark">CRA READINESS PROGRAMME</span>
+      <span class="meta"><span>Tool D15</span><span id="asat">Facts as at 30 Oct 2026</span><span>Prepared by [Advisor]</span></span>
+    </div>
+    <h1>Reuse the evidence you already hold for the CRA</h1>
+    <p class="lede">Pick the frameworks your organisation already works to. The crosswalk shows, requirement by requirement, how far that evidence carries into the Cyber Resilience Act, and where the CRA asks for something new.</p>
+  </div>
+</header>
+
+<div class="wrap">
+  <section class="hold" aria-labelledby="hold-h">
+    <div>
+      <p class="eyebrow" id="hold-h">Frameworks you already hold</p>
+      <div class="chips" id="chips" role="group" aria-label="Frameworks you already hold"></div>
+      <div class="hold-actions"><button class="linkbtn" type="button" id="all">Select all</button><button class="linkbtn" type="button" id="none">Clear</button><span class="status" id="holdnote"></span></div>
+    </div>
+    <div class="summary" aria-live="polite">
+      <div class="big"><b id="pct">0%</b><span id="pctlbl">of CRA requirements have strong or partial evidence from what you hold</span></div>
+      <div class="bar" id="bar" role="img"></div>
+      <div class="legend" id="legend"></div>
+      <p class="gaps" id="gaps"></p>
+    </div>
+  </section>
+
+  <div class="tools">
+    <div class="left">
+      <label class="tog" for="gaponly"><input type="checkbox" id="gaponly">Show gaps only</label>
+      <select id="grp" aria-label="Requirement group"></select>
+      <input type="search" id="q" placeholder="Search requirement or clause" aria-label="Search requirement or clause">
+    </div>
+    <div class="left"><button class="btn" type="button" id="csv">Copy matrix as CSV</button><span class="status" id="csvstatus" aria-live="polite"></span></div>
+  </div>
+</div>
+
+<div class="wrap">
+<main class="grid">
+  <div class="mx-wrap"><table class="mx" id="mx"><thead id="mxh"></thead><tbody id="mxb"></tbody></table></div>
+  <aside class="detail" id="detail" aria-live="polite"></aside>
+</main>
+</div>
+
+<section class="fws">
+  <div class="wrap">
+    <p class="eyebrow">The frameworks</p>
+    <h2 style="font-size:28px;margin-top:6px">What each one gives you, and where it stops</h2>
+    <div class="fw-grid" id="fwgrid"></div>
+  </div>
+</section>
+
+<div class="wrap">
+<footer>
+  <p id="metanote"></p>
+  <p><span class="kit">†</span> Mapping added by this kit where the engagement knowledge base gives none; verify the clause against the standard before relying on it. Unmarked mappings come from the knowledge base. Coverage is an indicative judgement of how much existing evidence can be reused, not a statement of conformity.</p>
+  <p>CRA Readiness Programme · CRA Framework Crosswalk (D15) · v1.0 · 31 Oct 2026 · Prepared by [Advisor]</p>
+</footer>
+</div>
+
+<script>
+const XW = /*XW_DATA*/null;
+(() => {
+  "use strict";
+  if (!XW) { document.getElementById("detail").textContent = "No crosswalk data loaded."; return; }
+  const $ = s => document.querySelector(s);
+  const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
+  const RANK = { strong: 3, partial: 2, weak: 1, none: 0 };
+  const LBL = Object.fromEntries(XW.coverage_scale.map(c => [c.id, c.label]));
+  const FW = XW.frameworks, RQ = XW.requirements;
+  const M = {}; for (const m of XW.mappings) (M[m.req] ||= {})[m.fw] = m;
+  const DEFAULT_HELD = ["iso27001", "iec62443_4_1", "en18031"].filter(id => FW.some(f => f.id === id));
+  const KEY = "cra-crosswalk-held-v1";
+  let held = new Set(DEFAULT_HELD);
+  try { const s = JSON.parse(localStorage.getItem(KEY) || "null"); if (Array.isArray(s)) held = new Set(s.filter(id => FW.some(f => f.id === id))); } catch {}
+  let sel = RQ[0].id;
+  const save = () => { try { localStorage.setItem(KEY, JSON.stringify([...held])); } catch {} };
+  const shortName = f => f.short || f.name;
+  const best = rid => {
+    let b = { cov: "none", fw: null };
+    for (const fid of held) { const m = M[rid]?.[fid]; if (m && RANK[m.coverage] > RANK[b.cov]) b = { cov: m.coverage, fw: fid }; }
+    return b;
+  };
+
+  $("#asat").textContent = `Facts as at ${XW.meta.as_at}`;
+  $("#metanote").textContent = XW.meta.note;
+  $("#legend").innerHTML = XW.coverage_scale.map(c => `<span><i class="sw cov-${c.id}"></i>${esc(c.label)}</span>`).join("");
+  const groups = [...new Set(RQ.map(r => r.group))];
+  $("#grp").innerHTML = `<option value="">All requirements (${RQ.length})</option>` + groups.map(g => `<option>${esc(g)}</option>`).join("");
+
+  function renderChips() {
+    $("#chips").innerHTML = FW.map(f => `<button type="button" class="chip" data-fw="${f.id}" aria-pressed="${held.has(f.id)}"><span class="tick" aria-hidden="true"></span>${esc(shortName(f))}</button>`).join("");
+    document.querySelectorAll("#chips .chip").forEach(b => b.addEventListener("click", () => {
+      held.has(b.dataset.fw) ? held.delete(b.dataset.fw) : held.add(b.dataset.fw); save(); renderAll();
+    }));
+    $("#holdnote").textContent = held.size ? "" : "Select at least one framework to see what carries over.";
+  }
+
+  function renderSummary() {
+    const counts = { strong: 0, partial: 0, weak: 0, none: 0 };
+    const gapList = [];
+    for (const r of RQ) { const b = best(r.id); counts[b.cov]++; if (RANK[b.cov] <= 1) gapList.push(r); }
+    const n = RQ.length, covered = counts.strong + counts.partial;
+    $("#pct").textContent = held.size ? `${Math.round(covered / n * 100)}%` : "–";
+    $("#pctlbl").textContent = held.size ? `of ${n} CRA requirements have strong or partial evidence from what you hold (${counts.strong} strong, ${counts.partial} partial)` : "Select the frameworks you hold";
+    $("#bar").innerHTML = ["strong", "partial", "weak", "none"].map(k => counts[k] ? `<i class="cov-${k}" style="width:${counts[k] / n * 100}%" title="${LBL[k]}: ${counts[k]}"></i>` : "").join("");
+    $("#bar").setAttribute("aria-label", ["strong", "partial", "weak", "none"].map(k => `${LBL[k]} ${counts[k]}`).join(", "));
+    const byGroup = {}; for (const r of gapList) (byGroup[r.group] ||= []).push(r);
+    $("#gaps").innerHTML = held.size
+      ? (gapList.length ? `<b>${gapList.length} requirements need new evidence.</b> ` + Object.entries(byGroup).map(([g, rs]) => `${esc(g)}: ${rs.map(r => esc(r.ref.replace(/^Annex I Part I+ ?/, "").replace(/^Art(icle)? /, "Art "))).join(", ")}`).join("; ") + "." : "<b>No requirement is left without at least partial evidence.</b>")
+      : "";
+  }
+
+  function renderMatrix() {
+    const g = $("#grp").value, q = $("#q").value.trim().toLowerCase(), gapOnly = $("#gaponly").checked;
+    $("#mxh").innerHTML = `<tr><th class="req" scope="col">CRA requirement</th>${FW.map(f => `<th scope="col" class="fw${held.has(f.id) ? " held" : ""}" title="${esc(f.name)}">${esc(shortName(f))}</th>`).join("")}<th scope="col" class="fw">Best you hold</th></tr>`;
+    let html = "", lastG = null, shown = 0;
+    for (const r of RQ) {
+      if (g && r.group !== g) continue;
+      const b = best(r.id);
+      if (gapOnly && RANK[b.cov] > 1) continue;
+      if (q && !(`${r.ref} ${r.title} ${r.summary} ` + FW.map(f => M[r.id]?.[f.id]?.refs || "").join(" ")).toLowerCase().includes(q)) continue;
+      if (r.group !== lastG) { html += `<tr class="grp"><th colspan="${FW.length + 2}" scope="colgroup">${esc(r.group)}</th></tr>`; lastG = r.group; }
+      shown++;
+      html += `<tr class="row${r.id === sel ? " sel" : ""}" data-id="${r.id}" tabindex="0"><th class="req" scope="row"><span class="rq-ref">${esc(r.ref)}</span><span class="rq-title">${esc(r.title)}</span></th>` +
+        FW.map(f => { const m = M[r.id]?.[f.id] || { coverage: "none", refs: "", source: "kb" };
+          return `<td class="cell${held.size && !held.has(f.id) ? " dim" : ""}" title="${esc(shortName(f))}: ${esc(LBL[m.coverage])}${m.refs ? " · " + esc(m.refs) : ""}"><span class="pill cov-${m.coverage}">${esc(LBL[m.coverage])}${m.source === "kit" && m.coverage !== "none" ? '<span class="kit">†</span>' : ""}</span></td>`; }).join("") +
+        `<td class="best">${!held.size ? "" : RANK[b.cov] > 1 ? `<span class="pill cov-${b.cov}">${esc(LBL[b.cov])}</span>` : `<span class="gapflag">Gap</span>`}</td></tr>`;
+    }
+    $("#mxb").innerHTML = html || `<tr><td colspan="${FW.length + 2}" style="padding:24px;color:var(--muted)">No requirement matches these filters.</td></tr>`;
+    document.querySelectorAll("#mxb tr.row").forEach(tr => {
+      const pick = () => { sel = tr.dataset.id; renderMatrix(); renderDetail(); };
+      tr.addEventListener("click", pick);
+      tr.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); pick(); } });
+    });
+  }
+
+  function renderDetail() {
+    const r = RQ.find(x => x.id === sel) || RQ[0];
+    const b = best(r.id);
+    const order = [...FW].sort((a, c) => (held.has(c.id) - held.has(a.id)) || (RANK[M[r.id]?.[c.id]?.coverage || "none"] - RANK[M[r.id]?.[a.id]?.coverage || "none"]));
+    $("#detail").innerHTML = `<div class="d-top"><span class="eyebrow">${esc(r.group)}</span><h2>${esc(r.title)}</h2><span class="rq-ref">${esc(r.ref)}</span><p style="font-size:14px;color:var(--fg-2)">${esc(r.summary)}</p>
+      ${held.size ? `<p style="font-size:13.5px">${RANK[b.cov] > 1 ? `Best evidence you hold: <b>${esc(shortName(FW.find(f => f.id === b.fw)))}</b> (${esc(LBL[b.cov])}).` : `<span class="gapflag">Gap</span> Nothing you hold gives more than weak evidence here.`}</p>` : ""}</div>
+      ${r.evidence ? `<div class="d-sec"><span class="eyebrow">CRA evidence for the technical file</span><p>${esc(r.evidence)}</p></div>` : ""}
+      <div class="d-sec"><span class="eyebrow">By framework</span>${order.map(f => { const m = M[r.id]?.[f.id] || { coverage: "none", refs: "", note: "" };
+        return `<div class="d-fw${held.has(f.id) ? " held" : ""}"><b>${esc(shortName(f))}</b><span class="pill cov-${m.coverage}">${esc(LBL[m.coverage])}${m.source === "kit" && m.coverage !== "none" ? '<span class="kit">†</span>' : ""}</span>${m.refs ? `<span class="refs">${esc(m.refs)}</span>` : ""}${m.note ? `<span class="note">${esc(m.note)}</span>` : ""}</div>`; }).join("")}</div>`;
+  }
+
+  function renderFrameworks() {
+    $("#fwgrid").innerHTML = FW.map(f => `<article class="fw-card"><span class="kind">${esc(f.kind)} · ${esc(f.status)}</span><h3>${f.url ? `<a href="${esc(f.url)}" target="_blank" rel="noopener">${esc(f.name)}</a>` : esc(f.name)}</h3><span class="kind">${esc(f.full_name || "")}</span>
+      <dl style="margin:0"><dt>Relation to the CRA</dt><dd>${esc(f.relation_to_cra)}</dd><dt>Evidence that carries over</dt><dd>${esc(f.reuse)}</dd><dt>Main gaps</dt><dd>${esc(f.gaps)}</dd></dl></article>`).join("");
+  }
+
+  function renderAll() { renderChips(); renderSummary(); renderMatrix(); renderDetail(); }
+
+  $("#all").addEventListener("click", () => { held = new Set(FW.map(f => f.id)); save(); renderAll(); });
+  $("#none").addEventListener("click", () => { held = new Set(); save(); renderAll(); });
+  for (const id of ["#grp", "#gaponly"]) $(id).addEventListener("change", renderMatrix);
+  $("#q").addEventListener("input", renderMatrix);
+  $("#csv").addEventListener("click", async () => {
+    const cell = v => `"${String(v ?? "").replace(/"/g, '""')}"`;
+    const head = ["Requirement ID", "CRA reference", "Requirement", ...FW.flatMap(f => [`${shortName(f)} coverage`, `${shortName(f)} clauses`])];
+    const rows = RQ.map(r => [r.id, r.ref, r.title, ...FW.flatMap(f => { const m = M[r.id]?.[f.id] || {}; return [LBL[m.coverage || "none"], (m.refs || "") + (m.source === "kit" && m.coverage !== "none" ? " (kit mapping)" : "")]; })]);
+    const text = [head, ...rows].map(r => r.map(cell).join(",")).join("\n");
+    try { await navigator.clipboard.writeText(text); $("#csvstatus").textContent = `Copied ${rows.length} rows.`; }
+    catch { $("#csvstatus").textContent = "Copy was blocked here. Use the CSV file delivered with the pack."; }
+  });
+
+  renderFrameworks(); renderAll();
+})();
+</script>
