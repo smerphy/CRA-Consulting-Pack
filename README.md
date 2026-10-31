@@ -17,6 +17,7 @@ White-label consulting pack for the EU Cyber Resilience Act (Regulation (EU) 202
 | D09 | Programme dashboard | Published artifact |
 | D10 | Business case and cost model | `pack/out/excel/` |
 | D11 | Obligations register and programme tracker | `pack/out/excel/` |
+| D13 | Product classifier (scope, class, conformity routes, SKU register) | `pack/out/classifier/index.html` and published artifact |
 | D12 | Portal (index of everything) | `pack/out/portal/index.html` and published artifact |
 | DS | Advisory design system | Published artifact |
 
@@ -27,7 +28,7 @@ Decks, docs and the dashboard are hosted on claude.ai, so the repo holds their b
 - `pack/data/` — single source of truth: `pack_data.json` and `DATA_SUMMARY.md`
 - `pack/build_data.py` — generates both data files
 - `pack/BRIEF.md`, `pack/briefs/` — master brief and one brief per deliverable, plus the independent QA brief
-- `pack/out/` — Excel workbooks, portal and diagnostic HTML, `urls.json`
+- `pack/out/` — Excel workbooks, portal, diagnostic and classifier HTML, `urls.json`
 - `reports/` — CRA knowledge base: `sections/` (16), `guides/corporate/`, `guides/application/`, `verification.md` (its corrections override the sections), `digest.md`; `EU CRA engineering compliance.md` is the same material as one document
 - `research_notes/` — raw research notes behind the knowledge base
 
