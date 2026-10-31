@@ -15,7 +15,7 @@
 - Investment (base): one-off **EUR 9.25m** to Dec 2027 incl. 15% contingency (Q4 2026 EUR 1.42m; 2027 EUR 7.83m); run **EUR 1.84m/yr** from 2028; one-off = 0.77% of annual revenue; run = 0.15%
 - Scenarios one-off: low EUR 7.93m; base EUR 9.25m; high EUR 11.42m. Run: low EUR 1.76m; high EUR 1.90m
 - Engineering remediation: 26.2 FTE-years. Spend to date: EUR 410k (Oct 2026) vs plan EUR 384k.
-- Overall programme RAG: **Amber** — Reporting capability on track; market access at risk because no notified body is designated (external dependency).
+- Overall programme RAG: **Amber** — Reporting capability on track; market access at risk because no CRA notified body was designated at checks to 8 Sep 2026 (external dependency).
 
 ## Product families
 
@@ -123,7 +123,7 @@ Workstreams:
 - WS4 Secure engineering & SDLC (lead: Product security officer) — Amber: T200 pilot risk assessment in review; release gate designed, not yet enforced.
 - WS5 SBOM & supply chain (lead: Head of platform engineering) — Red: Signed SBOMs on 38% of releases; HBS firmware builds lack binary SCA; 6 of 41 suppliers on CRA clauses.
 - WS6 Documentation & evidence (lead: Compliance lead) — Amber: System of record not yet selected; Annex VII outline agreed.
-- WS7 Conformity & market access (lead: Head of quality & regulatory) — Red: No CRA notified body designated (external); 3 candidates shortlisted; V1/L2 route undecided.
+- WS7 Conformity & market access (lead: Head of quality & regulatory) — Red: No CRA notified body designated at checks to 8 Sep 2026 (external); 3 candidates shortlisted; V1/L2 route undecided.
 - WS8 People & change (lead: Head of engineering enablement) — Amber: 140 of 920 engineers trained; works council consultation on PSIRT on-call opened.
 
 ## KPIs (SteerCo #1, as at 30 Oct 2026)

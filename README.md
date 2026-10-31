@@ -39,8 +39,8 @@ python3 pack/build_data.py
 
 Deterministic (seeded): re-running reproduces `pack_data.json` and `DATA_SUMMARY.md` byte for byte. Change numbers in `build_data.py` only, then rerun; every deliverable takes its figures from the output.
 
-## Known open items
+## Design notes
 
-- Two status sentences say "no notified body is designated" in the present tense (`overall_status` and the WS7 note in `build_data.py`). Date them "as at 8 Sep 2026" and republish the dashboard and decks that quote them.
-- Works council sign-off date (6 Nov) in D07 is not reconciled against T30 in D05.
-- Ten tracker rows in D11 are held at "Not started"; clear the "Status hold" cell to release them.
+- Notified-body status in the pack data and deliverables is dated "at checks to 8 Sep 2026" (the last verified NANDO check; the knowledge base states it as at 30 Oct 2026). Recheck NANDO before each client issue and update `build_data.py`.
+- D11 holds ten conformity-assessment rows (notified-body routes) at "Not started" by design: they cannot progress until a CRA notified body is designated and contracted. Clear a row's "Status hold" cell to release it once its body is contracted.
+- The staff pulse (D07) needs works council sign-off by 6 Nov 2026 before its 23 Nov launch; the comms calendar (D05) carries the same gate.

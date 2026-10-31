@@ -483,7 +483,7 @@ workstreams = [
  OrderedDict(id="WS4", name="Secure engineering & SDLC", lead="Product security officer", rag="Amber", note="T200 pilot risk assessment in review; release gate designed, not yet enforced."),
  OrderedDict(id="WS5", name="SBOM & supply chain", lead="Head of platform engineering", rag="Red", note="Signed SBOMs on 38% of releases; HBS firmware builds lack binary SCA; 6 of 41 suppliers on CRA clauses."),
  OrderedDict(id="WS6", name="Documentation & evidence", lead="Compliance lead", rag="Amber", note="System of record not yet selected; Annex VII outline agreed."),
- OrderedDict(id="WS7", name="Conformity & market access", lead="Head of quality & regulatory", rag="Red", note="No CRA notified body designated (external); 3 candidates shortlisted; V1/L2 route undecided."),
+ OrderedDict(id="WS7", name="Conformity & market access", lead="Head of quality & regulatory", rag="Red", note="No CRA notified body designated at checks to 8 Sep 2026 (external); 3 candidates shortlisted; V1/L2 route undecided."),
  OrderedDict(id="WS8", name="People & change", lead="Head of engineering enablement", rag="Amber", note="140 of 920 engineers trained; works council consultation on PSIRT on-call opened."),
 ]
 phases = [
@@ -693,7 +693,7 @@ research_datapoints = [
 data = OrderedDict(meta=meta, brand=brand, storyline=storyline, client=client, exposure=exposure, diagnostic=diagnostic,
     cost_model=cost_model, programme=OrderedDict(name="Project Rampart", kickoff="5 Oct 2026", phases=phases, waves=waves, milestones=milestones,
     workstreams=workstreams, mobilisation_plan=mobilisation_plan, overall_rag="Amber",
-    overall_status="Reporting capability on track; market access at risk because no notified body is designated (external dependency)."),
+    overall_status="Reporting capability on track; market access at risk because no CRA notified body was designated at checks to 8 Sep 2026 (external dependency)."),
     kpis=kpis, kpi_trajectories=kpi_trajectories, risks=risks, issues=issues, decisions=decisions, stakeholders=stakeholders,
     facts=facts, research_datapoints=research_datapoints)
 
