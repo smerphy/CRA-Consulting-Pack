@@ -1,0 +1,1463 @@
+# CRA readiness pack — client intake (Example Group, fictional reference client)
+# Edit this file to re-skin the pack for a client: python3 pack/reskin.py pack/clients/<slug>/client.yaml
+# Tokens resolved at build time: __EUNB__, __ONEOFF__, __RUN__, {{one_off_m}}, {{run_m}}, {{contingency_pct}}.
+# KPI value 'auto:readiness_index' / 'auto:spend_vs_plan' is computed by the engine.
+
+schema: cra-pack-intake/1
+engagement:
+  client_name: Example Group
+  fictional: true
+  programme_codename: Project Rampart
+  advisor: '[Advisor]'
+  classification_label: Illustrative engagement — fictional client data; regulatory facts verified to 30 Oct 2026
+  pack_date: 2026-10-31
+  facts_as_at: 2026-10-30
+  board_date: 2026-11-19
+  steerco_1: 2026-10-30
+  kickoff: 5 Oct 2026
+  knowledge_base_url: https://claude.ai/artifact/JC24c3EC3qR8Xz8k3858Wj
+storyline:
+  governing_thought: The CRA turns product cybersecurity into a licence to sell in the EU. Example Group can be ready by 11 Dec 2027, but only if it secures third-party assessment capacity and builds shared compliance infrastructure in the next two quarters.
+  scqa:
+    situation: The Cyber Resilience Act (Regulation (EU) 2024/2847) has been in force since 10 Dec 2024. Article 14 reporting has applied since 11 Sep 2026 to every in-scope product, including those already sold. Everything else applies from 11 Dec 2027.
+    complication: 'Three things make this harder than a normal compliance project: reporting is already live on a 24-hour clock; seven of Example Group''s thirteen product families need a notified body or a cited harmonised standard, and neither exists today; and compliance must be proven with evidence for every product version for at least ten years.'
+    question: What must Example Group do, by when and at what cost to keep selling in the EU after 11 Dec 2027?
+    answer: 'Run a 14-month, three-wave programme (Project Rampart): build shared capabilities once (PSIRT, SBOM, secure updates, evidence system), apply them product by product, and lock in notified-body capacity by Q1 2027. Investment is about __ONEOFF__ to Dec 2027 and __RUN__ a year to run. The board is asked to take five decisions on 19 Nov 2026.'
+  pillars:
+  - title: Reporting is already law
+    message: Every in-scope product — legacy included — is on a 24-hour reporting clock today.
+    proof: Art 14 applies since 11 Sep 2026 (Art 69(3)); early warning 24h, notification 72h, final report 14 days / 1 month.
+  - title: Market access is the binding constraint
+    message: __EUNB__ of annual EU revenue sits in Class I and II products that need a notified body that does not yet exist.
+    proof: No harmonised standard cited; no CRA notified body designated at checks to 8 Sep 2026; vendor estimates of 12-18 months per body.
+  - title: Compliance is an evidence system, not a project
+    message: Build once, apply per product version, sustain for ten years.
+    proof: Annex VII file per version; retention 10 years or support period (Art 13(13)); PLD disclosure from 9 Dec 2026.
+client:
+  disclaimer: Fictional company used to illustrate the method. Replace with the client's data.
+  hq: Germany (main establishment; coordinator CSIRT is Germany's)
+  employees: 3800
+  engineers: 920
+  suppliers_in_scope: 41
+  installed_base_m: 2.3
+  existing_assurance:
+  - ISO/IEC 27001 (corporate IT scope only)
+  - IEC 62443-4-1 (Industrial Connectivity development process, 2024)
+  - EN 18031-1 assessments for HBS radio products under the RED delegated act (2025)
+  - Two-person PSIRT in Industrial Connectivity; no PSIRT in HBS or S&S before Sep 2026
+  saas:
+    bu: SS
+    revenue_m: 30
+  business_units:
+  - id: HBS
+    name: Home & Building Solutions
+    revenue_m: 520
+    eu_share: 0.74
+    profile: Consumer and building connected devices sold through retail, installers and online; all radio products (RED/EN 18031 assessed 2025).
+  - id: IC
+    name: Industrial Connectivity
+    revenue_m: 560
+    eu_share: 0.66
+    profile: Industrial networking and security appliances sold to OEMs, integrators and utilities; IEC 62443-4-1 certified development process (2024).
+  - id: SS
+    name: Software & Services
+    revenue_m: 120
+    eu_share: 0.58
+    profile: Device-management software, configuration tools, SDK and a cloud platform (SaaS, EUR 30m) that is remote data processing for several products.
+  product_families:
+  - id: T200
+    name: T200 Smart Thermostat
+    bu: HBS
+    cra_class: Default
+    annex_item: '-'
+    revenue_m: 170
+    skus: 6
+    wave: Wave 1 (pilot)
+    route: Module A
+    support_period_years: 10
+    rdps: Cloud control service; update service
+    description: Thermostat, iOS/Android app and manufacturer cloud; the pilot family.
+  - id: SSR
+    name: S-Series Room Sensors
+    bu: HBS
+    cra_class: Default
+    annex_item: '-'
+    revenue_m: 80
+    skus: 9
+    wave: Wave 2
+    route: Module A
+    support_period_years: 8
+    rdps: Via HomeHub H3 and cloud
+    description: Battery room sensors (temperature, presence, air quality).
+  - id: H3
+    name: HomeHub H3
+    bu: HBS
+    cra_class: Default (provisional)
+    annex_item: Under legal review vs Annex III Class I item 17 (optional alarm mode)
+    revenue_m: 95
+    skus: 3
+    wave: Wave 2
+    route: Module A (B+C if Class I)
+    support_period_years: 7
+    rdps: Cloud control; remote access relay
+    description: Smart-home hub bridging Zigbee/Thread devices to the app; its optional alarm mode makes the classification borderline.
+  - id: V1
+    name: V1 Video Doorbell
+    bu: HBS
+    cra_class: Class I
+    annex_item: Annex III Class I item 17 (security cameras)
+    revenue_m: 100
+    skus: 4
+    wave: Wave 1
+    route: Module B+C
+    support_period_years: 7
+    rdps: Video cloud; event notification service
+    description: Video doorbell with camera, two-way audio and cloud recording.
+  - id: L2
+    name: L2 Smart Lock
+    bu: HBS
+    cra_class: Class I
+    annex_item: Annex III Class I item 17 (smart door locks)
+    revenue_m: 75
+    skus: 3
+    wave: Wave 1
+    route: Module B+C
+    support_period_years: 10
+    rdps: Access-management cloud
+    description: Smart door lock with app keys and guest access.
+  - id: IR500
+    name: IR-500 Industrial Router
+    bu: IC
+    cra_class: Class I
+    annex_item: Annex III Class I item 12 (routers, modems, switches)
+    revenue_m: 165
+    skus: 7
+    wave: Wave 1
+    route: Module H
+    support_period_years: 12
+    rdps: Optional FleetView Cloud management
+    description: Cellular/fibre industrial routers for OT sites.
+  - id: IS300
+    name: IS-300 Managed Switch
+    bu: IC
+    cra_class: Class I
+    annex_item: Annex III Class I item 12 (routers, modems, switches)
+    revenue_m: 120
+    skus: 10
+    wave: Wave 1
+    route: Module H
+    support_period_years: 12
+    rdps: Optional FleetView Cloud management
+    description: Managed industrial Ethernet switches.
+  - id: EG700
+    name: EG-700 Edge Gateway
+    bu: IC
+    cra_class: Default (provisional)
+    annex_item: Under legal review vs Annex III Class I item 12 (cellular uplink routing)
+    revenue_m: 95
+    skus: 4
+    wave: Wave 2
+    route: Module A (H if Class I)
+    support_period_years: 10
+    rdps: Cloud data connector; update service
+    description: Edge gateway for protocol translation and edge compute; its cellular uplink routing makes the classification borderline.
+  - id: SG900
+    name: SG-900 Industrial Firewall/IDS
+    bu: IC
+    cra_class: Class II
+    annex_item: Annex III Class II item 2 (firewalls, IDS/IPS)
+    revenue_m: 110
+    skus: 3
+    wave: Wave 1
+    route: Module H
+    support_period_years: 10
+    rdps: Threat-signature update service
+    description: Industrial firewall with intrusion detection and prevention.
+  - id: SLINK
+    name: SecureLink Remote Access
+    bu: IC
+    cra_class: Class I
+    annex_item: Annex III Class I item 5 (VPN products)
+    revenue_m: 70
+    skus: 2
+    wave: Wave 1
+    route: Module H
+    support_period_years: 7
+    rdps: Broker service; licence service
+    description: Remote-access VPN software and appliance for machine builders.
+  - id: FLEET
+    name: FleetView Device Manager
+    bu: SS
+    cra_class: Class I
+    annex_item: Annex III Class I item 6 (network management systems)
+    revenue_m: 55
+    skus: 2
+    wave: Wave 1
+    route: Module H
+    support_period_years: 5
+    rdps: None (on-prem); cloud edition is SaaS
+    description: On-premises network and device management software (per-version support periods).
+  - id: CSTUDIO
+    name: ConfigStudio
+    bu: SS
+    cra_class: Default
+    annex_item: '-'
+    revenue_m: 15
+    skus: 1
+    wave: Wave 2
+    route: Module A
+    support_period_years: 5
+    rdps: Licence service
+    description: Desktop configuration and commissioning tool.
+  - id: SDK
+    name: Example IoT SDK
+    bu: SS
+    cra_class: Default
+    annex_item: '-'
+    revenue_m: 20
+    skus: 1
+    wave: Wave 2
+    route: Module A
+    support_period_years: 5
+    rdps: None
+    description: SDK and libraries licensed to OEMs; integrated into third-party products.
+  legacy_lines:
+  - id: T100
+    name: T100 Thermostat (gen 1)
+    bu: HBS
+    status: End of sale 2025; support ended Mar 2026
+    units_in_field_k: 1100
+    still_sold_after_dec_2027: false
+    eu_revenue_m: 0
+  - id: H2
+    name: HomeHub H2
+    bu: HBS
+    status: End of sale 2024; security fixes to Dec 2026
+    units_in_field_k: 420
+    still_sold_after_dec_2027: false
+    eu_revenue_m: 0
+  - id: V0
+    name: V0 Indoor Camera
+    bu: HBS
+    status: End of sale 2023; unsupported
+    units_in_field_k: 260
+    still_sold_after_dec_2027: false
+    eu_revenue_m: 0
+  - id: IR300
+    name: IR-300 Router
+    bu: IC
+    status: Still sold to two OEM customers
+    units_in_field_k: 95
+    still_sold_after_dec_2027: true
+    eu_revenue_m: 11
+  - id: IS200
+    name: IS-200 Switch
+    bu: IC
+    status: Still sold as low-cost option
+    units_in_field_k: 140
+    still_sold_after_dec_2027: true
+    eu_revenue_m: 7
+  - id: SL3
+    name: SecureLink 3.x
+    bu: IC
+    status: Support ends Jun 2027
+    units_in_field_k: 18
+    still_sold_after_dec_2027: false
+    eu_revenue_m: 0
+  - id: FV4
+    name: FleetView 4.x
+    bu: SS
+    status: Support ends Dec 2026
+    units_in_field_k: 3
+    still_sold_after_dec_2027: false
+    eu_revenue_m: 0
+exposure:
+  legacy_decision:
+    lines:
+    - IR300
+    - IS200
+    eu_revenue_m: 18
+    remediation_cost_estimate_m: 1.4
+    recommendation: Withdraw IR-300 and IS-200 from EU sale before 11 Dec 2027 and migrate customers to IR-500/IS-300; remediation would cost about EUR 1.4m plus notified-body fees for EUR 18m of declining EU revenue.
+diagnostic:
+  baseline_date: 2026-10-28
+  baseline_label: Illustrative baseline — Example Group, self-assessed by product teams and moderated by the programme, 28 Oct 2026
+  targets:
+    by_jun_2027: 0.7
+    by_nov_2027: 0.9
+    art14_domain_now: 1.0
+  generator:
+    seed: 2847
+    bu_base:
+      HBS:
+        D2: 1.1
+        D3: 1.3
+        D4: 0.9
+        D5: 0.6
+        D6: 0.6
+        D7: 1.6
+        D9: 0.6
+        D10: 0.3
+      IC:
+        D2: 1.5
+        D3: 1.6
+        D4: 2.3
+        D5: 1.0
+        D6: 1.8
+        D7: 1.5
+        D9: 0.8
+        D10: 0.7
+      SS:
+        D2: 1.3
+        D3: 0.8
+        D4: 1.8
+        D5: 1.5
+        D6: 0.8
+        D7: 1.1
+        D9: 0.6
+        D10: 0.3
+    family_adjust:
+      T200:
+        D2: 0.6
+        D3: 0.6
+        D5: 0.6
+        D9: 0.5
+        D10: 0.5
+      SG900:
+        D3: 0.3
+        D4: 0.3
+        D6: 0.3
+      EG700:
+        D2: -0.4
+      H3:
+        D2: -0.4
+      SDK:
+        D7: -0.6
+      CSTUDIO:
+        D7: -0.3
+      V1:
+        D10: -0.3
+      L2:
+        D10: -0.3
+    question_offset:
+      D2:
+      - 0.3
+      - -0.2
+      - 0.2
+      - -0.3
+      D3:
+      - 0.4
+      - -0.3
+      - -0.2
+      - 0.1
+      D4:
+      - 0.3
+      - 0.2
+      - -0.1
+      - -0.4
+      D5:
+      - 0.2
+      - -0.1
+      - -0.3
+      - 0.2
+      D6:
+      - 0.4
+      - 0.2
+      - -0.3
+      - -0.3
+      D7:
+      - 0.3
+      - 0.1
+      - -0.3
+      - -0.1
+      D9:
+      - -0.2
+      - 0.0
+      - 0.2
+      - 0.0
+      D10:
+      - 0.5
+      - 0.0
+      - -0.2
+      - -0.3
+    fixed:
+      D1:
+      - 2
+      - 2
+      - 1
+      - 2
+      D8:
+      - 3
+      - 2
+      - 2
+      - null
+    d8_q4_by_bu:
+      HBS: 1
+      IC: 2
+      SS: 2
+cost_model:
+  assumptions:
+    fte_cost_programme: 150000
+    fte_cost_psirt: 130000
+    fte_cost_engineering: 120000
+    programme_team_fte: 5
+    programme_team_run_fte: 2.5
+    psirt_incremental_fte: 2
+    psirt_oncall_allowance: 60000
+    remediation_fte_years:
+      default: 1.2
+      class_i: 2.5
+      class_ii: 4.0
+    remediation_phasing:
+      q4_2026: 0.15
+      y2027: 0.85
+    platforms_build: 850000
+    platforms_phasing:
+      q4_2026: 0.25
+      y2027: 0.75
+    platforms_run: 210000
+    platforms_build_detail:
+      sbom_vex_csaf_tooling: 220000
+      signing_hsm_update_infrastructure: 380000
+      system_of_record: 160000
+      psirt_tooling_advisory_portal: 90000
+    risk_assessment_per_family: 45000
+    risk_assessment_phasing:
+      q4_2026: 0.3
+      y2027: 0.7
+    testing_per_family_per_year:
+      default: 35000
+      class_i: 60000
+      class_ii: 90000
+    documentation_per_family: 40000
+    documentation_run_per_family: 8000
+    nb_pre_assessments:
+      count: 3
+      unit: 20000
+      q4_2026: 20000
+      y2027: 40000
+    nb_module_b_examinations:
+      count: 3
+      unit: 40000
+      note: V1 two types, L2 one type
+    nb_module_h:
+      initial: 115000
+      extra_categories: 3
+      per_extra_category: 20000
+    nb_surveillance_run:
+      module_h: 35000
+      module_b_audits: 20000
+    training:
+      q4_2026: 30000
+      y2027: 110000
+      run: 40000
+    legal:
+      external_q4_2026: 60000
+      external_2027: 120000
+      translations_per_family: 6000
+      run: 50000
+    supplier_programme:
+      y2027: 90000
+      run: 30000
+    contingency_rate: 0.15
+  scenarios:
+    low:
+      label: Low
+      description: Harmonised standards cited mid-2027; less remediation than assessed; fewer notified-body days.
+      multipliers:
+        engineering: 0.8
+        notified_body: 0.6
+        testing: 0.9
+      contingency: 0.1
+    base:
+      label: Base
+      description: Plan as assessed at the 28 Oct 2026 baseline.
+      multipliers: {}
+      contingency: 0.15
+    high:
+      label: High
+      description: Notified-body scarcity forces a second body and premium fees; remediation 30% above estimate; extra programme FTE.
+      multipliers:
+        engineering: 1.3
+        notified_body: 1.6
+        programme_team_fte: 6
+        legal: 1.5
+      contingency: 0.2
+  phasing:
+    q4_2026_monthly_weights:
+    - 0.27
+    - 0.33
+    - 0.4
+    y2027_monthly_weights:
+    - 0.055
+    - 0.065
+    - 0.075
+    - 0.085
+    - 0.09
+    - 0.095
+    - 0.095
+    - 0.09
+    - 0.09
+    - 0.09
+    - 0.09
+    - 0.08
+  actual_to_date:
+    month: Oct 2026
+    actual: 410000
+programme:
+  overall_rag: Amber
+  overall_status: Reporting capability on track; market access at risk because no CRA notified body was designated at checks to 8 Sep 2026 (external dependency).
+  phases:
+  - id: P0
+    name: Reporting readiness
+    start: 1 Sep 2026
+    end: 30 Oct 2026
+    status: Complete
+    gate: Early warning can be filed within 24 hours on a weekend
+  - id: P1
+    name: Inventory, scope and classification
+    start: 2 Nov 2026
+    end: 18 Dec 2026
+    status: In progress
+    gate: Every product has a class, a route and an owner
+  - id: P2
+    name: Risk assessment and gap analysis
+    start: 1 Dec 2026
+    end: 26 Feb 2027
+    status: Planned
+    gate: Applicability matrices signed for Wave 1
+  - id: P3
+    name: Remediation and SDLC changes
+    start: 4 Jan 2027
+    end: 31 Aug 2027
+    status: Planned
+    gate: Pipeline evidence generated automatically for one release per family
+  - id: P4
+    name: Documentation and declarations
+    start: 1 Jun 2027
+    end: 30 Sep 2027
+    status: Planned
+    gate: Technical files complete and reviewed outside engineering
+  - id: P5
+    name: Conformity assessment
+    start: 1 Apr 2027
+    end: 30 Nov 2027
+    status: Planned
+    gate: Certificate or internal-control record in hand per family
+  - id: P6
+    name: Go-live and operations
+    start: 11 Dec 2027
+    end: ongoing
+    status: Planned
+    gate: Only declared products placed on the EU market
+  waves:
+  - id: W1
+    name: Wave 1
+    families:
+    - T200
+    - V1
+    - L2
+    - IR500
+    - IS300
+    - SG900
+    - SLINK
+    - FLEET
+    window: Nov 2026 - Nov 2027
+    rationale: All seven families that need a notified body, plus T200 as the pilot that produces the templates.
+  - id: W2
+    name: Wave 2
+    families:
+    - SSR
+    - H3
+    - EG700
+    - CSTUDIO
+    - SDK
+    window: Jan 2027 - Oct 2027
+    rationale: Default families on Module A, reusing Wave 1 templates; H3 and EG-700 move to Wave 1 if classified Class I.
+  - id: W3
+    name: Wave 3
+    families:
+    - T100
+    - H2
+    - V0
+    - IR300
+    - IS200
+    - SL3
+    - FV4
+    window: Continuous
+    rationale: 'Legacy lines: Art 14 reporting only, plus end-of-sale decisions for lines still sold in the EU.'
+  milestones:
+  - id: M0
+    name: SRP registration and coordinator CSIRT decision
+    date: 10 Sep 2026
+    status: Complete
+  - id: M1
+    name: First Art 14 tabletop drill (actively exploited vulnerability)
+    date: 22 Oct 2026
+    status: Complete
+  - id: M2
+    name: 'Programme mobilised; SteerCo #1'
+    date: 30 Oct 2026
+    status: Complete
+  - id: M3
+    name: Board decisions (budget, signing authority, notified-body strategy, legacy lines)
+    date: 19 Nov 2026
+    status: Planned
+  - id: M4
+    name: Scope and classification register baselined
+    date: 18 Dec 2026
+    status: On track
+  - id: M5
+    name: Notified-body pre-assessments contracted (3 candidates)
+    date: 29 Jan 2027
+    status: At risk
+  - id: M6
+    name: Wave 1 risk assessments signed
+    date: 26 Feb 2027
+    status: On track
+  - id: M7
+    name: Formal notified-body engagements contracted (Module H; Module B+C)
+    date: 31 Mar 2027
+    status: At risk
+  - id: M8
+    name: SBOM pipeline live on all Wave 1 release trains
+    date: 31 Mar 2027
+    status: At risk
+  - id: M9
+    name: Second Art 14 drill (weekend severe-incident scenario)
+    date: 16 Apr 2027
+    status: Planned
+  - id: M10
+    name: Update infrastructure hardened (HSM signing, anti-rollback)
+    date: 30 Jun 2027
+    status: Planned
+  - id: M11
+    name: Wave 1 technical files complete
+    date: 30 Sep 2027
+    status: Planned
+  - id: M12
+    name: Module H approval and Module B certificates
+    date: 30 Nov 2027
+    status: Planned
+  - id: M13
+    name: Declarations signed; CE marking; Annex II published
+    date: 3 Dec 2027
+    status: Planned
+  - id: M14
+    name: Full application of the CRA
+    date: 11 Dec 2027
+    status: Fixed
+  workstreams:
+  - id: WS1
+    name: Governance & PMO
+    lead: Programme director
+    rag: Green
+    note: Sponsor named; programme board running; signing instrument drafted for board approval.
+  - id: WS2
+    name: Portfolio & classification
+    lead: Compliance lead
+    rag: Amber
+    note: 11 of 13 families classified; EG-700 and HomeHub H3 need legal opinion (borderline Class I).
+  - id: WS3
+    name: Reporting & PSIRT
+    lead: PSIRT lead
+    rag: Green
+    note: SRP live with 3 Assigned Representatives; first drill filed early warning in 9h 40m.
+  - id: WS4
+    name: Secure engineering & SDLC
+    lead: Product security officer
+    rag: Amber
+    note: T200 pilot risk assessment in review; release gate designed, not yet enforced.
+  - id: WS5
+    name: SBOM & supply chain
+    lead: Head of platform engineering
+    rag: Red
+    note: Signed SBOMs on 38% of releases; HBS firmware builds lack binary SCA; 6 of 41 suppliers on CRA clauses.
+  - id: WS6
+    name: Documentation & evidence
+    lead: Compliance lead
+    rag: Amber
+    note: System of record not yet selected; Annex VII outline agreed.
+  - id: WS7
+    name: Conformity & market access
+    lead: Head of quality & regulatory
+    rag: Red
+    note: No CRA notified body designated at checks to 8 Sep 2026 (external); 3 candidates shortlisted; V1/L2 route undecided.
+  - id: WS8
+    name: People & change
+    lead: Head of engineering enablement
+    rag: Amber
+    note: 140 of 920 engineers trained; works council consultation on PSIRT on-call opened.
+  mobilisation_plan:
+  - id: T01
+    workstream: WS1
+    task: Board paper and pre-read issued
+    owner: Programme director
+    start: 2 Nov 2026
+    end: 12 Nov 2026
+    status: In progress
+    depends_on: ''
+  - id: T02
+    workstream: WS1
+    task: Board decisions on budget, signing authority, NB strategy, legacy lines
+    owner: Executive sponsor
+    start: 19 Nov 2026
+    end: 19 Nov 2026
+    status: Not started
+    depends_on: T01
+  - id: T03
+    workstream: WS1
+    task: DoC signing instrument executed
+    owner: General Counsel
+    start: 20 Nov 2026
+    end: 4 Dec 2026
+    status: Not started
+    depends_on: T02
+  - id: T04
+    workstream: WS1
+    task: Product-risk acceptance rule added to enterprise risk framework
+    owner: Chief Risk Officer
+    start: 2 Nov 2026
+    end: 11 Dec 2026
+    status: In progress
+    depends_on: ''
+  - id: T05
+    workstream: WS1
+    task: System-of-record selection (criteria, shortlist, decision)
+    owner: Compliance lead
+    start: 2 Nov 2026
+    end: 18 Dec 2026
+    status: In progress
+    depends_on: ''
+  - id: T06
+    workstream: WS2
+    task: Reconcile release, commercial and cloud inventories into the scope register
+    owner: Compliance lead
+    start: 2 Nov 2026
+    end: 4 Dec 2026
+    status: In progress
+    depends_on: ''
+  - id: T07
+    workstream: WS2
+    task: Legal opinion on EG-700 and HomeHub H3 classification
+    owner: General Counsel
+    start: 2 Nov 2026
+    end: 27 Nov 2026
+    status: In progress
+    depends_on: ''
+  - id: T08
+    workstream: WS2
+    task: Remote-function maps for all 13 families
+    owner: Product security officer
+    start: 9 Nov 2026
+    end: 11 Dec 2026
+    status: Not started
+    depends_on: T06
+  - id: T09
+    workstream: WS2
+    task: Scope and classification register baselined
+    owner: Compliance lead
+    start: 14 Dec 2026
+    end: 18 Dec 2026
+    status: Not started
+    depends_on: T06,T07,T08
+  - id: T10
+    workstream: WS3
+    task: Distribution map per product refreshed for SRP 'Member States' field
+    owner: Product management
+    start: 2 Nov 2026
+    end: 20 Nov 2026
+    status: In progress
+    depends_on: ''
+  - id: T11
+    workstream: WS3
+    task: Works council agreement on 24/7 PSIRT on-call
+    owner: HR business partner
+    start: 2 Nov 2026
+    end: 18 Dec 2026
+    status: In progress
+    depends_on: ''
+  - id: T12
+    workstream: WS3
+    task: PSIRT lead hired; analyst seconded from IC
+    owner: PSIRT lead
+    start: 2 Nov 2026
+    end: 29 Jan 2027
+    status: In progress
+    depends_on: ''
+  - id: T13
+    workstream: WS3
+    task: HBS and S&S security.txt and CVD policy published
+    owner: PSIRT lead
+    start: 9 Nov 2026
+    end: 4 Dec 2026
+    status: Not started
+    depends_on: ''
+  - id: T14
+    workstream: WS3
+    task: Legacy reportable inventory completed (T100, H2, V0 fleets)
+    owner: PSIRT lead
+    start: 2 Nov 2026
+    end: 11 Dec 2026
+    status: In progress
+    depends_on: ''
+  - id: T15
+    workstream: WS4
+    task: T200 pilot risk assessment signed (applicability matrix)
+    owner: Product security officer
+    start: 2 Nov 2026
+    end: 27 Nov 2026
+    status: In progress
+    depends_on: ''
+  - id: T16
+    workstream: WS4
+    task: Release security gate enforced on T200 and IR-500 trains
+    owner: Product security officer
+    start: 16 Nov 2026
+    end: 22 Jan 2027
+    status: Not started
+    depends_on: T15
+  - id: T17
+    workstream: WS4
+    task: Wave 1 threat-modelling sprints (7 families)
+    owner: Product security officer
+    start: 30 Nov 2026
+    end: 26 Feb 2027
+    status: Not started
+    depends_on: T15
+  - id: T18
+    workstream: WS5
+    task: SBOM generation from artefact on HBS firmware builds (Yocto + binary SCA)
+    owner: Head of platform engineering
+    start: 2 Nov 2026
+    end: 15 Jan 2027
+    status: In progress
+    depends_on: ''
+  - id: T19
+    workstream: WS5
+    task: Dependency-Track and EUVD watch for all supported versions
+    owner: Head of platform engineering
+    start: 9 Nov 2026
+    end: 18 Dec 2026
+    status: Not started
+    depends_on: ''
+  - id: T20
+    workstream: WS5
+    task: CRA clause pack issued to top 15 security-relevant suppliers
+    owner: Head of procurement
+    start: 16 Nov 2026
+    end: 29 Jan 2027
+    status: Not started
+    depends_on: ''
+  - id: T21
+    workstream: WS5
+    task: Supplier questionnaire sent to all 41 in-scope suppliers
+    owner: Head of procurement
+    start: 23 Nov 2026
+    end: 18 Dec 2026
+    status: Not started
+    depends_on: ''
+  - id: T22
+    workstream: WS6
+    task: Annex VII 13-part file template and evidence index adopted
+    owner: Compliance lead
+    start: 2 Nov 2026
+    end: 4 Dec 2026
+    status: In progress
+    depends_on: ''
+  - id: T23
+    workstream: WS6
+    task: Annex II user-information template drafted (T200 first)
+    owner: Technical writing lead
+    start: 16 Nov 2026
+    end: 18 Dec 2026
+    status: Not started
+    depends_on: ''
+  - id: T24
+    workstream: WS7
+    task: Pre-assessment proposals from 3 candidate notified bodies
+    owner: Head of quality & regulatory
+    start: 2 Nov 2026
+    end: 11 Dec 2026
+    status: In progress
+    depends_on: ''
+  - id: T25
+    workstream: WS7
+    task: Pre-assessment contracts signed with conversion options
+    owner: Head of quality & regulatory
+    start: 14 Dec 2026
+    end: 29 Jan 2027
+    status: Not started
+    depends_on: T02,T24
+  - id: T26
+    workstream: WS7
+    task: Module H scope statement for IC + FleetView quality system
+    owner: Head of quality & regulatory
+    start: 16 Nov 2026
+    end: 22 Jan 2027
+    status: Not started
+    depends_on: ''
+  - id: T27
+    workstream: WS7
+    task: Withdraw-or-remediate plan for IR-300 and IS-200 EU sales
+    owner: BU president IC
+    start: 20 Nov 2026
+    end: 18 Dec 2026
+    status: Not started
+    depends_on: T02
+  - id: T28
+    workstream: WS8
+    task: Engineering awareness training to 400 engineers
+    owner: Head of engineering enablement
+    start: 2 Nov 2026
+    end: 29 Jan 2027
+    status: In progress
+    depends_on: ''
+  - id: T29
+    workstream: WS8
+    task: Sales and support briefing and customer FAQ live
+    owner: Head of customer operations
+    start: 16 Nov 2026
+    end: 11 Dec 2026
+    status: Not started
+    depends_on: ''
+  - id: T30
+    workstream: WS8
+    task: 'Staff awareness pulse survey #1'
+    owner: Head of engineering enablement
+    start: 23 Nov 2026
+    end: 4 Dec 2026
+    status: Not started
+    depends_on: ''
+  kpis:
+  - id: K01
+    name: Portfolio readiness index
+    value: auto:readiness_index
+    display: auto
+    target: 70% by Jun 2027; 90% by Nov 2027
+    rag: Amber
+    trend: Baseline
+    source: Readiness diagnostic, 28 Oct 2026
+  - id: K02
+    name: Families with final scope and class decision
+    value: 11
+    display: 11 / 13
+    target: 13 / 13 by 18 Dec 2026
+    rag: Amber
+    trend: New
+    source: Scope register
+  - id: K03
+    name: Class I/II families with route and notified-body plan
+    value: 5
+    display: 5 / 7
+    target: 7 / 7 by 19 Nov 2026
+    rag: Amber
+    trend: New
+    source: Scope register
+  - id: K04
+    name: SRP Assigned Representatives registered
+    value: 3
+    display: '3'
+    target: '>= 2 at all times'
+    rag: Green
+    trend: Stable
+    source: SRP roster
+  - id: K05
+    name: 'Art 14 drill: time to early warning'
+    value: 9.67
+    display: 9h 40m
+    target: < 24h incl. weekends
+    rag: Green
+    trend: First drill
+    source: Drill record 22 Oct 2026
+  - id: K06
+    name: Art 14 cases assessed (reportable / not reportable)
+    value: 4
+    display: 0 / 4
+    target: 100% decided with UTC timeline
+    rag: Green
+    trend: Stable
+    source: PSIRT case files
+  - id: K07
+    name: Releases with signed SBOM (last 30 days)
+    value: 0.38
+    display: 38% (9 / 24)
+    target: 100% by 31 Mar 2027
+    rag: Red
+    trend: Up from 21%
+    source: Build pipeline
+  - id: K08
+    name: Families with signed risk assessment
+    value: 0
+    display: 0 / 13 (T200 in review)
+    target: Wave 1 (8) by 26 Feb 2027
+    rag: Green
+    trend: On plan
+    source: System of record
+  - id: K09
+    name: In-scope suppliers on CRA clauses
+    value: 6
+    display: 6 / 41 (15%)
+    target: Top 15 by Jan 2027; all by Jun 2027
+    rag: Amber
+    trend: New
+    source: Contract register
+  - id: K10
+    name: Engineers trained
+    value: 140
+    display: 140 / 920 (15%)
+    target: 60% by Mar 2027
+    rag: Amber
+    trend: Up
+    source: LMS
+  - id: K11
+    name: Spend to date vs plan
+    value: auto:spend_vs_plan
+    display: auto
+    target: Within +/-10% of plan
+    rag: Green
+    trend: Oct 2026
+    source: Finance
+  - id: K12
+    name: Notified-body candidates
+    value: 3
+    display: 3 shortlisted; 1 proposal
+    target: 3 pre-assessments contracted by 29 Jan 2027
+    rag: Amber
+    trend: New
+    source: Programme
+  trajectories:
+    readiness_months:
+    - Oct 2026
+    - Nov 2026
+    - Dec 2026
+    - Jan 2027
+    - Feb 2027
+    - Mar 2027
+    - Apr 2027
+    - May 2027
+    - Jun 2027
+    - Jul 2027
+    - Aug 2027
+    - Sep 2027
+    - Oct 2027
+    - Nov 2027
+    - Dec 2027
+    readiness_weights:
+    - 0
+    - 0.03
+    - 0.08
+    - 0.14
+    - 0.21
+    - 0.29
+    - 0.37
+    - 0.45
+    - 0.54
+    - 0.62
+    - 0.7
+    - 0.79
+    - 0.87
+    - 0.95
+    - 1.0
+    readiness_end: 0.93
+    sbom_coverage:
+      Sep 2026: 0.21
+      Oct 2026: 0.38
+      Nov 2026: 0.45
+      Dec 2026: 0.55
+      Jan 2027: 0.7
+      Feb 2027: 0.85
+      Mar 2027: 1.0
+    note: Oct 2026 values are actuals (illustrative); later months are plan. SBOM Sep 2026 is the pre-programme measurement.
+  risks:
+  - id: R01
+    title: No notified-body capacity in time
+    description: No CRA notified body is designated with capacity before Q2 2027, so Class I/II families cannot be certified by 11 Dec 2027.
+    likelihood: 4
+    impact: 5
+    owner: Head of quality & regulatory
+    mitigations: Pre-contract three candidates with conversion options; Module H for IC to cover five families with one body; check NANDO at every programme board; prioritise top-revenue SKUs.
+    trend: Rising
+  - id: R02
+    title: Engineering capacity
+    description: Remediation competes with the 2027 product roadmap for the same engineers.
+    likelihood: 4
+    impact: 4
+    owner: CTO
+    mitigations: Ring-fence 26 FTE-years in the 2027 plan; defer two roadmap features; contractors for documentation and testing.
+    trend: Stable
+  - id: R03
+    title: No harmonised standard cited for Class I
+    description: EN 304 6xx verticals are not cited in time, so Class I products cannot use Module A.
+    likelihood: 4
+    impact: 3
+    owner: Compliance lead
+    mitigations: Plan Class I on third-party routes; align files to draft clause structure; switch to Module A only if a citation lands before assessment.
+    trend: Stable
+  - id: R04
+    title: SBOM and supplier transparency gaps
+    description: Binary blobs and supplier components without SBOMs or vulnerability notification undermine Annex I Part II(1) and the 24-hour determination.
+    likelihood: 3
+    impact: 4
+    owner: Head of platform engineering
+    mitigations: Binary SCA on firmware images; clause pack to top 15 suppliers first; exit plans for refusers.
+    trend: Stable
+  - id: R05
+    title: Legacy lines still sold after 11 Dec 2027
+    description: IR-300 and IS-200 units placed after 11 Dec 2027 must comply with Annex I.
+    likelihood: 3
+    impact: 4
+    owner: BU president IC
+    mitigations: Board decision on 19 Nov 2026 to withdraw from EU sale and migrate customers; remediate only if the decision changes.
+    trend: New
+  - id: R06
+    title: Late or wrong Art 14 filing
+    description: Awareness misjudged or a stale distribution map delays the 24-hour early warning.
+    likelihood: 2
+    impact: 5
+    owner: PSIRT lead
+    mitigations: Written awareness criteria; deputies with authority to file; distribution map refresh (T10); two drills a year.
+    trend: Falling
+  - id: R07
+    title: Scope undercount
+    description: Versions, companion apps and backends found late enlarge the portfolio.
+    likelihood: 3
+    impact: 3
+    owner: Compliance lead
+    mitigations: Build the register from release and cloud systems; second reconciliation after the first gate run.
+    trend: Stable
+  - id: R08
+    title: Key-person dependency in PSIRT
+    description: Two people hold most PSIRT knowledge; on-call cannot be sustained.
+    likelihood: 3
+    impact: 3
+    owner: PSIRT lead
+    mitigations: Hire PSIRT lead; second analyst; documented runbook; cross-training from IC.
+    trend: Stable
+  - id: R09
+    title: Guidance changes
+    description: Formal adoption of C(2026) 5252 or later FAQ versions change scope or support-period decisions.
+    likelihood: 3
+    impact: 2
+    owner: Compliance lead
+    mitigations: Decision records cite the guidance version; quarterly standards and guidance review.
+    trend: Stable
+  - id: R10
+    title: Product-liability disclosure
+    description: From 9 Dec 2026 claimants can seek disclosure of technical files and update logs under the PLD.
+    likelihood: 2
+    impact: 4
+    owner: General Counsel
+    mitigations: Write records for disclosure; legal review of risk acceptances; align with product liability insurance.
+    trend: New
+  issues:
+  - id: I01
+    title: Distribution map stale
+    description: The 22 Oct drill showed the 'Member States where available' field could not be completed for two products from current data.
+    owner: Product management
+    due: 20 Nov 2026
+  - id: I02
+    title: Borderline classifications
+    description: EG-700 (cellular uplink routing) and HomeHub H3 (optional alarm mode) could be Class I; notified-body capacity planning includes them until the legal opinion lands.
+    owner: General Counsel
+    due: 27 Nov 2026
+  - id: I03
+    title: HBS firmware SBOM depth
+    description: Manifest-only SBOMs on HBS firmware miss vendored code; binary SCA needed.
+    owner: Head of platform engineering
+    due: 15 Jan 2027
+  decisions:
+    steerco_1:
+    - id: SD1
+      decision: Endorse Module H as the route for Industrial Connectivity and FleetView (five families), using the IEC 62443-4-1 process as the base.
+      outcome: Endorsed (illustrative)
+    - id: SD2
+      decision: 'Apply the stricter reading to EG-700 and HomeHub H3 until the legal opinion lands on 27 Nov 2026: include them in notified-body capacity planning, keep them in Wave 2 for remediation.'
+      outcome: Endorsed (illustrative)
+    - id: SD3
+      decision: Release EUR 0.75m of pre-approval spend ahead of the 19 Nov board.
+      outcome: Endorsed (illustrative)
+    - id: SD4
+      decision: Approve system-of-record selection criteria.
+      outcome: Endorsed (illustrative)
+    board:
+    - id: BD1
+      decision: Approve the Project Rampart investment envelope.
+      detail: EUR {{one_off_m}}m one-off to Dec 2027 (incl. {{contingency_pct}}% contingency) and EUR {{run_m}}m a year run from 2028.
+    - id: BD2
+      decision: Appoint the accountable executive and execute the DoC signing instrument.
+      detail: CTO as accountable executive; CEO signs declarations or delegates in writing; compliance lead counter-signs the pre-signature checklist.
+    - id: BD3
+      decision: Authorise notified-body pre-contracting.
+      detail: Pre-assessments with three candidate bodies (up to EUR 60k) and formal contracts by Q1 2027 (Module H for IC + FleetView; Module B+C for V1 and L2).
+    - id: BD4
+      decision: Adopt the product-risk acceptance rule.
+      detail: Cost, risk appetite and commercial strategy are not grounds to leave product risk unaddressed (guidance paras 156-163); appeals go to the executive sponsor.
+    - id: BD5
+      decision: Withdraw IR-300 and IS-200 from EU sale before 11 Dec 2027.
+      detail: EUR 18m of declining EU revenue versus about EUR 1.4m remediation plus notified-body fees; migrate customers to IR-500 and IS-300.
+  stakeholders:
+  - id: ST01
+    name: Board of directors
+    group: Internal - governance
+    power: 5
+    interest: 3
+    stance_now: Aware
+    stance_target: Committed
+    key_concern: Liability, fines, market access, cost
+    key_message: A funded 14-month programme protects __EUNB__ of EU revenue; five decisions now.
+    channel: Board paper and briefing
+    owner: Executive sponsor
+    frequency: Quarterly
+  - id: ST02
+    name: CEO and executive committee
+    group: Internal - governance
+    power: 5
+    interest: 4
+    stance_now: Supportive
+    stance_target: Committed
+    key_concern: Revenue at risk, roadmap impact
+    key_message: Reporting is live; market access is the constraint; build once, apply per product.
+    channel: ExCo agenda item; monthly dashboard
+    owner: Executive sponsor
+    frequency: Monthly
+  - id: ST03
+    name: CTO (accountable executive)
+    group: Internal - leadership
+    power: 5
+    interest: 5
+    stance_now: Committed
+    stance_target: Leading
+    key_concern: Engineering capacity, release gates
+    key_message: You own the release gate and the evidence; the programme gives you shared tooling.
+    channel: SteerCo; 1:1
+    owner: Programme director
+    frequency: Fortnightly
+  - id: ST04
+    name: General Counsel
+    group: Internal - leadership
+    power: 4
+    interest: 4
+    stance_now: Supportive
+    stance_target: Committed
+    key_concern: DoC liability, PLD disclosure, classification calls
+    key_message: Decision records and the signing instrument limit personal and corporate exposure.
+    channel: SteerCo; legal working group
+    owner: Compliance lead
+    frequency: Fortnightly
+  - id: ST05
+    name: CISO
+    group: Internal - leadership
+    power: 4
+    interest: 5
+    stance_now: Committed
+    stance_target: Leading
+    key_concern: PSIRT vs CSIRT split, NIS2/GDPR overlap
+    key_message: Product PSIRT is separate from the infrastructure CSIRT; one coordination cell for multi-regime incidents.
+    channel: SteerCo; incident cell
+    owner: PSIRT lead
+    frequency: Weekly
+  - id: ST06
+    name: BU presidents (HBS, IC, S&S)
+    group: Internal - leadership
+    power: 5
+    interest: 4
+    stance_now: Mixed
+    stance_target: Committed
+    key_concern: Margin, roadmap, legacy lines
+    key_message: Your EU revenue depends on notified-body slots we must book now.
+    channel: BU reviews; SteerCo
+    owner: Executive sponsor
+    frequency: Monthly
+  - id: ST07
+    name: Engineering leads and developers
+    group: Internal - delivery
+    power: 3
+    interest: 4
+    stance_now: Unaware to aware
+    stance_target: Practising
+    key_concern: Extra process, release friction
+    key_message: Evidence comes from the pipeline, not from paperwork; the gate checks what you already test.
+    channel: Engineering all-hands; training; Slack
+    owner: Product security officer
+    frequency: Fortnightly
+  - id: ST08
+    name: Product management
+    group: Internal - delivery
+    power: 3
+    interest: 4
+    stance_now: Aware
+    stance_target: Committed
+    key_concern: Support periods, roadmap trade-offs
+    key_message: Support period and Annex II content are product decisions with legal weight.
+    channel: PM forum; briefing pack
+    owner: Compliance lead
+    frequency: Monthly
+  - id: ST09
+    name: PSIRT and on-call staff
+    group: Internal - delivery
+    power: 2
+    interest: 5
+    stance_now: Committed
+    stance_target: Committed
+    key_concern: Workload, 24/7 on-call, authority to file
+    key_message: You may file an early warning without prior approval; legal reviews the 72-hour report.
+    channel: Runbook; drills
+    owner: PSIRT lead
+    frequency: Weekly
+  - id: ST10
+    name: Quality & regulatory (CE/RED team)
+    group: Internal - delivery
+    power: 3
+    interest: 5
+    stance_now: Supportive
+    stance_target: Leading
+    key_concern: Notified-body capacity, RED transition
+    key_message: Your CE experience runs conformity; RED delegated act ends 11 Dec 2027.
+    channel: Workstream meetings
+    owner: Programme director
+    frequency: Weekly
+  - id: ST11
+    name: Procurement
+    group: Internal - enabling
+    power: 3
+    interest: 3
+    stance_now: Aware
+    stance_target: Committed
+    key_concern: Supplier pushback, contract renegotiation
+    key_message: Clause pack and questionnaire; refusals go to the intake gate as high risk.
+    channel: Procurement council
+    owner: Head of procurement
+    frequency: Monthly
+  - id: ST12
+    name: Sales, key accounts and customer support
+    group: Internal - enabling
+    power: 2
+    interest: 3
+    stance_now: Unaware
+    stance_target: Informed
+    key_concern: Customer questions, competitive positioning
+    key_message: Say what we do, not 'CRA certified'; use the FAQ; route vulnerability reports to PSIRT within the hour.
+    channel: Briefing; FAQ; LMS module
+    owner: Head of customer operations
+    frequency: At launch, then quarterly
+  - id: ST13
+    name: Works council
+    group: Internal - employee representation
+    power: 4
+    interest: 3
+    stance_now: Neutral
+    stance_target: Supportive
+    key_concern: On-call arrangements, training time, monitoring
+    key_message: On-call is voluntary-rota based with allowances; training is in working time.
+    channel: Formal consultation
+    owner: HR business partner
+    frequency: As required
+  - id: ST14
+    name: All employees
+    group: Internal - wider
+    power: 1
+    interest: 2
+    stance_now: Unaware
+    stance_target: Informed
+    key_concern: What it means for me
+    key_message: Security is now part of what we sell; know where to report a vulnerability.
+    channel: Intranet; town hall
+    owner: Internal communications
+    frequency: Quarterly
+  - id: ST15
+    name: B2B customers and integrators
+    group: External - market
+    power: 4
+    interest: 4
+    stance_now: Asking
+    stance_target: Confident
+    key_concern: Supply-chain evidence for their own NIS2/CRA duties
+    key_message: Support periods, CVD contact, SBOM on request and declarations on a published timetable.
+    channel: Account letters; customer FAQ; trust page
+    owner: Head of customer operations
+    frequency: Quarterly
+  - id: ST16
+    name: Consumers (via retail and app)
+    group: External - market
+    power: 2
+    interest: 2
+    stance_now: Unaware
+    stance_target: Informed
+    key_concern: Updates, privacy, support length
+    key_message: Automatic security updates by default and a clear support end date at purchase.
+    channel: Product pages; app notices
+    owner: Marketing
+    frequency: At launch
+  - id: ST17
+    name: Distributors, importers and retail partners
+    group: External - channel
+    power: 3
+    interest: 3
+    stance_now: Asking
+    stance_target: Confident
+    key_concern: Their Art 19-20 checks, labelling, stock after 11 Dec 2027
+    key_message: We will supply DoCs, Annex II information and CE marking per product before 11 Dec 2027.
+    channel: Channel letter; partner portal
+    owner: Head of channel
+    frequency: Quarterly
+  - id: ST18
+    name: Suppliers (chipsets, modules, ODMs, software)
+    group: External - supply chain
+    power: 3
+    interest: 3
+    stance_now: Mixed
+    stance_target: Cooperative
+    key_concern: Contract changes, SBOM effort
+    key_message: We need vulnerability notification, SBOMs and support commitments; here is the clause pack.
+    channel: Supplier letter; questionnaire
+    owner: Head of procurement
+    frequency: Quarterly
+  - id: ST19
+    name: Notified bodies (candidates)
+    group: External - assurance
+    power: 5
+    interest: 3
+    stance_now: Engaged
+    stance_target: Contracted
+    key_concern: Capacity, designation timing
+    key_message: We are assessment-ready early and want a slot with conversion options.
+    channel: Pre-assessment meetings
+    owner: Head of quality & regulatory
+    frequency: Monthly
+  - id: ST20
+    name: Coordinator CSIRT and market surveillance (Germany)
+    group: External - regulator
+    power: 5
+    interest: 3
+    stance_now: Neutral
+    stance_target: Trusting
+    key_concern: Timely, accurate reporting
+    key_message: We report on time with complete data and answer reasoned requests within 10 working days.
+    channel: SRP; formal correspondence
+    owner: PSIRT lead / Compliance lead
+    frequency: As required
+  - id: ST21
+    name: Open-source communities and maintainers
+    group: External - ecosystem
+    power: 2
+    interest: 3
+    stance_now: Neutral
+    stance_target: Collaborative
+    key_concern: Burden shifted to unpaid maintainers
+    key_message: We report upstream through your CVD channel and share fixes; we do not demand compliance from you.
+    channel: OSPO; upstream channels
+    owner: OSPO lead
+    frequency: As required
+  - id: ST22
+    name: Insurers (product liability, cyber)
+    group: External - finance
+    power: 3
+    interest: 2
+    stance_now: Unaware
+    stance_target: Informed
+    key_concern: PLD exposure from 9 Dec 2026
+    key_message: Our evidence system lowers defect and disclosure risk.
+    channel: Broker briefing
+    owner: CFO office
+    frequency: At renewal
