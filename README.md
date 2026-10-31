@@ -46,10 +46,11 @@ Deterministic (seeded): re-running reproduces `pack_data.json` and `DATA_SUMMARY
 
 1. Copy the blank intake: `cp -r pack/clients/_template pack/clients/<slug>`, then fill `client.yaml` (every key is commented; `pack/clients/northwind-devices/` is a complete worked example).
 2. Run `python3 pack/reskin.py pack/clients/<slug>/client.yaml` (options: `--out dist/<slug>`, `--skip-excel`). The intake is validated first, with a message per problem.
-3. Regenerated into `dist/<slug>/`: `data/` (pack_data.json, DATA_SUMMARY.md), `excel/` (D10, D11), `diagnostic/` (D08), `portal/` (D12) and `classifier/` (D13, presets from the client's families).
-4. Hosted decks, docs, one-pagers and the dashboard cannot be regenerated locally: `RESKIN.md` lists every value to change in each (reference → client), how to update each artifact type and in what order; `reskin_values.json` holds the same mapping for a Claude session. Put the new artifact URLs in `pack/clients/<slug>/urls.json` and rerun so the portal links them (until then it shows "To be produced for this client").
-5. Limits: the programme window is fixed to Q4 2026–Dec 2027 by the cost model periods; regulatory content (facts, diagnostic questions, classifier categories, knowledge base, D06 research) is shared and dated 30 Oct 2026.
-6. Regression: `python3 -m pytest pack/tests` checks that Example Group still renders byte for byte. After editing the reference portal or classifier in `pack/out/`, run `python3 pack/engine/make_templates.py`.
+3. Optional: add `workbook_text.json` beside the intake for client narrative the Excel workbooks use (decision rationales, issue next steps, notes); without it they fall back to generic text. Example Group's is in `pack/clients/example-group/`.
+4. Regenerated into `dist/<slug>/`: `data/` (pack_data.json, DATA_SUMMARY.md), `excel/` (D10, D11), `diagnostic/` (D08), `portal/` (D12) and `classifier/` (D13, presets from the client's families).
+5. Hosted decks, docs, one-pagers and the dashboard cannot be regenerated locally: `RESKIN.md` lists every value to change in each (reference → client), how to update each artifact type and in what order; `reskin_values.json` holds the same mapping for a Claude session. Put the new artifact URLs in `pack/clients/<slug>/urls.json` and rerun so the portal links them (until then it shows "To be produced for this client").
+6. Limits: the programme window is fixed to Q4 2026–Dec 2027 by the cost model periods; regulatory content (facts, diagnostic questions, classifier categories, knowledge base, D06 research) is shared and dated 30 Oct 2026.
+7. Regression: `python3 -m pytest pack/tests` checks that Example Group still renders byte for byte. After editing the reference portal or classifier in `pack/out/`, run `python3 pack/engine/make_templates.py`.
 
 ## Design notes
 

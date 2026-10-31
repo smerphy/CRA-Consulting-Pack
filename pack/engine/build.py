@@ -570,3 +570,8 @@ for k in scenarios:
 print("rem fte", rem_fte_years, "testing", testing_year)
 print("days", meta["days_to_full_application_from_issue"], meta["days_to_full_application_from_board"])
 print("monthly", [(m['month'], m['plan']) for m in cost_model['monthly_plan']][:4])
+
+# Optional client narrative for the Excel workbooks (sidecar read by pack/engine/workbooks)
+_wt = INTAKE_PATH.parent / "workbook_text.json"
+if _wt.exists():
+    (DATA_DIR / "workbook_text.json").write_bytes(_wt.read_bytes())
