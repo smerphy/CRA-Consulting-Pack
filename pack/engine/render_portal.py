@@ -16,7 +16,7 @@ from reskin_common import (TEMPLATES, SHARED_HOSTED, DOMAIN_PHRASE, h, js_dq, is
 PENDING_REFERENCE = "In production"
 PENDING_NEW_CLIENT = "To be produced for this client"
 FILE_NOTE = "Excel workbook (.xlsx), delivered with the pack as a file"
-CARD_IDS = ("D01", "D02", "D03", "D04", "D05", "D06", "D07", "D08", "D09", "D10", "D11", "D13", "D14", "DS", "KB")
+CARD_IDS = ("D01", "D02", "D03", "D04", "D05", "D06", "D07", "D08", "D09", "D10", "D11", "D13", "D14", "D15", "DS", "KB")
 
 
 def _drill(pd):

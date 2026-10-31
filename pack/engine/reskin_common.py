@@ -20,7 +20,7 @@ REFERENCE = {
 }
 
 # Hosted deliverables that carry no client data (market research, design system, regulatory knowledge base).
-SHARED_HOSTED = ("D06", "DS", "KB")
+SHARED_HOSTED = ("D06", "D15", "DS", "KB")
 # Hosted deliverables that hold client data and must be re-produced per client.
 CLIENT_HOSTED = ("D01", "D02", "D03", "D04", "D05", "D07", "D09", "D14")
 # Deliverables regenerated locally by reskin.py.

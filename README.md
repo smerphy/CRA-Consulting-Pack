@@ -19,6 +19,7 @@ White-label consulting pack for the EU Cyber Resilience Act (Regulation (EU) 202
 | D11 | Obligations register and programme tracker | `pack/out/excel/` |
 | D13 | Product classifier (scope, class, conformity routes, SKU register) | `pack/out/classifier/index.html` and published artifact |
 | D14 | Compliance templates kit (10 fill-in templates) | Published doc |
+| D15 | Framework crosswalk (CRA vs NIS2, ISO 27001, IEC 62443, EN 18031, EN 303 645, NIST SSDF) | `pack/out/crosswalk/` (page + CSV), data `pack/data/crosswalk.json`, published artifact |
 | D12 | Portal (index of everything) | `pack/out/portal/index.html` and published artifact |
 | DS | Advisory design system | Published artifact |
 

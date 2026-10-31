@@ -125,7 +125,7 @@
    "name": "CRA draft harmonised standards",
    "full_name": "EN 40000-1-x (CEN-CENELEC JTC 13 WG 9) and ETSI EN 304 6xx verticals (drafts)",
    "kind": "Draft European harmonised standards (not cited)",
-   "status": "None cited in the OJ as of 30 Oct 2026. EN 40000-1-2 passed formal vote (no citation expected); prEN 40000-1-3 nearing formal vote, publication end-2026 to Feb 2027; prEN 40000-1-4 due 30 Oct 2027; EN 304 6xx in public enquiry",
+   "status": "None cited in the OJ as of 30 Oct 2026. EN 40000-1-2 passed formal vote (no citation expected); FprEN 40000-1-3 at formal vote, publication end-2026 to Feb 2027; prEN 40000-1-4 due 30 Oct 2027; EN 304 6xx in public enquiry",
    "relation_to_cra": "Written to give presumption of conformity once cited; EN 304 6xx clauses 5.2-5.15 and EN 40000-1-4 mirror Annex I one-to-one.",
    "reuse": "Design against the drafts now to minimise rework; draft clause IDs make a useful Annex VII point 5 structure.",
    "gaps": "Draft and uncited, so no presumption; content may change; EN 40000-1-4 text not public; no coverage of support period, Annex VII or SRP reporting.",
@@ -493,7 +493,7 @@
    "fw": "etsi303645",
    "refs": "5.2; 5.3",
    "coverage": "partial",
-   "note": "Vulnerability reporting and updates; JRC-ENISA: no assessment requirement and no duty to fix before release.",
+   "note": "Vulnerability reporting and updates; JRC-ENISA: discovery covered, fixing before release not.",
    "source": "kb"
   },
   {
@@ -667,7 +667,7 @@
   {
    "req": "P1-2d",
    "fw": "iec62443_4_2",
-   "refs": "CR 1.1-1.14, 2.1",
+   "refs": "CR 1.1-1.14 (1.13 is NDR 1.13), 2.1",
    "coverage": "strong",
    "note": "Identification, authentication and authorisation enforcement in depth; JRC-ENISA cites FR1 and CR 2.1. IACS scope.",
    "source": "kb"
@@ -990,7 +990,7 @@
    "refs": "CR 5.1, 5.2",
    "coverage": "weak",
    "note": "Segmentation and zone boundary protection; does not address a product degrading other networks.",
-   "source": "kb"
+   "source": "kit"
   },
   {
    "req": "P1-2i",
@@ -1133,7 +1133,7 @@
    "fw": "etsi303645",
    "refs": "5.4-5.9",
    "coverage": "weak",
-   "note": "Listed by JRC-ENISA; defence in depth, sandboxing and binary hardening not detailed.",
+   "note": "Listed by JRC-ENISA; defence in depth and sandboxing not detailed; no binary-hardening provisions.",
    "source": "kb"
   },
   {
@@ -1187,10 +1187,10 @@
   {
    "req": "P1-2l",
    "fw": "en18031",
-   "refs": "NMM-1",
-   "coverage": "weak",
-   "note": "Network monitoring for network equipment only; no general security event logging or user opt-out.",
-   "source": "kb"
+   "refs": "NMM-1; LGM (EN 18031-2/-3)",
+   "coverage": "partial",
+   "note": "NMM-1 network monitoring (EN 18031-1) and the LGM logging mechanism (EN 18031-2/-3, privacy and financial assets) within RED scope; no user opt-out.",
+   "source": "kit"
   },
   {
    "req": "P1-2l",
@@ -1341,7 +1341,7 @@
    "fw": "cra_drafts",
    "refs": "prEN 40000-1-3 PRE-7",
    "coverage": "strong",
-   "note": "Requires an SBOM per product; draft nearing formal vote, citation 2027 at the earliest.",
+   "note": "Requires an SBOM per product (§5.2); draft at formal vote, citation 2027 at the earliest.",
    "source": "kb"
   },
   {
@@ -1427,7 +1427,7 @@
   {
    "req": "P2-3",
    "fw": "iec62443_4_1",
-   "refs": "SVV-1; SVV-2; SVV-3; SVV-4; DM-6",
+   "refs": "SVV-1; SVV-2; SVV-3; SVV-4",
    "coverage": "partial",
    "note": "Per-release security testing; CRA adds threat-driven review and re-testing through the support period.",
    "source": "kit"
@@ -1532,8 +1532,8 @@
    "req": "P2-4",
    "fw": "cra_drafts",
    "refs": "prEN 40000-1-3 RLS-2",
-   "coverage": "strong",
-   "note": "Machine-readable advisories; draft built on ISO/IEC 29147 and 30111; not cited.",
+   "coverage": "partial",
+   "note": "Machine-readable advisories (RLS-2, §10.2); draft built on ISO/IEC 29147 and 30111; required content and delay rules not confirmed at clause level; not cited.",
    "source": "kb"
   },
   {
@@ -1677,7 +1677,7 @@
    "fw": "iso27001",
    "refs": "A.8.19; A.8.32",
    "coverage": "weak",
-   "note": "Controlled installation on operational systems; JRC-ENISA finds no signing or verification requirement.",
+   "note": "Controlled installation on operational systems; JRC-ENISA lists 27002 but finds no explicit requirement to publish hashes, verification instructions or code-signing certificates.",
    "source": "kit"
   },
   {
@@ -1709,7 +1709,7 @@
    "fw": "etsi303645",
    "refs": "5.3",
    "coverage": "partial",
-   "note": "Secure update delivery for consumer IoT; JRC-ENISA finds no detailed secure update mechanism.",
+   "note": "Secure update provisions for consumer IoT; JRC-ENISA, mapping 5.3 to Part I (2)(c), finds no detailed secure update mechanism; not listed for point 7.",
    "source": "kb"
   },
   {
@@ -2179,9 +2179,9 @@
   {
    "req": "A14-3",
    "fw": "nis2",
-   "refs": "Art 23(4); Art 23(12)",
+   "refs": "Art 23(3); Art 23(4)",
    "coverage": "partial",
-   "note": "Same 24h/72h/1-month structure and awareness test; Art 23(12) deeming is proposed, not adopted, so file separately.",
+   "note": "Same 24h/72h/1-month structure and awareness test; the proposed Art 23(12) deeming rule is not adopted, so file separately.",
    "source": "kb"
   },
   {
