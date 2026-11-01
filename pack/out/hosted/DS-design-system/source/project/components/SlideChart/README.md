@@ -1,0 +1,52 @@
+# SlideChart
+
+One exhibit (8 grid columns, 1096px) with a "So what" panel (4 columns, 528px): the title states the finding, the chart proves it, the panel says what follows.
+
+**Use for** any data slide. One chart per slide.
+
+**Anatomy**
+- Exhibit header: Inter 24px `ink-500` — what is measured, unit and base ("Readiness index by domain, % of target, 13 families").
+- Horizontal bars built from painted `<div>`s (they stay editable): label `<p>` 360px wide, right-aligned; bar 32px tall, radius `0 2px 2px 0`, width = value × scale (here 8px per point); value `<p>` 24px 600 at the bar end. 12px between rows; ≤ 10 rows.
+- Colour: context bars `viz-6` `#8A94A6`; the bar the title names in `accent-600` `#0F6E6A`, or in `signal` `#C2410C` only when it is the binding constraint (as here). Its label and value turn bold and take the same colour. Nothing else on the slide uses that colour.
+- So-what panel: 4px `ink-900` top rule, label "So what", ≤ 3 points in Inter 28px with a bold lead phrase.
+- Vertical columns, lines and other charts: draw them as an `<svg aria-label="…">` with labels as `<p>` elements pinned over it (fonts do not load inside slide SVGs), or as painted divs like the bars. Conventions: **BarChart** and **LineChart**.
+
+**You provide** the exhibit header, values (sorted unless the categories have an order), the focus category, the so-what points, the source.
+
+**Frame rules (every master)** — 1920 × 1080 canvas; `padding:128px 128px 160px`; inline styles only (px and hex; no classes, `var()`, `em`/`rem` sizes or `margin`); nothing under 24px; the deck declares the three `faces` from the README. Keep the tracker, title, source line and footer exactly where they are and change the words; footer left = engagement · deliverable · date, right = classification · page. Speaker notes go in the closing `<aside>`.
+
+## Markup
+
+```html
+<section id="domain-readiness" style="background:#FAFAF7;color:#26364D;font-family:Inter, Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:48px">
+<p style="position:absolute;left:128px;top:64px;width:1664px;font-size:24px;line-height:32px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#0A5753">02 · Market access</p>
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:56px;line-height:64px;font-weight:500;letter-spacing:-0.5px;color:#0E1A2B">Conformity and market access is the least ready domain, at 16%</h2>
+<div style="flex:1;display:flex;flex-direction:row;gap:40px">
+<div style="width:1096px;display:flex;flex-direction:column;gap:12px">
+<p style="font-size:24px;line-height:32px;color:#56667E;padding:0px 0px 12px 0px">Readiness index by domain, % of target (level 3 on every question), 13 families</p>
+<div style="display:flex;flex-direction:row;align-items:center;gap:16px"><p style="width:360px;font-size:24px;line-height:32px;text-align:right;color:#26364D">Art 14 reporting</p><div style="width:576px;height:32px;background:#8A94A6;border-radius:0px 2px 2px 0px"></div><p style="font-size:24px;line-height:32px;font-weight:600;color:#0E1A2B">72</p></div>
+<div style="display:flex;flex-direction:row;align-items:center;gap:16px"><p style="width:360px;font-size:24px;line-height:32px;text-align:right;color:#26364D">Governance</p><div style="width:464px;height:32px;background:#8A94A6;border-radius:0px 2px 2px 0px"></div><p style="font-size:24px;line-height:32px;font-weight:600;color:#0E1A2B">58</p></div>
+<div style="display:flex;flex-direction:row;align-items:center;gap:16px"><p style="width:360px;font-size:24px;line-height:32px;text-align:right;color:#26364D">SDLC and testing</p><div style="width:448px;height:32px;background:#8A94A6;border-radius:0px 2px 2px 0px"></div><p style="font-size:24px;line-height:32px;font-weight:600;color:#0E1A2B">56</p></div>
+<div style="display:flex;flex-direction:row;align-items:center;gap:16px"><p style="width:360px;font-size:24px;line-height:32px;text-align:right;color:#26364D">Updates and support</p><div style="width:384px;height:32px;background:#8A94A6;border-radius:0px 2px 2px 0px"></div><p style="font-size:24px;line-height:32px;font-weight:600;color:#0E1A2B">48</p></div>
+<div style="display:flex;flex-direction:row;align-items:center;gap:16px"><p style="width:360px;font-size:24px;line-height:32px;text-align:right;color:#26364D">Risk and design</p><div style="width:376px;height:32px;background:#8A94A6;border-radius:0px 2px 2px 0px"></div><p style="font-size:24px;line-height:32px;font-weight:600;color:#0E1A2B">47</p></div>
+<div style="display:flex;flex-direction:row;align-items:center;gap:16px"><p style="width:360px;font-size:24px;line-height:32px;text-align:right;color:#26364D">Scope and class</p><div style="width:360px;height:32px;background:#8A94A6;border-radius:0px 2px 2px 0px"></div><p style="font-size:24px;line-height:32px;font-weight:600;color:#0E1A2B">45</p></div>
+<div style="display:flex;flex-direction:row;align-items:center;gap:16px"><p style="width:360px;font-size:24px;line-height:32px;text-align:right;color:#26364D">SBOM and supply chain</p><div style="width:304px;height:32px;background:#8A94A6;border-radius:0px 2px 2px 0px"></div><p style="font-size:24px;line-height:32px;font-weight:600;color:#0E1A2B">38</p></div>
+<div style="display:flex;flex-direction:row;align-items:center;gap:16px"><p style="width:360px;font-size:24px;line-height:32px;text-align:right;color:#26364D">Vulnerability handling</p><div style="width:304px;height:32px;background:#8A94A6;border-radius:0px 2px 2px 0px"></div><p style="font-size:24px;line-height:32px;font-weight:600;color:#0E1A2B">38</p></div>
+<div style="display:flex;flex-direction:row;align-items:center;gap:16px"><p style="width:360px;font-size:24px;line-height:32px;text-align:right;color:#26364D">Documentation and DoC</p><div style="width:192px;height:32px;background:#8A94A6;border-radius:0px 2px 2px 0px"></div><p style="font-size:24px;line-height:32px;font-weight:600;color:#0E1A2B">24</p></div>
+<div style="display:flex;flex-direction:row;align-items:center;gap:16px"><p style="width:360px;font-size:24px;line-height:32px;text-align:right;font-weight:600;color:#0E1A2B">Conformity and access</p><div style="width:128px;height:32px;background:#C2410C;border-radius:0px 2px 2px 0px"></div><p style="font-size:24px;line-height:32px;font-weight:600;color:#C2410C">16</p></div>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:24px;border-top:4px solid #0E1A2B;padding:24px 0px 0px 0px">
+<p style="font-size:24px;line-height:32px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#56667E">So what</p>
+<p style="font-size:28px;line-height:40px;color:#26364D"><b>Market access is gated</b> by notified bodies that are not yet designated.</p>
+<p style="font-size:28px;line-height:40px;color:#26364D"><b>Documentation is next:</b> a technical file per product version.</p>
+<p style="font-size:28px;line-height:40px;color:#26364D"><b>Reporting leads</b> after the first drill; keep it funded.</p>
+</div>
+</div>
+<p style="font-size:24px;line-height:32px;color:#56667E">Source: CRA Readiness Diagnostic, 13 product families, baseline 28 Oct 2026; Illustrative</p>
+<div style="position:absolute;left:128px;bottom:64px;width:1664px;display:flex;flex-direction:row;justify-content:space-between;border-top:1px solid #C5CDD8;padding:16px 0px 0px 0px">
+<p style="font-size:24px;line-height:32px;color:#56667E">Project Rampart · Board briefing · 19 Nov 2026</p>
+<p style="font-size:24px;line-height:32px;color:#56667E">Illustrative · <b>7</b></p>
+</div>
+<aside>The orange bar is the binding constraint; nothing else on the slide is orange. Bars are 8px per percentage point.</aside>
+</section>
+```

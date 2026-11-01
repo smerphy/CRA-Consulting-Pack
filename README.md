@@ -6,24 +6,25 @@ White-label consulting pack for the EU Cyber Resilience Act (Regulation (EU) 202
 
 | ID | Deliverable | Where it lives |
 |---|---|---|
-| D01 | Board briefing deck (22 slides) | Published artifact, see `pack/out/urls.json` |
-| D02 | SteerCo pack (15 slides, monthly template) | Published artifact |
-| D03 | Engineering training deck (24 slides) | Published artifact |
-| D04 | Two one-pagers (CRA, Project Rampart) | Published artifact |
-| D05 | Communications pack (9 tabs) | Published doc |
-| D06 | Research report, State of CRA readiness 2026 | Published doc |
-| D07 | Survey instruments (8 tabs) | Published doc |
+| D01 | Board briefing deck (22 slides) | `pack/out/hosted/D01-board-deck/` (PDF, PPTX, notes, source); published artifact |
+| D02 | SteerCo pack (15 slides, monthly template) | `pack/out/hosted/D02-steerco-pack/`; published artifact |
+| D03 | Engineering training deck (24 slides) | `pack/out/hosted/D03-training-deck/`; published artifact |
+| D04 | Two one-pagers (CRA, Project Rampart) | `pack/out/hosted/D04-one-pagers/` (PDF, source); published artifact |
+| D05 | Communications pack (9 tabs) | `pack/out/hosted/D05-communication-pack/` (Word, Markdown, PDF); published doc |
+| D06 | Research report, State of CRA readiness 2026 | `pack/out/hosted/D06-research-report/`; published doc |
+| D07 | Survey instruments (8 tabs) | `pack/out/hosted/D07-survey-instruments/`; published doc |
 | D08 | Readiness diagnostic | `pack/out/diagnostic/index.html` and published artifact |
-| D09 | Programme dashboard | Published artifact |
+| D09 | Programme dashboard | `pack/out/hosted/D09-programme-dashboard/` (source, 21 datasets, PDF snapshot); published artifact |
 | D10 | Business case and cost model | `pack/out/excel/` |
 | D11 | Obligations register and programme tracker | `pack/out/excel/` |
 | D13 | Product classifier (scope, class, conformity routes, SKU register) | `pack/out/classifier/index.html` and published artifact |
-| D14 | Compliance templates kit (10 fill-in templates) | Published doc |
+| D14 | Compliance templates kit (10 fill-in templates) | `pack/out/hosted/D14-compliance-templates-kit/`; published doc |
 | D15 | Framework crosswalk (CRA vs NIS2, ISO 27001, IEC 62443, EN 18031, EN 303 645, NIST SSDF) | `pack/out/crosswalk/` (page + CSV), data `pack/data/crosswalk.json`, published artifact |
 | D12 | Portal (index of everything) | `pack/out/portal/index.html` and published artifact |
-| DS | Advisory design system | Published artifact |
+| DS | Advisory design system | `pack/out/hosted/DS-design-system/` (tokens, CSS, components); published artifact |
+| KB | CRA knowledge base (4 tabs) | `reports/` (source) and `pack/out/hosted/KB-knowledge-base/` (Word, Markdown, PDF); published doc |
 
-Decks, docs and the dashboard are hosted on claude.ai, so the repo holds their briefs and the data behind them, not the files.
+Everything hosted on claude.ai is also copied into `pack/out/hosted/` (exported 1 Nov 2026): decks and one-pagers as PDF plus source, docs as Word, Markdown and PDF per tab, the dashboard as source, data and a snapshot. The claude.ai versions stay the live, editable copies; re-export after editing them. Deck PPTX files are slide images with notes; download an editable PPTX from the deck on claude.ai.
 
 ## Layout
 

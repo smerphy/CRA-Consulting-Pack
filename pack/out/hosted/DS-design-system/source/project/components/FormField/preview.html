@@ -1,0 +1,36 @@
+<!-- @dsCard group="Web patterns" height=440 subtitle="Label, hint, control and error message; 44px controls with a strong border" -->
+<!doctype html>
+<html lang="en-GB">
+<head><meta charset="utf-8"><title>Form field</title></head>
+<body>
+<div class="adv-stage">
+  <div class="adv-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); max-width: 820px;">
+    <div class="adv-field">
+      <label class="adv-field__label" for="fam">Product family</label>
+      <span class="adv-field__hint" id="fam-h">As named in the scope register</span>
+      <input class="adv-input" id="fam" type="text" value="L2 Smart Lock" aria-describedby="fam-h">
+    </div>
+    <div class="adv-field">
+      <label class="adv-field__label" for="bu">Business unit</label>
+      <span class="adv-field__hint" id="bu-h">Select one</span>
+      <div class="adv-select-wrap">
+        <select class="adv-select" id="bu" aria-describedby="bu-h">
+          <option>Home and building solutions (HBS)</option>
+          <option>Industrial connectivity (IC)</option>
+          <option>Software and services (SS)</option>
+        </select>
+      </div>
+    </div>
+    <div class="adv-field adv-field--error">
+      <label class="adv-field__label" for="role">Respondent role</label>
+      <input class="adv-input" id="role" type="text" placeholder="e.g. Product security officer" aria-invalid="true" aria-describedby="role-e">
+      <span class="adv-field__error" id="role-e"><svg class="adv-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4 2.8 19.5h18.4Z"/><path d="M12 10v4.5"/><path d="M12 17.25v.25"/></svg>Enter your role, not your name</span>
+    </div>
+    <div class="adv-field">
+      <label class="adv-field__label" for="ev">Evidence <span class="opt">(optional)</span></label>
+      <textarea class="adv-textarea" id="ev">Release gate designed; not yet enforced.</textarea>
+    </div>
+  </div>
+</div>
+</body>
+</html>

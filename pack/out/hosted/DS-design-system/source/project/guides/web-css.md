@@ -1,0 +1,191 @@
+# Web: CSS variables and dark mode
+
+Hand-built pages (diagnostics, portals, small tools) use this system through CSS custom properties. Paste the block below into the page's `<style>` (it mirrors `tokens.json`; prefer the compiled `project/tokens.css` if it is present and current), then load `project/components/bundle.css` for the components. Both are plain files: copy them into your artifact rather than linking across artifacts, e.g. Artifact `files`: `{"advisory.css": {"artifact": "<this design system's URL>", "path": "project/components/bundle.css"}}`.
+
+Rules for pages:
+- Paint with semantic tokens (`bg-*`, `text-*`, `rule*`, `action*`, `focus`) so light and dark both work; use palette tokens (`ink-*`, `accent-*`, `rag-*`, `heat-*`, `viz-*`) only where a colour must not change with the theme.
+- Dark mode follows the reader's system setting (`prefers-color-scheme`) unless the page sets `data-theme="light"` or `data-theme="dark"` on `<html>`.
+- Give `body` an explicit background: `background: var(--bg-page)` (bundle.css does).
+- Use the type classes (`.heading-2`, `.body`, `.eyebrow`, `.source-line`, `.kpi-value` …) on elements instead of re-declaring sizes.
+- Set `lang="en-GB"` on `<html>`; keep a 16px side gutter at phone width; no horizontal page scroll.
+
+```css
+/* Advisory Design System (white-label): tokens as CSS custom properties. Mirrors tokens.json v1. */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400..700&family=JetBrains+Mono:wght@400..600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400..700&display=swap");
+:root, :root[data-theme="light"] {
+  color-scheme: light;
+  --ink-900: #0E1A2B;
+  --ink-700: #26364D;
+  --ink-500: #56667E;
+  --ink-300: #C5CDD8;
+  --ink-100: #EEF1F5;
+  --paper: #FAFAF7;
+  --surface: #FFFFFF;
+  --accent-700: #0A5753;
+  --accent-600: #0F6E6A;
+  --accent-400: #2E9C93;
+  --accent-100: #DCEFEC;
+  --signal: #C2410C;
+  --signal-100: #FFEDD5;
+  --rag-red: #B42318;
+  --rag-amber: #B54708;
+  --rag-green: #027A48;
+  --rag-grey: #8A94A6;
+  --rag-red-100: #FEE4E2;
+  --rag-amber-100: #FEF0C7;
+  --rag-green-100: #D1FADF;
+  --heat-0: #B42318;
+  --heat-1: #E07A5F;
+  --heat-2: #E9C46A;
+  --heat-3: #7FB8A4;
+  --heat-4: #0F6E6A;
+  --viz-1: #0F6E6A;
+  --viz-2: #1F3A5F;
+  --viz-3: #5B8DB8;
+  --viz-4: #C9A66B;
+  --viz-5: #B9573E;
+  --viz-6: #8A94A6;
+  --bg-page: #FAFAF7;
+  --bg-surface: #FFFFFF;
+  --bg-subtle: #EEF1F5;
+  --bg-emphasis: #DCEFEC;
+  --bg-inverse: #0E1A2B;
+  --bg-critical: #FFEDD5;
+  --text-primary: #0E1A2B;
+  --text-body: #26364D;
+  --text-muted: #56667E;
+  --text-emphasis: #0F6E6A;
+  --text-accent: #0A5753;
+  --text-critical: #C2410C;
+  --text-danger: #B42318;
+  --text-on-inverse: #FAFAF7;
+  --accent-on-inverse: #2E9C93;
+  --action: #0F6E6A;
+  --action-hover: #0A5753;
+  --text-on-action: #FFFFFF;
+  --rule: #C5CDD8;
+  --rule-strong: #56667E;
+  --focus: #0F6E6A;
+  --shadow-raised: 0 1px 2px #0E1A2B0F, 0 4px 12px #0E1A2B14;
+  --focus-ring: 0 0 0 2px #FAFAF7, 0 0 0 4px #0F6E6A;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+  --space-10: 128px;
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 6px;
+  --radius-full: 999px;
+  --border-hairline: 1px;
+  --border-strong: 2px;
+  --icon-stroke: 1.5px;
+  --slide-width: 1920px;
+  --slide-height: 1080px;
+  --slide-margin: 128px;
+  --slide-edge: 64px;
+  --slide-content-bottom: 920px;
+  --slide-columns: 12;
+  --slide-column: 102px;
+  --slide-gutter: 40px;
+  --page-max-width: 1200px;
+  --page-gutter: 24px;
+  --page-gutter-phone: 16px;
+  --text-measure: 72ch;
+  --font-serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --font-sans: Inter, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "JetBrains Mono", "Courier New", monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --rag-red-100: #4A1D19;
+    --rag-amber-100: #4A2A0C;
+    --rag-green-100: #0F3B29;
+    --viz-1: #2E9C93;
+    --viz-2: #8FA9CC;
+    --bg-page: #0E1A2B;
+    --bg-surface: #16243A;
+    --bg-subtle: #1F2E45;
+    --bg-emphasis: #123F3D;
+    --bg-inverse: #26364D;
+    --bg-critical: #3B1D0F;
+    --text-primary: #FAFAF7;
+    --text-body: #D5DCE6;
+    --text-muted: #A3AFC0;
+    --text-emphasis: #2E9C93;
+    --text-accent: #7FD1C7;
+    --text-critical: #FB923C;
+    --text-danger: #F97066;
+    --accent-on-inverse: #7FD1C7;
+    --action: #2E9C93;
+    --action-hover: #5CB8AF;
+    --text-on-action: #0E1A2B;
+    --rule: #2C3C55;
+    --rule-strong: #6B7A90;
+    --focus: #2E9C93;
+    --shadow-raised: 0 1px 2px #00000066, 0 4px 12px #00000080;
+    --focus-ring: 0 0 0 2px #0E1A2B, 0 0 0 4px #2E9C93;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --rag-red-100: #4A1D19;
+  --rag-amber-100: #4A2A0C;
+  --rag-green-100: #0F3B29;
+  --viz-1: #2E9C93;
+  --viz-2: #8FA9CC;
+  --bg-page: #0E1A2B;
+  --bg-surface: #16243A;
+  --bg-subtle: #1F2E45;
+  --bg-emphasis: #123F3D;
+  --bg-inverse: #26364D;
+  --bg-critical: #3B1D0F;
+  --text-primary: #FAFAF7;
+  --text-body: #D5DCE6;
+  --text-muted: #A3AFC0;
+  --text-emphasis: #2E9C93;
+  --text-accent: #7FD1C7;
+  --text-critical: #FB923C;
+  --text-danger: #F97066;
+  --accent-on-inverse: #7FD1C7;
+  --action: #2E9C93;
+  --action-hover: #5CB8AF;
+  --text-on-action: #0E1A2B;
+  --rule: #2C3C55;
+  --rule-strong: #6B7A90;
+  --focus: #2E9C93;
+  --shadow-raised: 0 1px 2px #00000066, 0 4px 12px #00000080;
+  --focus-ring: 0 0 0 2px #0E1A2B, 0 0 0 4px #2E9C93;
+}
+/* Type styles (the same classes the design system page generates) */
+.slide-display { font-family: var(--font-serif); font-size: 96px; line-height: 104px; font-weight: 500; letter-spacing: -1px; }
+.slide-title { font-family: var(--font-serif); font-size: 56px; line-height: 64px; font-weight: 500; letter-spacing: -0.5px; }
+.slide-quote { font-family: var(--font-serif); font-size: 56px; line-height: 68px; font-weight: 400; font-style: italic; }
+.slide-lead { font-family: var(--font-sans); font-size: 32px; line-height: 44px; font-weight: 400; }
+.slide-body { font-family: var(--font-sans); font-size: 28px; line-height: 40px; font-weight: 400; }
+.slide-label { font-family: var(--font-sans); font-size: 24px; line-height: 32px; font-weight: 600; letter-spacing: 3px; }
+.slide-small { font-family: var(--font-sans); font-size: 24px; line-height: 32px; font-weight: 400; }
+.slide-kpi { font-family: var(--font-sans); font-size: 64px; line-height: 72px; font-weight: 600; letter-spacing: -1px; }
+.slide-hero-number { font-family: var(--font-sans); font-size: 200px; line-height: 200px; font-weight: 600; letter-spacing: -6px; }
+.display { font-family: var(--font-serif); font-size: 48px; line-height: 56px; font-weight: 500; letter-spacing: -0.01em; }
+.heading-1 { font-family: var(--font-serif); font-size: 36px; line-height: 44px; font-weight: 500; letter-spacing: -0.005em; }
+.heading-2 { font-family: var(--font-serif); font-size: 28px; line-height: 36px; font-weight: 500; }
+.heading-3 { font-family: var(--font-sans); font-size: 20px; line-height: 28px; font-weight: 600; }
+.heading-4 { font-family: var(--font-sans); font-size: 16px; line-height: 24px; font-weight: 600; }
+.body { font-family: var(--font-sans); font-size: 16px; line-height: 26px; font-weight: 400; }
+.body-small { font-family: var(--font-sans); font-size: 14px; line-height: 22px; font-weight: 400; }
+.eyebrow { font-family: var(--font-sans); font-size: 12px; line-height: 16px; font-weight: 600; letter-spacing: 0.08em; }
+.exhibit-title { font-family: var(--font-sans); font-size: 14px; line-height: 20px; font-weight: 600; }
+.source-line { font-family: var(--font-sans); font-size: 12px; line-height: 18px; font-weight: 400; }
+.kpi-value { font-family: var(--font-sans); font-size: 32px; line-height: 40px; font-weight: 600; letter-spacing: -0.02em; }
+.hero-number { font-family: var(--font-sans); font-size: 64px; line-height: 64px; font-weight: 600; letter-spacing: -0.03em; }
+.code { font-family: var(--font-mono); font-size: 14px; line-height: 22px; font-weight: 400; }
+.id { font-family: var(--font-mono); font-size: 13px; line-height: 20px; font-weight: 500; }
+.slide-id { font-family: var(--font-mono); font-size: 24px; line-height: 32px; font-weight: 500; }
+```

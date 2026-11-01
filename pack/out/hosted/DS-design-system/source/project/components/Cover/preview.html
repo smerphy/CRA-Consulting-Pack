@@ -1,0 +1,51 @@
+<!-- @dsCard height=340 -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Advisory Design System (white-label)</title>
+<style>
+  html, body { margin: 0; height: 100%; }
+  body { background: var(--bg-page); color: var(--text-primary); font-family: var(--font-sans); overflow: hidden; }
+  .cover { position: relative; width: 960px; height: 340px; overflow: hidden; }
+  .band { position: absolute; top: 0; left: 0; width: 960px; height: 120px; }
+  .band svg { display: block; width: 960px; height: 120px; }
+  .deep { fill: var(--bg-inverse); }
+  .brand { fill: var(--action); }
+  .tint { fill: var(--bg-emphasis); }
+  .sig { fill: var(--signal); }
+  .blk { rx: var(--radius-sm); }
+  .cut { stroke: var(--bg-page); stroke-width: 1; }
+  .words { position: absolute; left: var(--space-6); right: var(--space-6); bottom: var(--space-6); }
+  .name { margin: 0; font-family: var(--font-serif); font-size: 64px; line-height: 0.95; font-weight: 500; letter-spacing: -0.01em; color: var(--text-primary); }
+  .tag { margin: var(--space-2) 0 0 2px; font-size: 14px; line-height: 20px; color: var(--text-muted); }
+</style>
+</head>
+<body>
+<div class="cover">
+<div class="band" aria-hidden="true">
+<svg viewBox="0 0 960 120" width="960" height="120">
+<!--
+  blocks      bg-inverse 448x120 (ink-900, the identity colour) · action 272x88 (the one teal accent) · bg-emphasis 224x120 bleeding off the right (accent-100 tint) · signal one 16px diamond (the binding constraint, kept small) — about 32% of 960x340
+  arrangement top-band skeleton (the full name is wider than 440px at 64px): a strip of unequal bands flush to the top edge, space-2 gutters; the teal stops 32px short so the ground shows beneath it
+  pattern     four 1px rules cut from the ground (bg-page) at a space-5 pitch crossing every block: a baseline grid, chosen from "separate with hairlines and white space, not boxes and shadows" and the serif, editorial voice
+  scales      gutters space-2 (8px); rule pitch space-5 (24px); block corners radius-sm; diamond side space-4 (16px) with radius-sm corners
+-->
+<rect class="deep blk" x="0" y="0" width="448" height="120" rx="2"/>
+<rect class="brand blk" x="456" y="0" width="272" height="88" rx="2"/>
+<rect class="tint blk" x="736" y="0" width="224" height="120" rx="2"/>
+<line class="cut" x1="0" y1="24.5" x2="960" y2="24.5"/>
+<line class="cut" x1="0" y1="48.5" x2="960" y2="48.5"/>
+<line class="cut" x1="0" y1="72.5" x2="960" y2="72.5"/>
+<line class="cut" x1="0" y1="96.5" x2="448" y2="96.5"/>
+<line class="cut" x1="736" y1="96.5" x2="960" y2="96.5"/>
+<rect class="sig blk" x="584" y="96" width="16" height="16" rx="2" transform="rotate(45 592 104)"/>
+</svg>
+</div>
+<div class="words">
+<h1 class="name">Advisory Design System<br>(white-label)</h1>
+<p class="tag">Calm ink on warm paper, one teal accent, and a source under every number.</p>
+</div>
+</div>
+</body>
+</html>

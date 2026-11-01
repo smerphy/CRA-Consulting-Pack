@@ -1,0 +1,25 @@
+<!-- @dsCard group="Status and data" height=300 subtitle="Status in colour and in words: solid pill for summaries, dot for dense tables" -->
+<!doctype html>
+<html lang="en-GB">
+<head><meta charset="utf-8"><title>RAG pill</title></head>
+<body>
+<div class="adv-stage">
+  <div class="adv-row">
+    <span class="adv-rag adv-rag--red">Red</span>
+    <span class="adv-rag adv-rag--amber">Amber</span>
+    <span class="adv-rag adv-rag--green">Green</span>
+    <span class="adv-rag adv-rag--grey">Grey</span>
+    <span style="width: var(--space-4);"></span>
+    <span class="adv-rag adv-rag--amber adv-rag--lg">Programme: Amber</span>
+  </div>
+  <table class="adv-table" style="max-width: 640px;">
+    <thead><tr><th scope="col">Workstream</th><th scope="col">Status</th><th scope="col">Why</th></tr></thead>
+    <tbody>
+      <tr><th scope="row"><span class="id">WS3</span> Reporting and PSIRT</th><td><span class="adv-rag-dot adv-rag-dot--green">Green</span></td><td>First drill: early warning in 9h 40m</td></tr>
+      <tr><th scope="row"><span class="id">WS2</span> Portfolio and classification</th><td><span class="adv-rag-dot adv-rag-dot--amber">Amber</span></td><td>11 of 13 families classified</td></tr>
+      <tr><th scope="row"><span class="id">WS7</span> Conformity and market access</th><td><span class="adv-rag-dot adv-rag-dot--red">Red</span></td><td>No CRA notified body designated</td></tr>
+    </tbody>
+  </table>
+</div>
+</body>
+</html>
