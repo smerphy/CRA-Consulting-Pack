@@ -86,7 +86,7 @@ def _normalise_cyclonedx(doc):
         "format": "CycloneDX",
         "spec_version": spec,
         "root": {"name": meta_comp.get("name"), "version": meta_comp.get("version"),
-                 "sha256": root_hashes.get("SHA256")},
+                 "purl": meta_comp.get("purl"), "sha256": root_hashes.get("SHA256")},
         "components": components,
         "top_level_dependencies": sorted(set(top)),
         "top_level_recorded": recorded and bool(top),

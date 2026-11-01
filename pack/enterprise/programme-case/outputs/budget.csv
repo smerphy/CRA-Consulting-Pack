@@ -15,7 +15,7 @@ line,L13,2 Art 14 operations (E2),Art 14 communications (user notices),run,e2_co
 line,L14,2 Art 14 operations (E2),Case engine productionisation,one-off,e2_tooling_fteyrs,"assumption (art14-operations/case_engine is a working reference, not production)",0.46,0.83,1.61,0.0,0.0,0.0,0.0,0.0,0.0,0.46,0.83,1.61
 line,L15,2 Art 14 operations (E2),Case engine and SRP tooling run,run,e2_tooling_run_eur_yr,assumption,0.0,0.0,0.0,0.1,0.2,0.4,0.1,0.2,0.4,0.2,0.4,0.8
 line,L16,2 Art 14 operations (E2),User-notice localisation (Art 14(8)),run,e2_localisation_eur_yr,derived: see inputs_resolved.csv,0.0,0.0,0.0,0.0,1.11,7.12,0.0,0.95,6.1,0.0,2.06,13.22
-line,L17,3 Notified body and quality system (E3),"Module H year-1 fees (QS approval and model reviews, 4 organisations)",one-off,nb_y1_eur,derived: see inputs_resolved.csv,1.29,1.96,2.62,0.0,0.0,0.0,0.0,0.0,0.0,1.29,1.96,2.62
+line,L17,3 Notified body and quality system (E3),"Module H year-1 fees (QS approval and model reviews, 4 organisations)",one-off,nb_y1_eur,derived: see inputs_resolved.csv,1.05,1.61,2.17,0.0,0.0,0.0,0.0,0.0,0.0,1.05,1.61,2.17
 line,L18,3 Notified body and quality system (E3),Notified-body pre-assessments,one-off,nb_pre_eur,derived: see inputs_resolved.csv,0.12,0.24,0.4,0.0,0.0,0.0,0.0,0.0,0.0,0.12,0.24,0.4
 line,L19,3 Notified body and quality system (E3),Module H surveillance and scope extensions,run,nb_ss_eur_yr,derived: see inputs_resolved.csv,0.0,0.0,0.0,0.0,0.0,0.0,0.37,0.81,1.25,0.37,0.81,1.25
 line,L20,3 Notified body and quality system (E3),Quality-system managers and internal audit support (build),one-off,qs_build_fte,derived: see inputs_resolved.csv,1.84,3.31,5.15,0.0,0.0,0.0,0.0,0.0,0.0,1.84,3.31,5.15
@@ -49,14 +49,20 @@ line,L47,8 Training,Training team (run),run,train_run_fte,assumption,0.0,0.0,0.0
 line,L48,9 Programme office,Programme office (build),one-off,pmo_build_fte,assumption,2.07,3.72,6.51,0.0,0.0,0.0,0.0,0.0,0.0,2.07,3.72,6.51
 line,L49,9 Programme office,Programme office (run),run,pmo_run_fte,assumption,0.0,0.0,0.0,0.0,0.0,0.0,0.69,1.1,1.93,0.69,1.1,1.93
 line,L50,9 Programme office,External advisory and assurance,one-off,advisory_eur,assumption,1.0,2.0,4.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,2.0,4.0
+line,L51,10 Product remediation and support periods,Product remediation to close Annex I Part I and II gaps (34 families),one-off,rem_fteyrs,derived: see inputs_resolved.csv,20.42,55.78,152.34,0.0,0.0,0.0,0.0,0.0,0.0,20.42,55.78,152.34
+line,L52,10 Product remediation and support periods,"Support-period extension to the 5-year floor (accrued commitment, paid when cohorts reach their old end dates)",run,sp_eur_yr,derived: see inputs_resolved.csv,0.0,0.0,0.0,0.0,0.0,0.0,3.79,11.03,30.22,3.79,11.03,30.22
+line,L53,3 Notified body and quality system (E3),L1 reserved notified-body capacity (take-or-pay on unused days plus premium),one-off,l1_cost_eur,derived: see inputs_resolved.csv,1.28,2.66,5.9,0.0,0.0,0.0,0.0,0.0,0.0,1.28,2.66,5.9
+line,L54,3 Notified body and quality system (E3),L3 third notified body onboarding (pre-assessment and contract),one-off,l3_cost_eur,derived: see inputs_resolved.csv,0.08,0.16,0.3,0.0,0.0,0.0,0.0,0.0,0.0,0.08,0.16,0.3
 workstream,,1 Evidence platform (E1),,,,,3.68,6.07,9.65,2.19,3.38,8.29,3.19,5.09,11.46,9.05,14.54,29.41
-workstream,,10 Contingency,,,,,1.72,5.22,17.14,0.23,0.84,3.33,0.58,2.18,7.23,2.53,8.24,27.7
 workstream,,2 Art 14 operations (E2),,,,,0.46,0.83,1.61,1.46,3.06,10.67,1.38,2.78,9.39,3.3,6.67,21.67
-workstream,,3 Notified body and quality system (E3),,,,,3.25,5.51,8.17,0.0,0.0,0.0,1.28,2.46,3.83,4.54,7.97,12.0
+workstream,,3 Notified body and quality system (E3),,,,,4.38,7.99,13.92,0.0,0.0,0.0,1.28,2.46,3.83,5.66,10.45,17.74
 workstream,,4 Classification and legal (E3),,,,,0.86,1.57,3.08,0.0,0.0,0.0,0.23,0.41,0.8,1.09,1.98,3.88
 workstream,,5 Open-source programme (E4),,,,,0.99,1.6,2.93,0.48,0.91,1.39,3.21,6.33,10.29,4.68,8.84,14.61
 workstream,,6 Multi-jurisdiction labelling (E5),,,,,0.84,1.55,4.31,0.57,1.03,1.85,0.72,1.41,2.69,2.13,3.99,8.85
 workstream,,"7 Documentation, Annex II and translations",,,,,3.08,9.95,24.01,0.0,0.0,0.0,0.63,1.66,5.75,3.7,11.61,29.76
 workstream,,8 Training,,,,,0.96,2.03,4.29,0.0,0.0,0.0,0.29,0.58,2.04,1.25,2.6,6.33
 workstream,,9 Programme office,,,,,3.07,5.72,10.51,0.0,0.0,0.0,0.69,1.1,1.93,3.76,6.82,12.44
-total,,All workstreams incl. contingency,,,,,18.89,40.04,85.7,4.93,9.23,25.54,12.19,24.0,55.41,36.02,73.27,166.65
+workstream,,10 Product remediation and support periods,,,,,20.42,55.78,152.34,0.0,0.0,0.0,3.79,11.03,30.22,24.21,66.8,182.56
+workstream,,11 Contingency,,,,,3.87,13.96,56.66,0.23,0.84,3.33,0.77,3.28,11.76,4.88,18.08,71.75
+total,,"All workstreams incl. contingency (recommended plan, levers L1-L5)",,,,,42.59,107.04,283.31,4.93,9.23,25.54,16.17,36.12,90.17,63.69,152.39,399.01
+total_as_written,,"All workstreams incl. contingency (plan as the modules set it out, levers off)",,,,,41.35,104.19,276.12,4.93,9.23,25.54,16.17,36.12,90.17,62.46,149.54,391.83

@@ -15,7 +15,7 @@ E3 notified-body route families,17,17,portfolio-classification/classification_su
 E3 Platforms inside the Lumen QS (body-days),22 / 44 / 67,"0.5 x complexity 4 x EUR 20,000-60,000 / EUR 1,800",portfolio-classification/nb_demand_summary.json (assumptions); nb_demand.csv (F14 complexity),Derived by E7 from E3 parameters for lever L4
 E4 projects led by Aldermoor,5,5,open-source-strategy/projects.yaml,"Agrees; E4 gives no costs, so E7 funding lines are assumptions"
 E5 controls in the global set,43,43,global-control-set/controls.json,Agrees
-E5 marginal labelling share of programme,5.4% of Q4 2026-Q4 2028 cost,under 10% of effort,global-control-set/paper.md,Agrees
+E5 marginal labelling share of programme,2.7% of Q4 2026-Q4 2028 cost,under 10% of effort,global-control-set/paper.md,Agrees
 E6 Art 14 applies from 11 Sep 2026,Verified,Verified,oj-verification/claims.csv (F02),"Agrees; the Art 14 desk is a legal requirement now, not a project"
 E6 Chapter IV from 11 Jun 2026; other provisions 11 Dec 2027,Verified,Verified,oj-verification/claims.csv (F03),Agrees; 11 Dec 2027 is the readiness date
 E6 Member States 'strive' for notified bodies by 11 Dec 2026,Verified,Verified,oj-verification/claims.csv (K23),Agrees; designation timing is still an assumption

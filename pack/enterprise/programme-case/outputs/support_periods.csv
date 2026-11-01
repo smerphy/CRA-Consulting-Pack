@@ -1,0 +1,17 @@
+family_id,family,policy_years,anchor,cohorts_per_year,e3_complexity,extra_years_low,extra_years_base,extra_years_high,fte_yr_low,fte_yr_base,fte_yr_high,eur_m_yr_low,eur_m_yr_base,eur_m_yr_high,source
+F01,Arc phones,7.0,launch,3.0,1.5,0.0,0.5,1.0,0.0,1.35,5.4,0.0,0.37,1.74,BRIEF.md (Arc phones 7-year support); cohorts = E3 new_types_per_year
+F02,Arc tablets,5.0,launch,1.0,1.3,2.0,2.5,3.0,0.78,1.95,4.68,0.18,0.54,1.51,E7 addition (assumption: 5 years from launch); cohorts = E3 new_types_per_year
+F03,Arc earbuds,2.0,launch,1.0,0.7,5.0,5.5,6.0,1.05,2.31,5.04,0.24,0.64,1.62,E7 addition (assumption: 2 years from launch; Appendix G found no published period for earbuds); cohorts = E3
+F04,Arc Book laptops,8.0,launch,1.5,1.3,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,E7 addition (assumption: 8 years from launch; Appendix G cites 10 years for a comparable laptop OS); cohorts = E3
+F07,Halo Wear OS images for third-party watchmakers,3.0,launch,1.0,3.0,4.0,4.5,5.0,3.6,8.1,18.0,0.83,2.23,5.79,E7 addition (assumption: each Halo Wear release supported 3 years; Appendix G cites 3 years for a comparable smartwatch); cohorts = one major release a year (E3 substantial_mods_per_year)
+F14,Lumen OS (OEM images and Lumen OS Flex),10.0,launch,0.5,4.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,E7 addition (assumption: 10 years of updates per device model; Appendix G cites 10 years for a comparable OS); cohorts = E3 new_types_per_year
+F15,Hearth security cameras,5.0,launch,3.0,1.0,2.0,2.5,3.0,1.8,4.5,10.8,0.41,1.24,3.47,E7 addition (assumption: 5 years from launch; Appendix G cites the same policy for comparable home devices); cohorts = E3
+F16,Hearth video doorbells,5.0,launch,1.5,1.0,2.0,2.5,3.0,0.9,2.25,5.4,0.21,0.62,1.74,As F15
+F17,Hearth smart locks,5.0,launch,1.0,1.0,2.0,2.5,3.0,0.6,1.5,3.6,0.14,0.41,1.16,As F15
+F18,Hearth smart speakers and displays with assistant,5.0,launch,3.0,1.3,2.0,2.5,3.0,2.34,5.85,14.04,0.54,1.61,4.52,As F15
+F19,Hearth thermostats,5.0,launch,1.0,0.8,2.0,2.5,3.0,0.48,1.2,2.88,0.11,0.33,0.93,As F15
+F20,Hearth smoke and CO alarms,10.0,launch,0.5,0.8,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,E7 addition (assumption: 10 years matching sealed-battery life)
+F21,Hearth mesh Wi-Fi routers,5.0,launch,1.0,1.2,2.0,2.5,3.0,0.72,1.8,4.32,0.17,0.5,1.39,As F15
+F23,Pulse smartwatches,3.0,launch,2.0,1.2,4.0,4.5,5.0,2.88,6.48,14.4,0.66,1.79,4.63,E7 addition (assumption: 3 years from launch; Appendix G cites 3 years for a comparable smartwatch); cohorts = E3
+F24,Pulse fitness trackers,2.0,last_sold,1.5,1.0,3.0,3.0,3.0,1.35,2.7,5.4,0.31,0.74,1.74,E7 addition (assumption: 2 years after last sold; Appendix G cites the same policy for comparable fitness trackers); cohorts = E3
+F25,Keystone security keys (FIDO),0.0,not_updatable,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,Firmware not field-updatable (brief/E3); handled through remediation severity and a replacement policy

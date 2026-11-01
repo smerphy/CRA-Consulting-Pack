@@ -744,6 +744,260 @@
   source: assumption
   label: assumption
 
+# ---------------------------------------------------------------- cost: product remediation (v2). Per family in families.csv:
+# FTE-years = base-pack rate for the class x E3 complexity x (initial types)^rem_type_exp x rem_scale x severity of the business line.
+- section: cost
+  key: rem_rate_default
+  desc: Remediation effort per default-class family in the base pack (calibration)
+  low: 1.2
+  base: 1.2
+  high: 1.2
+  unit: FTE-years per family
+  source: pack/clients/example-group/client.yaml (cost_model.assumptions.remediation_fte_years.default; mid-size industrial group, 1-10 SKUs per family)
+  label: module (calibration)
+- section: cost
+  key: rem_rate_class1
+  desc: Remediation effort per Class I family in the base pack (calibration)
+  low: 2.5
+  base: 2.5
+  high: 2.5
+  unit: FTE-years per family
+  source: pack/clients/example-group/client.yaml (remediation_fte_years.class_i)
+  label: module (calibration)
+- section: cost
+  key: rem_rate_class2
+  desc: Remediation effort per Class II family in the base pack (calibration)
+  low: 4
+  base: 4
+  high: 4
+  unit: FTE-years per family
+  source: pack/clients/example-group/client.yaml (remediation_fte_years.class_ii)
+  label: module (calibration)
+- section: cost
+  key: rem_type_exp
+  desc: Exponent on the number of product types (models share a code base, so effort grows less than in proportion)
+  low: 0.5
+  base: 0.5
+  high: 0.5
+  unit: exponent
+  source: assumption
+  label: assumption
+- section: cost
+  key: rem_scale
+  desc: Scale of an Aldermoor family relative to a base-pack family of the same E3 complexity (code base, platforms, test matrix)
+  low: 1.0
+  base: 1.5
+  high: 2.5
+  unit: multiple
+  source: assumption (scaled from the base pack; the base-pack high scenario adds 30% to remediation)
+  label: assumption
+- section: cost
+  key: sev_arc
+  desc: Gap severity, Arc devices (monthly patches and 7-year phone support exist; gaps are SBOM per version, earbud update path, secure-default review)
+  low: 0.4
+  base: 0.6
+  high: 0.9
+  unit: multiple of base-pack gap level
+  source: assumption
+  label: assumption
+- section: cost
+  key: sev_halo
+  desc: Gap severity, Halo and Lumen OS platforms (mature update system; gaps in attack-surface evidence, logging, OEM image hardening)
+  low: 0.5
+  base: 0.7
+  high: 1.0
+  unit: multiple of base-pack gap level
+  source: assumption
+  label: assumption
+- section: cost
+  key: sev_apps
+  desc: Gap severity, consumer apps (store-delivered updates; gaps in data minimisation evidence and component due diligence)
+  low: 0.3
+  base: 0.5
+  high: 0.8
+  unit: multiple of base-pack gap level
+  source: assumption
+  label: assumption
+- section: cost
+  key: sev_lumen
+  desc: Gap severity, Lumen browser and WebView (sandboxing and weekly fixes exist; gaps mostly in evidence of Annex I Part I properties)
+  low: 0.3
+  base: 0.5
+  high: 0.8
+  unit: multiple of base-pack gap level
+  source: assumption
+  label: assumption
+- section: cost
+  key: sev_hearth
+  desc: Gap severity, Hearth smart home (local interfaces, legacy default credentials, twice-yearly alarm firmware, security logging)
+  low: 0.8
+  base: 1.2
+  high: 1.6
+  unit: multiple of base-pack gap level
+  source: assumption
+  label: assumption
+- section: cost
+  key: sev_pulse
+  desc: Gap severity, Pulse wearables (Bluetooth pairing, companion-app data, update cadence, short support policies)
+  low: 0.9
+  base: 1.3
+  high: 1.8
+  unit: multiple of base-pack gap level
+  source: assumption (Appendix G Exhibit 5 shows 2-3 year wearable policies at a comparable company)
+  label: assumption
+- section: cost
+  key: sev_keystone
+  desc: Gap severity, Keystone keys and Bastion (key firmware is not field-updatable, so the Annex I Part I(2)(c) update property needs a redesign or a justified replacement policy)
+  low: 1.0
+  base: 1.5
+  high: 2.0
+  unit: multiple of base-pack gap level
+  source: assumption (portfolio-classification/portfolio.yaml F25 cadence)
+  label: assumption
+- section: cost
+  key: sev_cloud
+  desc: Gap severity, installed cloud and enterprise products (on-prem connectors, VPN gateway, Edge Class II hardening)
+  low: 0.5
+  base: 0.8
+  high: 1.1
+  unit: multiple of base-pack gap level
+  source: assumption
+  label: assumption
+- section: cost
+  key: sev_oss
+  desc: Gap severity, paid open-source distributions (Mooring Enterprise, Tensile LTS)
+  low: 0.4
+  base: 0.7
+  high: 1.0
+  unit: multiple of base-pack gap level
+  source: assumption
+  label: assumption
+
+# ---------------------------------------------------------------- cost: support-period extension (v2). Per family in families.csv.
+# Under the per-unit reading (Commission FAQ 4.5.3 and 7.2; Appendix G), a unit placed late in a model's sales life needs its own
+# 5-year period. A policy anchored to launch therefore needs floor + sales life years; one anchored to last sale needs the floor.
+- section: cost
+  key: sp_floor_years
+  desc: Support-period floor unless expected use time is shorter
+  low: 5
+  base: 5
+  high: 5
+  unit: years
+  source: Art 13(8) (oj-verification/claims.csv B15; reports/sections/08-annex1-part2.md)
+  label: module
+- section: cost
+  key: sp_sales_life_years
+  desc: Years a hardware model is placed on the EU market after launch
+  low: 2
+  base: 2.5
+  high: 3
+  unit: years
+  source: assumption (E3 new_types_per_year implies a 2-3 year model cycle)
+  label: assumption
+- section: cost
+  key: sp_fte_per_model_year
+  desc: Sustaining security engineering per model per extra year of support, at E3 complexity 1 (patch backports, test, release)
+  low: 0.3
+  base: 0.6
+  high: 1.2
+  unit: FTE per model-year
+  source: assumption
+  label: assumption
+
+# ---------------------------------------------------------------- cost: lever costs (v2). Zero unless the lever is on.
+- section: cost
+  key: nb_day_rate_eur
+  desc: Notified-body day rate for reserved capacity
+  low: 1500
+  base: 1800
+  high: 2200
+  unit: EUR per body-day
+  source: portfolio-classification/nb_demand_summary.json (day_rate_eur 1,800); range assumption
+  label: module (range assumption)
+- section: cost
+  key: l1_assessors_reserved
+  desc: Assessors reserved per body in lever L1 (the modelled lever set)
+  low: 8
+  base: 8
+  high: 8
+  unit: assessors per body
+  source: E7 lever set (nb_assessors_reserved base)
+  label: decision
+- section: cost
+  key: l1_reserve_months
+  desc: Months of reserved capacity paid whether used or not (contract to first certificates)
+  low: 4
+  base: 6
+  high: 9
+  unit: months
+  source: assumption
+  label: assumption
+- section: cost
+  key: l1_premium
+  desc: Reservation premium on all reserved body-days
+  low: 0
+  base: 0.10
+  high: 0.20
+  unit: share
+  source: assumption
+  label: assumption
+- section: cost
+  key: l3_contract_eur
+  desc: Third-body onboarding (contract, independence check under Art 39, information exchange) beyond its pre-assessment
+  low: 50000
+  base: 100000
+  high: 200000
+  unit: EUR
+  source: assumption
+  label: assumption
+
+# ---------------------------------------------------------------- cod: cost of delay (v2; low = favourable, i.e. less revenue at risk)
+- section: cod
+  key: cod_exp_hardware
+  desc: Share of weekly EU revenue lost (not deferred) while new hardware units cannot be placed
+  low: 0.7
+  base: 0.9
+  high: 1.0
+  unit: share
+  source: assumption (units already placed may still be sold; only new placings are blocked; reports/sections/15-programme.md)
+  label: assumption
+- section: cod
+  key: cod_buffer_weeks
+  desc: Weeks of channel stock placed before 11 Dec 2027 that can still be sold (hardware only)
+  low: 8
+  base: 4
+  high: 0
+  unit: weeks
+  source: assumption
+  label: assumption
+- section: cod
+  key: cod_exp_swproduct
+  desc: Share of weekly revenue lost for paid software products (licences, nodes) while new versions cannot be placed
+  low: 0.1
+  base: 0.4
+  high: 0.8
+  unit: share
+  source: assumption (high case covers a per-copy reading of placing for software)
+  label: assumption
+- section: cod
+  key: cod_exp_swenabled
+  desc: Share of weekly enabled revenue lost while a free client is held on its last pre-deadline version (feature freeze; security updates continue, Art 69(2) and guidance paras 15, 108)
+  low: 0.01
+  base: 0.03
+  high: 0.10
+  unit: share
+  source: assumption
+  label: assumption
+- section: cod
+  key: cod_margin
+  desc: Contribution margin on revenue lost, used to value levers
+  low: 0.25
+  base: 0.35
+  high: 0.50
+  unit: share
+  source: assumption
+  label: assumption
+
 # ---------------------------------------------------------------- nb: notified-body capacity (schedule inputs; low = favourable)
 - section: nb
   key: nbd_lumen
@@ -1373,6 +1627,42 @@
   type: eur_lump
   value: advisory_eur
   profile: "1,1,1,1,1,0,0,0,0"
+- section: line
+  key: L51
+  desc: Product remediation to close Annex I Part I and II gaps (34 families)
+  workstream: 10 Product remediation and support periods
+  function: Product remediation engineering (in product teams)
+  category: one-off
+  type: fteyrs
+  value: rem_fteyrs
+  profile: "0,0.5,1,1,0.5,0,0,0,0"
+- section: line
+  key: L52
+  desc: Support-period extension to the 5-year floor (accrued commitment, paid when cohorts reach their old end dates)
+  workstream: 10 Product remediation and support periods
+  function: none
+  category: run
+  type: eur_yr
+  value: sp_eur_yr
+  profile: "0,0,0,0,0,1,1,1,1"
+- section: line
+  key: L53
+  desc: L1 reserved notified-body capacity (take-or-pay on unused days plus premium)
+  workstream: 3 Notified body and quality system (E3)
+  function: none
+  category: one-off
+  type: eur_lump
+  value: l1_cost_eur
+  profile: "0,0,1,1,1,0,0,0,0"
+- section: line
+  key: L54
+  desc: L3 third notified body onboarding (pre-assessment and contract)
+  workstream: 3 Notified body and quality system (E3)
+  function: none
+  category: one-off
+  type: eur_lump
+  value: l3_cost_eur
+  profile: "0,1,1,0,0,0,0,0,0"
 
 # ---------------------------------------------------------------- activities (durations in days; low = favourable)
 # preds: finish-to-start predecessors. cond_preds: "condition:ID; condition:ID" active when condition <> 0.
@@ -1833,3 +2123,373 @@
   high: 0
   target: 404
   source: readiness node
+
+# ---------------------------------------------------------------- market: notified-body market scenarios (v2)
+# key = <scenario>.<target>. Target is an activity (NB0, NB2, NB3) or an nb input. "bc:" values point to E3's Module B+C
+# body-days for that organisation. Scenario A (stated) uses the values above unchanged. Days from 2 Nov 2026; low = favourable.
+- section: market
+  key: B.NB0
+  desc: Evidence-based - first Module H body designated (no Module H accreditation announced by 1 Nov 2026; DAkkS opened Module H applications 28 Jul 2026)
+  low: 150
+  base: 330
+  high: 540
+  source: market_evidence.csv (DAkkS 28 Jul 2026; Brightsight 26 Aug 2026 Module H in progress; NANDO zero at 12 Sep 2026); reports/sections/15-programme.md (12-18 months accreditation plus notification, commentary)
+  label: assumption (evidence-based)
+- section: market
+  key: B.NB2
+  desc: Evidence-based - lag to a second Module H body
+  low: 30
+  base: 90
+  high: 240
+  source: assumption (evidence-based)
+  label: assumption (evidence-based)
+- section: market
+  key: B.NB3
+  desc: Evidence-based - lag to a third Module H body
+  low: 60
+  base: 150
+  high: 300
+  source: assumption (evidence-based)
+  label: assumption (evidence-based)
+- section: market
+  key: B.nb_assessors
+  desc: Evidence-based - CRA assessors per body working for Aldermoor at once (new bodies, many clients)
+  low: 5
+  base: 3
+  high: 2
+  source: assumption (no body has published CRA assessor numbers; E3 thin market assumes 8 per body in total)
+  label: assumption (evidence-based)
+- section: market
+  key: B.nb_assessors_reserved
+  desc: Evidence-based - assessors per body if reserved (lever L1)
+  low: 8
+  base: 5
+  high: 3
+  source: assumption (evidence-based)
+  label: assumption (evidence-based)
+- section: market
+  key: C.NB0
+  desc: Module B and C only - first Module B body designated (Brightsight accredited for Module B by RvA on 26 Aug 2026; pilot assessment and RDI notification still to come)
+  low: 60
+  base: 120
+  high: 240
+  source: market_evidence.csv (Brightsight 26 Aug 2026, vendor statement); oj-verification/claims.csv K24 (2-week objection window with accreditation)
+  label: assumption (evidence-based)
+- section: market
+  key: C.NB2
+  desc: Module B and C only - lag to a second Module B body
+  low: 30
+  base: 120
+  high: 270
+  source: assumption (evidence-based)
+  label: assumption (evidence-based)
+- section: market
+  key: C.NB3
+  desc: Module B and C only - lag to a third Module B body
+  low: 60
+  base: 180
+  high: 330
+  source: assumption (evidence-based)
+  label: assumption (evidence-based)
+- section: market
+  key: C.nb_assessors
+  desc: Module B and C only - assessors per body working for Aldermoor
+  low: 5
+  base: 3
+  high: 2
+  source: assumption (evidence-based)
+  label: assumption (evidence-based)
+- section: market
+  key: C.nb_assessors_reserved
+  desc: Module B and C only - assessors per body if reserved (lever L1)
+  low: 8
+  base: 5
+  high: 3
+  source: assumption (evidence-based)
+  label: assumption (evidence-based)
+- section: market
+  key: C.nbd_lumen
+  desc: Module B and C only - year-1 body-days, Lumen (EU-type examinations for every type)
+  low: bc:lumen
+  base: bc:lumen
+  high: bc:lumen
+  source: portfolio-classification/nb_demand_summary.json (bc_year1_body_days)
+  label: module
+- section: market
+  key: C.nbd_platforms
+  desc: Module B and C only - year-1 body-days, Platforms
+  low: bc:platforms
+  base: bc:platforms
+  high: bc:platforms
+  source: portfolio-classification/nb_demand_summary.json (bc_year1_body_days)
+  label: module
+- section: market
+  key: C.nbd_platforms_joined
+  desc: Module B and C only - no joint quality system; L4 queues Platforms' examinations with Lumen's on one body
+  low: bc:platforms
+  base: bc:platforms
+  high: bc:platforms
+  source: portfolio-classification/nb_demand_summary.json (bc_year1_body_days)
+  label: module
+- section: market
+  key: C.nbd_devices
+  desc: Module B and C only - year-1 body-days, Devices
+  low: bc:devices
+  base: bc:devices
+  high: bc:devices
+  source: portfolio-classification/nb_demand_summary.json (bc_year1_body_days)
+  label: module
+- section: market
+  key: C.nbd_cloud_apps
+  desc: Module B and C only - year-1 body-days, Cloud and apps
+  low: bc:cloud_apps
+  base: bc:cloud_apps
+  high: bc:cloud_apps
+  source: portfolio-classification/nb_demand_summary.json (bc_year1_body_days)
+  label: module
+
+# ---------------------------------------------------------------- corr: factor loadings for the correlated Monte Carlo (v2)
+# Three shared latent factors, each standard normal: wage (wage and market inflation for specialist people), shortage (market-wide
+# notified-body shortage), legal (legal-position outcomes that move classification-driven demand). An input's normal score is
+# z = sum(loading x factor) + sqrt(1 - sum(loading^2)) x own noise, mapped to its PERT distribution. A positive loading moves the
+# input towards its high (costly or slow) end. Keys prefixed act: are activity durations (pc_ contracting variants follow).
+- section: corr
+  key: fte_cost_usd
+  wage: 0.8
+  shortage: 0
+  legal: 0
+  why: Loaded people cost moves with the market for engineers
+- section: corr
+  key: tr_eur_per_word
+  wage: 0.4
+  shortage: 0
+  legal: 0
+  why: Translation prices follow labour costs
+- section: corr
+  key: e2_loc_eur_per_variant
+  wage: 0.4
+  shortage: 0
+  legal: 0
+  why: As translation
+- section: corr
+  key: train_eur_per_learner
+  wage: 0.3
+  shortage: 0
+  legal: 0
+  why: Delivery partners price on labour
+- section: corr
+  key: advisory_eur
+  wage: 0.5
+  shortage: 0
+  legal: 0
+  why: Advisory day rates
+- section: corr
+  key: legal_opinion_eur
+  wage: 0.5
+  shortage: 0
+  legal: 0.3
+  why: Counsel rates; more contested calls need longer opinions
+- section: corr
+  key: legal_build_fte
+  wage: 0
+  shortage: 0
+  legal: 0.4
+  why: Failed classification calls add counsel work
+- section: corr
+  key: legal_run_fte
+  wage: 0
+  shortage: 0
+  legal: 0.4
+  why: As above
+- section: corr
+  key: doc_units
+  wage: 0
+  shortage: 0
+  legal: 0.4
+  why: Wider scope readings add product lines to document
+- section: corr
+  key: nb_day_rate_eur
+  wage: 0.4
+  shortage: 0.5
+  legal: 0
+  why: Scarce assessors raise day rates
+- section: corr
+  key: nb_pre_eur_per_org
+  wage: 0.3
+  shortage: 0.5
+  legal: 0
+  why: As day rate
+- section: corr
+  key: l1_premium
+  wage: 0
+  shortage: 0.6
+  legal: 0
+  why: Reservation premium rises with scarcity
+- section: corr
+  key: l1_reserve_months
+  wage: 0
+  shortage: 0.5
+  legal: 0
+  why: Scarcity forces earlier and longer reservations
+- section: corr
+  key: nb_y1_lumen
+  wage: 0.3
+  shortage: 0.5
+  legal: 0.4
+  why: Fees follow day rates (wage, shortage) and scope (legal)
+- section: corr
+  key: nb_y1_platforms
+  wage: 0.3
+  shortage: 0.5
+  legal: 0.4
+  why: As above (Halo Services call)
+- section: corr
+  key: nb_y1_devices
+  wage: 0.3
+  shortage: 0.5
+  legal: 0.3
+  why: As above
+- section: corr
+  key: nb_y1_cloud_apps
+  wage: 0.3
+  shortage: 0.5
+  legal: 0.3
+  why: As above
+- section: corr
+  key: nb_y1_platforms_joined
+  wage: 0.3
+  shortage: 0.5
+  legal: 0.4
+  why: As above
+- section: corr
+  key: nb_ss_lumen
+  wage: 0.3
+  shortage: 0.5
+  legal: 0.4
+  why: As above
+- section: corr
+  key: nb_ss_platforms
+  wage: 0.3
+  shortage: 0.5
+  legal: 0.4
+  why: As above
+- section: corr
+  key: nb_ss_devices
+  wage: 0.3
+  shortage: 0.5
+  legal: 0.3
+  why: As above
+- section: corr
+  key: nb_ss_cloud_apps
+  wage: 0.3
+  shortage: 0.5
+  legal: 0.3
+  why: As above
+- section: corr
+  key: nbd_lumen
+  wage: 0
+  shortage: 0
+  legal: 0.5
+  why: WebView call (E3 F13) moves Lumen scope
+- section: corr
+  key: nbd_platforms
+  wage: 0
+  shortage: 0
+  legal: 0.6
+  why: Halo Services call (E3 rank 1) moves Platforms scope
+- section: corr
+  key: nbd_platforms_joined
+  wage: 0
+  shortage: 0
+  legal: 0.5
+  why: As above
+- section: corr
+  key: nbd_devices
+  wage: 0
+  shortage: 0
+  legal: 0.3
+  why: Smoke alarm and Keystone calls
+- section: corr
+  key: nbd_cloud_apps
+  wage: 0
+  shortage: 0
+  legal: 0.3
+  why: Connector calls (E3 F31)
+- section: corr
+  key: nb_assessors
+  wage: 0
+  shortage: 0.7
+  legal: 0
+  why: A market-wide shortage cuts the assessors any one client gets
+- section: corr
+  key: nb_assessors_reserved
+  wage: 0
+  shortage: 0.7
+  legal: 0
+  why: As above, even with a reservation
+- section: corr
+  key: nb_hmin
+  wage: 0
+  shortage: 0.3
+  legal: 0
+  why: Stretched bodies take longer per decision
+- section: corr
+  key: sp_sales_life_years
+  wage: 0
+  shortage: 0
+  legal: 0.5
+  why: The per-unit reading of the support period (FAQ 4.5.3) bites harder the longer models are sold
+- section: corr
+  key: rem_scale
+  wage: 0
+  shortage: 0
+  legal: 0.3
+  why: Stricter readings of Annex I widen remediation
+- section: corr
+  key: act:NB0
+  wage: 0
+  shortage: 0.8
+  legal: 0
+  why: Designation date is the shortage itself
+- section: corr
+  key: act:NB2
+  wage: 0
+  shortage: 0.6
+  legal: 0
+  why: As above
+- section: corr
+  key: act:NB3
+  wage: 0
+  shortage: 0.6
+  legal: 0
+  why: As above
+- section: corr
+  key: act:K_SW
+  wage: 0
+  shortage: 0.5
+  legal: 0
+  why: Busy bodies contract slowly
+- section: corr
+  key: act:K_HW
+  wage: 0
+  shortage: 0.5
+  legal: 0
+  why: As above
+- section: corr
+  key: act:K_CL
+  wage: 0
+  shortage: 0.5
+  legal: 0
+  why: As above
+- section: corr
+  key: act:A14
+  wage: 0.4
+  shortage: 0
+  legal: 0
+  why: A tight labour market slows hiring
+- section: corr
+  key: act:C1
+  wage: 0
+  shortage: 0
+  legal: 0.5
+  why: Contested calls take longer to ratify

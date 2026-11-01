@@ -1,0 +1,60 @@
+# Module E7 operator roles and supply chain: Aldermoor additions (illustrative, fictional client)
+# Every figure here is an illustrative assumption for the fictional reference client, not data.
+# Recorded per the master brief ("record any additions in their module's data file").
+as_at: 2026-11-01
+legal_entities:
+  - id: INC
+    name: Aldermoor Platforms Inc.
+    seat: United States
+    role_recommended: manufacturer of record for own-brand products (Art 3(13))
+  - id: IE
+    name: Aldermoor Ireland Ltd
+    seat: Dublin, Ireland
+    role_recommended: EU importer of INC-branded products (Art 3(16), Art 19); Art 18 authorised representative by written mandate; operator of the EU Aldermoor Store, Halo Store EU storefront and Cloud Marketplace EU billing
+channels:
+  - id: CH1
+    name: Own-brand hardware, EU
+    detail: Aldermoor Store online in 19 Member States; 4 Aldermoor retail stores (Dublin, Berlin, Paris, Milan); about 9,000 carrier and retail partner doors
+    aldermoor_role: manufacturer (INC); importer (IE) where IE first makes INC-branded units available
+    downstream: carriers and retailers are distributors (Art 20) and need documents from Aldermoor (Art 20(2)(b))
+  - id: CH2
+    name: ODM-built own-brand products
+    detail: 18 ODMs build Pulse fitness trackers, earbuds, Hearth thermostats and smoke detectors, and "Aldermoor Essentials" accessories with firmware (keyboards, trackers, smart plugs)
+    aldermoor_role: manufacturer under Art 3(13) ("has ... designed, developed or manufactured"); Art 21 not needed
+  - id: CH3
+    name: Third-party hardware in Aldermoor Store EU (online and retail)
+    skus_total: 1750
+    skus_with_digital_elements: 640
+    sourced_via_eu_distributors: 430   # Aldermoor = distributor (Art 20)
+    imported_direct_from_non_eu_brands: 210   # IE = importer (Art 19)
+    rebadged_under_aldermoor_brand: 0   # any future rebadge triggers Art 21
+  - id: CH4
+    name: Halo Store (app store for Halo OS devices)
+    apps_listed: 2400000
+    eu_commercial_model_assumed: Aldermoor acts as the developer's agent; developer is seller of record
+    aldermoor_role: online marketplace provider for third-party apps (recital 78; not a CRA economic operator), manufacturer for its own apps
+  - id: CH5
+    name: Aldermoor Cloud Marketplace
+    listings_total: 6000
+    installable_listings: 1900   # VM images, containers, agents, on-prem software: products with digital elements
+    eu_commercial_model_assumed: IE is merchant of record (reseller) for EU customers
+    aldermoor_role: distributor (EU ISV) or importer (non-EU ISV) for installable listings it resells; nothing for browser-only SaaS listings
+  - id: CH6
+    name: Enterprise, on-prem and air-gapped deliveries
+    detail: on-prem connectors, Aldermoor Edge appliances, "Aldermoor Cloud Isolated" appliances for 3 EU government customers
+  - id: CH7
+    name: Acquisitions
+    detail: 6-10 product acquisitions a year, mostly share deals of software and device start-ups
+suppliers:
+  tier_1: {count: 140, examples: "18 ODMs; 42 SoC, modem, Wi-Fi/BT, secure-element and sensor firmware vendors; 35 commercial OS, RTOS, crypto and codec vendors; 45 contract developers of remote data processing"}
+  tier_2: {count: 650, examples: "commercial libraries and SDKs, test and build tooling, hosted dependencies used by installed products"}
+  tier_3: {count: 1800, examples: "hardware without firmware, packaging, low-risk tooling; intake record only"}
+radio_products: [Arc phones, tablets, Lumen OS laptops (Wi-Fi/BT), earbuds, Hearth cameras, doorbells, locks, speakers and displays, thermostats, smoke detectors, mesh routers, Pulse wearables, Keystone NFC/BLE variants]
+effort_estimates_hours:
+  importer_check_initial_per_sku: 8
+  distributor_check_initial_per_sku: 2
+  marketplace_listing_check_manual: 3
+  marketplace_listing_check_automated: 1
+  annual_churn_ch3: 0.35
+  annual_new_listing_share_ch5: 0.25
+  hours_per_fte_year: 1600

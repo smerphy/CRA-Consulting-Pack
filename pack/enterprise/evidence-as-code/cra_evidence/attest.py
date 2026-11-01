@@ -28,6 +28,15 @@ identity verified this exact payload" yields a problem code:
   TLOG_MISSING / TLOG_INVALID   transparency-log entry required but absent, or fails offline verification
   SIGSTORE_UNAVAILABLE      keyless bundle but sigstore-python is not installed
   BUNDLE_INVALID            bundle cannot be parsed
+  TIMESTAMP_INVALID         an RFC 3161 timestamp in the bundle fails verification against the trusted TSAs
+  TIMESTAMP_MISSING         policy requires an independent signing time (log entry or RFC 3161 timestamp) and none verified
+
+Signing time. A key-based signature has no time of its own. The verifier
+takes it, in order of preference, from a verified transparency-log entry
+(integrated time), from a verified RFC 3161 timestamp over the signature
+bytes (``verificationMaterial.timestampVerificationData`` in a Sigstore v0.3
+bundle; see ``tsa.py``), or from the gate's clock, and records which source
+it used. Key status and validity windows are checked at that time.
   STATEMENT_INVALID         verified payload is not an in-toto Statement
 """
 
@@ -109,6 +118,13 @@ class Attestation:
     @property
     def tlog_entries(self):
         return ((self.raw or {}).get("verificationMaterial") or {}).get("tlogEntries") or []
+
+    @property
+    def rfc3161_timestamps(self):
+        """DER TimeStampResp tokens from a Sigstore v0.3 bundle (empty for a bare DSSE envelope)."""
+        vm = (self.raw or {}).get("verificationMaterial") or {} if self.kind == "sigstore_bundle" else {}
+        tvd = vm.get("timestampVerificationData") or {}
+        return [b64d(t["signedTimestamp"]) for t in tvd.get("rfc3161Timestamps") or [] if t.get("signedTimestamp")]
 
     def unverified_statement(self):
         """Parse the statement WITHOUT verification (selection and display only)."""
@@ -230,6 +246,13 @@ class TrustPolicy:
         self.trusted_root()
         return self._tr_path
 
+    def timestamp_authorities(self):
+        """RFC 3161 authorities trusted for signing time (``timestamp_authorities`` block)."""
+        if not hasattr(self, "_tsas"):
+            from . import tsa as _tsa
+            self._tsas = _tsa.authorities_from_policy(self.cfg, self.base_dir)
+        return self._tsas
+
 
 # --------------------------------------------------------- verification
 
@@ -321,8 +344,28 @@ def _verify_key(att, trust, rules, purpose, product_id, now, res):
     elif rules.get("require_tlog"):
         res["problems"].append(("TLOG_MISSING", "policy requires a transparency-log entry for this signer"))
         return
+    source = "transparency log integrated time" if res["tlog"] else "gate evaluation time"
+    tokens = att.rfc3161_timestamps
+    if tokens:
+        from . import tsa as _tsa
+        stamps = []
+        for tok in tokens:
+            try:
+                stamps.append(_tsa.verify_response(tok, s["sig"], trust.timestamp_authorities()))
+            except _tsa.TimestampError as e:
+                res["problems"].append(("TIMESTAMP_INVALID", "RFC 3161 timestamp over the signature failed "
+                                        "verification: %s" % e))
+                return
+        res["signer"]["timestamps"] = stamps
+        if not res["tlog"]:
+            signing_time = min(_parse_dt(t["gen_time"]) for t in stamps)
+            source = "RFC 3161 timestamp (%s)" % ", ".join(sorted({t["tsa"] for t in stamps}))
+    if rules.get("require_timestamp") and not res["tlog"] and not tokens:
+        res["problems"].append(("TIMESTAMP_MISSING", "policy requires an independent signing time (transparency-log "
+                                "entry or RFC 3161 timestamp) for this signer; none present"))
+        return
     res["signer"]["signing_time"] = signing_time.isoformat().replace("+00:00", "Z")
-    res["signer"]["signing_time_source"] = "transparency log integrated time" if res["tlog"] else "gate evaluation time"
+    res["signer"]["signing_time_source"] = source
     spec = dict(spec, _revoked_set=trust.revoked)
     st = _key_status(name, spec, spec.get("keyid") or kid, signing_time)
     if st:

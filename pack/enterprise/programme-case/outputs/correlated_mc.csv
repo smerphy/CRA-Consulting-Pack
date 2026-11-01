@@ -1,0 +1,13 @@
+plan,mode,measure,p10_eur_m,p50_eur_m,p80_eur_m,p90_eur_m,mean_eur_m
+recommended,independent,one_off,94.69,112.1,126.0,133.3,113.29
+recommended,correlated,one_off,94.16,112.09,126.77,134.2,113.42
+recommended,independent,run_2028,33.55,38.28,41.98,44.12,38.58
+recommended,correlated,run_2028,33.46,38.27,42.2,44.29,38.6
+recommended,independent,total,141.52,160.94,175.84,183.57,161.95
+recommended,correlated,total,140.31,160.84,176.94,185.62,162.11
+as_written,independent,one_off,91.95,109.02,122.83,130.53,110.25
+as_written,correlated,one_off,91.25,109.06,123.63,131.13,110.36
+as_written,independent,run_2028,33.55,38.28,41.98,44.12,38.58
+as_written,correlated,run_2028,33.46,38.27,42.2,44.29,38.6
+as_written,independent,total,138.72,157.82,172.76,180.68,158.92
+as_written,correlated,total,137.39,157.85,173.8,182.49,159.05

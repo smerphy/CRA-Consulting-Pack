@@ -134,7 +134,13 @@ def build_bundle(release_dir, osv_records=None, kev_ids=None, generated_at=None)
             ctx["errors"].append(("VEX_UNPARSEABLE", str(e)))
     matches = []
     if sbom_norm is not None and osv_records is not None:
-        matches = C.match_osv(sbom_norm["components"], osv_records, kev_ids or set())
+        comps = sbom_norm["components"]
+        root = sbom_norm.get("root") or {}
+        # The product's own advisories: match the SBOM root (the shipped artefact) as well.
+        if root.get("name") and root.get("version") and not any(
+                c.get("name") == root["name"] and c.get("version") == root["version"] for c in comps):
+            comps = comps + [{"name": root["name"], "version": root["version"], "purl": root.get("purl")}]
+        matches = C.match_osv(comps, osv_records, kev_ids or set())
         status_by_vuln = {}
         for s in (vex_norm or {}).get("statements", []):
             status_by_vuln.setdefault(s["vulnerability"], s)

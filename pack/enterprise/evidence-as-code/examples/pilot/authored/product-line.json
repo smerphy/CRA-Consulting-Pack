@@ -1,0 +1,172 @@
+{
+  "label": "AUTHORED FOR THE PILOT. Every CRA judgement in this file (classification, support period, placing events, the four guidance pt 110 answers, decisions and declarations) was written by the module author to exercise the pipeline. None of it is a statement by the requests maintainers or the Python Software Foundation, who had no involvement. The changelog_basis fields quote or summarise the project's real HISTORY.md, read from each version's sdist on 1 Nov 2026.",
+  "product": {
+    "product_id": "requests",
+    "name": "requests HTTP library for Python (pilot product line; real open-source project)",
+    "manufacturer": "Pilot assumption: treated as if placed on the EU market by Aldermoor Platforms (fictional). Real project: github.com/psf/requests; maintainers not involved.",
+    "product_type": "software",
+    "family": "Python HTTP client"
+  },
+  "classification": {
+    "class": "default",
+    "annex_category": "Not listed in Annex III or IV (authored assumption: general-purpose HTTP client library)",
+    "conformity_route": "module_a",
+    "harmonised_standards_applied_in_full": []
+  },
+  "support": {
+    "years_from_version_date": 5,
+    "latest_version_rule": true,
+    "justification": "Authored: each version supported for 5 years from its release date; users receive fixes by moving to the latest version (Art 13(10))."
+  },
+  "member_states": [
+    "IE",
+    "DE",
+    "FR",
+    "NL"
+  ],
+  "versions": [
+    {
+      "version": "2.31.0",
+      "change_type": "first_placing",
+      "decision": "first_placing",
+      "questions": {
+        "new_threat_vectors": false,
+        "new_attack_scenarios": false,
+        "changed_likelihood": false,
+        "changed_impact": false
+      },
+      "rationale": "First version of the pilot sequence, treated as the first placing of the product line.",
+      "changelog_basis": "2.31.0 (2023-05-22): security fix for Proxy-Authorization header forwarding on HTTPS redirects (CVE-2023-32681).",
+      "assessed_by": null
+    },
+    {
+      "version": "2.32.2",
+      "change_type": "security_and_functionality",
+      "decision": "substantial",
+      "questions": {
+        "new_threat_vectors": false,
+        "new_attack_scenarios": false,
+        "changed_likelihood": true,
+        "changed_impact": false
+      },
+      "rationale": "Treated as substantial for illustration: the shared global SSLContext introduced in 2.32.0 changes how TLS verification state is reused across requests, which the assessor judged a change in the likelihood of TLS verification errors that the risk assessment did not foresee. New placing; conformity assessment repeated (Module A).",
+      "changelog_basis": "2.32.0 (yanked) fixed verify=False persisting on a Session (CVE-2024-35195) and added global SSLContext reuse, optional chardet, src layout and Python 3.12 support; 2.32.1 (yanked) fixed the sdist; 2.32.2 renamed _get_connection to get_connection_with_tls_context.",
+      "assessed_by": "Product security officer, pilot (authored role)",
+      "conformity_assessment_ref": "PILOT-CA-requests-2.32.2 (authored)",
+      "bundling_justification": "Upstream shipped the CVE-2024-35195 fix in the same release as the TLS-context and packaging changes; 2.32.0 and 2.32.1 were yanked, so 2.32.2 is the first installable version carrying the fix."
+    },
+    {
+      "version": "2.32.3",
+      "change_type": "non_security_maintenance",
+      "decision": "not_substantial",
+      "questions": {
+        "new_threat_vectors": false,
+        "new_attack_scenarios": false,
+        "changed_likelihood": false,
+        "changed_impact": false
+      },
+      "rationale": "Bug fixes restoring custom SSLContext subclasses and Python builds without ssl; no new interfaces or data flows.",
+      "changelog_basis": "2.32.3 (2024-05-29): fixed custom SSLContexts in HTTPAdapter subclasses; fixed running on Python without the ssl module.",
+      "assessed_by": "Product security officer, pilot (authored role)"
+    },
+    {
+      "version": "2.32.4",
+      "change_type": "security_update",
+      "decision": "not_substantial",
+      "questions": {
+        "new_threat_vectors": false,
+        "new_attack_scenarios": false,
+        "changed_likelihood": false,
+        "changed_impact": false
+      },
+      "rationale": "Security fix only (guidance pt 108).",
+      "changelog_basis": "2.32.4 (2025-06-10): CVE-2024-47081, netrc credentials retrieved for the wrong host with a crafted URL.",
+      "assessed_by": "Product security officer, pilot (authored role)"
+    },
+    {
+      "version": "2.32.5",
+      "change_type": "functionality",
+      "decision": "not_substantial",
+      "questions": {
+        "new_threat_vectors": false,
+        "new_attack_scenarios": false,
+        "changed_likelihood": false,
+        "changed_impact": false
+      },
+      "rationale": "Reverts the 2.32.0 SSLContext caching to earlier, already assessed behaviour; Python version support changes. All four questions answered no.",
+      "changelog_basis": "2.32.5 (2025-08-18): reverted SSLContext caching; added Python 3.14; dropped Python 3.8.",
+      "assessed_by": "Product security officer, pilot (authored role)"
+    },
+    {
+      "version": "2.33.0",
+      "change_type": "security_and_functionality",
+      "decision": "not_substantial",
+      "questions": {
+        "new_threat_vectors": false,
+        "new_attack_scenarios": false,
+        "changed_likelihood": false,
+        "changed_impact": false
+      },
+      "rationale": "Security fix bundled with a build-system migration and a netrc bug fix; no new interfaces or data flows. All four questions answered no.",
+      "changelog_basis": "2.33.0 (2026-03-25): CVE-2026-25645 (extract_zipped_paths writes to a predictable location); migrated to a PEP 517 setuptools build; empty netrc entry fix; dropped Python 3.9.",
+      "assessed_by": "Product security officer, pilot (authored role)",
+      "bundling_justification": "Upstream release bundles the fix with maintenance changes; no separate security-only build exists for this version."
+    },
+    {
+      "version": "2.33.1",
+      "change_type": "non_security_maintenance",
+      "decision": "not_substantial",
+      "questions": {
+        "new_threat_vectors": false,
+        "new_attack_scenarios": false,
+        "changed_likelihood": false,
+        "changed_impact": false
+      },
+      "rationale": "Bug fixes in header parsing and test clean-up.",
+      "changelog_basis": "2.33.1 (2026-03-30): test clean-up for CVE-2026-25645; Content-Type parsing for malformed values; consistent errors for malformed headers.",
+      "assessed_by": "Product security officer, pilot (authored role)"
+    },
+    {
+      "version": "2.34.0",
+      "change_type": "functionality",
+      "decision": "not_substantial",
+      "questions": {
+        "new_threat_vectors": false,
+        "new_attack_scenarios": false,
+        "changed_likelihood": false,
+        "changed_impact": false
+      },
+      "rationale": "Inline type hints and new Python versions; the no_proxy fix narrows proxy bypass. Assessor judged no new threat vectors or attack scenarios and no increase in likelihood or impact.",
+      "changelog_basis": "2.34.0 (2026-05-11): inline types; Python 3.15 and 3.14t support; Digest auth usedforsecurity=False; Response.history self-reference fix; no greedy no_proxy matching; duplicate leading slashes kept.",
+      "assessed_by": "Product security officer, pilot (authored role)"
+    },
+    {
+      "version": "2.34.1",
+      "change_type": "non_security_maintenance",
+      "decision": "not_substantial",
+      "questions": {
+        "new_threat_vectors": false,
+        "new_attack_scenarios": false,
+        "changed_likelihood": false,
+        "changed_impact": false
+      },
+      "rationale": "Typing corrections and an iterable-detection bug fix.",
+      "changelog_basis": "2.34.1 (2026-05-13): typing changes for json and headers; Response.reason typed str; iterable detection for bodies with custom __getattr__.",
+      "assessed_by": "Product security officer, pilot (authored role)"
+    },
+    {
+      "version": "2.34.2",
+      "change_type": "non_security_maintenance",
+      "decision": "not_substantial",
+      "questions": {
+        "new_threat_vectors": false,
+        "new_attack_scenarios": false,
+        "changed_likelihood": false,
+        "changed_impact": false
+      },
+      "rationale": "Typing correction only.",
+      "changelog_basis": "2.34.2 (2026-05-14): headers input type moved back to Mapping.",
+      "assessed_by": "Product security officer, pilot (authored role)"
+    }
+  ]
+}

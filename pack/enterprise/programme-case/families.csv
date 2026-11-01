@@ -1,0 +1,41 @@
+family_id,rem_scope,rem_rate_class,severity_key,readiness_node,cod_node,exposure_class,sp_policy_years,sp_anchor,sp_cohorts_per_year,sp_policy_source
+F01,yes,default,sev_arc,R_DEF,DEF,hardware,7,launch,3,BRIEF.md (Arc phones 7-year support); cohorts = E3 new_types_per_year
+F02,yes,default,sev_arc,R_DEF,DEF,hardware,5,launch,1,E7 addition (assumption: 5 years from launch); cohorts = E3 new_types_per_year
+F03,yes,default,sev_arc,R_DEF,DEF,hardware,2,launch,1,E7 addition (assumption: 2 years from launch; Appendix G found no published period for earbuds); cohorts = E3
+F04,yes,default,sev_arc,R_DEF,DEF,hardware,8,launch,1.5,E7 addition (assumption: 8 years from launch; Appendix G cites 10 years for a comparable laptop OS); cohorts = E3
+F05,yes,default,sev_halo,R_DEF,DEF,none,0,host,0,Integrated in F01 and F02; support follows the host
+F06,yes,default,sev_halo,R_DEF,DEF,sw_enabled,0,evergreen,0,Weekly framework updates; evergreen software (no incremental cost assumed)
+F07,yes,class1,sev_halo,R_PLT,PLT,sw_product,3,launch,1,E7 addition (assumption: each Halo Wear release supported 3 years; Appendix G cites 3 years for a comparable smartwatch); cohorts = one major release a year (E3 substantial_mods_per_year)
+F08,yes,default,sev_apps,R_DEF,DEF,sw_enabled,0,evergreen,0,Evergreen apps
+F09,yes,class1,sev_apps,R_CLD,CLD,sw_enabled,0,evergreen,0,Evergreen app
+F10,yes,class1,sev_apps,R_CLD,CLD,sw_enabled,0,evergreen,0,Evergreen app
+F11,yes,class1,sev_lumen,R_LUM,LUM,sw_enabled,0,evergreen,0,Evergreen browser
+F12,yes,class1,sev_lumen,R_LUM,LUM,sw_enabled,0,evergreen,0,Evergreen browser
+F13,yes,class1,sev_lumen,R_LUM,LUM,sw_enabled,0,evergreen,0,Evergreen component
+F14,yes,class1,sev_halo,R_PLT,PLT,sw_product,10,launch,0.5,E7 addition (assumption: 10 years of updates per device model; Appendix G cites 10 years for a comparable OS); cohorts = E3 new_types_per_year
+F15,yes,class1,sev_hearth,R_DEV,DEV,hardware,5,launch,3,E7 addition (assumption: 5 years from launch; Appendix G cites the same policy for comparable home devices); cohorts = E3
+F16,yes,class1,sev_hearth,R_DEV,DEV,hardware,5,launch,1.5,As F15
+F17,yes,class1,sev_hearth,R_DEV,DEV,hardware,5,launch,1,As F15
+F18,yes,class1,sev_hearth,R_DEV,DEV,hardware,5,launch,3,As F15
+F19,yes,default,sev_hearth,R_DEF,DEF,hardware,5,launch,1,As F15
+F20,yes,default,sev_hearth,R_DEF,DEF,hardware,10,launch,0.5,E7 addition (assumption: 10 years matching sealed-battery life)
+F21,yes,class1,sev_hearth,R_DEV,DEV,hardware,5,launch,1,As F15
+F22,yes,class1,sev_hearth,R_DEV,DEV,sw_enabled,0,evergreen,0,Evergreen app within the Hearth host products
+F23,yes,class1,sev_pulse,R_DEV,DEV,hardware,3,launch,2,E7 addition (assumption: 3 years from launch; Appendix G cites 3 years for a comparable smartwatch); cohorts = E3
+F24,yes,class1,sev_pulse,R_DEV,DEV,hardware,2,last_sold,1.5,E7 addition (assumption: 2 years after last sold; Appendix G cites the same policy for comparable fitness trackers); cohorts = E3
+F25,yes,class1,sev_keystone,R_DEV,DEV,hardware,0,not_updatable,0,Firmware not field-updatable (brief/E3); handled through remediation severity and a replacement policy
+F26,yes,default,sev_keystone,R_DEF,DEF,none,0,host,0,Integrated in Arc devices; support follows the host
+F27,no,,,,,none,0,out,0,Out of scope (E3)
+F28,no,,,,,none,0,out,0,Out of scope (E3)
+F29,yes,default,sev_cloud,R_DEF,DEF,sw_enabled,0,evergreen,0,Evergreen client
+F30,yes,default,sev_cloud,R_DEF,DEF,none,0,evergreen,0,Evergreen SDKs
+F31,yes,default,sev_cloud,R_DEF,DEF,sw_enabled,0,evergreen,0,Evergreen connectors
+F32,yes,class1,sev_cloud,R_CLD,CLD,sw_product,0,evergreen,0,Monthly images; supported on the latest image (legal position; see paper)
+F33,yes,class2,sev_cloud,R_CLD,CLD,sw_product,0,evergreen,0,Quarterly majors; supported through a free upgrade path (legal position; see paper)
+F34,yes,default,sev_cloud,R_DEF,DEF,sw_enabled,0,evergreen,0,Evergreen apps
+F35,no,,,,,none,0,not_placed,0,Not placed (E3/E4)
+F36,no,,,,,none,0,not_placed,0,Not placed (E3/E4)
+F37,no,,,,,none,0,not_placed,0,Not placed (E3/E4)
+F38,no,,,,,none,0,not_placed,0,Not placed (E3/E4)
+F39,yes,default,sev_oss,R_DEF,DEF,sw_product,0,evergreen,0,Quarterly releases on a supported upgrade path
+F40,yes,default,sev_oss,R_DEF,DEF,none,0,evergreen,0,LTS policy set by E4
