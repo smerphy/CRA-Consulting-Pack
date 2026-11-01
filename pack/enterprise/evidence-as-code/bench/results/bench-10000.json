@@ -1,0 +1,52 @@
+{
+  "benchmark": "cra_evidence scale benchmark",
+  "run_at": "2026-11-01T14:25:34Z",
+  "host": {
+    "cpus": 2,
+    "python": "3.13.18",
+    "machine": "x86_64",
+    "processor": "x86_64"
+  },
+  "versions": 10000,
+  "workers": 2,
+  "feed_records": 50000,
+  "components": {
+    "min": 200,
+    "max": 2000,
+    "mean": 1099.9
+  },
+  "decisions": {
+    "FAIL": 177,
+    "PASS": 9353,
+    "REVIEW": 470
+  },
+  "non_info_reason_codes": {
+    "SBOM_MISSING_TOP_LEVEL_DEPENDENCIES": 177,
+    "VULN_UNTRIAGED": 475
+  },
+  "both_signatures_verified": 10000,
+  "signature_failures": 0,
+  "gate_cpu_seconds": 201.09,
+  "generation_cpu_seconds": 175.85,
+  "wall_seconds": 226.19,
+  "per_core_versions_per_second": 49.73,
+  "latency_ms": {
+    "p50": 17.81,
+    "p95": 32.9,
+    "p99": 76.27,
+    "max": 371.48
+  },
+  "extrapolation": {
+    "per_core_versions_per_week": 30075880,
+    "cores_for_2000_per_week_at_10x_peak": 0.0007,
+    "cores_for_20000_per_week_in_one_8h_window": 0.014
+  },
+  "storage": {
+    "mean_raw_kib_per_version": 863.8,
+    "mean_gzip_kib_per_version": 126.2,
+    "tb_per_year_at_104000_versions": 0.0134,
+    "note": "evidence excluding the release binary: SBOM, signed provenance, VEX and signed VEX, two small SARIF files, document stubs, record and Annex VII index; gzip level 6"
+  },
+  "artefact_hashing_mib_per_second_sha256_plus_sha512": 370.1,
+  "keyless_sigstore_verify_ms": 8.49003717999949
+}

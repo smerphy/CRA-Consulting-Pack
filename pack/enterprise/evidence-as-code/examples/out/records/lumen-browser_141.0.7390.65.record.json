@@ -1,7 +1,7 @@
 {
-  "schema_version": "1.0.0",
+  "schema_version": "1.1.0",
   "record_id": "urn:aldermoor:cra-evidence:lumen-browser:141.0.7390.65",
-  "generated_at": "2028-01-11T10:15:00Z",
+  "generated_at": "2026-11-01T14:23:51Z",
   "product": {
     "product_id": "lumen-browser",
     "name": "Lumen Browser (desktop)",
@@ -71,17 +71,34 @@
     "provenance": {
       "uri": "s3://aldermoor-cra-evidence-eu/v1/lumen-browser/141.0.7390.65/evidence/provenance.intoto.json",
       "media_type": "application/vnd.in-toto+json",
-      "size_bytes": 1684,
+      "size_bytes": 1673,
       "digests": {
-        "sha256": "b43e81279dbb367387fddadd04bf0510122729f9ed58998ce5dcc7506b94affe",
-        "sha512": "bde0f047ce26d535510a04f5ac8e50414a0fc79cff728de1802b3f757b7b0d6f86f6bb999cc49144271c7eb797a20be54e0a58ac5bbfeb0450fd4ae1fd0abe50"
+        "sha256": "a91a2a0032637c76ce62ddc88b97d1ca8c87535a1a1fbb08e42a2f4a184a3216",
+        "sha512": "3093dac69b80cc208ee5c705cba55e01659c8c3f776d54913df436ffae7656b1bffa5490d55fe444642e71d47a86a756fa6717dc77230d5b8c9d6c3240f73b62"
       },
       "format": "in-toto Statement v1 / SLSA Provenance v1",
       "predicate_type": "https://slsa.dev/provenance/v1",
       "builder_id": "https://build.aldermoor.example/hermetic/v2",
       "build_type": "https://build.aldermoor.example/buildtypes/hermetic-bazel/v1",
       "invocation_id": "inv-a5896b1decf17558",
-      "subject_digest_match": true
+      "subject_digest_match": true,
+      "verification": {
+        "verified": true,
+        "method": "key",
+        "envelope": "dsse",
+        "signer": {
+          "key": "aldermoor-build-provenance-2027",
+          "keyid": "SHA256:5/BGkSJWhRosY/rZF6zgAvyWO9amzbx8seowHkRKQCA",
+          "algorithm": "ecdsa-p256-sha256",
+          "owner": "Developer Infrastructure (build platform)",
+          "signing_time": "2026-11-01T14:23:51Z",
+          "signing_time_source": "gate evaluation time"
+        },
+        "tlog": null,
+        "trust_policy_id": "aldermoor-attestation-trust/1.0.0",
+        "problems": [],
+        "slsa_build_level": 3
+      }
     },
     "vulnerability_status": {
       "uri": "s3://aldermoor-cra-evidence-eu/v1/lumen-browser/141.0.7390.65/evidence/vex.csaf.json",
@@ -102,11 +119,36 @@
           "components": []
         }
       ],
+      "attestation": {
+        "uri": "s3://aldermoor-cra-evidence-eu/v1/lumen-browser/141.0.7390.65/evidence/vex.csaf.intoto.json",
+        "media_type": "application/vnd.in-toto+json",
+        "size_bytes": 2217,
+        "digests": {
+          "sha256": "b0caa1b95ccc1f299d74e04d969c82e0667f96555ede5d65da8ab032818ff4d4",
+          "sha512": "b1bb0258e30dacc9f6f5d4462047b6d27631bcb9a6c8531fabb3ddaadf6a0be11b3d7c50b4b6c28b8e0b521bdfe21c50f28cfde41a7c409ddca8392f25c104dd"
+        }
+      },
       "known_vulnerability_matches": [],
       "feeds": [
         "OSV snapshot 2026-10-30 (excerpt)",
         "CISA KEV 2026.10.30 (excerpt)"
-      ]
+      ],
+      "verification": {
+        "verified": true,
+        "method": "key",
+        "envelope": "dsse",
+        "signer": {
+          "key": "aldermoor-psirt-vex-2027",
+          "keyid": "SHA256:Ja68j4PPFUhCa4t3WQ7gf2YX0JCkCo2hym3r0duv1Rw",
+          "algorithm": "ed25519",
+          "owner": "Product Security Incident Response Team",
+          "signing_time": "2026-11-01T14:23:51Z",
+          "signing_time_source": "gate evaluation time"
+        },
+        "tlog": null,
+        "trust_policy_id": "aldermoor-attestation-trust/1.0.0",
+        "problems": []
+      }
     },
     "tests": [
       {
@@ -242,7 +284,7 @@
   "signer": {
     "identity": "spiffe://aldermoor.example/release-pipeline/lumen-browser",
     "role": "Release manager (accountable); pipeline identity signs",
-    "signature_ref": "transparency-log entry (illustrative)"
+    "signature_ref": "DSSE envelopes: provenance key aldermoor-build-provenance-2027, VEX key aldermoor-psirt-vex-2027"
   },
   "retention": {
     "retain_until": "2038-02-10",
@@ -252,14 +294,26 @@
   },
   "gate": {
     "decision": "PASS",
-    "policy_id": "aldermoor-cra-gate/1.0.0",
-    "evaluated_at": "2026-11-01T13:36:52Z",
+    "policy_id": "aldermoor-cra-gate/1.1.0",
+    "evaluated_at": "2026-11-01T14:23:51Z",
     "reasons": [
       {
         "code": "SBOM_OK",
         "severity": "info",
         "message": "SPDX 2.3, 8 components, 8 top-level",
         "basis": "Annex I Part II(1); Annex VII pts 2(b), 8 (KB 08-annex1-part2; guide 06-sbom)"
+      },
+      {
+        "code": "PROVENANCE_VERIFIED",
+        "severity": "info",
+        "message": "key signature verified (aldermoor-build-provenance-2027); builder https://build.aldermoor.example/hermetic/v2 at SLSA Build L3 per trust policy aldermoor-attestation-trust/1.0.0; subject bound by sha256",
+        "basis": "Annex VII pt 2(c); Art 13(14); integrity of the technical file (guide 05-sdlc 'sign evidence'); SLSA v1.0 'Verifying artifacts' step 1"
+      },
+      {
+        "code": "VEX_VERIFIED",
+        "severity": "info",
+        "message": "VEX signature verified (aldermoor-psirt-vex-2027)",
+        "basis": "Annex I Part II(2); guidance para 218 (guide 06-sbom): VEX is self-issued, so its origin must be provable"
       },
       {
         "code": "SM_SECURITY_UPDATE",

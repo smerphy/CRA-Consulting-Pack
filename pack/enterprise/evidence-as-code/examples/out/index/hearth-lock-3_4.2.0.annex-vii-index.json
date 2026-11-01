@@ -52,6 +52,13 @@
           "label": "VEX (OpenVEX)"
         },
         {
+          "uri": "s3://aldermoor-cra-evidence-eu/v1/hearth-lock-3/4.2.0/evidence/vex.openvex.intoto.json",
+          "ref": null,
+          "sha256": "8ba9461850367fda62c819ab25992c87639e047755d92db79e35364748e8afeb",
+          "sha512": "d2043606868c1ee89ad3e816141b1ca96a1b9b556a4144e8ba35e1a70f07b1b3efd40fa022d5bf88601589f775c7839131ded50d61c73065f3e4d0e6c5f32cf8",
+          "label": "Signed VEX attestation (verified key by aldermoor-psirt-vex-2027)"
+        },
+        {
           "uri": "s3://aldermoor-cra-evidence-eu/v1/hearth-lock-3/4.2.0/docs/cvd-policy.md",
           "ref": "https://www.aldermoor.example/security/cvd",
           "sha256": "44a1d92cd438154008180b53d3c4ae3d79ed6298b626fd4fd29e6f920c299d91",
@@ -75,12 +82,12 @@
         {
           "uri": "s3://aldermoor-cra-evidence-eu/v1/hearth-lock-3/4.2.0/evidence/provenance.intoto.json",
           "ref": null,
-          "sha256": "a308ae66c1d110845679666b168c2f171e99a45b9d32e50ac82d04113bc69c88",
-          "sha512": "c23fbf345fedeb431aa57885790605cd35da16598f97feddad799393586c34778ecbee80b674d5ffa392432c957c5a016c8f389c1a5dae79ef02cb20100528d9",
-          "label": "Build provenance (https://slsa.dev/provenance/v1; builder https://build.aldermoor.example/hermetic/v2)"
+          "sha256": "801b9404d0b144599ec2b20c739fdd8901980b6c26cbdd4a9787fbd09c1a495f",
+          "sha512": "de9ba1c83b01d9bb44e4152eac36e75ab8a6daad0aa19f37bdbe5ba9f15760969def28b388a9d3976356149454b5c31cab8776701bc646329a5d764a1201a727",
+          "label": "Build provenance (https://slsa.dev/provenance/v1; builder https://build.aldermoor.example/hermetic/v2; verified key by aldermoor-build-provenance-2027 ; SLSA Build L3)"
         }
       ],
-      "note": "Release gate decision: PASS under aldermoor-cra-gate/1.0.0"
+      "note": "Release gate decision: PASS under aldermoor-cra-gate/1.1.0"
     },
     {
       "point": "3",

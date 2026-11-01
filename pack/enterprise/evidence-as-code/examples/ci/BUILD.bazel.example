@@ -1,3 +1,7 @@
+# SKETCH ONLY. Not executable and not tested: //tools/cra:defs.bzl does not
+# exist in this module, and a real rule would need a py_binary for
+# cra_evidence with cryptography and sigstore as hermetic dependencies.
+#
 # Bazel-style integration (design illustration for a hermetic monorepo build).
 #
 # The gate is an ordinary build action: its inputs are the signed artefact,

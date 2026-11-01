@@ -185,7 +185,8 @@ class GateProvenance(unittest.TestCase):
 
     def test_tampered_provenance_fails(self):
         r = decide(bundle(LOCK_OK, mutate_files=rewrite_provenance(
-            lambda st: st["predicate"]["runDetails"]["builder"].update(id="https://evil.example/b"), resign=False)))
+            lambda st: st["predicate"]["runDetails"]["builder"].update(id="https://evil.example/b"), resign=False),
+            resign_after=False))
         self.assertEqual(r["decision"], "FAIL")
         self.assertIn("PROVENANCE_SIGNATURE_INVALID", codes(r, "fail"))
         self.assertNotIn("PROVENANCE_VERIFIED", codes(r))

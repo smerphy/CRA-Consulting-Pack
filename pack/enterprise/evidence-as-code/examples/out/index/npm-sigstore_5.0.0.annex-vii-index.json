@@ -1,0 +1,160 @@
+{
+  "record_id": "urn:aldermoor:cra-evidence:npm-sigstore:5.0.0",
+  "product_id": "npm-sigstore",
+  "version": "5.0.0",
+  "placing_date": "2028-01-20",
+  "retain_until": "2038-01-20",
+  "substantial_modification": "not_substantial",
+  "points": [
+    {
+      "point": "1",
+      "title": "General description: intended purpose, versions affecting compliance, Annex II information",
+      "items": [
+        {
+          "uri": "s3://aldermoor-cra-evidence-eu/v1/npm-sigstore/5.0.0/artefact/sigstore-5.0.0.tgz",
+          "ref": null,
+          "sha256": "3718e9a74a5a824a785b5f3930f767a4efdb052b3d4db65cd7649a5e2aa2f465",
+          "sha512": "849a897e81bf7b8a8541a6ae40bd3473a27a16b1cb0462ad905bd6dc96d34881053a12eb4a375233f81677fc9439f628fe0b0445e8535c60b5559597fbd5f80e",
+          "label": "Shipped artefact"
+        },
+        {
+          "uri": "s3://aldermoor-cra-evidence-eu/v1/npm-sigstore/5.0.0/docs/annex-ii-user-information.md",
+          "ref": "https://www.aldermoor.example/security/npm-sigstore/5.0.0/",
+          "sha256": "c9ccfabfacc0a0507814feb75a4422634cacd0c701ed046bb0c190095f8337cc",
+          "sha512": "1e4853981cadfce3a12bb60357db115f85401fc68cd711d4cf06dc63190571226b1a18c6df7d6d4150bc68e780d9faa261770c5f06aff4ecbc4e7909d73726a7",
+          "label": "Annex II user information"
+        }
+      ],
+      "note": "Product npm-sigstore version 5.0.0; previous 4.1.0"
+    },
+    {
+      "point": "2(a)",
+      "title": "Design and development; system architecture",
+      "items": [],
+      "note": "Maintained outside the pipeline in the product technical file; linked by product id"
+    },
+    {
+      "point": "2(b)",
+      "title": "Vulnerability handling: SBOM, CVD policy, reporting contact, secure update distribution",
+      "items": [
+        {
+          "uri": "s3://aldermoor-cra-evidence-eu/v1/npm-sigstore/5.0.0/evidence/sbom.cdx.json",
+          "ref": null,
+          "sha256": "9b24e4142b761b9a566aa9703d787f9ad576ac8571f97e0d969dd2274698a81f",
+          "sha512": "3c1924f64a9f4e06b93634d77cabc928a823c4e50d59d73ff8fbfa6f06cb0c9258344cc5f7bda6ca434727792f1fc42b66f10fd2170224312a8dbdf44a08da04",
+          "label": "SBOM (CycloneDX 1.5)"
+        },
+        {
+          "uri": "s3://aldermoor-cra-evidence-eu/v1/npm-sigstore/5.0.0/evidence/vex.openvex.json",
+          "ref": null,
+          "sha256": "dcf8db7ba7137a93678331433cb66687bc1548bad2a3ba0822e1807fb04f99f4",
+          "sha512": "b2836f33306d160aab5121f720080844cc447de8ddf6cd1858bd6059e0b1da648a1eedaf0dc000dc474a636e728f82cf9e895bb5e56578c4805c314686e5a608",
+          "label": "VEX (OpenVEX)"
+        },
+        {
+          "uri": "s3://aldermoor-cra-evidence-eu/v1/npm-sigstore/5.0.0/evidence/vex.openvex.intoto.json",
+          "ref": null,
+          "sha256": "6875d6d25c321d9948a10b6d2a8193d86a2399bf7d806c5be6939d4c8488dea3",
+          "sha512": "12c74474297208f77c263f608b7a0adb264a83bdecae290f2438ae8cc467c787a2c5087562929876ecbfee5f95c9870207de94266b6b2037bfb95c0b8aedabf9",
+          "label": "Signed VEX attestation (verified key by aldermoor-psirt-vex-2027)"
+        },
+        {
+          "uri": "s3://aldermoor-cra-evidence-eu/v1/npm-sigstore/5.0.0/docs/cvd-policy.md",
+          "ref": "https://www.aldermoor.example/security/cvd",
+          "sha256": "44a1d92cd438154008180b53d3c4ae3d79ed6298b626fd4fd29e6f920c299d91",
+          "sha512": "bf9d5176194c5baef0e101460e3dae681ce19fa5ff1d80eab50806197cdf64c7baf127d54044c1eb24f7e4fe7a22c020c034654ff1fe71bb23069ac78f7dbcf0",
+          "label": "CVD policy"
+        },
+        {
+          "uri": "s3://aldermoor-cra-evidence-eu/v1/npm-sigstore/5.0.0/docs/update-design-note.md",
+          "ref": "UDN-npm-sigstore",
+          "sha256": "976ed63488a0178f7371a2dfda0992bd7d27a05b2b4321048aeb219c1fb178a2",
+          "sha512": "c9835e4727771485ac109e1ba8e188c30e08cb64e5185a31bacc48be31f499db4f1c5f2e4955d4397263d3b4e7ecc46cf64c282563f16846fcd88ba10b0c8d0c",
+          "label": "Update design note"
+        }
+      ],
+      "note": null
+    },
+    {
+      "point": "2(c)",
+      "title": "Production and monitoring processes with validation evidence",
+      "items": [
+        {
+          "uri": "s3://aldermoor-cra-evidence-eu/v1/npm-sigstore/5.0.0/evidence/npm-attestations.json",
+          "ref": null,
+          "sha256": "ab9228005186f50e545239d7c34d08459a82fe166af867f9bbeeb9cc1a8a426e",
+          "sha512": "be269e05fed037d0a40e26f2b6eeec14ed879552e2bf63ec8042562358b5062db939fcb228ee70dc786c0421f51a73a34f15860a49dc3381fcee25209d61de3b",
+          "label": "Build provenance (https://slsa.dev/provenance/v1; builder https://github.com/actions/runner/github-hosted; verified sigstore-keyless by https://github.com/sigstore/sigstore-js/.github/workflows/release.yml@refs/heads/main ; SLSA Build L2 ; Rekor index 1697019812)"
+        }
+      ],
+      "note": "Release gate decision: REVIEW under aldermoor-cra-gate/1.1.0+real-artefact"
+    },
+    {
+      "point": "3",
+      "title": "Cybersecurity risk assessment and Annex I Part I applicability",
+      "items": [
+        {
+          "uri": "s3://aldermoor-cra-evidence-eu/v1/npm-sigstore/5.0.0/docs/risk-assessment.md",
+          "ref": "RA-npm-sigstore-5.0.0 (synthetic)",
+          "sha256": "bd1610da6258754fea516ea5b06651bf6bb436d377bd5afe8b36b7aa72aead18",
+          "sha512": "e5449e75bc0fcc04d3c0e1e9edfa522af61b256bfb173cb2c1092935752840b304dfbf345450f980e2f5d8e9ad5fb7233b14ca8888dadf33d22fe6eb3b1609e9",
+          "label": "Risk assessment"
+        },
+        {
+          "uri": "s3://aldermoor-cra-evidence-eu/v1/npm-sigstore/5.0.0/docs/applicability-matrix.json",
+          "ref": "AM-npm-sigstore-5.0.0",
+          "sha256": "b09098ccd63dd56e9fef27037ecc7e9965be40cc1c1fe4dc88e93c0e0c04bd13",
+          "sha512": "ae06442277b61ddd07c78cd3cec77bf3aec2c4aeef42a0d0baab01195be345dd18abd07f6144714164a236c826abbbcf0ab2df0b6a4aa1db3c0cb644a8b08120",
+          "label": "Applicability matrix (not applied: none)"
+        }
+      ],
+      "note": null
+    },
+    {
+      "point": "4",
+      "title": "Support period",
+      "items": [],
+      "note": "End 2033-01-31 (5.03 years); justification: Synthetic: five years from placing with Art 13(10) latest-version rule.; latest-version rule (Art 13(10)): yes"
+    },
+    {
+      "point": "5",
+      "title": "Harmonised standards, common specifications, certification schemes",
+      "items": [],
+      "note": "Route module_a; applied in full: none; certificate n/a"
+    },
+    {
+      "point": "6",
+      "title": "Test reports against Annex I Parts I and II",
+      "items": [
+        {
+          "uri": "s3://aldermoor-cra-evidence-eu/v1/npm-sigstore/5.0.0/evidence/sast.sarif",
+          "ref": null,
+          "sha256": "8f6d487897c2b71cca3b7f728d14fd640c14a25edcaef54d70baa00ffcb6cda4",
+          "sha512": "f23f687ff86bed779e883b053b3dff695998a1612938df72a5af1474bbedcae1b6992f20ecb97210e0413f971def87ba9d69226770ec5f7bc7ae81d9c02ef3d4",
+          "label": "sast (ESLint; error=0, note=0, suppressed=0, warning=5)"
+        }
+      ],
+      "note": null
+    },
+    {
+      "point": "7",
+      "title": "EU declaration of conformity",
+      "items": [],
+      "note": "Declaration AP-DoC-NPM-SIGSTORE-SYNTH (new) at https://www.aldermoor.example/compliance/doc/npm-sigstore"
+    },
+    {
+      "point": "8",
+      "title": "SBOM for market surveillance authority on reasoned request",
+      "items": [
+        {
+          "uri": "s3://aldermoor-cra-evidence-eu/v1/npm-sigstore/5.0.0/evidence/sbom.cdx.json",
+          "ref": null,
+          "sha256": "9b24e4142b761b9a566aa9703d787f9ad576ac8571f97e0d969dd2274698a81f",
+          "sha512": "3c1924f64a9f4e06b93634d77cabc928a823c4e50d59d73ff8fbfa6f06cb0c9258344cc5f7bda6ca434727792f1fc42b66f10fd2170224312a8dbdf44a08da04",
+          "label": "SBOM"
+        }
+      ],
+      "note": null
+    }
+  ]
+}

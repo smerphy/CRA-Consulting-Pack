@@ -1,0 +1,50 @@
+{
+  "@context": "https://openvex.dev/ns/v0.2.0",
+  "@id": "https://vex.aldermoor.example/third-party/npm-sigstore/5.0.0",
+  "author": "Aldermoor PSIRT (demonstration)",
+  "role": "integrator",
+  "timestamp": "2026-11-01T12:00:00Z",
+  "version": 1,
+  "statements": [
+    {
+      "vulnerability": {
+        "name": "CVE-2026-118773",
+        "aliases": [
+          "GHSA-3g3m-2fjr-6pw4"
+        ]
+      },
+      "products": [
+        {
+          "@id": "pkg:npm/sigstore@5.0.0",
+          "subcomponents": [
+            {
+              "@id": "pkg:npm/glob"
+            }
+          ]
+        }
+      ],
+      "status": "under_investigation",
+      "status_notes": "Advisory published 2026-10-30; reachability analysis pending (demonstration VEX, not an assessment by the sigstore-js maintainers)"
+    },
+    {
+      "vulnerability": {
+        "name": "CVE-2026-118764",
+        "aliases": [
+          "GHSA-g3hv-75wg-m249"
+        ]
+      },
+      "products": [
+        {
+          "@id": "pkg:npm/sigstore@5.0.0",
+          "subcomponents": [
+            {
+              "@id": "pkg:npm/minimatch"
+            }
+          ]
+        }
+      ],
+      "status": "under_investigation",
+      "status_notes": "Advisory published 2026-10-30; reachability analysis pending (demonstration VEX, not an assessment by the sigstore-js maintainers)"
+    }
+  ]
+}

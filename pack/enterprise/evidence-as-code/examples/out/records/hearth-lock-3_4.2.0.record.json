@@ -1,7 +1,7 @@
 {
-  "schema_version": "1.0.0",
+  "schema_version": "1.1.0",
   "record_id": "urn:aldermoor:cra-evidence:hearth-lock-3:4.2.0",
-  "generated_at": "2028-01-11T10:15:00Z",
+  "generated_at": "2026-11-01T14:23:50Z",
   "product": {
     "product_id": "hearth-lock-3",
     "name": "Hearth Lock 3 smart door lock (firmware)",
@@ -71,17 +71,34 @@
     "provenance": {
       "uri": "s3://aldermoor-cra-evidence-eu/v1/hearth-lock-3/4.2.0/evidence/provenance.intoto.json",
       "media_type": "application/vnd.in-toto+json",
-      "size_bytes": 1357,
+      "size_bytes": 1629,
       "digests": {
-        "sha256": "a308ae66c1d110845679666b168c2f171e99a45b9d32e50ac82d04113bc69c88",
-        "sha512": "c23fbf345fedeb431aa57885790605cd35da16598f97feddad799393586c34778ecbee80b674d5ffa392432c957c5a016c8f389c1a5dae79ef02cb20100528d9"
+        "sha256": "801b9404d0b144599ec2b20c739fdd8901980b6c26cbdd4a9787fbd09c1a495f",
+        "sha512": "de9ba1c83b01d9bb44e4152eac36e75ab8a6daad0aa19f37bdbe5ba9f15760969def28b388a9d3976356149454b5c31cab8776701bc646329a5d764a1201a727"
       },
       "format": "in-toto Statement v1 / SLSA Provenance v1",
       "predicate_type": "https://slsa.dev/provenance/v1",
       "builder_id": "https://build.aldermoor.example/hermetic/v2",
       "build_type": "https://build.aldermoor.example/buildtypes/hermetic-bazel/v1",
       "invocation_id": "inv-32a5aede678bd01c",
-      "subject_digest_match": true
+      "subject_digest_match": true,
+      "verification": {
+        "verified": true,
+        "method": "key",
+        "envelope": "dsse",
+        "signer": {
+          "key": "aldermoor-build-provenance-2027",
+          "keyid": "SHA256:5/BGkSJWhRosY/rZF6zgAvyWO9amzbx8seowHkRKQCA",
+          "algorithm": "ecdsa-p256-sha256",
+          "owner": "Developer Infrastructure (build platform)",
+          "signing_time": "2026-11-01T14:23:50Z",
+          "signing_time_source": "gate evaluation time"
+        },
+        "tlog": null,
+        "trust_policy_id": "aldermoor-attestation-trust/1.0.0",
+        "problems": [],
+        "slsa_build_level": 3
+      }
     },
     "vulnerability_status": {
       "uri": "s3://aldermoor-cra-evidence-eu/v1/hearth-lock-3/4.2.0/evidence/vex.openvex.json",
@@ -104,6 +121,15 @@
           ]
         }
       ],
+      "attestation": {
+        "uri": "s3://aldermoor-cra-evidence-eu/v1/hearth-lock-3/4.2.0/evidence/vex.openvex.intoto.json",
+        "media_type": "application/vnd.in-toto+json",
+        "size_bytes": 1357,
+        "digests": {
+          "sha256": "8ba9461850367fda62c819ab25992c87639e047755d92db79e35364748e8afeb",
+          "sha512": "d2043606868c1ee89ad3e816141b1ca96a1b9b556a4144e8ba35e1a70f07b1b3efd40fa022d5bf88601589f775c7839131ded50d61c73065f3e4d0e6c5f32cf8"
+        }
+      },
       "known_vulnerability_matches": [
         {
           "vulnerability": "CVE-2022-37434",
@@ -117,7 +143,23 @@
       "feeds": [
         "OSV snapshot 2026-10-30 (excerpt)",
         "CISA KEV 2026.10.30 (excerpt)"
-      ]
+      ],
+      "verification": {
+        "verified": true,
+        "method": "key",
+        "envelope": "dsse",
+        "signer": {
+          "key": "aldermoor-psirt-vex-2027",
+          "keyid": "SHA256:Ja68j4PPFUhCa4t3WQ7gf2YX0JCkCo2hym3r0duv1Rw",
+          "algorithm": "ed25519",
+          "owner": "Product Security Incident Response Team",
+          "signing_time": "2026-11-01T14:23:50Z",
+          "signing_time_source": "gate evaluation time"
+        },
+        "tlog": null,
+        "trust_policy_id": "aldermoor-attestation-trust/1.0.0",
+        "problems": []
+      }
     },
     "tests": [
       {
@@ -253,7 +295,7 @@
   "signer": {
     "identity": "spiffe://aldermoor.example/release-pipeline/hearth-lock-3",
     "role": "Release manager (accountable); pipeline identity signs",
-    "signature_ref": "transparency-log entry (illustrative)"
+    "signature_ref": "DSSE envelopes: provenance key aldermoor-build-provenance-2027, VEX key aldermoor-psirt-vex-2027"
   },
   "retention": {
     "retain_until": "2039-12-31",
@@ -263,8 +305,8 @@
   },
   "gate": {
     "decision": "PASS",
-    "policy_id": "aldermoor-cra-gate/1.0.0",
-    "evaluated_at": "2026-11-01T13:36:51Z",
+    "policy_id": "aldermoor-cra-gate/1.1.0",
+    "evaluated_at": "2026-11-01T14:23:50Z",
     "reasons": [
       {
         "code": "SBOM_OK",
@@ -273,10 +315,16 @@
         "basis": "Annex I Part II(1); Annex VII pts 2(b), 8 (KB 08-annex1-part2; guide 06-sbom)"
       },
       {
-        "code": "PROVENANCE_UNSIGNED_INPUT",
+        "code": "PROVENANCE_VERIFIED",
         "severity": "info",
-        "message": "statement supplied without DSSE envelope; signature verified upstream (cosign) per CI design",
-        "basis": "Guide 05-sdlc 'Evidence capture in CI'"
+        "message": "key signature verified (aldermoor-build-provenance-2027); builder https://build.aldermoor.example/hermetic/v2 at SLSA Build L3 per trust policy aldermoor-attestation-trust/1.0.0; subject bound by sha256",
+        "basis": "Annex VII pt 2(c); Art 13(14); integrity of the technical file (guide 05-sdlc 'sign evidence'); SLSA v1.0 'Verifying artifacts' step 1"
+      },
+      {
+        "code": "VEX_VERIFIED",
+        "severity": "info",
+        "message": "VEX signature verified (aldermoor-psirt-vex-2027)",
+        "basis": "Annex I Part II(2); guidance para 218 (guide 06-sbom): VEX is self-issued, so its origin must be provable"
       },
       {
         "code": "VULN_RESOLVED_BY_VEX",

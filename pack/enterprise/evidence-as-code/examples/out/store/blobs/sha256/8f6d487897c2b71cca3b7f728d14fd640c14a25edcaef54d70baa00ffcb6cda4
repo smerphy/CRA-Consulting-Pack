@@ -1,0 +1,166 @@
+{
+  "version": "2.1.0",
+  "$schema": "http://json.schemastore.org/sarif-2.1.0-rtm.5",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "ESLint",
+          "informationUri": "https://eslint.org",
+          "rules": [
+            {
+              "id": "security/detect-object-injection",
+              "helpUri": "https://github.com/eslint-community/eslint-plugin-security/blob/main/docs/rules/detect-object-injection.md",
+              "properties": {
+                "category": "Possible Security Vulnerability"
+              },
+              "shortDescription": {
+                "text": "Detects \"variable[key]\" as a left- or right-hand assignment operand."
+              }
+            }
+          ],
+          "version": "9.39.5"
+        }
+      },
+      "artifacts": [
+        {
+          "location": {
+            "uri": "package/dist/config.js"
+          }
+        },
+        {
+          "location": {
+            "uri": "package/dist/index.js"
+          }
+        },
+        {
+          "location": {
+            "uri": "package/dist/sigstore.js"
+          }
+        }
+      ],
+      "results": [
+        {
+          "level": "warning",
+          "message": {
+            "text": "Generic Object Injection Sink"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "package/dist/sigstore.js",
+                  "index": 2
+                },
+                "region": {
+                  "startLine": 6,
+                  "startColumn": 59,
+                  "endLine": 6,
+                  "endColumn": 63
+                }
+              }
+            }
+          ],
+          "ruleId": "security/detect-object-injection",
+          "ruleIndex": 0
+        },
+        {
+          "level": "warning",
+          "message": {
+            "text": "Generic Object Injection Sink"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "package/dist/sigstore.js",
+                  "index": 2
+                },
+                "region": {
+                  "startLine": 11,
+                  "startColumn": 5,
+                  "endLine": 11,
+                  "endColumn": 10
+                }
+              }
+            }
+          ],
+          "ruleId": "security/detect-object-injection",
+          "ruleIndex": 0
+        },
+        {
+          "level": "warning",
+          "message": {
+            "text": "Generic Object Injection Sink"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "package/dist/sigstore.js",
+                  "index": 2
+                },
+                "region": {
+                  "startLine": 11,
+                  "startColumn": 13,
+                  "endLine": 11,
+                  "endColumn": 17
+                }
+              }
+            }
+          ],
+          "ruleId": "security/detect-object-injection",
+          "ruleIndex": 0
+        },
+        {
+          "level": "warning",
+          "message": {
+            "text": "Generic Object Injection Sink"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "package/dist/sigstore.js",
+                  "index": 2
+                },
+                "region": {
+                  "startLine": 30,
+                  "startColumn": 83,
+                  "endLine": 30,
+                  "endColumn": 87
+                }
+              }
+            }
+          ],
+          "ruleId": "security/detect-object-injection",
+          "ruleIndex": 0
+        },
+        {
+          "level": "warning",
+          "message": {
+            "text": "Function Call Object Injection Sink"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "package/dist/sigstore.js",
+                  "index": 2
+                },
+                "region": {
+                  "startLine": 30,
+                  "startColumn": 132,
+                  "endLine": 30,
+                  "endColumn": 136
+                }
+              }
+            }
+          ],
+          "ruleId": "security/detect-object-injection",
+          "ruleIndex": 0
+        }
+      ]
+    }
+  ]
+}
