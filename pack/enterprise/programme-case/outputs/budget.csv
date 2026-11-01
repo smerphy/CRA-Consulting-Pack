@@ -1,6 +1,6 @@
 level,id,workstream,description,category,value_input,source,one_off_eur_m_low,one_off_eur_m_base,one_off_eur_m_high,run_2027_eur_m_low,run_2027_eur_m_base,run_2027_eur_m_high,run_2028_eur_m_low,run_2028_eur_m_base,run_2028_eur_m_high,total_q4_2026_to_q4_2028_eur_m_low,total_q4_2026_to_q4_2028_eur_m_base,total_q4_2026_to_q4_2028_eur_m_high
-line,L01,1 Evidence platform (E1),Evidence platform build,one-off,e1_platform_fte,evidence-as-code/paper.md (8 engineers for 9 months = 6 FTE-years); range assumption,1.03,1.65,2.41,0.0,0.0,0.0,0.0,0.0,0.0,1.03,1.65,2.41
-line,L02,1 Evidence platform (E1),Build-rule and CI integration,one-off,e1_ci_fte,evidence-as-code/paper.md (4 engineers for 6 months = 2 FTE-years); range assumption,0.34,0.55,0.8,0.0,0.0,0.0,0.0,0.0,0.0,0.34,0.55,0.8
+line,L01,1 Evidence platform (E1),Evidence platform build,one-off,e1_platform_fte,evidence-as-code/paper.md (8 engineers for 9 months = 6 FTE-years); high-side overrun assumption,1.38,1.65,2.41,0.0,0.0,0.0,0.0,0.0,0.0,1.38,1.65,2.41
+line,L02,1 Evidence platform (E1),Build-rule and CI integration,one-off,e1_ci_fte,evidence-as-code/paper.md (4 engineers for 6 months = 2 FTE-years); high-side overrun assumption,0.46,0.55,0.8,0.0,0.0,0.0,0.0,0.0,0.0,0.46,0.55,0.8
 line,L03,1 Evidence platform (E1),Product onboarding (about 200 lines),one-off,e1_onboarding_fteyrs,evidence-as-code/paper.md (8-20 FTE-years),1.84,3.86,6.43,0.0,0.0,0.0,0.0,0.0,0.0,1.84,3.86,6.43
 line,L04,1 Evidence platform (E1),PSIRT VEX operations,run,e1_vex_fte,evidence-as-code/paper.md (5-8 FTE-years in 2027),0.0,0.0,0.0,1.15,1.79,2.57,1.15,1.79,2.57,2.3,3.58,5.15
 line,L05,1 Evidence platform (E1),Gate policy ownership and drills,run,e1_compliance_fte,"evidence-as-code/paper.md (compliance, legal and review 3-4 FTE-years, less 2 FTE review)",0.0,0.0,0.0,0.23,0.41,0.64,0.23,0.41,0.64,0.46,0.83,1.29
@@ -49,8 +49,8 @@ line,L47,8 Training,Training team (run),run,train_run_fte,assumption,0.0,0.0,0.0
 line,L48,9 Programme office,Programme office (build),one-off,pmo_build_fte,assumption,2.07,3.72,6.51,0.0,0.0,0.0,0.0,0.0,0.0,2.07,3.72,6.51
 line,L49,9 Programme office,Programme office (run),run,pmo_run_fte,assumption,0.0,0.0,0.0,0.0,0.0,0.0,0.69,1.1,1.93,0.69,1.1,1.93
 line,L50,9 Programme office,External advisory and assurance,one-off,advisory_eur,assumption,1.0,2.0,4.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,2.0,4.0
-workstream,,1 Evidence platform (E1),,,,,3.22,6.07,9.65,2.19,3.38,8.29,3.19,5.09,11.46,8.59,14.54,29.41
-workstream,,10 Contingency,,,,,1.67,5.22,17.14,0.23,0.84,3.33,0.58,2.18,7.23,2.49,8.24,27.7
+workstream,,1 Evidence platform (E1),,,,,3.68,6.07,9.65,2.19,3.38,8.29,3.19,5.09,11.46,9.05,14.54,29.41
+workstream,,10 Contingency,,,,,1.72,5.22,17.14,0.23,0.84,3.33,0.58,2.18,7.23,2.53,8.24,27.7
 workstream,,2 Art 14 operations (E2),,,,,0.46,0.83,1.61,1.46,3.06,10.67,1.38,2.78,9.39,3.3,6.67,21.67
 workstream,,3 Notified body and quality system (E3),,,,,3.25,5.51,8.17,0.0,0.0,0.0,1.28,2.46,3.83,4.54,7.97,12.0
 workstream,,4 Classification and legal (E3),,,,,0.86,1.57,3.08,0.0,0.0,0.0,0.23,0.41,0.8,1.09,1.98,3.88
@@ -59,4 +59,4 @@ workstream,,6 Multi-jurisdiction labelling (E5),,,,,0.84,1.55,4.31,0.57,1.03,1.8
 workstream,,"7 Documentation, Annex II and translations",,,,,3.08,9.95,24.01,0.0,0.0,0.0,0.63,1.66,5.75,3.7,11.61,29.76
 workstream,,8 Training,,,,,0.96,2.03,4.29,0.0,0.0,0.0,0.29,0.58,2.04,1.25,2.6,6.33
 workstream,,9 Programme office,,,,,3.07,5.72,10.51,0.0,0.0,0.0,0.69,1.1,1.93,3.76,6.82,12.44
-total,,All workstreams incl. contingency,,,,,18.39,40.04,85.7,4.93,9.23,25.54,12.19,24.0,55.41,35.51,73.27,166.65
+total,,All workstreams incl. contingency,,,,,18.89,40.04,85.7,4.93,9.23,25.54,12.19,24.0,55.41,36.02,73.27,166.65

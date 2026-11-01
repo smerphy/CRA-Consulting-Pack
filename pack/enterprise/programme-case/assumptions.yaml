@@ -85,20 +85,20 @@
 - section: cost
   key: e1_platform_fte
   desc: Platform build team (schema, collectors, gate service, store, index, export), Q1-Q3 2027
-  low: 6
+  low: 8
   base: 8
   high: 10
   unit: FTE
-  source: evidence-as-code/paper.md (8 engineers for 9 months = 6 FTE-years); range assumption
+  source: evidence-as-code/paper.md (8 engineers for 9 months = 6 FTE-years); high-side overrun assumption
   label: module (range assumption)
 - section: cost
   key: e1_ci_fte
   desc: Build-rule and CI integration team, Q1-Q2 2027
-  low: 3
+  low: 4
   base: 4
   high: 5
   unit: FTE
-  source: evidence-as-code/paper.md (4 engineers for 6 months = 2 FTE-years); range assumption
+  source: evidence-as-code/paper.md (4 engineers for 6 months = 2 FTE-years); high-side overrun assumption
   label: module (range assumption)
 - section: cost
   key: e1_onboarding_fteyrs
@@ -786,6 +786,26 @@
   label: module
   from: e3.cloud_apps.h_year1_body_days
 - section: nb
+  key: nbd_platforms_joined
+  desc: Body-days for Platforms if it joins the Lumen quality system (one I.11 model review, no separate QS approval; lever L4)
+  low: 22
+  base: 44.5
+  high: 67
+  unit: body-days
+  source: portfolio-classification/nb_demand_summary.json assumptions (0.5 x complexity 4 x Module B exam EUR 20,000-60,000 / EUR 1,800 a day); complexity from nb_demand.csv F14
+  label: module
+  from: e3.platforms_joined_days
+- section: cost
+  key: nb_y1_platforms_joined
+  desc: Module H year-1 fees for Platforms inside the Lumen quality system (lever L4)
+  low: 40000
+  base: 80000
+  high: 120000
+  unit: EUR
+  source: portfolio-classification/nb_demand_summary.json assumptions (as nbd_platforms_joined)
+  label: module
+  from: e3.platforms_joined_cost
+- section: nb
   key: nbd_ss_total
   desc: Module H steady-state body-days a year, all organisations
   low: 270
@@ -878,6 +898,26 @@
   high: 0
   unit: switch
   source: E7 decision (this module)
+  label: decision
+
+- section: lever
+  key: lever_joinqs
+  desc: L4 Platforms joins the Lumen quality system (one approval, Platforms as a model review)
+  low: 0
+  base: 0
+  high: 0
+  unit: switch
+  source: portfolio-classification/paper.md Exhibit 3 and Decision 1 (consider one combined system for Lumen and Platforms)
+  label: decision
+
+- section: lever
+  key: lever_e1par
+  desc: L5 start default-product evidence onboarding (E1 wave 2) in parallel with wave 1 instead of after it
+  low: 0
+  base: 0
+  high: 0
+  unit: switch
+  source: E7 decision (evidence-as-code/paper.md runs waves 1 and 2 in sequence)
   label: decision
 
 # ---------------------------------------------------------------- cost lines (profile = factors for 2026Q4,2027Q1..Q4,2028Q1..Q4)
@@ -1396,7 +1436,7 @@
   key: RA
   desc: Risk assessments and Annex I applicability matrices signed (all families)
   module: KB
-  preds: C1
+  preds: M0
   low: 90
   base: 150
   high: 240
@@ -1423,7 +1463,8 @@
   key: E1W2
   desc: Evidence gate GA for default products (wave 2)
   module: E1
-  preds: E1W1
+  preds: ""
+  cond_preds: "1-lever_e1par:E1W1; lever_e1par:E1P"
   low: 60
   base: 90
   high: 150
@@ -1506,15 +1547,15 @@
   desc: Module H QS approval and model review - Lumen
   module: E3
   preds: K_SW;QSD;E1W1;RA
-  dur_formula: MAX(nb_hmin,nbd_lumen*div_lumen/nb_rate_body)
+  dur_formula: MAX(nb_hmin,(nbd_lumen+lever_joinqs*nbd_platforms_joined)*div_lumen/nb_rate_body)
   source: portfolio-classification/nb_demand_summary.json (body-days); capacity assumptions
 - section: activity
   key: H_PLT
   desc: Module H QS approval and model review - Platforms
   module: E3
   preds: K_SW;QSD;E1W1;RA
-  cond_preds: "lever_seq:H_LUM"
-  dur_formula: MAX(nb_hmin,nbd_platforms*div_platforms/nb_rate_body)
+  cond_preds: "MAX(lever_seq,lever_joinqs):H_LUM"
+  dur_formula: IF(lever_joinqs,0,MAX(nb_hmin,nbd_platforms*div_platforms/nb_rate_body))
   source: as H_LUM
 - section: activity
   key: H_DEV
@@ -1535,7 +1576,7 @@
   key: TDN
   desc: Annex VII files for notified-body families
   module: E1/E3
-  preds: RA
+  preds: RA;C1
   low: 60
   base: 90
   high: 150
@@ -1544,7 +1585,7 @@
   key: TDD
   desc: Annex VII files for default families
   module: E1/E3
-  preds: RA
+  preds: RA;C1
   low: 45
   base: 75
   high: 120
@@ -1679,12 +1720,12 @@
   key: G3
   desc: JC-STAR STAR-1 labels for Hearth and Pulse (target 30 Jun 2027)
   module: E5
-  preds: G2
-  low: 30
-  base: 60
-  high: 120
+  preds: G1
+  low: 60
+  base: 120
+  high: 180
   target: 240
-  source: global-control-set/paper.md Decision 4 (H1 2027)
+  source: global-control-set/paper.md Decision 4 (H1 2027; STAR-1 is a self-declaration, so it does not wait for the generator)
 - section: activity
   key: G4
   desc: UK PSTI statements of compliance regenerated from the evidence store

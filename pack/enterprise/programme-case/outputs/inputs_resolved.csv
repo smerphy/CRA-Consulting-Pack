@@ -6,8 +6,8 @@ global,engineers_total,Engineers in the group (for awareness training memo),6000
 cost,fte_cost_usd,Loaded cost per FTE-year,250000,300000,350000,USD per FTE-year,module,"evidence-as-code/paper.md (effort table: loaded USD 250,000-350,000 per FTE-year)",
 cost,contingency_rate,Contingency on one-off cost,0.1,0.15,0.25,share,assumption,assumption,
 cost,contingency_run_rate,Contingency on run cost,0.05,0.1,0.15,share,assumption,assumption,
-cost,e1_platform_fte,"Platform build team (schema, collectors, gate service, store, index, export), Q1-Q3 2027",6,8,10,FTE,module (range assumption),evidence-as-code/paper.md (8 engineers for 9 months = 6 FTE-years); range assumption,
-cost,e1_ci_fte,"Build-rule and CI integration team, Q1-Q2 2027",3,4,5,FTE,module (range assumption),evidence-as-code/paper.md (4 engineers for 6 months = 2 FTE-years); range assumption,
+cost,e1_platform_fte,"Platform build team (schema, collectors, gate service, store, index, export), Q1-Q3 2027",8,8,10,FTE,module (range assumption),evidence-as-code/paper.md (8 engineers for 9 months = 6 FTE-years); high-side overrun assumption,
+cost,e1_ci_fte,"Build-rule and CI integration team, Q1-Q2 2027",4,4,5,FTE,module (range assumption),evidence-as-code/paper.md (4 engineers for 6 months = 2 FTE-years); high-side overrun assumption,
 cost,e1_onboarding_fteyrs,"Product onboarding, about 200 product lines at 2-5 engineer-weeks each",8,14,20,FTE-years,module,evidence-as-code/paper.md (8-20 FTE-years),
 cost,e1_vex_fte,PSIRT VEX operations uplift (justified statement for every match),5,6.5,8,FTE,module,evidence-as-code/paper.md (5-8 FTE-years in 2027),
 cost,e1_compliance_fte,Gate policy ownership and drills (E1 compliance line less pt 110 review),1,1.5,2,FTE,module,"evidence-as-code/paper.md (compliance, legal and review 3-4 FTE-years, less 2 FTE review)",
@@ -80,6 +80,8 @@ nb,nbd_lumen,"Module H year-1 body-days before first certificate, Lumen",194,288
 nb,nbd_platforms,"Module H year-1 body-days, Platforms",156,236.5,317,body-days,module,portfolio-classification/nb_demand_summary.json; base = midpoint,yes
 nb,nbd_devices,"Module H year-1 body-days, Devices",209,318.5,428,body-days,module,portfolio-classification/nb_demand_summary.json; base = midpoint,yes
 nb,nbd_cloud_apps,"Module H year-1 body-days, Cloud and apps",160,245.0,330,body-days,module,portfolio-classification/nb_demand_summary.json; base = midpoint,yes
+nb,nbd_platforms_joined,"Body-days for Platforms if it joins the Lumen quality system (one I.11 model review, no separate QS approval; lever L4)",22.22222222222222,44.44444444444444,66.66666666666667,body-days,module,"portfolio-classification/nb_demand_summary.json assumptions (0.5 x complexity 4 x Module B exam EUR 20,000-60,000 / EUR 1,800 a day); complexity from nb_demand.csv F14",yes
+cost,nb_y1_platforms_joined,Module H year-1 fees for Platforms inside the Lumen quality system (lever L4),40000.0,80000.0,120000.0,EUR,module,portfolio-classification/nb_demand_summary.json assumptions (as nbd_platforms_joined),yes
 nb,nbd_ss_total,"Module H steady-state body-days a year, all organisations",270,599.0,928,body-days per year,module,portfolio-classification/nb_demand_summary.json (totals_body_days.h_ss); base = midpoint,yes
 nb,assessor_days_per_year,Productive CRA assessment days per assessor,180,180,180,days per year,module,portfolio-classification/nb_demand_summary.json (assumptions.assessor_days_per_year),yes
 nb,nb_assessors,CRA assessors per contracted body working on Aldermoor at once (listed favourable first),8,5,3,assessors,assumption,"assumption (portfolio-classification/paper.md - a new body with 8 assessors offers about 1,440 days a year; Aldermoor would take half to all of it)",
@@ -90,10 +92,12 @@ nb,eu_capacity_moderate,"EU CRA notified-body capacity, moderate market (2028)",
 lever,lever_precontract,L1 pre-contract both bodies before designation and reserve assessor capacity,0,0,0,switch,decision,"portfolio-classification/paper.md Decision 2 (shortlist, contract within 30 days of designation)",
 lever,lever_seq,L2 priority sequencing - each body completes Lumen (software) or Devices (hardware) first,0,0,0,switch,decision,E7 decision (this module),
 lever,lever_thirdbody,L3 a third body for Cloud and apps,0,0,0,switch,decision,E7 decision (this module),
+lever,lever_joinqs,"L4 Platforms joins the Lumen quality system (one approval, Platforms as a model review)",0,0,0,switch,decision,portfolio-classification/paper.md Exhibit 3 and Decision 1 (consider one combined system for Lumen and Platforms),
+lever,lever_e1par,L5 start default-product evidence onboarding (E1 wave 2) in parallel with wave 1 instead of after it,0,0,0,switch,decision,E7 decision (evidence-as-code/paper.md runs waves 1 and 2 in sequence),
 derived,fte_cost_eur,Loaded cost per FTE-year (EUR),229750.0,275700.0,321650.0,,derived,fte_cost_usd*usd_to_eur,
 derived,e1_storage_eur_yr,Evidence storage (EUR a year),64.33,1562.3,48247.5,,derived,e1_storage_usd_yr*e1_storage_tier_mult*usd_to_eur,
 derived,e2_localisation_eur_yr,Art 14(8) notice localisation (EUR a year),0.0,950130.0,6099600.0,,derived,e2_user_notices*e2_loc_langs*e2_loc_eur_per_variant,
-derived,nb_y1_eur,"Module H year-1 fees, 4 organisations (EUR)",1295000.0,1960000.0,2625000.0,,derived,nb_y1_lumen+nb_y1_platforms+nb_y1_devices+nb_y1_cloud_apps,
+derived,nb_y1_eur,"Module H year-1 fees, 4 organisations (EUR)",1295000.0,1960000.0,2625000.0,,derived,"nb_y1_lumen+IF(lever_joinqs,nb_y1_platforms_joined,nb_y1_platforms)+nb_y1_devices+nb_y1_cloud_apps",
 derived,nb_pre_eur,Pre-assessments (EUR),120000.0,240000.0,400000.0,,derived,nb_pre_eur_per_org*nb_orgs,
 derived,nb_ss_eur_yr,Module H surveillance and extensions (EUR a year),486700.0,1078400.0,1670100.0,,derived,nb_ss_lumen+nb_ss_platforms+nb_ss_devices+nb_ss_cloud_apps,
 derived,qs_build_fte,"Quality-system staff, build (FTE)",8.0,12.0,16.0,,derived,qs_build_fte_per_org*nb_orgs,
@@ -113,7 +117,7 @@ derived,train_staff_hours_memo,MEMO: staff hours in training (not in budget),700
 derived,train_staff_cost_memo,"MEMO: staff time cost of training (EUR, not in budget)",10051562.5,20677500.0,46237187.5,,derived,train_staff_hours_memo*fte_cost_eur/productive_hours,
 derived,nb_assessors_eff,Assessors per body working for Aldermoor,8.0,5.0,3.0,,derived,"IF(lever_precontract,nb_assessors_reserved,nb_assessors)",
 derived,nb_rate_body,Body-days delivered per calendar day per body,3.9452,2.4658,1.4795,,derived,nb_assessors_eff*assessor_days_per_year/365,
-derived,div_lumen,"Share divisor, Lumen (1 = full body)",2,2,2,,derived,"IF(lever_seq,1,2)",
+derived,div_lumen,"Share divisor, Lumen (1 = full body)",2,2,2,,derived,"IF(MAX(lever_seq,lever_joinqs),1,2)",
 derived,div_platforms,"Share divisor, Platforms",2,2,2,,derived,"IF(lever_seq,1,2)",
 derived,div_devices,"Share divisor, Devices",2,2,2,,derived,"IF(MAX(lever_seq,lever_thirdbody),1,2)",
 derived,div_cloud_apps,"Share divisor, Cloud and apps",2,2,2,,derived,"IF(MAX(lever_seq,lever_thirdbody),1,2)",

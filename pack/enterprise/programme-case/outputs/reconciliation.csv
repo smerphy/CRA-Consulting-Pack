@@ -1,0 +1,23 @@
+figure,value_used_in_E7 (low / base / high),module_value,source_file,status
+"E1 evidence effort, 2027 (FTE-years)",24.0 / 32.0 / 52.0,24-40,evidence-as-code/paper.md (effort table),"Agrees at low and base. E7 high adds release-level pt 110 review (12 FTE, E1 review paragraph) and a 25% build overrun"
+"E1 evidence cost, 2027 (EUR m)",5.5 / 8.8 / 16.7,USD 6-14m = EUR 5.5-12.9m,evidence-as-code/paper.md; BRIEF.md (USD 310bn = EUR 285bn),Agrees within the range at low and base
+E1 EU product lines to onboard,200,200,evidence-as-code/aldermoor-additions.json,"Agrees. E3 counts 40 families; E1 counts about 200 onboarding units. Both used, for different purposes"
+"E1 evidence storage, central (USD a year)",340 x 5 tier multiple,about 340,evidence-as-code/paper.md (storage table),Agrees; E7 adds a warmer-tier multiple (assumption)
+E2 incremental Art 14 FTE,5.56 / 5.92 / 9.00,5.56 / 5.93 / 9.01,art14-operations/volume_model_output.csv,Agrees to 0.01 FTE (E7 sums the rounded components)
+E2 user notices a year,62 / 275 / 884,62.0 / 275.4 / 884.0,art14-operations/volume_model_output.csv,Agrees
+"E2 duty-officer rota (FTE-equivalent, existing PSIRT)",not budgeted,5.47,art14-operations/volume_model_output.csv,"Agrees: E2 says absorbed in the existing PSIRT, so E7 excludes it"
+E3 Module H year-1 fees (EUR m),1.29 / 1.96 / 2.62,1.29-2.62,portfolio-classification/nb_demand_summary.json (totals.h_y1),Agrees; E7 base is the midpoint
+E3 Module H run fees (EUR m a year),0.49 / 1.08 / 1.67,0.49-1.67,portfolio-classification/nb_demand_summary.json (totals.h_ss),Agrees
+E3 Module H year-1 body-days,719 / 1088 / 1458,719-1458,portfolio-classification/nb_demand_summary.json (totals_body_days.h_y1),Agrees
+E3 share of a thin EU market,peak quarter 34% (Q3-Q4 2027),10.0-20.3% of a year,portfolio-classification/nb_demand_summary.json (capacity_scenarios),"Differs in framing, not data: E3 spreads the first wave over a year; E7 places it in the 5.5 months between internal readiness and 11 Dec 2027. E7 uses its own figure for timing"
+E3 notified-body route families,17,17,portfolio-classification/classification_summary.json; nb_demand.csv,Agrees
+"E3 models for JC-STAR (Hearth, Pulse Class I)",28,"sum of initial_types for I.12, I.16, I.17, I.19",portfolio-classification/nb_demand.csv,Derived by E7 from E3 data
+E3 Platforms inside the Lumen QS (body-days),22 / 44 / 67,"0.5 x complexity 4 x EUR 20,000-60,000 / EUR 1,800",portfolio-classification/nb_demand_summary.json (assumptions); nb_demand.csv (F14 complexity),Derived by E7 from E3 parameters for lever L4
+E4 projects led by Aldermoor,5,5,open-source-strategy/projects.yaml,"Agrees; E4 gives no costs, so E7 funding lines are assumptions"
+E5 controls in the global set,43,43,global-control-set/controls.json,Agrees
+E5 marginal labelling share of programme,5.4% of Q4 2026-Q4 2028 cost,under 10% of effort,global-control-set/paper.md,Agrees
+E6 Art 14 applies from 11 Sep 2026,Verified,Verified,oj-verification/claims.csv (F02),"Agrees; the Art 14 desk is a legal requirement now, not a project"
+E6 Chapter IV from 11 Jun 2026; other provisions 11 Dec 2027,Verified,Verified,oj-verification/claims.csv (F03),Agrees; 11 Dec 2027 is the readiness date
+E6 Member States 'strive' for notified bodies by 11 Dec 2026,Verified,Verified,oj-verification/claims.csv (K23),Agrees; designation timing is still an assumption
+Loaded cost per FTE-year (EUR),"229,750 / 275,700 / 321,650","USD 250,000-350,000",evidence-as-code/paper.md; BRIEF.md FX,Agrees
+JC-STAR STAR-1 fee,"JPY 198,000","JPY 198,000 incl. tax per application",https://www.ipa.go.jp/security/jc-star/shinsei/index.html,External; one application per model assumed

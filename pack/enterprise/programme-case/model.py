@@ -51,7 +51,7 @@ DERIVED = [
     ("fte_cost_eur", "Loaded cost per FTE-year (EUR)", "fte_cost_usd*usd_to_eur"),
     ("e1_storage_eur_yr", "Evidence storage (EUR a year)", "e1_storage_usd_yr*e1_storage_tier_mult*usd_to_eur"),
     ("e2_localisation_eur_yr", "Art 14(8) notice localisation (EUR a year)", "e2_user_notices*e2_loc_langs*e2_loc_eur_per_variant"),
-    ("nb_y1_eur", "Module H year-1 fees, 4 organisations (EUR)", "nb_y1_lumen+nb_y1_platforms+nb_y1_devices+nb_y1_cloud_apps"),
+    ("nb_y1_eur", "Module H year-1 fees, 4 organisations (EUR)", "nb_y1_lumen+IF(lever_joinqs,nb_y1_platforms_joined,nb_y1_platforms)+nb_y1_devices+nb_y1_cloud_apps"),
     ("nb_pre_eur", "Pre-assessments (EUR)", "nb_pre_eur_per_org*nb_orgs"),
     ("nb_ss_eur_yr", "Module H surveillance and extensions (EUR a year)", "nb_ss_lumen+nb_ss_platforms+nb_ss_devices+nb_ss_cloud_apps"),
     ("qs_build_fte", "Quality-system staff, build (FTE)", "qs_build_fte_per_org*nb_orgs"),
@@ -71,7 +71,7 @@ DERIVED = [
     ("train_staff_cost_memo", "MEMO: staff time cost of training (EUR, not in budget)", "train_staff_hours_memo*fte_cost_eur/productive_hours"),
     ("nb_assessors_eff", "Assessors per body working for Aldermoor", "IF(lever_precontract,nb_assessors_reserved,nb_assessors)"),
     ("nb_rate_body", "Body-days delivered per calendar day per body", "nb_assessors_eff*assessor_days_per_year/365"),
-    ("div_lumen", "Share divisor, Lumen (1 = full body)", "IF(lever_seq,1,2)"),
+    ("div_lumen", "Share divisor, Lumen (1 = full body)", "IF(MAX(lever_seq,lever_joinqs),1,2)"),
     ("div_platforms", "Share divisor, Platforms", "IF(lever_seq,1,2)"),
     ("div_devices", "Share divisor, Devices", "IF(MAX(lever_seq,lever_thirdbody),1,2)"),
     ("div_cloud_apps", "Share divisor, Cloud and apps", "IF(MAX(lever_seq,lever_thirdbody),1,2)"),
@@ -144,6 +144,7 @@ def load_module_inputs() -> dict:
             "jcstar_families": [r["id"] for r in jc],
             "nb_families": len([r for r in fams if r["note"] == ""]),
             "initial_types_nb": sum(float(r["initial_types"]) for r in fams if r["note"] == ""),
+            "platforms_max_cx": max(float(r["complexity_factor_assumed"]) for r in fams if r["organisation"] == "platforms"),
         }
         LOG.append(f"read {p.relative_to(ENT)}")
     p = ENT / "portfolio-classification/classification_summary.json"
@@ -199,6 +200,11 @@ def resolve(items: list[dict], mod: dict) -> None:
             elif parts[0] == "assessor_days_per_year":
                 v = e3["assumptions"]["assessor_days_per_year"]
                 vals = [v, v, v]
+            elif parts[0] in ("platforms_joined_days", "platforms_joined_cost") and "e3_csv" in mod:
+                ex = e3["assumptions"]["module_b_exam_eur"]
+                f = e3["assumptions"]["h_model_review_factor"] * mod["e3_csv"]["platforms_max_cx"]
+                cost = [ex[0] * f, (ex[0] + ex[1]) / 2 * f, ex[1] * f]
+                vals = cost if parts[0].endswith("cost") else [c / e3["assumptions"]["day_rate_eur"] for c in cost]
             elif parts[0] in ("jcstar_models", "jcstar_new_models_yr") and "e3_csv" in mod:
                 v = mod["e3_csv"][parts[0]]
                 vals = [v, v, v]
@@ -418,14 +424,16 @@ def eur_m(x: float) -> float:
 
 # ----------------------------------------------------------------------------- runs
 LEVER_SETS = [
-    ("S0", "Base plan as the modules set it out (two bodies, shared capacity)", {}, None),
+    ("S0", "Base plan as the modules set it out (two bodies, shared capacity, E1 waves in sequence)", {}, None),
     ("S1", "L1 pre-contract both bodies and reserve 8 assessors each", {"lever_precontract": 1}, None),
     ("S2", "L2 priority sequencing (Lumen and Devices first)", {"lever_seq": 1}, None),
     ("S3", "L3 third body for Cloud and apps", {"lever_thirdbody": 1}, None),
-    ("S4", "L1 + L2", {"lever_precontract": 1, "lever_seq": 1}, None),
-    ("S5", "L1 + L2 + L3 (recommended)", {"lever_precontract": 1, "lever_seq": 1, "lever_thirdbody": 1}, None),
-    ("S6", "External: Module H body designated by 31 Jan 2027, base plan", {}, ("NB0", 90.0)),
-    ("S7", "External: designation by 31 Jan 2027, with L1 + L2 + L3", {"lever_precontract": 1, "lever_seq": 1, "lever_thirdbody": 1}, ("NB0", 90.0)),
+    ("S4", "L4 Platforms joins the Lumen quality system", {"lever_joinqs": 1}, None),
+    ("S5", "L5 default-product onboarding in parallel with E1 wave 1", {"lever_e1par": 1}, None),
+    ("S6", "L1 + L2 + L3", {"lever_precontract": 1, "lever_seq": 1, "lever_thirdbody": 1}, None),
+    ("S7", "L1-L5 (recommended)", {"lever_precontract": 1, "lever_seq": 1, "lever_thirdbody": 1, "lever_joinqs": 1, "lever_e1par": 1}, None),
+    ("S8", "External: Module H body designated by 31 Jan 2027, base plan", {}, ("NB0", 90.0)),
+    ("S9", "External: designation by 31 Jan 2027, with L1-L5", {"lever_precontract": 1, "lever_seq": 1, "lever_thirdbody": 1, "lever_joinqs": 1, "lever_e1par": 1}, ("NB0", 90.0)),
 ]
 READY = ["R_LUM", "R_PLT", "R_DEV", "R_CLD", "R_DEF", "R_OSS", "R_A14", "G3"]
 
@@ -566,7 +574,7 @@ def main() -> None:
 
     # ---- Monte Carlo (schedule): common random numbers across lever sets
     rng = random.Random(SEED)
-    nb_keys = ["nbd_lumen", "nbd_platforms", "nbd_devices", "nbd_cloud_apps", "nb_assessors", "nb_assessors_reserved", "nb_hmin"]
+    nb_keys = ["nbd_lumen", "nbd_platforms", "nbd_platforms_joined", "nbd_devices", "nbd_cloud_apps", "nb_assessors", "nb_assessors_reserved", "nb_hmin"]
     finish = {sid: {r: [] for r in READY} for sid, *_ in LEVER_SETS}
     finish_end = {sid: [] for sid, *_ in LEVER_SETS}
     base_v = det["base"]["v"]
@@ -582,7 +590,7 @@ def main() -> None:
         for sid, _, lev, fix in LEVER_SETS:
             v = dict(base_v)
             v.update(nbs)
-            v.update({"lever_precontract": 0, "lever_seq": 0, "lever_thirdbody": 0})
+            v.update({"lever_precontract": 0, "lever_seq": 0, "lever_thirdbody": 0, "lever_joinqs": 0, "lever_e1par": 0})
             v.update(lev)
             M.derive(v)
             sm = dict(samp)
@@ -695,7 +703,7 @@ def main() -> None:
 
     dem = {s: demand(s) for s in SCEN}
     # capacity scenarios: bodies available from contract day; assessors x 180/365 body-days per calendar day
-    lev5 = {"lever_precontract": 1, "lever_seq": 1, "lever_thirdbody": 1}
+    lev5 = {"lever_precontract": 1, "lever_seq": 1, "lever_thirdbody": 1, "lever_joinqs": 1, "lever_e1par": 1}
     v5 = M.derive(M.pick("base", levers=lev5))
     c5 = M.cpm(v5, M.durations(v5, scen_pick("base")), backward=False)
     vh = M.derive(M.pick("high"))
@@ -781,6 +789,61 @@ def main() -> None:
         "derived_base": {k: round(det["base"]["v"][k], 2) for k, _, _ in DERIVED},
     }
     (OUT / "summary.json").write_text(json.dumps(summary, indent=2))
+
+    # ---- reconciliation.csv: every module figure the case uses, against its source file
+    e2, e3 = M.mod.get("e2", {}), M.mod.get("e3", {})
+    fx = det["base"]["v"]["usd_to_eur"]
+    rate = {s: det[s]["v"]["fte_cost_eur"] for s in SCEN}
+    e1y = {s: summary[f"e1_fte_years_2027_{s}"] for s in SCEN}
+    rec = [
+        ("E1 evidence effort, 2027 (FTE-years)", f"{e1y['low']} / {e1y['base']} / {e1y['high']}", "24-40",
+         "evidence-as-code/paper.md (effort table)", "Agrees at low and base. E7 high adds release-level pt 110 review (12 FTE, E1 review paragraph) and a 25% build overrun"),
+        ("E1 evidence cost, 2027 (EUR m)", " / ".join(f"{e1y[s] * rate[s] / 1e6:.1f}" for s in SCEN),
+         f"USD 6-14m = EUR {6 * fx:.1f}-{14 * fx:.1f}m", "evidence-as-code/paper.md; BRIEF.md (USD 310bn = EUR 285bn)", "Agrees within the range at low and base"),
+        ("E1 EU product lines to onboard", f"{M.inputs['doc_units']['base']:.0f}", f"{M.mod.get('e1_product_lines', 'n/a'):.0f}" if M.mod.get('e1_product_lines') else "n/a",
+         "evidence-as-code/aldermoor-additions.json", "Agrees. E3 counts 40 families; E1 counts about 200 onboarding units. Both used, for different purposes"),
+        ("E1 evidence storage, central (USD a year)", f"{M.inputs['e1_storage_usd_yr']['base']:.0f} x {M.inputs['e1_storage_tier_mult']['base']:.0f} tier multiple",
+         "about 340", "evidence-as-code/paper.md (storage table)", "Agrees; E7 adds a warmer-tier multiple (assumption)"),
+        ("E2 incremental Art 14 FTE", " / ".join(f"{det[s]['v']['e2_cell_fte'] + det[s]['v']['e2_legal_fte'] + det[s]['v']['e2_comms_fte']:.2f}" for s in SCEN),
+         " / ".join(e2[s]["fte_incremental_total"] for s in SCEN) if e2 else "n/a", "art14-operations/volume_model_output.csv",
+         "Agrees to 0.01 FTE (E7 sums the rounded components)"),
+        ("E2 user notices a year", " / ".join(f"{det[s]['v']['e2_user_notices']:.0f}" for s in SCEN),
+         " / ".join(e2[s]["user_notices"] for s in SCEN) if e2 else "n/a", "art14-operations/volume_model_output.csv", "Agrees"),
+        ("E2 duty-officer rota (FTE-equivalent, existing PSIRT)", "not budgeted", e2["base"]["fte_duty_rota_existing"] if e2 else "n/a",
+         "art14-operations/volume_model_output.csv", "Agrees: E2 says absorbed in the existing PSIRT, so E7 excludes it"),
+        ("E3 Module H year-1 fees (EUR m)", " / ".join(f"{det[s]['v']['nb_y1_eur'] / 1e6:.2f}" for s in SCEN),
+         f"{e3['totals']['h_y1'][0] / 1e6:.2f}-{e3['totals']['h_y1'][1] / 1e6:.2f}" if e3 else "n/a",
+         "portfolio-classification/nb_demand_summary.json (totals.h_y1)", "Agrees; E7 base is the midpoint"),
+        ("E3 Module H run fees (EUR m a year)", " / ".join(f"{det[s]['v']['nb_ss_eur_yr'] / 1e6:.2f}" for s in SCEN),
+         f"{e3['totals']['h_ss'][0] / 1e6:.2f}-{e3['totals']['h_ss'][1] / 1e6:.2f}" if e3 else "n/a",
+         "portfolio-classification/nb_demand_summary.json (totals.h_ss)", "Agrees"),
+        ("E3 Module H year-1 body-days", f"{sum(float(M.inputs[k]['low']) for k in ('nbd_lumen','nbd_platforms','nbd_devices','nbd_cloud_apps')):.0f} / {dem['base'][1]:.0f} / {sum(float(M.inputs[k]['high']) for k in ('nbd_lumen','nbd_platforms','nbd_devices','nbd_cloud_apps')):.0f}",
+         f"{e3['totals_body_days']['h_y1'][0]}-{e3['totals_body_days']['h_y1'][1]}" if e3 else "n/a",
+         "portfolio-classification/nb_demand_summary.json (totals_body_days.h_y1)", "Agrees"),
+        ("E3 share of a thin EU market", f"peak quarter {summary['nb_schedule']['peak_quarter_share_of_thin_market']:.0%} (Q3-Q4 2027)",
+         "10.0-20.3% of a year", "portfolio-classification/nb_demand_summary.json (capacity_scenarios)",
+         "Differs in framing, not data: E3 spreads the first wave over a year; E7 places it in the 5.5 months between internal readiness and 11 Dec 2027. E7 uses its own figure for timing"),
+        ("E3 notified-body route families", str(M.mod.get("e3_csv", {}).get("nb_families", "n/a")), str(summary["e3_nb_route_families"]),
+         "portfolio-classification/classification_summary.json; nb_demand.csv", "Agrees"),
+        ("E3 models for JC-STAR (Hearth, Pulse Class I)", f"{M.inputs['jcstar_models']['base']:.0f}", "sum of initial_types for I.12, I.16, I.17, I.19",
+         "portfolio-classification/nb_demand.csv", "Derived by E7 from E3 data"),
+        ("E3 Platforms inside the Lumen QS (body-days)", f"{M.inputs['nbd_platforms_joined']['low']:.0f} / {M.inputs['nbd_platforms_joined']['base']:.0f} / {M.inputs['nbd_platforms_joined']['high']:.0f}",
+         "0.5 x complexity 4 x EUR 20,000-60,000 / EUR 1,800", "portfolio-classification/nb_demand_summary.json (assumptions); nb_demand.csv (F14 complexity)",
+         "Derived by E7 from E3 parameters for lever L4"),
+        ("E4 projects led by Aldermoor", str(M.mod.get("e4_projects", "n/a")), "5", "open-source-strategy/projects.yaml", "Agrees; E4 gives no costs, so E7 funding lines are assumptions"),
+        ("E5 controls in the global set", str(M.mod.get("e5_controls", "n/a")), "43", "global-control-set/controls.json", "Agrees"),
+        ("E5 marginal labelling share of programme", f"{summary['e5_labelling_share_of_total_base']:.1%} of Q4 2026-Q4 2028 cost", "under 10% of effort",
+         "global-control-set/paper.md", "Agrees"),
+        ("E6 Art 14 applies from 11 Sep 2026", M.mod.get("e6", {}).get("F02", "n/a"), "Verified", "oj-verification/claims.csv (F02)", "Agrees; the Art 14 desk is a legal requirement now, not a project"),
+        ("E6 Chapter IV from 11 Jun 2026; other provisions 11 Dec 2027", M.mod.get("e6", {}).get("F03", "n/a"), "Verified", "oj-verification/claims.csv (F03)", "Agrees; 11 Dec 2027 is the readiness date"),
+        ("E6 Member States 'strive' for notified bodies by 11 Dec 2026", M.mod.get("e6", {}).get("K23", "n/a"), "Verified", "oj-verification/claims.csv (K23)", "Agrees; designation timing is still an assumption"),
+        ("Loaded cost per FTE-year (EUR)", " / ".join(f"{rate[s]:,.0f}" for s in SCEN), "USD 250,000-350,000", "evidence-as-code/paper.md; BRIEF.md FX", "Agrees"),
+        ("JC-STAR STAR-1 fee", f"JPY {M.inputs['jcstar_fee_jpy']['base']:,.0f}", "JPY 198,000 incl. tax per application", "https://www.ipa.go.jp/security/jc-star/shinsei/index.html", "External; one application per model assumed"),
+    ]
+    with (OUT / "reconciliation.csv").open("w", newline="") as fh:
+        w = csv.writer(fh)
+        w.writerow(["figure", "value_used_in_E7 (low / base / high)", "module_value", "source_file", "status"])
+        w.writerows(rec)
 
     # ---- console report
     t = {s: det[s]["b"]["total"] for s in SCEN}
