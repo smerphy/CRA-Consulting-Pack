@@ -43,7 +43,7 @@ The optional regimes follow the same pattern. Australia's standard, in force for
 
 The CRA's reporting duty has applied since 11 Sep 2026 to every in-scope product, including products already on the market. The rest applies from 11 Dec 2027. The UK regime has applied since 29 Apr 2024.
 
-The US Cyber Trust Mark is behind its original plan. The FCC adopted the rules on 14 Mar 2024, and they took effect on 29 Aug 2024, with some sections awaiting Paperwork Reduction Act approval. The White House launched the programme on 7 Jan 2025 with 11 conditionally approved label administrators. UL Solutions, the first Lead Administrator, withdrew with effect from 19 Dec 2025. The FCC reopened applications for administrators from 27 Jan to 24 Feb 2026 (DA 26-75) and selected the ioXt Alliance as Lead Administrator on 13 Apr 2026. On 28 Oct 2026 the commissioner overseeing the programme said she hoped labelled products would reach shoppers "within the next year". The FCC still has to seek comment on technical requirements and test procedures, and opened a separate proceeding on label design, renewal and post-market checks. No administrator may certify products until it holds ISO/IEC 17065 accreditation for the final scope.
+The US Cyber Trust Mark is behind its original plan. The FCC adopted the rules on 14 Mar 2024, and they took effect on 29 Aug 2024, with some sections awaiting Paperwork Reduction Act approval. The White House launched the programme on 7 Jan 2025, and the FCC has conditionally approved 11 label administrators. UL Solutions, the first Lead Administrator, withdrew with effect from 19 Dec 2025. The FCC reopened applications for administrators from 27 Jan to 24 Feb 2026 (DA 26-75) and selected the ioXt Alliance as Lead Administrator on 13 Apr 2026. On 28 Oct 2026 the commissioner overseeing the programme said she hoped labelled products would reach shoppers "within the next year". The FCC still has to seek comment on technical requirements and test procedures, and opened a separate proceeding on label design, renewal and post-market checks. No administrator may certify products until it holds ISO/IEC 17065 accreditation for the final scope.
 
 JC-STAR is scaling. IPA opened STAR-1 applications on 25 Mar 2025. By 31 Mar 2026, 80 companies had filed 199 applications covering more than 1,500 product models. IPA published STAR-3 requirements for communication equipment in 2026 (announced 6 Feb 2026; document v1.0 dated June 2026). STAR-2 intake for network cameras and communication equipment was planned from Jan 2026; this module could not confirm that it opened.
 
@@ -89,7 +89,7 @@ Three tensions need explicit decisions:
 - **One global SKU versus US eligibility.** The US national-security declarations depend on component origin, which the CRA does not test. Where a component supplier is listed, the choice is a US-specific bill of materials or no US label.
 - **Northern Ireland.** If the CRA is added to Annex 2 of the Windsor Framework, NI supplies move from PSTI to the CRA under SI 2023/1007 Sch 3 para 1 (knowledge base, Interplay section). The control set already covers both, so only the declaration routing changes.
 
-The CRA is uniquely strict on 15 controls the other three do not require at all. The heaviest are 24-hour authority reporting (UCS-32), the SBOM (UCS-23), the 10-year update archive (UCS-22) and the 5-year minimum support period (UCS-21).
+Among the four core regimes, 10 controls are required by the CRA alone. The heaviest are 24-hour authority reporting (UCS-32), the SBOM (UCS-23), the 10-year update archive (UCS-22) and the 5-year minimum support period (UCS-21).
 
 ## Run one evidence store and generate a declaration per regime
 
@@ -135,7 +135,7 @@ Exhibit 6: regime applicability by product line (preliminary)
 | Arc phones (Halo OS) | In scope | In scope (smartphones are not excepted) | Eligibility to confirm with an administrator | Eligibility to confirm with IPA |
 | Tablets | In scope | Cellular in scope; Wi-Fi-only excepted | Eligibility to confirm | Eligibility to confirm |
 | Lumen OS laptops | In scope | Excepted | Not targeted | Not targeted |
-| Hearth smart home | In scope; cameras, doorbells, locks and routers are Annex III Class I | In scope | Priority candidate | Priority candidate; STAR-3 for cameras and routers sold to government buyers |
+| Hearth smart home | In scope; cameras, locks and routers are Annex III Class I (video doorbells likely, see E3) | In scope | Priority candidate | Priority candidate; STAR-3 for cameras and routers sold to government buyers |
 | Pulse wearables | In scope; health-monitoring wearables Class I | In scope | Priority candidate (fitness trackers are named) | Candidate |
 | Earbuds | In scope | In scope if connectable | Candidate | To confirm |
 | Keystone security keys | In scope | To confirm (NFC and Bluetooth variants) | Not targeted | Not targeted |
