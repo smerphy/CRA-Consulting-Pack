@@ -247,7 +247,7 @@ One row per product version, grouped into families and lineages. The "why" colum
 | Field | Why | Source article or guidance |
 | --- | --- | --- |
 | Product id | Stable key joining the register to the technical file, SBOMs, DoCs and case files | Art 13(15) type, batch or serial identification |
-| SKU and version lineage | Obligations attach per unit at placing; for software, all copies of a version are deemed placed at first offering. The version is the unit of compliance | Art 3(21)-(22); guidance paras 13-14 |
+| SKU and version lineage | Obligations attach per unit at placing; for software, all copies of a version are placed at its first offering, and later versions keep that date unless they are a substantial modification. Record every version and whether it is a new placing | Art 3(21)-(22); guidance paras 13-15, Example 2 |
 | Hardware, software and RDPS boundary | Annex I reaches manufacturer-built back-ends needed for a product function; the boundary decides what the risk assessment covers | Art 3(2); Recitals 11-12; guidance Section 8 |
 | Companion apps | A mobile or desktop app supplied with the product is itself a product with digital elements, with its own version lineage | Art 3(1); guidance paras 20-21 |
 | Variants and families | A family sharing architecture, security-relevant design, intended purpose and risks may share one risk assessment, one technical file and one DoC | Guidance paras 174-177 |
@@ -296,9 +296,9 @@ Each product gets one scope and classification decision record, held in the syst
 
 Because the guidance is non-binding and still formally a draft, the record must say which version it relied on. When a later FAQ version or a cited harmonised standard changes the answer, the record is superseded, not edited.
 
-### The per-version rule for software
+### The version placing rule for software
 
-For standalone software, the register treats each version as the unit placed on the market. Guidance paras 13-14 deem all copies of a version placed at the moment the version is first offered.
+For standalone software, the register records every version and whether it is a new placing. Guidance paras 13-15 deem all copies placed at the first offering; later versions keep that date unless they are a substantial modification (Example 2).
 
 A version that is a substantial modification is a new placing and needs its own declared support period (guidance paras 104-124, 128). It may also need its own DoC (FAQ Section 6.8).
 
@@ -849,7 +849,7 @@ The ENISA SME survey found templates to be the single most requested support, at
 | Executives and board | The obligations in Arts 13-14; fine tiers in Art 64 (EUR 15m or 2.5%; EUR 10m or 2%; EUR 5m or 1%); the decision rights in Section 2; that cost cannot justify unaddressed product risk (guidance paras 156-163); the 11 Sep 2026 and 11 Dec 2027 dates | Sign or delegate the DoC on evidence; hear a residual-risk appeal; read the Section 11 KPIs | 90 minutes at programme start; annual refresh; briefing on each guidance version change |
 | Engineering leads and developers | Annex I Part I patterns for (2)(a)-(m); the applicability matrix; SBOM generation and quality; secure update design; the release gate; the substantial-modification test; Art 13(5)-(6) component duties | Threat-model a product; justify a non-applicable item; produce a release-gate record; file an upstream report | Half-day at onboarding; per-release refresher through the gate checklist; annual update |
 | PSIRT | Awareness criteria (guidance para 213; FAQ 5.2, 5.4); the SRP, its roles and limits; the 24-hour, 72-hour and final-report content; CVD policy and disclosure timelines; VEX and CSAF; the multi-regime cell | Declare awareness; file an early warning on a weekend; write a "not reportable" decision; publish an advisory | Full day at appointment; two drills a year; monthly case review |
-| Product management | Support-period determination and the five-year floor (Art 13(8)); Annex II content; end-of-support display and notification (Art 13(19)); the scope register fields; the per-version rule for software | Set and document a support period; draft Annex II information; raise a register change | Half-day; refresh at each guidance change on Section 5 of the guidance |
+| Product management | Support-period determination and the five-year floor (Art 13(8)); Annex II content; end-of-support display and notification (Art 13(19)); the scope register fields; the version placing rule for software | Set and document a support period; draft Annex II information; raise a register change | Half-day; refresh at each guidance change on Section 5 of the guidance |
 | Procurement and legal | The Section 6 contract clauses; roles under Arts 18-22 and when a reseller becomes manufacturer; FOSS determinations and the steward test (guidance paras 40-88); Art 13(22) requests and Art 64(4) exposure; PLD disclosure from 9 Dec 2026 | Negotiate the clauses; write a steward determination; review a 72-hour report; answer an authority | Half-day; refresh at each guidance or case-law change |
 | Support and sales | What the CRA promises customers: support period, security updates, where the DoC, Annex II information and CVD policy are published; what to say during an incident; where SBOM access sits if the organisation offers it (Annex II point 9) | Answer a customer's CRA questionnaire from the published material; route a vulnerability report to PSIRT within the hour; use the incident script | Two hours; refresh with each incident template change |
 | Internal audit and compliance sampling | The three lines of assurance (Section 5); what a complete Annex VII file looks like; retention rules; the reasoned-request procedure | Sample a technical file; test the system of record; report to the programme board | Half-day; annual |

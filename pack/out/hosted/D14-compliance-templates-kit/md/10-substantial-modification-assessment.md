@@ -31,7 +31,7 @@ This record decides whether a change to a product already on the market is a sub
 | Field | What to enter | Basis | Example: L2 Smart Lock (illustrative) |
 | --- | --- | --- | --- |
 | Product and variants | Name, type and SKUs covered | Annex V pt 1 | L2 Smart Lock, 3 SKUs |
-| Version on the market | Current version and first placing date | Art 3(21); guidance pts 13-14 | Firmware 3.4, placed \[date\] |
+| Version on the market | Current version and first placing date | Art 3(21); guidance pts 13-15, Example 2 | Firmware 3.4, placed \[date\] |
 | Proposed release | Version and planned release date | Annex VII pt 1 | Firmware 4.0, planned \[Q2 2028\] |
 | Change summary | One line per change; ticket link | Art 13(7) | Remote unlock through the access-management cloud |
 | Change type | Security update, functionality update, or both | Annex I Part II(2) | Functionality update |
@@ -67,7 +67,7 @@ Art 3(30) (OJ text): a change after placing on the market "which affects the com
 
 | Action | Not substantial | Substantial modification | Basis |
 | --- | --- | --- | --- |
-| Placing on the market | Original placing date stands | New placing on the market for the changed version | Guidance pt 116; scope pts 13-14 |
+| Placing on the market | Original placing date stands | New placing on the market for the changed version | Guidance pt 116; scope pts 13-15, Example 2 |
 | Risk assessment (Template 2) | Record this assessment; update any affected row | Re-assess, focused on the modified parts; reuse unaffected rows | Pts 122-123; Annex VII pt 3 |
 | Technical file (Template 4) | Update software versions and the SBOM for the release | New file version; earlier versions retained | Annex VII pts 1, 2(b); Art 13(13) |
 | Declaration (Template 5) | Update "as appropriate" if identification changes | New or updated declaration for the new version | Art 28; FAQ 6.8 |

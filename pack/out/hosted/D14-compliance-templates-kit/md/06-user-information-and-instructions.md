@@ -18,7 +18,7 @@ The user information document carries the security facts a user needs to buy, co
 ## How to complete
 
 1. Pull intended purpose, foreseeable misuse and residual risks from the product definition record and Template 2.
-2. Take the support end month and year per version from Template 3, and the contact and policy URL from Template 7.
+2. Take the support end month and year that applies to each version from Template 3, and the contact and policy URL from Template 7.
 3. Fill one row per Annex II point below. Write concrete steps, not disclaimers.
 4. Publish at a versioned URL such as `/security/<product>/<version>/` with a `latest` alias. Never delete a version page while its retention runs.
 5. Place each item where the table says: manual, website, packaging, product label or app.
@@ -58,7 +58,7 @@ The user information document carries the security facts a user needs to buy, co
 
 - Point 5 written as a disclaimer. Write concrete conditions and compensating measures, carried over from residual risks in the risk assessment.
 - A point 2 contact that differs from security.txt, or a chatbot as the only channel (Art 13(17)).
-- No end month and year at the point of sale, or no per-version support declaration for software (Art 13(19)).
+- No end month and year at the point of sale, or, for software, no record of which declared end date applies to each version (Art 13(19)).
 - Point 8(e) text that does not match the real opt-out, postponement and notification behaviour.
 - A logging opt-out that silently disables security events without saying so in the user information.
 

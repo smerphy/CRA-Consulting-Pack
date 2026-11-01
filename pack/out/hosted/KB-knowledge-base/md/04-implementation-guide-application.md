@@ -1113,7 +1113,7 @@ Keep a version-support register: version, placing date, declared end date, what 
 
 Every placing on the market freezes a document set. For hardware that is each unit shipment against the file version current at the time.
 
-For software it is the first offering of each version (guidance paras 11-16). Record the mapping from product version to file, Annex II and declaration versions in the release gate record (section 5).
+For standalone software, all copies of a version are placed at its first offering; later versions keep that date unless they are a substantial modification, and builds for different platforms are distinct products (guidance paras 11, 13-15, Examples 1-2). Each version still has its own file version. Record every version, whether it is a new placing and the placing date it keeps, with the mapping from product version to file, Annex II and declaration versions in the release gate record (section 5).
 
 Retention runs 10 years from placing or the support period, whichever is longer. It covers the file and declaration (Art 13(13)) and the Annex II information (Art 13(18)).
 
@@ -1258,7 +1258,7 @@ The Class I smart-home categories cover general-purpose virtual assistants and p
 
 Variants: T200 with cellular backup and T200 Wi-Fi only share architecture and security design, so one family. The emitter inventory and the 2(i) and 2(j) rows differ.
 
-The support period is 10 years to match expected use, declared per variant. Firmware releases are per-version placings and app releases follow the hardware units.
+The support period is 10 years to match expected use, declared per variant. Firmware releases are new placings only when they are a substantial modification, and app releases follow the hardware units.
 
 ### Section 3: risk assessment highlights
 

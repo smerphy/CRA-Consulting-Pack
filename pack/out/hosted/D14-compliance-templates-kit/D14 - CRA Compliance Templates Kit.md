@@ -262,7 +262,7 @@ The support period determination records how long the manufacturer will handle v
 1. State the expected time in use from Template 1 and Template 2.
 2. Gather evidence for each Art 13(8) factor and enter it in the evidence table.
 3. Set the period. Treat five years as a floor, not a default (guidance paras 125-128).
-4. Convert the period to an end month and year per variant and, for software, per version.
+4. Convert the period to an end month and year per variant and, for software, per substantially modified version.
 5. Record how the end date is shown at purchase and how users are told when support ends.
 6. Enter each version in the version-support register and obtain sign-off.
 
@@ -311,17 +311,17 @@ The Art 13(8) factors follow the order of the OJ text: expected time in use, rea
 
 ### Part D: version-support register
 
-Each substantially modified version carries its own declared period. A modification does not reset or extend an existing period (guidance paras 132-135). For standalone software, every version is placed at its first offering.
+Each substantially modified version carries its own declared period. A modification does not reset or extend an existing period (guidance paras 132-135). For standalone software, the product is placed at its first offering; later versions keep that placing date unless they are a substantial modification (guidance paras 13-15, Example 2). Record every version and whether it is a new placing.
 
-| Version | Placing date | Declared end (month, year) | Shown at purchase | Update channel | Migration path | Legacy-version owner |
-| --- | --- | --- | --- | --- | --- | --- |
-| L2 firmware \[x.y\] (illustrative) | \[Dec 2027\] | \[Dec 2037\] | Packaging and app store listing | Automatic OTA | Free OTA to latest | Product manager, HBS |
-| \[Version\] | \[Date\] | \[Month, year\] | \[Where\] | \[Channel\] | \[Path\] | \[Role\] |
+| Version | New placing? | Placing date | Declared end (month, year) | Shown at purchase | Update channel | Migration path | Legacy-version owner |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| L2 firmware \[x.y\] (illustrative) | Yes (first placing) | \[Dec 2027\] | \[Dec 2037\] | Packaging and app store listing | Automatic OTA | Free OTA to latest | Product manager, HBS |
+| \[Version\] | \[Yes/No\] | \[Date\] | \[Month, year\] | \[Where\] | \[Channel\] | \[Path\] | \[Role\] |
 
 ## Common mistakes
 
 - Declaring five years by default. It "operates only as a safeguard" and is not the default (guidance paras 125-128).
-- No per-version declaration for software, so nobody knows which versions get fixes. Keep the version-support register.
+- No version record for software, so nobody knows which versions get fixes or which are new placings. Keep the version-support register.
 - Showing a duration instead of an end date. Art 13(19) requires at least the month and the year at purchase.
 - Assuming a substantial modification extends the period for earlier versions. It does not (paras 132-135).
 - Setting a period that component suppliers cannot support. Secure supplier commitments first (Template 9).
@@ -597,7 +597,7 @@ The user information document carries the security facts a user needs to buy, co
 ## How to complete
 
 1. Pull intended purpose, foreseeable misuse and residual risks from the product definition record and Template 2.
-2. Take the support end month and year per version from Template 3, and the contact and policy URL from Template 7.
+2. Take the support end month and year that applies to each version from Template 3, and the contact and policy URL from Template 7.
 3. Fill one row per Annex II point below. Write concrete steps, not disclaimers.
 4. Publish at a versioned URL such as `/security/<product>/<version>/` with a `latest` alias. Never delete a version page while its retention runs.
 5. Place each item where the table says: manual, website, packaging, product label or app.
@@ -637,7 +637,7 @@ The user information document carries the security facts a user needs to buy, co
 
 - Point 5 written as a disclaimer. Write concrete conditions and compensating measures, carried over from residual risks in the risk assessment.
 - A point 2 contact that differs from security.txt, or a chatbot as the only channel (Art 13(17)).
-- No end month and year at the point of sale, or no per-version support declaration for software (Art 13(19)).
+- No end month and year at the point of sale, or, for software, no record of which declared end date applies to each version (Art 13(19)).
 - Point 8(e) text that does not match the real opt-out, postponement and notification behaviour.
 - A logging opt-out that silently disables security events without saying so in the user information.
 
@@ -1101,7 +1101,7 @@ This record decides whether a change to a product already on the market is a sub
 | Field | What to enter | Basis | Example: L2 Smart Lock (illustrative) |
 | --- | --- | --- | --- |
 | Product and variants | Name, type and SKUs covered | Annex V pt 1 | L2 Smart Lock, 3 SKUs |
-| Version on the market | Current version and first placing date | Art 3(21); guidance pts 13-14 | Firmware 3.4, placed \[date\] |
+| Version on the market | Current version and first placing date | Art 3(21); guidance pts 13-15, Example 2 | Firmware 3.4, placed \[date\] |
 | Proposed release | Version and planned release date | Annex VII pt 1 | Firmware 4.0, planned \[Q2 2028\] |
 | Change summary | One line per change; ticket link | Art 13(7) | Remote unlock through the access-management cloud |
 | Change type | Security update, functionality update, or both | Annex I Part II(2) | Functionality update |
@@ -1137,7 +1137,7 @@ Art 3(30) (OJ text): a change after placing on the market "which affects the com
 
 | Action | Not substantial | Substantial modification | Basis |
 | --- | --- | --- | --- |
-| Placing on the market | Original placing date stands | New placing on the market for the changed version | Guidance pt 116; scope pts 13-14 |
+| Placing on the market | Original placing date stands | New placing on the market for the changed version | Guidance pt 116; scope pts 13-15, Example 2 |
 | Risk assessment (Template 2) | Record this assessment; update any affected row | Re-assess, focused on the modified parts; reuse unaffected rows | Pts 122-123; Annex VII pt 3 |
 | Technical file (Template 4) | Update software versions and the SBOM for the release | New file version; earlier versions retained | Annex VII pts 1, 2(b); Art 13(13) |
 | Declaration (Template 5) | Update "as appropriate" if identification changes | New or updated declaration for the new version | Art 28; FAQ 6.8 |

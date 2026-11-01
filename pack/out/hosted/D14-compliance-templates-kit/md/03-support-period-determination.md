@@ -20,7 +20,7 @@ The support period determination records how long the manufacturer will handle v
 1. State the expected time in use from Template 1 and Template 2.
 2. Gather evidence for each Art 13(8) factor and enter it in the evidence table.
 3. Set the period. Treat five years as a floor, not a default (guidance paras 125-128).
-4. Convert the period to an end month and year per variant and, for software, per version.
+4. Convert the period to an end month and year per variant and, for software, per substantially modified version.
 5. Record how the end date is shown at purchase and how users are told when support ends.
 6. Enter each version in the version-support register and obtain sign-off.
 
@@ -69,17 +69,17 @@ The Art 13(8) factors follow the order of the OJ text: expected time in use, rea
 
 ### Part D: version-support register
 
-Each substantially modified version carries its own declared period. A modification does not reset or extend an existing period (guidance paras 132-135). For standalone software, every version is placed at its first offering.
+Each substantially modified version carries its own declared period. A modification does not reset or extend an existing period (guidance paras 132-135). For standalone software, the product is placed at its first offering; later versions keep that placing date unless they are a substantial modification (guidance paras 13-15, Example 2). Record every version and whether it is a new placing.
 
-| Version | Placing date | Declared end (month, year) | Shown at purchase | Update channel | Migration path | Legacy-version owner |
-| --- | --- | --- | --- | --- | --- | --- |
-| L2 firmware \[x.y\] (illustrative) | \[Dec 2027\] | \[Dec 2037\] | Packaging and app store listing | Automatic OTA | Free OTA to latest | Product manager, HBS |
-| \[Version\] | \[Date\] | \[Month, year\] | \[Where\] | \[Channel\] | \[Path\] | \[Role\] |
+| Version | New placing? | Placing date | Declared end (month, year) | Shown at purchase | Update channel | Migration path | Legacy-version owner |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| L2 firmware \[x.y\] (illustrative) | Yes (first placing) | \[Dec 2027\] | \[Dec 2037\] | Packaging and app store listing | Automatic OTA | Free OTA to latest | Product manager, HBS |
+| \[Version\] | \[Yes/No\] | \[Date\] | \[Month, year\] | \[Where\] | \[Channel\] | \[Path\] | \[Role\] |
 
 ## Common mistakes
 
 - Declaring five years by default. It "operates only as a safeguard" and is not the default (guidance paras 125-128).
-- No per-version declaration for software, so nobody knows which versions get fixes. Keep the version-support register.
+- No version record for software, so nobody knows which versions get fixes or which are new placings. Keep the version-support register.
 - Showing a duration instead of an end date. Art 13(19) requires at least the month and the year at purchase.
 - Assuming a substantial modification extends the period for earlier versions. It does not (paras 132-135).
 - Setting a period that component suppliers cannot support. Secure supplier commitments first (Template 9).
