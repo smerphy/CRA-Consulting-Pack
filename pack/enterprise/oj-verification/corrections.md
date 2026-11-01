@@ -1046,4 +1046,5 @@ The same old strings also appear in assembled or exported copies. Regenerate the
 
 - Annex V point 3 "provider" stays verbatim in the declaration model. The OJ says "provider" in English ("Anbieter" in German, "fournisseur" in French) and no corrigendum changes it.
 - Art 14 deadlines, Art 64 amounts, Art 69 and Art 71 dates, Annex III and IV counts and item wording, Annex II points 1-9 and Annex VII points 1-8 are correct as stated and need no change.
+- The D14 template footers ("Not legal advice; confirm wording against the Official Journal text before use.") are a harmless general caution and may stay; only the overview's "paraphrased from mirrors" statement is now untrue (entry 3.12).
 - Facts F16 and F17 (national acts; Digital Omnibus) are outside the OJ text and remain as verified in `reports/verification.md`.
