@@ -50,7 +50,7 @@ State the single core functionality, then compare it against the technical descr
 
 ### Step 6: select the route
 
-Default products use Module A. Class I products cannot use Module A until a harmonised standard is cited, so plan for Module B+C or H and pre-contract candidate bodies. Class II and critical products need a notified body now.
+Default products use Module A. Class I products cannot use Module A until a cited harmonised standard, common specification or "substantial" EU certification scheme can be applied in full (Art 32(2)), so plan for Module B+C or H and pre-contract candidate bodies. Class II and critical products need a notified body now.
 
 A FOSS product in Annex III may use Module A if the technical file is published (Art 32(5)). The route table is in Conformity assessment and documentation; the preparation steps are in section 12.
 

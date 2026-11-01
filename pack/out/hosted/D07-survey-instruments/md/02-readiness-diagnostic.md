@@ -161,7 +161,7 @@ Baseline 28 Oct 2026: average level 0.48, readiness 16%.
 
 | ID | Statement | Legal basis | Evidence to attach | Action if below level 3 |
 | --- | --- | --- | --- | --- |
-| Q10.1 | The conformity route for the product (Module A, B+C or H) is decided, with a fallback. | Art 32; Annex VIII | Route decision record | Decide the route per family; for Class I, plan third-party assessment until a harmonised standard is cited. |
+| Q10.1 | The conformity route for the product (Module A, B+C or H) is decided, with a fallback. | Art 32; Annex VIII | Route decision record | Decide the route per family; for Class I, plan third-party assessment until a cited harmonised standard, common specification or 'substantial' EU certification scheme can be applied in full (Art 32(2)). |
 | Q10.2 | Candidate notified bodies are shortlisted and a pre-assessment is contracted where the route needs one. | Art 32(2)-(3); Arts 35-43 | Shortlist; pre-assessment contract | Shortlist three candidates, contract pre-assessments with conversion options, and check NANDO at every programme board. |
 | Q10.3 | A complete Module A internal-control record is kept for the product, even where a notified body will be used. | Annex VIII Module A | Internal-control record with evidence index | Build the Module A record and evidence index now; it is the fallback and the body's application pack. |
 | Q10.4 | EU representation, importer and distributor duties and marketplace arrangements are settled for each market. | Arts 18-20; Regulation (EU) 2019/1020 Art 4 | Representation decision per market; mandates | Confirm the role per market, appoint an authorised representative where useful and brief importers on their checks. |

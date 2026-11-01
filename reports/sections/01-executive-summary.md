@@ -6,7 +6,7 @@ It applies in full from 11 Dec 2027. Article 14 reporting has been live since 11
 
 Three design choices drive the engineering workload. The manufacturer carries almost every duty, and the law reaches the manufacturer-built backends a product needs to function (Art 3(2)). Obligations attach per unit, so a unit shipped on 10 Dec 2027 escapes Annex I and one shipped next day does not (Art 69(2)).
 
-Classification decides the conformity route (Art 32). Default products self-assess under Module A; the 26 named categories in Annexes III and IV need a notified body or a recognised certificate. Class I may self-assess only under a fully applied cited harmonised standard; none is cited on 30 Oct 2026 (see Product classification).
+Classification decides the conformity route (Art 32). Default products self-assess under Module A; the 26 named categories in Annexes III and IV need a notified body or a recognised certificate. Class I may self-assess only by applying in full a cited harmonised standard, a common specification or a "substantial" EU certification scheme (Art 32(2)); none is available on 30 Oct 2026 (see Product classification).
 
 ### State of play on 30 Oct 2026
 

@@ -1,0 +1,50 @@
+id,activity,module,predecessors_active,dur_low,dur_base,dur_high,dur_used_base,es_day,ef_day,ls_day,lf_day,total_float_days,critical,start_date,finish_date,target_date,slack_to_target_days,source
+M0,Programme mobilised and funding envelope approved,E7,,14.0,30.0,60.0,30.0,0.0,30.0,15.0,45.0,15.0,no,2026-11-02,2026-12-02,,,assumption
+A14I,Interim Art 14 24/7 cover confirmed (legally required since 11 Sep 2026),E2,,0.0,14.0,30.0,14.0,0.0,14.0,333.3,347.3,333.3,no,2026-11-02,2026-11-16,,,art14-operations/paper.md Decision 3 (interim on-call now)
+A14,Art 14 reporting cell fully staffed (about 6 FTE),E2,M0;A14I,75.0,120.0,180.0,120.0,30.0,150.0,347.3,467.3,317.3,no,2026-12-02,2027-04-01,,,art14-operations/paper.md Decision 3 (in post by end Q1 2027); durations assumption
+C1,Borderline classification opinions ratified (8 positions),E3,M0,45.0,60.0,120.0,60.0,30.0,90.0,45.0,105.0,15.0,no,2026-12-02,2027-01-31,,,portfolio-classification/paper.md Decision 3 (by end Jan 2027)
+C2,Module H route decision and QS gap assessment (4 organisations),E3,M0,90.0,120.0,180.0,120.0,30.0,150.0,45.0,165.0,15.0,no,2026-12-02,2027-04-01,,,portfolio-classification/paper.md Decision 1 (route Jan 2027; gap assessment Mar 2027)
+QSD,Quality systems documented to Annex VIII Module H pt 3.2,E3,C2,60.0,90.0,150.0,90.0,150.0,240.0,165.0,255.0,15.0,no,2027-04-01,2027-06-30,,,assumption
+RA,Risk assessments and Annex I applicability matrices signed (all families),KB,C1,90.0,150.0,240.0,150.0,90.0,240.0,105.0,255.0,15.0,no,2027-01-31,2027-06-30,,,"reports/sections/15-programme.md (phase 2, 4-8 weeks per family, run as waves); duration assumption"
+E1P,"Evidence pipeline pilot in shadow mode (Hearth Lock 3, Lumen Browser)",E1,M0,90.0,120.0,180.0,120.0,30.0,150.0,45.0,165.0,15.0,no,2026-12-02,2027-04-01,,,"evidence-as-code/paper.md (wave 0, Dec 2026 to Mar 2027)"
+E1W1,Evidence gate enforced for important products (wave 1),E1,E1P,60.0,90.0,150.0,90.0,150.0,240.0,165.0,255.0,15.0,no,2027-04-01,2027-06-30,,,"evidence-as-code/paper.md (wave 1, Apr to Jun 2027)"
+E1W2,Evidence gate GA for default products (wave 2),E1,E1W1,60.0,90.0,150.0,90.0,240.0,330.0,393.3,483.3,153.3,no,2027-06-30,2027-09-28,,,"evidence-as-code/paper.md (wave 2, Jul to Sep 2027)"
+E1W3,Readiness drill - Art 13(22) export of 20 versions,E1,E1W2,20.0,30.0,60.0,30.0,330.0,360.0,483.3,513.3,153.3,no,2027-09-28,2027-10-28,,,"evidence-as-code/paper.md (wave 3, Oct 2027)"
+NB0,First CRA notified body with Module H scope designated (external),E3,,60.0,150.0,330.0,150.0,0.0,150.0,0.0,150.0,0.0,yes,2026-11-02,2027-04-01,,,"assumption (none designated at 8 Sep 2026, reports/sections/10-conformity.md; 12-18 months accreditation plus notification, reports/sections/15-programme.md)"
+NB2,Second Module H body designated (lag after the first),E3,NB0,0.0,60.0,180.0,60.0,150.0,210.0,150.0,210.0,0.0,yes,2027-04-01,2027-05-31,,,assumption
+NB3,Third Module H body designated (lag after the first; lever L3 only),E3,NB0,30.0,120.0,240.0,120.0,150.0,270.0,407.3,527.3,257.3,no,2027-04-01,2027-07-30,,,assumption
+K_SW,"Software-side body contracted (Lumen, Platforms)",E3,NB0,14.0,45.0,120.0,45.0,150.0,195.0,234.3,279.3,84.3,no,2027-04-01,2027-05-16,,,"reports/sections/15-programme.md (contracting 2-4 months, commentary); portfolio-classification/paper.md Decision 2 (within 30 days of designation)"
+K_HW,Hardware-side body contracted (Devices; Cloud and apps unless L3),E3,NB2,14.0,45.0,120.0,45.0,210.0,255.0,210.0,255.0,0.0,yes,2027-05-31,2027-07-15,,,as K_SW
+K_CL,Body for Cloud and apps contracted,E3,NB2,14.0,45.0,120.0,45.0,210.0,255.0,269.6,314.6,59.6,no,2027-05-31,2027-07-15,,,as K_SW
+H_LUM,Module H QS approval and model review - Lumen,E3,K_SW;QSD;E1W1;RA,98.3,234.0,517.8,234.0,240.0,474.0,279.3,513.3,39.3,no,2027-06-30,2028-02-20,,,portfolio-classification/nb_demand_summary.json (body-days); capacity assumptions
+H_PLT,Module H QS approval and model review - Platforms,E3,K_SW;QSD;E1W1;RA,79.1,191.8,428.5,191.8,240.0,431.8,321.5,513.3,81.5,no,2027-06-30,2028-01-08,,,as H_LUM
+H_DEV,Module H QS approval and model review - Devices,E3,K_HW;QSD;E1W1;RA,106.0,258.3,578.6,258.3,255.0,513.3,255.0,513.3,0.0,yes,2027-07-15,2028-03-30,,,as H_LUM
+H_CLD,Module H QS approval and model review - Cloud and apps,E3,K_CL;QSD;E1W1;RA,81.1,198.7,446.1,198.7,255.0,453.7,314.6,513.3,59.6,no,2027-07-15,2028-01-30,,,as H_LUM
+TDN,Annex VII files for notified-body families,E1/E3,RA,60.0,90.0,150.0,90.0,240.0,330.0,423.3,513.3,183.3,no,2027-06-30,2027-09-28,,,reports/guides/corporate/11-programme-budget.md (file assembly starts when risk assessment is signed; 2-4 months per family)
+TDD,Annex VII files for default families,E1/E3,RA,45.0,75.0,120.0,75.0,240.0,315.0,438.3,513.3,198.3,no,2027-06-30,2027-09-13,,,as TDN
+AII,Annex II user information drafted (portfolio),KB,RA,45.0,75.0,120.0,75.0,240.0,315.0,378.3,453.3,138.3,no,2027-06-30,2027-09-13,,,assumption
+TR,Annex II and DoC translations (23 languages),KB,AII,30.0,60.0,120.0,60.0,315.0,375.0,453.3,513.3,138.3,no,2027-09-13,2027-11-12,,,assumption
+D_LUM,First EU declarations issued - Lumen,E3,H_LUM;TDN;TR,7.0,14.0,30.0,14.0,474.0,488.0,513.3,527.3,39.3,no,2028-02-20,2028-03-05,,,assumption
+D_PLT,First EU declarations issued - Platforms,E3,H_PLT;TDN;TR,7.0,14.0,30.0,14.0,431.8,445.8,513.3,527.3,81.5,no,2028-01-08,2028-01-22,,,assumption
+D_DEV,First EU declarations issued - Devices (Class I),E3,H_DEV;TDN;TR,7.0,14.0,30.0,14.0,513.3,527.3,513.3,527.3,0.0,yes,2028-03-30,2028-04-13,,,assumption
+D_CLD,First EU declarations issued - Cloud and apps (Class I and II),E3,H_CLD;TDN;TR,7.0,14.0,30.0,14.0,453.7,467.7,513.3,527.3,59.6,no,2028-01-30,2028-02-13,,,assumption
+D_DEF,Module A declarations issued - default-class families,E1/E3,TDD;TR;E1W3,7.0,14.0,30.0,14.0,375.0,389.0,513.3,527.3,138.3,no,2027-11-12,2027-11-26,,,assumption
+OS1,"Steward and LTS decisions (HOSP, Lumen Engine, Tensile LTS)",E4,M0,60.0,120.0,180.0,120.0,30.0,150.0,287.3,407.3,257.3,no,2026-12-02,2027-04-01,,,"open-source-strategy/paper.md Decisions 1, 3, 4 (by Mar 2027)"
+OS2,Halo early access decoupled; Tensile LTS opened,E4,OS1,60.0,90.0,150.0,90.0,150.0,240.0,407.3,497.3,257.3,no,2027-04-01,2027-06-30,,,open-source-strategy/paper.md Decision 2 (contract changes by Jun 2027)
+OS3,Art 24(1) policies and OSS posture statement published,E4,OS2,14.0,30.0,60.0,30.0,240.0,270.0,497.3,527.3,257.3,no,2027-06-30,2027-07-30,,,open-source-strategy/paper.md Decisions 1 and 6 (Jun 2027)
+OS4,Steward (dual-role) reporting live in the case engine,E4/E2,OS1;A14,30.0,60.0,120.0,60.0,150.0,210.0,467.3,527.3,317.3,no,2027-04-01,2027-05-31,,,open-source-strategy/projects.yaml (HOSP action by 2027-09)
+OS5,Kite and Mooring transferred to foundations (not CRA-gating),E4,OS1,150.0,240.0,365.0,240.0,150.0,390.0,,,not CRA-gating,no,2027-04-01,2027-11-27,,,open-source-strategy/paper.md Decision 5 (Kite Sep 2027; Mooring Dec 2027)
+G1,43-control set adopted as the global standard,E5,M0,14.0,30.0,60.0,30.0,30.0,60.0,,,not CRA-gating,no,2026-12-02,2027-01-01,,,global-control-set/paper.md Decision 1 (end Q4 2026)
+G2,"Declaration generator first release (EU, UK, JP, US data)",E5,E1P;G1,60.0,90.0,150.0,90.0,150.0,240.0,,,not CRA-gating,no,2027-04-01,2027-06-30,,,global-control-set/paper.md Decision 3 (Q2 2027)
+G3,JC-STAR STAR-1 labels for Hearth and Pulse (target 30 Jun 2027),E5,G2,30.0,60.0,120.0,60.0,240.0,300.0,,,not CRA-gating,no,2027-06-30,2027-08-29,2027-06-30,-60.0,global-control-set/paper.md Decision 4 (H1 2027)
+G4,UK PSTI statements of compliance regenerated from the evidence store,E5,G2,14.0,30.0,60.0,30.0,240.0,270.0,,,not CRA-gating,no,2027-06-30,2027-07-30,,,global-control-set/paper.md (UK in force since 29 Apr 2024)
+G5,FCC final Cyber Trust Mark test procedures (external),E5,,270.0,450.0,720.0,450.0,0.0,450.0,,,not CRA-gating,no,2026-11-02,2028-01-26,,,assumption (global-control-set/paper.md - no labelled products or final requirements at 28 Oct 2026)
+G6,"US Cyber Trust Mark labels, if pursued (not CRA-gating)",E5,G5;G2,60.0,90.0,150.0,90.0,450.0,540.0,,,not CRA-gating,no,2028-01-26,2028-04-25,,,assumption
+R_LUM,"READY - Lumen (browser desktop and mobile, WebView)",E7,D_LUM;A14,0.0,0.0,0.0,0.0,488.0,488.0,527.3,527.3,39.3,no,2028-03-05,2028-03-05,2027-12-11,-84.0,readiness node
+R_PLT,"READY - Platforms (Lumen OS, Halo Wear OS)",E7,D_PLT;A14,0.0,0.0,0.0,0.0,445.8,445.8,527.3,527.3,81.5,no,2028-01-22,2028-01-22,2027-12-11,-41.8,readiness node
+R_DEV,"READY - Devices Class I (Hearth, Pulse, Keystone)",E7,D_DEV;A14,0.0,0.0,0.0,0.0,527.3,527.3,527.3,527.3,0.0,yes,2028-04-13,2028-04-13,2027-12-11,-123.3,readiness node
+R_CLD,"READY - Cloud and apps Class I and II (Authenticator, VPNs, Edge)",E7,D_CLD;A14,0.0,0.0,0.0,0.0,467.7,467.7,527.3,527.3,59.6,no,2028-02-13,2028-02-13,2027-12-11,-63.7,readiness node
+R_DEF,READY - Default-class products (Module A),E7,D_DEF;A14,0.0,0.0,0.0,0.0,389.0,389.0,527.3,527.3,138.3,no,2027-11-26,2027-11-26,2027-12-11,15.0,readiness node
+R_OSS,READY - Open-source stewardship (Art 24 from 11 Dec 2027),E7,OS3;OS4,0.0,0.0,0.0,0.0,270.0,270.0,527.3,527.3,257.3,no,2027-07-30,2027-07-30,2027-12-11,134.0,readiness node
+R_A14,READY - Art 14 desk at full strength (target 31 Mar 2027; required now),E7,A14,0.0,0.0,0.0,0.0,150.0,150.0,527.3,527.3,377.3,no,2027-04-01,2027-04-01,2027-03-31,-1.0,readiness node
+END,All CRA product lines ready,E7,R_LUM;R_PLT;R_DEV;R_CLD;R_DEF;R_OSS;R_A14,0.0,0.0,0.0,0.0,527.3,527.3,527.3,527.3,0.0,yes,2028-04-13,2028-04-13,2027-12-11,-123.3,readiness node
