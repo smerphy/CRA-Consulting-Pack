@@ -14,7 +14,7 @@
 2. **When does it apply?** In stages. Reporting of actively exploited vulnerabilities and severe incidents has applied since 11 Sep 2026. The rules for notified bodies have applied since 11 Jun 2026. Everything else, including the product requirements, applies from 11 Dec 2027.
 3. **Which of our products does it cover?** All of them: 13 product families and 55 SKUs, together with their companion apps and the cloud services we build that they need to work. Products we no longer sell are still covered by the reporting duty.
 4. **Could the deadline move?** Plan on the dates in the law. The Digital Omnibus proposal now under discussion does not amend the CRA, and it has not been adopted (as at 30 Oct 2026).
-5. **What happens if we get it wrong?** From 11 Dec 2027 authorities can order corrective action, withdrawal or recall, and fine up to EUR 15m or 2.5% of worldwide turnover, whichever is higher; Finland can already enforce Article 14 breaches. From 9 Dec 2026 the Product Liability Directive also treats software as a product and a vulnerability as a possible defect.
+5. **What happens if we get it wrong?** From 11 Dec 2027 authorities can order corrective action, withdrawal or recall, and fine up to EUR 15m or 2.5% of worldwide turnover, whichever is higher; Finland can already enforce Article 14 breaches. For products placed on the market or put into service after 9 Dec 2026, the Product Liability Directive also treats software as a product and a vulnerability as a possible defect.
 
 ### Project Rampart
 

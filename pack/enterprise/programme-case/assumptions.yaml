@@ -1,0 +1,1794 @@
+# Aldermoor Platforms: CRA integrated programme case (module E7). Assumptions register.
+#
+# Format: a flat list of mappings (a strict subset of YAML read by model.py's own parser, so the
+# model needs only the Python standard library). One item per input. Fields:
+#   section  global | cost | nb | lever | line | activity
+#   key      identifier used by model.py and as a defined name in the Excel workbook
+#   low/base/high  values. For COST inputs, low = cheaper. For SCHEDULE inputs (activities and the
+#            nb section), low = the favourable end (earlier or faster), so "Low" is the optimistic
+#            scenario throughout; nb_assessors is therefore listed high-to-low.
+#   source   the module file the value comes from, or "assumption"
+#   label    module | module (range assumption) | assumption | external
+# Inputs marked "from:" are overwritten at run time by the value in that module output file;
+# the numbers written here are the fallback if the file is missing (model.py says so in its log).
+# Days are calendar days from the programme start date (2 Nov 2026). Quarters run Q4 2026 to Q4 2028;
+# Q4 2026 covers Nov-Dec only, which the 2026Q4 profile factors reflect.
+
+# ---------------------------------------------------------------- global
+- section: global
+  key: usd_to_eur
+  desc: Conversion from USD to EUR
+  low: 0.919
+  base: 0.919
+  high: 0.919
+  unit: EUR per USD
+  source: BRIEF.md (revenue USD 310bn = about EUR 285bn)
+  label: module
+- section: global
+  key: jpy_per_eur
+  desc: Conversion from EUR to JPY for JC-STAR fees
+  low: 170
+  base: 170
+  high: 170
+  unit: JPY per EUR
+  source: assumption (not a quoted rate)
+  label: assumption
+- section: global
+  key: productive_hours
+  desc: Productive hours per FTE-year
+  low: 1600
+  base: 1600
+  high: 1600
+  unit: hours
+  source: art14-operations/volume_model.csv (productive_hours_fte)
+  label: module
+- section: global
+  key: engineers_total
+  desc: Engineers in the group (for awareness training memo)
+  low: 60000
+  base: 60000
+  high: 60000
+  unit: people
+  source: BRIEF.md
+  label: module
+
+# ---------------------------------------------------------------- cost: people rate and contingency
+- section: cost
+  key: fte_cost_usd
+  desc: Loaded cost per FTE-year
+  low: 250000
+  base: 300000
+  high: 350000
+  unit: USD per FTE-year
+  source: evidence-as-code/paper.md (effort table: loaded USD 250,000-350,000 per FTE-year)
+  label: module
+- section: cost
+  key: contingency_rate
+  desc: Contingency on one-off cost
+  low: 0.10
+  base: 0.15
+  high: 0.25
+  unit: share
+  source: assumption
+  label: assumption
+- section: cost
+  key: contingency_run_rate
+  desc: Contingency on run cost
+  low: 0.05
+  base: 0.10
+  high: 0.15
+  unit: share
+  source: assumption
+  label: assumption
+
+# ---------------------------------------------------------------- cost: E1 evidence platform
+- section: cost
+  key: e1_platform_fte
+  desc: Platform build team (schema, collectors, gate service, store, index, export), Q1-Q3 2027
+  low: 6
+  base: 8
+  high: 10
+  unit: FTE
+  source: evidence-as-code/paper.md (8 engineers for 9 months = 6 FTE-years); range assumption
+  label: module (range assumption)
+- section: cost
+  key: e1_ci_fte
+  desc: Build-rule and CI integration team, Q1-Q2 2027
+  low: 3
+  base: 4
+  high: 5
+  unit: FTE
+  source: evidence-as-code/paper.md (4 engineers for 6 months = 2 FTE-years); range assumption
+  label: module (range assumption)
+- section: cost
+  key: e1_onboarding_fteyrs
+  desc: Product onboarding, about 200 product lines at 2-5 engineer-weeks each
+  low: 8
+  base: 14
+  high: 20
+  unit: FTE-years
+  source: evidence-as-code/paper.md (8-20 FTE-years)
+  label: module
+- section: cost
+  key: e1_vex_fte
+  desc: PSIRT VEX operations uplift (justified statement for every match)
+  low: 5
+  base: 6.5
+  high: 8
+  unit: FTE
+  source: evidence-as-code/paper.md (5-8 FTE-years in 2027)
+  label: module
+- section: cost
+  key: e1_compliance_fte
+  desc: Gate policy ownership and drills (E1 compliance line less pt 110 review)
+  low: 1
+  base: 1.5
+  high: 2
+  unit: FTE
+  source: evidence-as-code/paper.md (compliance, legal and review 3-4 FTE-years, less 2 FTE review)
+  label: module
+- section: cost
+  key: e1_review_fte
+  desc: Substantial-modification (pt 110) REVIEW load; 2 FTE if answered at feature launch, 12 FTE if per release
+  low: 2
+  base: 2
+  high: 12
+  unit: FTE
+  source: evidence-as-code/paper.md (review load paragraph: about 12 FTE release-level, about 2 FTE at feature launch)
+  label: module
+- section: cost
+  key: e1_platform_run_fte
+  desc: Evidence platform run team from Q4 2027
+  low: 3
+  base: 4
+  high: 6
+  unit: FTE
+  source: assumption
+  label: assumption
+- section: cost
+  key: e1_onboarding_run_fte
+  desc: Onboarding of new product lines and gate policy changes from 2028
+  low: 2
+  base: 3
+  high: 5
+  unit: FTE
+  source: assumption
+  label: assumption
+- section: cost
+  key: e1_storage_usd_yr
+  desc: Evidence storage at archive-tier prices
+  low: 70
+  base: 340
+  high: 2100
+  unit: USD per year
+  source: evidence-as-code/paper.md (storage sizing table)
+  label: module
+- section: cost
+  key: e1_storage_tier_mult
+  desc: Multiplier for warmer tiers and the hot index
+  low: 1
+  base: 5
+  high: 25
+  unit: multiple
+  source: evidence-as-code/paper.md ("even at 25 times that price"); base assumption
+  label: module (range assumption)
+- section: cost
+  key: e1_infra_eur_yr
+  desc: Gate service compute, signing and timestamping, transparency log, export tooling
+  low: 200000
+  base: 400000
+  high: 800000
+  unit: EUR per year
+  source: assumption
+  label: assumption
+
+# ---------------------------------------------------------------- cost: E2 Art 14 operations
+- section: cost
+  key: e2_cell_fte
+  desc: Reporting cell FTE (24/7 filing seat floor or workload, whichever is higher)
+  low: 5.47
+  base: 5.47
+  high: 6.93
+  unit: FTE
+  source: art14-operations/volume_model_output.csv (fte_cell_recommended)
+  label: module
+  from: e2.fte_cell_recommended
+- section: cost
+  key: e2_legal_fte
+  desc: Legal duty-counsel FTE (72 h and final review)
+  low: 0.03
+  base: 0.11
+  high: 0.41
+  unit: FTE
+  source: art14-operations/volume_model_output.csv (fte_legal)
+  label: module
+  from: e2.fte_legal
+- section: cost
+  key: e2_comms_fte
+  desc: Communications FTE for user notices (excluding translation)
+  low: 0.06
+  base: 0.34
+  high: 1.66
+  unit: FTE
+  source: art14-operations/volume_model_output.csv (fte_comms)
+  label: module
+  from: e2.fte_comms
+- section: cost
+  key: e2_user_notices
+  desc: Art 14(8) user notices a year
+  low: 62
+  base: 275.4
+  high: 884
+  unit: notices per year
+  source: art14-operations/volume_model_output.csv (user_notices)
+  label: module
+  from: e2.user_notices
+- section: cost
+  key: e2_loc_langs
+  desc: Additional languages per user notice (24 official languages less English); E2 calls localisation a pack assumption
+  low: 0
+  base: 23
+  high: 23
+  unit: languages
+  source: art14-operations/paper.md (24-language notice variants, labelled an assumption)
+  label: module (range assumption)
+- section: cost
+  key: e2_loc_eur_per_variant
+  desc: Translation and review cost per localised notice variant
+  low: 80
+  base: 150
+  high: 300
+  unit: EUR per variant
+  source: assumption
+  label: assumption
+- section: cost
+  key: e2_tooling_fteyrs
+  desc: Productionising the case engine (release-pipeline distribution map, SRP field sheets, integrations)
+  low: 2
+  base: 3
+  high: 5
+  unit: FTE-years
+  source: assumption (art14-operations/case_engine is a working reference, not production)
+  label: assumption
+- section: cost
+  key: e2_tooling_run_eur_yr
+  desc: Case engine hosting, SRP access devices, drills tooling
+  low: 100000
+  base: 200000
+  high: 400000
+  unit: EUR per year
+  source: assumption
+  label: assumption
+
+# ---------------------------------------------------------------- cost: E3 notified body and quality system
+- section: cost
+  key: nb_y1_lumen
+  desc: Module H year-1 fees, Lumen (QS approval and model review)
+  low: 350000
+  base: 520000
+  high: 690000
+  unit: EUR
+  source: portfolio-classification/nb_demand_summary.json (organisations.lumen.h_year1_cost_eur); base = midpoint
+  label: module
+  from: e3.lumen.h_year1_cost_eur
+- section: cost
+  key: nb_y1_platforms
+  desc: Module H year-1 fees, Platforms
+  low: 280000
+  base: 425000
+  high: 570000
+  unit: EUR
+  source: portfolio-classification/nb_demand_summary.json (organisations.platforms.h_year1_cost_eur); base = midpoint
+  label: module
+  from: e3.platforms.h_year1_cost_eur
+- section: cost
+  key: nb_y1_devices
+  desc: Module H year-1 fees, Devices
+  low: 377000
+  base: 574000
+  high: 771000
+  unit: EUR
+  source: portfolio-classification/nb_demand_summary.json (organisations.devices.h_year1_cost_eur); base = midpoint
+  label: module
+  from: e3.devices.h_year1_cost_eur
+- section: cost
+  key: nb_y1_cloud_apps
+  desc: Module H year-1 fees, Cloud and apps
+  low: 288000
+  base: 441000
+  high: 594000
+  unit: EUR
+  source: portfolio-classification/nb_demand_summary.json (organisations.cloud_apps.h_year1_cost_eur); base = midpoint
+  label: module
+  from: e3.cloud_apps.h_year1_cost_eur
+- section: cost
+  key: nb_ss_lumen
+  desc: Module H surveillance and scope extensions a year, Lumen
+  low: 149000
+  base: 328000
+  high: 507000
+  unit: EUR per year
+  source: portfolio-classification/nb_demand_summary.json (h_steady_cost_eur_per_year); base = midpoint
+  label: module
+  from: e3.lumen.h_steady_cost_eur_per_year
+- section: cost
+  key: nb_ss_platforms
+  desc: Module H surveillance and scope extensions a year, Platforms
+  low: 99000
+  base: 220500
+  high: 342000
+  unit: EUR per year
+  source: portfolio-classification/nb_demand_summary.json; base = midpoint
+  label: module
+  from: e3.platforms.h_steady_cost_eur_per_year
+- section: cost
+  key: nb_ss_devices
+  desc: Module H surveillance and scope extensions a year, Devices
+  low: 148400
+  base: 326800
+  high: 505200
+  unit: EUR per year
+  source: portfolio-classification/nb_demand_summary.json; base = midpoint
+  label: module
+  from: e3.devices.h_steady_cost_eur_per_year
+- section: cost
+  key: nb_ss_cloud_apps
+  desc: Module H surveillance and scope extensions a year, Cloud and apps
+  low: 90300
+  base: 203100
+  high: 315900
+  unit: EUR per year
+  source: portfolio-classification/nb_demand_summary.json; base = midpoint
+  label: module
+  from: e3.cloud_apps.h_steady_cost_eur_per_year
+- section: cost
+  key: nb_orgs
+  desc: Organisations needing a Module H quality system
+  low: 4
+  base: 4
+  high: 4
+  unit: organisations
+  source: portfolio-classification/paper.md (Exhibit 3)
+  label: module
+- section: cost
+  key: nb_pre_eur_per_org
+  desc: Notified-body pre-assessment per organisation (KB names the fee line, gives no figure)
+  low: 30000
+  base: 60000
+  high: 100000
+  unit: EUR per organisation
+  source: assumption (reports/guides/corporate/11-programme-budget.md lists pre-assessments without a benchmark)
+  label: assumption
+- section: cost
+  key: qs_build_fte_per_org
+  desc: Quality-system manager and audit-preparation staff per organisation in 2027
+  low: 2
+  base: 3
+  high: 4
+  unit: FTE per organisation
+  source: assumption
+  label: assumption
+- section: cost
+  key: qs_run_fte_per_org
+  desc: Quality-system staff per organisation from 2028 (surveillance, scope extensions, change notices)
+  low: 1
+  base: 1.5
+  high: 2
+  unit: FTE per organisation
+  source: assumption
+  label: assumption
+
+# ---------------------------------------------------------------- cost: classification and legal
+- section: cost
+  key: legal_opinions_n
+  desc: Borderline classification positions to ratify
+  low: 8
+  base: 8
+  high: 8
+  unit: opinions
+  source: portfolio-classification/paper.md (Exhibit 6, eight positions)
+  label: module
+- section: cost
+  key: legal_opinion_eur
+  desc: External counsel cost per opinion
+  low: 40000
+  base: 75000
+  high: 150000
+  unit: EUR per opinion
+  source: assumption
+  label: assumption
+- section: cost
+  key: legal_build_fte
+  desc: Product counsel for classification register, supplier clauses, DoC signing instrument, steward determinations
+  low: 2
+  base: 3
+  high: 5
+  unit: FTE
+  source: assumption
+  label: assumption
+- section: cost
+  key: legal_run_fte
+  desc: Product counsel from 2028 (classification triggers, reasoned requests, quarterly re-classification)
+  low: 1
+  base: 1.5
+  high: 2.5
+  unit: FTE
+  source: assumption
+  label: assumption
+
+# ---------------------------------------------------------------- cost: E4 open-source programme
+- section: cost
+  key: oss_build_fte
+  desc: OSPO build team (five Art 24(1) policies, early-access decoupling, foundation charters, posture statement)
+  low: 3
+  base: 4
+  high: 6
+  unit: FTE
+  source: assumption (actions in open-source-strategy/projects.yaml)
+  label: assumption
+- section: cost
+  key: oss_run_fte
+  desc: Steward operations from Q3 2027 (policy upkeep, advisories, SBOM and provenance publication, dual-role reporting)
+  low: 2
+  base: 3
+  high: 4
+  unit: FTE
+  source: assumption
+  label: assumption
+- section: cost
+  key: oss_setup_eur
+  desc: Foundation set-up and transfer (legal, trademark, registry and release authority) for Kite and Mooring
+  low: 300000
+  base: 500000
+  high: 1000000
+  unit: EUR
+  source: assumption
+  label: assumption
+- section: cost
+  key: oss_kite_eur_yr
+  desc: Aldermoor funding of the Kite Foundation
+  low: 1000000
+  base: 2000000
+  high: 3000000
+  unit: EUR per year
+  source: assumption
+  label: assumption
+- section: cost
+  key: oss_mooring_eur_yr
+  desc: Membership and contribution to a neutral foundation for Mooring community edition
+  low: 250000
+  base: 500000
+  high: 1000000
+  unit: EUR per year
+  source: assumption
+  label: assumption
+- section: cost
+  key: oss_lts_eur_yr
+  desc: Aldermoor share of a member-funded Lumen Engine LTS not-for-profit
+  low: 1500000
+  base: 3000000
+  high: 5000000
+  unit: EUR per year
+  source: assumption (open-source-strategy/paper.md Decision 4 recommends the model, not a budget)
+  label: assumption
+
+# ---------------------------------------------------------------- cost: E5 multi-jurisdiction labelling
+- section: cost
+  key: lab_generator_fteyrs
+  desc: Declaration generator on the E1 store (EU DoC, UK and AU statements, JC-STAR checklist, US registry data)
+  low: 3
+  base: 4
+  high: 6
+  unit: FTE-years
+  source: assumption (global-control-set/paper.md Decision 3)
+  label: assumption
+- section: cost
+  key: lab_ops_fte
+  desc: Label operations team (registry data, expiry calendar, renewals)
+  low: 2
+  base: 3
+  high: 5
+  unit: FTE
+  source: assumption (global-control-set/paper.md Exhibit 4)
+  label: assumption
+- section: cost
+  key: lab_screening_fte
+  desc: US eligibility screening in procurement (Covered List, Entity List, debarment)
+  low: 1
+  base: 1.5
+  high: 2
+  unit: FTE
+  source: assumption (global-control-set/paper.md Decision 5)
+  label: assumption
+- section: cost
+  key: lab_pos_fteyrs
+  desc: Support end date beside the price in owned channels (UK PSTI Sch 1 para 3(5))
+  low: 0.5
+  base: 1
+  high: 2
+  unit: FTE-years
+  source: assumption
+  label: assumption
+- section: cost
+  key: jcstar_models
+  desc: Hearth and Pulse models for JC-STAR STAR-1 (initial types of I.12, I.16, I.17, I.19 families)
+  low: 28
+  base: 28
+  high: 28
+  unit: models
+  source: portfolio-classification/nb_demand.csv (initial_types)
+  label: module
+  from: e3.jcstar_models
+- section: cost
+  key: jcstar_new_models_yr
+  desc: New Hearth and Pulse models a year
+  low: 13
+  base: 13
+  high: 13
+  unit: models per year
+  source: portfolio-classification/nb_demand.csv (new_types_per_year)
+  label: module
+  from: e3.jcstar_new_models_yr
+- section: cost
+  key: jcstar_fee_jpy
+  desc: JC-STAR STAR-1 application fee (one application per model assumed)
+  low: 198000
+  base: 198000
+  high: 198000
+  unit: JPY per application
+  source: IPA JC-STAR application page https://www.ipa.go.jp/security/jc-star/shinsei/index.html (JPY 198,000 incl. tax)
+  label: external
+- section: cost
+  key: jcstar_eval_eur
+  desc: Optional third-party verification support per model
+  low: 0
+  base: 5000
+  high: 15000
+  unit: EUR per model
+  source: assumption
+  label: assumption
+- section: cost
+  key: us_ctm_pursued
+  desc: US Cyber Trust Mark pursued in 2028 (E5 says prepare, do not file)
+  low: 0
+  base: 0
+  high: 1
+  unit: switch
+  source: global-control-set/paper.md (Decision 4)
+  label: module
+- section: cost
+  key: us_ctm_lab_usd
+  desc: Accredited lab test and administrator fee per model if pursued (FCC test procedures not final)
+  low: 10000
+  base: 25000
+  high: 50000
+  unit: USD per model
+  source: assumption (E5 says US lab fees cannot yet be estimated)
+  label: assumption
+
+# ---------------------------------------------------------------- cost: documentation, Annex II, translations
+- section: cost
+  key: doc_units
+  desc: EU product lines needing an Annex VII file and Annex II information
+  low: 150
+  base: 200
+  high: 250
+  unit: product lines
+  source: evidence-as-code/aldermoor-additions.json (about 200); range assumption
+  label: module (range assumption)
+  from: e1.product_lines
+- section: cost
+  key: annexvii_pw
+  desc: Human-maintained Annex VII parts per product line (architecture 2(a), production process, core-functionality statement)
+  low: 2
+  base: 4
+  high: 6
+  unit: person-weeks per line
+  source: assumption (evidence-as-code/paper.md says these stay human-maintained)
+  label: assumption
+- section: cost
+  key: annexii_pw
+  desc: Annex II user information drafting per product line
+  low: 1
+  base: 2
+  high: 3
+  unit: person-weeks per line
+  source: assumption
+  label: assumption
+- section: cost
+  key: tr_words
+  desc: Words per product line to translate (Annex II and DoC)
+  low: 3000
+  base: 5000
+  high: 8000
+  unit: words
+  source: assumption
+  label: assumption
+- section: cost
+  key: tr_eur_per_word
+  desc: Translation and review price
+  low: 0.08
+  base: 0.12
+  high: 0.18
+  unit: EUR per word
+  source: assumption
+  label: assumption
+- section: cost
+  key: tr_langs
+  desc: Additional languages (DoC in the languages of the Member States of sale, Art 28; Annex II in a language users understand, Art 13(18))
+  low: 23
+  base: 23
+  high: 23
+  unit: languages
+  source: reports/sections/10-conformity.md (Art 28 languages); reports/sections/05-roles.md (Art 13(18))
+  label: module
+- section: cost
+  key: tr_refresh_share
+  desc: Share of translated content refreshed each year
+  low: 0.2
+  base: 0.3
+  high: 0.5
+  unit: share per year
+  source: assumption
+  label: assumption
+- section: cost
+  key: doc_run_fte
+  desc: Technical writing upkeep from 2028
+  low: 2
+  base: 3
+  high: 5
+  unit: FTE
+  source: assumption
+  label: assumption
+
+# ---------------------------------------------------------------- cost: training
+- section: cost
+  key: train_core_staff
+  desc: Staff needing role-based CRA training (engineers in EU product teams, PSIRT, release, legal, product)
+  low: 10000
+  base: 15000
+  high: 25000
+  unit: people
+  source: assumption (reports/guides/corporate/09-training.md sets roles, not numbers)
+  label: assumption
+- section: cost
+  key: train_core_hours
+  desc: Training hours per core learner (memo: staff time, not in the cash budget)
+  low: 4
+  base: 6
+  high: 8
+  unit: hours
+  source: assumption
+  label: assumption
+- section: cost
+  key: train_awareness_hours
+  desc: Awareness hours for every other engineer (memo)
+  low: 0.5
+  base: 0.5
+  high: 0.5
+  unit: hours
+  source: assumption
+  label: assumption
+- section: cost
+  key: train_eur_per_learner
+  desc: Delivery cost per core learner (platform, external courses, drills)
+  low: 20
+  base: 40
+  high: 80
+  unit: EUR per learner
+  source: assumption
+  label: assumption
+- section: cost
+  key: train_content_eur
+  desc: Course and drill content development
+  low: 300000
+  base: 600000
+  high: 1000000
+  unit: EUR
+  source: assumption
+  label: assumption
+- section: cost
+  key: train_build_fte
+  desc: Training team in 2027
+  low: 2
+  base: 3
+  high: 4
+  unit: FTE
+  source: assumption
+  label: assumption
+- section: cost
+  key: train_run_fte
+  desc: Training team from 2028
+  low: 1
+  base: 1
+  high: 2
+  unit: FTE
+  source: assumption
+  label: assumption
+- section: cost
+  key: train_refresh_share
+  desc: Share of delivery cost repeated each year
+  low: 0.3
+  base: 0.5
+  high: 0.7
+  unit: share per year
+  source: assumption
+  label: assumption
+
+# ---------------------------------------------------------------- cost: programme office
+- section: cost
+  key: pmo_build_fte
+  desc: Programme office to Q4 2027 (planning, board reporting, KPIs, risk, vendor management)
+  low: 8
+  base: 12
+  high: 18
+  unit: FTE
+  source: assumption
+  label: assumption
+- section: cost
+  key: pmo_run_fte
+  desc: Programme office from 2028
+  low: 3
+  base: 4
+  high: 6
+  unit: FTE
+  source: assumption
+  label: assumption
+- section: cost
+  key: advisory_eur
+  desc: External advisory and independent assurance
+  low: 1000000
+  base: 2000000
+  high: 4000000
+  unit: EUR
+  source: assumption
+  label: assumption
+
+# ---------------------------------------------------------------- nb: notified-body capacity (schedule inputs; low = favourable)
+- section: nb
+  key: nbd_lumen
+  desc: Module H year-1 body-days before first certificate, Lumen
+  low: 194
+  base: 288.5
+  high: 383
+  unit: body-days
+  source: portfolio-classification/nb_demand_summary.json (h_year1_body_days); base = midpoint
+  label: module
+  from: e3.lumen.h_year1_body_days
+- section: nb
+  key: nbd_platforms
+  desc: Module H year-1 body-days, Platforms
+  low: 156
+  base: 236.5
+  high: 317
+  unit: body-days
+  source: portfolio-classification/nb_demand_summary.json; base = midpoint
+  label: module
+  from: e3.platforms.h_year1_body_days
+- section: nb
+  key: nbd_devices
+  desc: Module H year-1 body-days, Devices
+  low: 209
+  base: 318.5
+  high: 428
+  unit: body-days
+  source: portfolio-classification/nb_demand_summary.json; base = midpoint
+  label: module
+  from: e3.devices.h_year1_body_days
+- section: nb
+  key: nbd_cloud_apps
+  desc: Module H year-1 body-days, Cloud and apps
+  low: 160
+  base: 245
+  high: 330
+  unit: body-days
+  source: portfolio-classification/nb_demand_summary.json; base = midpoint
+  label: module
+  from: e3.cloud_apps.h_year1_body_days
+- section: nb
+  key: nbd_ss_total
+  desc: Module H steady-state body-days a year, all organisations
+  low: 270
+  base: 599
+  high: 928
+  unit: body-days per year
+  source: portfolio-classification/nb_demand_summary.json (totals_body_days.h_ss); base = midpoint
+  label: module
+  from: e3.h_ss_days
+- section: nb
+  key: assessor_days_per_year
+  desc: Productive CRA assessment days per assessor
+  low: 180
+  base: 180
+  high: 180
+  unit: days per year
+  source: portfolio-classification/nb_demand_summary.json (assumptions.assessor_days_per_year)
+  label: module
+  from: e3.assessor_days_per_year
+- section: nb
+  key: nb_assessors
+  desc: CRA assessors per contracted body working on Aldermoor at once (listed favourable first)
+  low: 8
+  base: 5
+  high: 3
+  unit: assessors
+  source: assumption (portfolio-classification/paper.md - a new body with 8 assessors offers about 1,440 days a year; Aldermoor would take half to all of it)
+  label: assumption
+- section: nb
+  key: nb_assessors_reserved
+  desc: Assessors per body if capacity is reserved in a pre-contract (lever L1)
+  low: 10
+  base: 8
+  high: 6
+  unit: assessors
+  source: assumption
+  label: assumption
+- section: nb
+  key: nb_hmin
+  desc: Minimum elapsed time for a Module H approval (stage audits, nonconformity closure, decision)
+  low: 45
+  base: 60
+  high: 90
+  unit: days
+  source: assumption
+  label: assumption
+- section: nb
+  key: eu_capacity_thin
+  desc: EU CRA notified-body capacity, thin market (late 2027)
+  low: 7200
+  base: 7200
+  high: 7200
+  unit: body-days per year
+  source: portfolio-classification/nb_demand_summary.json (capacity_scenarios, hypothetical)
+  label: module
+- section: nb
+  key: eu_capacity_moderate
+  desc: EU CRA notified-body capacity, moderate market (2028)
+  low: 32400
+  base: 32400
+  high: 32400
+  unit: body-days per year
+  source: portfolio-classification/nb_demand_summary.json (capacity_scenarios, hypothetical)
+  label: module
+
+# ---------------------------------------------------------------- levers (0 = off). Changed in the Excel Levers block or by model.py lever scenarios
+- section: lever
+  key: lever_precontract
+  desc: L1 pre-contract both bodies before designation and reserve assessor capacity
+  low: 0
+  base: 0
+  high: 0
+  unit: switch
+  source: portfolio-classification/paper.md Decision 2 (shortlist, contract within 30 days of designation)
+  label: decision
+- section: lever
+  key: lever_seq
+  desc: L2 priority sequencing - each body completes Lumen (software) or Devices (hardware) first
+  low: 0
+  base: 0
+  high: 0
+  unit: switch
+  source: E7 decision (this module)
+  label: decision
+- section: lever
+  key: lever_thirdbody
+  desc: L3 a third body for Cloud and apps
+  low: 0
+  base: 0
+  high: 0
+  unit: switch
+  source: E7 decision (this module)
+  label: decision
+
+# ---------------------------------------------------------------- cost lines (profile = factors for 2026Q4,2027Q1..Q4,2028Q1..Q4)
+# type fte: value FTE x factor each quarter. fteyrs: value spread over active quarters in proportion to factors.
+# eur_yr: annual EUR x factor / 4. eur_lump: EUR spread in proportion to factors.
+- section: line
+  key: L01
+  desc: Evidence platform build
+  workstream: 1 Evidence platform (E1)
+  function: Evidence platform engineering
+  category: one-off
+  type: fte
+  value: e1_platform_fte
+  profile: "0,1,1,1,0,0,0,0,0"
+- section: line
+  key: L02
+  desc: Build-rule and CI integration
+  workstream: 1 Evidence platform (E1)
+  function: Evidence platform engineering
+  category: one-off
+  type: fte
+  value: e1_ci_fte
+  profile: "0,1,1,0,0,0,0,0,0"
+- section: line
+  key: L03
+  desc: Product onboarding (about 200 lines)
+  workstream: 1 Evidence platform (E1)
+  function: Product onboarding engineering
+  category: one-off
+  type: fteyrs
+  value: e1_onboarding_fteyrs
+  profile: "0,0,1,1,1,0,0,0,0"
+- section: line
+  key: L04
+  desc: PSIRT VEX operations
+  workstream: 1 Evidence platform (E1)
+  function: PSIRT VEX operations
+  category: run
+  type: fte
+  value: e1_vex_fte
+  profile: "0,1,1,1,1,1,1,1,1"
+- section: line
+  key: L05
+  desc: Gate policy ownership and drills
+  workstream: 1 Evidence platform (E1)
+  function: Release compliance and review
+  category: run
+  type: fte
+  value: e1_compliance_fte
+  profile: "0,1,1,1,1,1,1,1,1"
+- section: line
+  key: L06
+  desc: Substantial-modification review (pt 110)
+  workstream: 1 Evidence platform (E1)
+  function: Release compliance and review
+  category: run
+  type: fte
+  value: e1_review_fte
+  profile: "0,1,1,1,1,1,1,1,1"
+- section: line
+  key: L07
+  desc: Evidence platform run team
+  workstream: 1 Evidence platform (E1)
+  function: Evidence platform engineering
+  category: run
+  type: fte
+  value: e1_platform_run_fte
+  profile: "0,0,0,0,1,1,1,1,1"
+- section: line
+  key: L08
+  desc: Onboarding of new lines (run)
+  workstream: 1 Evidence platform (E1)
+  function: Product onboarding engineering
+  category: run
+  type: fte
+  value: e1_onboarding_run_fte
+  profile: "0,0,0,0,0,1,1,1,1"
+- section: line
+  key: L09
+  desc: Evidence storage (object-locked)
+  workstream: 1 Evidence platform (E1)
+  function: none
+  category: run
+  type: eur_yr
+  value: e1_storage_eur_yr
+  profile: "0,0,1,1,1,1,1,1,1"
+- section: line
+  key: L10
+  desc: Evidence platform infrastructure
+  workstream: 1 Evidence platform (E1)
+  function: none
+  category: run
+  type: eur_yr
+  value: e1_infra_eur_yr
+  profile: "0,0.5,1,1,1,1,1,1,1"
+- section: line
+  key: L11
+  desc: Art 14 reporting cell (24/7 filing seat and analysts)
+  workstream: 2 Art 14 operations (E2)
+  function: Art 14 reporting cell
+  category: run
+  type: fte
+  value: e2_cell_fte
+  profile: "0.5,0.75,1,1,1,1,1,1,1"
+- section: line
+  key: L12
+  desc: Art 14 legal duty counsel
+  workstream: 2 Art 14 operations (E2)
+  function: Art 14 reporting cell
+  category: run
+  type: fte
+  value: e2_legal_fte
+  profile: "0.67,1,1,1,1,1,1,1,1"
+- section: line
+  key: L13
+  desc: Art 14 communications (user notices)
+  workstream: 2 Art 14 operations (E2)
+  function: Art 14 reporting cell
+  category: run
+  type: fte
+  value: e2_comms_fte
+  profile: "0.67,1,1,1,1,1,1,1,1"
+- section: line
+  key: L14
+  desc: Case engine productionisation
+  workstream: 2 Art 14 operations (E2)
+  function: Art 14 tooling engineering
+  category: one-off
+  type: fteyrs
+  value: e2_tooling_fteyrs
+  profile: "0.67,1,1,0,0,0,0,0,0"
+- section: line
+  key: L15
+  desc: Case engine and SRP tooling run
+  workstream: 2 Art 14 operations (E2)
+  function: none
+  category: run
+  type: eur_yr
+  value: e2_tooling_run_eur_yr
+  profile: "0,1,1,1,1,1,1,1,1"
+- section: line
+  key: L16
+  desc: User-notice localisation (Art 14(8))
+  workstream: 2 Art 14 operations (E2)
+  function: none
+  category: run
+  type: eur_yr
+  value: e2_localisation_eur_yr
+  profile: "0.67,1,1,1,1,1,1,1,1"
+- section: line
+  key: L17
+  desc: Module H year-1 fees (QS approval and model reviews, 4 organisations)
+  workstream: 3 Notified body and quality system (E3)
+  function: none
+  category: one-off
+  type: eur_lump
+  value: nb_y1_eur
+  profile: "0,0,1,1,1,1,0,0,0"
+- section: line
+  key: L18
+  desc: Notified-body pre-assessments
+  workstream: 3 Notified body and quality system (E3)
+  function: none
+  category: one-off
+  type: eur_lump
+  value: nb_pre_eur
+  profile: "0,1,1,0,0,0,0,0,0"
+- section: line
+  key: L19
+  desc: Module H surveillance and scope extensions
+  workstream: 3 Notified body and quality system (E3)
+  function: none
+  category: run
+  type: eur_yr
+  value: nb_ss_eur_yr
+  profile: "0,0,0,0,0,0,1,1,1"
+- section: line
+  key: L20
+  desc: Quality-system managers and internal audit support (build)
+  workstream: 3 Notified body and quality system (E3)
+  function: Conformity and quality system
+  category: one-off
+  type: fte
+  value: qs_build_fte
+  profile: "0,1,1,1,1,0,0,0,0"
+- section: line
+  key: L21
+  desc: Quality-system staff (run)
+  workstream: 3 Notified body and quality system (E3)
+  function: Conformity and quality system
+  category: run
+  type: fte
+  value: qs_run_fte
+  profile: "0,0,0,0,0,1,1,1,1"
+- section: line
+  key: L22
+  desc: External opinions on borderline classifications
+  workstream: 4 Classification and legal (E3)
+  function: none
+  category: one-off
+  type: eur_lump
+  value: legal_opinions_eur
+  profile: "1,1,0,0,0,0,0,0,0"
+- section: line
+  key: L23
+  desc: Product counsel (build)
+  workstream: 4 Classification and legal (E3)
+  function: Legal and classification
+  category: one-off
+  type: fte
+  value: legal_build_fte
+  profile: "0.67,1,1,1,1,0,0,0,0"
+- section: line
+  key: L24
+  desc: Product counsel (run)
+  workstream: 4 Classification and legal (E3)
+  function: Legal and classification
+  category: run
+  type: fte
+  value: legal_run_fte
+  profile: "0,0,0,0,0,1,1,1,1"
+- section: line
+  key: L25
+  desc: OSPO build (policies, decoupling, charters)
+  workstream: 5 Open-source programme (E4)
+  function: Open-source programme office
+  category: one-off
+  type: fte
+  value: oss_build_fte
+  profile: "0,1,1,1,1,0,0,0,0"
+- section: line
+  key: L26
+  desc: Steward operations
+  workstream: 5 Open-source programme (E4)
+  function: Open-source programme office
+  category: run
+  type: fte
+  value: oss_run_fte
+  profile: "0,0,0,1,1,1,1,1,1"
+- section: line
+  key: L27
+  desc: Foundation set-up and transfers
+  workstream: 5 Open-source programme (E4)
+  function: none
+  category: one-off
+  type: eur_lump
+  value: oss_setup_eur
+  profile: "0,0,1,1,1,0,0,0,0"
+- section: line
+  key: L28
+  desc: Kite Foundation funding
+  workstream: 5 Open-source programme (E4)
+  function: none
+  category: run
+  type: eur_yr
+  value: oss_kite_eur_yr
+  profile: "0,0,0,0,1,1,1,1,1"
+- section: line
+  key: L29
+  desc: Mooring foundation membership
+  workstream: 5 Open-source programme (E4)
+  function: none
+  category: run
+  type: eur_yr
+  value: oss_mooring_eur_yr
+  profile: "0,0,0,0,0,1,1,1,1"
+- section: line
+  key: L30
+  desc: Lumen Engine LTS not-for-profit (Aldermoor share)
+  workstream: 5 Open-source programme (E4)
+  function: none
+  category: run
+  type: eur_yr
+  value: oss_lts_eur_yr
+  profile: "0,0,0,0,0,1,1,1,1"
+- section: line
+  key: L31
+  desc: Declaration generator
+  workstream: 6 Multi-jurisdiction labelling (E5)
+  function: Labelling and declarations
+  category: one-off
+  type: fteyrs
+  value: lab_generator_fteyrs
+  profile: "0,1,1,1,0,0,0,0,0"
+- section: line
+  key: L32
+  desc: Label operations
+  workstream: 6 Multi-jurisdiction labelling (E5)
+  function: Labelling and declarations
+  category: run
+  type: fte
+  value: lab_ops_fte
+  profile: "0,0,1,1,1,1,1,1,1"
+- section: line
+  key: L33
+  desc: US eligibility screening in procurement
+  workstream: 6 Multi-jurisdiction labelling (E5)
+  function: Labelling and declarations
+  category: run
+  type: fte
+  value: lab_screening_fte
+  profile: "0,1,1,1,1,1,1,1,1"
+- section: line
+  key: L34
+  desc: Support dates at point of sale
+  workstream: 6 Multi-jurisdiction labelling (E5)
+  function: Labelling and declarations
+  category: one-off
+  type: fteyrs
+  value: lab_pos_fteyrs
+  profile: "0,1,1,0,0,0,0,0,0"
+- section: line
+  key: L35
+  desc: JC-STAR STAR-1 initial applications (Hearth, Pulse)
+  workstream: 6 Multi-jurisdiction labelling (E5)
+  function: none
+  category: one-off
+  type: eur_lump
+  value: jcstar_initial_eur
+  profile: "0,0,1,1,0,0,0,0,0"
+- section: line
+  key: L36
+  desc: JC-STAR renewals and new models
+  workstream: 6 Multi-jurisdiction labelling (E5)
+  function: none
+  category: run
+  type: eur_yr
+  value: jcstar_run_eur_yr
+  profile: "0,0,0,0,0,1,1,1,1"
+- section: line
+  key: L37
+  desc: US Cyber Trust Mark lab tests (only if pursued)
+  workstream: 6 Multi-jurisdiction labelling (E5)
+  function: none
+  category: one-off
+  type: eur_lump
+  value: us_ctm_eur
+  profile: "0,0,0,0,0,0,1,1,1"
+- section: line
+  key: L38
+  desc: Annex VII human-maintained parts
+  workstream: 7 Documentation, Annex II and translations
+  function: Documentation and technical writing
+  category: one-off
+  type: fteyrs
+  value: annexvii_fteyrs
+  profile: "0,0,1,1,1,0,0,0,0"
+- section: line
+  key: L39
+  desc: Annex II user information drafting
+  workstream: 7 Documentation, Annex II and translations
+  function: Documentation and technical writing
+  category: one-off
+  type: fteyrs
+  value: annexii_fteyrs
+  profile: "0,0,1,1,0,0,0,0,0"
+- section: line
+  key: L40
+  desc: Annex II and DoC translations (23 languages)
+  workstream: 7 Documentation, Annex II and translations
+  function: none
+  category: one-off
+  type: eur_lump
+  value: translation_eur
+  profile: "0,0,0,1,1,0,0,0,0"
+- section: line
+  key: L41
+  desc: Translation refresh
+  workstream: 7 Documentation, Annex II and translations
+  function: none
+  category: run
+  type: eur_yr
+  value: translation_run_eur_yr
+  profile: "0,0,0,0,0,1,1,1,1"
+- section: line
+  key: L42
+  desc: Documentation upkeep
+  workstream: 7 Documentation, Annex II and translations
+  function: Documentation and technical writing
+  category: run
+  type: fte
+  value: doc_run_fte
+  profile: "0,0,0,0,0,1,1,1,1"
+- section: line
+  key: L43
+  desc: Training content
+  workstream: 8 Training
+  function: none
+  category: one-off
+  type: eur_lump
+  value: train_content_eur
+  profile: "0,1,1,0,0,0,0,0,0"
+- section: line
+  key: L44
+  desc: Training delivery
+  workstream: 8 Training
+  function: none
+  category: one-off
+  type: eur_lump
+  value: train_delivery_eur
+  profile: "0,0,1,1,1,0,0,0,0"
+- section: line
+  key: L45
+  desc: Training team (build)
+  workstream: 8 Training
+  function: Training
+  category: one-off
+  type: fte
+  value: train_build_fte
+  profile: "0,1,1,1,1,0,0,0,0"
+- section: line
+  key: L46
+  desc: Training refresh delivery
+  workstream: 8 Training
+  function: none
+  category: run
+  type: eur_yr
+  value: train_run_eur_yr
+  profile: "0,0,0,0,0,1,1,1,1"
+- section: line
+  key: L47
+  desc: Training team (run)
+  workstream: 8 Training
+  function: Training
+  category: run
+  type: fte
+  value: train_run_fte
+  profile: "0,0,0,0,0,1,1,1,1"
+- section: line
+  key: L48
+  desc: Programme office (build)
+  workstream: 9 Programme office
+  function: Programme office
+  category: one-off
+  type: fte
+  value: pmo_build_fte
+  profile: "0.5,1,1,1,1,0,0,0,0"
+- section: line
+  key: L49
+  desc: Programme office (run)
+  workstream: 9 Programme office
+  function: Programme office
+  category: run
+  type: fte
+  value: pmo_run_fte
+  profile: "0,0,0,0,0,1,1,1,1"
+- section: line
+  key: L50
+  desc: External advisory and assurance
+  workstream: 9 Programme office
+  function: none
+  category: one-off
+  type: eur_lump
+  value: advisory_eur
+  profile: "1,1,1,1,1,0,0,0,0"
+
+# ---------------------------------------------------------------- activities (durations in days; low = favourable)
+# preds: finish-to-start predecessors. cond_preds: "condition:ID; condition:ID" active when condition <> 0.
+# dur_formula replaces low/base/high for Module H approvals. pc_*: contracting time if lever_precontract = 1.
+# gating: yes if the activity feeds a CRA readiness node; target: day for a readiness node (404 = 11 Dec 2027).
+- section: activity
+  key: M0
+  desc: Programme mobilised and funding envelope approved
+  module: E7
+  preds: ""
+  low: 14
+  base: 30
+  high: 60
+  source: assumption
+- section: activity
+  key: A14I
+  desc: Interim Art 14 24/7 cover confirmed (legally required since 11 Sep 2026)
+  module: E2
+  preds: ""
+  low: 0
+  base: 14
+  high: 30
+  source: art14-operations/paper.md Decision 3 (interim on-call now)
+- section: activity
+  key: A14
+  desc: Art 14 reporting cell fully staffed (about 6 FTE)
+  module: E2
+  preds: M0;A14I
+  low: 75
+  base: 120
+  high: 180
+  source: art14-operations/paper.md Decision 3 (in post by end Q1 2027); durations assumption
+- section: activity
+  key: C1
+  desc: Borderline classification opinions ratified (8 positions)
+  module: E3
+  preds: M0
+  low: 45
+  base: 60
+  high: 120
+  source: portfolio-classification/paper.md Decision 3 (by end Jan 2027)
+- section: activity
+  key: C2
+  desc: Module H route decision and QS gap assessment (4 organisations)
+  module: E3
+  preds: M0
+  low: 90
+  base: 120
+  high: 180
+  source: portfolio-classification/paper.md Decision 1 (route Jan 2027; gap assessment Mar 2027)
+- section: activity
+  key: QSD
+  desc: Quality systems documented to Annex VIII Module H pt 3.2
+  module: E3
+  preds: C2
+  low: 60
+  base: 90
+  high: 150
+  source: assumption
+- section: activity
+  key: RA
+  desc: Risk assessments and Annex I applicability matrices signed (all families)
+  module: KB
+  preds: C1
+  low: 90
+  base: 150
+  high: 240
+  source: reports/sections/15-programme.md (phase 2, 4-8 weeks per family, run as waves); duration assumption
+- section: activity
+  key: E1P
+  desc: Evidence pipeline pilot in shadow mode (Hearth Lock 3, Lumen Browser)
+  module: E1
+  preds: M0
+  low: 90
+  base: 120
+  high: 180
+  source: evidence-as-code/paper.md (wave 0, Dec 2026 to Mar 2027)
+- section: activity
+  key: E1W1
+  desc: Evidence gate enforced for important products (wave 1)
+  module: E1
+  preds: E1P
+  low: 60
+  base: 90
+  high: 150
+  source: evidence-as-code/paper.md (wave 1, Apr to Jun 2027)
+- section: activity
+  key: E1W2
+  desc: Evidence gate GA for default products (wave 2)
+  module: E1
+  preds: E1W1
+  low: 60
+  base: 90
+  high: 150
+  source: evidence-as-code/paper.md (wave 2, Jul to Sep 2027)
+- section: activity
+  key: E1W3
+  desc: Readiness drill - Art 13(22) export of 20 versions
+  module: E1
+  preds: E1W2
+  low: 20
+  base: 30
+  high: 60
+  source: evidence-as-code/paper.md (wave 3, Oct 2027)
+- section: activity
+  key: NB0
+  desc: First CRA notified body with Module H scope designated (external)
+  module: E3
+  preds: ""
+  low: 60
+  base: 150
+  high: 330
+  source: assumption (none designated at 8 Sep 2026, reports/sections/10-conformity.md; 12-18 months accreditation plus notification, reports/sections/15-programme.md)
+- section: activity
+  key: NB2
+  desc: Second Module H body designated (lag after the first)
+  module: E3
+  preds: NB0
+  low: 0
+  base: 60
+  high: 180
+  source: assumption
+- section: activity
+  key: NB3
+  desc: Third Module H body designated (lag after the first; lever L3 only)
+  module: E3
+  preds: NB0
+  low: 30
+  base: 120
+  high: 240
+  source: assumption
+- section: activity
+  key: K_SW
+  desc: Software-side body contracted (Lumen, Platforms)
+  module: E3
+  preds: NB0
+  low: 14
+  base: 45
+  high: 120
+  pc_low: 7
+  pc_base: 14
+  pc_high: 30
+  source: reports/sections/15-programme.md (contracting 2-4 months, commentary); portfolio-classification/paper.md Decision 2 (within 30 days of designation)
+- section: activity
+  key: K_HW
+  desc: Hardware-side body contracted (Devices; Cloud and apps unless L3)
+  module: E3
+  preds: NB2
+  low: 14
+  base: 45
+  high: 120
+  pc_low: 7
+  pc_base: 14
+  pc_high: 30
+  source: as K_SW
+- section: activity
+  key: K_CL
+  desc: Body for Cloud and apps contracted
+  module: E3
+  preds: ""
+  cond_preds: "lever_thirdbody:NB3; 1-lever_thirdbody:NB2"
+  low: 14
+  base: 45
+  high: 120
+  pc_low: 7
+  pc_base: 14
+  pc_high: 30
+  source: as K_SW
+- section: activity
+  key: H_LUM
+  desc: Module H QS approval and model review - Lumen
+  module: E3
+  preds: K_SW;QSD;E1W1;RA
+  dur_formula: MAX(nb_hmin,nbd_lumen*div_lumen/nb_rate_body)
+  source: portfolio-classification/nb_demand_summary.json (body-days); capacity assumptions
+- section: activity
+  key: H_PLT
+  desc: Module H QS approval and model review - Platforms
+  module: E3
+  preds: K_SW;QSD;E1W1;RA
+  cond_preds: "lever_seq:H_LUM"
+  dur_formula: MAX(nb_hmin,nbd_platforms*div_platforms/nb_rate_body)
+  source: as H_LUM
+- section: activity
+  key: H_DEV
+  desc: Module H QS approval and model review - Devices
+  module: E3
+  preds: K_HW;QSD;E1W1;RA
+  dur_formula: MAX(nb_hmin,nbd_devices*div_devices/nb_rate_body)
+  source: as H_LUM
+- section: activity
+  key: H_CLD
+  desc: Module H QS approval and model review - Cloud and apps
+  module: E3
+  preds: K_CL;QSD;E1W1;RA
+  cond_preds: "lever_seq*(1-lever_thirdbody):H_DEV"
+  dur_formula: MAX(nb_hmin,nbd_cloud_apps*div_cloud_apps/nb_rate_body)
+  source: as H_LUM
+- section: activity
+  key: TDN
+  desc: Annex VII files for notified-body families
+  module: E1/E3
+  preds: RA
+  low: 60
+  base: 90
+  high: 150
+  source: reports/guides/corporate/11-programme-budget.md (file assembly starts when risk assessment is signed; 2-4 months per family)
+- section: activity
+  key: TDD
+  desc: Annex VII files for default families
+  module: E1/E3
+  preds: RA
+  low: 45
+  base: 75
+  high: 120
+  source: as TDN
+- section: activity
+  key: AII
+  desc: Annex II user information drafted (portfolio)
+  module: KB
+  preds: RA
+  low: 45
+  base: 75
+  high: 120
+  source: assumption
+- section: activity
+  key: TR
+  desc: Annex II and DoC translations (23 languages)
+  module: KB
+  preds: AII
+  low: 30
+  base: 60
+  high: 120
+  source: assumption
+- section: activity
+  key: D_LUM
+  desc: First EU declarations issued - Lumen
+  module: E3
+  preds: H_LUM;TDN;TR
+  low: 7
+  base: 14
+  high: 30
+  source: assumption
+- section: activity
+  key: D_PLT
+  desc: First EU declarations issued - Platforms
+  module: E3
+  preds: H_PLT;TDN;TR
+  low: 7
+  base: 14
+  high: 30
+  source: assumption
+- section: activity
+  key: D_DEV
+  desc: First EU declarations issued - Devices (Class I)
+  module: E3
+  preds: H_DEV;TDN;TR
+  low: 7
+  base: 14
+  high: 30
+  source: assumption
+- section: activity
+  key: D_CLD
+  desc: First EU declarations issued - Cloud and apps (Class I and II)
+  module: E3
+  preds: H_CLD;TDN;TR
+  low: 7
+  base: 14
+  high: 30
+  source: assumption
+- section: activity
+  key: D_DEF
+  desc: Module A declarations issued - default-class families
+  module: E1/E3
+  preds: TDD;TR;E1W3
+  low: 7
+  base: 14
+  high: 30
+  source: assumption
+- section: activity
+  key: OS1
+  desc: Steward and LTS decisions (HOSP, Lumen Engine, Tensile LTS)
+  module: E4
+  preds: M0
+  low: 60
+  base: 120
+  high: 180
+  source: open-source-strategy/paper.md Decisions 1, 3, 4 (by Mar 2027)
+- section: activity
+  key: OS2
+  desc: Halo early access decoupled; Tensile LTS opened
+  module: E4
+  preds: OS1
+  low: 60
+  base: 90
+  high: 150
+  source: open-source-strategy/paper.md Decision 2 (contract changes by Jun 2027)
+- section: activity
+  key: OS3
+  desc: Art 24(1) policies and OSS posture statement published
+  module: E4
+  preds: OS2
+  low: 14
+  base: 30
+  high: 60
+  source: open-source-strategy/paper.md Decisions 1 and 6 (Jun 2027)
+- section: activity
+  key: OS4
+  desc: Steward (dual-role) reporting live in the case engine
+  module: E4/E2
+  preds: OS1;A14
+  low: 30
+  base: 60
+  high: 120
+  source: open-source-strategy/projects.yaml (HOSP action by 2027-09)
+- section: activity
+  key: OS5
+  desc: Kite and Mooring transferred to foundations (not CRA-gating)
+  module: E4
+  preds: OS1
+  low: 150
+  base: 240
+  high: 365
+  source: open-source-strategy/paper.md Decision 5 (Kite Sep 2027; Mooring Dec 2027)
+- section: activity
+  key: G1
+  desc: 43-control set adopted as the global standard
+  module: E5
+  preds: M0
+  low: 14
+  base: 30
+  high: 60
+  source: global-control-set/paper.md Decision 1 (end Q4 2026)
+- section: activity
+  key: G2
+  desc: Declaration generator first release (EU, UK, JP, US data)
+  module: E5
+  preds: E1P;G1
+  low: 60
+  base: 90
+  high: 150
+  source: global-control-set/paper.md Decision 3 (Q2 2027)
+- section: activity
+  key: G3
+  desc: JC-STAR STAR-1 labels for Hearth and Pulse (target 30 Jun 2027)
+  module: E5
+  preds: G2
+  low: 30
+  base: 60
+  high: 120
+  target: 240
+  source: global-control-set/paper.md Decision 4 (H1 2027)
+- section: activity
+  key: G4
+  desc: UK PSTI statements of compliance regenerated from the evidence store
+  module: E5
+  preds: G2
+  low: 14
+  base: 30
+  high: 60
+  source: global-control-set/paper.md (UK in force since 29 Apr 2024)
+- section: activity
+  key: G5
+  desc: FCC final Cyber Trust Mark test procedures (external)
+  module: E5
+  preds: ""
+  low: 270
+  base: 450
+  high: 720
+  source: assumption (global-control-set/paper.md - no labelled products or final requirements at 28 Oct 2026)
+- section: activity
+  key: G6
+  desc: US Cyber Trust Mark labels, if pursued (not CRA-gating)
+  module: E5
+  preds: G5;G2
+  low: 60
+  base: 90
+  high: 150
+  source: assumption
+- section: activity
+  key: R_LUM
+  desc: READY - Lumen (browser desktop and mobile, WebView)
+  module: E7
+  preds: D_LUM;A14
+  low: 0
+  base: 0
+  high: 0
+  target: 404
+  source: readiness node
+- section: activity
+  key: R_PLT
+  desc: READY - Platforms (Lumen OS, Halo Wear OS)
+  module: E7
+  preds: D_PLT;A14
+  low: 0
+  base: 0
+  high: 0
+  target: 404
+  source: readiness node
+- section: activity
+  key: R_DEV
+  desc: READY - Devices Class I (Hearth, Pulse, Keystone)
+  module: E7
+  preds: D_DEV;A14
+  low: 0
+  base: 0
+  high: 0
+  target: 404
+  source: readiness node
+- section: activity
+  key: R_CLD
+  desc: READY - Cloud and apps Class I and II (Authenticator, VPNs, Edge)
+  module: E7
+  preds: D_CLD;A14
+  low: 0
+  base: 0
+  high: 0
+  target: 404
+  source: readiness node
+- section: activity
+  key: R_DEF
+  desc: READY - Default-class products (Module A)
+  module: E7
+  preds: D_DEF;A14
+  low: 0
+  base: 0
+  high: 0
+  target: 404
+  source: readiness node
+- section: activity
+  key: R_OSS
+  desc: READY - Open-source stewardship (Art 24 from 11 Dec 2027)
+  module: E7
+  preds: OS3;OS4
+  low: 0
+  base: 0
+  high: 0
+  target: 404
+  source: readiness node
+- section: activity
+  key: R_A14
+  desc: READY - Art 14 desk at full strength (target 31 Mar 2027; required now)
+  module: E7
+  preds: A14
+  low: 0
+  base: 0
+  high: 0
+  target: 149
+  source: readiness node
+- section: activity
+  key: END
+  desc: All CRA product lines ready
+  module: E7
+  preds: R_LUM;R_PLT;R_DEV;R_CLD;R_DEF;R_OSS;R_A14
+  low: 0
+  base: 0
+  high: 0
+  target: 404
+  source: readiness node

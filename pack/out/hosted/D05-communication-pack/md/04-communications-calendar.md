@@ -44,7 +44,7 @@ Source: Project Rampart milestones M3 to M14, mobilisation plan T01 to T30 and s
 | 5 | Tue 1 to Thu 3 Dec | Sales, key accounts and customer support (ST12) | Briefing, script and consumer holding line; LMS module opens | Live sessions and LMS, draft (f) | Head of customer operations | Planned |
 | 5 | Fri 4 Dec | Security researchers and customers (public) | CVD policy and security.txt live for HBS and S&S | Website | PSIRT lead | Planned |
 | 6 | Tue 8 Dec | B2B customers and consumers (ST15, ST16) | Customer FAQ live, three days before the B2B letter that links to it | Trust page and support knowledge base, tab 8 | Head of customer operations | Planned |
-| 6 | Wed 9 Dec, or at renewal | Insurers (ST22) | The Product Liability Directive applies from 9 Dec 2026; how our evidence system lowers defect and disclosure risk | Broker briefing | CFO office | Planned |
+| 6 | Wed 9 Dec, or at renewal | Insurers (ST22) | The Product Liability Directive applies to products placed on the market or put into service after 9 Dec 2026; how our evidence system lowers defect and disclosure risk | Broker briefing | CFO office | Planned |
 | 6 | Thu 10 Dec | Distributors, importers and retail partners (ST17) | What you will receive and your own checks | Letter and partner portal, draft (h) | Head of channel | Planned |
 | 6 | Fri 11 Dec | B2B customers and integrators (ST15) | One year to go: our approach to the CRA and what you will receive | Letter from the account owner; trust page, draft (f) | Head of customer operations | Planned |
 | 6 | Fri 11 Dec | All employees | One year to go: report within the hour; post 3 | Teams/Slack and intranet banner, draft (k) | Internal communications | Planned |
