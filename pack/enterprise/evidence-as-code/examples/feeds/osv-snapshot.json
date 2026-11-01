@@ -1,0 +1,100 @@
+{
+  "vulns": [
+    {
+      "schema_version": "1.6.0",
+      "id": "CVE-2022-37434",
+      "aliases": [],
+      "summary": "zlib inflateGetHeader heap-based buffer over-read or overflow via large gzip header extra field",
+      "affected": [
+        {
+          "package": {
+            "ecosystem": "GIT",
+            "name": "zlib",
+            "purl": "pkg:generic/zlib"
+          },
+          "ranges": [
+            {
+              "type": "ECOSYSTEM",
+              "events": [
+                {
+                  "introduced": "0"
+                },
+                {
+                  "fixed": "1.2.13"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "database_specific": {
+        "severity": "CRITICAL",
+        "note": "illustrative excerpt; ranges simplified"
+      }
+    },
+    {
+      "schema_version": "1.6.0",
+      "id": "CVE-2023-4863",
+      "aliases": [],
+      "summary": "libwebp heap buffer overflow in lossless decoding (Huffman table construction)",
+      "affected": [
+        {
+          "package": {
+            "ecosystem": "GIT",
+            "name": "libwebp",
+            "purl": "pkg:generic/libwebp"
+          },
+          "ranges": [
+            {
+              "type": "ECOSYSTEM",
+              "events": [
+                {
+                  "introduced": "0"
+                },
+                {
+                  "fixed": "1.3.2"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "database_specific": {
+        "severity": "HIGH",
+        "note": "illustrative excerpt; ranges simplified"
+      }
+    },
+    {
+      "schema_version": "1.6.0",
+      "id": "CVE-2024-23170",
+      "aliases": [],
+      "summary": "Mbed TLS timing side channel in RSA private operation",
+      "affected": [
+        {
+          "package": {
+            "ecosystem": "GIT",
+            "name": "mbedtls",
+            "purl": "pkg:generic/mbedtls"
+          },
+          "ranges": [
+            {
+              "type": "ECOSYSTEM",
+              "events": [
+                {
+                  "introduced": "3.0.0"
+                },
+                {
+                  "fixed": "3.5.2"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "database_specific": {
+        "severity": "MEDIUM",
+        "note": "illustrative excerpt; ranges simplified"
+      }
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "policy_id": "aldermoor-cra-gate/1.0.0",
+  "description": "Release gate policy for EU-placed Aldermoor products (illustrative).",
+  "trusted_builders": [
+    "https://build.aldermoor.example/hermetic/v2"
+  ],
+  "accepted_predicate_types": [
+    "https://slsa.dev/provenance/v1"
+  ],
+  "min_support_years": 5,
+  "fail_untriaged_severities": [
+    "critical",
+    "high"
+  ],
+  "required_tests": {
+    "default": [
+      "sast"
+    ],
+    "products": {
+      "hearth-lock-3": [
+        "sast",
+        "fuzz"
+      ],
+      "lumen-browser": [
+        "sast",
+        "fuzz"
+      ]
+    }
+  },
+  "pentest_required_on": [
+    "first_placing",
+    "substantial"
+  ],
+  "sarif_fail_level": "error",
+  "harmonised_standards_cited": [],
+  "required_matrix_items": [
+    "1",
+    "2a",
+    "2b",
+    "2c",
+    "2d",
+    "2e",
+    "2f",
+    "2g",
+    "2h",
+    "2i",
+    "2j",
+    "2k",
+    "2l",
+    "2m"
+  ]
+}

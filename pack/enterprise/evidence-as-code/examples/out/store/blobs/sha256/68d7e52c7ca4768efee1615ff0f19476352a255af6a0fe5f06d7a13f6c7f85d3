@@ -1,0 +1,193 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "version": 1,
+  "serialNumber": "urn:uuid:bd08c563-d16f-1b47-8909-6d8d4205f6b7",
+  "metadata": {
+    "timestamp": "2028-01-11T09:14:02Z",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "name": "aldermoor-sbomgen",
+          "version": "3.2.0"
+        }
+      ]
+    },
+    "authors": [
+      {
+        "name": "Aldermoor Build Engineering",
+        "email": "sbom@aldermoor.example"
+      }
+    ],
+    "component": {
+      "type": "firmware",
+      "bom-ref": "pkg:generic/aldermoor/hearth-lock-3-firmware@4.2.0",
+      "name": "hearth-lock-3-firmware",
+      "version": "4.2.0",
+      "supplier": {
+        "name": "Aldermoor Platforms"
+      },
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "dfe29277baeedf0e428bbc5335b9667f093508a5391369b6104149ce4842b573"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "library",
+      "bom-ref": "hearth-lock-app@4.2.0",
+      "supplier": {
+        "name": "Aldermoor Platforms"
+      },
+      "name": "hearth-lock-app",
+      "version": "4.2.0",
+      "purl": "pkg:generic/aldermoor/hearth-lock-app@4.2.0",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "17d36d3b559c5e5371dd337e297f45b9986b37a571876ebcbbd25b856bd19a07a4caa06de0504152f689db16ab6fc1299797c8a06d17b1db6b7e45c030a1da2b"
+        }
+      ],
+      "properties": [
+        {
+          "name": "bsi:dependencies:complete",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "zephyr@3.7.0",
+      "supplier": {
+        "name": "Zephyr Project"
+      },
+      "name": "zephyr",
+      "version": "3.7.0",
+      "purl": "pkg:github/zephyrproject-rtos/zephyr@v3.7.0",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "fe6719a0a2a47e2dff83412dd88439c7dcddac390dfb59a194fc1f34369013b86d0287df1f821c1fcfde663b2f8f573ac41aa8e11129839878adeb4221bbbb87"
+        }
+      ],
+      "properties": [
+        {
+          "name": "bsi:dependencies:complete",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "mbedtls@3.6.2",
+      "supplier": {
+        "name": "Trusted Firmware project"
+      },
+      "name": "mbedtls",
+      "version": "3.6.2",
+      "purl": "pkg:generic/mbedtls@3.6.2",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "8967d17feee7a8eb11fe3253d05a1011b830bdcb2fa28c46ee1b501c50cfff4f8a076dc332cf906b7d422454a91785f4ac0a815ed3cbb35af75f99d19ddfc832"
+        }
+      ],
+      "properties": [
+        {
+          "name": "bsi:dependencies:complete",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "zlib@1.2.12",
+      "supplier": {
+        "name": "zlib project"
+      },
+      "name": "zlib",
+      "version": "1.2.12",
+      "purl": "pkg:generic/zlib@1.2.12",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "61ff2c1ec51f0a8969b09cde11afcc0aa4a86b51d20ae0f85419134754333796b733c4eb2106604fd6946cfbc005e88aa1cbe5808206a879e17ed63e716c73c4"
+        }
+      ],
+      "properties": [
+        {
+          "name": "bsi:dependencies:complete",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "openthread@2024.06",
+      "supplier": {
+        "name": "OpenThread"
+      },
+      "name": "openthread",
+      "version": "2024.06",
+      "purl": "pkg:github/openthread/openthread@thread-reference-20240612",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "e9ecb2b40dfaf142ef41a1041a7b8d5f1b404c4f2570fdfd02f9e3f88f3ccb214e9ad0c18a3a27e4d0066f3246f1fd0e0d847e9233e2beb840506eef0c749fbb"
+        }
+      ],
+      "properties": [
+        {
+          "name": "bsi:dependencies:complete",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "connectedhomeip@1.3.0.0",
+      "supplier": {
+        "name": "CSA"
+      },
+      "name": "connectedhomeip",
+      "version": "1.3.0.0",
+      "purl": "pkg:github/project-chip/connectedhomeip@v1.3.0.0",
+      "hashes": [
+        {
+          "alg": "SHA-512",
+          "content": "ba96a330cc3bd2367776459a18f5a8246a3dc1eb0efbacd132fea543376a1e09f35377a7edea59640707f964ac29a0f6b3e2987199686b432fb07ea21af1fc6e"
+        }
+      ],
+      "properties": [
+        {
+          "name": "bsi:dependencies:complete",
+          "value": "true"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "pkg:generic/aldermoor/hearth-lock-3-firmware@4.2.0",
+      "dependsOn": [
+        "hearth-lock-app@4.2.0",
+        "zephyr@3.7.0",
+        "mbedtls@3.6.2",
+        "zlib@1.2.12",
+        "openthread@2024.06",
+        "connectedhomeip@1.3.0.0"
+      ]
+    },
+    {
+      "ref": "connectedhomeip@1.3.0.0",
+      "dependsOn": [
+        "mbedtls@3.6.2",
+        "openthread@2024.06"
+      ]
+    }
+  ]
+}

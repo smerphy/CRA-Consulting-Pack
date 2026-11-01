@@ -1,0 +1,120 @@
+{
+  "manifest_version": "1.0",
+  "org": "aldermoor",
+  "product": {
+    "product_id": "lumen-browser",
+    "name": "Lumen Browser (desktop)",
+    "manufacturer": "Aldermoor Platforms (fictional)",
+    "product_type": "software",
+    "family": "Lumen Browser"
+  },
+  "version": "141.0.7390.65",
+  "previous_version": "141.0.7390.40",
+  "release_date": "2028-02-10",
+  "placing": {
+    "date": "2028-02-10",
+    "event": "new_version_placing",
+    "member_states": [
+      "IE",
+      "DE",
+      "FR",
+      "ES",
+      "IT",
+      "PL"
+    ]
+  },
+  "classification": {
+    "class": "important_class_i",
+    "annex_category": "Annex III Class I, 2: standalone and embedded browsers",
+    "conformity_route": "module_h",
+    "harmonised_standards_applied_in_full": [],
+    "notified_body": "Illustrative notified body (no CRA body designated at 8 Sep 2026)",
+    "certificate_ref": "QS-APPROVAL-ILLUSTRATIVE-0142"
+  },
+  "artefact": "artefact/lumen-browser-141.0.7390.65-linux-x64.tar.zst",
+  "build_graph": {
+    "direct_dependencies": [
+      "lumen-engine",
+      "skia",
+      "libwebp",
+      "harfbuzz",
+      "icu",
+      "boringssl",
+      "zlib",
+      "freetype"
+    ],
+    "source": "hermetic build graph query: direct deps of the release target"
+  },
+  "evidence": {
+    "sbom": "evidence/sbom.spdx.json",
+    "provenance": "evidence/provenance.intoto.json",
+    "vex": "evidence/vex.csaf.json",
+    "tests": [
+      {
+        "type": "sast",
+        "path": "evidence/sast.sarif"
+      },
+      {
+        "type": "fuzz",
+        "path": "evidence/fuzz.sarif"
+      }
+    ],
+    "risk_assessment": {
+      "path": "docs/risk-assessment.md",
+      "ref": "RA-lumen-browser-141.0.7390.65"
+    },
+    "applicability_matrix": {
+      "path": "docs/applicability-matrix.json",
+      "ref": "AM-lumen-browser-141.0.7390.65"
+    },
+    "annex_ii": {
+      "path": "docs/annex-ii-user-information.md",
+      "uri": "https://www.aldermoor.example/security/lumen-browser/141.0.7390.65/"
+    },
+    "update_design_note": {
+      "path": "docs/update-design-note.md",
+      "ref": "UDN-lumen-browser"
+    },
+    "cvd_policy": {
+      "path": "docs/cvd-policy.md",
+      "ref": "https://www.aldermoor.example/security/cvd"
+    }
+  },
+  "support_period": {
+    "end_date": "2033-02-28",
+    "latest_version_rule": true,
+    "justification": "Product support period for Lumen Browser; Art 13(10) latest-version rule with free upgrade."
+  },
+  "substantial_modification": {
+    "change_type": "security_update",
+    "questions": {
+      "new_threat_vectors": false,
+      "new_attack_scenarios": false,
+      "changed_likelihood": false,
+      "changed_impact": false
+    },
+    "rationale": "Weekly security update; vendored libwebp updated; harfbuzz edge restored in SBOM.",
+    "assessed_by": null,
+    "decision": "not_substantial"
+  },
+  "declaration": {
+    "declaration_id": "AP-DoC-LB-141",
+    "status": "reused",
+    "reused_from_version": "141.0.7390.40",
+    "uri": "https://www.aldermoor.example/compliance/doc/lumen-browser",
+    "signatory_function": "SVP Browser (delegated signatory)"
+  },
+  "signer": {
+    "identity": "spiffe://aldermoor.example/release-pipeline/lumen-browser",
+    "role": "Release manager (accountable); pipeline identity signs",
+    "signature_ref": "transparency-log entry (illustrative)"
+  },
+  "store": {
+    "uri_prefix": "s3://aldermoor-cra-evidence-eu/v1",
+    "object_lock_mode": "compliance"
+  },
+  "feeds": {
+    "osv": "OSV snapshot 2026-10-30 (excerpt)",
+    "kev": "CISA KEV 2026.10.30 (excerpt)"
+  }
+}

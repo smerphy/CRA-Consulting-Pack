@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json.schemastore.org/sarif-2.1.0.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "CodeQL",
+          "rules": [
+            {
+              "id": "cpp/uncontrolled-allocation-size"
+            },
+            {
+              "id": "cpp/unused-local-variable"
+            },
+            {
+              "id": "cpp/path-injection"
+            }
+          ]
+        }
+      },
+      "results": [
+        {
+          "ruleId": "cpp/uncontrolled-allocation-size",
+          "level": "warning",
+          "message": {
+            "text": "Allocation size from BLE frame length"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/ble/frame.c"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "cpp/unused-local-variable",
+          "level": "note",
+          "message": {
+            "text": "Unused variable"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/ui/led.c"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "cpp/path-injection",
+          "level": "error",
+          "message": {
+            "text": "Path built from input"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "tools/factory/flash.c"
+                }
+              }
+            }
+          ],
+          "suppressions": [
+            {
+              "kind": "external",
+              "status": "accepted",
+              "justification": "Factory tool not shipped in image; PSIRT-2027-118"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "families": 40,
+  "families_by_bucket": {
+    "default": 14,
+    "within_other_product": 3,
+    "class1": 16,
+    "out": 2,
+    "class2": 1,
+    "not_placed": 4
+  },
+  "nb_route_families": 17,
+  "nb_route_by_category": {
+    "I11": 2,
+    "I1": 2,
+    "I5": 2,
+    "I2": 3,
+    "I17": 3,
+    "I16": 1,
+    "I12": 1,
+    "I19": 2,
+    "II1": 1
+  },
+  "eu_revenue_by_bucket_eur_m": {
+    "default": 24320,
+    "within_other_product": 180,
+    "class1": 12025,
+    "out": 9000,
+    "class2": 350,
+    "not_placed": 0
+  },
+  "product_revenue_eur_m": 36695,
+  "nb_route_revenue_eur_m": 12555,
+  "nb_route_share_of_product_revenue": 0.342,
+  "nb_route_share_of_total_eu_revenue": 0.163,
+  "browser_share_of_nb_route_revenue": 0.621,
+  "borderline_high": [
+    "F06 Halo Services package (licensed to third-party OEMs)",
+    "F13 Lumen WebView (system embedded browser component)",
+    "F20 Hearth smoke and CO alarms",
+    "F25 Keystone security keys (FIDO)",
+    "F31 Cloud Connect directory and storage connectors",
+    "F35 Halo Open Source Project (HOSP) releases",
+    "F40 Tensile ML framework (paid LTS builds; community releases stewarded)"
+  ],
+  "line_by_bucket_matrix": {
+    "Arc devices": {
+      "default": 4
+    },
+    "Halo": {
+      "within_other_product": 1,
+      "default": 1,
+      "class1": 1
+    },
+    "Consumer apps": {
+      "default": 1,
+      "class1": 2
+    },
+    "Lumen": {
+      "class1": 4
+    },
+    "Hearth": {
+      "class1": 5,
+      "default": 2,
+      "within_other_product": 1
+    },
+    "Pulse": {
+      "class1": 2
+    },
+    "Keystone and Bastion": {
+      "class1": 1,
+      "within_other_product": 1
+    },
+    "Cloud and enterprise": {
+      "out": 2,
+      "default": 4,
+      "class1": 1,
+      "class2": 1
+    },
+    "Open source": {
+      "not_placed": 4,
+      "default": 2
+    }
+  }
+}

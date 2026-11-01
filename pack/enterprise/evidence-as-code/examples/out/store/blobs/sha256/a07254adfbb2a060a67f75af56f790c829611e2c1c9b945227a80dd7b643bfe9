@@ -1,0 +1,21 @@
+{
+  "@context": "https://openvex.dev/ns/v0.2.0",
+  "@id": "https://vex.aldermoor.example/hearth-lock-3/4.3.0",
+  "author": "Aldermoor PSIRT",
+  "role": "manufacturer",
+  "timestamp": "2028-01-11T10:02:00Z",
+  "version": 1,
+  "statements": [
+    {
+      "vulnerability": {
+        "name": "CVE-2022-37434"
+      },
+      "products": [
+        {
+          "@id": "pkg:generic/aldermoor/hearth-lock-3-firmware@4.3.0"
+        }
+      ],
+      "status": "fixed"
+    }
+  ]
+}

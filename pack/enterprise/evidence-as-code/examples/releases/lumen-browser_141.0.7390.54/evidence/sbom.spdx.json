@@ -1,0 +1,247 @@
+{
+  "spdxVersion": "SPDX-2.3",
+  "dataLicense": "CC0-1.0",
+  "SPDXID": "SPDXRef-DOCUMENT",
+  "name": "lumen-browser-141.0.7390.54",
+  "documentNamespace": "https://sbom.aldermoor.example/spdx/lumen-browser/141.0.7390.54",
+  "creationInfo": {
+    "created": "2028-01-30T06:02:11Z",
+    "creators": [
+      "Organization: Aldermoor Platforms",
+      "Tool: aldermoor-sbomgen-3.2.0"
+    ]
+  },
+  "packages": [
+    {
+      "SPDXID": "SPDXRef-Package-lumen-browser",
+      "name": "lumen-browser",
+      "versionInfo": "141.0.7390.54",
+      "supplier": "Organization: Aldermoor Platforms",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "cfbeb4ccf87c71c0461d2ea3476c89138623e6d8bb176fb99acab345f1000019"
+        }
+      ],
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:generic/aldermoor/lumen-browser@141.0.7390.54"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-Package-lumen-engine",
+      "name": "lumen-engine",
+      "versionInfo": "141.0.7390.54",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "BSD-3-Clause",
+      "checksums": [
+        {
+          "algorithm": "SHA512",
+          "checksumValue": "5c51b532ac1772772dd675d9a12ad81a5a173c013a76c9722f34f229ada7d87adf8880b4b43d8a24ccdfbdda6ce1e564d31dd051c7ea3a23f0ab4136c2891bda"
+        }
+      ],
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:generic/lumen-engine@141.0.7390.54"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-Package-skia",
+      "name": "skia",
+      "versionInfo": "m141",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "BSD-3-Clause",
+      "checksums": [
+        {
+          "algorithm": "SHA512",
+          "checksumValue": "1e6e4622699d10d74ff574e08cd72fb0add2bc95250026c66c659dcb64322f9bcf04048a4b65e6581e2dfb563ccf12aa17a749fa2b545799b470c9421145af52"
+        }
+      ],
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:generic/skia@m141"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-Package-libwebp",
+      "name": "libwebp",
+      "versionInfo": "1.3.1",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "BSD-3-Clause",
+      "checksums": [
+        {
+          "algorithm": "SHA512",
+          "checksumValue": "1e79a1462ca68474aebcd3c87e919e5501ea2fd45735160a904a122ae74a9418853c46690ebd1d7ca4f645f4ccedaa95e146b41fe7815cc6c3ba7d4b149a3842"
+        }
+      ],
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:generic/libwebp@1.3.1"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-Package-harfbuzz",
+      "name": "harfbuzz",
+      "versionInfo": "10.1.0",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "MIT",
+      "checksums": [
+        {
+          "algorithm": "SHA512",
+          "checksumValue": "69c0f8ed5b30091e027accb40f74fa77ef7f4c4f49a7d032be61f3722bbfbd23f0e194229291e7ecfee9cd5ef2a2aba79361e128b2b3d50e9a27559e7b5519f0"
+        }
+      ],
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:generic/harfbuzz@10.1.0"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-Package-icu",
+      "name": "icu",
+      "versionInfo": "76.1",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "Unicode-3.0",
+      "checksums": [
+        {
+          "algorithm": "SHA512",
+          "checksumValue": "7777aabf189f79230991a3c8cdf4b6992f54624384825beccf1778820c0582abd02d67daa4630c2c07a0b3435a8384948b16d6646b62d23f413c4c330c3d67c1"
+        }
+      ],
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:generic/icu@76.1"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-Package-boringssl",
+      "name": "boringssl",
+      "versionInfo": "0.20250114.0",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "Apache-2.0",
+      "checksums": [
+        {
+          "algorithm": "SHA512",
+          "checksumValue": "3890992cfa3282fca3ae26419211e23c576e6029a70c087ba39f113827bf9ad263ab4a3ff140d3adab6635a3d065b250a225e6121bc6879fec19ebf4a2501d02"
+        }
+      ],
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:generic/boringssl@0.20250114.0"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-Package-zlib",
+      "name": "zlib",
+      "versionInfo": "1.3.1",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "Zlib",
+      "checksums": [
+        {
+          "algorithm": "SHA512",
+          "checksumValue": "4c50af1d6565bd8b2f4124bd9f1799be6e950466b8910306d38ca80687bd5fed1d57c0f91c40e7e9242b8ae98022691b582f16dd21f71fa5973f7d3ea13da503"
+        }
+      ],
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:generic/zlib@1.3.1"
+        }
+      ]
+    },
+    {
+      "SPDXID": "SPDXRef-Package-freetype",
+      "name": "freetype",
+      "versionInfo": "2.13.3",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "FTL",
+      "checksums": [
+        {
+          "algorithm": "SHA512",
+          "checksumValue": "24d52a8c70474d24dd9d936912809b8fc60a3a372286e8b97ccf8964aace692e98aff1ea22aea3bc2bcd8a6662d4a13f3257e8b38a1a051074bf0099189768bb"
+        }
+      ],
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:generic/freetype@2.13.3"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relationshipType": "DESCRIBES",
+      "relatedSpdxElement": "SPDXRef-Package-lumen-browser"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-lumen-browser",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-lumen-engine"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-lumen-browser",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-skia"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-lumen-browser",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-libwebp"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-lumen-browser",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-icu"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-lumen-browser",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-boringssl"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-lumen-browser",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-zlib"
+    },
+    {
+      "spdxElementId": "SPDXRef-Package-lumen-browser",
+      "relationshipType": "DEPENDS_ON",
+      "relatedSpdxElement": "SPDXRef-Package-freetype"
+    }
+  ]
+}

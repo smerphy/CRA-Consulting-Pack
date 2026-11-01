@@ -1,0 +1,107 @@
+# CRA release gate: GitHub Actions example (design illustration).
+#
+# Where the gate runs: after build, attestation, SBOM/VEX and tests, before
+# the release is promoted to any EU distribution channel.
+# Where records go: an append-only evidence bucket with compliance-mode
+# object lock; retain-until = max(placing + 10 years, support end) per
+# Art 13(13). Bucket names, roles and identities are illustrative.
+#
+# Pin every third-party action to a full commit SHA (KB guide 05-sdlc). The
+# all-zero SHAs below are placeholders to replace, not real pins.
+
+name: cra-release-gate
+on:
+  push:
+    tags: ["release/**"]
+
+permissions:
+  contents: read
+  id-token: write        # OIDC for keyless signing and cloud credentials
+  attestations: write
+
+env:
+  EVIDENCE_BUCKET: aldermoor-cra-evidence-eu
+  POLICY: tools/cra/aldermoor-gate-policy.json
+  FEEDS: tools/cra/feeds            # snapshot refreshed daily, pinned by digest
+
+jobs:
+  build-and-attest:
+    runs-on: ubuntu-24.04
+    outputs:
+      digest: ${{ steps.build.outputs.digest }}
+    steps:
+      - uses: actions/checkout@0000000000000000000000000000000000000000 # v4 (placeholder pin)
+      - id: build
+        name: Hermetic build of the release target
+        run: |
+          ./tools/build release //firmware/hearth/lock3:signed_image --out release/artefact/
+          echo "digest=$(sha256sum release/artefact/*.bin | cut -d' ' -f1)" >> "$GITHUB_OUTPUT"
+      - name: SLSA v1 provenance from the trusted builder
+        run: ./tools/build provenance --format in-toto-v1 > release/evidence/provenance.intoto.json
+      - name: SBOM from the shipped artefact, merged with binary scan
+        run: |
+          ./tools/build sbom --format cyclonedx-json@1.6 > release/evidence/sbom.cdx.json
+          syft scan file:release/artefact/*.bin -o cyclonedx-json > /tmp/scan.cdx.json
+          ./tools/cra/merge-sbom release/evidence/sbom.cdx.json /tmp/scan.cdx.json
+      - name: Tests emitting SARIF
+        run: |
+          ./tools/build test //firmware/hearth/lock3/... --sarif release/evidence/sast.sarif
+          ./tools/fuzz report --sarif release/evidence/fuzz.sarif --since-tag previous
+      - name: VEX from PSIRT triage service
+        run: ./tools/psirt export-vex --product hearth-lock-3 --version "${GITHUB_REF_NAME##*/}" > release/evidence/vex.openvex.json
+      - name: Release manifest (product, placing, class, support period, pt 110 answers, declaration link)
+        run: ./tools/cra/write-manifest --from release-metadata-service > release/release.json
+      - uses: actions/upload-artifact@0000000000000000000000000000000000000000 # v4 (placeholder pin)
+        with: {name: release, path: release/}
+
+  cra-gate:
+    needs: build-and-attest
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@0000000000000000000000000000000000000000 # v4 (placeholder pin)
+      - uses: actions/download-artifact@0000000000000000000000000000000000000000 # v4 (placeholder pin)
+        with: {name: release, path: release/}
+      - name: Verify provenance signature and identity
+        run: |
+          cosign verify-blob-attestation --bundle release/evidence/provenance.sigstore.json \
+            --certificate-identity-regexp '^https://build.aldermoor.example/' \
+            --certificate-oidc-issuer https://build.aldermoor.example/oidc \
+            release/artefact/*.bin
+      - name: Run CRA gate
+        id: gate
+        run: |
+          set +e
+          python -m cra_evidence gate release/ --policy "$POLICY" --feeds "$FEEDS" -o record.json -v
+          rc=$?
+          echo "rc=$rc" >> "$GITHUB_OUTPUT"
+          python -m cra_evidence index release/ --policy "$POLICY" --feeds "$FEEDS" -o index/
+          exit 0
+      - name: Write evidence to append-only store (every decision is kept, including FAIL)
+        run: |
+          RETAIN=$(jq -r .retention.retain_until record.json)
+          PFX="$(jq -r .product.product_id record.json)/$(jq -r .version.version record.json)"
+          for f in $(cd release && find . -type f) ; do
+            aws s3api put-object --bucket "$EVIDENCE_BUCKET" --key "v1/$PFX/${f#./}" --body "release/$f" \
+              --object-lock-mode COMPLIANCE --object-lock-retain-until-date "${RETAIN}T00:00:00Z" \
+              --checksum-algorithm SHA256
+          done
+          aws s3api put-object --bucket "$EVIDENCE_BUCKET" --key "v1/$PFX/record.json" --body record.json \
+            --object-lock-mode COMPLIANCE --object-lock-retain-until-date "${RETAIN}T00:00:00Z"
+      - name: Decide
+        run: |
+          case "${{ steps.gate.outputs.rc }}" in
+            0) echo "PASS: promote" ;;
+            3) echo "REVIEW: route to product security officer"; exit 1 ;;
+            *) echo "FAIL: blocked"; exit 1 ;;
+          esac
+
+  # REVIEW is resolved by a human decision recorded in the release-metadata
+  # service (pt 110 answers, assessor, decision). The pipeline then re-runs
+  # the gate; it never edits a stored record. A protected environment with
+  # required reviewers gates promotion.
+  promote-eu:
+    needs: cra-gate
+    environment: eu-distribution   # required reviewers configured on the environment
+    runs-on: ubuntu-24.04
+    steps:
+      - run: ./tools/release promote --channel eu-stable

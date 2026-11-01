@@ -1,0 +1,887 @@
+# Aldermoor Platforms: EU-sold portfolio at product-family level (module E3)
+# Fictional reference client. All revenue figures, type counts and cadences are
+# ILLUSTRATIVE ESTIMATES made for this exercise, not data about any real company.
+# Legal rules applied by classify.py are taken from the knowledge base:
+#   reports/sections/03-scope.md, 05-roles.md, 06-classification.md,
+#   10-conformity.md, 12-open-source.md and reports/verification.md.
+
+meta:
+  client: Aldermoor Platforms (fictional)
+  as_at: "2026-11-01"
+  regulatory_facts_verified_to: "2026-10-30"
+  notified_body_status_checked_to: "2026-09-08"
+  eu_revenue_total_eur_m: 77000   # 27% of EUR 285bn group revenue (brief)
+  revenue_note: >-
+    eu_revenue.est_eur_m is an illustrative estimate of EU revenue attributable to
+    the family. For hardware and paid software it is product revenue. For free
+    clients (browser, consumer apps, Halo Services) it is the services revenue for
+    which the client is the main channel ("enabled" basis). Bands are labels only.
+  revenue_bands_eur_m:
+    - {label: "nil or not attributable", max: 0}
+    - {label: "< 100", max: 100}
+    - {label: "100-500", max: 500}
+    - {label: "500-1,000", max: 1000}
+    - {label: "1,000-5,000", max: 5000}
+    - {label: "> 5,000", max: 999999}
+  additions_to_brief:
+    # Details added by the E3/E4 writer, consistent with the master brief.
+    - "Aldermoor sells laptops (Arc Book) running Lumen OS; the brief implies them via Bastion in laptops."
+    - "Halo is licensed to third-party phone makers as open-source base (HOSP, free) plus a separately licensed proprietary Halo Services package."
+    - "Halo Wear: complete Halo-based OS images supplied to third-party watchmakers (small programme)."
+    - "Lumen OS is supplied as complete images to third-party laptop OEMs and as a downloadable edition (Lumen OS Flex) for existing PCs."
+    - "Lumen WebView: the Lumen Engine-based system webview, updated through the app store on Halo devices."
+    - "Aldermoor Authenticator (OTP/MFA app) and Aldermoor One VPN (consumer VPN in the Aldermoor One subscription)."
+    - "Cloud Connect: on-prem connectors (directory sync, storage gateway) and a site-to-site VPN gateway virtual appliance."
+    - "Aldermoor Edge: on-prem hybrid platform (hypervisor plus container runtime) installed on customer hardware."
+    - "Mooring Enterprise: paid, supported Mooring distribution sold with Aldermoor Edge."
+    - "Tensile LTS builds are offered only to paying Aldermoor Cloud customers today (see E4)."
+    - "Hearth Aware: paid subscription for camera video history (remote data processing)."
+
+organisations:
+  lumen:     {name: "Lumen (browser)", note: "Lumen Browser desktop and mobile, Lumen WebView"}
+  platforms: {name: "Platforms (Halo and Lumen OS)", note: "Halo OS, Halo Services, Halo Wear, Lumen OS"}
+  devices:   {name: "Devices (Arc, Hearth, Pulse, Keystone)", note: "Hardware and companion apps; contract manufacturing"}
+  cloud_apps: {name: "Cloud and apps", note: "Aldermoor Cloud installed products, consumer and enterprise apps"}
+  oss:       {name: "Open source programme office", note: "Steward role for the five Aldermoor-led projects (see E4)"}
+
+families:
+
+  # ---------------- Arc devices ----------------
+  - id: F01
+    name: Arc phones
+    line: Arc devices
+    org: devices
+    core_functionality: "General-purpose smartphone: mobile communications and execution of user applications"
+    ancillary: ["Halo OS (integrated)", "Lumen Browser (pre-installed, also separately available)", "built-in password autofill", "Bastion secure element (integrated)"]
+    placement: placed
+    category: default
+    foss_qualifying: false
+    monetisation: "Device sale; 7-year support commitment"
+    eu_revenue: {est_eur_m: 9500, basis: "device sales"}
+    release: {cadence: "Monthly security patches; one major Halo release a year; 2-3 new models a year", versions_per_year: 13, initial_types: 6, new_types_per_year: 3, substantial_mods_per_year: 1, complexity: 1.5}
+    rdps: ["Device activation and account sign-in", "Update distribution service", "Backup and sync"]
+    separately_sold_modules: ["Aldermoor One VPN subscription (classified separately as F10)"]
+    integrated_components: ["Halo OS (Annex III I.11 type function)", "Bastion secure element (Annex IV item 3 type function)"]
+    rationale: >-
+      Core functionality is a phone, not an operating system. A smartphone integrating an OS is not an OS (guidance Example 58),
+      and integrating an important or critical component does not reclassify the host (Art 7(1)); the FAQ also says a smartphone is
+      not a password manager. The phone still has to assess the security of Halo OS and Bastion inside its own risk assessment.
+    citations: ["Art 7(1)", "Guidance pts 140-141, Example 58", "Commission FAQ s.3", "06-classification.md"]
+    borderline: {level: medium, note: "Most consequential default call in the portfolio by revenue. Holds only while marketing and technical documentation describe a phone, not an OS product (guidance pts 142-143).", alternative: "None if documentation is consistent"}
+
+  - id: F02
+    name: Arc tablets
+    line: Arc devices
+    org: devices
+    core_functionality: "General-purpose tablet computer for media, apps and productivity"
+    ancillary: ["Halo OS (integrated)", "Lumen Browser", "Bastion secure element"]
+    placement: placed
+    category: default
+    foss_qualifying: false
+    monetisation: "Device sale"
+    eu_revenue: {est_eur_m: 1300, basis: "device sales"}
+    release: {cadence: "Monthly security patches; one new model a year", versions_per_year: 13, initial_types: 3, new_types_per_year: 1, substantial_mods_per_year: 0.5, complexity: 1.3}
+    rdps: ["Account sign-in", "Update distribution", "Backup and sync"]
+    separately_sold_modules: []
+    integrated_components: ["Halo OS", "Bastion secure element"]
+    rationale: "Same reasoning as Arc phones: integration of an OS and a secure element does not make the host an OS or a critical product."
+    citations: ["Art 7(1)", "Guidance Example 58", "Commission FAQ s.3"]
+    borderline: {level: low, note: "As F01.", alternative: "None"}
+
+  - id: F03
+    name: Arc earbuds
+    line: Arc devices
+    org: devices
+    core_functionality: "Wireless audio playback and voice calls over Bluetooth"
+    ancillary: ["Voice-assistant pass-through to the paired phone", "Firmware updates via phone app"]
+    placement: placed
+    category: default
+    foss_qualifying: false
+    monetisation: "Device sale"
+    eu_revenue: {est_eur_m: 650, basis: "device sales"}
+    release: {cadence: "Firmware every 2-3 months; one new model a year", versions_per_year: 5, initial_types: 3, new_types_per_year: 1, substantial_mods_per_year: 0.2, complexity: 0.7}
+    rdps: ["Firmware update service via the companion app"]
+    separately_sold_modules: []
+    integrated_components: ["Bluetooth radio (network interface type function)"]
+    rationale: >-
+      An audio accessory. The Bluetooth radio is a network-interface component but not the core functionality (Art 7(1)).
+      Assistant access is relayed to the phone; the earbuds do not process natural-language requests or control home devices,
+      so Annex III I.16 does not fit. Not a health wearable unless heart-rate or similar features are added (then re-test I.19).
+    citations: ["Art 7(1)", "IR 2025/2392 Annex I items 10, 16, 19", "06-classification.md"]
+    borderline: {level: low, note: "Becomes I.19 if a health-monitoring feature (for example heart rate) is added to a future model.", alternative: "Annex III Class I item 19"}
+
+  - id: F04
+    name: Arc Book laptops
+    line: Arc devices
+    org: devices
+    core_functionality: "General-purpose laptop computer"
+    ancillary: ["Lumen OS pre-installed", "Lumen Browser", "Bastion secure element", "UEFI boot firmware"]
+    placement: placed
+    category: default
+    foss_qualifying: false
+    monetisation: "Device sale"
+    eu_revenue: {est_eur_m: 1500, basis: "device sales"}
+    release: {cadence: "Lumen OS updates every 4 weeks; one or two new models a year", versions_per_year: 13, initial_types: 4, new_types_per_year: 1.5, substantial_mods_per_year: 0.5, complexity: 1.3}
+    rdps: ["Account sign-in", "Update distribution", "Device management enrolment"]
+    separately_sold_modules: []
+    integrated_components: ["Lumen OS (I.11 type function)", "Bastion secure element", "Boot firmware (I.8 type function)"]
+    rationale: >-
+      The PC maker is manufacturer of the whole and a pre-installed OS does not make the laptop an OS (guidance para 25, Example 8);
+      the FAQ says a laptop with a secure element is not a critical product. Lumen OS supplied separately is its own product (F14).
+    citations: ["Guidance para 25, Example 8", "Commission FAQ s.3", "Art 7(1)", "03-scope.md hard cases"]
+    borderline: {level: low, note: "Default only for the laptop; the separately supplied Lumen OS images are Class I (F14).", alternative: "None"}
+
+  # ---------------- Halo platform ----------------
+  - id: F05
+    name: Halo OS as integrated in Arc phones and tablets
+    line: Halo
+    org: platforms
+    core_functionality: "Mobile operating system: abstracts hardware and manages execution"
+    ancillary: []
+    placement: integrated_only
+    host: "F01, F02"
+    category: I11
+    foss_qualifying: false
+    monetisation: "Not supplied separately by Aldermoor on Arc devices; updates are not a new placing unless substantial"
+    eu_revenue: {est_eur_m: 0, basis: "counted in F01 and F02"}
+    release: {cadence: "Monthly security patches; one major release a year", versions_per_year: 13, initial_types: 0, new_types_per_year: 0, substantial_mods_per_year: 0, complexity: 4}
+    rdps: []
+    separately_sold_modules: []
+    integrated_components: []
+    rationale: >-
+      Not a separate product on Arc devices; it is assessed inside the phone and tablet risk assessments. If Aldermoor ever
+      offered Halo OS as a separate download or licence for third-party hardware, that offering would be an Annex III I.11 product.
+      Each annual major release still needs the four-question substantial-modification test for the host devices (guidance pt 110).
+    citations: ["Art 7(1)", "Guidance Example 58", "Guidance pts 108-112"]
+    borderline: {level: medium, note: "Status depends on supply model, not code. Compare F06 and F07.", alternative: "Annex III Class I item 11 if supplied separately"}
+
+  - id: F06
+    name: Halo Services package (licensed to third-party OEMs)
+    line: Halo
+    org: platforms
+    core_functionality: "Proprietary application and services framework: app store client, account services, push, location and payment APIs"
+    ancillary: ["Account sign-in for Aldermoor services", "Device-integrity attestation API"]
+    placement: placed
+    category: default
+    foss_qualifying: false
+    monetisation: "Licensed to OEMs free of fee under a distribution agreement; monetised through app-store commission and services revenue"
+    eu_revenue: {est_eur_m: 6800, basis: "enabled: services revenue on third-party Halo devices"}
+    release: {cadence: "Weekly app-store updates of framework modules", versions_per_year: 52, initial_types: 1, new_types_per_year: 0, substantial_mods_per_year: 2, complexity: 2}
+    rdps: ["App store backend", "Account and identity service", "Push messaging", "Integrity attestation service"]
+    separately_sold_modules: ["Halo Services is itself a separately licensed module of the Halo platform (guidance pt 145, Example 61)"]
+    integrated_components: []
+    rationale: >-
+      Separately licensed, so classified on its own core functionality (guidance pt 145, Example 61). That core is app
+      distribution and service APIs. It does not abstract hardware or manage execution (not I.11), and account sign-in is
+      ancillary to the framework rather than its core (not I.1). The OEM that builds the device OS from HOSP is the manufacturer
+      of its own device (Art 3(13)); Aldermoor is the manufacturer of this package as a component placed on the market (Art 3(1)).
+    citations: ["Guidance pt 145, Example 61", "Art 3(1)", "Art 3(13)", "Guidance pts 139, 144"]
+    borderline: {level: high, note: "If Aldermoor delivered OEMs a complete prebuilt OS image instead of a package on top of the OEM's own HOSP build, Aldermoor would place an OS on the market (I.11). Keep the supply model and contracts consistent with the technical reality (guidance pt 143).", alternative: "Annex III Class I item 11"}
+
+  - id: F07
+    name: Halo Wear OS images for third-party watchmakers
+    line: Halo
+    org: platforms
+    core_functionality: "Complete wearable operating system image supplied to OEMs for installation on their watches"
+    ancillary: ["Health-data APIs", "Halo Services for wearables"]
+    placement: placed
+    category: I11
+    foss_qualifying: false
+    monetisation: "Per-device licence fee"
+    eu_revenue: {est_eur_m: 150, basis: "licence fees"}
+    release: {cadence: "Monthly security patches; one major release a year", versions_per_year: 13, initial_types: 1, new_types_per_year: 0, substantial_mods_per_year: 1, complexity: 3}
+    rdps: ["Update distribution", "Account service"]
+    separately_sold_modules: []
+    integrated_components: []
+    rationale: >-
+      A complete OS supplied separately to other manufacturers is a component placed on the market (Art 3(1)) whose core
+      functionality matches the I.11 description: software that abstracts hardware and manages execution (IR 2025/2392).
+      Same code family as F05, different supply model, different class.
+    citations: ["Art 3(1)", "IR 2025/2392 Annex I item 11", "06-classification.md Table A"]
+    borderline: {level: low, note: "Clear once supplied as a complete image.", alternative: "None"}
+
+  # ---------------- Consumer apps ----------------
+  - id: F08
+    name: Consumer mobile and desktop apps (mail, maps, photos, video, music)
+    line: Consumer apps
+    org: cloud_apps
+    core_functionality: "Communication, navigation and media applications"
+    ancillary: ["In-app web views (embedded browser component)", "Account sign-in"]
+    placement: placed
+    category: default
+    foss_qualifying: false
+    monetisation: "Free, monetised through advertising and subscriptions"
+    eu_revenue: {est_eur_m: 2500, basis: "enabled: advertising and subscription revenue attributed to the apps"}
+    release: {cadence: "Weekly app releases", versions_per_year: 52, initial_types: 12, new_types_per_year: 1, substantial_mods_per_year: 3, complexity: 1}
+    rdps: ["Each app's own backend APIs (mail, maps tiles, photo sync)"]
+    separately_sold_modules: []
+    integrated_components: ["Lumen WebView or platform webview"]
+    rationale: >-
+      Free apps monetised by advertising are supplied in a commercial activity (Art 3(22); recital 15; guidance Examples 14-16).
+      An app with an embedded browser is not a browser (IR 2025/2392 recitals; FAQ news-app example), so the class is default.
+    citations: ["Art 3(22)", "Recital 15", "Guidance Examples 14-16", "IR 2025/2392 recitals", "Commission FAQ s.3"]
+    borderline: {level: low, note: "Re-test any app whose core becomes a category function (for example a password-manager app).", alternative: "None"}
+
+  - id: F09
+    name: Aldermoor Authenticator (OTP and MFA app)
+    line: Consumer apps
+    org: cloud_apps
+    core_functionality: "Generates one-time passwords and approves multi-factor sign-in prompts"
+    ancillary: ["Encrypted backup of OTP seeds to the user's account"]
+    placement: placed
+    category: I1
+    foss_qualifying: false
+    monetisation: "Free; part of the Aldermoor account ecosystem"
+    eu_revenue: {est_eur_m: 0, basis: "not attributable"}
+    release: {cadence: "Monthly releases", versions_per_year: 12, initial_types: 2, new_types_per_year: 0, substantial_mods_per_year: 1, complexity: 0.8}
+    rdps: ["Seed backup service", "Push-approval service"]
+    separately_sold_modules: []
+    integrated_components: []
+    rationale: "OTP and MFA software is named in the I.1 technical description (IR 2025/2392)."
+    citations: ["IR 2025/2392 Annex I item 1", "06-classification.md Table A"]
+    borderline: {level: medium, note: "Placement question rather than class: a free, unmonetised, closed-source app from a company is a grey area (guidance pts 40-41). Treat as placed on the market because it supports the commercial account ecosystem.", alternative: "Not placed on the market (weak; not recommended)"}
+
+  - id: F10
+    name: Aldermoor One VPN
+    line: Consumer apps
+    org: cloud_apps
+    core_functionality: "Consumer VPN client creating encrypted tunnels to Aldermoor gateways"
+    ancillary: []
+    placement: placed
+    category: I5
+    foss_qualifying: false
+    monetisation: "Included in the paid Aldermoor One subscription"
+    eu_revenue: {est_eur_m: 120, basis: "share of subscription revenue"}
+    release: {cadence: "Monthly releases", versions_per_year: 12, initial_types: 3, new_types_per_year: 0, substantial_mods_per_year: 1, complexity: 0.8}
+    rdps: ["VPN gateway fleet", "Subscription entitlement service"]
+    separately_sold_modules: ["Sold as part of the Aldermoor One bundle but installed and licensed as its own app: classify on its own core (guidance pt 145)"]
+    integrated_components: []
+    rationale: "VPN clients are named in the I.5 description. Separately licensed inside a bundle, it is its own product (guidance pt 145)."
+    citations: ["IR 2025/2392 Annex I item 5", "Guidance pt 145, Example 61"]
+    borderline: {level: low, note: "Clear.", alternative: "None"}
+
+  # ---------------- Lumen ----------------
+  - id: F11
+    name: Lumen Browser (desktop)
+    line: Lumen
+    org: lumen
+    core_functionality: "Accessing and rendering web content"
+    ancillary: ["Built-in password manager", "Sync", "AI agent features", "Secure DNS"]
+    placement: placed
+    category: I2
+    foss_qualifying: false
+    monetisation: "Free; monetised through search and services"
+    eu_revenue: {est_eur_m: 4200, basis: "enabled: search and services revenue"}
+    release: {cadence: "New major every 4 weeks; weekly security updates", versions_per_year: 65, initial_types: 1, new_types_per_year: 0, substantial_mods_per_year: 3, complexity: 3}
+    rdps: ["Sync service", "Safe-browsing lookup service", "Update service", "AI agent backend"]
+    separately_sold_modules: []
+    integrated_components: ["Lumen Engine (open source, Aldermoor-stewarded)"]
+    rationale: >-
+      Standalone browser; the I.2 description expressly includes browsers with AI-agent integration. The built-in password
+      manager is ancillary and neither declassifies nor adds a class (one core functionality, guidance pt 144). Free supply
+      monetised through search is a commercial activity (Art 3(22); guidance pt 54). The shipped build contains proprietary
+      code, so it does not qualify as FOSS and Art 32(5) is not available as shipped.
+    citations: ["IR 2025/2392 Annex I item 2", "Guidance pts 144, 54", "Art 3(22)", "Art 32(5)", "10-conformity.md"]
+    borderline: {level: medium, note: "Not a class question. The route question is whether a fully FOSS-qualifying build could use Art 32(5); see paper. Each 4-weekly major must pass the substantial-modification test (pt 110); AI-agent features are the likeliest substantial changes.", alternative: "Art 32(5) Module A with public technical documentation, only if the client build qualifies as FOSS"}
+
+  - id: F12
+    name: Lumen Browser (mobile)
+    line: Lumen
+    org: lumen
+    core_functionality: "Accessing and rendering web content on mobile devices"
+    ancillary: ["Password manager", "Sync", "AI agent features"]
+    placement: placed
+    category: I2
+    foss_qualifying: false
+    monetisation: "Free; monetised through search and services"
+    eu_revenue: {est_eur_m: 3600, basis: "enabled: search and services revenue"}
+    release: {cadence: "New major every 4 weeks; weekly security updates", versions_per_year: 65, initial_types: 2, new_types_per_year: 0, substantial_mods_per_year: 3, complexity: 3}
+    rdps: ["Sync service", "Safe-browsing lookup service", "AI agent backend"]
+    separately_sold_modules: []
+    integrated_components: ["Lumen Engine"]
+    rationale: >-
+      As F11. Pre-installation on Arc phones does not change this: the same browser is separately downloadable and separately
+      updated on other platforms, so it is placed on the market in its own right.
+    citations: ["IR 2025/2392 Annex I item 2", "Art 3(21)", "Guidance paras 13-14"]
+    borderline: {level: low, note: "As F11.", alternative: "As F11"}
+
+  - id: F13
+    name: Lumen WebView (system embedded browser component)
+    line: Lumen
+    org: lumen
+    core_functionality: "Embedded web-content rendering component used by third-party apps"
+    ancillary: []
+    placement: placed
+    category: I2
+    foss_qualifying: false
+    monetisation: "Free; distributed through the app store to Halo devices, including third-party OEM devices"
+    eu_revenue: {est_eur_m: 0, basis: "not attributable"}
+    release: {cadence: "Follows Lumen Browser: 4-weekly majors, weekly security updates", versions_per_year: 65, initial_types: 1, new_types_per_year: 0, substantial_mods_per_year: 2, complexity: 2.5}
+    rdps: ["Update service", "Safe-browsing lookup service"]
+    separately_sold_modules: []
+    integrated_components: ["Lumen Engine"]
+    rationale: >-
+      The I.2 category is "standalone and embedded browsers" and the description includes embedded webview engines. Because the
+      component is supplied and updated separately to devices Aldermoor does not manufacture, it is a component placed on the
+      market (Art 3(1)), not merely an integrated part of an Arc device.
+    citations: ["IR 2025/2392 Annex I item 2", "Art 3(1)", "06-classification.md Table A"]
+    borderline: {level: high, note: "On Arc devices alone it would be integrated (no separate class). Distribution to third-party OEM devices makes it a separately placed component. Counsel to confirm.", alternative: "Integrated component of F06 or of OEM devices (no separate class)"}
+
+  - id: F14
+    name: Lumen OS (OEM images and Lumen OS Flex)
+    line: Lumen
+    org: platforms
+    core_functionality: "Laptop operating system supplied as complete images to OEMs and as a download for existing PCs"
+    ancillary: ["Verified boot", "Built-in Lumen Browser", "Device management client"]
+    placement: placed
+    category: I11
+    foss_qualifying: false
+    monetisation: "OEM licence fees; Flex enterprise licences"
+    eu_revenue: {est_eur_m: 900, basis: "licence fees and attributable services"}
+    release: {cadence: "Automatic update every 4 weeks; weekly security fixes", versions_per_year: 30, initial_types: 2, new_types_per_year: 0.5, substantial_mods_per_year: 2, complexity: 4}
+    rdps: ["Update service", "Device enrolment and policy service", "Account sign-in"]
+    separately_sold_modules: []
+    integrated_components: ["Lumen Browser", "boot manager"]
+    rationale: >-
+      Supplied separately from Aldermoor hardware, so it is its own product (guidance para 25, Example 8). Core functionality
+      matches I.11. The bundled browser and boot manager are ancillary and do not change the class (IR recitals: an OS with
+      ancillary tools is still an OS).
+    citations: ["IR 2025/2392 Annex I item 11", "Guidance para 25, Example 8", "IR 2025/2392 recitals"]
+    borderline: {level: low, note: "Clear.", alternative: "None"}
+
+  # ---------------- Hearth ----------------
+  - id: F15
+    name: Hearth security cameras
+    line: Hearth
+    org: devices
+    core_functionality: "Home security video monitoring with motion alerts"
+    ancillary: ["Two-way audio", "Local recording"]
+    placement: placed
+    category: I17
+    foss_qualifying: false
+    monetisation: "Device sale plus optional Hearth Aware subscription"
+    eu_revenue: {est_eur_m: 420, basis: "device sales"}
+    release: {cadence: "Firmware monthly; three new models a year", versions_per_year: 12, initial_types: 6, new_types_per_year: 3, substantial_mods_per_year: 1, complexity: 1}
+    rdps: ["Video relay and storage", "Alert service", "Hearth app backend"]
+    separately_sold_modules: ["Hearth Aware subscription is a service (remote data processing), not a separately sold software module"]
+    integrated_components: []
+    rationale: "Security cameras are named in the I.17 description (smart home products with security functionalities)."
+    citations: ["IR 2025/2392 Annex I item 17"]
+    borderline: {level: low, note: "Clear.", alternative: "None"}
+
+  - id: F16
+    name: Hearth video doorbells
+    line: Hearth
+    org: devices
+    core_functionality: "Doorbell with video capture, visitor alerts and remote viewing of the entrance"
+    ancillary: ["Chime", "Two-way audio"]
+    placement: placed
+    category: I17
+    foss_qualifying: false
+    monetisation: "Device sale plus optional subscription"
+    eu_revenue: {est_eur_m: 260, basis: "device sales"}
+    release: {cadence: "Firmware monthly; one or two new models a year", versions_per_year: 12, initial_types: 3, new_types_per_year: 1.5, substantial_mods_per_year: 0.5, complexity: 1}
+    rdps: ["Video relay and storage", "Alert service"]
+    separately_sold_modules: []
+    integrated_components: []
+    rationale: >-
+      Not named in the IR examples, but the core functionality (camera monitoring of the entrance with alerts) matches a
+      security camera protecting physical security in the home. Classify I.17 rather than argue a bell function.
+    citations: ["IR 2025/2392 Annex I item 17", "Guidance pts 139, 142"]
+    borderline: {level: medium, note: "A doorbell-first argument for default exists but is weak given marketing that stresses security; inconsistency would be an indicator of misrepresentation (pt 143).", alternative: "Default"}
+
+  - id: F17
+    name: Hearth smart locks
+    line: Hearth
+    org: devices
+    core_functionality: "Electronic door lock with remote and app-based access control"
+    ancillary: ["Guest codes", "Activity log"]
+    placement: placed
+    category: I17
+    foss_qualifying: false
+    monetisation: "Device sale"
+    eu_revenue: {est_eur_m: 140, basis: "device sales"}
+    release: {cadence: "Firmware quarterly; one new model a year", versions_per_year: 4, initial_types: 2, new_types_per_year: 1, substantial_mods_per_year: 0.5, complexity: 1}
+    rdps: ["Access-sharing service", "Hearth app backend"]
+    separately_sold_modules: []
+    integrated_components: []
+    rationale: "Smart door locks are named in the I.17 category title and description."
+    citations: ["CRA Annex III Class I item 17", "IR 2025/2392 Annex I item 17"]
+    borderline: {level: low, note: "Clear. Access-control function could suggest I.1 but the more specific I.17 fits the core.", alternative: "Annex III Class I item 1 (not preferred)"}
+
+  - id: F18
+    name: Hearth smart speakers and displays with assistant
+    line: Hearth
+    org: devices
+    core_functionality: "Voice assistant that processes natural-language requests and controls connected home devices"
+    ancillary: ["Music playback", "Thread border router", "Display and camera on display models"]
+    placement: placed
+    category: I16
+    foss_qualifying: false
+    monetisation: "Device sale"
+    eu_revenue: {est_eur_m: 620, basis: "device sales"}
+    release: {cadence: "Firmware every 4 weeks; assistant model updates server-side; two or three new models a year", versions_per_year: 13, initial_types: 7, new_types_per_year: 3, substantial_mods_per_year: 1, complexity: 1.3}
+    rdps: ["Assistant speech and language backend", "Home-graph and device-control service"]
+    separately_sold_modules: []
+    integrated_components: ["Thread border router function (I.12 type)", "Camera on display models (I.17 type)"]
+    rationale: >-
+      Smart speakers with integrated assistants are named in the I.16 description. Display models with cameras keep one core
+      functionality, the assistant (pt 144); the camera and border-router functions are ancillary.
+    citations: ["IR 2025/2392 Annex I item 16", "Guidance pt 144", "IR 2025/2392 recitals"]
+    borderline: {level: low, note: "Display models with cameras could be argued as I.17; same class and route either way.", alternative: "Annex III Class I item 17 for display models"}
+
+  - id: F19
+    name: Hearth thermostats
+    line: Hearth
+    org: devices
+    core_functionality: "Connected heating and cooling control"
+    ancillary: ["Occupancy sensing", "Energy reports"]
+    placement: placed
+    category: default
+    foss_qualifying: false
+    monetisation: "Device sale"
+    eu_revenue: {est_eur_m: 210, basis: "device sales"}
+    release: {cadence: "Firmware every 2 months; one new model a year", versions_per_year: 6, initial_types: 3, new_types_per_year: 1, substantial_mods_per_year: 0.3, complexity: 0.8}
+    rdps: ["Scheduling and remote-control service"]
+    separately_sold_modules: []
+    integrated_components: []
+    rationale: "Climate control is not a physical-security function and the thermostat has no general-purpose assistant; no category fits."
+    citations: ["IR 2025/2392 Annex I items 16-17", "06-classification.md"]
+    borderline: {level: low, note: "Clear.", alternative: "None"}
+
+  - id: F20
+    name: Hearth smoke and CO alarms
+    line: Hearth
+    org: devices
+    core_functionality: "Detection of smoke and carbon monoxide with local sounder and phone alerts"
+    ancillary: ["Interconnect with other alarms", "Night light"]
+    placement: placed
+    category: default
+    foss_qualifying: false
+    monetisation: "Device sale"
+    eu_revenue: {est_eur_m: 90, basis: "device sales"}
+    release: {cadence: "Firmware twice a year", versions_per_year: 2, initial_types: 2, new_types_per_year: 0.5, substantial_mods_per_year: 0.2, complexity: 0.8}
+    rdps: ["Alert service"]
+    separately_sold_modules: []
+    integrated_components: []
+    rationale: >-
+      The I.17 category covers products "protecting physical security in homes", with alarm systems as an example. A smoke
+      and CO alarm protects safety rather than security against intrusion. We classify it default and record the reasoning.
+    citations: ["IR 2025/2392 Annex I item 17", "Guidance pts 139, 142"]
+    borderline: {level: high, note: "Word-level ambiguity in 'alarm systems'. If the Commission or an authority reads safety alarms into I.17, two types move to the notified-body route. Low revenue, so low cost of the conservative choice.", alternative: "Annex III Class I item 17"}
+
+  - id: F21
+    name: Hearth mesh Wi-Fi routers
+    line: Hearth
+    org: devices
+    core_functionality: "Home router and mesh access points forwarding traffic to and from the internet"
+    ancillary: ["Firewall", "Parental controls", "Thread border router"]
+    placement: placed
+    category: I12
+    foss_qualifying: false
+    monetisation: "Device sale"
+    eu_revenue: {est_eur_m: 230, basis: "device sales"}
+    release: {cadence: "Firmware monthly; one new model a year", versions_per_year: 12, initial_types: 3, new_types_per_year: 1, substantial_mods_per_year: 0.5, complexity: 1.2}
+    rdps: ["Network management app backend"]
+    separately_sold_modules: []
+    integrated_components: ["Firewall function (II.2 type)"]
+    rationale: >-
+      Routers and access points acting as bridges are in I.12; mesh satellite points are access points. A router with firewall
+      functions stays a router (IR recitals) and is assessed as Class I as a whole (guidance pt 152, Example 63).
+    citations: ["IR 2025/2392 Annex I item 12", "IR 2025/2392 recitals", "Guidance pt 152, Example 63"]
+    borderline: {level: low, note: "Clear. Do not market the firewall as the core.", alternative: "None"}
+
+  - id: F22
+    name: Hearth home app (and Hearth Aware subscription)
+    line: Hearth
+    org: devices
+    core_functionality: "Mobile app for setup, central control and alerts of Hearth devices"
+    ancillary: ["Video history viewing (Hearth Aware)"]
+    placement: part_of_product
+    host: "F15, F16, F17, F18, F21"
+    category: I17
+    foss_qualifying: false
+    monetisation: "Free app; paid Hearth Aware subscription (a service)"
+    eu_revenue: {est_eur_m: 180, basis: "Hearth Aware subscription revenue"}
+    release: {cadence: "Weekly app releases", versions_per_year: 52, initial_types: 0, new_types_per_year: 0, substantial_mods_per_year: 2, complexity: 1, affects_types: 21}
+    rdps: ["Hearth device-control and video services"]
+    separately_sold_modules: []
+    integrated_components: []
+    rationale: >-
+      An app controlling the manufacturer's device forms one product with the device, and the vendor's control and sync
+      backends are remote data processing (guidance para 25, Example 9). The I.17 description also includes central control
+      software. The app is therefore inside the boundary, and the certificate, of every Hearth device it controls.
+    citations: ["Guidance para 25, Example 9", "Guidance paras 189-192", "IR 2025/2392 Annex I item 17"]
+    borderline: {level: medium, note: "One shared app sits inside about 20 device certificates; an app change can be a modification to all of them. This is the main argument for Module H in Devices.", alternative: "Separate product only if sold or licensed separately"}
+
+  # ---------------- Pulse ----------------
+  - id: F23
+    name: Pulse smartwatches
+    line: Pulse
+    org: devices
+    core_functionality: "Wrist-worn computer with health and fitness monitoring (heart rate, sleep, activity)"
+    ancillary: ["Notifications", "Payments", "Apps"]
+    placement: placed
+    category: I19
+    foss_qualifying: false
+    monetisation: "Device sale"
+    eu_revenue: {est_eur_m: 900, basis: "device sales"}
+    release: {cadence: "Firmware monthly; two new models a year", versions_per_year: 12, initial_types: 4, new_types_per_year: 2, substantial_mods_per_year: 1, complexity: 1.2}
+    rdps: ["Health-data sync", "Companion app backend"]
+    separately_sold_modules: []
+    integrated_components: ["Halo Wear OS"]
+    rationale: >-
+      Smartwatches with a health-monitoring purpose that are not medical devices are named in the I.19 description. Aldermoor
+      has not placed these features under the MDR, so Annex III applies rather than the Art 2(2) exclusion.
+    citations: ["IR 2025/2392 Annex I item 19", "CRA Annex III Class I item 19"]
+    borderline: {level: low, note: "If any feature is certified as a medical device under Regulation (EU) 2017/745, that device leaves CRA scope; mixed models need counsel.", alternative: "Excluded under the MDR for a certified medical-device model"}
+
+  - id: F24
+    name: Pulse fitness trackers
+    line: Pulse
+    org: devices
+    core_functionality: "Wrist-worn activity, heart-rate and sleep tracking"
+    ancillary: ["Notifications"]
+    placement: placed
+    category: I19
+    foss_qualifying: false
+    monetisation: "Device sale plus optional premium subscription"
+    eu_revenue: {est_eur_m: 380, basis: "device sales"}
+    release: {cadence: "Firmware every 6 weeks; one or two new models a year", versions_per_year: 9, initial_types: 3, new_types_per_year: 1.5, substantial_mods_per_year: 0.5, complexity: 1}
+    rdps: ["Health-data sync", "Companion app backend"]
+    separately_sold_modules: []
+    integrated_components: []
+    rationale: "Fitness trackers are named in the I.19 description."
+    citations: ["IR 2025/2392 Annex I item 19"]
+    borderline: {level: low, note: "Clear.", alternative: "None"}
+
+  # ---------------- Security hardware ----------------
+  - id: F25
+    name: Keystone security keys (FIDO)
+    line: Keystone and Bastion
+    org: devices
+    core_functionality: "Hardware authenticator for FIDO2 and passkey sign-in"
+    ancillary: ["OTP", "Smart-card (PIV) interface on some models"]
+    placement: placed
+    category: I1
+    foss_qualifying: false
+    monetisation: "Device sale (sold separately)"
+    eu_revenue: {est_eur_m: 45, basis: "device sales"}
+    release: {cadence: "Firmware is not field-updatable; one new model every one to two years", versions_per_year: 1, initial_types: 4, new_types_per_year: 0.7, substantial_mods_per_year: 0, complexity: 1}
+    rdps: []
+    separately_sold_modules: []
+    integrated_components: ["Secure element chip (bought in)"]
+    rationale: >-
+      Authentication hardware falls within I.1 (systems providing authentication; MFA). The key carries a secure element.
+      If that element is designed to AVA_VAN.4 or higher, the key could be read as a "secure element in other carrier form"
+      under Annex IV item 3 (IR 2025/2392 Annex II), which would make it critical.
+    citations: ["IR 2025/2392 Annex I item 1", "IR 2025/2392 Annex II item 3", "06-classification.md (AVA_VAN discriminator)"]
+    borderline: {level: high, note: "I.1 versus Annex IV item 3 turns on the chip's AVA_VAN target and on whether a USB key is a smartcard 'carrier'. Route is the same today (B+C or H); it diverges if an Art 8(1) act makes certification mandatory for Annex IV.", alternative: "Annex IV item 3 (critical)"}
+
+  - id: F26
+    name: Bastion secure element (in Arc phones, tablets and laptops)
+    line: Keystone and Bastion
+    org: devices
+    core_functionality: "Tamper-resistant secure element for keys, biometrics templates and attestation"
+    ancillary: []
+    placement: integrated_only
+    host: "F01, F02, F04"
+    category: IV3
+    foss_qualifying: false
+    monetisation: "Not sold separately"
+    eu_revenue: {est_eur_m: 0, basis: "counted in host devices"}
+    release: {cadence: "Firmware updated with host security patches", versions_per_year: 4, initial_types: 0, new_types_per_year: 0, substantial_mods_per_year: 0, complexity: 2}
+    rdps: []
+    separately_sold_modules: []
+    integrated_components: []
+    rationale: >-
+      Not placed on the market separately, so it has no class of its own and does not make the host critical (Art 7(1); the
+      FAQ's laptop-with-secure-element example). The host's risk assessment must cover it. If Bastion were ever sold to other
+      manufacturers it would be Annex IV item 3 at AVA_VAN.4 or higher, or Class II items 3-4 at AVA_VAN 2-3.
+    citations: ["Art 7(1)", "Commission FAQ s.3", "IR 2025/2392 Annex II item 3", "06-classification.md"]
+    borderline: {level: medium, note: "Any external sale (for example to a partner phone maker) creates a critical product overnight. Gate it through the classification register.", alternative: "Annex IV item 3 if sold separately"}
+
+  # ---------------- Aldermoor Cloud and enterprise ----------------
+  - id: F27
+    name: Aldermoor Cloud consoles (browser-only)
+    line: Cloud and enterprise
+    org: cloud_apps
+    core_functionality: "Web administration consoles for cloud services"
+    ancillary: []
+    placement: browser_only
+    category: "n/a"
+    foss_qualifying: false
+    monetisation: "Part of cloud services"
+    eu_revenue: {est_eur_m: 0, basis: "counted in F28"}
+    release: {cadence: "Continuous deployment", versions_per_year: 0, initial_types: 0, new_types_per_year: 0, substantial_mods_per_year: 0, complexity: 0}
+    rdps: []
+    separately_sold_modules: []
+    integrated_components: []
+    rationale: "Browser-only software is not a product with digital elements; software must be provided to and run on the user's side (guidance paras 20-21, Examples 5-6)."
+    citations: ["Guidance paras 20-21, Examples 5-6", "03-scope.md"]
+    borderline: {level: low, note: "Becomes relevant only as remote data processing of an installed product (for example the CLI calls the same APIs).", alternative: "None"}
+
+  - id: F28
+    name: Aldermoor Cloud IaaS, PaaS and SaaS services
+    line: Cloud and enterprise
+    org: cloud_apps
+    core_functionality: "Hosted compute, storage, data and application services"
+    ancillary: []
+    placement: service
+    category: "n/a"
+    foss_qualifying: false
+    monetisation: "Usage and subscription fees"
+    eu_revenue: {est_eur_m: 9000, basis: "cloud services revenue (not product revenue)"}
+    release: {cadence: "Continuous deployment", versions_per_year: 0, initial_types: 0, new_types_per_year: 0, substantial_mods_per_year: 0, complexity: 0}
+    rdps: []
+    separately_sold_modules: []
+    integrated_components: []
+    rationale: >-
+      Cloud services built outside a product's responsibility fall to NIS2 (recital 12). The parts an installed Aldermoor
+      product needs to perform a function are remote data processing of that product and inherit its obligations
+      (Art 3(2); guidance paras 184-196).
+    citations: ["Recital 12", "Art 3(2)", "Guidance paras 184-196", "03-scope.md"]
+    borderline: {level: medium, note: "The RDPS boundary, not classification, is the live question: map which service endpoints each installed client needs.", alternative: "None"}
+
+  - id: F29
+    name: Aldermoor Drive desktop sync client
+    line: Cloud and enterprise
+    org: cloud_apps
+    core_functionality: "Synchronises files between local folders and cloud storage"
+    ancillary: ["Virtual file system driver"]
+    placement: placed
+    category: default
+    foss_qualifying: false
+    monetisation: "Part of paid storage subscriptions"
+    eu_revenue: {est_eur_m: 600, basis: "share of storage subscription revenue"}
+    release: {cadence: "Releases every 2 weeks", versions_per_year: 26, initial_types: 2, new_types_per_year: 0, substantial_mods_per_year: 1, complexity: 1}
+    rdps: ["Storage sync service", "Account sign-in"]
+    separately_sold_modules: []
+    integrated_components: []
+    rationale: "Installed client, so a product; the sync backend is its remote data processing (guidance paras 189-192). No Annex III function at the core."
+    citations: ["Guidance paras 20, 189-192", "03-scope.md"]
+    borderline: {level: low, note: "Default; RDPS boundary needs mapping.", alternative: "None"}
+
+  - id: F30
+    name: Aldermoor Cloud CLI and SDKs
+    line: Cloud and enterprise
+    org: cloud_apps
+    core_functionality: "Command-line tool and client libraries for calling Aldermoor Cloud APIs"
+    ancillary: ["Credential helper", "KMS client library"]
+    placement: placed
+    category: default
+    foss_qualifying: true
+    monetisation: "Free and open source, used to monetise cloud services"
+    eu_revenue: {est_eur_m: 0, basis: "enabling; not attributable"}
+    release: {cadence: "Weekly releases across about 30 language SDKs", versions_per_year: 52, initial_types: 31, new_types_per_year: 1, substantial_mods_per_year: 2, complexity: 0.5}
+    rdps: ["Cloud APIs the CLI calls"]
+    separately_sold_modules: ["Per-language SDK packages are separately downloadable components; each is default"]
+    integrated_components: []
+    rationale: >-
+      SDKs and libraries supplied to users are products (Art 3(1); guidance para 24). Although published under a FOSS licence,
+      they are used to monetise Aldermoor Cloud, so they are placed on the market (guidance pt 54) and Aldermoor is their
+      manufacturer. A KMS client library calls a remote key service; it does not itself manage keys, so I.9 does not fit.
+    citations: ["Art 3(1)", "Guidance para 24, Example 7", "Guidance pt 54", "IR 2025/2392 Annex I item 9"]
+    borderline: {level: medium, note: "Manufacturer status despite FOSS licensing is the key point. Class is default, so Art 32(5) is irrelevant.", alternative: "None"}
+
+  - id: F31
+    name: Cloud Connect directory and storage connectors
+    line: Cloud and enterprise
+    org: cloud_apps
+    core_functionality: "On-prem agents that synchronise directory objects and cache or transfer files to cloud services"
+    ancillary: ["Password-hash sync option", "Local cache"]
+    placement: placed
+    category: default
+    foss_qualifying: false
+    monetisation: "Included with paid cloud identity and storage services"
+    eu_revenue: {est_eur_m: 40, basis: "share of service revenue"}
+    release: {cadence: "Monthly releases", versions_per_year: 12, initial_types: 2, new_types_per_year: 0, substantial_mods_per_year: 1, complexity: 1}
+    rdps: ["Cloud identity service", "Cloud storage service"]
+    separately_sold_modules: []
+    integrated_components: []
+    rationale: >-
+      The directory connector copies identity objects; it does not itself authenticate or authorise users, so it falls short of
+      I.1 (compare Example 60: a tool that collects but does not correlate is not a SIEM). The storage gateway has no Annex III core.
+    citations: ["IR 2025/2392 Annex I item 1", "Guidance pt 142, Example 60"]
+    borderline: {level: high, note: "If the directory connector adds pass-through authentication or federation (it validates sign-ins on-prem), its core moves to I.1.", alternative: "Annex III Class I item 1"}
+
+  - id: F32
+    name: Cloud Connect VPN gateway (virtual appliance)
+    line: Cloud and enterprise
+    org: cloud_apps
+    core_functionality: "Site-to-site encrypted tunnel endpoint between customer networks and cloud networks"
+    ancillary: ["Routing (BGP)"]
+    placement: placed
+    category: I5
+    foss_qualifying: false
+    monetisation: "Paid per tunnel-hour"
+    eu_revenue: {est_eur_m: 60, basis: "product revenue"}
+    release: {cadence: "Monthly image releases", versions_per_year: 12, initial_types: 1, new_types_per_year: 0, substantial_mods_per_year: 1, complexity: 1}
+    rdps: ["Cloud VPN control plane"]
+    separately_sold_modules: []
+    integrated_components: []
+    rationale: "VPN gateways are named in the I.5 description. Installed on customer infrastructure, so a product rather than a service."
+    citations: ["IR 2025/2392 Annex I item 5", "Guidance para 20"]
+    borderline: {level: low, note: "Clear.", alternative: "None"}
+
+  - id: F33
+    name: Aldermoor Edge (on-prem hybrid cloud platform)
+    line: Cloud and enterprise
+    org: cloud_apps
+    core_functionality: "Runs cloud workloads on customer hardware through a managed hypervisor and container runtime"
+    ancillary: ["Mooring Enterprise deployment tooling", "Fleet management agent", "Edge Firewall (planned add-on)"]
+    placement: placed
+    category: II1
+    foss_qualifying: false
+    monetisation: "Subscription per node"
+    eu_revenue: {est_eur_m: 350, basis: "product revenue"}
+    release: {cadence: "Monthly platform releases; quarterly majors", versions_per_year: 12, initial_types: 2, new_types_per_year: 0.5, substantial_mods_per_year: 2, complexity: 3}
+    rdps: ["Fleet control plane", "Update service"]
+    separately_sold_modules: ["Edge Firewall add-on licence (planned): if sold separately it is Annex III Class II item 2 (guidance Example 61)"]
+    integrated_components: ["Hypervisor", "Container runtime"]
+    rationale: >-
+      The platform's core is virtualised execution of workloads, which matches the II.1 description (hypervisors and container
+      runtime systems). The Edge Firewall, if licensed separately, would be a separate Class II item 2 product (pt 145).
+    citations: ["IR 2025/2392 Annex I Class II item 1", "Guidance pt 145, Example 61"]
+    borderline: {level: medium, note: "One could argue the core is orchestration rather than runtime. We do not recommend that argument: the hypervisor is what the customer buys.", alternative: "Default (orchestration platform), not recommended"}
+
+  - id: F34
+    name: Enterprise mobile and desktop apps (Workspace, device admin)
+    line: Cloud and enterprise
+    org: cloud_apps
+    core_functionality: "Productivity, messaging and device-administration applications"
+    ancillary: ["Account sign-in", "Device policy enforcement"]
+    placement: placed
+    category: default
+    foss_qualifying: false
+    monetisation: "Part of paid Workspace subscriptions"
+    eu_revenue: {est_eur_m: 1100, basis: "share of Workspace subscription revenue"}
+    release: {cadence: "Weekly releases", versions_per_year: 52, initial_types: 8, new_types_per_year: 0.5, substantial_mods_per_year: 2, complexity: 1}
+    rdps: ["Workspace service backends", "Device policy service"]
+    separately_sold_modules: []
+    integrated_components: []
+    rationale: "Productivity apps; sign-in and policy enforcement are ancillary. No Annex III core."
+    citations: ["Guidance pts 139-141", "06-classification.md"]
+    borderline: {level: low, note: "Device-admin app could be argued as I.6 network management; it manages endpoints, not network elements.", alternative: "None"}
+
+  # ---------------- Aldermoor-led open source (see E4 for roles) ----------------
+  - id: F35
+    name: Halo Open Source Project (HOSP) releases
+    line: Open source
+    org: oss
+    core_functionality: "Open-source mobile operating system base"
+    ancillary: []
+    placement: not_placed_foss
+    category: I11
+    foss_qualifying: true
+    monetisation: "None directly; free source releases. Aldermoor monetises the separate Halo Services package"
+    eu_revenue: {est_eur_m: 0, basis: "not monetised"}
+    release: {cadence: "Monthly security bulletins; annual major", versions_per_year: 13, initial_types: 0, new_types_per_year: 0, substantial_mods_per_year: 0, complexity: 4}
+    rdps: []
+    separately_sold_modules: []
+    integrated_components: []
+    rationale: >-
+      Unmonetised FOSS that a company publishes and also integrates into its own products: Aldermoor is steward for HOSP and
+      manufacturer for its products (guidance pts 67-68, Examples 25-26, 29). If monetised, HOSP would be an I.11 product and,
+      as FOSS, could use Art 32(5).
+    citations: ["Art 3(14)", "Art 24", "Guidance pts 67-68, Examples 25, 26, 29", "Art 32(5)", "12-open-source.md"]
+    borderline: {level: high, note: "Monetisation triggers to police: early security-patch access tied to the services licence; paid support for a specific HOSP version (Example 17); HOSP used as the vehicle to monetise services (pt 54). See E4.", alternative: "Manufacturer of an I.11 product (Art 32(5) available)"}
+
+  - id: F36
+    name: Lumen Engine
+    line: Open source
+    org: oss
+    core_functionality: "Open-source web rendering and JavaScript engine"
+    ancillary: []
+    placement: not_placed_foss
+    category: I2
+    foss_qualifying: true
+    monetisation: "None"
+    eu_revenue: {est_eur_m: 0, basis: "not monetised"}
+    release: {cadence: "Branches every 4 weeks; weekly security merges", versions_per_year: 65, initial_types: 0, new_types_per_year: 0, substantial_mods_per_year: 0, complexity: 3}
+    rdps: []
+    separately_sold_modules: []
+    integrated_components: []
+    rationale: "Unmonetised FOSS sustained by Aldermoor: steward (Examples 25, 29). If monetised (for example a paid LTS branch), an embedded-browser I.2 product eligible for Art 32(5)."
+    citations: ["Art 3(14)", "Guidance Examples 17, 25, 29", "IR 2025/2392 Annex I item 2", "Art 32(5)"]
+    borderline: {level: medium, note: "See E4 decision on a paid LTS branch.", alternative: "Manufacturer of an I.2 product (Art 32(5) available)"}
+
+  - id: F37
+    name: Kite language and toolchain
+    line: Open source
+    org: oss
+    core_functionality: "Compiler, standard library, package manager and registry"
+    ancillary: []
+    placement: not_placed_foss
+    category: default
+    foss_qualifying: true
+    monetisation: "None; Aldermoor hosts the package registry"
+    eu_revenue: {est_eur_m: 0, basis: "not monetised"}
+    release: {cadence: "Releases every 6 weeks", versions_per_year: 9, initial_types: 0, new_types_per_year: 0, substantial_mods_per_year: 0, complexity: 1}
+    rdps: []
+    separately_sold_modules: []
+    integrated_components: []
+    rationale: "Steward for unmonetised FOSS; hosting the registry is not making available (recital 20) but brings Art 24(3) severe-incident duties for that infrastructure."
+    citations: ["Art 24(3)", "Recital 20", "Guidance pt 81"]
+    borderline: {level: low, note: "Default class if ever monetised.", alternative: "Manufacturer of a default product"}
+
+  - id: F38
+    name: Mooring (community edition)
+    line: Open source
+    org: oss
+    core_functionality: "Package and release manager for container-orchestrated applications"
+    ancillary: []
+    placement: not_placed_foss
+    category: default
+    foss_qualifying: true
+    monetisation: "None for the community edition"
+    eu_revenue: {est_eur_m: 0, basis: "not monetised"}
+    release: {cadence: "Minor releases monthly", versions_per_year: 12, initial_types: 0, new_types_per_year: 0, substantial_mods_per_year: 0, complexity: 1}
+    rdps: []
+    separately_sold_modules: []
+    integrated_components: []
+    rationale: >-
+      Open core: steward for the free community edition, manufacturer for the paid edition (guidance pts 52-53, Example 30).
+      A deployment tool is not a container runtime (II.1) or a network management system (I.6).
+    citations: ["Guidance pts 52-53, Example 30", "IR 2025/2392 Annex I item 6, Class II item 1"]
+    borderline: {level: low, note: "Default class either way.", alternative: "None"}
+
+  - id: F39
+    name: Mooring Enterprise (paid distribution)
+    line: Open source
+    org: cloud_apps
+    core_functionality: "Supported Mooring distribution with enterprise policy features"
+    ancillary: []
+    placement: placed
+    category: default
+    foss_qualifying: false
+    monetisation: "Paid subscription; bundled with Aldermoor Edge"
+    eu_revenue: {est_eur_m: 30, basis: "product revenue"}
+    release: {cadence: "Quarterly", versions_per_year: 4, initial_types: 1, new_types_per_year: 0, substantial_mods_per_year: 0.5, complexity: 1}
+    rdps: []
+    separately_sold_modules: []
+    integrated_components: ["Mooring community code"]
+    rationale: "Paid edition of an open-core project: Aldermoor is manufacturer (Example 30). Default class."
+    citations: ["Guidance pts 52-53, Example 30"]
+    borderline: {level: low, note: "Clear.", alternative: "None"}
+
+  - id: F40
+    name: Tensile ML framework (paid LTS builds; community releases stewarded)
+    line: Open source
+    org: oss
+    core_functionality: "Machine-learning framework for training and inference"
+    ancillary: []
+    placement: placed
+    category: default
+    foss_qualifying: true
+    monetisation: "Community releases free; LTS builds offered only to paying Aldermoor Cloud customers"
+    eu_revenue: {est_eur_m: 0, basis: "not attributable"}
+    release: {cadence: "Releases every 3 months; LTS every 12 months", versions_per_year: 4, initial_types: 0, new_types_per_year: 0, substantial_mods_per_year: 0, complexity: 1.5}
+    rdps: []
+    separately_sold_modules: []
+    integrated_components: []
+    rationale: >-
+      Community releases: steward. The paid-only LTS builds look like paid access to a specific supported version, which
+      places that version on the market (guidance pt 57, Example 17). Default class either way.
+    citations: ["Guidance pt 57, Example 17", "Guidance Examples 25, 29"]
+    borderline: {level: high, note: "The LTS offer makes Aldermoor a manufacturer of Tensile LTS today. E4 recommends either opening LTS to all or accepting the manufacturer role for LTS only.", alternative: "Manufacturer (default) for LTS builds"}

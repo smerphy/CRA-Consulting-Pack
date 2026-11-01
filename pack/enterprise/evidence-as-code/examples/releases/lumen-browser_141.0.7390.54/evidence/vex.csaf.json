@@ -1,0 +1,69 @@
+{
+  "document": {
+    "category": "csaf_vex",
+    "csaf_version": "2.0",
+    "title": "Lumen Browser 141.0.7390.54 VEX",
+    "publisher": {
+      "category": "vendor",
+      "name": "Aldermoor Platforms (fictional)",
+      "namespace": "https://www.aldermoor.example"
+    },
+    "tracking": {
+      "id": "ALD-VEX-LB-141.0.7390.54",
+      "status": "final",
+      "version": "1",
+      "initial_release_date": "2028-02-03T06:00:00Z",
+      "current_release_date": "2028-02-03T06:00:00Z",
+      "revision_history": [
+        {
+          "date": "2028-02-03T06:00:00Z",
+          "number": "1",
+          "summary": "Initial"
+        }
+      ]
+    }
+  },
+  "product_tree": {
+    "branches": [
+      {
+        "category": "vendor",
+        "name": "Aldermoor Platforms",
+        "branches": [
+          {
+            "category": "product_name",
+            "name": "Lumen Browser",
+            "branches": [
+              {
+                "category": "product_version",
+                "name": "141.0.7390.54",
+                "product": {
+                  "product_id": "LB-141.0.7390.54",
+                  "name": "Lumen Browser 141.0.7390.54",
+                  "product_identification_helper": {
+                    "purl": "pkg:generic/aldermoor/lumen-browser@141.0.7390.54"
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "cve": "CVE-2023-4863",
+      "notes": [
+        {
+          "category": "description",
+          "text": "Heap buffer overflow in libwebp lossless decoder."
+        }
+      ],
+      "product_status": {
+        "under_investigation": [
+          "LB-141.0.7390.54"
+        ]
+      }
+    }
+  ]
+}

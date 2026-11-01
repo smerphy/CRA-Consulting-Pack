@@ -1,0 +1,125 @@
+{
+  "manifest_version": "1.0",
+  "org": "aldermoor",
+  "product": {
+    "product_id": "hearth-lock-3",
+    "name": "Hearth Lock 3 smart door lock (firmware)",
+    "manufacturer": "Aldermoor Platforms (fictional)",
+    "product_type": "hardware_with_software",
+    "family": "Hearth Lock 3",
+    "variants": [
+      "HL3-STD",
+      "HL3-PRO"
+    ]
+  },
+  "version": "4.3.0",
+  "previous_version": "4.2.0",
+  "release_date": "2028-02-27",
+  "placing": {
+    "date": "2028-03-06",
+    "event": "update_to_placed_product",
+    "member_states": [
+      "IE",
+      "DE",
+      "FR",
+      "NL"
+    ]
+  },
+  "classification": {
+    "class": "important_class_i",
+    "annex_category": "Annex III Class I, 17: smart home products with security functionalities (smart door locks)",
+    "conformity_route": "module_h",
+    "harmonised_standards_applied_in_full": [],
+    "notified_body": "Illustrative notified body (no CRA body designated at 8 Sep 2026)",
+    "certificate_ref": "QS-APPROVAL-ILLUSTRATIVE-0142"
+  },
+  "artefact": "artefact/hearth-lock-3-fw-4.3.0.bin",
+  "build_graph": {
+    "direct_dependencies": [
+      "hearth-lock-app",
+      "zephyr",
+      "mbedtls",
+      "zlib",
+      "openthread",
+      "connectedhomeip",
+      "hearth-voice-unlock"
+    ],
+    "source": "hermetic build graph query: direct deps of the release target"
+  },
+  "evidence": {
+    "sbom": "evidence/sbom.cdx.json",
+    "provenance": "evidence/provenance.intoto.json",
+    "vex": "evidence/vex.openvex.json",
+    "tests": [
+      {
+        "type": "sast",
+        "path": "evidence/sast.sarif"
+      },
+      {
+        "type": "fuzz",
+        "path": "evidence/fuzz.sarif"
+      },
+      {
+        "type": "pentest",
+        "path": "evidence/pentest-summary.json"
+      }
+    ],
+    "risk_assessment": {
+      "path": "docs/risk-assessment.md",
+      "ref": "RA-hearth-lock-3-4.3.0"
+    },
+    "applicability_matrix": {
+      "path": "docs/applicability-matrix.json",
+      "ref": "AM-hearth-lock-3-4.3.0"
+    },
+    "annex_ii": {
+      "path": "docs/annex-ii-user-information.md",
+      "uri": "https://www.aldermoor.example/security/hearth-lock-3/4.3.0/"
+    },
+    "update_design_note": {
+      "path": "docs/update-design-note.md",
+      "ref": "UDN-hearth-lock-3"
+    },
+    "cvd_policy": {
+      "path": "docs/cvd-policy.md",
+      "ref": "https://www.aldermoor.example/security/cvd"
+    }
+  },
+  "support_period": {
+    "end_date": "2039-12-31",
+    "latest_version_rule": false,
+    "justification": "Expected time in use of door-lock hardware exceeds 10 years; reasonable user expectations for a building fixture."
+  },
+  "substantial_modification": {
+    "change_type": "functionality",
+    "questions": {
+      "new_threat_vectors": true,
+      "new_attack_scenarios": true,
+      "changed_likelihood": false,
+      "changed_impact": false
+    },
+    "rationale": "Adds voice-assistant unlock through the Hearth cloud: a new remote unlock path.",
+    "assessed_by": null,
+    "decision": "pending_review"
+  },
+  "declaration": {
+    "declaration_id": "AP-DoC-HL3-2027-001",
+    "status": "reused",
+    "reused_from_version": "4.0.0",
+    "uri": "https://www.aldermoor.example/compliance/doc/hearth-lock-3",
+    "signatory_function": "SVP Devices (delegated signatory)"
+  },
+  "signer": {
+    "identity": "spiffe://aldermoor.example/release-pipeline/hearth-lock-3",
+    "role": "Release manager (accountable); pipeline identity signs",
+    "signature_ref": "transparency-log entry (illustrative)"
+  },
+  "store": {
+    "uri_prefix": "s3://aldermoor-cra-evidence-eu/v1",
+    "object_lock_mode": "compliance"
+  },
+  "feeds": {
+    "osv": "OSV snapshot 2026-10-30 (excerpt)",
+    "kev": "CISA KEV 2026.10.30 (excerpt)"
+  }
+}

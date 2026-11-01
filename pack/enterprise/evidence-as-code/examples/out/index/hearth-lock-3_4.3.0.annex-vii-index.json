@@ -1,0 +1,167 @@
+{
+  "record_id": "urn:aldermoor:cra-evidence:hearth-lock-3:4.3.0",
+  "product_id": "hearth-lock-3",
+  "version": "4.3.0",
+  "placing_date": "2028-03-06",
+  "retain_until": "2039-12-31",
+  "substantial_modification": "pending_review",
+  "points": [
+    {
+      "point": "1",
+      "title": "General description: intended purpose, versions affecting compliance, Annex II information",
+      "items": [
+        {
+          "uri": "s3://aldermoor-cra-evidence-eu/v1/hearth-lock-3/4.3.0/artefact/hearth-lock-3-fw-4.3.0.bin",
+          "ref": null,
+          "sha256": "adf4b8146683b1dbea9266b162ed0d9475a2139bef4bca47159eab5971b400b0",
+          "sha512": "56612c128457fdc5f44540903a459db5b03a536954c9b754452be1f65e86d363c607dc8749b358058362c3291909f69aa8eda31223e463623f135ac195b06cf4",
+          "label": "Shipped artefact"
+        },
+        {
+          "uri": "s3://aldermoor-cra-evidence-eu/v1/hearth-lock-3/4.3.0/docs/annex-ii-user-information.md",
+          "ref": "https://www.aldermoor.example/security/hearth-lock-3/4.3.0/",
+          "sha256": "d1e6221eab260720213e41f2ec587507bbf088c90ac6d6fb96db514d21e60ed5",
+          "sha512": "9cd5a559714536d714608c5bc12d4dce57e5a16a858de85e4d1bfecd43d1333cf62629bb49bc15caa98d78ef3e9ad4271d9ec006d3a0a07736a951ee135008dd",
+          "label": "Annex II user information"
+        }
+      ],
+      "note": "Product hearth-lock-3 version 4.3.0; previous 4.2.0"
+    },
+    {
+      "point": "2(a)",
+      "title": "Design and development; system architecture",
+      "items": [],
+      "note": "Maintained outside the pipeline in the product technical file; linked by product id"
+    },
+    {
+      "point": "2(b)",
+      "title": "Vulnerability handling: SBOM, CVD policy, reporting contact, secure update distribution",
+      "items": [
+        {
+          "uri": "s3://aldermoor-cra-evidence-eu/v1/hearth-lock-3/4.3.0/evidence/sbom.cdx.json",
+          "ref": null,
+          "sha256": "c5cd3496d5237b2675fc29e79aaa949fa2b12a2b1a20c2bc12d2549511a5188b",
+          "sha512": "08a088f343679f158ed475a9268c9bd7dcb49ec20ade3d584ffe9ecf76dfa5b0bc7ee42b5603d9dbd0d79cb8b4eec9a9802efd6b61f1e27d401086b2bc044a82",
+          "label": "SBOM (CycloneDX 1.5)"
+        },
+        {
+          "uri": "s3://aldermoor-cra-evidence-eu/v1/hearth-lock-3/4.3.0/evidence/vex.openvex.json",
+          "ref": null,
+          "sha256": "a07254adfbb2a060a67f75af56f790c829611e2c1c9b945227a80dd7b643bfe9",
+          "sha512": "a932379c118cfa5b17e6b5739320c09736ee5dddf42b9623988805b2705c505c08fb81659daf0de157fdd2fbcaad67ddb02eaa39aa537479917c2da0070c0105",
+          "label": "VEX (OpenVEX)"
+        },
+        {
+          "uri": "s3://aldermoor-cra-evidence-eu/v1/hearth-lock-3/4.3.0/docs/cvd-policy.md",
+          "ref": "https://www.aldermoor.example/security/cvd",
+          "sha256": "44a1d92cd438154008180b53d3c4ae3d79ed6298b626fd4fd29e6f920c299d91",
+          "sha512": "bf9d5176194c5baef0e101460e3dae681ce19fa5ff1d80eab50806197cdf64c7baf127d54044c1eb24f7e4fe7a22c020c034654ff1fe71bb23069ac78f7dbcf0",
+          "label": "CVD policy"
+        },
+        {
+          "uri": "s3://aldermoor-cra-evidence-eu/v1/hearth-lock-3/4.3.0/docs/update-design-note.md",
+          "ref": "UDN-hearth-lock-3",
+          "sha256": "d786137aa8aa16d71f439bbcc9c62a71ad8a5e6db9a75b3b7ee7227d11a7e278",
+          "sha512": "a18b516af31042c980e464b7fb75005936b8546cfa73d31d9fac5a7f426803aa661333c98e6a8c9d41228c604a7d1cfb89f9a771cb9b95b1cf5d8aa427ad0c79",
+          "label": "Update design note"
+        }
+      ],
+      "note": null
+    },
+    {
+      "point": "2(c)",
+      "title": "Production and monitoring processes with validation evidence",
+      "items": [
+        {
+          "uri": "s3://aldermoor-cra-evidence-eu/v1/hearth-lock-3/4.3.0/evidence/provenance.intoto.json",
+          "ref": null,
+          "sha256": "94d8bb4efa541efe01806fc33784d8b6941b160536fcdc004fa69e764d1af829",
+          "sha512": "6d2ff338e0659f8590517fb277e05310c37fc1fc43402ef09b518819f3c63dfe1def047ca989b79e55458aaad35932b461a02b0e7001253b2ddd42e4269add9c",
+          "label": "Build provenance (https://slsa.dev/provenance/v1; builder https://build.aldermoor.example/hermetic/v2)"
+        }
+      ],
+      "note": "Release gate decision: REVIEW under aldermoor-cra-gate/1.0.0"
+    },
+    {
+      "point": "3",
+      "title": "Cybersecurity risk assessment and Annex I Part I applicability",
+      "items": [
+        {
+          "uri": "s3://aldermoor-cra-evidence-eu/v1/hearth-lock-3/4.3.0/docs/risk-assessment.md",
+          "ref": "RA-hearth-lock-3-4.3.0",
+          "sha256": "d8364cb9a4f4cb767a9413f540e84082d78e4c1dd20022ca26e8d24e28a5b3f5",
+          "sha512": "301ef14203db83e481c04a976a2a60b63ca2b6bdf100b994c0018fbb90334c93943de51fff13346a2fe6043bba81435935d73e810e1ce7bd11fd28884712eae7",
+          "label": "Risk assessment"
+        },
+        {
+          "uri": "s3://aldermoor-cra-evidence-eu/v1/hearth-lock-3/4.3.0/docs/applicability-matrix.json",
+          "ref": "AM-hearth-lock-3-4.3.0",
+          "sha256": "59e535340624231aad241492c33e24714e7fb5e622ff4d0eccfcfaf517511e19",
+          "sha512": "70fe49de47fc161f782e96a100174a4e60fdae19601426fe294f64ad2242b804389b863a0024ad4f303b354b076690c18ff9e47eaa323c73075abb8a6270d55d",
+          "label": "Applicability matrix (not applied: none)"
+        }
+      ],
+      "note": null
+    },
+    {
+      "point": "4",
+      "title": "Support period",
+      "items": [],
+      "note": "End 2039-12-31 (11.82 years); justification: Expected time in use of door-lock hardware exceeds 10 years; reasonable user expectations for a building fixture.; latest-version rule (Art 13(10)): no"
+    },
+    {
+      "point": "5",
+      "title": "Harmonised standards, common specifications, certification schemes",
+      "items": [],
+      "note": "Route module_h; applied in full: none; certificate QS-APPROVAL-ILLUSTRATIVE-0142"
+    },
+    {
+      "point": "6",
+      "title": "Test reports against Annex I Parts I and II",
+      "items": [
+        {
+          "uri": "s3://aldermoor-cra-evidence-eu/v1/hearth-lock-3/4.3.0/evidence/sast.sarif",
+          "ref": null,
+          "sha256": "d7cdbfff79d49a8a87ac6ab11fa6aaabd7d4a6b5e81f2df747fabd6133e722bb",
+          "sha512": "9af478d6c6f16310d689e1048794c494f31abaec6854b00ceea74041b97bbafb328c207cf14102b8e83d1ed1d1ada93337ce1248df7aa64e24c3acf269c3527a",
+          "label": "sast (CodeQL; error=0, note=1, suppressed=1, warning=1)"
+        },
+        {
+          "uri": "s3://aldermoor-cra-evidence-eu/v1/hearth-lock-3/4.3.0/evidence/fuzz.sarif",
+          "ref": null,
+          "sha256": "2a30a40038730352a0f0ef3f1a21e67aa5fcb6266e494ef9fb6c6905afb6df5c",
+          "sha512": "61637f1f61c9b5ac00b9c96e69ca3ad2ba6ce53ac35268dab6af5239c4cb33e1993525d2e7255e09650697bc25326cc5fa4d817969b0b390a215040e5dbac539",
+          "label": "fuzz (libFuzzer (aldermoor-fuzz-farm); error=0, note=0, suppressed=0, warning=0)"
+        },
+        {
+          "uri": "s3://aldermoor-cra-evidence-eu/v1/hearth-lock-3/4.3.0/evidence/pentest-summary.json",
+          "ref": null,
+          "sha256": "f226f2d6d3f73c57f5b1491c52cff846a7f3f732bcd178649ee1552d0334c481",
+          "sha512": "92484ec5f8a4ab4c0b854ded431c0130c70bce695c614b43732907a9aab9e2ffa735c5e014bf1eed5ad0d73162f171b47bae346cc7756be105ea59fc6259b501",
+          "label": "pentest (Aldermoor Red Team (internal); critical=0, high=0)"
+        }
+      ],
+      "note": null
+    },
+    {
+      "point": "7",
+      "title": "EU declaration of conformity",
+      "items": [],
+      "note": "Declaration AP-DoC-HL3-2027-001 (reused, from 4.0.0) at https://www.aldermoor.example/compliance/doc/hearth-lock-3"
+    },
+    {
+      "point": "8",
+      "title": "SBOM for market surveillance authority on reasoned request",
+      "items": [
+        {
+          "uri": "s3://aldermoor-cra-evidence-eu/v1/hearth-lock-3/4.3.0/evidence/sbom.cdx.json",
+          "ref": null,
+          "sha256": "c5cd3496d5237b2675fc29e79aaa949fa2b12a2b1a20c2bc12d2549511a5188b",
+          "sha512": "08a088f343679f158ed475a9268c9bd7dcb49ec20ade3d584ffe9ecf76dfa5b0bc7ee42b5603d9dbd0d79cb8b4eec9a9802efd6b61f1e27d401086b2bc044a82",
+          "label": "SBOM"
+        }
+      ],
+      "note": null
+    }
+  ]
+}

@@ -1,0 +1,160 @@
+{
+  "record_id": "urn:aldermoor:cra-evidence:lumen-browser:141.0.7390.65",
+  "product_id": "lumen-browser",
+  "version": "141.0.7390.65",
+  "placing_date": "2028-02-10",
+  "retain_until": "2038-02-10",
+  "substantial_modification": "not_substantial",
+  "points": [
+    {
+      "point": "1",
+      "title": "General description: intended purpose, versions affecting compliance, Annex II information",
+      "items": [
+        {
+          "uri": "s3://aldermoor-cra-evidence-eu/v1/lumen-browser/141.0.7390.65/artefact/lumen-browser-141.0.7390.65-linux-x64.tar.zst",
+          "ref": null,
+          "sha256": "ce1b62e58bb6d810ee47780222882736f4b6a8e06e592578b1a6bd2fe431a462",
+          "sha512": "d51b6f8ea194504ee89c326bbe8b461802e9f7bbf9f41a4b0c6503aa5667481d493ac30c52e9b7c1a7996c28660ee28934cce048c31c0aeabcbb2d273345784f",
+          "label": "Shipped artefact"
+        },
+        {
+          "uri": "s3://aldermoor-cra-evidence-eu/v1/lumen-browser/141.0.7390.65/docs/annex-ii-user-information.md",
+          "ref": "https://www.aldermoor.example/security/lumen-browser/141.0.7390.65/",
+          "sha256": "f0d2d27b2463373d8fd46a144124f1f694f448d57b45abcce4a53e600d48fa7d",
+          "sha512": "8c0b4a807a91ac3ea1392fc3e726e0a4b00db80418bc9b2f2f2b00897f1927737b6fe58a9dae31e3a5bebf2b76d5bd8217de29c8231c252772e8de93728626fc",
+          "label": "Annex II user information"
+        }
+      ],
+      "note": "Product lumen-browser version 141.0.7390.65; previous 141.0.7390.40"
+    },
+    {
+      "point": "2(a)",
+      "title": "Design and development; system architecture",
+      "items": [],
+      "note": "Maintained outside the pipeline in the product technical file; linked by product id"
+    },
+    {
+      "point": "2(b)",
+      "title": "Vulnerability handling: SBOM, CVD policy, reporting contact, secure update distribution",
+      "items": [
+        {
+          "uri": "s3://aldermoor-cra-evidence-eu/v1/lumen-browser/141.0.7390.65/evidence/sbom.spdx.json",
+          "ref": null,
+          "sha256": "8ae7cfbe6aa3a5592c82137fca6ffb535af085341c92fec150f890d6366dc09b",
+          "sha512": "b31b079c6685405466f590b531ce2dcda5a5e5c24ad4210c4b13f926d555c0072a8b470855207bd9fbc01334ca78e88ac82d5cda3ed4d4a59c4552acf2e9c3eb",
+          "label": "SBOM (SPDX 2.3)"
+        },
+        {
+          "uri": "s3://aldermoor-cra-evidence-eu/v1/lumen-browser/141.0.7390.65/evidence/vex.csaf.json",
+          "ref": null,
+          "sha256": "fa633dada4cd827d9035cb3597a2ff24e5c8f52e1948501acff9efd80bccd00b",
+          "sha512": "5c1453797fa934313d431dbe85614fc287909b4976888535fb213fb53c90790dadfbcb69380f67924650441f5c7730109248377cbac8b35d07980eef1231fd1e",
+          "label": "VEX (CSAF-VEX)"
+        },
+        {
+          "uri": "s3://aldermoor-cra-evidence-eu/v1/lumen-browser/141.0.7390.65/docs/cvd-policy.md",
+          "ref": "https://www.aldermoor.example/security/cvd",
+          "sha256": "44a1d92cd438154008180b53d3c4ae3d79ed6298b626fd4fd29e6f920c299d91",
+          "sha512": "bf9d5176194c5baef0e101460e3dae681ce19fa5ff1d80eab50806197cdf64c7baf127d54044c1eb24f7e4fe7a22c020c034654ff1fe71bb23069ac78f7dbcf0",
+          "label": "CVD policy"
+        },
+        {
+          "uri": "s3://aldermoor-cra-evidence-eu/v1/lumen-browser/141.0.7390.65/docs/update-design-note.md",
+          "ref": "UDN-lumen-browser",
+          "sha256": "37ca7dece61e1034951052c0955f7f5c5043b08cf2abbcd3185d8ed138a62bc5",
+          "sha512": "b191b78c00d45c906bce87d863eb8c1392f18cb9c45995c2d00c21cfde828c383ec2dd2df28ef740297d72d47dd80c009060fd226f42755bae1b1c81e4ac5265",
+          "label": "Update design note"
+        }
+      ],
+      "note": null
+    },
+    {
+      "point": "2(c)",
+      "title": "Production and monitoring processes with validation evidence",
+      "items": [
+        {
+          "uri": "s3://aldermoor-cra-evidence-eu/v1/lumen-browser/141.0.7390.65/evidence/provenance.intoto.json",
+          "ref": null,
+          "sha256": "b43e81279dbb367387fddadd04bf0510122729f9ed58998ce5dcc7506b94affe",
+          "sha512": "bde0f047ce26d535510a04f5ac8e50414a0fc79cff728de1802b3f757b7b0d6f86f6bb999cc49144271c7eb797a20be54e0a58ac5bbfeb0450fd4ae1fd0abe50",
+          "label": "Build provenance (https://slsa.dev/provenance/v1; builder https://build.aldermoor.example/hermetic/v2)"
+        }
+      ],
+      "note": "Release gate decision: PASS under aldermoor-cra-gate/1.0.0"
+    },
+    {
+      "point": "3",
+      "title": "Cybersecurity risk assessment and Annex I Part I applicability",
+      "items": [
+        {
+          "uri": "s3://aldermoor-cra-evidence-eu/v1/lumen-browser/141.0.7390.65/docs/risk-assessment.md",
+          "ref": "RA-lumen-browser-141.0.7390.65",
+          "sha256": "f98e5c56761a9882b48b1e31c016f2fea29e6f17c9f129594485aface22f0213",
+          "sha512": "985f1d171a7fc51860beb7e62cb94d7b7e8b2d8f249f3d9ed882b721b5fad26fc0fc20a69b1b20b192b591262a77f5952d2abab21bacc624d8f12facd5957ac2",
+          "label": "Risk assessment"
+        },
+        {
+          "uri": "s3://aldermoor-cra-evidence-eu/v1/lumen-browser/141.0.7390.65/docs/applicability-matrix.json",
+          "ref": "AM-lumen-browser-141.0.7390.65",
+          "sha256": "d55194eb9a00a65a2470ebb74cfbcd67515965ea473ce5487b9ea2ef8ba45376",
+          "sha512": "f191a2dde7c20bf23385bda49b48e95efe3b616c6ac08f0d9f76845d9fc9477cbf2f59e69bfd91113b611512419c03b8e4c19a0a5444b342d488c333f232d3ee",
+          "label": "Applicability matrix (not applied: none)"
+        }
+      ],
+      "note": null
+    },
+    {
+      "point": "4",
+      "title": "Support period",
+      "items": [],
+      "note": "End 2033-02-28 (5.05 years); justification: Product support period for Lumen Browser; Art 13(10) latest-version rule with free upgrade.; latest-version rule (Art 13(10)): yes"
+    },
+    {
+      "point": "5",
+      "title": "Harmonised standards, common specifications, certification schemes",
+      "items": [],
+      "note": "Route module_h; applied in full: none; certificate QS-APPROVAL-ILLUSTRATIVE-0142"
+    },
+    {
+      "point": "6",
+      "title": "Test reports against Annex I Parts I and II",
+      "items": [
+        {
+          "uri": "s3://aldermoor-cra-evidence-eu/v1/lumen-browser/141.0.7390.65/evidence/sast.sarif",
+          "ref": null,
+          "sha256": "ed5484734823097596dd04dffc23cb3446d52f55de2dab11713d05608f872db0",
+          "sha512": "190aaf4956b9f0ecd3da23aef60800e1a5e11434d8f2bc68dfd4d92511e3bf815619644d5599db5cb0a9bf53c9dafc1091d8f7116097a0cd3812e932e4a579ac",
+          "label": "sast (CodeQL; error=0, note=0, suppressed=0, warning=1)"
+        },
+        {
+          "uri": "s3://aldermoor-cra-evidence-eu/v1/lumen-browser/141.0.7390.65/evidence/fuzz.sarif",
+          "ref": null,
+          "sha256": "2a30a40038730352a0f0ef3f1a21e67aa5fcb6266e494ef9fb6c6905afb6df5c",
+          "sha512": "61637f1f61c9b5ac00b9c96e69ca3ad2ba6ce53ac35268dab6af5239c4cb33e1993525d2e7255e09650697bc25326cc5fa4d817969b0b390a215040e5dbac539",
+          "label": "fuzz (libFuzzer (aldermoor-fuzz-farm); error=0, note=0, suppressed=0, warning=0)"
+        }
+      ],
+      "note": null
+    },
+    {
+      "point": "7",
+      "title": "EU declaration of conformity",
+      "items": [],
+      "note": "Declaration AP-DoC-LB-141 (reused, from 141.0.7390.40) at https://www.aldermoor.example/compliance/doc/lumen-browser"
+    },
+    {
+      "point": "8",
+      "title": "SBOM for market surveillance authority on reasoned request",
+      "items": [
+        {
+          "uri": "s3://aldermoor-cra-evidence-eu/v1/lumen-browser/141.0.7390.65/evidence/sbom.spdx.json",
+          "ref": null,
+          "sha256": "8ae7cfbe6aa3a5592c82137fca6ffb535af085341c92fec150f890d6366dc09b",
+          "sha512": "b31b079c6685405466f590b531ce2dcda5a5e5c24ad4210c4b13f926d555c0072a8b470855207bd9fbc01334ca78e88ac82d5cda3ed4d4a59c4552acf2e9c3eb",
+          "label": "SBOM"
+        }
+      ],
+      "note": null
+    }
+  ]
+}

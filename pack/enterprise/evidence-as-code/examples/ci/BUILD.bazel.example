@@ -1,0 +1,40 @@
+# Bazel-style integration (design illustration for a hermetic monorepo build).
+#
+# The gate is an ordinary build action: its inputs are the signed artefact,
+# the SBOM, provenance, VEX, SARIF outputs, the release manifest, the gate
+# policy and a feed snapshot pinned by digest. Because every input is pinned,
+# the gate decision is reproducible: an auditor can rebuild the record from
+# the stored inputs and get the same decision.
+
+load("//tools/cra:defs.bzl", "cra_release_gate")
+
+cra_release_gate(
+    name = "lock3_cra_gate",
+    release_dir = ":lock3_release_bundle",          # filegroup laid out as release.json + evidence/
+    policy = "//tools/cra:aldermoor-gate-policy.json",
+    feeds = "@cra_feeds_snapshot//:feeds",          # http_archive with sha256; refreshed daily by a bot PR
+    tags = ["cra", "release-gate"],
+)
+
+# --- //tools/cra/defs.bzl (sketch) -------------------------------------
+#
+# def cra_release_gate(name, release_dir, policy, feeds, **kwargs):
+#     native.genrule(
+#         name = name,
+#         srcs = [release_dir, policy, feeds],
+#         outs = [name + ".record.json", name + ".annex-vii-index.md"],
+#         cmd = " && ".join([
+#             "$(location //tools/cra:cra_evidence) gate $(location %s) --policy $(location %s) "
+#             "--feeds $(location %s) -o $(location %s.record.json)" % (release_dir, policy, feeds, name),
+#             # exit 1 (FAIL) or 3 (REVIEW) fails the action; REVIEW is cleared by
+#             # recording the human decision in release.json and rebuilding.
+#             "$(location //tools/cra:cra_evidence) index $(location %s) --policy $(location %s) "
+#             "--feeds $(location %s) -o $(@D)" % (release_dir, policy, feeds),
+#         ]),
+#         tools = ["//tools/cra:cra_evidence"],
+#         **kwargs
+#     )
+#
+# The release rule depends on :lock3_cra_gate, so nothing reaches the EU
+# distribution channel without a PASS record. A post-build uploader writes
+# inputs and record to the object-locked evidence bucket.

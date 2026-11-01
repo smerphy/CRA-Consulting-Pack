@@ -1,0 +1,46 @@
+{
+  "_type": "https://in-toto.io/Statement/v1",
+  "subject": [
+    {
+      "name": "hearth-lock-3-fw-4.3.0.bin",
+      "digest": {
+        "sha256": "adf4b8146683b1dbea9266b162ed0d9475a2139bef4bca47159eab5971b400b0"
+      }
+    }
+  ],
+  "predicateType": "https://slsa.dev/provenance/v1",
+  "predicate": {
+    "buildDefinition": {
+      "buildType": "https://build.aldermoor.example/buildtypes/hermetic-bazel/v1",
+      "externalParameters": {
+        "target": "//firmware/hearth/lock3:signed_image",
+        "source": "git+https://monorepo.aldermoor.example/monorepo@refs/tags/hearth-lock-3/4.3.0"
+      },
+      "internalParameters": {
+        "remote_execution_pool": "eu-hermetic-prod",
+        "sandbox": "hermetic"
+      },
+      "resolvedDependencies": [
+        {
+          "uri": "git+https://monorepo.aldermoor.example/monorepo@refs/tags/hearth-lock-3/4.3.0",
+          "digest": {
+            "gitCommit": "7b27661b09a5f119154667cd1efd6a4425dbadab"
+          }
+        }
+      ]
+    },
+    "runDetails": {
+      "builder": {
+        "id": "https://build.aldermoor.example/hermetic/v2",
+        "version": {
+          "hermetic-bazel": "8.1.0-ald.4"
+        }
+      },
+      "metadata": {
+        "invocationId": "inv-7b27661b09a5f119",
+        "startedOn": "2028-01-11T08:51:40Z",
+        "finishedOn": "2028-01-11T09:13:55Z"
+      }
+    }
+  }
+}

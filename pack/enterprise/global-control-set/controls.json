@@ -1,0 +1,2720 @@
+{
+ "meta": {
+  "title": "Global product security control set",
+  "version": "1.0",
+  "as_at": "1 Nov 2026",
+  "client": "Aldermoor Platforms (fictional reference client)",
+  "note": "One control set, run once, mapped to six regimes. Coverage shows how far each regime requires the control: Strong means the regime requires essentially this control; Partial means it requires part of it or only discloses it; Weak means it touches it indirectly or only at a higher voluntary label tier; None means not required. JC-STAR is rated at STAR-1 and CLS at Levels 1-2, with higher-tier references noted. US Cyber Trust Mark ratings rest on the NIST IR 8425 capabilities and the FCC 24-26 declarations, because the programme's final technical requirements were not adopted at 28 Oct 2026. Ratings are indicative judgements for programme design, not legal advice or a statement of conformity.",
+  "footnotes": [
+   "Source \"kb\": CRA mappings rest on the engagement knowledge base (reports/sections/07, 08, 09, 10, 13, 14; verification.md) and pack/data/crosswalk.json.",
+   "Source \"web\": non-CRA mappings rest on primary texts opened for this module: legislation.gov.uk (PSTI Act 2022, SI 2023/1007, SI 2025/211, SI 2025/1267 contents), FCC 24-26 in the Federal Register (89 FR 61242) and FCC Public Notice DA 26-75, NIST IR 8425, IPA JST-CR-01-01-2024 and JST-SR-03-01-2026, CSA CCC SP-151-2 v1.4, and legislation.gov.au (Cyber Security Act 2024; F2025L00276). Status points come from regulator releases and trade press, cited in paper.md.",
+   "Not verified: the commencement date of SI 2025/1267; the full US registry data-element list and 47 CFR Part 8 section headings (eCFR not reachable); the NIST IR 8425 deletion sub-outcome; JC-STAR STAR-2 intake; Australian civil penalty amounts."
+  ],
+  "source_legend": {
+   "kb": "CRA knowledge base",
+   "web": "Primary source opened on the web"
+  },
+  "default_selected": [
+   "eu_cra",
+   "uk_psti",
+   "us_cyber_trust_mark",
+   "jp_jcstar"
+  ],
+  "client_additions": {
+   "note": "Module E5 additions to the Aldermoor fact base (fictional). Scope calls are preliminary and marked where they need confirmation.",
+   "portfolio_applicability": [
+    {
+     "line": "Arc phones (Halo OS)",
+     "eu_cra": "In scope",
+     "uk_psti": "In scope (smartphone)",
+     "us_cyber_trust_mark": "Eligibility to confirm with a CLA",
+     "jp_jcstar": "Eligibility to confirm with IPA",
+     "sg_cls": "Not targeted",
+     "au_smart_devices": "Excepted (smartphone)"
+    },
+    {
+     "line": "Tablets",
+     "eu_cra": "In scope",
+     "uk_psti": "Cellular in scope; Wi-Fi-only excepted",
+     "us_cyber_trust_mark": "Eligibility to confirm",
+     "jp_jcstar": "Eligibility to confirm",
+     "sg_cls": "Not targeted",
+     "au_smart_devices": "Excepted (tablet)"
+    },
+    {
+     "line": "Lumen OS laptops",
+     "eu_cra": "In scope",
+     "uk_psti": "Excepted (laptop)",
+     "us_cyber_trust_mark": "Not targeted",
+     "jp_jcstar": "Not targeted",
+     "sg_cls": "Not targeted",
+     "au_smart_devices": "Excepted (laptop)"
+    },
+    {
+     "line": "Earbuds",
+     "eu_cra": "In scope",
+     "uk_psti": "In scope if connectable (Bluetooth)",
+     "us_cyber_trust_mark": "Candidate",
+     "jp_jcstar": "Candidate if IP-capable; to confirm",
+     "sg_cls": "Candidate",
+     "au_smart_devices": "In scope"
+    },
+    {
+     "line": "Hearth smart home (cameras, doorbells, locks, speakers, thermostats, smoke detectors, mesh routers)",
+     "eu_cra": "In scope; several Annex III Class I",
+     "uk_psti": "In scope",
+     "us_cyber_trust_mark": "Priority candidate",
+     "jp_jcstar": "Priority candidate (STAR-1; STAR-3 for cameras and routers sold to government)",
+     "sg_cls": "Candidate",
+     "au_smart_devices": "In scope"
+    },
+    {
+     "line": "Pulse wearables",
+     "eu_cra": "In scope; health-monitoring wearables Class I",
+     "uk_psti": "In scope",
+     "us_cyber_trust_mark": "Priority candidate (fitness trackers named)",
+     "jp_jcstar": "Candidate",
+     "sg_cls": "Candidate",
+     "au_smart_devices": "In scope"
+    },
+    {
+     "line": "Keystone security keys",
+     "eu_cra": "In scope",
+     "uk_psti": "To confirm (NFC/Bluetooth variants)",
+     "us_cyber_trust_mark": "Not targeted",
+     "jp_jcstar": "Not targeted",
+     "sg_cls": "Not targeted",
+     "au_smart_devices": "To confirm"
+    },
+    {
+     "line": "Lumen Browser, apps, desktop clients, SDKs",
+     "eu_cra": "In scope; browsers Class I",
+     "uk_psti": "Not as standalone software (assessed with the device it ships on)",
+     "us_cyber_trust_mark": "Companion apps assessed with the device",
+     "jp_jcstar": "Not targeted",
+     "sg_cls": "Companion apps tested at Level 3",
+     "au_smart_devices": "Not as standalone software"
+    }
+   ]
+  }
+ },
+ "coverage_scale": [
+  {
+   "id": "strong",
+   "label": "Strong",
+   "meaning": "The regime requires essentially this control; meeting the regime's test proves this control for that market."
+  },
+  {
+   "id": "partial",
+   "label": "Partial",
+   "meaning": "The regime requires part of the control, requires disclosure rather than the property, or applies it only to some products."
+  },
+  {
+   "id": "weak",
+   "label": "Weak",
+   "meaning": "The regime touches the topic indirectly, or only at a higher voluntary label tier."
+  },
+  {
+   "id": "none",
+   "label": "None",
+   "meaning": "Not required by the regime; the control is driven by other markets."
+  }
+ ],
+ "frameworks": [
+  {
+   "id": "eu_cra",
+   "short": "EU CRA",
+   "name": "EU Cyber Resilience Act",
+   "full_name": "Regulation (EU) 2024/2847 (Annex I Part I and II; Arts 13-14)",
+   "kind": "EU regulation, mandatory",
+   "mandatory": true,
+   "status": "In force 10 Dec 2024; Art 14 reporting since 11 Sep 2026; full application 11 Dec 2027",
+   "relation_to_cra": "The baseline. Every control is sized first against the CRA because it is the broadest regime: all products with digital elements, B2B and B2C, 13 product properties, 8 lifecycle duties, Art 13 and Art 14.",
+   "reuse": "Annex VII technical file is the master evidence store; the EU declaration, SBOM, CVD policy and support-period rationale feed every other regime.",
+   "gaps": "No security label or public product registry; no national-security supply-chain screening; third-party testing only for Annex III Class I without a cited harmonised standard, Class II and Annex IV.",
+   "url": "https://eur-lex.europa.eu/eli/reg/2024/2847/oj",
+   "holdable": true,
+   "facts": {
+    "Scope": "All products with digital elements made available in the EU whose intended or foreseeable use includes a data connection; remote data processing the product depends on (Art 3(2)).",
+    "Products": "Hardware and software, consumer and business; Annex III important (Class I/II) and Annex IV critical categories.",
+    "Conformity route": "Module A self-assessment by default; B+C or H with a notified body for Class I without full use of a cited harmonised standard, and Class II (Art 32).",
+    "Labelling": "CE marking (Arts 29-30) and EU declaration of conformity (Art 28); no security label.",
+    "Reporting": "Actively exploited vulnerabilities 24 h / 72 h / 14 days; severe incidents 24 h / 72 h / 1 month, via ENISA SRP to the coordinator CSIRT (Art 14).",
+    "Penalties": "Up to EUR 15m or 2.5% of worldwide turnover (Art 64(2)); EUR 10m or 2%; EUR 5m or 1%.",
+    "Dates": "In force 10 Dec 2024; Art 14 from 11 Sep 2026; notified-body chapter 11 Jun 2026; everything else 11 Dec 2027."
+   }
+  },
+  {
+   "id": "uk_psti",
+   "short": "UK PSTI",
+   "name": "UK PSTI product security regime",
+   "full_name": "PSTI Act 2022 Part 1 and SI 2023/1007, as amended by SI 2025/211 and SI 2025/1267",
+   "kind": "UK law, mandatory",
+   "mandatory": true,
+   "status": "In force 29 Apr 2024; vehicles excepted from 25 Feb 2025; JC-STAR and CLS deemed-compliance amendment (SI 2025/1267) made late 2025, commencement not confirmed",
+   "relation_to_cra": "A strict subset of the CRA on three points (default passwords, how to report security issues, published support period), plus a statement of compliance that must accompany the product.",
+   "reuse": "The CRA password, CVD-policy and support-period controls satisfy Schedule 1 if worded to the PSTI tests; EN 303 645 provisions 5.1-1, 5.1-2, 5.2-1 and 5.3-13 give deemed compliance (Sch 2).",
+   "gaps": "Statement of compliance in the Schedule 4 format; support period shown alongside price on own websites (Sch 1 para 3(5)); 10-year retention of statements; English-language, no-personal-data reporting route.",
+   "url": "https://www.legislation.gov.uk/uksi/2023/1007/made",
+   "holdable": true,
+   "facts": {
+    "Scope": "UK consumer connectable products (Act ss.4-6): internet- or network-connectable products made available to consumers in the UK.",
+    "Products": "Smartphones, smart home, wearables, routers and similar; excepts desktops, laptops, non-cellular tablets, EV charge points, medical devices, smart meters, certain vehicles (Sch 3).",
+    "Conformity route": "Self-declared; deemed compliance via ETSI EN 303 645 or ISO/IEC 29147 provisions (Sch 2), and, under SI 2025/1267, a valid JC-STAR STAR-1 or CLS label.",
+    "Labelling": "No label. Statement of compliance must accompany the product (Act s.9; reg 7; Sch 4).",
+    "Reporting": "No authority reporting duty. Duties to investigate and act on compliance failures and inform the enforcement authority (Act ss.10-11).",
+    "Penalties": "Greater of GBP 10m or 4% of qualifying worldwide revenue (Act s.38); daily penalty up to GBP 20,000 (KB); compliance, stop and recall notices (ss.28-30).",
+    "Dates": "Regulations made 14 Sep 2023; in force 29 Apr 2024; SI 2025/211 from 25 Feb 2025; UK-Japan and UK-Singapore recognition effective 1 Jan 2026."
+   }
+  },
+  {
+   "id": "us_cyber_trust_mark",
+   "short": "US CTM",
+   "name": "US Cyber Trust Mark",
+   "full_name": "FCC IoT Labeling Program, Report and Order FCC 24-26, PS Docket 23-239 (47 CFR Part 8); criteria based on NIST IR 8425",
+   "kind": "US voluntary label (FCC)",
+   "mandatory": false,
+   "status": "Voluntary. Rules effective 29 Aug 2024; launched 7 Jan 2025; UL withdrew as Lead Administrator 19 Dec 2025; ioXt selected 13 Apr 2026; no labelled products and technical requirements not finalised as at 28 Oct 2026",
+   "relation_to_cra": "Outcome criteria (NIST IR 8425) sit inside the CRA's Annex I; the programme adds third-party lab testing, a label with a QR code to a public registry, and national-security eligibility declarations.",
+   "reuse": "CRA design evidence (access control, data protection, update, logging) answers the IR 8425 capabilities; the support period and CVD policy feed the registry entry.",
+   "gaps": "Covered List, Entity List and debarment declarations under penalty of perjury; accredited CyberLAB test report; CLA certification; label and registry data; renewal. Final technical standards are still to be put out for comment.",
+   "url": "https://docs.fcc.gov/public/attachments/DA-26-75A1.pdf",
+   "holdable": true,
+   "facts": {
+    "Scope": "Consumer wireless IoT products (intentional radiators with a network interface), including companion apps and cloud the product needs.",
+    "Products": "Cameras, voice assistants, appliances, fitness trackers, garage-door openers, baby monitors; excludes FDA medical devices, motor vehicles, wired-only, enterprise and industrial products, Covered List equipment.",
+    "Conformity route": "Test by an accredited lab (CyberLAB, CLA-run or in-house), certification by a Cybersecurity Label Administrator accredited to ISO/IEC 17065.",
+    "Labelling": "FCC IoT Label: the Cyber Trust Mark plus a QR code to a public registry (support period, whether updates are automatic, default-password and secure-configuration guidance).",
+    "Reporting": "No authority reporting. Applicant declares it will find critical vulnerabilities and issue updates until the registry support end date (FCC 24-26 para 27).",
+    "Penalties": "Authorisation may be terminated if disclosures are not cured within 20 days (para 28); other FCC enforcement may apply. Declarations are under penalty of perjury.",
+    "Dates": "Adopted 14 Mar 2024; effective 29 Aug 2024; launch 7 Jan 2025; CLA window 27 Jan-24 Feb 2026; ioXt Lead Administrator 13 Apr 2026; FCC opened a label-design, renewal and post-market proceeding in late Oct 2026."
+   }
+  },
+  {
+   "id": "jp_jcstar",
+   "short": "JC-STAR",
+   "name": "Japan JC-STAR",
+   "full_name": "IPA Security Requirements Conformity Assessment and Labelling Scheme for IoT products; STAR-1 criteria JST-CR-01-01-2024",
+   "kind": "Japan voluntary label (IPA/METI)",
+   "mandatory": false,
+   "status": "Operating since 25 Mar 2025 (STAR-1 self-declaration); STAR-3 requirements for communication equipment and network cameras published 2026; STAR-2 intake announced from Jan 2026, not confirmed; 80 companies and 1,500+ models labelled by 31 Mar 2026",
+   "relation_to_cra": "The 16 STAR-1 requirements are a subset of CRA Annex I, with sharper test thresholds (password length, persistence after power loss). STAR-3 adds SBOM, secure boot, logging and third-party penetration testing for government and infrastructure buyers.",
+   "reuse": "CRA access-control, update, data-protection, attack-surface and deletion evidence answers STAR-1 S1.1-01 to S1.1-16; STAR-1 now also gives UK PSTI deemed compliance and CLS Level 1 recognition.",
+   "gaps": "Label application and fee per product; 2-year label validity with extension; product page on the IPA list; the STAR-1 password-length rule; STAR-3/4 third-party evaluation for procurement markets.",
+   "url": "https://www.ipa.go.jp/security/jc-star/tekigou-kizyun-guide/label1/begoj90000004zgc-att/star1_requirements.pdf",
+   "holdable": true,
+   "facts": {
+    "Scope": "IoT products that communicate over IP, voluntary; government procurement use planned (timing undecided).",
+    "Products": "All IoT categories at STAR-1; STAR-2 and above by product type, first network cameras and communication equipment.",
+    "Conformity route": "STAR-1 and STAR-2 self-declaration with checklist to IPA; STAR-3 and STAR-4 evaluation by an IPA-approved third-party body.",
+    "Labelling": "JC-STAR label with QR code to the IPA product page (status, security contact); valid 2 years, extendable.",
+    "Reporting": "No authority reporting; vendor must publish a vulnerability disclosure policy (S1.1-05) and provide update support while the label is valid.",
+    "Penalties": "Label withdrawal or revocation (IPA status list); no statutory fines identified.",
+    "Dates": "Operation from 25 Mar 2025; first labels May 2025; UK PSTI recognition 1 Jan 2026; Singapore CLS recognition 1 Jun 2026."
+   }
+  },
+  {
+   "id": "sg_cls",
+   "short": "SG CLS",
+   "name": "Singapore CLS(IoT)",
+   "full_name": "CSA Cybersecurity Labelling Scheme for IoT; CCC SP-151-2 Scheme Specifications v1.4 (Apr 2025)",
+   "kind": "Singapore voluntary label (CSA)",
+   "mandatory": false,
+   "status": "Operating since 2020; four levels; recognised by Finland, Germany, Korea, UK (from 1 Jan 2026) and Japan (from 1 Jun 2026)",
+   "relation_to_cra": "Level 1 equals the PSTI three; Level 2 adds the ETSI EN 303 645 mandatory provisions; Levels 3 and 4 add lifecycle provisions, binary analysis and penetration testing. All sit within CRA Annex I.",
+   "reuse": "One EN 303 645 assessment serves CLS Level 2, PSTI deemed compliance and much of the CRA Annex I file.",
+   "gaps": "CLS application and label per product; lab binary analysis (Level 3) or penetration test (Level 4).",
+   "url": "https://www.csa.gov.sg/our-programmes/certification-and-labelling-schemes/cybersecurity-labelling-scheme/about/",
+   "holdable": true,
+   "optional": true,
+   "facts": {
+    "Scope": "Consumer IoT, first Wi-Fi routers and smart home hubs, now all consumer IoT categories.",
+    "Products": "Consumer IoT devices; home-gateway variant references ETSI TS 103 848.",
+    "Conformity route": "Levels 1-2 declaration reviewed by a test lab and CCC; Level 3 adds binary analysis; Level 4 adds black-box penetration testing.",
+    "Labelling": "CLS(IoT) label at the level achieved, awarded by CCC.",
+    "Reporting": "None to authorities.",
+    "Penalties": "False declarations handled under Publication #1 chapter 15.1 (not read).",
+    "Dates": "Launched 2020; spec v1.4 Apr 2025; UK MoU 22 Oct 2025, effective 1 Jan 2026; Japan MoC 18 Mar 2026, effective 1 Jun 2026."
+   }
+  },
+  {
+   "id": "au_smart_devices",
+   "short": "AU SDS",
+   "name": "Australia smart-device standard",
+   "full_name": "Cyber Security Act 2024 Part 2 and Cyber Security (Security Standards for Smart Devices) Rules 2025",
+   "kind": "Australian law, mandatory",
+   "mandatory": true,
+   "status": "In force for products manufactured on or after 4 Mar 2026",
+   "relation_to_cra": "Mirrors UK PSTI: no universal default passwords, a reporting route with acknowledgement and status updates, and a published support period with an end date; plus a statement of compliance.",
+   "reuse": "The PSTI controls and statement template carry over with Australian fields (authorised representatives in Australia; 5-year retention).",
+   "gaps": "Australian statement of compliance supplied with the product (Act s 16; Rules s 9); support period must be expressed with an end date (Sch 1 cl 4(3)).",
+   "url": "https://legislation.gov.au/F2025L00276/asmade/2025-03-04/text/original/epub/OEBPS/document_1/document_1.html",
+   "holdable": true,
+   "optional": true,
+   "facts": {
+    "Scope": "Consumer-grade relevant connectable products for personal, domestic or household use (Rules s 8).",
+    "Products": "Excepts desktops, laptops, tablets, smartphones, therapeutic goods and road vehicles (Rules s 8(1)(b)).",
+    "Conformity route": "Self-declared statement of compliance; examination powers (Act s 23).",
+    "Labelling": "No label; statement of compliance accompanies the product.",
+    "Reporting": "None to authorities.",
+    "Penalties": "Compliance, stop and recall notices (Act ss 17-19); public notification of non-compliance with a recall notice (s 20); civil penalty amounts not verified.",
+    "Dates": "Act assent 29 Nov 2024; Rules registered 4 Mar 2025; standards apply from 4 Mar 2026."
+   }
+  }
+ ],
+ "requirements": [
+  {
+   "id": "UCS-01",
+   "group": "Governance",
+   "ref": "UCS-01",
+   "title": "Product security governance and secure development lifecycle",
+   "summary": "A product security policy with a named accountable executive, and one secure development lifecycle applied to every product line from design to end of support.",
+   "evidence": "Product security policy and SDL standard with RACI; per-release SDL gate record generated by the pipeline (see E1).",
+   "strictest": "CRA: the lifecycle must deliver risk-appropriate security across design, development and production."
+  },
+  {
+   "id": "UCS-02",
+   "group": "Governance",
+   "ref": "UCS-02",
+   "title": "Product cybersecurity risk assessment",
+   "summary": "A documented risk assessment per product family that states, item by item, which security properties apply and why any do not, updated through the support period.",
+   "evidence": "Risk assessment per product family with Annex I applicability table and residual-risk register (Annex VII point 3).",
+   "strictest": "CRA: documented, product-level, with a justification for each non-applied requirement."
+  },
+  {
+   "id": "UCS-03",
+   "group": "Governance",
+   "ref": "UCS-03",
+   "title": "Regime scope and product classification register",
+   "summary": "One register listing every product, its markets, the regimes that apply, any exception relied on, its CRA class and its conformity route.",
+   "evidence": "Portfolio applicability register with legal basis per row, reviewed quarterly (feeds E3 classification).",
+   "strictest": "CRA: classification decides whether a notified body is needed; PSTI and AU exceptions decide whether a statement is needed."
+  },
+  {
+   "id": "UCS-04",
+   "group": "Governance",
+   "ref": "UCS-04",
+   "title": "Third-party component due diligence",
+   "summary": "An intake gate for every third-party and open-source component, with security review, known-vulnerability check and recorded decision.",
+   "evidence": "Component intake records per component and version, linked to the SBOM.",
+   "strictest": "CRA: covers every component, including free open-source software."
+  },
+  {
+   "id": "UCS-05",
+   "group": "Governance",
+   "ref": "UCS-05",
+   "title": "Supply-chain eligibility screening (national-security lists)",
+   "summary": "Screen the applicant, its affiliates and the product's components against the FCC Covered List, Commerce Entity List, DoD Chinese Military Companies list and federal debarment lists before a US label application, and again on change.",
+   "evidence": "Signed screening record per product and supplier, kept with the label application.",
+   "strictest": "US CTM only."
+  },
+  {
+   "id": "UCS-06",
+   "group": "Secure design",
+   "ref": "UCS-06",
+   "title": "Secure-by-default configuration and factory reset",
+   "summary": "Ship in a secure default state (optional services off, debug locked, onboarding enforced) and let the user reset to that state.",
+   "evidence": "Default-configuration export per release; onboarding and reset test results.",
+   "strictest": "CRA: whole default state plus reset."
+  },
+  {
+   "id": "UCS-07",
+   "group": "Secure design",
+   "ref": "UCS-07",
+   "title": "No universal default passwords",
+   "summary": "Every password is unique per device and not derivable from public data or identifiers, or is set by the user at first use.",
+   "evidence": "Credential-provisioning design note; test showing no shared or derivable passwords across a production sample.",
+   "strictest": "JC-STAR STAR-1 for the length rule; PSTI and AU for the derivation tests. Build to both."
+  },
+  {
+   "id": "UCS-08",
+   "group": "Secure design",
+   "ref": "UCS-08",
+   "title": "Attack-surface minimisation",
+   "summary": "Only the interfaces needed in each state are enabled; debug ports are locked; development tooling is stripped; network services default to deny.",
+   "evidence": "Interface inventory per product state; external port scan; debug-lock evidence.",
+   "strictest": "CRA and JC-STAR STAR-1 are equivalent in effect."
+  },
+  {
+   "id": "UCS-09",
+   "group": "Secure design",
+   "ref": "UCS-09",
+   "title": "Exploit mitigation and secure coding",
+   "summary": "Memory-safe languages or hardened builds (ASLR, W^X, CFI), sandboxing, privilege separation and input validation.",
+   "evidence": "Compiler-flag and binary-hardening scan output per build; fuzzing reports.",
+   "strictest": "CRA only."
+  },
+  {
+   "id": "UCS-10",
+   "group": "Secure design",
+   "ref": "UCS-10",
+   "title": "No known exploitable vulnerabilities at release",
+   "summary": "Release gate that correlates the release SBOM with EUVD, CVE/NVD and the CISA KEV catalogue and blocks release unless each finding is fixed or mitigated.",
+   "evidence": "Release-gate scan report with KEV status and decisions, per version.",
+   "strictest": "CRA: applies at placing on the market and is judged against public databases."
+  },
+  {
+   "id": "UCS-11",
+   "group": "Identity & access",
+   "ref": "UCS-11",
+   "title": "Authentication and access control on every interface",
+   "summary": "Every local, network, app and cloud interface authenticates the caller and enforces roles; privileged roles use MFA; unauthorised access is reported.",
+   "evidence": "Access-control model per interface; negative test results; alert catalogue.",
+   "strictest": "CRA: adds the duty to report possible unauthorised access."
+  },
+  {
+   "id": "UCS-12",
+   "group": "Identity & access",
+   "ref": "UCS-12",
+   "title": "Credential management and brute-force resistance",
+   "summary": "Users can change every authentication value; network login resists brute force (rate limiting or lockout); machine credentials expire.",
+   "evidence": "Credential-change and brute-force test results.",
+   "strictest": "JC-STAR STAR-1: explicit, testable requirements."
+  },
+  {
+   "id": "UCS-13",
+   "group": "Identity & access",
+   "ref": "UCS-13",
+   "title": "Product identification and asset inventory",
+   "summary": "Model, hardware and software version visible to the user; type, batch or serial number marked; the manufacturer can identify every logical and physical component.",
+   "evidence": "Marking specification; screenshot of version display; component inventory per version.",
+   "strictest": "CRA plus IR 8425: physical marking and a component-level inventory."
+  },
+  {
+   "id": "UCS-14",
+   "group": "Data protection",
+   "ref": "UCS-14",
+   "title": "Confidentiality of data at rest and in transit",
+   "summary": "Encrypt relevant data at rest and in transit with approved algorithms and protected keys; no plaintext fallback.",
+   "evidence": "Cryptographic inventory; TLS and downgrade test results; key-management design.",
+   "strictest": "CRA: covers stored, transmitted and otherwise processed data."
+  },
+  {
+   "id": "UCS-15",
+   "group": "Data protection",
+   "ref": "UCS-15",
+   "title": "Integrity of software, data and configuration",
+   "summary": "Verified boot and signed software, signed configuration, integrity monitoring, and reporting of corruption.",
+   "evidence": "Boot-chain and signature test results; corruption-detection test.",
+   "strictest": "CRA: also requires reporting of corruption."
+  },
+  {
+   "id": "UCS-16",
+   "group": "Data protection",
+   "ref": "UCS-16",
+   "title": "Data minimisation",
+   "summary": "Collect and process only the data each function needs; telemetry off by default where not needed; defined retention.",
+   "evidence": "Data inventory for the default configuration; retention schedule.",
+   "strictest": "CRA only (GDPR applies separately)."
+  },
+  {
+   "id": "UCS-17",
+   "group": "Data protection",
+   "ref": "UCS-17",
+   "title": "Secure data deletion and transfer",
+   "summary": "Users can permanently remove all data and settings, and transfer data securely where transfer is offered.",
+   "evidence": "Write-erase-read test per data type; export test; user instructions.",
+   "strictest": "CRA: adds secure transfer; JC-STAR adds the firmware-version check."
+  },
+  {
+   "id": "UCS-18",
+   "group": "Updates & support",
+   "ref": "UCS-18",
+   "title": "Secure update mechanism",
+   "summary": "Updates are signed with protected keys, verified before install, protected against rollback, installed atomically with recovery, and persist across power loss.",
+   "evidence": "Update design note; signature, rollback and recovery test results.",
+   "strictest": "CRA: adds anti-rollback and recovery through the secure-distribution duty."
+  },
+  {
+   "id": "UCS-19",
+   "group": "Updates & support",
+   "ref": "UCS-19",
+   "title": "Automatic updates by default, with user control",
+   "summary": "Security updates install automatically by default where applicable, with notification, postponement and a clear opt-out.",
+   "evidence": "Default-configuration proof; opt-out and notification UI evidence.",
+   "strictest": "CRA: automatic by default is the rule, not a disclosure."
+  },
+  {
+   "id": "UCS-20",
+   "group": "Updates & support",
+   "ref": "UCS-20",
+   "title": "Timely, free security updates kept separate from feature updates",
+   "summary": "Fix vulnerabilities without delay, free of charge, with advisory text, and separate security from feature updates where technically feasible.",
+   "evidence": "Remediation SLA policy; update release notes with advisory text; pricing terms.",
+   "strictest": "CRA: free and without delay."
+  },
+  {
+   "id": "UCS-21",
+   "group": "Updates & support",
+   "ref": "UCS-21",
+   "title": "Defined support period: set, published, never shortened",
+   "summary": "Set a support period per product from expected use, publish it with an end date, publish any extension promptly, and never shorten it.",
+   "evidence": "Support-period rationale per product; published support-period page with version history.",
+   "strictest": "CRA sets the length (5-year floor); PSTI and AU set the publication and no-shortening tests."
+  },
+  {
+   "id": "UCS-22",
+   "group": "Updates & support",
+   "ref": "UCS-22",
+   "title": "Update availability and archive",
+   "summary": "Keep every security update available for at least 10 years or the rest of the support period, whichever is longer; mark archived versions with risk warnings.",
+   "evidence": "Signed-artefact repository retention policy and index.",
+   "strictest": "CRA only."
+  },
+  {
+   "id": "UCS-23",
+   "group": "Vulnerability management",
+   "ref": "UCS-23",
+   "title": "Software bill of materials",
+   "summary": "Machine-readable SBOM per version covering at least top-level dependencies, generated by the build.",
+   "evidence": "CycloneDX or SPDX SBOM per release in the evidence store (E1).",
+   "strictest": "CRA."
+  },
+  {
+   "id": "UCS-24",
+   "group": "Vulnerability management",
+   "ref": "UCS-24",
+   "title": "Published vulnerability disclosure policy and reporting contact",
+   "summary": "Publish a CVD policy with at least one reporting contact, acknowledgement and status-update timelines, in English, free, with no personal data required, plus a human channel.",
+   "evidence": "Public CVD policy page and security.txt; PSIRT procedure; channel test records.",
+   "strictest": "PSTI wording (timelines, English, no personal data) plus the CRA human channel."
+  },
+  {
+   "id": "UCS-25",
+   "group": "Vulnerability management",
+   "ref": "UCS-25",
+   "title": "Vulnerability triage and remediation (PSIRT)",
+   "summary": "Severity-tiered triage with internal remediation SLAs, a vulnerability register linked to the risk assessment, and status updates to reporters until resolution.",
+   "evidence": "PSIRT procedure; vulnerability register extract; SLA performance report.",
+   "strictest": "CRA: remediation duty for all vulnerabilities, not only critical."
+  },
+  {
+   "id": "UCS-26",
+   "group": "Vulnerability management",
+   "ref": "UCS-26",
+   "title": "Security testing regime",
+   "summary": "Threat-driven security testing per release (SAST, fuzzing, scanning) and periodic independent penetration testing, with re-test triggers.",
+   "evidence": "Test plan per product; test and pen-test reports per release (Annex VII point 6).",
+   "strictest": "CRA for regularity; CTM, JC-STAR STAR-3 and CLS Level 4 for independent testing."
+  },
+  {
+   "id": "UCS-27",
+   "group": "Vulnerability management",
+   "ref": "UCS-27",
+   "title": "Public security advisories",
+   "summary": "Once a fix is available, publish an advisory (description, affected products, impact, severity, remedy) in human-readable form and CSAF, with any delay justified.",
+   "evidence": "Advisory index; CSAF files; delay decision records.",
+   "strictest": "CRA."
+  },
+  {
+   "id": "UCS-28",
+   "group": "Vulnerability management",
+   "ref": "UCS-28",
+   "title": "Upstream reporting to component maintainers",
+   "summary": "Report vulnerabilities found in third-party components to their maintainers and share fixes, with a licence check.",
+   "evidence": "Upstream report log; patch-sharing records.",
+   "strictest": "CRA only."
+  },
+  {
+   "id": "UCS-29",
+   "group": "Logging & resilience",
+   "ref": "UCS-29",
+   "title": "Security event logging and monitoring",
+   "summary": "Record security-relevant events (access, configuration and firmware changes) with accurate time, tamper evidence, export, and a user opt-out.",
+   "evidence": "Event catalogue; sample logs; opt-out evidence.",
+   "strictest": "CRA: logging plus a user opt-out."
+  },
+  {
+   "id": "UCS-30",
+   "group": "Logging & resilience",
+   "ref": "UCS-30",
+   "title": "Availability and resilience of essential functions",
+   "summary": "Essential functions survive denial-of-service, network loss and power loss; the product recovers without reverting to an insecure state.",
+   "evidence": "Essential-function list with mitigations; stress, outage and recovery test results.",
+   "strictest": "CRA."
+  },
+  {
+   "id": "UCS-31",
+   "group": "Logging & resilience",
+   "ref": "UCS-31",
+   "title": "Limit impact on other devices and networks",
+   "summary": "No amplification, egress control, back-off on retries, no open relays; documented emitters.",
+   "evidence": "Emitter inventory; external scans; amplification calculations.",
+   "strictest": "CRA only."
+  },
+  {
+   "id": "UCS-32",
+   "group": "Reporting",
+   "ref": "UCS-32",
+   "title": "Report actively exploited vulnerabilities and severe incidents",
+   "summary": "A 24-hour capable case process that files early warnings, notifications and final reports on the ENISA Single Reporting Platform to the coordinator CSIRT.",
+   "evidence": "Case records with UTC awareness time and SRP submission receipts (E2 case engine).",
+   "strictest": "CRA only."
+  },
+  {
+   "id": "UCS-33",
+   "group": "Reporting",
+   "ref": "UCS-33",
+   "title": "Inform users of exploited vulnerabilities and incidents",
+   "summary": "Tell affected users, in a structured machine-readable format where appropriate, about the vulnerability or incident and the mitigations they can take.",
+   "evidence": "User notification templates; delivery logs.",
+   "strictest": "CRA."
+  },
+  {
+   "id": "UCS-34",
+   "group": "Transparency & labelling",
+   "ref": "UCS-34",
+   "title": "User security information and instructions",
+   "summary": "Plain-language information on secure setup, use, updates, end of support and safe disposal or data erasure, versioned and kept online.",
+   "evidence": "Versioned user security guide and Annex II information per product.",
+   "strictest": "CRA Annex II content; JC-STAR adds disposal guidance explicitly."
+  },
+  {
+   "id": "UCS-35",
+   "group": "Transparency & labelling",
+   "ref": "UCS-35",
+   "title": "Support end date at the point of sale",
+   "summary": "Show the support end date (at least month and year) where the product is offered, alongside the price on the manufacturer's own website.",
+   "evidence": "Point-of-sale template and screenshots per channel.",
+   "strictest": "CRA for content (month and year); PSTI for placement (beside the price)."
+  },
+  {
+   "id": "UCS-36",
+   "group": "Transparency & labelling",
+   "ref": "UCS-36",
+   "title": "Security label and public registry listing",
+   "summary": "Apply for and maintain voluntary security labels where the market values them, keep the registry entry accurate, and control label artwork and QR codes.",
+   "evidence": "Label register per SKU and market: label ID, level, expiry, registry URL.",
+   "strictest": "US CTM: label plus QR registry with prescribed data."
+  },
+  {
+   "id": "UCS-37",
+   "group": "Transparency & labelling",
+   "ref": "UCS-37",
+   "title": "Manufacturer identification and single point of contact",
+   "summary": "Manufacturer name, trade mark, postal and electronic contact on the product, packaging or documents, and a single point of contact for vulnerability reporting.",
+   "evidence": "Marking specification; contact page.",
+   "strictest": "CRA."
+  },
+  {
+   "id": "UCS-38",
+   "group": "Conformity & documentation",
+   "ref": "UCS-38",
+   "title": "Technical documentation and evidence store",
+   "summary": "One evidence store per product version holding design, risk, test, SBOM and vulnerability-handling evidence, from which each regime's file is assembled.",
+   "evidence": "Annex VII technical file generated per version by the pipeline (E1).",
+   "strictest": "CRA."
+  },
+  {
+   "id": "UCS-39",
+   "group": "Conformity & documentation",
+   "ref": "UCS-39",
+   "title": "Declaration of conformity or statement of compliance",
+   "summary": "Issue each regime's declaration from the same evidence: EU declaration, UK statement of compliance, US label declaration, JC-STAR self-declaration, CLS declaration, Australian statement.",
+   "evidence": "Declaration generator with per-regime templates; signed declarations per product and batch.",
+   "strictest": "All regimes require one; formats differ. The CRA declaration is the most demanding (languages, CE marking)."
+  },
+  {
+   "id": "UCS-40",
+   "group": "Conformity & documentation",
+   "ref": "UCS-40",
+   "title": "Conformity assessment route and third-party testing",
+   "summary": "Choose and run the assessment route each regime requires, from self-assessment to notified body, accredited lab or IPA evaluation body.",
+   "evidence": "Route decision per product and regime; certificates and test reports.",
+   "strictest": "CRA Class I/II via a notified body; otherwise US CTM (lab test for every product)."
+  },
+  {
+   "id": "UCS-41",
+   "group": "Conformity & documentation",
+   "ref": "UCS-41",
+   "title": "Record retention",
+   "summary": "Keep declarations, statements and technical files for the longest period any regime requires.",
+   "evidence": "Retention schedule tied to each placing on the market.",
+   "strictest": "CRA and PSTI: 10 years or the support period, whichever is longer."
+  },
+  {
+   "id": "UCS-42",
+   "group": "Conformity & documentation",
+   "ref": "UCS-42",
+   "title": "Change control, substantial modification and label renewal",
+   "summary": "Assess each release for substantial modification and label impact; refresh declarations, registry entries and labels before expiry.",
+   "evidence": "Release impact assessment per version; label expiry calendar.",
+   "strictest": "CRA for modification; JC-STAR and CTM for fixed renewal cycles."
+  },
+  {
+   "id": "UCS-43",
+   "group": "Conformity & documentation",
+   "ref": "UCS-43",
+   "title": "Corrective action and regulator cooperation",
+   "summary": "Investigate suspected non-compliance, correct, withdraw or recall, inform authorities and users, and answer reasoned requests on time.",
+   "evidence": "Corrective-action procedure; regulator request log.",
+   "strictest": "CRA and PSTI."
+  }
+ ],
+ "mappings": [
+  {
+   "req": "UCS-01",
+   "fw": "eu_cra",
+   "refs": "Art 13(1); Annex I Part I (1)",
+   "coverage": "strong",
+   "note": "Design, develop and produce to an appropriate level of cybersecurity based on the risks; Part II presupposes an operating lifecycle.",
+   "source": "kb"
+  },
+  {
+   "req": "UCS-01",
+   "fw": "uk_psti",
+   "refs": "",
+   "coverage": "none",
+   "note": "Three outcome requirements only; no lifecycle duty.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-01",
+   "fw": "us_cyber_trust_mark",
+   "refs": "FCC 24-26 para 27 (declaration that the applicant 'has taken every reasonable measure to create a securable product')",
+   "coverage": "weak",
+   "note": "Implies a process; no SDL requirement in the rules read.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-01",
+   "fw": "jp_jcstar",
+   "refs": "STAR-3 S3.1-29 (secure coding)",
+   "coverage": "weak",
+   "note": "STAR-1 tests product outcomes only.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-01",
+   "fw": "sg_cls",
+   "refs": "CCC SP-151-2 5.2.1, 5.2.3 (Level 3 lifecycle provisions CK-LP-01 to CK-LP-08)",
+   "coverage": "weak",
+   "note": "Only at Level 3 and above.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-01",
+   "fw": "au_smart_devices",
+   "refs": "",
+   "coverage": "none",
+   "note": "Outcome requirements only.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-02",
+   "fw": "eu_cra",
+   "refs": "Art 13(2)-(4); Annex VII point 3",
+   "coverage": "strong",
+   "note": "Justify every Annex I Part I (2) item not applied; one assessment per family allowed (guidance paras 174-177).",
+   "source": "kb"
+  },
+  {
+   "req": "UCS-02",
+   "fw": "uk_psti",
+   "refs": "",
+   "coverage": "none",
+   "note": "Not required.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-02",
+   "fw": "us_cyber_trust_mark",
+   "refs": "NIST IR 8425 s.2",
+   "coverage": "weak",
+   "note": "The baseline is risk-derived by NIST; manufacturers are not asked for their own assessment in the rules read.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-02",
+   "fw": "jp_jcstar",
+   "refs": "JST-SR-03-01-2026 (STAR-3 N/A conditions justified with evidence)",
+   "coverage": "weak",
+   "note": "STAR-3 only.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-02",
+   "fw": "sg_cls",
+   "refs": "CCC SP-151-2 5.2.1 (IMDA IoT Cyber Security Guide)",
+   "coverage": "weak",
+   "note": "Level 3 lifecycle only.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-02",
+   "fw": "au_smart_devices",
+   "refs": "",
+   "coverage": "none",
+   "note": "Not required.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-03",
+   "fw": "eu_cra",
+   "refs": "Arts 2-3, 7-8; Annexes III-IV; Art 32",
+   "coverage": "strong",
+   "note": "Class drives the route: Class I without a cited harmonised standard needs a notified body.",
+   "source": "kb"
+  },
+  {
+   "req": "UCS-03",
+   "fw": "uk_psti",
+   "refs": "Act ss.4-6; SI 2023/1007 reg 6, Sch 3 (as amended by SI 2025/211)",
+   "coverage": "strong",
+   "note": "Excepts desktops, laptops, non-cellular tablets, EV charge points, medical devices, smart meters, certain vehicles, NI products under Windsor Framework law.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-03",
+   "fw": "us_cyber_trust_mark",
+   "refs": "FCC 24-26 (eligibility and exclusions)",
+   "coverage": "partial",
+   "note": "Voluntary; excludes medical devices, motor vehicles, wired-only, enterprise and industrial products, Covered List equipment.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-03",
+   "fw": "jp_jcstar",
+   "refs": "IPA JC-STAR (IoT products communicating over IP)",
+   "coverage": "partial",
+   "note": "Voluntary; STAR-2 to STAR-4 exist only for some product types.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-03",
+   "fw": "sg_cls",
+   "refs": "CCC SP-151-2; CSA CLS(IoT) page",
+   "coverage": "partial",
+   "note": "Voluntary; consumer IoT.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-03",
+   "fw": "au_smart_devices",
+   "refs": "Cyber Security Act 2024 ss 13-14; Rules s 8",
+   "coverage": "strong",
+   "note": "Excepts desktops, laptops, tablets, smartphones, therapeutic goods, road vehicles.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-04",
+   "fw": "eu_cra",
+   "refs": "Art 13(5)",
+   "coverage": "strong",
+   "note": "Due diligence on all integrated components, including non-commercial FOSS.",
+   "source": "kb"
+  },
+  {
+   "req": "UCS-04",
+   "fw": "uk_psti",
+   "refs": "",
+   "coverage": "none",
+   "note": "Not required.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-04",
+   "fw": "us_cyber_trust_mark",
+   "refs": "FCC 24-26 (product includes companion apps and cloud)",
+   "coverage": "weak",
+   "note": "The applicant answers for the whole product; no component process prescribed.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-04",
+   "fw": "jp_jcstar",
+   "refs": "STAR-3 S3.1-15, S3.1-30",
+   "coverage": "weak",
+   "note": "STAR-3 only.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-04",
+   "fw": "sg_cls",
+   "refs": "CCC SP-151-2 5.2.4, 5.4 (binary analysis covers third-party components)",
+   "coverage": "weak",
+   "note": "Level 3 and above.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-04",
+   "fw": "au_smart_devices",
+   "refs": "",
+   "coverage": "none",
+   "note": "Not required.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-05",
+   "fw": "eu_cra",
+   "refs": "",
+   "coverage": "none",
+   "note": "No origin-based eligibility test in the CRA.",
+   "source": "kb"
+  },
+  {
+   "req": "UCS-05",
+   "fw": "uk_psti",
+   "refs": "",
+   "coverage": "none",
+   "note": "Not required.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-05",
+   "fw": "us_cyber_trust_mark",
+   "refs": "FCC 24-26 para 27 (declarations 2-5, under penalty of perjury); 47 CFR 1.50002",
+   "coverage": "strong",
+   "note": "Unique to the US programme; failure to cure within 20 days can end the authorisation (para 28).",
+   "source": "web"
+  },
+  {
+   "req": "UCS-05",
+   "fw": "jp_jcstar",
+   "refs": "",
+   "coverage": "none",
+   "note": "Not required.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-05",
+   "fw": "sg_cls",
+   "refs": "",
+   "coverage": "none",
+   "note": "Not required.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-05",
+   "fw": "au_smart_devices",
+   "refs": "",
+   "coverage": "none",
+   "note": "Not required.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-06",
+   "fw": "eu_cra",
+   "refs": "Annex I Part I (2)(b)",
+   "coverage": "strong",
+   "note": "Secure by default with reset to the original state; tailor-made carve-out only.",
+   "source": "kb"
+  },
+  {
+   "req": "UCS-06",
+   "fw": "uk_psti",
+   "refs": "SI 2023/1007 Sch 1 para 1",
+   "coverage": "weak",
+   "note": "Covers only the password part of the default state.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-06",
+   "fw": "us_cyber_trust_mark",
+   "refs": "NIST IR 8425 s.2.2.1 Product Configuration; registry secure-configuration guidance",
+   "coverage": "strong",
+   "note": "Registry tells users how to configure the product securely.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-06",
+   "fw": "jp_jcstar",
+   "refs": "STAR-1 S1.1-14, S1.1-16",
+   "coverage": "partial",
+   "note": "State persists after outages; secure-setup information; no full default-state rule.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-06",
+   "fw": "sg_cls",
+   "refs": "CCC SP-151-2 4.2.1 (EN 303 645 categories)",
+   "coverage": "partial",
+   "note": "Level 2 and above.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-06",
+   "fw": "au_smart_devices",
+   "refs": "Rules Sch 1 cl 2",
+   "coverage": "weak",
+   "note": "Passwords only.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-07",
+   "fw": "eu_cra",
+   "refs": "Annex I Part I (2)(b), (2)(d)",
+   "coverage": "partial",
+   "note": "Implied by secure default and access control; not stated in these words.",
+   "source": "kb"
+  },
+  {
+   "req": "UCS-07",
+   "fw": "uk_psti",
+   "refs": "SI 2023/1007 Sch 1 para 1(1)-(5); Sch 2 para 1 (EN 303 645 5.1-1, 5.1-2)",
+   "coverage": "strong",
+   "note": "Unique per product or user-defined; not incremental, public-derived, identifier-derived or guessable.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-07",
+   "fw": "us_cyber_trust_mark",
+   "refs": "NIST IR 8425 s.2.2.1 Interface Access Control; registry default-password guidance",
+   "coverage": "strong",
+   "note": "Registry explains how to change the default password.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-07",
+   "fw": "jp_jcstar",
+   "refs": "STAR-1 S1.1-02",
+   "coverage": "strong",
+   "note": "Unique and at least 6 characters, or forced change on first use to at least 8: the only numeric threshold.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-07",
+   "fw": "sg_cls",
+   "refs": "CCC SP-151-2 3.2.2 (Level 1 mandatory provision)",
+   "coverage": "strong",
+   "note": "No universal default passwords.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-07",
+   "fw": "au_smart_devices",
+   "refs": "Rules Sch 1 cl 2",
+   "coverage": "strong",
+   "note": "Mirrors PSTI.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-08",
+   "fw": "eu_cra",
+   "refs": "Annex I Part I (2)(j)",
+   "coverage": "strong",
+   "note": "Limit attack surfaces, including external interfaces.",
+   "source": "kb"
+  },
+  {
+   "req": "UCS-08",
+   "fw": "uk_psti",
+   "refs": "",
+   "coverage": "none",
+   "note": "Not required.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-08",
+   "fw": "us_cyber_trust_mark",
+   "refs": "NIST IR 8425 s.2.2.1 Interface Access Control",
+   "coverage": "partial",
+   "note": "Access control on interfaces; disabling unused ones is not stated as such.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-08",
+   "fw": "jp_jcstar",
+   "refs": "STAR-1 S1.1-13",
+   "coverage": "strong",
+   "note": "Disable unnecessary high-risk TCP/UDP ports, Bluetooth and USB.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-08",
+   "fw": "sg_cls",
+   "refs": "CCC SP-151-2 4.2.1 (EN 303 645 5.6)",
+   "coverage": "partial",
+   "note": "Level 2 and above.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-08",
+   "fw": "au_smart_devices",
+   "refs": "",
+   "coverage": "none",
+   "note": "Not required.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-09",
+   "fw": "eu_cra",
+   "refs": "Annex I Part I (2)(k)",
+   "coverage": "strong",
+   "note": "Reduce incident impact with exploitation mitigation mechanisms.",
+   "source": "kb"
+  },
+  {
+   "req": "UCS-09",
+   "fw": "uk_psti",
+   "refs": "",
+   "coverage": "none",
+   "note": "Not required.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-09",
+   "fw": "us_cyber_trust_mark",
+   "refs": "NIST IR 8425 (no exploit-mitigation capability)",
+   "coverage": "weak",
+   "note": "Not an IR 8425 outcome.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-09",
+   "fw": "jp_jcstar",
+   "refs": "STAR-3 S3.1-29",
+   "coverage": "weak",
+   "note": "STAR-3 only.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-09",
+   "fw": "sg_cls",
+   "refs": "CCC SP-151-2 5.4, 6.3",
+   "coverage": "weak",
+   "note": "Lab testing at Levels 3-4 would surface weaknesses; no design rule.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-09",
+   "fw": "au_smart_devices",
+   "refs": "",
+   "coverage": "none",
+   "note": "Not required.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-10",
+   "fw": "eu_cra",
+   "refs": "Annex I Part I (2)(a)",
+   "coverage": "strong",
+   "note": "'Known' includes EUVD and other prominent databases (guidance C(2026) 5252 paras 233-234).",
+   "source": "kb"
+  },
+  {
+   "req": "UCS-10",
+   "fw": "uk_psti",
+   "refs": "",
+   "coverage": "none",
+   "note": "Not required.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-10",
+   "fw": "us_cyber_trust_mark",
+   "refs": "FCC 24-26 para 27 (declaration 7)",
+   "coverage": "partial",
+   "note": "Ongoing duty to identify critical vulnerabilities and issue updates; not a release gate.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-10",
+   "fw": "jp_jcstar",
+   "refs": "STAR-1 S1.1-13",
+   "coverage": "strong",
+   "note": "A vulnerability scan must find no known exploitable vulnerabilities.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-10",
+   "fw": "sg_cls",
+   "refs": "CCC SP-151-2 5.6.1",
+   "coverage": "partial",
+   "note": "Level 3 binary-analysis pass criterion only.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-10",
+   "fw": "au_smart_devices",
+   "refs": "",
+   "coverage": "none",
+   "note": "Not required.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-11",
+   "fw": "eu_cra",
+   "refs": "Annex I Part I (2)(d)",
+   "coverage": "strong",
+   "note": "Authentication, identity or access management, and reporting of possible unauthorised access.",
+   "source": "kb"
+  },
+  {
+   "req": "UCS-11",
+   "fw": "uk_psti",
+   "refs": "SI 2023/1007 Sch 1 para 1",
+   "coverage": "weak",
+   "note": "Password quality only.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-11",
+   "fw": "us_cyber_trust_mark",
+   "refs": "NIST IR 8425 s.2.2.1 Interface Access Control",
+   "coverage": "strong",
+   "note": "Restrict logical access to authorised entities.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-11",
+   "fw": "jp_jcstar",
+   "refs": "STAR-1 S1.1-01",
+   "coverage": "strong",
+   "note": "Access to protected information over IP controlled by appropriate authentication.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-11",
+   "fw": "sg_cls",
+   "refs": "CCC SP-151-2 4.2.1 (EN 303 645 5.1, 5.5)",
+   "coverage": "partial",
+   "note": "Level 2 and above.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-11",
+   "fw": "au_smart_devices",
+   "refs": "Rules Sch 1 cl 2",
+   "coverage": "weak",
+   "note": "Password quality only.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-12",
+   "fw": "eu_cra",
+   "refs": "Annex I Part I (2)(d)",
+   "coverage": "partial",
+   "note": "Implied by protection from unauthorised access.",
+   "source": "kb"
+  },
+  {
+   "req": "UCS-12",
+   "fw": "uk_psti",
+   "refs": "SI 2023/1007 Sch 1 para 1(2)",
+   "coverage": "weak",
+   "note": "User-defined passwords allowed; no change or brute-force rule.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-12",
+   "fw": "us_cyber_trust_mark",
+   "refs": "NIST IR 8425 s.2.2.1 Interface Access Control",
+   "coverage": "partial",
+   "note": "Outcome-level only until the technical requirements are final.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-12",
+   "fw": "jp_jcstar",
+   "refs": "STAR-1 S1.1-03, S1.1-04",
+   "coverage": "strong",
+   "note": "Authentication values changeable; brute-force resistance for non-constrained devices.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-12",
+   "fw": "sg_cls",
+   "refs": "CCC SP-151-2 4.2.1 (EN 303 645 5.1)",
+   "coverage": "partial",
+   "note": "Level 2 and above.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-12",
+   "fw": "au_smart_devices",
+   "refs": "Rules Sch 1 cl 2",
+   "coverage": "weak",
+   "note": "Password quality only.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-13",
+   "fw": "eu_cra",
+   "refs": "Art 13(15)",
+   "coverage": "strong",
+   "note": "Type, batch or serial number or other identifying element on the product.",
+   "source": "kb"
+  },
+  {
+   "req": "UCS-13",
+   "fw": "uk_psti",
+   "refs": "SI 2023/1007 Sch 4 para 1(1)(a)",
+   "coverage": "weak",
+   "note": "Product type and batch only in the statement of compliance.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-13",
+   "fw": "us_cyber_trust_mark",
+   "refs": "NIST IR 8425 s.2.2.1 Asset Identification",
+   "coverage": "strong",
+   "note": "Product and components uniquely identifiable.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-13",
+   "fw": "jp_jcstar",
+   "refs": "STAR-1 S1.1-10",
+   "coverage": "strong",
+   "note": "Model number visible on the device, UI or companion app.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-13",
+   "fw": "sg_cls",
+   "refs": "",
+   "coverage": "none",
+   "note": "No identification requirement found in the specification read.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-13",
+   "fw": "au_smart_devices",
+   "refs": "Rules s 9(3)(a)",
+   "coverage": "weak",
+   "note": "Product type and batch only in the statement of compliance.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-14",
+   "fw": "eu_cra",
+   "refs": "Annex I Part I (2)(e)",
+   "coverage": "strong",
+   "note": "Encrypting relevant data at rest or in transit by state-of-the-art mechanisms.",
+   "source": "kb"
+  },
+  {
+   "req": "UCS-14",
+   "fw": "uk_psti",
+   "refs": "",
+   "coverage": "none",
+   "note": "Not required.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-14",
+   "fw": "us_cyber_trust_mark",
+   "refs": "NIST IR 8425 s.2.2.1 Data Protection",
+   "coverage": "strong",
+   "note": "Protect data at rest and in transit.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-14",
+   "fw": "jp_jcstar",
+   "refs": "STAR-1 S1.1-11, S1.1-12",
+   "coverage": "strong",
+   "note": "Secure storage including removable media; protection against eavesdropping.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-14",
+   "fw": "sg_cls",
+   "refs": "CCC SP-151-2 4.2.1 (EN 303 645 5.4, 5.5)",
+   "coverage": "partial",
+   "note": "Level 2 and above.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-14",
+   "fw": "au_smart_devices",
+   "refs": "",
+   "coverage": "none",
+   "note": "Not required.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-15",
+   "fw": "eu_cra",
+   "refs": "Annex I Part I (2)(f)",
+   "coverage": "strong",
+   "note": "Protect integrity of data, commands, programs and configuration; report on corruptions.",
+   "source": "kb"
+  },
+  {
+   "req": "UCS-15",
+   "fw": "uk_psti",
+   "refs": "",
+   "coverage": "none",
+   "note": "Not required.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-15",
+   "fw": "us_cyber_trust_mark",
+   "refs": "NIST IR 8425 s.2.2.1 Data Protection, Software Update",
+   "coverage": "partial",
+   "note": "Integrity of updates and data; secure boot not named.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-15",
+   "fw": "jp_jcstar",
+   "refs": "STAR-1 S1.1-08; STAR-3 S3.1-31",
+   "coverage": "partial",
+   "note": "STAR-1 checks update integrity; secure boot only at STAR-3.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-15",
+   "fw": "sg_cls",
+   "refs": "CCC SP-151-2 4.2.1 (EN 303 645 5.7)",
+   "coverage": "partial",
+   "note": "Level 2 and above.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-15",
+   "fw": "au_smart_devices",
+   "refs": "",
+   "coverage": "none",
+   "note": "Not required.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-16",
+   "fw": "eu_cra",
+   "refs": "Annex I Part I (2)(g)",
+   "coverage": "strong",
+   "note": "Adequate, relevant and limited to what is necessary.",
+   "source": "kb"
+  },
+  {
+   "req": "UCS-16",
+   "fw": "uk_psti",
+   "refs": "",
+   "coverage": "none",
+   "note": "Not required.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-16",
+   "fw": "us_cyber_trust_mark",
+   "refs": "",
+   "coverage": "none",
+   "note": "No minimisation outcome among the IR 8425 capabilities.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-16",
+   "fw": "jp_jcstar",
+   "refs": "",
+   "coverage": "none",
+   "note": "Not in STAR-1.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-16",
+   "fw": "sg_cls",
+   "refs": "CCC SP-151-2 4.2.1 (EN 303 645 clause 6)",
+   "coverage": "weak",
+   "note": "Personal-data provisions where Level 2 is claimed.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-16",
+   "fw": "au_smart_devices",
+   "refs": "",
+   "coverage": "none",
+   "note": "Not required.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-17",
+   "fw": "eu_cra",
+   "refs": "Annex I Part I (2)(m)",
+   "coverage": "strong",
+   "note": "Securely and easily remove on a permanent basis; secure transfer where data can be transferred.",
+   "source": "kb"
+  },
+  {
+   "req": "UCS-17",
+   "fw": "uk_psti",
+   "refs": "",
+   "coverage": "none",
+   "note": "Not required.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-17",
+   "fw": "us_cyber_trust_mark",
+   "refs": "NIST IR 8425 s.2.2.1 Data Protection",
+   "coverage": "partial",
+   "note": "Deletion sub-outcome not re-read for this module; verify against IR 8425 Table 3.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-17",
+   "fw": "jp_jcstar",
+   "refs": "STAR-1 S1.1-15",
+   "coverage": "strong",
+   "note": "Users can delete collected data, settings, authentication values and keys; firmware version unchanged.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-17",
+   "fw": "sg_cls",
+   "refs": "CCC SP-151-2 4.2.1 (EN 303 645 5.11)",
+   "coverage": "partial",
+   "note": "Level 2 and above.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-17",
+   "fw": "au_smart_devices",
+   "refs": "",
+   "coverage": "none",
+   "note": "Not required.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-18",
+   "fw": "eu_cra",
+   "refs": "Annex I Part I (2)(c); Part II (7)",
+   "coverage": "strong",
+   "note": "Security updates and secure distribution mechanisms.",
+   "source": "kb"
+  },
+  {
+   "req": "UCS-18",
+   "fw": "uk_psti",
+   "refs": "",
+   "coverage": "none",
+   "note": "PSTI requires the support period to be published, not an update capability.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-18",
+   "fw": "us_cyber_trust_mark",
+   "refs": "NIST IR 8425 s.2.2.1 Software Update",
+   "coverage": "strong",
+   "note": "Software updatable by authorised entities through a secure, configurable mechanism.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-18",
+   "fw": "jp_jcstar",
+   "refs": "STAR-1 S1.1-06, S1.1-08",
+   "coverage": "strong",
+   "note": "Updatable, version verifiable, persists after power-off; integrity checked before applying.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-18",
+   "fw": "sg_cls",
+   "refs": "CCC SP-151-2 3.2.2 (Level 1: keep software updated)",
+   "coverage": "partial",
+   "note": "Level 2 adds the EN 303 645 5.3 detail.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-18",
+   "fw": "au_smart_devices",
+   "refs": "",
+   "coverage": "none",
+   "note": "Not required.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-19",
+   "fw": "eu_cra",
+   "refs": "Annex I Part I (2)(c)",
+   "coverage": "strong",
+   "note": "Automatic by default where applicable, with an easy opt-out, notification and postponement.",
+   "source": "kb"
+  },
+  {
+   "req": "UCS-19",
+   "fw": "uk_psti",
+   "refs": "",
+   "coverage": "none",
+   "note": "Not required.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-19",
+   "fw": "us_cyber_trust_mark",
+   "refs": "Registry: whether updates are automatic (programme launch, 7 Jan 2025)",
+   "coverage": "partial",
+   "note": "Disclosure, not a mandate.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-19",
+   "fw": "jp_jcstar",
+   "refs": "STAR-1 S1.1-07; STAR-3 S3.1-10",
+   "coverage": "partial",
+   "note": "STAR-1 needs easy, clear update steps; automatic updates only at STAR-3.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-19",
+   "fw": "sg_cls",
+   "refs": "CCC SP-151-2 4.2.1 (EN 303 645 5.3)",
+   "coverage": "partial",
+   "note": "Level 2 and above.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-19",
+   "fw": "au_smart_devices",
+   "refs": "",
+   "coverage": "none",
+   "note": "Not required.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-20",
+   "fw": "eu_cra",
+   "refs": "Annex I Part II (2), (8)",
+   "coverage": "strong",
+   "note": "Without delay; separate where feasible; free of charge with advisory messages.",
+   "source": "kb"
+  },
+  {
+   "req": "UCS-20",
+   "fw": "uk_psti",
+   "refs": "",
+   "coverage": "none",
+   "note": "Not required.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-20",
+   "fw": "us_cyber_trust_mark",
+   "refs": "FCC 24-26 para 27 (declaration 7)",
+   "coverage": "partial",
+   "note": "Promptly issue corrective updates until the support end date.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-20",
+   "fw": "jp_jcstar",
+   "refs": "STAR-1 S1.1-09",
+   "coverage": "partial",
+   "note": "Documented policy for prioritising security updates.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-20",
+   "fw": "sg_cls",
+   "refs": "CCC SP-151-2 3.2.2 (Level 1: keep software updated)",
+   "coverage": "weak",
+   "note": "No timeliness or price rule.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-20",
+   "fw": "au_smart_devices",
+   "refs": "",
+   "coverage": "none",
+   "note": "Not required.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-21",
+   "fw": "eu_cra",
+   "refs": "Art 13(8)",
+   "coverage": "strong",
+   "note": "At least 5 years unless expected use is shorter; based on reasonable user expectations.",
+   "source": "kb"
+  },
+  {
+   "req": "UCS-21",
+   "fw": "uk_psti",
+   "refs": "SI 2023/1007 Sch 1 para 3(2), (3), (6); Sch 2 para 3 (EN 303 645 5.3-13)",
+   "coverage": "strong",
+   "note": "Publish; publish extensions as soon as practicable; shortening breaches the requirement.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-21",
+   "fw": "us_cyber_trust_mark",
+   "refs": "FCC 24-26 para 27(vii); registry support period",
+   "coverage": "strong",
+   "note": "Support end date in the registry; updates promised until then.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-21",
+   "fw": "jp_jcstar",
+   "refs": "STAR-1 S1.1-16",
+   "coverage": "partial",
+   "note": "Support-end policy in user information; update support while the 2-year label is valid.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-21",
+   "fw": "sg_cls",
+   "refs": "CCC SP-151-2 3.2.2; CSA-DSIT MoU 22 Oct 2025",
+   "coverage": "strong",
+   "note": "Level 1 treated as equivalent to the PSTI three.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-21",
+   "fw": "au_smart_devices",
+   "refs": "Rules Sch 1 cl 4(1)-(5)",
+   "coverage": "strong",
+   "note": "Expressed as a period with an end date; extensions published; no shortening.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-22",
+   "fw": "eu_cra",
+   "refs": "Art 13(9)-(11)",
+   "coverage": "strong",
+   "note": "Each update available for 10 years or the remainder of the support period.",
+   "source": "kb"
+  },
+  {
+   "req": "UCS-22",
+   "fw": "uk_psti",
+   "refs": "",
+   "coverage": "none",
+   "note": "Not required.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-22",
+   "fw": "us_cyber_trust_mark",
+   "refs": "",
+   "coverage": "none",
+   "note": "Not required.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-22",
+   "fw": "jp_jcstar",
+   "refs": "",
+   "coverage": "none",
+   "note": "Not required.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-22",
+   "fw": "sg_cls",
+   "refs": "",
+   "coverage": "none",
+   "note": "Not required.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-22",
+   "fw": "au_smart_devices",
+   "refs": "",
+   "coverage": "none",
+   "note": "Not required.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-23",
+   "fw": "eu_cra",
+   "refs": "Annex I Part II (1); Annex VII point 2(b)",
+   "coverage": "strong",
+   "note": "Commonly used machine-readable format; not required to be public.",
+   "source": "kb"
+  },
+  {
+   "req": "UCS-23",
+   "fw": "uk_psti",
+   "refs": "",
+   "coverage": "none",
+   "note": "Not required.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-23",
+   "fw": "us_cyber_trust_mark",
+   "refs": "",
+   "coverage": "none",
+   "note": "No SBOM requirement in FCC 24-26 as read; check the final technical requirements.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-23",
+   "fw": "jp_jcstar",
+   "refs": "STAR-3 S3.1-15",
+   "coverage": "weak",
+   "note": "STAR-3 only.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-23",
+   "fw": "sg_cls",
+   "refs": "CCC SP-151-2 5.2.4",
+   "coverage": "weak",
+   "note": "Lab binary analysis inventories third-party components at Level 3.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-23",
+   "fw": "au_smart_devices",
+   "refs": "",
+   "coverage": "none",
+   "note": "Not required.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-24",
+   "fw": "eu_cra",
+   "refs": "Annex I Part II (5), (6); Art 13(17)",
+   "coverage": "strong",
+   "note": "Enforce a CVD policy; contact address; contact means not limited to automated tools.",
+   "source": "kb"
+  },
+  {
+   "req": "UCS-24",
+   "fw": "uk_psti",
+   "refs": "SI 2023/1007 Sch 1 para 2(2)-(3); Sch 2 para 2 (EN 303 645 5.2-1 or ISO/IEC 29147 6.2.2, 6.2.5, 6.5)",
+   "coverage": "strong",
+   "note": "Contact point; when acknowledgement and status updates will come; accessible, English, free, no personal data.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-24",
+   "fw": "us_cyber_trust_mark",
+   "refs": "NIST IR 8425 s.2.2.2 Information and Query Reception",
+   "coverage": "strong",
+   "note": "Receive and respond to cybersecurity queries.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-24",
+   "fw": "jp_jcstar",
+   "refs": "STAR-1 S1.1-05",
+   "coverage": "strong",
+   "note": "Published policy covering contacts, handling steps and status updates.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-24",
+   "fw": "sg_cls",
+   "refs": "CCC SP-151-2 3.2.2 (Level 1: manage vulnerability reports)",
+   "coverage": "strong",
+   "note": "",
+   "source": "web"
+  },
+  {
+   "req": "UCS-24",
+   "fw": "au_smart_devices",
+   "refs": "Rules Sch 1 cl 3",
+   "coverage": "strong",
+   "note": "Mirrors PSTI.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-25",
+   "fw": "eu_cra",
+   "refs": "Annex I Part II (2); Art 13(7)",
+   "coverage": "strong",
+   "note": "Remediate without delay in relation to the risks; document and update the risk assessment.",
+   "source": "kb"
+  },
+  {
+   "req": "UCS-25",
+   "fw": "uk_psti",
+   "refs": "SI 2023/1007 Sch 1 para 2(2)(b)",
+   "coverage": "weak",
+   "note": "Status updates promised until resolution; no remediation duty.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-25",
+   "fw": "us_cyber_trust_mark",
+   "refs": "FCC 24-26 para 27 (declaration 7)",
+   "coverage": "strong",
+   "note": "Identify critical vulnerabilities and promptly issue updates until the support end date.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-25",
+   "fw": "jp_jcstar",
+   "refs": "STAR-1 S1.1-05, S1.1-09",
+   "coverage": "partial",
+   "note": "Handling steps and update-prioritisation policy.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-25",
+   "fw": "sg_cls",
+   "refs": "CCC SP-151-2 3.2.2",
+   "coverage": "partial",
+   "note": "Manage vulnerability reports.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-25",
+   "fw": "au_smart_devices",
+   "refs": "Rules Sch 1 cl 3",
+   "coverage": "weak",
+   "note": "Status updates only.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-26",
+   "fw": "eu_cra",
+   "refs": "Annex I Part II (3)",
+   "coverage": "strong",
+   "note": "Effective and regular tests and reviews.",
+   "source": "kb"
+  },
+  {
+   "req": "UCS-26",
+   "fw": "uk_psti",
+   "refs": "",
+   "coverage": "none",
+   "note": "Not required.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-26",
+   "fw": "us_cyber_trust_mark",
+   "refs": "FCC 24-26 (accredited lab testing before certification)",
+   "coverage": "partial",
+   "note": "One-off third-party test per label; test procedures not yet final (Oct 2026).",
+   "source": "web"
+  },
+  {
+   "req": "UCS-26",
+   "fw": "jp_jcstar",
+   "refs": "STAR-1 S1.1-13; STAR-3 S3.1-42",
+   "coverage": "partial",
+   "note": "STAR-1 vulnerability scan; STAR-3 third-party penetration test.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-26",
+   "fw": "sg_cls",
+   "refs": "CCC SP-151-2 5.4 (Level 3 binary analysis); 6.3 (Level 4 penetration test)",
+   "coverage": "partial",
+   "note": "Higher levels only.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-26",
+   "fw": "au_smart_devices",
+   "refs": "",
+   "coverage": "none",
+   "note": "Not required.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-27",
+   "fw": "eu_cra",
+   "refs": "Annex I Part II (4)",
+   "coverage": "strong",
+   "note": "Public disclosure of fixed vulnerabilities; delay only in duly justified cases.",
+   "source": "kb"
+  },
+  {
+   "req": "UCS-27",
+   "fw": "uk_psti",
+   "refs": "",
+   "coverage": "none",
+   "note": "Not required.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-27",
+   "fw": "us_cyber_trust_mark",
+   "refs": "NIST IR 8425 s.2.2.2 Information Dissemination",
+   "coverage": "partial",
+   "note": "Broadcast cybersecurity information to customers.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-27",
+   "fw": "jp_jcstar",
+   "refs": "STAR-1 S1.1-16",
+   "coverage": "partial",
+   "note": "Update notices in user information.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-27",
+   "fw": "sg_cls",
+   "refs": "CCC SP-151-2 3.2.2",
+   "coverage": "weak",
+   "note": "Implied by managing vulnerability reports.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-27",
+   "fw": "au_smart_devices",
+   "refs": "",
+   "coverage": "none",
+   "note": "Not required.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-28",
+   "fw": "eu_cra",
+   "refs": "Art 13(6)",
+   "coverage": "strong",
+   "note": "Report to the maintainer; share fixes where appropriate in machine-readable form.",
+   "source": "kb"
+  },
+  {
+   "req": "UCS-28",
+   "fw": "uk_psti",
+   "refs": "",
+   "coverage": "none",
+   "note": "Not required.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-28",
+   "fw": "us_cyber_trust_mark",
+   "refs": "",
+   "coverage": "none",
+   "note": "Not required.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-28",
+   "fw": "jp_jcstar",
+   "refs": "",
+   "coverage": "none",
+   "note": "Not required.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-28",
+   "fw": "sg_cls",
+   "refs": "",
+   "coverage": "none",
+   "note": "Not required.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-28",
+   "fw": "au_smart_devices",
+   "refs": "",
+   "coverage": "none",
+   "note": "Not required.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-29",
+   "fw": "eu_cra",
+   "refs": "Annex I Part I (2)(l)",
+   "coverage": "strong",
+   "note": "Record and monitor relevant internal activity, with an opt-out for the user.",
+   "source": "kb"
+  },
+  {
+   "req": "UCS-29",
+   "fw": "uk_psti",
+   "refs": "",
+   "coverage": "none",
+   "note": "Not required.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-29",
+   "fw": "us_cyber_trust_mark",
+   "refs": "NIST IR 8425 s.2.2.1 Cybersecurity State Awareness",
+   "coverage": "partial",
+   "note": "Support detection of incidents; no opt-out rule.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-29",
+   "fw": "jp_jcstar",
+   "refs": "STAR-3 S3.1-35",
+   "coverage": "weak",
+   "note": "STAR-3 only.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-29",
+   "fw": "sg_cls",
+   "refs": "CCC SP-151-2 4.2.1 (EN 303 645 5.10)",
+   "coverage": "weak",
+   "note": "Telemetry examination where Level 2 is claimed.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-29",
+   "fw": "au_smart_devices",
+   "refs": "",
+   "coverage": "none",
+   "note": "Not required.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-30",
+   "fw": "eu_cra",
+   "refs": "Annex I Part I (2)(h)",
+   "coverage": "strong",
+   "note": "Availability of essential and basic functions, also after an incident, including DoS resilience.",
+   "source": "kb"
+  },
+  {
+   "req": "UCS-30",
+   "fw": "uk_psti",
+   "refs": "",
+   "coverage": "none",
+   "note": "Not required.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-30",
+   "fw": "us_cyber_trust_mark",
+   "refs": "NIST IR 8425",
+   "coverage": "weak",
+   "note": "No resilience capability.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-30",
+   "fw": "jp_jcstar",
+   "refs": "STAR-1 S1.1-14",
+   "coverage": "partial",
+   "note": "Keep authentication values and updated software after power or network loss.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-30",
+   "fw": "sg_cls",
+   "refs": "CCC SP-151-2 4.2.1 (EN 303 645 5.9)",
+   "coverage": "partial",
+   "note": "Level 2 and above.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-30",
+   "fw": "au_smart_devices",
+   "refs": "",
+   "coverage": "none",
+   "note": "Not required.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-31",
+   "fw": "eu_cra",
+   "refs": "Annex I Part I (2)(i)",
+   "coverage": "strong",
+   "note": "Minimise negative impact on other devices or networks.",
+   "source": "kb"
+  },
+  {
+   "req": "UCS-31",
+   "fw": "uk_psti",
+   "refs": "",
+   "coverage": "none",
+   "note": "Not required.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-31",
+   "fw": "us_cyber_trust_mark",
+   "refs": "",
+   "coverage": "none",
+   "note": "Not an IR 8425 capability.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-31",
+   "fw": "jp_jcstar",
+   "refs": "",
+   "coverage": "none",
+   "note": "Not in STAR-1.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-31",
+   "fw": "sg_cls",
+   "refs": "",
+   "coverage": "none",
+   "note": "Not in Levels 1-2.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-31",
+   "fw": "au_smart_devices",
+   "refs": "",
+   "coverage": "none",
+   "note": "Not required.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-32",
+   "fw": "eu_cra",
+   "refs": "Art 14(1)-(7)",
+   "coverage": "strong",
+   "note": "24 h / 72 h / 14 days for exploited vulnerabilities; 24 h / 72 h / 1 month for severe incidents; live since 11 Sep 2026.",
+   "source": "kb"
+  },
+  {
+   "req": "UCS-32",
+   "fw": "uk_psti",
+   "refs": "",
+   "coverage": "none",
+   "note": "No authority reporting of vulnerabilities or incidents.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-32",
+   "fw": "us_cyber_trust_mark",
+   "refs": "",
+   "coverage": "none",
+   "note": "No authority reporting.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-32",
+   "fw": "jp_jcstar",
+   "refs": "",
+   "coverage": "none",
+   "note": "No authority reporting.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-32",
+   "fw": "sg_cls",
+   "refs": "",
+   "coverage": "none",
+   "note": "No authority reporting.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-32",
+   "fw": "au_smart_devices",
+   "refs": "",
+   "coverage": "none",
+   "note": "No product-vulnerability reporting under Part 2 (Part 3 ransomware reporting is separate and out of scope).",
+   "source": "web"
+  },
+  {
+   "req": "UCS-33",
+   "fw": "eu_cra",
+   "refs": "Art 14(8)",
+   "coverage": "strong",
+   "note": "Inform impacted users and, where necessary, all users.",
+   "source": "kb"
+  },
+  {
+   "req": "UCS-33",
+   "fw": "uk_psti",
+   "refs": "",
+   "coverage": "none",
+   "note": "Not required.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-33",
+   "fw": "us_cyber_trust_mark",
+   "refs": "NIST IR 8425 s.2.2.2 Information Dissemination",
+   "coverage": "partial",
+   "note": "Broadcast cybersecurity information to customers.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-33",
+   "fw": "jp_jcstar",
+   "refs": "STAR-1 S1.1-16",
+   "coverage": "weak",
+   "note": "Update notices only.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-33",
+   "fw": "sg_cls",
+   "refs": "",
+   "coverage": "none",
+   "note": "Not required.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-33",
+   "fw": "au_smart_devices",
+   "refs": "",
+   "coverage": "none",
+   "note": "Not required.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-34",
+   "fw": "eu_cra",
+   "refs": "Art 13(18); Annex II",
+   "coverage": "strong",
+   "note": "Annex II information kept available for 10 years or the support period.",
+   "source": "kb"
+  },
+  {
+   "req": "UCS-34",
+   "fw": "uk_psti",
+   "refs": "SI 2023/1007 Sch 1 para 2(3), 3(4)",
+   "coverage": "weak",
+   "note": "Reporting and support information must be accessible, clear and transparent.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-34",
+   "fw": "us_cyber_trust_mark",
+   "refs": "NIST IR 8425 s.2.2.2 Documentation, Product Education and Awareness; registry",
+   "coverage": "strong",
+   "note": "Registry carries secure-configuration guidance.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-34",
+   "fw": "jp_jcstar",
+   "refs": "STAR-1 S1.1-16",
+   "coverage": "strong",
+   "note": "Safe setup and use, update notices, support-end policy, disposal and data erasure.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-34",
+   "fw": "sg_cls",
+   "refs": "CCC SP-151-2 4.2.1 (EN 303 645 5.12)",
+   "coverage": "partial",
+   "note": "Level 2 and above.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-34",
+   "fw": "au_smart_devices",
+   "refs": "Rules Sch 1 cl 3-4",
+   "coverage": "weak",
+   "note": "Reporting and support information only.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-35",
+   "fw": "eu_cra",
+   "refs": "Art 13(19)",
+   "coverage": "strong",
+   "note": "End date including at least month and year, at the time of purchase.",
+   "source": "kb"
+  },
+  {
+   "req": "UCS-35",
+   "fw": "uk_psti",
+   "refs": "SI 2023/1007 Sch 1 para 3(5)",
+   "coverage": "strong",
+   "note": "Alongside or as prominent as price information on own or non-paid websites.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-35",
+   "fw": "us_cyber_trust_mark",
+   "refs": "Registry support period via the label QR code",
+   "coverage": "partial",
+   "note": "Reachable from the label, not required on the listing.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-35",
+   "fw": "jp_jcstar",
+   "refs": "IPA product list (label status and expiry)",
+   "coverage": "weak",
+   "note": "Label status, not the support end date.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-35",
+   "fw": "sg_cls",
+   "refs": "",
+   "coverage": "none",
+   "note": "Not required.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-35",
+   "fw": "au_smart_devices",
+   "refs": "Rules Sch 1 cl 4(7)",
+   "coverage": "strong",
+   "note": "Prominent alongside the product's main characteristics on manufacturer-controlled websites.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-36",
+   "fw": "eu_cra",
+   "refs": "Arts 28-30 (EU declaration and CE marking)",
+   "coverage": "weak",
+   "note": "CE marking signals conformity but is not a security label.",
+   "source": "kb"
+  },
+  {
+   "req": "UCS-36",
+   "fw": "uk_psti",
+   "refs": "",
+   "coverage": "none",
+   "note": "No label; a valid JC-STAR STAR-1 or CLS label gives deemed compliance under SI 2025/1267.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-36",
+   "fw": "us_cyber_trust_mark",
+   "refs": "FCC 24-26 paras 55, 78 (FCC IoT Label: Cyber Trust Mark plus QR code to registry)",
+   "coverage": "strong",
+   "note": "Only CLA-authorised products may carry the label.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-36",
+   "fw": "jp_jcstar",
+   "refs": "IPA press release 25 Mar 2025 (label with QR code to product page)",
+   "coverage": "strong",
+   "note": "STAR level shown; 2-year validity.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-36",
+   "fw": "sg_cls",
+   "refs": "CCC SP-151-2 3.4.3",
+   "coverage": "strong",
+   "note": "Label awarded by CCC at the level achieved.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-36",
+   "fw": "au_smart_devices",
+   "refs": "",
+   "coverage": "none",
+   "note": "No label.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-37",
+   "fw": "eu_cra",
+   "refs": "Art 13(15)-(17)",
+   "coverage": "strong",
+   "note": "Identification and contact details; single point of contact not limited to automated tools.",
+   "source": "kb"
+  },
+  {
+   "req": "UCS-37",
+   "fw": "uk_psti",
+   "refs": "SI 2023/1007 Sch 4 para 1(1)(b)",
+   "coverage": "partial",
+   "note": "Name and address in the statement of compliance.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-37",
+   "fw": "us_cyber_trust_mark",
+   "refs": "FCC 24-26 (application and registry)",
+   "coverage": "weak",
+   "note": "Applicant identified to the CLA; registry content not fully read.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-37",
+   "fw": "jp_jcstar",
+   "refs": "IPA product page (contact information)",
+   "coverage": "weak",
+   "note": "Security contact shown on the IPA page.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-37",
+   "fw": "sg_cls",
+   "refs": "",
+   "coverage": "none",
+   "note": "Not required.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-37",
+   "fw": "au_smart_devices",
+   "refs": "Rules s 9(3)(b)",
+   "coverage": "partial",
+   "note": "Names and addresses, including authorised representatives in Australia, in the statement.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-38",
+   "fw": "eu_cra",
+   "refs": "Art 13(12); Art 31; Annex VII",
+   "coverage": "strong",
+   "note": "Drawn up before placing on the market and kept up to date.",
+   "source": "kb"
+  },
+  {
+   "req": "UCS-38",
+   "fw": "uk_psti",
+   "refs": "Act s.12",
+   "coverage": "weak",
+   "note": "Records of investigations of compliance failures only.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-38",
+   "fw": "us_cyber_trust_mark",
+   "refs": "FCC 24-26 (application with lab test report to the CLA)",
+   "coverage": "partial",
+   "note": "Test report and application file, not a full technical file.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-38",
+   "fw": "jp_jcstar",
+   "refs": "JST-CR-01-01-2024 (STAR-1 conformance checklist and evaluation methods)",
+   "coverage": "partial",
+   "note": "Checklist with evidence per requirement.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-38",
+   "fw": "sg_cls",
+   "refs": "CCC SP-151-2 3.3, 4.3",
+   "coverage": "partial",
+   "note": "Evidence reviewed by the test lab and CCC.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-38",
+   "fw": "au_smart_devices",
+   "refs": "Cyber Security Act 2024 s 23",
+   "coverage": "weak",
+   "note": "Examination powers imply evidence on request.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-39",
+   "fw": "eu_cra",
+   "refs": "Art 28; Annexes V-VI; Art 13(20)",
+   "coverage": "strong",
+   "note": "One per product, in the languages of sale; simplified version gives the full declaration's URL.",
+   "source": "kb"
+  },
+  {
+   "req": "UCS-39",
+   "fw": "uk_psti",
+   "refs": "Act s.9; SI 2023/1007 reg 7, Sch 4",
+   "coverage": "strong",
+   "note": "Must accompany the product; seven content items including the defined support period and standards relied on.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-39",
+   "fw": "us_cyber_trust_mark",
+   "refs": "FCC 24-26 para 27",
+   "coverage": "strong",
+   "note": "Declaration under penalty of perjury with the application.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-39",
+   "fw": "jp_jcstar",
+   "refs": "IPA JC-STAR STAR-1 self-declaration",
+   "coverage": "strong",
+   "note": "Checklist-based self-declaration to IPA.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-39",
+   "fw": "sg_cls",
+   "refs": "CCC SP-151-2 3.1.2, 4.4.1",
+   "coverage": "strong",
+   "note": "Declaration of conformity.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-39",
+   "fw": "au_smart_devices",
+   "refs": "Cyber Security Act 2024 s 16; Rules s 9",
+   "coverage": "strong",
+   "note": "Supplied with the product; seven content items mirroring PSTI.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-40",
+   "fw": "eu_cra",
+   "refs": "Art 32; Annex VIII (Modules A, B, C, H)",
+   "coverage": "strong",
+   "note": "Notified body for Class I without a cited harmonised standard, and Class II.",
+   "source": "kb"
+  },
+  {
+   "req": "UCS-40",
+   "fw": "uk_psti",
+   "refs": "SI 2023/1007 Sch 2; SI 2025/1267 (JC-STAR STAR-1 or CLS label)",
+   "coverage": "weak",
+   "note": "Self-declared; deemed-compliance routes only.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-40",
+   "fw": "us_cyber_trust_mark",
+   "refs": "FCC 24-26 (CyberLAB testing; CLA certification to ISO/IEC 17065)",
+   "coverage": "strong",
+   "note": "Third-party test for every labelled product.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-40",
+   "fw": "jp_jcstar",
+   "refs": "IPA (STAR-1/2 self-declaration; STAR-3/4 approved evaluation body)",
+   "coverage": "strong",
+   "note": "Route rises with the level.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-40",
+   "fw": "sg_cls",
+   "refs": "CCC SP-151-2 3.4, 5.4, 6.3",
+   "coverage": "strong",
+   "note": "Declaration at Levels 1-2; lab testing at Levels 3-4.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-40",
+   "fw": "au_smart_devices",
+   "refs": "",
+   "coverage": "none",
+   "note": "Self-assessed; no route prescribed.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-41",
+   "fw": "eu_cra",
+   "refs": "Art 13(13)",
+   "coverage": "strong",
+   "note": "10 years or the support period, whichever is longer.",
+   "source": "kb"
+  },
+  {
+   "req": "UCS-41",
+   "fw": "uk_psti",
+   "refs": "SI 2023/1007 regs 8-9",
+   "coverage": "strong",
+   "note": "10 years from issue or the defined support period, whichever is longer.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-41",
+   "fw": "us_cyber_trust_mark",
+   "refs": "FCC 24-26 (renewal)",
+   "coverage": "weak",
+   "note": "Retention period not read.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-41",
+   "fw": "jp_jcstar",
+   "refs": "IPA (2-year label validity)",
+   "coverage": "weak",
+   "note": "Validity, not retention.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-41",
+   "fw": "sg_cls",
+   "refs": "",
+   "coverage": "none",
+   "note": "Not found in the specification read.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-41",
+   "fw": "au_smart_devices",
+   "refs": "Rules s 10",
+   "coverage": "strong",
+   "note": "5 years.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-42",
+   "fw": "eu_cra",
+   "refs": "Art 3(30); Art 28; FAQ 6.8",
+   "coverage": "strong",
+   "note": "A substantial modification may need a new conformity assessment and declaration.",
+   "source": "kb"
+  },
+  {
+   "req": "UCS-42",
+   "fw": "uk_psti",
+   "refs": "SI 2023/1007 Sch 4 para 1(1)(a)",
+   "coverage": "weak",
+   "note": "Statement tied to product type and batch.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-42",
+   "fw": "us_cyber_trust_mark",
+   "refs": "FCC 24-26 para 27 (update declaration on material change); renewal",
+   "coverage": "strong",
+   "note": "Label-design, renewal and post-market proceeding opened late Oct 2026.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-42",
+   "fw": "jp_jcstar",
+   "refs": "IPA (2-year validity; extension application)",
+   "coverage": "strong",
+   "note": "Labels expire unless extended.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-42",
+   "fw": "sg_cls",
+   "refs": "CCC SP-151-2",
+   "coverage": "partial",
+   "note": "Label renewal rules not read.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-42",
+   "fw": "au_smart_devices",
+   "refs": "Rules s 9(3)(a)",
+   "coverage": "weak",
+   "note": "Statement tied to product type and batch.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-43",
+   "fw": "eu_cra",
+   "refs": "Art 13(21)-(23); Arts 53-58",
+   "coverage": "strong",
+   "note": "Immediate correction, withdrawal or recall; information to MSAs on request.",
+   "source": "kb"
+  },
+  {
+   "req": "UCS-43",
+   "fw": "uk_psti",
+   "refs": "Act ss.10-11; ss.28-30",
+   "coverage": "strong",
+   "note": "Duties to investigate and act on compliance failures; compliance, stop and recall notices.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-43",
+   "fw": "us_cyber_trust_mark",
+   "refs": "FCC 24-26 para 28",
+   "coverage": "partial",
+   "note": "20 days to cure; authorisation can be terminated.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-43",
+   "fw": "jp_jcstar",
+   "refs": "IPA label statuses (withdrawn, revoked)",
+   "coverage": "partial",
+   "note": "Label can be withdrawn or revoked.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-43",
+   "fw": "sg_cls",
+   "refs": "CCC SP-151-2 3.4.6",
+   "coverage": "weak",
+   "note": "False declarations handled under Publication #1.",
+   "source": "web"
+  },
+  {
+   "req": "UCS-43",
+   "fw": "au_smart_devices",
+   "refs": "Cyber Security Act 2024 ss 17-20",
+   "coverage": "strong",
+   "note": "Compliance, stop and recall notices; public notification.",
+   "source": "web"
+  }
+ ]
+}

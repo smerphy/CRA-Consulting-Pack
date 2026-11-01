@@ -1,0 +1,224 @@
+{
+  "assumptions": {
+    "module_b_exam_eur": [
+      20000,
+      60000
+    ],
+    "module_h_first_eur": [
+      80000,
+      150000
+    ],
+    "day_rate_eur": 1800,
+    "assessor_days_per_year": 180,
+    "submod_first_type_factor": 0.4,
+    "submod_extra_type_factor": 0.1,
+    "b_periodic_audit_days": [
+      2,
+      4
+    ],
+    "b_change_notice_days": [
+      0.05,
+      0.15
+    ],
+    "h_org_scale": {
+      "lumen": 4,
+      "platforms": 3,
+      "devices": 4,
+      "cloud_apps": 3
+    },
+    "h_model_review_factor": 0.5,
+    "h_surveillance_share": [
+      0.25,
+      0.5
+    ],
+    "h_scope_extension_factor": 0.15,
+    "horizon_years": 5,
+    "capacity_scenarios": [
+      {
+        "name": "Thin (late 2027)",
+        "bodies": 5,
+        "assessors_per_body": 8
+      },
+      {
+        "name": "Moderate (2028)",
+        "bodies": 15,
+        "assessors_per_body": 12
+      },
+      {
+        "name": "Mature (2029+)",
+        "bodies": 30,
+        "assessors_per_body": 20
+      }
+    ]
+  },
+  "nb_route_families": 17,
+  "types_to_certify_year1_bc": 47.0,
+  "organisations": {
+    "cloud_apps": {
+      "bc_year1_cost_eur_low": 253120,
+      "bc_year1_cost_eur_high": 730560,
+      "bc_year1_body_days_low": 141,
+      "bc_year1_body_days_high": 406,
+      "bc_steady_cost_eur_per_year_low": 148720,
+      "bc_steady_cost_eur_per_year_high": 417360,
+      "bc_steady_body_days_per_year_low": 83,
+      "bc_steady_body_days_per_year_high": 232,
+      "h_year1_cost_eur_low": 288000,
+      "h_year1_cost_eur_high": 594000,
+      "h_year1_body_days_low": 160,
+      "h_year1_body_days_high": 330,
+      "h_steady_cost_eur_per_year_low": 90300,
+      "h_steady_cost_eur_per_year_high": 315900,
+      "h_steady_body_days_per_year_low": 50,
+      "h_steady_body_days_per_year_high": 176,
+      "bc_5yr_cost_eur_low": 848000,
+      "bc_5yr_cost_eur_high": 2400000,
+      "h_5yr_cost_eur_low": 649200,
+      "h_5yr_cost_eur_high": 1857600,
+      "recommended_route": "Module H"
+    },
+    "devices": {
+      "bc_year1_cost_eur_low": 831950,
+      "bc_year1_cost_eur_high": 2380650,
+      "bc_year1_body_days_low": 462,
+      "bc_year1_body_days_high": 1323,
+      "bc_steady_cost_eur_per_year_low": 606950,
+      "bc_steady_cost_eur_per_year_high": 1705650,
+      "bc_steady_body_days_per_year_low": 337,
+      "bc_steady_body_days_per_year_high": 948,
+      "h_year1_cost_eur_low": 377000,
+      "h_year1_cost_eur_high": 771000,
+      "h_year1_body_days_low": 209,
+      "h_year1_body_days_high": 428,
+      "h_steady_cost_eur_per_year_low": 148400,
+      "h_steady_cost_eur_per_year_high": 505200,
+      "h_steady_body_days_per_year_low": 82,
+      "h_steady_body_days_per_year_high": 281,
+      "bc_5yr_cost_eur_low": 3259750,
+      "bc_5yr_cost_eur_high": 9203250,
+      "h_5yr_cost_eur_low": 970600,
+      "h_5yr_cost_eur_high": 2791800,
+      "recommended_route": "Module H"
+    },
+    "lumen": {
+      "bc_year1_cost_eur_low": 261950,
+      "bc_year1_cost_eur_high": 771450,
+      "bc_year1_body_days_low": 146,
+      "bc_year1_body_days_high": 429,
+      "bc_steady_cost_eur_per_year_low": 233950,
+      "bc_steady_cost_eur_per_year_high": 687450,
+      "bc_steady_body_days_per_year_low": 130,
+      "bc_steady_body_days_per_year_high": 382,
+      "h_year1_cost_eur_low": 350000,
+      "h_year1_cost_eur_high": 690000,
+      "h_year1_body_days_low": 194,
+      "h_year1_body_days_high": 383,
+      "h_steady_cost_eur_per_year_low": 149000,
+      "h_steady_cost_eur_per_year_high": 507000,
+      "h_steady_body_days_per_year_low": 83,
+      "h_steady_body_days_per_year_high": 282,
+      "bc_5yr_cost_eur_low": 1197750,
+      "bc_5yr_cost_eur_high": 3521250,
+      "h_5yr_cost_eur_low": 946000,
+      "h_5yr_cost_eur_high": 2718000,
+      "recommended_route": "Module H"
+    },
+    "platforms": {
+      "bc_year1_cost_eur_low": 234670,
+      "bc_year1_cost_eur_high": 693210,
+      "bc_year1_body_days_low": 130,
+      "bc_year1_body_days_high": 385,
+      "bc_steady_cost_eur_per_year_low": 158670,
+      "bc_steady_cost_eur_per_year_high": 465210,
+      "bc_steady_body_days_per_year_low": 88,
+      "bc_steady_body_days_per_year_high": 258,
+      "h_year1_cost_eur_low": 280000,
+      "h_year1_cost_eur_high": 570000,
+      "h_year1_body_days_low": 156,
+      "h_year1_body_days_high": 317,
+      "h_steady_cost_eur_per_year_low": 99000,
+      "h_steady_cost_eur_per_year_high": 342000,
+      "h_steady_body_days_per_year_low": 55,
+      "h_steady_body_days_per_year_high": 190,
+      "bc_5yr_cost_eur_low": 869350,
+      "bc_5yr_cost_eur_high": 2554050,
+      "h_5yr_cost_eur_low": 676000,
+      "h_5yr_cost_eur_high": 1938000,
+      "recommended_route": "Module H"
+    }
+  },
+  "totals": {
+    "bc_y1": [
+      1581690,
+      4575870
+    ],
+    "bc_ss": [
+      1148290,
+      3275670
+    ],
+    "h_y1": [
+      1295000,
+      2625000
+    ],
+    "h_ss": [
+      486700,
+      1670100
+    ],
+    "bc_5y": [
+      6174850,
+      17678550
+    ],
+    "h_5y": [
+      3241800,
+      9305400
+    ],
+    "rec_y1": [
+      1295000,
+      2625000
+    ],
+    "rec_ss": [
+      486700,
+      1670100
+    ]
+  },
+  "totals_body_days": {
+    "bc_y1": [
+      879,
+      2542
+    ],
+    "bc_ss": [
+      638,
+      1820
+    ],
+    "h_y1": [
+      719,
+      1458
+    ],
+    "h_ss": [
+      270,
+      928
+    ],
+    "bc_5y": [
+      3430,
+      9821
+    ],
+    "h_5y": [
+      1801,
+      5170
+    ],
+    "rec_y1": [
+      719,
+      1458
+    ],
+    "rec_ss": [
+      270,
+      928
+    ]
+  },
+  "browser_naive_every_version_cost_eur_per_year_high": 33150000,
+  "capacity_scenarios": [
+    "5 bodies x 8 CRA assessors x 180 days = 7,200 body-days/yr; Aldermoor recommended-route year-1 demand = 10.0%-20.3%; steady state = 3.8%-12.9%; all-B+C year-1 = 12.2%-35.3%",
+    "15 bodies x 12 CRA assessors x 180 days = 32,400 body-days/yr; Aldermoor recommended-route year-1 demand = 2.2%-4.5%; steady state = 0.8%-2.9%; all-B+C year-1 = 2.7%-7.8%",
+    "30 bodies x 20 CRA assessors x 180 days = 108,000 body-days/yr; Aldermoor recommended-route year-1 demand = 0.7%-1.4%; steady state = 0.3%-0.9%; all-B+C year-1 = 0.8%-2.4%"
+  ]
+}

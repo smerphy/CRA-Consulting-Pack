@@ -1,0 +1,12 @@
+{
+  "format": "test-summary/v1",
+  "tool": "Aldermoor Red Team (internal)",
+  "report_uri": "pentest-HL3-4.3.0.pdf",
+  "scope": "Voice unlock path, cloud boundary, BLE",
+  "findings": {
+    "critical": 0,
+    "high": 0,
+    "medium": 2,
+    "low": 3
+  }
+}
