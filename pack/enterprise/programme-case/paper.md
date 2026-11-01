@@ -219,9 +219,9 @@ The top three readiness drivers are all about notified bodies, and two of them (
 
 | Issue | Modules | What the case uses | Reason |
 |---|---|---|---|
-| The E1 gate fails any Module H product without a certificate reference, and E1 enforces it for important products from Jun 2027 | E1 (control table; wave 1 exit criterion) against E3 (no certificate before late 2027 at best) | Enforce evidence checks (SBOM, provenance, VEX, tests) from Jun 2027; key the route and certificate check to placings from 11 Dec 2027 | As written, the gate would block every EU release of Lumen, Hearth and Pulse from Jun 2027, before the conformity duties apply |
+| Whether the E1 gate blocks Module H products without a certificate reference from Jun 2027 | E1 (control table; wave 1 exit criterion) against E3 (no certificate before late 2027 at best) | Resolved: the route/certificate check applies only to units placed from 11 Dec 2027. Evidence checks (SBOM, provenance, VEX, tests) are enforced for important products from Jun 2027 | E1's gate keys route and certificate gaps to the effective placing date, inherited or not, and reports them as INFO before 11 Dec 2027, so it does not block releases before the conformity duties apply |
 | Notified-body share of the market | E3: 10% to 20% of a thin market a year | 34% of a thin market in Q3 2027 | Same E3 body-days; the work must fit between 30 Jun and 11 Dec 2027 |
-| When to contract a body | E1: start Q1 2027; KB: contract by Q1 2027; E3: within 30 days of designation, no later than Q2 2027 | E3, with pre-contracting as lever L1 | A contract needs a designated body; none existed at the last verified check (8 Sep 2026) |
+| When to contract a body | KB: contract by Q1 2027; E1 and E3 previously said within 30 days of designation | Resolved: contract at least two bodies, with a third pre-contracted as the capacity hedge; letters of intent before designation so each contract completes within about 14 days of designation (levers L1 and L3). E1 and E3 now follow this; E3's demand model is unchanged | A contract needs a designated body; none existed at the last verified check (8 Sep 2026) |
 | Unit of the portfolio | E1: about 200 product lines; E3: 40 families | E1 for onboarding and documentation; E3 for classification and Module H | They count different things; both are kept |
 | Currency | E1 in USD; E3 in EUR | EUR at 0.919 per USD | Ratio in the brief |
 | Upstream reporting in the Art 14 workload | E2 counts Art 13(6) upstream hours now; E6 verifies Art 13(6) applies from 11 Dec 2027 | E2's hours kept (about 73 hours a year) | Good practice and immaterial; it is not a legal duty before Dec 2027 |
@@ -239,7 +239,7 @@ The top three readiness drivers are all about notified bodies, and two of them (
 | E1 evidence cost, 2027 (EUR m) | 5.5 / 8.8 / 16.7 | USD 6-14m = EUR 5.5-12.9m | evidence-as-code/paper.md; BRIEF.md |
 | EU product lines to onboard | 200 (150-250) | about 200 | evidence-as-code/aldermoor-additions.json |
 | Evidence storage, central | USD 340 a year x 5 tier multiple | about USD 340 | evidence-as-code/paper.md |
-| Incremental Art 14 FTE | 5.56 / 5.92 / 9.00 | 5.56 / 5.93 / 9.01 | art14-operations/volume_model_output.csv |
+| Incremental Art 14 FTE | 5.56 / 5.93 / 9.01 | 5.56 / 5.93 / 9.01 | art14-operations/volume_model_output.csv (the budget costs E2's three rounded components, cell, legal and comms) |
 | Art 14 user notices a year | 62 / 275 / 884 | 62 / 275 / 884 | art14-operations/volume_model_output.csv |
 | Existing duty-officer rota | not budgeted | 5.47 FTE-equivalent, absorbed in PSIRT | art14-operations/volume_model_output.csv |
 | Module H year-1 fees (EUR m) | 1.29 / 1.96 / 2.62 | 1.29-2.62 | portfolio-classification/nb_demand_summary.json |

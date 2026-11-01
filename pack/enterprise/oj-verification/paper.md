@@ -86,7 +86,7 @@ Several conclusions rest on draft guidance or on questions no authority has answ
 | D. Steward and manufacturer double filing | Two duties; file both from 11 Dec 2027, cross-referenced, unless NCSC accepts one | NCSC; Commission |
 | E. OS in own device versus OS supplied to OEMs | Default for own devices; keep OEM supply to free public source plus a licensed services package | Irish MSA; counsel |
 | F. Support-period floor per unit or per type | Per unit, applied as per-cohort end dates | Irish MSA; ADCO; counsel |
-| G. FIDO key with a secure element | Annex IV item 3 where the secure element is AVA_VAN.4 or higher and is the key's substance | Commission; Irish MSA; notified body |
+| G. FIDO key with a secure element | Class I item 1 by default; Annex IV item 3 if the key is a secure element or smartcard-like device designed to AVA_VAN.4 or higher | Commission; Irish MSA; notified body |
 | H. Remote data processing boundary | Consoles out; RDPS is what installed clients call directly | Commission; Irish MSA; counsel |
 
 Ireland's NCSC (CSIRT-IE) is Aldermoor's coordinator CSIRT, but its Guidelines say it "does not provide assistance or guidance in determining product scope or general regulatory applicability". The letter (`legal-positions/letter-to-ncsc.md`) therefore asks only questions A and D and coordinator confirmation for steward filings. No Irish market surveillance authority had been designated on the evidence found to 8 Oct 2026, so the scope and classification questions go to external counsel now (`legal-positions/counsel-brief.md`, opinions due 30 Nov 2026 to 31 Jan 2027) and to the authority once designated.
