@@ -1,0 +1,13 @@
+# Pilot and CI dependencies (versions as tested on 1 Nov 2026). Compiled to requirements-pilot.txt with hashes.
+cryptography==50.0.1
+asn1crypto==1.5.1
+jsonschema==4.26.0
+sigstore==4.5.1
+boto3==1.43.123
+moto[server]==5.2.5
+build==1.6.1
+cyclonedx-bom==7.6.0
+bandit[sarif]==1.9.4
+PyYAML==6.0.3
+pytest==9.1.1
+rfc3161-client==1.0.9

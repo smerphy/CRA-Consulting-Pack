@@ -73,23 +73,24 @@ def main() -> None:
     ws.title = "Read me"
     ws.column_dimensions["A"].width = 120
     rows = [
-        ("Aldermoor CRA Integrated Programme Case (module E7)", TITLE),
-        ("Fictional client. All Aldermoor figures are estimates. Facts as at 1 Nov 2026.", BLACK),
+        ("Aldermoor CRA Integrated Programme Case (module E7, v2)", TITLE),
+        ("Fictional client. All Aldermoor figures are estimates. Facts as at 1 Nov 2026; notified-body market evidence to 12 Sep 2026 (register) and vendor pages opened 1 Nov 2026.", BLACK),
         ("", BLACK),
         ("How to use", BOLD),
         ("1. Assumptions!C3 is the scenario switch: 1 = Low (cheap and fast), 2 = Base, 3 = High (costly and slow). For schedule inputs Low is the favourable end.", BLACK),
         ("2. Assumptions column G overrides the scenario for one input (enter 1, 2 or 3). Leave blank to follow C3.", BLACK),
-        ("3. Assumptions!C6:C10 are the decision levers L1-L5 (0 = off, 1 = on). They change the critical path; the budget profile does not change with levers.", BLACK),
-        ("4. Budget, Headcount and Critical path recalculate live. Budget!B22 checks the live total against model.py for scenarios 1-3 (expect 0 with no overrides and lever L4 off; L4 removes the separate Platforms QS fee).", BLACK),
-        ("5. Readiness (Monte Carlo), Sensitivity (tornado), NB schedule (queue) and Reconciliation are values pasted from model.py outputs; rerun model.py and this builder to refresh them.", BLACK),
+        ("3. Assumptions!C6:C10 are the decision levers L1-L5 (0 = off, 1 = on). They change the critical path and the budget (L1 reservation cost, L3 onboarding, L4 fee saving). Set all to 1 for the recommended plan.", BLACK),
+        ("4. Budget, Headcount, Critical path, Remediation and the weekly revenue on Cost of delay recalculate live. The Budget check cell compares the live total with model.py: against the recommended plan when all levers are 1, the plan as written when all are 0.", BLACK),
+        ("5. Readiness, Scenarios, Correlated MC, Cost of delay (expected values), Lever value, Sensitivity, NB schedule and Reconciliation are values pasted from model.py outputs; rerun model.py and this builder to refresh them.", BLACK),
+        ("6. Market evidence lists the public notified-body sources behind scenarios B and C; vendor statements are labelled as such.", BLACK),
         ("", BLACK),
         ("Colour code", BOLD),
         ("Blue text: hard-coded inputs. Black text: formulas. Green text: links to another sheet. Yellow fill: the switches a reader should change.", BLACK),
         ("", BLACK),
         ("Sources", BOLD),
         ("Every input row on Assumptions names its source: a module output file under pack/enterprise/, a KB section, a web page, or 'assumption'.", BLACK),
-        ("Module files read: art14-operations/volume_model_output.csv; portfolio-classification/nb_demand_summary.json, nb_demand.csv, classification_summary.json;", BLACK),
-        ("evidence-as-code/aldermoor-additions.json and paper.md; open-source-strategy/projects.yaml; global-control-set/controls.json; oj-verification/claims.csv.", BLACK),
+        ("Module files read: art14-operations/volume_model_output.csv; portfolio-classification/nb_demand_summary.json, nb_demand.csv, classification_summary.json, classification.csv, portfolio.yaml;", BLACK),
+        ("evidence-as-code/aldermoor-additions.json and paper.md; open-source-strategy/projects.yaml; global-control-set/controls.json; oj-verification/claims.csv. Remediation calibration: pack/clients/example-group/client.yaml cost_model.", BLACK),
         ("", BLACK),
         ("Units: EUR unless stated; USD converted at 0.919 (BRIEF.md: USD 310bn = EUR 285bn). Days are calendar days from 2 Nov 2026. Q4 2026 covers Nov-Dec.", BLACK),
     ]
@@ -122,7 +123,7 @@ def main() -> None:
     wa.freeze_panes = wa.cell(row=r0 + 1, column=1)
     row = r0 + 1
     for it in M.items:
-        if it["section"] not in ("global", "cost", "nb"):
+        if it["section"] not in ("global", "cost", "nb", "cod"):
             continue
         wa.cell(row=row, column=1, value=it["key"]).font = BLACK
         wa.cell(row=row, column=2, value=it["section"]).font = BLACK
@@ -156,6 +157,52 @@ def main() -> None:
         c.number_format = "#,##0.00"
         wd.cell(row=r, column=4, value=tpl).font = BLACK
         name(wb, key, "Derived", f"$C${r}")
+
+    # ------------------------------------------------------------------ Remediation and support periods (live)
+    wm = wb.create_sheet("Remediation")
+    wm["A1"] = "Product remediation and support-period extension by family (live formulas over Assumptions)"
+    wm["A1"].font = TITLE
+    wm["A2"] = ("Remediation FTE-years = base-pack rate for the class x E3 complexity x MAX(1, types)^rem_type_exp x rem_scale x severity. "
+                "Support extension: launch-anchored policies need floor + sales life years; last-sold policies need the floor. "
+                "FTE a year = extra years x model cohorts a year x sp_fte_per_model_year x complexity.")
+    header(wm, 4, ["ID", "Family", "Business line", "Class", "Rate class", "Severity key", "E3 complexity", "Types",
+                   "Remediation FTE-years", "Remediation EUR m", "Support policy (years)", "Anchor", "Cohorts a year",
+                   "Extra years needed", "Support FTE a year", "Support EUR m a year", "Policy source"],
+           [6, 44, 20, 12, 10, 12, 10, 8, 12, 12, 10, 12, 10, 10, 10, 12, 70])
+    rate_nm = {"default": "rem_rate_default", "class1": "rem_rate_class1", "class2": "rem_rate_class2"}
+    r = 5
+    for f in M.families:
+        vals = [f["family_id"], f["name"], f["business_line"], f["class_bucket"], f["rem_rate_class"], f["severity_key"]]
+        for j, v_ in enumerate(vals):
+            wm.cell(row=r, column=1 + j, value=v_).font = BLACK
+        wm.cell(row=r, column=7, value=f["complexity"]).font = BLUE
+        wm.cell(row=r, column=8, value=f["initial_types"]).font = BLUE
+        if f["rem_scope"] == "yes":
+            fx = f"={rate_nm[f['rem_rate_class']]}*G{r}*MAX(1,H{r})^rem_type_exp*rem_scale*{f['severity_key']}"
+        else:
+            fx = 0
+        c = wm.cell(row=r, column=9, value=fx)
+        c.number_format = NUM2
+        c = wm.cell(row=r, column=10, value=f"=I{r}*fte_cost_eur/1000000")
+        c.number_format = EURM
+        wm.cell(row=r, column=11, value=f["sp_policy_years"]).font = BLUE
+        wm.cell(row=r, column=12, value=f["sp_anchor"]).font = BLUE
+        wm.cell(row=r, column=13, value=f["sp_cohorts_per_year"]).font = BLUE
+        c = wm.cell(row=r, column=14, value=f'=IF(L{r}="launch",MAX(0,sp_floor_years+sp_sales_life_years-K{r}),IF(L{r}="last_sold",MAX(0,sp_floor_years-K{r}),0))')
+        c.number_format = NUM2
+        c = wm.cell(row=r, column=15, value=f"=N{r}*M{r}*sp_fte_per_model_year*G{r}")
+        c.number_format = NUM2
+        c = wm.cell(row=r, column=16, value=f"=O{r}*fte_cost_eur/1000000")
+        c.number_format = EURM
+        wm.cell(row=r, column=17, value=f["sp_policy_source"]).font = BLACK
+        r += 1
+    wm.cell(row=r, column=1, value="Total").font = BOLD
+    for col in (9, 10, 15, 16):
+        c = wm.cell(row=r, column=col, value=f"=SUM({L(col)}5:{L(col)}{r - 1})")
+        c.font, c.number_format = BOLD, (EURM if col in (10, 16) else NUM2)
+    name(wb, "rem_fteyrs", "Remediation", f"$I${r}")
+    name(wb, "sp_fte_yr", "Remediation", f"$O${r}")
+    wm.freeze_panes = "C5"
 
     # ------------------------------------------------------------------ Lines
     wl = wb.create_sheet("Lines")
@@ -214,7 +261,7 @@ def main() -> None:
     wbud["B2"] = '=CHOOSE(scenario,"Low","Base","High")'
     wbud["B2"].font = GREEN
     header(wbud, 4, ["Workstream", "One-off", "Run Q4 2026-Q4 2027", "Run 2028 (annual)", "Total Q4 2026-Q4 2028"], [46, 16, 20, 18, 22])
-    wsn = sorted({ln["workstream"] for ln in M.lines})
+    wsn = sorted({ln["workstream"] for ln in M.lines}, key=lambda x: int(x.split()[0]))
     for k, w in enumerate(wsn):
         r = 5 + k
         wbud.cell(row=r, column=1, value=w).font = BLACK
@@ -222,7 +269,7 @@ def main() -> None:
             c = wbud.cell(row=r, column=2 + j, value=f'=SUMIFS({rng(tc0 + j)},{rng(2)},$A{r})/1000000')
             c.font, c.number_format = GREEN, EURM
     rc = 5 + len(wsn)
-    wbud.cell(row=rc, column=1, value="10 Contingency").font = BLACK
+    wbud.cell(row=rc, column=1, value="11 Contingency").font = BLACK
     wbud.cell(row=rc, column=2, value=f"=contingency_rate*SUM(B5:B{rc - 1})").number_format = EURM
     wbud.cell(row=rc, column=3, value=f"=contingency_run_rate*SUM(C5:C{rc - 1})").number_format = EURM
     wbud.cell(row=rc, column=4, value=f"=contingency_run_rate*SUM(D5:D{rc - 1})").number_format = EURM
@@ -235,27 +282,31 @@ def main() -> None:
     # static model.py results and check
     rs = rt + 3
     wbud.cell(row=rs - 1, column=1, value="model.py results (values) for comparison, EUR m").font = BOLD
-    header(wbud, rs, ["Scenario", "One-off", "Run Q4 2026-Q4 2027", "Run 2028 (annual)", "Total Q4 2026-Q4 2028"])
-    for k, s in enumerate(mdl.SCEN):
-        r = rs + 1 + k
-        wbud.cell(row=r, column=1, value=s).font = BLACK
-        for j, m in enumerate(("one_off", "run_2027", "run_2028", "total")):
-            c = wbud.cell(row=r, column=2 + j, value=summ["budget_eur_m"][s][m])
-            c.font, c.number_format = BLUE, EURM
-    chk = rs + 4
-    assert chk == 22, chk  # Read me refers to Budget!B22
-    wbud.cell(row=chk, column=1, value="Check: live total less model.py total for the selected scenario (0 when no overrides)").font = BOLD
-    c = wbud.cell(row=chk, column=2, value=f"=ROUND(E{rt}-INDEX(E{rs + 1}:E{rs + 3},scenario),2)")
+    header(wbud, rs, ["Plan and scenario", "One-off", "Run Q4 2026-Q4 2027", "Run 2028 (annual)", "Total Q4 2026-Q4 2028"])
+    for k, (lab, key) in enumerate((("Recommended plan, levers L1-L5", "budget_eur_m"), ("Plan as written, levers off", "budget_as_written_eur_m"))):
+        for kk, s_ in enumerate(mdl.SCEN):
+            r = rs + 1 + 3 * k + kk
+            wbud.cell(row=r, column=1, value=f"{lab}: {s_}").font = BLACK
+            for j, m in enumerate(("one_off", "run_2027", "run_2028", "total")):
+                c = wbud.cell(row=r, column=2 + j, value=summ[key][s_][m])
+                c.font, c.number_format = BLUE, EURM
+    chk = rs + 8
+    lev_sum = "+".join(mdl.LEVERS)
+    wbud.cell(row=chk, column=1, value="Check: live total less model.py total for the selected scenario (0 when no overrides; levers all 1 or all 0)").font = BOLD
+    c = wbud.cell(row=chk, column=2, value=f'=IF({lev_sum}=5,ROUND(E{rt}-INDEX(E{rs + 1}:E{rs + 3},scenario),2),IF({lev_sum}=0,ROUND(E{rt}-INDEX(E{rs + 4}:E{rs + 6},scenario),2),"mixed levers"))')
     c.font, c.number_format = BOLD, EURM
-    wbud.cell(row=chk + 2, column=1, value="Cost Monte Carlo (model.py, 5,000 runs, inputs sampled independently; EUR m)").font = BOLD
-    header(wbud, chk + 3, ["Measure", "P10", "P50", "P90"])
-    for k, (m, lab) in enumerate((("one_off", "One-off"), ("run_2028", "Run 2028"), ("total_q4_2026_to_q4_2028", "Total Q4 2026-Q4 2028"))):
-        r = chk + 4 + k
-        wbud.cell(row=r, column=1, value=lab).font = BLACK
-        for j, p in enumerate(("p10", "p50", "p90")):
-            c = wbud.cell(row=r, column=2 + j, value=summ["cost_monte_carlo_eur_m"][m][p])
-            c.font, c.number_format = BLUE, EURM
-    rq = chk + 9
+    wbud.cell(row=chk + 2, column=1, value="Joint Monte Carlo, recommended plan (model.py, 5,000 runs; EUR m). Funding level = correlated P90").font = BOLD
+    header(wbud, chk + 3, ["Measure and sampling", "P10", "P50", "P80", "P90", "Mean"])
+    rr = chk + 4
+    for m, lab in (("one_off", "One-off"), ("run_2028", "Run 2028"), ("total", "Total Q4 2026-Q4 2028")):
+        for mode, mlab in (("independent", "independent inputs"), ("market_only", "correlated, three market factors"), ("correlated", "correlated, four factors")):
+            wbud.cell(row=rr, column=1, value=f"{lab}: {mlab}").font = BLACK
+            st = summ["joint_mc_cost_eur_m"][f"recommended|{mode}|{m}"]
+            for j, p in enumerate(("p10", "p50", "p80", "p90", "mean")):
+                c = wbud.cell(row=rr, column=2 + j, value=st[p])
+                c.font, c.number_format = BLUE, EURM
+            rr += 1
+    rq = rr + 1
     wbud.cell(row=rq, column=1, value="Spend by quarter, live (EUR m, before contingency)").font = BOLD
     for q in range(nq):
         wbud.cell(row=rq + 1, column=2 + q, value=Q[q]).font = BOLD
@@ -376,7 +427,7 @@ def main() -> None:
 
     # ------------------------------------------------------------------ Readiness (MC values)
     wr = wb.create_sheet("Readiness")
-    wr["A1"] = "Probability of readiness by target date (Monte Carlo, 5,000 runs, PERT; values from model.py)"
+    wr["A1"] = "Probability of readiness by target date: scenario A (stated capacity assumptions), inputs independent (Monte Carlo, 5,000 runs, PERT; values from model.py). CONDITIONAL on the stated capacity assumptions; see Scenarios"
     wr["A1"].font = TITLE
     prob = list(csv.DictReader((OUT / "readiness_probability.csv").open()))
     sets = []
@@ -458,6 +509,115 @@ def main() -> None:
     bc.set_categories(Reference(wn, min_col=1, min_row=4, max_row=tr_ - 1))
     bc.height, bc.width = 8, 20
     wn.add_chart(bc, f"A{tr_ + 4}")
+
+    # ------------------------------------------------------------------ Scenarios (values)
+    wsc = wb.create_sheet("Scenarios")
+    wsc["A1"] = "P(ready by target) by notified-body market scenario, sampling mode and lever set (values from model.py)"
+    wsc["A1"].font = TITLE
+    for k, (sc, d_) in enumerate(mdl.MARKET_SCEN.items()):
+        wsc.cell(row=2 + k, column=1, value=f"{sc}: {d_}").font = BLACK
+    rsc = list(csv.DictReader((OUT / "readiness_scenarios.csv").open()))
+    nodes_s = ["R_LUM", "R_PLT", "R_DEV", "R_CLD", "R_DEF", "END"]
+    header(wsc, 6, ["Scenario", "Mode", "Lever set", "Lumen", "Platforms", "Devices", "Cloud and apps", "Default", "All lines", "All lines P50 date", "All lines P80 date"],
+           [9, 12, 10, 9, 9, 9, 9, 9, 9, 14, 14])
+    keyd = {(x["scenario"], x["mode"], x["lever_set"], x["node"]): x for x in rsc}
+    combos = sorted({(x["scenario"], x["mode"], x["lever_set"]) for x in rsc})
+    for k, (sc, mode, sid) in enumerate(combos):
+        r = 7 + k
+        for j, v_ in enumerate((sc, mode, sid)):
+            wsc.cell(row=r, column=1 + j, value=v_).font = BLACK
+        for j, n in enumerate(nodes_s):
+            c = wsc.cell(row=r, column=4 + j, value=float(keyd[(sc, mode, sid, n)]["p_ready_by_target"]))
+            c.font, c.number_format = BLUE, PCT
+        wsc.cell(row=r, column=10, value=keyd[(sc, mode, sid, "END")]["p50_date"]).font = BLUE
+        wsc.cell(row=r, column=11, value=keyd[(sc, mode, sid, "END")]["p80_date"]).font = BLUE
+    wsc.freeze_panes = "D7"
+
+    # ------------------------------------------------------------------ Cost of delay (live weekly exposure; expected values pasted)
+    wcd = wb.create_sheet("Cost of delay")
+    wcd["A1"] = "EU revenue at risk if a line cannot place new units or versions after 11 Dec 2027 (estimates; units already placed may continue)"
+    wcd["A1"].font = TITLE
+    header(wcd, 3, ["Line", "Hardware revenue (EUR m a year)", "Paid software revenue", "Enabled revenue", "Weekly revenue at risk, live (EUR m)", "Note"],
+           [34, 16, 16, 16, 18, 90])
+    EXd = summ["cod_exposure_eur_m_yr"]
+    for k, (cid, _, lname) in enumerate(mdl.COD_LINES):
+        r = 4 + k
+        wcd.cell(row=r, column=1, value=lname).font = BLACK
+        for j, cls in enumerate(("hardware", "sw_product", "sw_enabled")):
+            c = wcd.cell(row=r, column=2 + j, value=EXd[cid][cls])
+            c.font, c.number_format = BLUE, NUM1
+        c = wcd.cell(row=r, column=5, value=f"=(B{r}*cod_exp_hardware+C{r}*cod_exp_swproduct+D{r}*cod_exp_swenabled)/52")
+        c.number_format = NUM2
+    rT = 4 + len(mdl.COD_LINES)
+    wcd.cell(row=rT, column=1, value="Total").font = BOLD
+    for col in range(2, 6):
+        c = wcd.cell(row=rT, column=col, value=f"=SUM({L(col)}4:{L(col)}{rT - 1})")
+        c.font, c.number_format = BOLD, (NUM2 if col == 5 else NUM1)
+    wcd.cell(row=4, column=6, value="Revenue from portfolio-classification/classification.csv (illustrative); mapping in families.csv. Hardware loses revenue after the channel-stock buffer (cod_buffer_weeks)").font = BLACK
+    wcd.cell(row=5, column=6, value="Free clients keep current users and security updates (Art 69(2); guidance paras 15, 108); only a feature freeze bites").font = BLACK
+    cod = list(csv.DictReader((OUT / "cost_of_delay.csv").open()))
+    r0 = rT + 3
+    wcd.cell(row=r0 - 1, column=1, value="Monte Carlo cost of delay (values from model.py; correlated four-factor mode unless stated; lateness capped at 31 Dec 2028)").font = BOLD
+    cols = ["scenario", "mode", "lever_set", "line", "p_late", "mean_weeks_late", "p80_weeks_late", "expected_rar_eur_m", "p90_rar_eur_m"]
+    header(wcd, r0, cols)
+    rr = r0 + 1
+    for x in cod:
+        if x["lever_set"] not in ("S0", "S1", "S6", "S7", "S7-L4", "S9"):
+            continue
+        for j, c_ in enumerate(cols):
+            v_ = x[c_]
+            try:
+                v_ = float(v_) if j >= 4 and v_ != "" else v_
+            except ValueError:
+                pass
+            c = wcd.cell(row=rr, column=1 + j, value=v_)
+            c.font = BLUE if j >= 4 else BLACK
+            if c_ == "p_late" and v_ != "":
+                c.number_format = PCT
+        rr += 1
+
+    # ------------------------------------------------------------------ Lever value (values)
+    wlv = wb.create_sheet("Lever value")
+    wlv["A1"] = "Expected value of each lever: reduction in expected EU revenue at risk x contribution margin, less budget cost (values from model.py; correlated mode)"
+    wlv["A1"].font = TITLE
+    lv = list(csv.DictReader((OUT / "lever_value.csv").open()))
+    cols = list(lv[0].keys())
+    header(wlv, 3, cols, [8, 50, 9, 12, 14, 12, 12, 14, 12])
+    for k, x in enumerate(lv):
+        for j, c_ in enumerate(cols):
+            v_ = x[c_]
+            c = wlv.cell(row=4 + k, column=1 + j, value=float(v_) if j >= 3 else v_)
+            c.font = BLUE if j >= 3 else BLACK
+            if j >= 3:
+                c.number_format = EURM
+    wlv.cell(row=6 + len(lv), column=1, value="'Alone' compares the lever with the base plan; 'in set' removes it from L1-L5. Costs are the change in total budget Q4 2026-Q4 2028 at base inputs. Margin: cod_margin base.").font = BLACK
+
+    # ------------------------------------------------------------------ Correlation (values)
+    wco = wb.create_sheet("Correlation")
+    wco["A1"] = "Factor loadings for the correlated Monte Carlo (from assumptions.yaml). Positive loading moves an input towards its costly or slow end."
+    wco["A1"].font = TITLE
+    header(wco, 3, ["Input"] + list(mdl.FACTORS) + ["Own noise share", "Why"], [30, 10, 10, 10, 10, 14, 80])
+    for k, (key, ld) in enumerate(M.corr.items()):
+        r = 4 + k
+        wco.cell(row=r, column=1, value=key).font = BLACK
+        for j, f_ in enumerate(mdl.FACTORS):
+            c = wco.cell(row=r, column=2 + j, value=ld[f_])
+            c.font, c.number_format = BLUE, NUM2
+        c = wco.cell(row=r, column=2 + len(mdl.FACTORS), value=f"=SQRT(MAX(0,1-SUMSQ(B{r}:{L(1 + len(mdl.FACTORS))}{r})))")
+        c.number_format = NUM2
+        wco.cell(row=r, column=3 + len(mdl.FACTORS), value=ld["why"]).font = BLACK
+
+    # ------------------------------------------------------------------ Market evidence (values)
+    wme = wb.create_sheet("Market evidence")
+    wme["A1"] = "Public evidence on CRA notified-body capacity (pages opened 1 Nov 2026; vendor statements labelled)"
+    wme["A1"].font = TITLE
+    me = list(csv.reader((HERE / "market_evidence.csv").open()))
+    header(wme, 3, me[0], [6, 30, 12, 80, 16, 14, 26, 60, 60])
+    for k, rrow in enumerate(me[1:]):
+        for j, v_ in enumerate(rrow):
+            c = wme.cell(row=4 + k, column=1 + j, value=v_)
+            c.font = BLACK
+            c.alignment = Alignment(wrap_text=True, vertical="top")
 
     # ------------------------------------------------------------------ Reconciliation
     wrc = wb.create_sheet("Reconciliation")

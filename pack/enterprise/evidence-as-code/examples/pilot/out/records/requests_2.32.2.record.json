@@ -1,0 +1,328 @@
+{
+  "schema_version": "1.1.0",
+  "record_id": "urn:aldermoor-pilot:cra-evidence:requests:2.32.2",
+  "generated_at": "2026-11-01T15:47:35Z",
+  "product": {
+    "product_id": "requests",
+    "name": "requests HTTP library for Python (pilot product line; real open-source project)",
+    "manufacturer": "Pilot assumption: treated as if placed on the EU market by Aldermoor Platforms (fictional). Real project: github.com/psf/requests; maintainers not involved.",
+    "product_type": "software",
+    "family": "Python HTTP client"
+  },
+  "version": {
+    "version": "2.32.2",
+    "release_date": "2024-05-21",
+    "previous_version": "2.31.0",
+    "artefact": {
+      "uri": "s3://cra-pilot-evidence/v1/requests/2.32.2/artefact/requests-2.32.2-py3-none-any.whl",
+      "media_type": "application/octet-stream",
+      "size_bytes": 63790,
+      "digests": {
+        "sha256": "cdf3ccd974238c5f8d0532f58ae9f578db23c6281b9c64971a8a23a50bfb2cd7",
+        "sha512": "969d9d45ce37001ea67babaa25f42533110601a5ecb0b727bdf654278185b98887e2091a7cae70f5d2b404c05d12d5da4c577df5b4d7a1e90a182ad5651132a3"
+      }
+    }
+  },
+  "placing_on_market": {
+    "date": "2024-05-21",
+    "event": "substantial_modification_placing",
+    "member_states": [
+      "IE",
+      "DE",
+      "FR",
+      "NL"
+    ]
+  },
+  "classification": {
+    "class": "default",
+    "annex_category": "Not listed in Annex III or IV (authored assumption: general-purpose HTTP client library)",
+    "conformity_route": "module_a",
+    "harmonised_standards_applied_in_full": []
+  },
+  "evidence": {
+    "sbom": {
+      "uri": "s3://cra-pilot-evidence/v1/requests/2.32.2/evidence/sbom.cdx.json",
+      "media_type": "application/vnd.cyclonedx+json",
+      "size_bytes": 10253,
+      "digests": {
+        "sha256": "e9a6d12dc8cac269585ec95abc6115b3f19719f57f51d661f0d0ea87a86a8700",
+        "sha512": "8fe04cf99faf3b3b63ed259273c9a4bae7cd8c761a876ea92c03b21b569223ef16539b70c0beb96882fd7fd05dae13dab6bd33a9d6d268564c5c66b6b8488d9a"
+      },
+      "format": "CycloneDX",
+      "spec_version": "1.6",
+      "component_count": 4,
+      "top_level_dependencies": [
+        "certifi",
+        "charset-normalizer",
+        "idna",
+        "urllib3"
+      ],
+      "top_level_complete": true,
+      "contains_vulnerability_data": false
+    },
+    "provenance": {
+      "uri": "s3://cra-pilot-evidence/v1/requests/2.32.2/evidence/provenance.sigstore.json",
+      "media_type": "application/json",
+      "size_bytes": 4560,
+      "digests": {
+        "sha256": "e9e93461921fdddb401206f17a751857e3a6144cf6e84fea8020048e749d082a",
+        "sha512": "75bc245bb74aa53029824bff3a0f09dbe052b1cd8b7d2b4ab89d2dff99a9de216ca204bd14e5f4ed8533c54209bb48f0e7128d0b3287d8dd9c5789997f7d7321"
+      },
+      "format": "in-toto Statement v1 / SLSA Provenance v1",
+      "predicate_type": "https://slsa.dev/provenance/v1",
+      "builder_id": "https://aldermoor.example/builders/cra-pilot-local/v1",
+      "build_type": "https://aldermoor.example/cra-pilot/buildtypes/python-sdist-wheel/v1",
+      "invocation_id": "62dacd85-6029-4e69-b690-d810ee3bffa7",
+      "subject_digest_match": true,
+      "verification": {
+        "verified": true,
+        "method": "key",
+        "envelope": "sigstore_bundle",
+        "signer": {
+          "key": "pilot-builder-provenance",
+          "keyid": "SHA256:LtEEJhfdOoKKZInsCD29AHPwIzK35xg/wEu9cPj0tIo",
+          "algorithm": "ecdsa-p256-sha256",
+          "owner": "Pilot builder (local)",
+          "timestamps": [
+            {
+              "tsa": "pilot-test-tsa",
+              "gen_time": "2026-11-01T15:46:38Z",
+              "serial": "8020952891373442834",
+              "policy": "1.3.6.1.4.1.57264.2",
+              "hash_algorithm": "sha256",
+              "accuracy": {
+                "seconds": 1
+              },
+              "tsa_certificate_sha256": "52321df0a2b455164816dc3be142a9c11ceac0e51211efd0a74b9634c151d731"
+            }
+          ],
+          "signing_time": "2026-11-01T15:46:38Z",
+          "signing_time_source": "RFC 3161 timestamp (pilot-test-tsa)"
+        },
+        "tlog": null,
+        "trust_policy_id": "cra-pilot-trust/1.0.0",
+        "problems": [],
+        "slsa_build_level": 1
+      }
+    },
+    "vulnerability_status": {
+      "uri": "s3://cra-pilot-evidence/v1/requests/2.32.2/evidence/vex.openvex.json",
+      "media_type": "application/vnd.openvex+json",
+      "size_bytes": 264,
+      "digests": {
+        "sha256": "e3e6e3bb332aebedfea811d5402d44204156e17a5d728700e05b8a197eb1230e",
+        "sha512": "9ae984ed068c64bec17c34382634c5af5f9342a0c3bfbe76ae1aa65c884bd13959503dbe9e33808545554d731f720ef733efc36e468b630d86a357b9c97a2784"
+      },
+      "format": "OpenVEX",
+      "statements": [],
+      "attestation": {
+        "uri": "s3://cra-pilot-evidence/v1/requests/2.32.2/evidence/vex.openvex.sigstore.json",
+        "media_type": "application/json",
+        "size_bytes": 2784,
+        "digests": {
+          "sha256": "c2e309e0769ac1c10cfa60c8a422a54df666b0ebb9faffdf05dd82b74fbff9ab",
+          "sha512": "2e7eb7c2a797af046376a36fd5a2275eced86582dcca47ccd25ee52e7192f6c4d99c14a1897cd940e46491d5ddf0a25c25352bb7b76eb559804de7b2c7c39158"
+        }
+      },
+      "known_vulnerability_matches": [],
+      "feeds": [
+        "OSV PyPI records published by 2024-05-21T18:51:32.819665Z (snapshot 2026-11-01)",
+        "CISA KEV 2026.10.30 (via cisagov/kev-data)"
+      ],
+      "verification": {
+        "verified": true,
+        "method": "key",
+        "envelope": "sigstore_bundle",
+        "signer": {
+          "key": "pilot-psirt-vex",
+          "keyid": "SHA256:3qlxoO3fgRY2gF23bAym4DAD26tXlnfPfStv3xO/UFU",
+          "algorithm": "ed25519",
+          "owner": "Pilot PSIRT (authored VEX)",
+          "timestamps": [
+            {
+              "tsa": "pilot-test-tsa",
+              "gen_time": "2026-11-01T15:47:35Z",
+              "serial": "8020952891373442846",
+              "policy": "1.3.6.1.4.1.57264.2",
+              "hash_algorithm": "sha256",
+              "accuracy": {
+                "seconds": 1
+              },
+              "tsa_certificate_sha256": "52321df0a2b455164816dc3be142a9c11ceac0e51211efd0a74b9634c151d731"
+            }
+          ],
+          "signing_time": "2026-11-01T15:47:35Z",
+          "signing_time_source": "RFC 3161 timestamp (pilot-test-tsa)"
+        },
+        "tlog": null,
+        "trust_policy_id": "cra-pilot-trust/1.0.0",
+        "problems": []
+      }
+    },
+    "tests": [
+      {
+        "uri": "s3://cra-pilot-evidence/v1/requests/2.32.2/evidence/sast.sarif",
+        "media_type": "application/sarif+json",
+        "size_bytes": 20630,
+        "digests": {
+          "sha256": "c87e44b3124a567614c755d7e7307840d9ce1a4074310f5e00e655a388f1131b",
+          "sha512": "909eaefa8356ec2cc8a211d236237427997a0cf03018a7491341e6452df1344c81cdf69084a3048b8f189dcc15c16ce668c26cbb7584d8ac85a58bafa2c1c235"
+        },
+        "test_type": "sast",
+        "format": "SARIF",
+        "tool": "Bandit",
+        "summary": {
+          "error": 3,
+          "warning": 0,
+          "note": 6,
+          "suppressed": 0
+        }
+      }
+    ],
+    "risk_assessment": {
+      "uri": "s3://cra-pilot-evidence/v1/requests/2.32.2/docs/risk-assessment.md",
+      "media_type": "text/markdown",
+      "size_bytes": 346,
+      "digests": {
+        "sha256": "4c1375c9391ce6747a572a1c1e0fe3488893982f5bd06652a2befbd0c4d451a6",
+        "sha512": "68f2282b5dd16a2fda5af9bf4df7803a63bb85523d646e77834a5d812c4acd4fa95eba361bf76af1d496362351aa9d1367732f22e7aa3ae4f1e4904fed693469"
+      },
+      "ref": "RA-requests-2.32.2"
+    },
+    "applicability_matrix": {
+      "uri": "s3://cra-pilot-evidence/v1/requests/2.32.2/docs/applicability-matrix.json",
+      "media_type": "application/json",
+      "size_bytes": 2513,
+      "digests": {
+        "sha256": "e885c3dad355630d1df59b1b976121f0e8533e64c6c3bd85e36dfc7357259049",
+        "sha512": "0ad231a47b17322e9655af7c0f483389c2a96b8580d2a696f06d2e45361e6812f42cb1ab63fc649369ee38c8f6d4be55665e4cb2d352f8df55302e0faada203a"
+      },
+      "ref": "AM-requests-2.32.2",
+      "items_covered": [
+        "1",
+        "2a",
+        "2b",
+        "2c",
+        "2d",
+        "2e",
+        "2f",
+        "2g",
+        "2h",
+        "2i",
+        "2j",
+        "2k",
+        "2l",
+        "2m"
+      ],
+      "items_not_applied": [
+        "2l",
+        "2m"
+      ]
+    },
+    "annex_ii_user_information": {
+      "uri": "s3://cra-pilot-evidence/v1/requests/2.32.2/docs/annex-ii-user-information.md",
+      "media_type": "text/markdown",
+      "size_bytes": 203,
+      "digests": {
+        "sha256": "60fba76fb462152db899c9f7f94c33b667f0d5434b2127e66d354566aee60ab7",
+        "sha512": "e58c1c5f88bc1361c77362cf590948cef01aa94ec7c9956b7ee2a9faa056bc5f4e9ea06996ce1d053c432fef14cb3d5c3eaa3b384f57d6f3e6a90c614971afe4"
+      },
+      "ref": "https://aldermoor.example/cra-pilot/security/requests/2.32.2/"
+    },
+    "update_design_note": {
+      "uri": "s3://cra-pilot-evidence/v1/requests/2.32.2/docs/update-design-note.md",
+      "media_type": "text/markdown",
+      "size_bytes": 174,
+      "digests": {
+        "sha256": "48d8d713f9bd8bacdc68d6cc5764bfff92069358da691d348a60b1d9e0447050",
+        "sha512": "5d96e0d6242c10fa131c3834d8bd99d5c2cc45e7b0679a5005c3f56e22981bb8c57b080aaac4ca29cd070538c3ab622ea5395bf4d567faf29ad09981d2c9c4d4"
+      },
+      "ref": "UDN-requests"
+    },
+    "cvd_policy": {
+      "uri": "s3://cra-pilot-evidence/v1/requests/2.32.2/docs/cvd-policy.md",
+      "media_type": "text/markdown",
+      "size_bytes": 150,
+      "digests": {
+        "sha256": "6fefeb586c89150b324541144574f9f2ddc7e9325b2537e903802f00bacfe4ec",
+        "sha512": "414d117b3353598bd9a32e29765e354a74bb2f7ec4fd127849ae4433df61cdbb65646722b983501b6eb2a67608cf062f6533c1abc2347a1bbb827b6052d10afc"
+      },
+      "ref": "https://github.com/psf/requests/security"
+    }
+  },
+  "support_period": {
+    "end_date": "2029-05-21",
+    "years": 5.0,
+    "justification": "Authored: each version supported for 5 years from its release date; users receive fixes by moving to the latest version (Art 13(10)).",
+    "latest_version_rule": true
+  },
+  "substantial_modification": {
+    "change_type": "security_and_functionality",
+    "questions": {
+      "new_threat_vectors": false,
+      "new_attack_scenarios": false,
+      "changed_likelihood": true,
+      "changed_impact": false
+    },
+    "rationale": "Treated as substantial for illustration: the shared global SSLContext introduced in 2.32.0 changes how TLS verification state is reused across requests, which the assessor judged a change in the likelihood of TLS verification errors that the risk assessment did not foresee. New placing; conformity assessment repeated (Module A).",
+    "assessed_by": "Product security officer, pilot (authored role)",
+    "decision": "substantial",
+    "conformity_assessment_ref": "PILOT-CA-requests-2.32.2 (authored)",
+    "bundling_justification": "Upstream shipped the CVE-2024-35195 fix in the same release as the TLS-context and packaging changes; 2.32.0 and 2.32.1 were yanked, so 2.32.2 is the first installable version carrying the fix."
+  },
+  "declaration": {
+    "declaration_id": "PILOT-DoC-requests-2.32.2",
+    "status": "updated",
+    "uri": "https://aldermoor.example/cra-pilot/doc/requests/2.32.2",
+    "signatory_function": "Pilot signatory (authored)"
+  },
+  "signer": {
+    "identity": "spiffe://aldermoor.example/cra-pilot/release-pipeline/requests",
+    "role": "Pilot release manager (accountable); pipeline key signs the record",
+    "signature_ref": "Signed record: DSSE by pilot-release-record with RFC 3161 timestamp; provenance key pilot-builder-provenance; VEX key pilot-psirt-vex"
+  },
+  "retention": {
+    "retain_until": "2034-05-21",
+    "rule": "Art 13(13): max(placing + 10 years, support period end)",
+    "store_uri": "s3://cra-pilot-evidence/v1/requests/2.32.2/",
+    "object_lock_mode": "compliance"
+  },
+  "gate": {
+    "decision": "FAIL",
+    "policy_id": "cra-pilot-gate/1.0.0",
+    "evaluated_at": "2026-11-01T15:47:35Z",
+    "reasons": [
+      {
+        "code": "SBOM_OK",
+        "severity": "info",
+        "message": "CycloneDX 1.6, 4 components, 4 top-level",
+        "basis": "Annex I Part II(1); Annex VII pts 2(b), 8 (KB 08-annex1-part2; guide 06-sbom)"
+      },
+      {
+        "code": "PROVENANCE_VERIFIED",
+        "severity": "info",
+        "message": "key signature verified (pilot-builder-provenance); builder https://aldermoor.example/builders/cra-pilot-local/v1 at SLSA Build L1 per trust policy cra-pilot-trust/1.0.0; subject bound by sha256",
+        "basis": "Annex VII pt 2(c); Art 13(14); integrity of the technical file (guide 05-sdlc 'sign evidence'); SLSA v1.0 'Verifying artifacts' step 1"
+      },
+      {
+        "code": "VEX_VERIFIED",
+        "severity": "info",
+        "message": "VEX signature verified (pilot-psirt-vex)",
+        "basis": "Annex I Part II(2); guidance para 218 (guide 06-sbom): VEX is self-issued, so its origin must be provable"
+      },
+      {
+        "code": "TEST_FINDINGS_OPEN",
+        "severity": "fail",
+        "message": "sast: 3 unsuppressed error-level results",
+        "basis": "Annex I Part II(3); Annex VII pt 6 (KB 08-annex1-part2; KB 10-conformity)",
+        "subject": "sast"
+      },
+      {
+        "code": "SM_SUBSTANTIAL_ASSESSED",
+        "severity": "info",
+        "message": "substantial modification assessed (PILOT-CA-requests-2.32.2 (authored)); new placing",
+        "basis": "Guidance pts 104-112, 108-110, 116 (KB 10-conformity; KB 03-scope)"
+      }
+    ]
+  }
+}

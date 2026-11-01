@@ -391,9 +391,14 @@ def match_osv(components, osv_records, kev_ids):
 
     Uses a name index so cost grows with SBOM size, not feed size; output
     order is feed order, then component order (same as a nested scan).
+    Only ECOSYSTEM and SEMVER ranges are compared with package versions: GIT
+    ranges carry commit hashes, which are not versions (real OSV records,
+    for example PYSEC entries, carry both). A vulnerability reported by
+    several records (GHSA and PYSEC aliases) is matched once per component.
     """
     idx = index_osv(osv_records)
     found = {}
+    seen_pairs = set()
     for ci, comp in enumerate(components):
         if not comp.get("version"):
             continue
@@ -406,9 +411,15 @@ def match_osv(components, osv_records, kev_ids):
                     continue
                 seen.add(key)
                 for rng in aff.get("ranges") or []:
+                    if rng.get("type", "ECOSYSTEM") not in ("ECOSYSTEM", "SEMVER"):
+                        continue
                     if version_in_range(comp["version"], rng.get("events") or []):
                         ids = [rec.get("id")] + list(rec.get("aliases") or [])
-                        cve = next((i for i in ids if i and i.startswith("CVE-")), rec.get("id"))
+                        cve = next((i for i in ids if i and i.startswith("CVE-")), None) or \
+                            min(i for i in ids if i)          # same id for GHSA/PYSEC records that alias each other
+                        if (cve, ci) in seen_pairs:
+                            break
+                        seen_pairs.add((cve, ci))
                         sev = (rec.get("database_specific") or {}).get("severity")
                         found[(ri, ci, id(aff))] = {
                             "vulnerability": cve,

@@ -1,0 +1,92 @@
+{
+  "product_id": "requests",
+  "basis": "Art 13(3)-(4); Annex I Part I (AUTHORED PILOT STUB)",
+  "items": [
+    {
+      "item": "1",
+      "title": "Appropriate level of cybersecurity",
+      "applies": true,
+      "implementation": "Pilot stub: see risk assessment"
+    },
+    {
+      "item": "2a",
+      "title": "No known exploitable vulnerabilities",
+      "applies": true,
+      "implementation": "Pilot stub: see risk assessment"
+    },
+    {
+      "item": "2b",
+      "title": "Secure by default",
+      "applies": true,
+      "implementation": "Pilot stub: see risk assessment"
+    },
+    {
+      "item": "2c",
+      "title": "Security updates",
+      "applies": true,
+      "implementation": "Pilot stub: see risk assessment"
+    },
+    {
+      "item": "2d",
+      "title": "Protection from unauthorised access",
+      "applies": true,
+      "implementation": "Pilot stub: see risk assessment"
+    },
+    {
+      "item": "2e",
+      "title": "Confidentiality",
+      "applies": true,
+      "implementation": "Pilot stub: see risk assessment"
+    },
+    {
+      "item": "2f",
+      "title": "Integrity",
+      "applies": true,
+      "implementation": "Pilot stub: see risk assessment"
+    },
+    {
+      "item": "2g",
+      "title": "Data minimisation",
+      "applies": true,
+      "implementation": "Pilot stub: see risk assessment"
+    },
+    {
+      "item": "2h",
+      "title": "Availability of essential functions",
+      "applies": true,
+      "implementation": "Pilot stub: see risk assessment"
+    },
+    {
+      "item": "2i",
+      "title": "Minimise impact on other networks",
+      "applies": true,
+      "implementation": "Pilot stub: see risk assessment"
+    },
+    {
+      "item": "2j",
+      "title": "Limit attack surface",
+      "applies": true,
+      "implementation": "Pilot stub: see risk assessment"
+    },
+    {
+      "item": "2k",
+      "title": "Exploitation mitigation",
+      "applies": true,
+      "implementation": "Pilot stub: see risk assessment"
+    },
+    {
+      "item": "2l",
+      "title": "Logging and monitoring",
+      "applies": false,
+      "implementation": "Pilot stub: see risk assessment",
+      "justification": "A library emits no security logs of its own; the integrating application logs (authored)"
+    },
+    {
+      "item": "2m",
+      "title": "Secure data removal and transfer",
+      "applies": false,
+      "implementation": "Pilot stub: see risk assessment",
+      "justification": "The library stores no user data at rest (authored)"
+    }
+  ]
+}

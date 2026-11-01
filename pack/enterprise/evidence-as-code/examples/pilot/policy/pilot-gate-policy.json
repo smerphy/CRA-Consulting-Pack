@@ -1,0 +1,177 @@
+{
+  "policy_id": "cra-pilot-gate/1.0.0",
+  "description": "Pilot gate policy (authored) for a default-class software library placed via Module A.",
+  "trusted_builders": [
+    "https://aldermoor.example/builders/cra-pilot-local/v1"
+  ],
+  "accepted_predicate_types": [
+    "https://slsa.dev/provenance/v1"
+  ],
+  "min_support_years": 5,
+  "fail_untriaged_severities": [
+    "critical",
+    "high"
+  ],
+  "required_tests": {
+    "default": [
+      "sast"
+    ],
+    "products": {}
+  },
+  "pentest_required_on": [],
+  "sarif_fail_level": "error",
+  "harmonised_standards_cited": [],
+  "required_matrix_items": [
+    "1",
+    "2a",
+    "2b",
+    "2c",
+    "2d",
+    "2e",
+    "2f",
+    "2g",
+    "2h",
+    "2i",
+    "2j",
+    "2k",
+    "2l",
+    "2m"
+  ],
+  "accepted_vex_predicate_types": [
+    "https://openvex.dev/ns/v0.2.0",
+    "https://openvex.dev/ns"
+  ],
+  "attestation_trust": {
+    "trust_policy_id": "cra-pilot-trust/1.0.0",
+    "description": "Pilot trust policy. All keys are file-based demonstration keys (examples/pilot/keys); the TSA is a local test authority. The builder is a local script, rated SLSA Build L1.",
+    "require_signed_provenance": true,
+    "require_signed_vex": true,
+    "min_slsa_build_level": 1,
+    "keys": {
+      "pilot-builder-provenance": {
+        "algorithm": "ecdsa-p256-sha256",
+        "keyid": "SHA256:LtEEJhfdOoKKZInsCD29AHPwIzK35xg/wEu9cPj0tIo",
+        "public_key_pem": "-----BEGIN PUBLIC KEY-----\nMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEZFoP17Wkh1cKOJDxoe6OuguOp/DX\n03fAH5H1K4BZucOwu7OdynAwSwZuBNYxpQ9hFuUbzwm5eCuVyAhGftX2aA==\n-----END PUBLIC KEY-----\n",
+        "owner": "Pilot builder (local)",
+        "purposes": [
+          "provenance"
+        ],
+        "status": "active",
+        "not_before": "2026-01-01T00:00:00Z",
+        "not_after": "2030-12-31T23:59:59Z",
+        "custody": "local file (demonstration only): /home/claude/cra-consulting-pack/pack/enterprise/evidence-as-code/examples/pilot/keys/pilot-builder-provenance.demo-private.pem"
+      },
+      "pilot-psirt-vex": {
+        "algorithm": "ed25519",
+        "keyid": "SHA256:3qlxoO3fgRY2gF23bAym4DAD26tXlnfPfStv3xO/UFU",
+        "public_key_pem": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEAY6h9eeYL+k21pqhNmkb5HAwgWGXRHUjyK5c3RG4CG/M=\n-----END PUBLIC KEY-----\n",
+        "owner": "Pilot PSIRT (authored VEX)",
+        "purposes": [
+          "vex"
+        ],
+        "status": "active",
+        "not_before": "2026-01-01T00:00:00Z",
+        "not_after": "2030-12-31T23:59:59Z",
+        "custody": "local file (demonstration only): /home/claude/cra-consulting-pack/pack/enterprise/evidence-as-code/examples/pilot/keys/pilot-psirt-vex.demo-private.pem"
+      },
+      "pilot-release-record": {
+        "algorithm": "ecdsa-p256-sha256",
+        "keyid": "SHA256:hjKHlk055lyGU+9fsQMaM8Aa4ucx1p4bpdh6JKz0O8w",
+        "public_key_pem": "-----BEGIN PUBLIC KEY-----\nMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEcim9uHKa62i0E7oA9X12j5NXiB12\nx2WUnwh1qJMqpoFkjpB+U1KLsJsmsuHa/XlNECrRvNkj1X2Sm3lsO7hLvQ==\n-----END PUBLIC KEY-----\n",
+        "owner": "Pilot release pipeline",
+        "purposes": [
+          "evidence_record"
+        ],
+        "status": "active",
+        "not_before": "2026-01-01T00:00:00Z",
+        "not_after": "2030-12-31T23:59:59Z",
+        "custody": "local file (demonstration only): /home/claude/cra-consulting-pack/pack/enterprise/evidence-as-code/examples/pilot/keys/pilot-release-record.demo-private.pem"
+      },
+      "pilot-evidence-log": {
+        "algorithm": "ed25519",
+        "keyid": "SHA256:P2CpA7BY7owyiVQCBCf/t8d68LuRGd+PapuuBhQxiG0",
+        "public_key_pem": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEAIFiiHd9npQEYN3pKWpGOMji3hm9saKZ87Mv9zfNNto4=\n-----END PUBLIC KEY-----\n",
+        "owner": "Pilot evidence store",
+        "purposes": [
+          "log_checkpoint"
+        ],
+        "status": "active",
+        "not_before": "2026-01-01T00:00:00Z",
+        "not_after": "2030-12-31T23:59:59Z",
+        "custody": "local file (demonstration only): /home/claude/cra-consulting-pack/pack/enterprise/evidence-as-code/examples/pilot/keys/pilot-evidence-log.demo-private.pem"
+      }
+    },
+    "revoked_keyids": [],
+    "builders": {
+      "https://aldermoor.example/builders/cra-pilot-local/v1": {
+        "slsa_build_level": 1,
+        "hosted": false,
+        "isolated": false,
+        "signing_key_isolated": false,
+        "signers": [
+          "key:pilot-builder-provenance"
+        ],
+        "basis": "Local pilot builder: provenance generated and signed by the build script on one host. Signed provenance would meet L2's authenticity requirement, but L2 also requires a hosted build platform, so the verifier rates it L1. Not L3: build steps share the host with the signing key."
+      }
+    },
+    "timestamp_authorities": [
+      {
+        "name": "pilot-test-tsa",
+        "root_pem_path": "../trust/pilot-test-tsa-root.cert.pem"
+      }
+    ],
+    "sigstore": {
+      "trusted_root": "trust/sigstore-public-good.trusted_root.json"
+    },
+    "products": {
+      "*": {
+        "provenance": {
+          "keys": [
+            "pilot-builder-provenance"
+          ],
+          "builder_ids": [
+            "https://aldermoor.example/builders/cra-pilot-local/v1"
+          ],
+          "min_slsa_build_level": 1,
+          "build_types": [
+            "https://aldermoor.example/cra-pilot/buildtypes/python-sdist-wheel/v1"
+          ],
+          "require_timestamp": true,
+          "external_parameters": {
+            "source.uri": {
+              "pattern": "https://files\\.pythonhosted\\.org/packages/.+/requests-[0-9.]+\\.tar\\.gz"
+            },
+            "source.sha256": {
+              "pattern": "[0-9a-f]{64}"
+            },
+            "package": "requests",
+            "version": {
+              "pattern": "[0-9]+\\.[0-9]+\\.[0-9]+"
+            },
+            "source_date_epoch": {
+              "pattern": "[0-9]+"
+            }
+          }
+        },
+        "vex": {
+          "keys": [
+            "pilot-psirt-vex"
+          ],
+          "require_timestamp": true
+        },
+        "evidence_record": {
+          "keys": [
+            "pilot-release-record"
+          ],
+          "require_timestamp": true
+        },
+        "log_checkpoint": {
+          "keys": [
+            "pilot-evidence-log"
+          ],
+          "require_timestamp": true
+        }
+      }
+    }
+  }
+}

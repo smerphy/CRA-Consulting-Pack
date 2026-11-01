@@ -1,0 +1,111 @@
+{
+  "manifest_version": "1.0",
+  "org": "aldermoor-pilot",
+  "product": {
+    "product_id": "requests",
+    "name": "requests HTTP library for Python (pilot product line; real open-source project)",
+    "manufacturer": "Pilot assumption: treated as if placed on the EU market by Aldermoor Platforms (fictional). Real project: github.com/psf/requests; maintainers not involved.",
+    "product_type": "software",
+    "family": "Python HTTP client"
+  },
+  "version": "2.32.3",
+  "previous_version": "2.32.2",
+  "release_date": "2024-05-29",
+  "placing": {
+    "date": "2024-05-29",
+    "event": "update_to_placed_product",
+    "member_states": [
+      "IE",
+      "DE",
+      "FR",
+      "NL"
+    ],
+    "inherited_placing_date": "2024-05-21",
+    "inherited_from_version": "2.32.2"
+  },
+  "classification": {
+    "class": "default",
+    "annex_category": "Not listed in Annex III or IV (authored assumption: general-purpose HTTP client library)",
+    "conformity_route": "module_a",
+    "harmonised_standards_applied_in_full": []
+  },
+  "artefact": "artefact/requests-2.32.3-py3-none-any.whl",
+  "build_graph": {
+    "direct_dependencies": [
+      "certifi",
+      "charset-normalizer",
+      "idna",
+      "urllib3"
+    ],
+    "source": "Requires-Dist (no extras) read from the built wheel's METADATA"
+  },
+  "evidence": {
+    "sbom": "evidence/sbom.cdx.json",
+    "provenance": "evidence/provenance.sigstore.json",
+    "vex": "evidence/vex.openvex.json",
+    "vex_attestation": "evidence/vex.openvex.sigstore.json",
+    "tests": [
+      {
+        "type": "sast",
+        "path": "evidence/sast.sarif"
+      }
+    ],
+    "risk_assessment": {
+      "path": "docs/risk-assessment.md",
+      "ref": "RA-requests-2.32.3"
+    },
+    "applicability_matrix": {
+      "path": "docs/applicability-matrix.json",
+      "ref": "AM-requests-2.32.3"
+    },
+    "annex_ii": {
+      "path": "docs/annex-ii-user-information.md",
+      "uri": "https://aldermoor.example/cra-pilot/security/requests/2.32.3/"
+    },
+    "update_design_note": {
+      "path": "docs/update-design-note.md",
+      "ref": "UDN-requests"
+    },
+    "cvd_policy": {
+      "path": "docs/cvd-policy.md",
+      "ref": "https://github.com/psf/requests/security"
+    }
+  },
+  "support_period": {
+    "end_date": "2029-05-29",
+    "latest_version_rule": true,
+    "justification": "Authored: each version supported for 5 years from its release date; users receive fixes by moving to the latest version (Art 13(10))."
+  },
+  "substantial_modification": {
+    "change_type": "non_security_maintenance",
+    "questions": {
+      "new_threat_vectors": false,
+      "new_attack_scenarios": false,
+      "changed_likelihood": false,
+      "changed_impact": false
+    },
+    "rationale": "Bug fixes restoring custom SSLContext subclasses and Python builds without ssl; no new interfaces or data flows.",
+    "assessed_by": "Product security officer, pilot (authored role)",
+    "decision": "not_substantial"
+  },
+  "declaration": {
+    "declaration_id": "PILOT-DoC-requests-2.32.2",
+    "status": "reused",
+    "reused_from_version": "2.32.2",
+    "uri": "https://aldermoor.example/cra-pilot/doc/requests/2.32.2",
+    "signatory_function": "Pilot signatory (authored)"
+  },
+  "signer": {
+    "identity": "spiffe://aldermoor.example/cra-pilot/release-pipeline/requests",
+    "role": "Pilot release manager (accountable); pipeline key signs the record",
+    "signature_ref": "Signed record: DSSE by pilot-release-record with RFC 3161 timestamp; provenance key pilot-builder-provenance; VEX key pilot-psirt-vex"
+  },
+  "store": {
+    "uri_prefix": "s3://cra-pilot-evidence/v1",
+    "object_lock_mode": "compliance"
+  },
+  "feeds": {
+    "osv": "OSV PyPI records published by 2024-05-29T15:37:49.536140Z (snapshot 2026-11-01)",
+    "kev": "CISA KEV 2026.10.30 (via cisagov/kev-data)"
+  }
+}

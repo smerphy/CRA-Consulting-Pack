@@ -669,8 +669,9 @@ def joint_mc(M, deadline_day: int, n_runs: int) -> dict:
                 P = scen_p[sc]
                 vals = {k: look(P[k], u[k]) for k in keys}
                 over = {k: x for k, x in vals.items() if not k.startswith(("act:", "pc:"))}
-                if sc == "A" and mode != "market_only":
-                    rec["codp"][mode].append({k: over[k] for k in ("cod_exp_hardware", "cod_buffer_weeks", "cod_exp_swproduct", "cod_exp_swenabled", "cod_margin")})
+                if sc == "A":
+                    if mode != "market_only":
+                        rec["codp"][mode].append({k: over[k] for k in ("cod_exp_hardware", "cod_buffer_weeks", "cod_exp_swproduct", "cod_exp_swenabled", "cod_margin")})
                     for plan, lev in (("recommended", ALL_ON), ("as_written", ALL_OFF)):
                         t = M.budget(M.derive(M.pick("base", over, lev)))["total"]
                         for m_ in ("one_off", "run_2028", "total"):
@@ -1201,6 +1202,23 @@ def main() -> None:
         ("E6 Chapter IV from 11 Jun 2026; other provisions 11 Dec 2027", M.mod.get("e6", {}).get("F03", "n/a"), "Verified", "oj-verification/claims.csv (F03)", "Agrees; 11 Dec 2027 is the readiness date"),
         ("E6 Member States 'strive' for notified bodies by 11 Dec 2026", M.mod.get("e6", {}).get("K23", "n/a"), "Verified", "oj-verification/claims.csv (K23)", "Agrees; designation timing is still an assumption"),
         ("Loaded cost per FTE-year (EUR)", " / ".join(f"{rate[s]:,.0f}" for s in SCEN), "USD 250,000-350,000", "evidence-as-code/paper.md; BRIEF.md FX", "Agrees"),
+        ("Base-pack remediation FTE-years per family (default / Class I / Class II)",
+         f"{M.inputs['rem_rate_default']['base']} / {M.inputs['rem_rate_class1']['base']} / {M.inputs['rem_rate_class2']['base']} x E3 complexity x types^0.5 x scale {M.inputs['rem_scale']['low']}-{M.inputs['rem_scale']['high']} x severity",
+         "1.2 / 2.5 / 4.0", "pack/clients/example-group/client.yaml (cost_model.assumptions.remediation_fte_years)", "Calibration; scaling and severity are E7 assumptions"),
+        ("Families in the remediation scope", str(sum(1 for f in M.families if f['rem_scope'] == 'yes')), "40 families less 2 out of scope and 4 not placed",
+         "portfolio-classification/classification_summary.json (families_by_bucket)", "Agrees (34 = 14 default + 16 Class I + 1 Class II + 3 within another product)"),
+        ("EU product revenue used for cost of delay (EUR m a year)", f"{sum(sum(x.values()) for x in EX.values()):,.0f}",
+         f"{M.mod.get('e3_class', {}).get('product_revenue_eur_m', 'n/a'):,}", "portfolio-classification/classification_summary.json (product_revenue_eur_m)", "Agrees; illustrative revenue"),
+        ("Notified-body route revenue (EUR m a year)", f"{sum(sum(EX[c].values()) for c in ('LUM', 'PLT', 'DEV', 'CLD')):,.0f}",
+         f"{M.mod.get('e3_class', {}).get('nb_route_revenue_eur_m', 'n/a'):,}", "portfolio-classification/classification_summary.json (nb_route_revenue_eur_m)",
+         "E7 adds F22 Hearth app (EUR 180m, assessed inside Hearth hosts) to Devices"),
+        ("Module B+C year-1 body-days (scenario C)", " / ".join(f"{e3['organisations'][o]['bc_year1_body_days_low']}-{e3['organisations'][o]['bc_year1_body_days_high']}" for o in ('lumen', 'platforms', 'devices', 'cloud_apps')) if e3 else "n/a",
+         f"{e3['totals_body_days']['bc_y1'][0]}-{e3['totals_body_days']['bc_y1'][1]} in total" if e3 else "n/a", "portfolio-classification/nb_demand_summary.json (bc_year1_body_days)", "Agrees; Lumen / Platforms / Devices / Cloud and apps"),
+        ("Support-period floor", "5 years", "at least five years unless expected use is shorter", "oj-verification/claims.csv (B15); reports/sections/08-annex1-part2.md", "Agrees"),
+        ("Comparable wearable support policies", "Pulse watches 3 years from launch; trackers 2 years after last sold (E7 assumptions)", "Pixel Watch at least 3 years; Fitbit at least 2 years after last sold",
+         "google-outside-in/paper.md (Exhibit 5)", "Analogue only; Aldermoor policies are fictional"),
+        ("L1 reserved capacity (body-days; EUR m)", f"{detR['base']['v']['l1_reserved_days']:,.0f} reserved, {detR['base']['v']['l1_used_days']:,.0f} used; EUR {detR['base']['v']['l1_cost_eur'] / 1e6:.2f}m (EUR {detR['low']['v']['l1_cost_eur'] / 1e6:.2f}-{detR['high']['v']['l1_cost_eur'] / 1e6:.2f}m)",
+         "v1: about EUR 1m (3 extra assessors at two bodies)", "E7 v1 paper (corrected)", "Corrected to the modelled lever set: three bodies x 8 assessors"),
         ("JC-STAR STAR-1 fee", f"JPY {M.inputs['jcstar_fee_jpy']['base']:,.0f}", "JPY 198,000 incl. tax per application", "https://www.ipa.go.jp/security/jc-star/shinsei/index.html", "External; one application per model assumed"),
     ]
     with (OUT / "reconciliation.csv").open("w", newline="") as fh:

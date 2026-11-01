@@ -20,4 +20,12 @@ E6 Art 14 applies from 11 Sep 2026,Verified,Verified,oj-verification/claims.csv 
 E6 Chapter IV from 11 Jun 2026; other provisions 11 Dec 2027,Verified,Verified,oj-verification/claims.csv (F03),Agrees; 11 Dec 2027 is the readiness date
 E6 Member States 'strive' for notified bodies by 11 Dec 2026,Verified,Verified,oj-verification/claims.csv (K23),Agrees; designation timing is still an assumption
 Loaded cost per FTE-year (EUR),"229,750 / 275,700 / 321,650","USD 250,000-350,000",evidence-as-code/paper.md; BRIEF.md FX,Agrees
+Base-pack remediation FTE-years per family (default / Class I / Class II),1.2 / 2.5 / 4 x E3 complexity x types^0.5 x scale 1.0-2.5 x severity,1.2 / 2.5 / 4.0,pack/clients/example-group/client.yaml (cost_model.assumptions.remediation_fte_years),Calibration; scaling and severity are E7 assumptions
+Families in the remediation scope,34,40 families less 2 out of scope and 4 not placed,portfolio-classification/classification_summary.json (families_by_bucket),Agrees (34 = 14 default + 16 Class I + 1 Class II + 3 within another product)
+EU product revenue used for cost of delay (EUR m a year),"36,875","36,875",portfolio-classification/classification_summary.json (product_revenue_eur_m),Agrees; illustrative revenue
+Notified-body route revenue (EUR m a year),"12,555","12,555",portfolio-classification/classification_summary.json (nb_route_revenue_eur_m),"E7 adds F22 Hearth app (EUR 180m, assessed inside Hearth hosts) to Devices"
+Module B+C year-1 body-days (scenario C),146-429 / 130-385 / 462-1323 / 141-406,879-2542 in total,portfolio-classification/nb_demand_summary.json (bc_year1_body_days),Agrees; Lumen / Platforms / Devices / Cloud and apps
+Support-period floor,5 years,at least five years unless expected use is shorter,oj-verification/claims.csv (B15); reports/sections/08-annex1-part2.md,Agrees
+Comparable wearable support policies,Pulse watches 3 years from launch; trackers 2 years after last sold (E7 assumptions),Pixel Watch at least 3 years; Fitbit at least 2 years after last sold,google-outside-in/paper.md (Exhibit 5),Analogue only; Aldermoor policies are fictional
+L1 reserved capacity (body-days; EUR m),"2,160 reserved, 896 used; EUR 2.66m (EUR 1.28-5.90m)",v1: about EUR 1m (3 extra assessors at two bodies),E7 v1 paper (corrected),Corrected to the modelled lever set: three bodies x 8 assessors
 JC-STAR STAR-1 fee,"JPY 198,000","JPY 198,000 incl. tax per application",https://www.ipa.go.jp/security/jc-star/shinsei/index.html,External; one application per model assumed

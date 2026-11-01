@@ -1,0 +1,163 @@
+{
+  "record_id": "urn:aldermoor-pilot:cra-evidence:requests:2.32.5",
+  "product_id": "requests",
+  "version": "2.32.5",
+  "placing_date": "2025-08-18",
+  "placing_event": "update_to_placed_product",
+  "inherited_placing_date": "2024-05-21",
+  "inherited_from_version": "2.32.2",
+  "retain_until": "2034-05-21",
+  "substantial_modification": "not_substantial",
+  "points": [
+    {
+      "point": "1",
+      "title": "General description: intended purpose, versions affecting compliance, Annex II information",
+      "items": [
+        {
+          "uri": "s3://cra-pilot-evidence/v1/requests/2.32.5/artefact/requests-2.32.5-py3-none-any.whl",
+          "ref": null,
+          "sha256": "4f8b5fe0b585a91c90db38e131cd5e7fc9cf18c7248a2eb4ac86151d269f435a",
+          "sha512": "6aec5ae32189cab815882f5291b9ec02ac41706b318059adfd5d58f2afb12c425b7c32beb582fac331cc5af549da0266ed6f55da1d923501e86d40317f342c6f",
+          "label": "Shipped artefact"
+        },
+        {
+          "uri": "s3://cra-pilot-evidence/v1/requests/2.32.5/docs/annex-ii-user-information.md",
+          "ref": "https://aldermoor.example/cra-pilot/security/requests/2.32.5/",
+          "sha256": "143b06e910657995e73ff2cf7f8e2536390ddbf2416bd7049e2236f497d253c1",
+          "sha512": "e5a2a99711af0664ac6762fe43647b87bc8012eb50a82e103b46c37fcb6c01f089e81c1b2a18a32e766d2af9320574de20078693ed3a10d0632c52f3ebf839ca",
+          "label": "Annex II user information"
+        }
+      ],
+      "note": "Product requests version 2.32.5; previous 2.32.4"
+    },
+    {
+      "point": "2(a)",
+      "title": "Design and development; system architecture",
+      "items": [],
+      "note": "Maintained outside the pipeline in the product technical file; linked by product id"
+    },
+    {
+      "point": "2(b)",
+      "title": "Vulnerability handling: SBOM, CVD policy, reporting contact, secure update distribution",
+      "items": [
+        {
+          "uri": "s3://cra-pilot-evidence/v1/requests/2.32.5/evidence/sbom.cdx.json",
+          "ref": null,
+          "sha256": "0b20027ec6d9e4da58bb040e021b8cd9d9186c2e69a5df9250855cee573ae3f8",
+          "sha512": "f4a9f5ef5964344713021d8d9907e8f72df804097a4f24a4ad70d7e939bad586801504137889c6d44abcb619dde98224fac380a9ade5271c3a7071e9bbb48c46",
+          "label": "SBOM (CycloneDX 1.6)"
+        },
+        {
+          "uri": "s3://cra-pilot-evidence/v1/requests/2.32.5/evidence/vex.openvex.json",
+          "ref": null,
+          "sha256": "8f8fc2685f88feb65a0edc88e1d3d176b5ef03b761557d617b78bbf9d5e73e6f",
+          "sha512": "960fc42ffc93245d61da00775df2b24ff6a49d921ef529dc92c5ad531e2f8eb7f2cdcaa7dc9dbfcda6a51cc53603a7391f21b340d0bce423995fa994717cfb6b",
+          "label": "VEX (OpenVEX)"
+        },
+        {
+          "uri": "s3://cra-pilot-evidence/v1/requests/2.32.5/evidence/vex.openvex.sigstore.json",
+          "ref": null,
+          "sha256": "26dad48ba87d8a6ad51dc3e9a6195e7b971b7235b120294fb12368cd26026737",
+          "sha512": "a4db3c222489d20872d9de374deacab52e140c2d0935f34e707a5b2c2fa76b890458fcc024ca42ec5a584a3b6237ca7484d96c16cbddfd5b2a45f55e367fa7fe",
+          "label": "Signed VEX attestation (verified key by pilot-psirt-vex)"
+        },
+        {
+          "uri": "s3://cra-pilot-evidence/v1/requests/2.32.5/docs/cvd-policy.md",
+          "ref": "https://github.com/psf/requests/security",
+          "sha256": "6fefeb586c89150b324541144574f9f2ddc7e9325b2537e903802f00bacfe4ec",
+          "sha512": "414d117b3353598bd9a32e29765e354a74bb2f7ec4fd127849ae4433df61cdbb65646722b983501b6eb2a67608cf062f6533c1abc2347a1bbb827b6052d10afc",
+          "label": "CVD policy"
+        },
+        {
+          "uri": "s3://cra-pilot-evidence/v1/requests/2.32.5/docs/update-design-note.md",
+          "ref": "UDN-requests",
+          "sha256": "48d8d713f9bd8bacdc68d6cc5764bfff92069358da691d348a60b1d9e0447050",
+          "sha512": "5d96e0d6242c10fa131c3834d8bd99d5c2cc45e7b0679a5005c3f56e22981bb8c57b080aaac4ca29cd070538c3ab622ea5395bf4d567faf29ad09981d2c9c4d4",
+          "label": "Update design note"
+        }
+      ],
+      "note": null
+    },
+    {
+      "point": "2(c)",
+      "title": "Production and monitoring processes with validation evidence",
+      "items": [
+        {
+          "uri": "s3://cra-pilot-evidence/v1/requests/2.32.5/evidence/provenance.sigstore.json",
+          "ref": null,
+          "sha256": "fa028a49bbadc60e8db3c91d8cec02f779171ebda107d2caaf8b82c361dd9740",
+          "sha512": "b83849492ebcbd7dbe095fa769955212bac1971880ad51e08644147c1bfcb4d600b2f59650635defc452c850c19f21c8479886ede6a059af11649d4722f52c76",
+          "label": "Build provenance (https://slsa.dev/provenance/v1; builder https://aldermoor.example/builders/cra-pilot-local/v1; verified key by pilot-builder-provenance ; SLSA Build L1)"
+        }
+      ],
+      "note": "Release gate decision: FAIL under cra-pilot-gate/1.0.0"
+    },
+    {
+      "point": "3",
+      "title": "Cybersecurity risk assessment and Annex I Part I applicability",
+      "items": [
+        {
+          "uri": "s3://cra-pilot-evidence/v1/requests/2.32.5/docs/risk-assessment.md",
+          "ref": "RA-requests-2.32.5",
+          "sha256": "bb8dfa2d1c8afb2671089e5d6c8c02d38b76fad904706d1b6b3cdb05d14a0790",
+          "sha512": "6f8a247345c9e948b798194b8c362e88cda24b60c4d8795fe3fb8fb10df50fb2d46091dd7051c519a87bc1fff4215c8ab6b0a913efc99e75b10929ed85a157c0",
+          "label": "Risk assessment"
+        },
+        {
+          "uri": "s3://cra-pilot-evidence/v1/requests/2.32.5/docs/applicability-matrix.json",
+          "ref": "AM-requests-2.32.5",
+          "sha256": "e885c3dad355630d1df59b1b976121f0e8533e64c6c3bd85e36dfc7357259049",
+          "sha512": "0ad231a47b17322e9655af7c0f483389c2a96b8580d2a696f06d2e45361e6812f42cb1ab63fc649369ee38c8f6d4be55665e4cb2d352f8df55302e0faada203a",
+          "label": "Applicability matrix (not applied: 2l, 2m)"
+        }
+      ],
+      "note": null
+    },
+    {
+      "point": "4",
+      "title": "Support period",
+      "items": [],
+      "note": "End 2030-08-18 (5.00 years); justification: Authored: each version supported for 5 years from its release date; users receive fixes by moving to the latest version (Art 13(10)).; latest-version rule (Art 13(10)): yes"
+    },
+    {
+      "point": "5",
+      "title": "Harmonised standards, common specifications, certification schemes",
+      "items": [],
+      "note": "Route module_a; applied in full: none; certificate n/a"
+    },
+    {
+      "point": "6",
+      "title": "Test reports against Annex I Parts I and II",
+      "items": [
+        {
+          "uri": "s3://cra-pilot-evidence/v1/requests/2.32.5/evidence/sast.sarif",
+          "ref": null,
+          "sha256": "bbe4bdca1043de7067644145884b27ca80e4d39ec2161420048773f4d8ab5653",
+          "sha512": "99e20246fc4220975efd81ca165f902936a5d33cc2b5517aaec7357fb03f7891718939fc1642b241502942424b133db2325ae9f1b5da0fcf643af73d13356354",
+          "label": "sast (Bandit; error=3, note=6, suppressed=0, warning=0)"
+        }
+      ],
+      "note": null
+    },
+    {
+      "point": "7",
+      "title": "EU declaration of conformity",
+      "items": [],
+      "note": "Declaration PILOT-DoC-requests-2.32.2 (reused, from 2.32.2) at https://aldermoor.example/cra-pilot/doc/requests/2.32.2"
+    },
+    {
+      "point": "8",
+      "title": "SBOM for market surveillance authority on reasoned request",
+      "items": [
+        {
+          "uri": "s3://cra-pilot-evidence/v1/requests/2.32.5/evidence/sbom.cdx.json",
+          "ref": null,
+          "sha256": "0b20027ec6d9e4da58bb040e021b8cd9d9186c2e69a5df9250855cee573ae3f8",
+          "sha512": "f4a9f5ef5964344713021d8d9907e8f72df804097a4f24a4ad70d7e939bad586801504137889c6d44abcb619dde98224fac380a9ade5271c3a7071e9bbb48c46",
+          "label": "SBOM"
+        }
+      ],
+      "note": null
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "log_id": "cra-pilot-log/requests",
+  "leaf_index": 0,
+  "tree_size": 1,
+  "root_hash": "3e3cf3135527b1d8e1b9f027ccac05a676f35ca4036aa1c2f4c089f1c9d7e734",
+  "audit_path": [],
+  "checkpoint_key": "log/checkpoints/000000000001.json"
+}

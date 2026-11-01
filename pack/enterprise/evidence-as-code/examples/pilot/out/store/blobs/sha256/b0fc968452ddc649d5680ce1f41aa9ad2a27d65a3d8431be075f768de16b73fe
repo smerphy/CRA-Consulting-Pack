@@ -1,0 +1,628 @@
+{
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Bandit",
+          "organization": "PyCQA",
+          "rules": [
+            {
+              "id": "B101",
+              "name": "assert_used",
+              "properties": {
+                "tags": [
+                  "security",
+                  "external/cwe/cwe-703"
+                ],
+                "precision": "high"
+              },
+              "helpUri": "https://bandit.readthedocs.io/en/1.9.4/plugins/b101_assert_used.html"
+            },
+            {
+              "id": "B324",
+              "name": "hashlib",
+              "properties": {
+                "tags": [
+                  "security",
+                  "external/cwe/cwe-327"
+                ],
+                "precision": "high"
+              },
+              "helpUri": "https://bandit.readthedocs.io/en/1.9.4/plugins/b324_hashlib.html"
+            }
+          ],
+          "version": "1.9.4",
+          "semanticVersion": "1.9.4"
+        }
+      },
+      "properties": {
+        "metrics": {
+          "_totals": {
+            "loc": 4123,
+            "nosec": 0,
+            "skipped_tests": 0,
+            "SEVERITY.UNDEFINED": 0,
+            "CONFIDENCE.UNDEFINED": 0,
+            "SEVERITY.LOW": 6,
+            "CONFIDENCE.LOW": 0,
+            "SEVERITY.MEDIUM": 0,
+            "CONFIDENCE.MEDIUM": 0,
+            "SEVERITY.HIGH": 3,
+            "CONFIDENCE.HIGH": 9
+          },
+          "/tmp/cra-pilot-_laa_gdl/2.32.3/requests-2.32.3/src/requests/__init__.py": {
+            "loc": 132,
+            "nosec": 0,
+            "skipped_tests": 0,
+            "SEVERITY.UNDEFINED": 0,
+            "SEVERITY.LOW": 5,
+            "SEVERITY.MEDIUM": 0,
+            "SEVERITY.HIGH": 0,
+            "CONFIDENCE.UNDEFINED": 0,
+            "CONFIDENCE.LOW": 0,
+            "CONFIDENCE.MEDIUM": 0,
+            "CONFIDENCE.HIGH": 5
+          },
+          "/tmp/cra-pilot-_laa_gdl/2.32.3/requests-2.32.3/src/requests/__version__.py": {
+            "loc": 10,
+            "nosec": 0,
+            "skipped_tests": 0,
+            "SEVERITY.UNDEFINED": 0,
+            "SEVERITY.LOW": 0,
+            "SEVERITY.MEDIUM": 0,
+            "SEVERITY.HIGH": 0,
+            "CONFIDENCE.UNDEFINED": 0,
+            "CONFIDENCE.LOW": 0,
+            "CONFIDENCE.MEDIUM": 0,
+            "CONFIDENCE.HIGH": 0
+          },
+          "/tmp/cra-pilot-_laa_gdl/2.32.3/requests-2.32.3/src/requests/_internal_utils.py": {
+            "loc": 40,
+            "nosec": 0,
+            "skipped_tests": 0,
+            "SEVERITY.UNDEFINED": 0,
+            "SEVERITY.LOW": 1,
+            "SEVERITY.MEDIUM": 0,
+            "SEVERITY.HIGH": 0,
+            "CONFIDENCE.UNDEFINED": 0,
+            "CONFIDENCE.LOW": 0,
+            "CONFIDENCE.MEDIUM": 0,
+            "CONFIDENCE.HIGH": 1
+          },
+          "/tmp/cra-pilot-_laa_gdl/2.32.3/requests-2.32.3/src/requests/adapters.py": {
+            "loc": 585,
+            "nosec": 0,
+            "skipped_tests": 0,
+            "SEVERITY.UNDEFINED": 0,
+            "SEVERITY.LOW": 0,
+            "SEVERITY.MEDIUM": 0,
+            "SEVERITY.HIGH": 0,
+            "CONFIDENCE.UNDEFINED": 0,
+            "CONFIDENCE.LOW": 0,
+            "CONFIDENCE.MEDIUM": 0,
+            "CONFIDENCE.HIGH": 0
+          },
+          "/tmp/cra-pilot-_laa_gdl/2.32.3/requests-2.32.3/src/requests/api.py": {
+            "loc": 117,
+            "nosec": 0,
+            "skipped_tests": 0,
+            "SEVERITY.UNDEFINED": 0,
+            "SEVERITY.LOW": 0,
+            "SEVERITY.MEDIUM": 0,
+            "SEVERITY.HIGH": 0,
+            "CONFIDENCE.UNDEFINED": 0,
+            "CONFIDENCE.LOW": 0,
+            "CONFIDENCE.MEDIUM": 0,
+            "CONFIDENCE.HIGH": 0
+          },
+          "/tmp/cra-pilot-_laa_gdl/2.32.3/requests-2.32.3/src/requests/auth.py": {
+            "loc": 223,
+            "nosec": 0,
+            "skipped_tests": 0,
+            "SEVERITY.UNDEFINED": 0,
+            "SEVERITY.LOW": 0,
+            "SEVERITY.MEDIUM": 0,
+            "SEVERITY.HIGH": 3,
+            "CONFIDENCE.UNDEFINED": 0,
+            "CONFIDENCE.LOW": 0,
+            "CONFIDENCE.MEDIUM": 0,
+            "CONFIDENCE.HIGH": 3
+          },
+          "/tmp/cra-pilot-_laa_gdl/2.32.3/requests-2.32.3/src/requests/certs.py": {
+            "loc": 12,
+            "nosec": 0,
+            "skipped_tests": 0,
+            "SEVERITY.UNDEFINED": 0,
+            "SEVERITY.LOW": 0,
+            "SEVERITY.MEDIUM": 0,
+            "SEVERITY.HIGH": 0,
+            "CONFIDENCE.UNDEFINED": 0,
+            "CONFIDENCE.LOW": 0,
+            "CONFIDENCE.MEDIUM": 0,
+            "CONFIDENCE.HIGH": 0
+          },
+          "/tmp/cra-pilot-_laa_gdl/2.32.3/requests-2.32.3/src/requests/compat.py": {
+            "loc": 63,
+            "nosec": 0,
+            "skipped_tests": 0,
+            "SEVERITY.UNDEFINED": 0,
+            "SEVERITY.LOW": 0,
+            "SEVERITY.MEDIUM": 0,
+            "SEVERITY.HIGH": 0,
+            "CONFIDENCE.UNDEFINED": 0,
+            "CONFIDENCE.LOW": 0,
+            "CONFIDENCE.MEDIUM": 0,
+            "CONFIDENCE.HIGH": 0
+          },
+          "/tmp/cra-pilot-_laa_gdl/2.32.3/requests-2.32.3/src/requests/cookies.py": {
+            "loc": 439,
+            "nosec": 0,
+            "skipped_tests": 0,
+            "SEVERITY.UNDEFINED": 0,
+            "SEVERITY.LOW": 0,
+            "SEVERITY.MEDIUM": 0,
+            "SEVERITY.HIGH": 0,
+            "CONFIDENCE.UNDEFINED": 0,
+            "CONFIDENCE.LOW": 0,
+            "CONFIDENCE.MEDIUM": 0,
+            "CONFIDENCE.HIGH": 0
+          },
+          "/tmp/cra-pilot-_laa_gdl/2.32.3/requests-2.32.3/src/requests/exceptions.py": {
+            "loc": 91,
+            "nosec": 0,
+            "skipped_tests": 0,
+            "SEVERITY.UNDEFINED": 0,
+            "SEVERITY.LOW": 0,
+            "SEVERITY.MEDIUM": 0,
+            "SEVERITY.HIGH": 0,
+            "CONFIDENCE.UNDEFINED": 0,
+            "CONFIDENCE.LOW": 0,
+            "CONFIDENCE.MEDIUM": 0,
+            "CONFIDENCE.HIGH": 0
+          },
+          "/tmp/cra-pilot-_laa_gdl/2.32.3/requests-2.32.3/src/requests/help.py": {
+            "loc": 112,
+            "nosec": 0,
+            "skipped_tests": 0,
+            "SEVERITY.UNDEFINED": 0,
+            "SEVERITY.LOW": 0,
+            "SEVERITY.MEDIUM": 0,
+            "SEVERITY.HIGH": 0,
+            "CONFIDENCE.UNDEFINED": 0,
+            "CONFIDENCE.LOW": 0,
+            "CONFIDENCE.MEDIUM": 0,
+            "CONFIDENCE.HIGH": 0
+          },
+          "/tmp/cra-pilot-_laa_gdl/2.32.3/requests-2.32.3/src/requests/hooks.py": {
+            "loc": 23,
+            "nosec": 0,
+            "skipped_tests": 0,
+            "SEVERITY.UNDEFINED": 0,
+            "SEVERITY.LOW": 0,
+            "SEVERITY.MEDIUM": 0,
+            "SEVERITY.HIGH": 0,
+            "CONFIDENCE.UNDEFINED": 0,
+            "CONFIDENCE.LOW": 0,
+            "CONFIDENCE.MEDIUM": 0,
+            "CONFIDENCE.HIGH": 0
+          },
+          "/tmp/cra-pilot-_laa_gdl/2.32.3/requests-2.32.3/src/requests/models.py": {
+            "loc": 740,
+            "nosec": 0,
+            "skipped_tests": 0,
+            "SEVERITY.UNDEFINED": 0,
+            "SEVERITY.LOW": 0,
+            "SEVERITY.MEDIUM": 0,
+            "SEVERITY.HIGH": 0,
+            "CONFIDENCE.UNDEFINED": 0,
+            "CONFIDENCE.LOW": 0,
+            "CONFIDENCE.MEDIUM": 0,
+            "CONFIDENCE.HIGH": 0
+          },
+          "/tmp/cra-pilot-_laa_gdl/2.32.3/requests-2.32.3/src/requests/packages.py": {
+            "loc": 15,
+            "nosec": 0,
+            "skipped_tests": 0,
+            "SEVERITY.UNDEFINED": 0,
+            "SEVERITY.LOW": 0,
+            "SEVERITY.MEDIUM": 0,
+            "SEVERITY.HIGH": 0,
+            "CONFIDENCE.UNDEFINED": 0,
+            "CONFIDENCE.LOW": 0,
+            "CONFIDENCE.MEDIUM": 0,
+            "CONFIDENCE.HIGH": 0
+          },
+          "/tmp/cra-pilot-_laa_gdl/2.32.3/requests-2.32.3/src/requests/sessions.py": {
+            "loc": 566,
+            "nosec": 0,
+            "skipped_tests": 0,
+            "SEVERITY.UNDEFINED": 0,
+            "SEVERITY.LOW": 0,
+            "SEVERITY.MEDIUM": 0,
+            "SEVERITY.HIGH": 0,
+            "CONFIDENCE.UNDEFINED": 0,
+            "CONFIDENCE.LOW": 0,
+            "CONFIDENCE.MEDIUM": 0,
+            "CONFIDENCE.HIGH": 0
+          },
+          "/tmp/cra-pilot-_laa_gdl/2.32.3/requests-2.32.3/src/requests/status_codes.py": {
+            "loc": 112,
+            "nosec": 0,
+            "skipped_tests": 0,
+            "SEVERITY.UNDEFINED": 0,
+            "SEVERITY.LOW": 0,
+            "SEVERITY.MEDIUM": 0,
+            "SEVERITY.HIGH": 0,
+            "CONFIDENCE.UNDEFINED": 0,
+            "CONFIDENCE.LOW": 0,
+            "CONFIDENCE.MEDIUM": 0,
+            "CONFIDENCE.HIGH": 0
+          },
+          "/tmp/cra-pilot-_laa_gdl/2.32.3/requests-2.32.3/src/requests/structures.py": {
+            "loc": 67,
+            "nosec": 0,
+            "skipped_tests": 0,
+            "SEVERITY.UNDEFINED": 0,
+            "SEVERITY.LOW": 0,
+            "SEVERITY.MEDIUM": 0,
+            "SEVERITY.HIGH": 0,
+            "CONFIDENCE.UNDEFINED": 0,
+            "CONFIDENCE.LOW": 0,
+            "CONFIDENCE.MEDIUM": 0,
+            "CONFIDENCE.HIGH": 0
+          },
+          "/tmp/cra-pilot-_laa_gdl/2.32.3/requests-2.32.3/src/requests/utils.py": {
+            "loc": 776,
+            "nosec": 0,
+            "skipped_tests": 0,
+            "SEVERITY.UNDEFINED": 0,
+            "SEVERITY.LOW": 0,
+            "SEVERITY.MEDIUM": 0,
+            "SEVERITY.HIGH": 0,
+            "CONFIDENCE.UNDEFINED": 0,
+            "CONFIDENCE.LOW": 0,
+            "CONFIDENCE.MEDIUM": 0,
+            "CONFIDENCE.HIGH": 0
+          }
+        }
+      },
+      "results": [
+        {
+          "message": {
+            "text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code."
+          },
+          "level": "note",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {
+                    "text": "    assert urllib3_version != [\"dev\"]  # Verify urllib3 isn't installed from git.\n"
+                  },
+                  "endColumn": 38,
+                  "endLine": 60,
+                  "startColumn": 5,
+                  "startLine": 60
+                },
+                "artifactLocation": {
+                  "uri": "src/requests/__init__.py"
+                },
+                "contextRegion": {
+                  "snippet": {
+                    "text": "    urllib3_version = urllib3_version.split(\".\")\n    assert urllib3_version != [\"dev\"]  # Verify urllib3 isn't installed from git.\n\n"
+                  },
+                  "endLine": 61,
+                  "startLine": 59
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "LOW"
+          },
+          "ruleId": "B101",
+          "ruleIndex": 0
+        },
+        {
+          "message": {
+            "text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code."
+          },
+          "level": "note",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {
+                    "text": "    assert major >= 1\n"
+                  },
+                  "endColumn": 22,
+                  "endLine": 70,
+                  "startColumn": 5,
+                  "startLine": 70
+                },
+                "artifactLocation": {
+                  "uri": "src/requests/__init__.py"
+                },
+                "contextRegion": {
+                  "snippet": {
+                    "text": "    # urllib3 >= 1.21.1\n    assert major >= 1\n    if major == 1:\n"
+                  },
+                  "endLine": 71,
+                  "startLine": 69
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "LOW"
+          },
+          "ruleId": "B101",
+          "ruleIndex": 0
+        },
+        {
+          "message": {
+            "text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code."
+          },
+          "level": "note",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {
+                    "text": "        assert minor >= 21\n"
+                  },
+                  "endColumn": 27,
+                  "endLine": 72,
+                  "startColumn": 9,
+                  "startLine": 72
+                },
+                "artifactLocation": {
+                  "uri": "src/requests/__init__.py"
+                },
+                "contextRegion": {
+                  "snippet": {
+                    "text": "    if major == 1:\n        assert minor >= 21\n\n"
+                  },
+                  "endLine": 73,
+                  "startLine": 71
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "LOW"
+          },
+          "ruleId": "B101",
+          "ruleIndex": 0
+        },
+        {
+          "message": {
+            "text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code."
+          },
+          "level": "note",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {
+                    "text": "        assert (3, 0, 2) <= (major, minor, patch) < (6, 0, 0)\n"
+                  },
+                  "endColumn": 62,
+                  "endLine": 79,
+                  "startColumn": 9,
+                  "startLine": 79
+                },
+                "artifactLocation": {
+                  "uri": "src/requests/__init__.py"
+                },
+                "contextRegion": {
+                  "snippet": {
+                    "text": "        # chardet_version >= 3.0.2, < 6.0.0\n        assert (3, 0, 2) <= (major, minor, patch) < (6, 0, 0)\n    elif charset_normalizer_version:\n"
+                  },
+                  "endLine": 80,
+                  "startLine": 78
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "LOW"
+          },
+          "ruleId": "B101",
+          "ruleIndex": 0
+        },
+        {
+          "message": {
+            "text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code."
+          },
+          "level": "note",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {
+                    "text": "        assert (2, 0, 0) <= (major, minor, patch) < (4, 0, 0)\n"
+                  },
+                  "endColumn": 62,
+                  "endLine": 84,
+                  "startColumn": 9,
+                  "startLine": 84
+                },
+                "artifactLocation": {
+                  "uri": "src/requests/__init__.py"
+                },
+                "contextRegion": {
+                  "snippet": {
+                    "text": "        # charset_normalizer >= 2.0.0 < 4.0.0\n        assert (2, 0, 0) <= (major, minor, patch) < (4, 0, 0)\n    else:\n"
+                  },
+                  "endLine": 85,
+                  "startLine": 83
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "LOW"
+          },
+          "ruleId": "B101",
+          "ruleIndex": 0
+        },
+        {
+          "message": {
+            "text": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code."
+          },
+          "level": "note",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {
+                    "text": "    assert isinstance(u_string, str)\n"
+                  },
+                  "endColumn": 37,
+                  "endLine": 45,
+                  "startColumn": 5,
+                  "startLine": 45
+                },
+                "artifactLocation": {
+                  "uri": "src/requests/_internal_utils.py"
+                },
+                "contextRegion": {
+                  "snippet": {
+                    "text": "    \"\"\"\n    assert isinstance(u_string, str)\n    try:\n"
+                  },
+                  "endLine": 46,
+                  "startLine": 44
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "LOW"
+          },
+          "ruleId": "B101",
+          "ruleIndex": 0
+        },
+        {
+          "message": {
+            "text": "Use of weak MD5 hash for security. Consider usedforsecurity=False"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {
+                    "text": "                return hashlib.md5(x).hexdigest()\n"
+                  },
+                  "endColumn": 38,
+                  "endLine": 148,
+                  "startColumn": 24,
+                  "startLine": 148
+                },
+                "artifactLocation": {
+                  "uri": "src/requests/auth.py"
+                },
+                "contextRegion": {
+                  "snippet": {
+                    "text": "                    x = x.encode(\"utf-8\")\n                return hashlib.md5(x).hexdigest()\n\n"
+                  },
+                  "endLine": 149,
+                  "startLine": 147
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "HIGH"
+          },
+          "ruleId": "B324",
+          "ruleIndex": 1
+        },
+        {
+          "message": {
+            "text": "Use of weak SHA1 hash for security. Consider usedforsecurity=False"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {
+                    "text": "                return hashlib.sha1(x).hexdigest()\n"
+                  },
+                  "endColumn": 39,
+                  "endLine": 156,
+                  "startColumn": 24,
+                  "startLine": 156
+                },
+                "artifactLocation": {
+                  "uri": "src/requests/auth.py"
+                },
+                "contextRegion": {
+                  "snippet": {
+                    "text": "                    x = x.encode(\"utf-8\")\n                return hashlib.sha1(x).hexdigest()\n\n"
+                  },
+                  "endLine": 157,
+                  "startLine": 155
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "HIGH"
+          },
+          "ruleId": "B324",
+          "ruleIndex": 1
+        },
+        {
+          "message": {
+            "text": "Use of weak SHA1 hash for security. Consider usedforsecurity=False"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "physicalLocation": {
+                "region": {
+                  "snippet": {
+                    "text": "        cnonce = hashlib.sha1(s).hexdigest()[:16]\n"
+                  },
+                  "endColumn": 33,
+                  "endLine": 205,
+                  "startColumn": 18,
+                  "startLine": 205
+                },
+                "artifactLocation": {
+                  "uri": "src/requests/auth.py"
+                },
+                "contextRegion": {
+                  "snippet": {
+                    "text": "\n        cnonce = hashlib.sha1(s).hexdigest()[:16]\n        if _algorithm == \"MD5-SESS\":\n"
+                  },
+                  "endLine": 206,
+                  "startLine": 204
+                }
+              }
+            }
+          ],
+          "properties": {
+            "issue_confidence": "HIGH",
+            "issue_severity": "HIGH"
+          },
+          "ruleId": "B324",
+          "ruleIndex": 1
+        }
+      ]
+    }
+  ],
+  "version": "2.1.0",
+  "$schema": "https://json.schemastore.org/sarif-2.1.0.json"
+}

@@ -1,0 +1,8 @@
+{
+  "@context": "https://openvex.dev/ns/v0.2.0",
+  "@id": "https://aldermoor.example/cra-pilot/vex/requests/2.33.0",
+  "author": "Pilot PSIRT (AUTHORED; no real triage performed)",
+  "timestamp": "2026-03-25T15:10:41.586809Z",
+  "version": 1,
+  "statements": []
+}

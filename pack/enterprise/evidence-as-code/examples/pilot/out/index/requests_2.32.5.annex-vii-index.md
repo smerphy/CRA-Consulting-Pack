@@ -1,0 +1,22 @@
+# Annex VII index: requests 2.32.5
+
+Record `urn:aldermoor-pilot:cra-evidence:requests:2.32.5`. Version first offered 2025-08-18; not a new placing, so it keeps placing date 2024-05-21 from version 2.32.2 (guidance para 15, Example 2). Retain until 2034-05-21. Substantial-modification decision: not_substantial.
+
+| Annex VII point | Evidence | SHA-256 (first 16) | Location |
+|---|---|---|---|
+| 1 General description: intended purpose, versions affecting compliance, Annex II information | Shipped artefact ; Product requests version 2.32.5; previous 2.32.4 | `4f8b5fe0b585a91c` | s3://cra-pilot-evidence/v1/requests/2.32.5/artefact/requests-2.32.5-py3-none-any.whl |
+| 1 | Annex II user information | `143b06e910657995` | s3://cra-pilot-evidence/v1/requests/2.32.5/docs/annex-ii-user-information.md |
+| 2(a) Design and development; system architecture | Maintained outside the pipeline in the product technical file; linked by product id | | |
+| 2(b) Vulnerability handling: SBOM, CVD policy, reporting contact, secure update distribution | SBOM (CycloneDX 1.6) | `0b20027ec6d9e4da` | s3://cra-pilot-evidence/v1/requests/2.32.5/evidence/sbom.cdx.json |
+| 2(b) | VEX (OpenVEX) | `8f8fc2685f88feb6` | s3://cra-pilot-evidence/v1/requests/2.32.5/evidence/vex.openvex.json |
+| 2(b) | Signed VEX attestation (verified key by pilot-psirt-vex) | `26dad48ba87d8a6a` | s3://cra-pilot-evidence/v1/requests/2.32.5/evidence/vex.openvex.sigstore.json |
+| 2(b) | CVD policy | `6fefeb586c89150b` | s3://cra-pilot-evidence/v1/requests/2.32.5/docs/cvd-policy.md |
+| 2(b) | Update design note | `48d8d713f9bd8bac` | s3://cra-pilot-evidence/v1/requests/2.32.5/docs/update-design-note.md |
+| 2(c) Production and monitoring processes with validation evidence | Build provenance (https://slsa.dev/provenance/v1; builder https://aldermoor.example/builders/cra-pilot-local/v1; verified key by pilot-builder-provenance ; SLSA Build L1) ; Release gate decision: FAIL under cra-pilot-gate/1.0.0 | `fa028a49bbadc60e` | s3://cra-pilot-evidence/v1/requests/2.32.5/evidence/provenance.sigstore.json |
+| 3 Cybersecurity risk assessment and Annex I Part I applicability | Risk assessment | `bb8dfa2d1c8afb26` | s3://cra-pilot-evidence/v1/requests/2.32.5/docs/risk-assessment.md |
+| 3 | Applicability matrix (not applied: 2l, 2m) | `e885c3dad355630d` | s3://cra-pilot-evidence/v1/requests/2.32.5/docs/applicability-matrix.json |
+| 4 Support period | End 2030-08-18 (5.00 years); justification: Authored: each version supported for 5 years from its release date; users receive fixes by moving to the latest version (Art 13(10)).; latest-version rule (Art 13(10)): yes | | |
+| 5 Harmonised standards, common specifications, certification schemes | Route module_a; applied in full: none; certificate n/a | | |
+| 6 Test reports against Annex I Parts I and II | sast (Bandit; error=3, note=6, suppressed=0, warning=0) | `bbe4bdca1043de70` | s3://cra-pilot-evidence/v1/requests/2.32.5/evidence/sast.sarif |
+| 7 EU declaration of conformity | Declaration PILOT-DoC-requests-2.32.2 (reused, from 2.32.2) at https://aldermoor.example/cra-pilot/doc/requests/2.32.2 | | |
+| 8 SBOM for market surveillance authority on reasoned request | SBOM | `0b20027ec6d9e4da` | s3://cra-pilot-evidence/v1/requests/2.32.5/evidence/sbom.cdx.json |
