@@ -1,6 +1,6 @@
 # Corrections to the Enterprise papers from the extended verification (E6, 1 Nov 2026)
 
-Scope: the six Enterprise papers (E1 evidence-as-code, E2 art14-operations, E3 portfolio-classification, E4 open-source-strategy, E5 global-control-set, G google-outside-in). No programme-case paper existed at 1 Nov 2026. Claim IDs refer to `claims_enterprise.csv`. Legal sources: OJ L, 2024/2847 with the English corrigenda; Commission guidance C(2026) 5252 annex (Commission PDF, 27 Jul 2026); Commission FAQ v1.4; ENISA SRP FAQ of 15 Oct 2026; NCSC Ireland CRA page and Guidelines; Implementing Regulation (EU) 2025/2392; Directive (EU) 2024/2853. All copies are in `source/` and `source/guidance/` with hashes in `source/guidance/MANIFEST.csv`.
+Scope: the six Enterprise papers (E1 evidence-as-code, E2 art14-operations, E3 portfolio-classification, E4 open-source-strategy, E5 global-control-set, G google-outside-in) and the programme case (`programme-case/paper.md`), which appeared during this verification. The programme case needed no citation fix; its corrections are C-11. Claim IDs refer to `claims_enterprise.csv`. Legal sources: OJ L, 2024/2847 with the English corrigenda; Commission guidance C(2026) 5252 annex (Commission PDF, 27 Jul 2026); Commission FAQ v1.4; ENISA SRP FAQ of 15 Oct 2026; NCSC Ireland CRA page and Guidelines; Implementing Regulation (EU) 2025/2392; Directive (EU) 2024/2853. All copies are in `source/` and `source/guidance/` with hashes in `source/guidance/MANIFEST.csv`.
 
 ## Part A. Citation edits made (applied to the papers on 1 Nov 2026)
 
@@ -79,6 +79,18 @@ Claim PC-10. Add: `If LTS source code is shared only with paying customers, the 
 ### C-10 (Priority 1, knowledge base) Source of C-01 to C-04
 
 `reports/sections/03-scope.md` line 21 (`Judged per unit; for standalone software, per version (guidance paras 13-14)`) and line 67 (`Placing on the market is per unit, and for standalone software per version.`) are ambiguous and led three modules to the wrong inference. `reports/guides/application/11-documentation-set.md` line 71 (`For software it is the first offering of each version (guidance paras 11-16)`) is wrong for non-substantial versions. Proposed text for all three: `Judged per unit. For standalone software, all copies of a version are placed at its first offering; later versions keep that date unless they are a substantial modification, and builds for different platforms are distinct products (guidance paras 11, 13-15, Examples 1-2).`
+
+### C-11 (Priority 1) Programme case, lever L2 and Risks
+
+Claims PCS-03, PCS-05, PCS-01. Old (L2): `Lumen carries 62% of notified-body revenue (E3) and, as software, cannot bridge the deadline with stock: each new version after 11 Dec 2027 is a new placing under the Commission's draft guidance (E1).`
+
+New: `Lumen carries 62% of notified-body revenue (E3). Under the Commission's draft guidance only substantially modified versions are new placings (paras 15, 108, Example 2), so a version placed before 11 Dec 2027 can keep receiving non-substantial and security updates without a certificate (Art 69(2)). A late certificate therefore blocks Lumen's next substantially modified version, which at a 4-weekly major cadence may come within weeks.`
+
+Old (Risks): `If every Lumen security release is a new placing after 11 Dec 2027, a late certificate stops EU releases, not just launches.` New: `The guidance treats security releases as updates, not new placings (paras 15, 108); if the adopted guidance or an authority took the opposite view, a late certificate would stop EU releases, not just launches.`
+
+Old (budget bullet): `translations into 23 languages (Art 28; Art 13(18))`. New: `translations into the languages each Member State requires for the declaration (Art 28(2)) and that users there easily understand (Art 13(18)); the model assumes all 23 non-English official languages`.
+
+Effect on the model: the Lumen ready-date and probability results do not change, because they are driven by the Module H approval date; what changes is the consequence of missing it (exposure limited to substantially modified versions).
 
 ## Part C. Change to the base register
 
