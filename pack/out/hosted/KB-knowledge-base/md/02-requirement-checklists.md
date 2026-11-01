@@ -223,8 +223,8 @@ All apply from 11 Dec 2027. An importer or distributor that rebrands or substant
 - [ ] 19(3): a non-conforming product, or one presenting a significant cybersecurity risk, is not placed; the manufacturer and the market surveillance authorities are informed
 - [ ] 19(4): the importer's name, registered trade name or trademark, postal address, contact and website appear on the product, its packaging or an accompanying document, in the Annex II information
 - [ ] 19(5): the manufacturer is informed of vulnerabilities without undue delay; authorities are informed immediately where there is a significant risk
-- [ ] 19(6)-(8): a copy of the declaration is kept for 10 years or the support period; information and cooperation are supplied on reasoned request
-- [ ] 19(9): authorities and users are informed if the manufacturer has ceased operations and cannot meet its obligations
+- [ ] 19(6)-(7): a copy of the declaration is kept for 10 years or the support period; information and cooperation are supplied on reasoned request
+- [ ] 19(8): authorities and users are informed if the manufacturer has ceased operations and cannot meet its obligations
 
 **Distributor (Art 20)**
 

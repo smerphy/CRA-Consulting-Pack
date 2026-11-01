@@ -1028,6 +1028,13 @@ New text:
 Art 3(30) (OJ text): a change after placing on the market "which affects the compliance of the product with digital elements with the essential cybersecurity requirements set out in Part I of Annex I or which results in a modification to the intended purpose for which the product with digital elements has been assessed".
 ```
 
+## Post-audit corrections (applied 1 Nov 2026)
+
+Found by the operator-roles-and-supply module after the 184-claim audit and recorded in `claims.csv` as O09 and O10, outside the audit counts. Both were applied to the source files, the compiled report, the live knowledge-base doc and its exports.
+
+- **O09, Art 19 paragraph numbers.** `reports/sections/05-roles.md`: "(Art 19(6)-(9))" becomes "(Art 19(6)); ... (Art 19(8))" in the importer row, and "Art 19(9)" becomes "Art 19(8)" in the cessation row. The KB checklist lines "19(6)-(8)" and "19(9)" become "19(6)-(7)" and "19(8)". `pack/engine/workbooks/obligations.py` A19-06 and A19-07 changed the same way; the D11 workbooks need a rebuild.
+- **O10, PLD Art 8 platform liability.** `reports/sections/05-roles.md`, `reports/sections/13-interplay.md` and `reports/guides/corporate/10-market-access.md` no longer say the online platform is liable wherever no importer or authorised representative exists. The fulfilment service provider is liable (Art 8(1)(c)(iii)); a platform only where it fails to identify an EU operator within one month of a request and the DSA Art 6(3) conditions are met (Art 8(3)-(4)).
+
 ## Propagation to derived copies
 
 The same old strings also appear in assembled or exported copies. Regenerate them from the corrected sources, or apply the identical replacement:

@@ -224,7 +224,7 @@ The derogation varies only the price of updates, not their delivery. For air-gap
 5. **Notified-body access to ODM sites under Module H.** Our reading; confirm against Annex VIII Part IV and the chosen body's contract.
 6. **RED transition detail.** Delegated Regulation (EU) 2026/339 Art 1 is verified (E6). Its recitals on market surveillance of RED-era products, and the Commission's intention to delete EN 18031 references after the repeal, come from KB research notes on the draft C(2026) 778; this module could not open EUR-Lex.
 7. **M&A rules.** Derived from the definitions; no guidance exists. Certificate transfer on a change of manufacturer name depends on the notified body.
-8. **KB corrections found.** KB 05-roles.md cites "Art 19(6)-(9)" and "Art 19(9)" for the cessation notice; the OJ text of Art 19 has eight paragraphs and the cessation notice is Art 19(8). The KB also states the PLD platform liability too broadly (Exhibit 5). It treats white-label under Art 21, where Art 3(13) is the direct route for ODM products.
+8. **KB corrections found.** KB 05-roles.md cites "Art 19(6)-(9)" and "Art 19(9)" for the cessation notice; the OJ text of Art 19 has eight paragraphs and the cessation notice is Art 19(8). The KB also states the PLD platform liability too broadly (Exhibit 5). It treats white-label under Art 21, where Art 3(13) is the direct route for ODM products. The Art 19 citations and the PLD wording were corrected in the KB on 1 Nov 2026 (claims O09 and O10).
 9. **Estimates.** Channel volumes, supplier counts, check hours and service levels are illustrative assumptions (`channels.yaml`).
 
 ## Sources

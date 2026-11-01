@@ -63,7 +63,7 @@ Confirm that reading with counsel; the knowledge base, Economic operators and ro
 | Importer (Art 19) | Verifies conformity assessment, documentation, CE marking, DoC and Annex II information before placing; adds its own name and contact; informs the manufacturer of vulnerabilities; keeps the DoC | Exists by definition where an EU business places the product; absent in pure direct-to-consumer sales |
 | Reg 2019/1020 Art 4 responsible operator | Required for the legislation listed in Art 4(5), such as the Radio Equipment Directive | Not for the CRA as such; yes where the product is also radio equipment |
 | GPSR Art 16 responsible person, via CRA Art 11 | EU-established person for consumer products not under other harmonisation law, for safety risks the CRA does not cover | Yes for in-scope consumer products without other harmonisation law |
-| Directive (EU) 2024/2853 Art 8 | Where no EU importer or authorised representative exists, the EU fulfilment service provider or online platform is liable | Liability from 9 Dec 2026, not a market-access condition |
+| Directive (EU) 2024/2853 Art 8 | Where no EU importer or authorised representative exists, the EU fulfilment service provider is liable (Art 8(1)(c)(iii)); an online platform only if it fails to identify an EU operator within one month of a request and DSA Art 6(3) applies (Art 8(3)-(4)) | Liability from 9 Dec 2026, not a market-access condition |
 
 The practical advice is to appoint an authorised representative anyway. It fixes the Art 14(7) coordinator CSIRT for a manufacturer with no EU establishment and gives authorities one EU address. It also keeps custody of the file (Section 8) and keeps liability off fulfilment partners.
 
@@ -95,7 +95,7 @@ Signing is a controlled authority: Section 2 sets out the instrument, the pre-si
 - A marketplace or fulfilment provider is not a CRA economic operator unless it manufactures, imports or distributes (Recital 78). One selling its own brand is a manufacturer.
 - In direct-to-consumer sales there is no importer, because a consumer does not act in a commercial activity; the manufacturer alone carries Arts 13-14.
 - The GPSR Art 16 responsible-person rule and, where applicable, Reg 2019/1020 Art 4 still require an EU person for consumer products.
-- From 9 Dec 2026 the fulfilment provider or platform is liable under Directive (EU) 2024/2853 Art 8 where no importer or representative exists. Platforms will therefore ask for one.
+- From 9 Dec 2026 the fulfilment service provider is liable under Directive (EU) 2024/2853 Art 8(1)(c)(iii) where no importer or representative exists, and a platform can become liable if it cannot name an EU operator within one month of a request (Art 8(3)-(4)). Platforms will therefore ask for one.
 - Expect test purchases under "cover identity" in coordinated sweeps from 11 Dec 2027 (Art 60).
 - Each marketplace listing is a market and channel entry in the scope register (Section 4) with its own role decision.
 

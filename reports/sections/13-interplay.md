@@ -46,7 +46,7 @@ A GB manufacturer selling into the EU is a third-country manufacturer and carrie
 
 Art 14(7) routes reports to the CSIRT of the authorised representative, then the importer, then the distributor, then where most users are. Three parallel rules make an EU responsible operator effectively necessary for direct-to-consumer sales. [Reg 2019/1020](https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32019R1020) Art 4(5) requires one for radio equipment, and [GPSR](https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32023R0988) Art 16 applies via CRA Art 11.
 
-PLD Art 8 adds the third: where no EU importer or representative exists, liability falls on the fulfilment provider or platform.
+PLD Art 8 adds the third: where no EU importer or authorised representative exists, liability falls on the fulfilment service provider (Art 8(1)(c)(iii)); an online platform is liable only if it fails to identify an EU operator within one month of a request and the DSA Art 6(3) conditions are met (Art 8(3)-(4)).
 
 UK Approved Bodies can certify only for UKCA ([gov.uk UKCA guidance](https://www.gov.uk/guidance/using-the-ukca-marking), 21 Aug 2026). Module B+C or H therefore needs an EU notified body, and none is listed as of 8 Sep 2026.
 
