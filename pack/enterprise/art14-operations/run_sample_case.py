@@ -11,7 +11,7 @@ from pathlib import Path
 from case_engine import cli
 
 C = "ART14-2611-001"
-ALL_ENGINE = ["lumen-browser-desktop", "lumen-browser-mobile", "lumen-os", "halo-os",
+ALL_ENGINE = ["lumen-browser-desktop", "lumen-browser-mobile", "lumen-os", "lumen-webview",
               "hearth-hub-display", "drive-sync-client"]
 
 
@@ -62,7 +62,7 @@ def main():
         "--filed-by", "Assigned Representative A", "--checked-by", "Assigned Representative C")
     run(store, "fix", "--case", C, "--product", "drive-sync-client", "--at", "2026-11-10T10:00Z", "--desc", "Client update with patched webview")
     run(store, "fix", "--case", C, "--product", "lumen-os", "--at", "2026-11-10T17:00Z", "--desc", "Lumen OS out-of-cycle update")
-    run(store, "fix", "--case", C, "--product", "halo-os", "--at", "2026-11-12T08:00Z", "--desc", "Halo OS system WebView update via app store")
+    run(store, "fix", "--case", C, "--product", "lumen-webview", "--at", "2026-11-12T08:00Z", "--desc", "Lumen WebView update via app store")
     run(store, "fix", "--case", C, "--product", "hearth-hub-display", "--at", "2026-11-17T08:00Z", "--desc", "Hearth Hub firmware")
     print("\n$ python -m case_engine timeline --case", C)
     run(store, "timeline", "--case", C, show=True)

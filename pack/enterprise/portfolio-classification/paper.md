@@ -1,6 +1,6 @@
 # Portfolio classification and conformity routes for Aldermoor Platforms
 
-**Executive answer.** We classified Aldermoor's EU portfolio at product-family level: 40 families across nine business lines. Seventeen families need a notified body today: 16 are important Class I and one is Class II. None is critical, because the Bastion secure element is integrated and never sold on its own. Fourteen families are default and may self-assess under Module A. Nine are not separate products or are not placed on the market: three sit inside another product's boundary, two are browser-only consoles or hosted services, and four are open-source projects Aldermoor stewards without monetising. The notified-body families carry about EUR 12.6bn of illustrative EU revenue: 34% of EU product revenue and 16% of total EU revenue. Lumen Browser's search-enabled revenue is 62% of that figure. We recommend Module H (full quality assurance) in all four organisations that hold notified-body products. Our estimate is 720-1,460 notified-body days for the first certification wave and 270-930 days a year after that, against 880-2,540 and 640-1,820 days for type examination. That is EUR 3.2m-9.3m over five years against EUR 6.2m-17.7m. The binding constraint is not money. No CRA notified body had been designated at the last verified check (8 Sep 2026), and in a thin market Aldermoor alone could absorb 10-20% of EU capacity. Contract two bodies early and keep the borderline calls below under change control.
+**Executive answer.** We classified Aldermoor's EU portfolio at product-family level: 40 families across nine business lines. On today's facts, seventeen families would need a notified body for units placed from 11 Dec 2027: 16 are important Class I and one is Class II. None is critical, because the Bastion secure element is integrated and never sold on its own. Fourteen families are default and may self-assess under Module A. Nine are not separate products or are not placed on the market: three sit inside another product's boundary, two are browser-only consoles or hosted services, and four are open-source projects Aldermoor stewards without monetising. The notified-body families carry about EUR 12.6bn of illustrative EU revenue: 34% of EU product revenue and 16% of total EU revenue. Lumen Browser's search-enabled revenue is 62% of that figure. We recommend Module H (full quality assurance) in all four organisations that hold notified-body products. Our estimate is 720-1,460 notified-body days for the first certification wave and 270-930 days a year after that, against 880-2,540 and 640-1,820 days for type examination. That is EUR 3.2m-9.3m over five years against EUR 6.2m-17.7m. The binding constraint is not money. No CRA notified body had been designated at the last verified check (8 Sep 2026), and in a thin market Aldermoor alone could absorb 10-20% of EU capacity. Contract two bodies early and keep the borderline calls below under change control.
 
 All revenue figures, type counts and cadences are illustrative estimates for a fictional client. Legal rules come from the knowledge base (KB) and are cited by section. Notified-body costs rest on vendor commentary that the KB marks unverified.
 
@@ -20,7 +20,7 @@ The register in `classification.csv` applies the KB rules to every family in `po
 | Out of scope as a product (browser-only consoles, hosted services) | 2 | 9,000 (services, not product revenue) | No |
 | Not placed on the market (Aldermoor is steward) | 4 | 0 | No |
 
-Notified-body revenue is EUR 12,555m including the Hearth Aware subscription inside Hearth device certificates. That is 34.2% of the EUR 36,695m attributed to in-scope products and 16.3% of Aldermoor's EUR 77bn EU revenue. Without the browser's search-enabled revenue the notified-body exposure is about EUR 4.8bn, mostly hardware.
+Notified-body revenue is EUR 12,555m including the Hearth Aware subscription inside Hearth device certificates. That is 34.0% of the EUR 36,875m attributed to in-scope products (including software inside another product's boundary) and 16.3% of Aldermoor's EUR 77bn EU revenue. Without the browser's search-enabled revenue the notified-body exposure is about EUR 4.8bn, mostly hardware.
 
 **Exhibit 2: Class by business line (number of families)**
 
@@ -53,7 +53,7 @@ A keyword check in `classify.py` flags any family whose description also matches
 
 ## Route strategy: Module H in four organisations, with Module A for Class I only after standards are cited
 
-Today a Class I product cannot self-assess. Art 32(2) allows Module A only where an OJ-cited harmonised standard, common specification or Art 27(9) scheme is applied in full, and none exists at 30 Oct 2026. The third-party routes are blocked too, because no notified body is designated (10-conformity.md; verification.md claims 9, 21, 23).
+Today a Class I product cannot self-assess. Art 32(2) allows Module A only where harmonised standards, common specifications or European cybersecurity certification schemes at assurance level at least "substantial" "as referred to in Article 27" are applied in full. No CRA standard or common specification exists at 30 Oct 2026, and whether a scheme can serve before an Art 27(9) act is an open interpretation (module E6). The third-party routes are blocked too, because no notified body is designated (10-conformity.md; verification.md claims 9, 21, 23).
 
 **Exhibit 3: Route strategy by organisation**
 
@@ -84,7 +84,7 @@ The Art 32(5) FOSS route is not available as products ship today. It applies onl
 
 Module H wins in every organisation over five years. In Devices it costs about a third as much, because B+C would mean 32 separate type examinations by Dec 2027 and every Hearth app change would touch about 21 certificates. In Lumen, Platforms and Cloud and apps the cost gap is narrow, and Module H earns its place by absorbing 4-weekly change without re-opening type certificates.
 
-Version discipline matters more than the route. Placing on the market is per version for standalone software (guidance paras 13-14), but security updates are "generally not" substantial modifications (pt 108). If every 4-weekly Lumen major were treated as a new type, examination cost for the three I.2 families would reach about EUR 33m a year at the high estimate. The four-question substantial-modification test (pt 110), run and recorded per release, is what keeps the real figure under EUR 1m.
+Version discipline matters more than the route. Under Commission guidance (paras 13-14; guidance, not the Regulation's text), placing on the market is per version for standalone software, but security updates are "generally not" substantial modifications (pt 108). If every 4-weekly Lumen major were treated as a new type, examination cost for the three I.2 families would reach about EUR 33m a year at the high estimate. The four-question substantial-modification test (pt 110), run and recorded per release, is what keeps the real figure under EUR 1m.
 
 **Exhibit 5: Aldermoor's share of EU notified-body capacity (hypothetical scenarios)**
 
@@ -121,7 +121,7 @@ Packaging and licensing decisions change classification, so the register must li
 
 1. **Register of record.** One row per SKU and per separately licensed software module, holding the fields in `classification.csv`. It also holds the core-functionality statement that goes into Annex VII item 1(a). Product families may share one risk assessment and technical file where architecture, security design, intended purpose and risks are the same (guidance pts 174-177; 03-scope.md).
 2. **Classification triggers.** Re-run the seven-step procedure in 06-classification.md on any new SKU, separate sale or licence of a module, new distribution channel (for example WebView to third-party devices), external sale of a component (Bastion), change of marketing claims, or new feature touching a category function (authentication, VPN, password storage, assistant, camera).
-3. **Release gate in the build pipeline.** Each EU release carries a classification record and a substantial-modification determination generated with the E1 evidence-as-code pipeline. A release without both is blocked from EU distribution. For Module H organisations the same record drives the notice of intended changes to the notified body (Annex VIII Module H pt 3.5).
+3. **Release gate in the build pipeline.** Each EU release carries a classification record and a substantial-modification determination generated with the E1 evidence-as-code pipeline. A release without both is blocked from EU distribution. For Module H organisations the same record drives notices to the notified body of intended changes to the approved quality system (Annex VIII Module H pt 3.5) and any scope extension for new product categories (pt 3.1(b)).
 4. **Marketing consistency check.** Product marketing and documentation for notified-body and borderline families are reviewed against the recorded core functionality before launch, because inconsistency is an indicator of misrepresentation (pt 143).
 5. **Regulatory watch.** Re-classify quarterly against new Art 7(3) or Art 8 delegated acts (none adopted or consulted), OJ citations of harmonised standards (none yet) and the Art 27(9) EUCC act (planned Q4 2026, not adopted). Wrong-route choices can attract fines under Art 64(3) (guidance pt 146).
 
@@ -129,7 +129,7 @@ Packaging and licensing decisions change classification, so the register must li
 flowchart LR
   A[New SKU, licence change or release] --> B{Classification trigger?}
   B -- No --> C[Substantial-modification test, pt 110]
-  B -- Yes --> D[Re-run 7-step procedure; legal sign-off for borderline]
+  B -- Yes --> D["Re-run 7-step procedure; legal sign-off for borderline"]
   D --> E[Update register and Annex VII core statement]
   C --> F{Substantial?}
   F -- No --> G[Ship under existing approval; record]
@@ -155,7 +155,7 @@ flowchart LR
 - **Cost and capacity numbers.** The cost anchors are vendor commentary. Complexity factors, day rates and capacity scenarios are our assumptions. Total market capacity and competing demand are unknown.
 - **Art 32(5) with proprietary remote data processing.** The KB does not settle whether a FOSS client with a proprietary backend qualifies.
 - **Substantial-modification calls on AI features.** AI-agent features in Lumen and the Hearth assistants are the likeliest triggers. Each one costs a scope extension and needs a recorded test result.
-- **Module H surveillance.** Whether Annex VIII Module H pt 4 allows unexpected visits is disputed between mirrors and unverified against the OJ (10-conformity.md).
+- **Module H surveillance.** Resolved against the OJ text (module E6): Annex VIII Part IV pt 4 provides site access and periodic audits with an audit report (pts 4.1-4.3) and no unexpected-visit clause. Budget for periodic audits only, unless the body's contract adds visits.
 - **Medical-device boundary.** Any Pulse feature certified under Regulation (EU) 2017/745 takes that model out of CRA scope. Mixed models need counsel.
 - **Free closed-source apps.** Placement of Aldermoor Authenticator rests on the commercial-ecosystem argument. Free, unmonetised, non-FOSS company apps are a grey area (guidance pts 40-41).
 

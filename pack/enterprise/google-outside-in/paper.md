@@ -2,11 +2,11 @@
 
 # Google outside-in: what the CRA means for Google, from public sources
 
-**Executive answer.** On public evidence, 25 Google product families are likely to be products with digital elements made available in the EU. Fourteen of them (56%) are likely important Class I products: Chrome on desktop and mobile, Android System WebView, ChromeOS, Pixel Watch, Fitbit wearables, Nest cameras and doorbells, smart speakers, smart displays, Nest Wifi Pro, the Titan Security Key, Google Authenticator and the Windows credential provider. The other 11 are likely default products, including Pixel phones. None is firmly Class II or critical, but four are borderline upwards, and the Titan Security Key could be an Annex IV secure element. With no harmonised standard cited and no CRA notified body designated, 56% of families would need third-party assessment if placed after 11 Dec 2027 on today's facts. The figure rises to about 70% if the borderline cases go against Google. We estimate about 40 Article 14 notification records a year (range 10 to 115). Each record runs a 24-hour first clock. The volume is driven by about 8 exploited Chromium flaws and 7 exploited Android or Pixel flaws a year, fanned out across separately placed products. Google's EU service provider and EU store operator are Dublin companies, and Ireland has the largest Google EU workforce figure we found (more than 6,000), so Ireland's CSIRT is the likely coordinator. But the manufacturer named on EU declarations is Google LLC in Mountain View, and Google has published no CRA main-establishment designation. The top five implications are:
+**Executive answer.** On public evidence, 25 Google product families are likely to be products with digital elements made available in the EU. Fourteen of them (56%) are likely important Class I products: Chrome on desktop and mobile, Android System WebView, ChromeOS, Pixel Watch, Fitbit wearables, Nest cameras and doorbells, smart speakers, smart displays, Nest Wifi Pro, the Titan Security Key, Google Authenticator and the Windows credential provider. The other 11 are likely default products, including Pixel phones. None is firmly Class II or critical, but four are borderline upwards, and the Titan Security Key could be an Annex IV secure element. With no harmonised standard cited and no CRA notified body designated, 56% of families would need third-party assessment if placed after 11 Dec 2027 on today's facts. The figure rises to about 70% if the borderline cases go against Google. We estimate about 40 Article 14 notification records a year (range 11 to 115). Each record runs a 24-hour first clock. The volume is driven by about 8 exploited Chromium flaws and 7 exploited Android or Pixel flaws a year, fanned out across separately placed products. Google's EU service provider and EU store operator are Dublin companies, and Ireland has the largest Google EU workforce figure we found (more than 6,000), so Ireland's CSIRT is the likely coordinator. But the manufacturer named on EU declarations is Google LLC in Mountain View, and Google has published no CRA main-establishment designation. The top five implications are:
 
-1. Fourteen families need third-party assessment, and no CRA notified body has yet been found designated.
+1. Fourteen families would need third-party assessment for units placed from 11 Dec 2027 unless standards are cited first, and no CRA notified body has yet been found designated.
 2. Article 14 volume is a 24/7 operating problem, not a filing task.
-3. Published support periods anchored to US launch dates do not fit the CRA's per-product declared end date.
+3. Published support periods anchored to US launch dates would need review for units placed from 11 Dec 2027, when the CRA requires a declared end date per product.
 4. Chromium and AOSP put Google in steward and manufacturer roles at once.
 5. Google's build-provenance foundations are strong for servers and Pixel images but not yet visibly product-by-product evidence for the CRA.
 
@@ -24,7 +24,7 @@ EU availability was checked on the Irish, German and French Google Stores on 1 N
 
 ### Exhibit 1: likely classification of the 25 headline families (estimate)
 
-| Likely class | Families | Annex item | Notified body likely needed today |
+| Likely class | Families | Annex item | Notified body likely needed (units placed from 11 Dec 2027, on today's facts) |
 |---|---|---|---|
 | Important Class I, software (6) | Chrome desktop; Chrome mobile; Android System WebView; ChromeOS and ChromeOS Flex; Google Authenticator; Google Credential Provider for Windows | III-I.2 browsers; III-I.11 operating systems; III-I.1 identity and authentication | Yes (Module B+C or H) |
 | Important Class I, hardware (8) | Pixel Watch; Fitbit wearables; Nest cameras; Nest doorbells; smart speakers; smart displays; Nest Wifi Pro; Titan Security Key | III-I.19 wearables; III-I.17 smart-home security; III-I.16 assistants; III-I.12 routers; III-I.1 authentication | Yes |
@@ -52,7 +52,7 @@ Units of the delisted products already on the EU market still fall under Article
 | GDC software only for bare metal; GDC appliances | Is the container runtime the core functionality (II.1)? | Class II would need a notified body or a "substantial" EUCC certificate once the Art 27(9) act exists |
 | Directory and password sync | Identity management (I.1) or provisioning utility? | Moves a default product into Class I |
 
-Integrated security silicon is a design strength, not a classification burden. Google says Titan M2 was certified to Common Criteria PP0084 at AVA_VAN.5 (S22), which is the Annex IV.3 secure-element level. Because the chip is not sold separately, Pixel stays a default product. Google must still assess the chip as a component.
+Integrated security silicon is a design strength, not a classification burden. Google says Titan M2 was certified to Common Criteria PP0084 at AVA_VAN.5 (S22). That is above the AVA_VAN.4 threshold that the Implementing Regulation (EU) 2025/2392 description uses for Annex IV.3 secure elements (KB `06-classification.md`). Because the chip is not sold separately, Pixel stays a default product. Google must still assess the chip as a component.
 
 ## 2. Ireland is the likely coordinator CSIRT, but the public record does not settle it
 
@@ -69,7 +69,7 @@ Article 14(7) sends every notification to the CSIRT of the Member State of the m
 | More than 2,500 staff in Germany (2021, stale); Munich hosts Google's "global hub of privacy and security engineering" with 300+ engineers | S07, S08 | A possible argument for Germany on the "decisions" test, which we judge weak |
 | No Google statement designating a CRA main establishment or coordinator CSIRT | Searches, 1 Nov 2026 | Unverified |
 
-Our reading is that the "decisions predominantly taken" test cannot point to an EU Member State if those decisions sit in the United States. The fallback then applies, and Ireland is the likely answer. Two points remain unverified. First, which Member State Google has selected on the SRP. Second, whether establishments of subsidiaries count as the manufacturer's own establishments. A wrong choice "may" invalidate a notification (ENISA SRP FAQ 18, per KB 09).
+Our reading is that the "decisions predominantly taken" test cannot point to an EU Member State if those decisions sit in the United States. The headcount fallback then applies, and Ireland is the likely answer. If Google LLC were instead treated as having no EU main establishment, the third subparagraph of Art 14(7) would apply: an authorised representative first, if one exists, then the importer. Google Commerce Limited in Dublin would likely point to Ireland on that route too (inference). Two points remain unverified. First, which Member State Google has selected on the SRP. Second, whether establishments of subsidiaries count as the manufacturer's own establishments. A wrong choice "may" invalidate a notification (ENISA SRP FAQ 18, per KB 09).
 
 ## 3. Google should expect about 40 Article 14 records a year, with peaks of several a week (E2)
 
@@ -115,7 +115,7 @@ Google has published more of the building blocks than most manufacturers.
 | Nest security validation results | Third-party validation result PDFs per device (S21) | Test reports for Annex VII point 6 | Not CRA-specific; method and coverage not checked here |
 | Bulletins and release notes | Monthly Android and Pixel bulletins; Chrome Releases per update (S11, S14, S15) | Art 13(6) and Annex I Part II(4) public disclosure of fixed vulnerabilities | Formats are human-readable pages. CSAF or other machine-readable feeds were not checked |
 
-The E1 design in this pack fits Google's starting point. Each release pipeline should emit a CRA evidence bundle per product version: provenance, SBOM, the vulnerability-handling record and the support-period end date. The bundle should be keyed to the product identifiers used in the declaration of conformity. The hardest part at Google's cadence is versioning. Chrome ships a new major version every four weeks and Pixel ships monthly. Each software version is a separate placing on the market (KB `03-scope.md`). So declarations, CE marking and technical documentation must be generated by the pipeline, not assembled by hand.
+The E1 design in this pack fits Google's starting point. Each release pipeline should emit a CRA evidence bundle per product version: provenance, SBOM, the vulnerability-handling record and the support-period end date. The bundle should be keyed to the product identifiers used in the declaration of conformity. The hardest part at Google's cadence is versioning. Chrome ships a new major version every four weeks and Pixel ships monthly. Under Commission guidance (not the Regulation's text), each software version is a separate placing on the market (KB `03-scope.md`). So declarations, CE marking and technical documentation must be generated by the pipeline, not assembled by hand.
 
 ## 5. Google is likely a steward for many projects and a manufacturer for the products built on them (E4)
 
@@ -124,7 +124,7 @@ Our role analysis is in `oss.md`. Google likely sustains several projects as an 
 Two projects need executive attention.
 
 - **Chromium.** The same exploited V8 or Skia flaw is a manufacturer notification for Chrome, WebView and ChromeOS today. It may also be a steward notification for Chromium from 11 Dec 2027. The CISA catalogue entry for CVE-2026-3909 shows the reach: Chrome, ChromeOS, Android and Flutter (S13).
-- **AOSP.** Google moved to publishing AOSP source twice a year from 2026 (S30). That strengthens Pixel's position as a Google product. It also invites the argument that AOSP is supplied in a commercial context rather than sustained as unmonetised open source. If that argument succeeded, Google would become a manufacturer of an operating system (Class I.11). It could then self-assess only through the Art 32(5) route, which requires public technical documentation.
+- **AOSP.** Google moved to publishing AOSP source twice a year from 2026 (S30). That strengthens Pixel's position as a Google product. It also invites the argument that AOSP is supplied in a commercial context rather than sustained as unmonetised open source. If that argument succeeded, Google would become a manufacturer of an operating system (Class I.11). Until a harmonised standard, common specification or substantial-level scheme can be applied in full (Art 32(2)), its only self-assessment route would be Art 32(5), which requires public technical documentation.
 
 We found no public Google statement on the CRA. OpenSSF's 11 Sep 2026 guide expects "most of the open source software community" to fall under the steward framework (S60).
 
@@ -134,16 +134,16 @@ Google already publishes UK PSTI statements of compliance for Pixel, Nest, Chrom
 
 ### Exhibit 5: published support policies against the CRA floor
 
-| Family | Published policy | Fit with the CRA (KB `08-annex1-part2.md`) |
+| Family | Published policy | Fit with the CRA for units placed from 11 Dec 2027 (KB `08-annex1-part2.md`) |
 |---|---|---|
 | Pixel phones | Seven years from first US availability (S16) | Above the five-year floor at launch. A unit placed in the EU late in the cycle gets less, and the end date must be shown at purchase (Art 13(19)). Whether the floor runs per unit is not settled in the KB |
 | ChromeOS | Ten years from platform release (S12) | Above the floor |
-| Nest and Google Home devices | At least five years from first US Google Store sale (S21) | Several products on EU stores have passed their published minimum: Nest Cam battery, floodlight and Doorbell battery (24 Aug 2026), Nest Hub 2nd gen (30 Mar 2026). They still receive updates, but the published commitment for new units is spent |
-| Pixel Watch | At least three years from first US availability (S18, Pixel Watch 3) | Below the five-year floor unless Google evidences a shorter expected use time |
-| Fitbit | At least two years after last sold (S19) | Likely below the floor for units bought late in a model's sales life |
+| Nest and Google Home devices | At least five years from first US Google Store sale (S21) | Would need review. Published minimum dates have passed for several products still on EU stores: Nest Cam battery, floodlight and Doorbell battery (24 Aug 2026), Nest Hub 2nd gen (30 Mar 2026). The CRA support-period duty does not reach units placed before 11 Dec 2027; units placed after it would each need a declared end date |
+| Pixel Watch | At least three years from first US availability (S18, Pixel Watch 3) | Would need review: three years is below the five-year floor unless a shorter expected use time is evidenced |
+| Fitbit | At least two years after last sold (S19) | Would need review: may fall below the floor for units placed late in a model's sales life |
 | Titan Security Key, Pixel Buds, Chrome, apps | No published period found | A declared period is needed per product |
 
-For products placed after 11 Dec 2027, Google will need a declared, product-specific support period with an end date visible at purchase. On public evidence it does not yet have one for most families. One control set can serve all three regimes: the EU CRA, UK PSTI, which already requires published support periods, and the Cyber Trust Mark. The CRA is the binding constraint, because its floor and reporting duties are the strictest.
+For products placed after 11 Dec 2027, Google will need a declared, product-specific support period with an end date visible at purchase. On public evidence it has not yet published one for most families; none is required before that date. One control set can serve all three regimes: the EU CRA, UK PSTI, which already requires published support periods, and the Cyber Trust Mark. The CRA is the binding constraint, because its floor and reporting duties are the strictest.
 
 ## 7. What a CTO would do in the next 90 days
 
@@ -151,7 +151,7 @@ For products placed after 11 Dec 2027, Google will need a declared, product-spec
 2. **Weeks 1-4: stand up one exploitation decision cell.** It covers Chrome, Android, Pixel, Nest, Fitbit and Cloud installed software. It needs 24/7 cover, written "reliable evidence" criteria, and a product fan-out table that maps each shared component (V8, Skia, kernel, Mali, Brotli) to every Google product that ships it.
 3. **Weeks 2-6: freeze the classification register at SKU level.** Use `portfolio.csv` as a starting point. Resolve the six borderline cases with counsel and record the single core functionality per product (guidance para 144).
 4. **Weeks 4-8: book third-party capacity.** Fourteen Class I families need Module B+C or H unless OJ-cited standards arrive in time. Prefer Module H for fast-release software lines (Chrome, ChromeOS, WebView). Engage notifying authorities on designation timelines.
-5. **Weeks 4-10: rewrite support-period policy.** Move from "years from US launch" to a declared EU end date per product and per unit. Close the Pixel Watch and Fitbit gaps first.
+5. **Weeks 4-10: rewrite support-period policy.** Move from "years from US launch" to a declared EU end date per product and per unit. Start with Pixel Watch and Fitbit, where the published periods are shortest.
 6. **Weeks 6-12: extend provenance to client products.** Map BAB, SLSA and AOSP SBOM outputs onto the Annex VII bundle for one Class I product, such as Chrome, and one device, such as Nest Cam. Use the E1 pipeline pattern.
 7. **Weeks 8-12: name the steward entities.** Name the legal-entity steward and publish an Art 24(1) policy for Chromium and AOSP first. Decide whether steward and manufacturer filings will be combined.
 

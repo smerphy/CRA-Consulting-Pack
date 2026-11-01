@@ -10,7 +10,7 @@ Load the `anthropic-skills:docs` skill first, then ToolSearch "select:mcp__Claud
 - Implementation guides: reports/guides/application/*.md (03 risk assessment, 06 SBOM, 07 updates, 08 vulnerability handling, 10 reporting runbook, 11 documentation set, 12 conformity prep, 13 worked example) and reports/guides/corporate/*.md (06 supply chain, 07 reporting governance, 08 evidence)
 - reports/verification.md — its corrections OVERRIDE the sections.
 - Illustrative example data: pack/data/pack_data.json → client.product_families (use L2 Smart Lock: Class I, Annex III Class I item 17, Home & Building Solutions, check its support_period_years, rdps, route fields) and DATA_SUMMARY.md. Example Group is fictional.
-Cite the article / annex point next to each field (e.g. "Annex V pt 3", "Art 13(8)"). Quote statutory wording only where the KB quotes it. Where the KB says something is unverified, disputed or dependent on a future act, say so in one line. Facts as at 30 Oct 2026; notified-body status "at checks to 8 Sep 2026".
+Cite the article / annex point next to each field (e.g. "Annex V pt 3", "Art 13(8)"). Quote statutory wording only where the KB quotes it. KB article and annex wording was checked against the Official Journal text on 1 Nov 2026 (pack/enterprise/oj-verification); do not add "confirm the OJ wording" caveats to verified quotations such as Annex V pt 3 "provider". Where the KB says something is unverified, disputed or dependent on a future act, say so in one line. Facts as at 30 Oct 2026; notified-body status "at checks to 8 Sep 2026".
 
 ## Shape of every tab (consistent across the kit)
 1. Lead paragraph (2-3 sentences): what this document is, the legal basis, when it is needed, where it is filed.

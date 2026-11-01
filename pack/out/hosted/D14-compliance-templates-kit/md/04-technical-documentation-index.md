@@ -34,13 +34,13 @@ The technical documentation index is the first page of a product's Annex VII fil
 | Product and variants | \[Family; variant list in Part C\] | Guidance paras 174-177 | L2 Smart Lock, 3 SKUs |
 | Conformity route | \[From Template 1\] | Art 32 | Module B+C (planned) |
 | Retention end | \[10 years after last placing, or end of support period, whichever is later\] | Art 13(13) | \[Date\] |
-| Working language | \[Any language; translation plan for authorities\] | Art 13(22) | English; translation on request |
+| Working language | \[Working language; for a notified-body route, an official language of the body's Member State or one it accepts; translation plan for authorities\] | Art 31(4); Art 13(22) | English, accepted by the notified body; translation on request |
 | System of record | \[GRC platform, document-management system or compliance tool with audit trail\] | Evidence governance | \[Tool name\] |
 | Legacy design relief | \[Yes or no; scope\] | Guidance pts 37-39 | \[Yes, for design phases before 11 Dec 2027\] |
 
 ### Part B: Annex VII index
 
-Document names show illustrative L2 entries. Point 1 is split into 1(a)-1(d) (sub-lettering for this kit; the regulation numbers point 1 as one item).
+Document names show illustrative L2 entries. Point 1 rows 1(a)-1(d) follow the lettering of Annex VII point 1 in the OJ text.
 
 | Annex VII point | Content required | Document / artefact | Owner | Location (system of record) | Version | Status |
 | --- | --- | --- | --- | --- | --- | --- |

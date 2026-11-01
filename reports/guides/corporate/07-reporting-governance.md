@@ -97,7 +97,7 @@ The cell shares one fact base and one UTC timeline, and each owner files separat
 
 ### Customer and user communication governance
 
-Art 14(8) requires the manufacturer to inform impacted users, and where appropriate all users, without undue delay, "where appropriate, in a structured, machine-readable format". Guidance paras 219-221 make the duty risk-based: detailed disclosure may be limited to affected customers until a fix exists, with broader disclosure once mitigated. If the manufacturer is not timely, the CSIRTs may inform users themselves.
+Art 14(8) requires the manufacturer to inform impacted users, and where appropriate all users, in a timely manner (no fixed deadline), "where appropriate, in a structured, machine-readable format". Guidance paras 219-221 make the duty risk-based: detailed disclosure may be limited to affected customers until a fix exists, with broader disclosure once mitigated. If the manufacturer is not timely, the CSIRTs may inform users themselves.
 
 | Decision | Owner | Rule |
 |---|---|---|

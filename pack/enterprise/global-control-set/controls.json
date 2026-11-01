@@ -131,16 +131,16 @@
    "status": "In force 10 Dec 2024; Art 14 reporting since 11 Sep 2026; full application 11 Dec 2027",
    "relation_to_cra": "The baseline. Every control is sized first against the CRA because it is the broadest regime: all products with digital elements, B2B and B2C, 13 product properties, 8 lifecycle duties, Art 13 and Art 14.",
    "reuse": "Annex VII technical file is the master evidence store; the EU declaration, SBOM, CVD policy and support-period rationale feed every other regime.",
-   "gaps": "No security label or public product registry; no national-security supply-chain screening; third-party testing only for Annex III Class I without a cited harmonised standard, Class II and Annex IV.",
+   "gaps": "No security label or public product registry; no national-security supply-chain screening; third-party testing only for Annex III Class I where no harmonised standard, common specification or substantial-level EU certification scheme is applied in full (Art 32(2)), Class II and Annex IV.",
    "url": "https://eur-lex.europa.eu/eli/reg/2024/2847/oj",
    "holdable": true,
    "facts": {
     "Scope": "All products with digital elements made available in the EU whose intended or foreseeable use includes a data connection; remote data processing the product depends on (Art 3(2)).",
     "Products": "Hardware and software, consumer and business; Annex III important (Class I/II) and Annex IV critical categories.",
-    "Conformity route": "Module A self-assessment by default; B+C or H with a notified body for Class I without full use of a cited harmonised standard, and Class II (Art 32).",
+    "Conformity route": "Module A self-assessment by default; B+C or H with a notified body for Class I unless a harmonised standard, common specification or substantial-level EU certification scheme is applied in full (Art 32(2)); Class II via B+C, H or an Art 27(9) scheme (Art 32(3)); critical products per Art 32(4); FOSS may self-assess with public technical documentation (Art 32(5)).",
     "Labelling": "CE marking (Arts 29-30) and EU declaration of conformity (Art 28); no security label.",
-    "Reporting": "Actively exploited vulnerabilities 24 h / 72 h / 14 days; severe incidents 24 h / 72 h / 1 month, via ENISA SRP to the coordinator CSIRT (Art 14).",
-    "Penalties": "Up to EUR 15m or 2.5% of worldwide turnover (Art 64(2)); EUR 10m or 2%; EUR 5m or 1%.",
+    "Reporting": "Actively exploited vulnerabilities 24 h / 72 h / final report 14 days after a fix; severe incidents 24 h / 72 h / final report 1 month after the incident notification, via ENISA SRP to the coordinator CSIRT (Art 14).",
+    "Penalties": "Up to EUR 15m or 2.5% of worldwide turnover, whichever is higher (Art 64(2)); EUR 10m or 2% (Art 64(3)); EUR 5m or 1% (Art 64(4)). Micro and small enterprises are exempt for missed 24-hour deadlines (Art 64(10), as corrected by OJ L, 2025/90555).",
     "Dates": "In force 10 Dec 2024; Art 14 from 11 Sep 2026; notified-body chapter 11 Jun 2026; everything else 11 Dec 2027."
    }
   },
@@ -753,7 +753,7 @@
    "fw": "eu_cra",
    "refs": "Arts 2-3, 7-8; Annexes III-IV; Art 32",
    "coverage": "strong",
-   "note": "Class drives the route: Class I without a cited harmonised standard needs a notified body.",
+   "note": "Class drives the route: Class I needs a notified body unless a harmonised standard, common specification or substantial-level EU certification scheme is applied in full (Art 32(2)); none exists yet.",
    "source": "kb"
   },
   {
@@ -2145,7 +2145,7 @@
    "fw": "eu_cra",
    "refs": "Art 14(1)-(7)",
    "coverage": "strong",
-   "note": "24 h / 72 h / 14 days for exploited vulnerabilities; 24 h / 72 h / 1 month for severe incidents; live since 11 Sep 2026.",
+   "note": "24 h / 72 h / final report 14 days after a fix is available for exploited vulnerabilities; 24 h / 72 h / 1 month after the incident notification for severe incidents; live since 11 Sep 2026.",
    "source": "kb"
   },
   {
@@ -2193,7 +2193,7 @@
    "fw": "eu_cra",
    "refs": "Art 14(8)",
    "coverage": "strong",
-   "note": "Inform impacted users and, where necessary, all users.",
+   "note": "Inform impacted users and, where appropriate, all users, in a timely manner; no fixed deadline, and the coordinator CSIRT may inform users if the manufacturer does not.",
    "source": "kb"
   },
   {
@@ -2481,7 +2481,7 @@
    "fw": "eu_cra",
    "refs": "Art 28; Annexes V-VI; Art 13(20)",
    "coverage": "strong",
-   "note": "One per product, in the languages of sale; simplified version gives the full declaration's URL.",
+   "note": "In the languages of sale; one single declaration covering every Union act that requires one (Art 28(3)); simplified version gives the full declaration's URL.",
    "source": "kb"
   },
   {
@@ -2529,7 +2529,7 @@
    "fw": "eu_cra",
    "refs": "Art 32; Annex VIII (Modules A, B, C, H)",
    "coverage": "strong",
-   "note": "Notified body for Class I without a cited harmonised standard, and Class II.",
+   "note": "Notified body (Module B+C or H) for Class I unless a harmonised standard, common specification or substantial-level EU certification scheme is applied in full (Art 32(2)); Class II via B+C, H or an Art 27(9) scheme (Art 32(3)); FOSS may self-assess with public technical documentation (Art 32(5)).",
    "source": "kb"
   },
   {

@@ -80,7 +80,7 @@ The other five are the organisation's way of making the remaining obligations re
 - The early warning is filed within 24 hours of awareness and the notification within 72 hours of the same awareness. The final report follows Art 14(2)(c) or 14(4)(c) timing.
 - Legal reviews the 72-hour and final reports, not the early warning.
 - The main-establishment Member State and coordinator CSIRT are decided in advance (Art 14(7)); a wrong choice "may invalidate the notification" (ENISA SRP FAQ 18).
-- Users are informed without undue delay, in a risk-based and proportionate way (Art 14(8); guidance paras 219-221).
+- Users are informed in a timely manner, in a risk-based and proportionate way (Art 14(8); guidance paras 219-221).
 - Legacy products placed before 11 Dec 2027 stay in the reportable inventory (Art 69(3)).
 - UTC timestamps for first signal, awareness, escalation and each submission are recorded in the case file.
 

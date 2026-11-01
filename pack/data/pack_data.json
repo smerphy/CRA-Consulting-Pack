@@ -477,7 +477,7 @@
     "basis": "Art 64(2)"
    },
    {
-    "tier": "Tier 2 — other obligations (e.g. Arts 18-23, 28, 30-33)",
+    "tier": "Tier 2 — listed obligations (Arts 18-23, 28, 30(1)-(4), 31(1)-(4), 32(1)-(3), 33(5), 39, 41, 47, 49, 53)",
     "fixed_m": 10,
     "pct": 2.0,
     "example_group_max_m": 24.0,
@@ -3639,7 +3639,7 @@
   },
   {
    "id": "F04",
-   "statement": "Reporting clocks: actively exploited vulnerability 24h early warning, 72h notification, final report 14 days after a corrective measure is available; severe incident 24h, 72h, final report 1 month after the 72h notification.",
+   "statement": "Reporting clocks: actively exploited vulnerability 24h early warning, 72h notification, final report 14 days after a corrective measure is available; severe incident 24h, 72h, final report within 1 month after submission of the incident notification.",
    "basis": "Art 14(2), (4)",
    "url": "https://eur-lex.europa.eu/eli/reg/2024/2847/oj"
   },
@@ -3651,13 +3651,13 @@
   },
   {
    "id": "F06",
-   "statement": "Fines: up to EUR 15m or 2.5% of worldwide annual turnover (Annex I, Arts 13-14); EUR 10m or 2% (other obligations); EUR 5m or 1% (misleading information), whichever is higher.",
+   "statement": "Fines: up to EUR 15m or 2.5% of worldwide annual turnover (Annex I, Arts 13-14); EUR 10m or 2% (listed obligations incl. Arts 18-23, 28, 30-32 and notified-body duties); EUR 5m or 1% (incorrect, incomplete or misleading information in reply to a request), whichever is higher.",
    "basis": "Art 64(2)-(4)",
    "url": "https://eur-lex.europa.eu/eli/reg/2024/2847/oj"
   },
   {
    "id": "F07",
-   "statement": "No harmonised standard is cited in the OJ and no common specification is adopted (30 Oct 2026); Class I products cannot use Module A until one is cited and applied in full.",
+   "statement": "No harmonised standard is cited in the OJ and no common specification is adopted (30 Oct 2026); Class I products can use Module A only by applying in full a cited harmonised standard, a common specification or a European cybersecurity certification scheme at assurance level at least 'substantial' (Art 32(2)); otherwise Module B+C or H.",
    "basis": "Art 32(2); guidance para 149",
    "url": "https://digital-strategy.ec.europa.eu/en/factpages/cyber-resilience-act-implementation"
   },
@@ -3705,7 +3705,7 @@
   },
   {
    "id": "F15",
-   "statement": "The Product Liability Directive (EU) 2024/2853 applies from 9 Dec 2026; software is a product and a vulnerability can be a defect.",
+   "statement": "The Product Liability Directive (EU) 2024/2853 applies to products placed on the market or put into service after 9 Dec 2026 (Art 2(1)); software is a product and a vulnerability can be a defect.",
    "basis": "PLD Arts 4, 7, 9-10",
    "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32024L2853"
   },
@@ -3729,13 +3729,13 @@
   },
   {
    "id": "F19",
-   "statement": "EUCC: 111 valid certificates from 9 certification bodies on 30 Oct 2026; the Art 27(9) act that would let EUCC replace third-party assessment is planned, not adopted.",
+   "statement": "EUCC: 111 valid certificates from 9 certification bodies on 30 Oct 2026; the Art 27(9) act that would let an EUCC certificate at assurance level at least 'substantial' replace third-party assessment for the requirements it covers is planned, not adopted.",
    "basis": "KB: Standards; verification",
    "url": ""
   },
   {
    "id": "F20",
-   "statement": "Open-source stewards have a light-touch regime (Art 24) and are exempt from fines (Art 64(10)(b)); integrating FOSS never transfers the manufacturer's duty (Art 13(5)).",
+   "statement": "Open-source stewards have a light-touch regime (Art 24) and are exempt from fines (Art 64(10)(b)); integrating FOSS leaves the manufacturer's due-diligence duty in place (Art 13(5)).",
    "basis": "Arts 13(5), 24, 64(10)",
    "url": "https://eur-lex.europa.eu/eli/reg/2024/2847/oj"
   }

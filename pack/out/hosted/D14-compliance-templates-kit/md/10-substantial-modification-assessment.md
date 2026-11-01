@@ -61,7 +61,7 @@ This record decides whether a change to a product already on the market is a sub
 5. If any of questions 1-4 is yes, test whether the changed risk affects Annex I Part I compliance. If it does, or you cannot show it does not, record the change as substantial. This step is a kit rule, not guidance text.
 6. Record the outcome, the reasoning and the approver. Borderline negatives also go to the notified body under Module B.
 
-Art 3(30) is paraphrased from mirror text; confirm the OJ wording before relying on it.
+Art 3(30) (OJ text): a change after placing on the market "which affects the compliance of the product with digital elements with the essential cybersecurity requirements set out in Part I of Annex I or which results in a modification to the intended purpose for which the product with digital elements has been assessed".
 
 ### Consequence table
 

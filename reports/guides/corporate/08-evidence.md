@@ -75,7 +75,7 @@ Art 13(22) requires the manufacturer to answer a reasoned request from a market 
 | Translation or summary where the file is not in a language the authority understands | Compliance lead | Within the target |
 | Deliver, log recipient, date and contents | Compliance lead | 10 working days |
 
-Ten working days is an internal target, not a legal deadline. Documentation may be kept in any language, but the authority is entitled to a version it understands (FAQ Section 6.6). Plan translation capacity for the Member States in the register.
+Ten working days is an internal target, not a legal deadline. Documentation may be kept in a working language of your choice, but a notified body can require its own Member State's language or one it accepts (Art 31(4)), and the authority is entitled to a version it easily understands (Art 13(22); FAQ Section 6.6). Plan translation capacity for the Member States in the register.
 
 The knowledge base, Enforcement, market surveillance and penalties, covers the powers behind the request.
 

@@ -12,7 +12,7 @@ from case_engine import cli, clocks, engine, fanout, routing, srp_pack
 from case_engine.clocks import UTC, parse_utc
 
 REG = engine.load_registry()
-ENGINE_PRODUCTS = ["lumen-browser-desktop", "lumen-browser-mobile", "lumen-os", "halo-os",
+ENGINE_PRODUCTS = ["lumen-browser-desktop", "lumen-browser-mobile", "lumen-os", "lumen-webview",
                    "hearth-hub-display", "drive-sync-client"]
 
 
@@ -133,7 +133,7 @@ class FanoutTests(unittest.TestCase):
         with self.assertRaises(fanout.FanoutError):
             fanout.plan(REG, {"no-such-product": "exploited"})
         with self.assertRaises(fanout.FanoutError):
-            fanout.plan(REG, {"halo-os": "suspected"})
+            fanout.plan(REG, {"lumen-webview": "suspected"})
 
 
 class StateMachineTests(unittest.TestCase):
@@ -193,7 +193,7 @@ class StateMachineTests(unittest.TestCase):
         engine.record_legal_review(case, REG, "N1", "final_report", "2026-11-12T10:00:00Z", "C", "product_counsel")
         with self.assertRaises(engine.CaseError):  # no fix yet
             engine.record_submission(case, "N1", "final_report", "2026-11-12T11:00:00Z", "Ana", "Ben")
-        engine.record_fix(case, "halo-os", "2026-11-12T00:00:00Z", "Halo OS out-of-band patch")
+        engine.record_fix(case, "lumen-webview", "2026-11-12T00:00:00Z", "Lumen WebView update")
         engine.record_fix(case, "lumen-browser-desktop", "2026-11-09T16:00:00Z", "Browser stable update")
         d = engine.deadlines(case, case["notifications"][0])
         self.assertEqual(d["final_report"][0], parse_utc("2026-11-23T16:00:00Z"))  # earliest fix + 14 d
@@ -244,17 +244,17 @@ class StateMachineTests(unittest.TestCase):
         engine.update_evidence(case, REG, {"drive-sync-client": "exploited"}, "2026-11-08T03:00:00Z", "Lead", "psirt_lead")
         self.assertEqual(len(case["notifications"]), 6)
         with self.assertRaises(engine.CaseError):
-            engine.update_evidence(case, REG, {"halo-os": "not_reachable"}, "2026-11-08T04:00:00Z", "Lead", "psirt_lead")
+            engine.update_evidence(case, REG, {"lumen-webview": "not_reachable"}, "2026-11-08T04:00:00Z", "Lead", "psirt_lead")
 
     def test_csirt_request_tracked_until_update(self):
         case = new_aev(mode="grouped")
         aware(case)
         engine.record_submission(case, "N1", "early_warning", "2026-11-07T07:30:00Z", "Ana", "Ben", srp_id="S1")
-        engine.record_csirt_request(case, "N1", "2026-11-07T12:00:00Z", "2026-11-07T18:00:00Z", "Confirm affected Halo OS patch levels")
+        engine.record_csirt_request(case, "N1", "2026-11-07T12:00:00Z", "2026-11-07T18:00:00Z", "Confirm affected WebView versions")
         now = parse_utc("2026-11-07T19:00:00Z")
         req = [i for i in engine.due_items(case, REG, now) if i["item"].startswith("Intermediate")]
         self.assertEqual(req[0]["status"], "overdue")
-        engine.record_update(case, "N1", "2026-11-07T19:30:00Z", "Ana", "Ben", "Patch levels confirmed")
+        engine.record_update(case, "N1", "2026-11-07T19:30:00Z", "Ana", "Ben", "Versions confirmed")
         self.assertFalse([i for i in engine.due_items(case, REG, now) if i["item"].startswith("Intermediate")])
 
 
@@ -266,7 +266,7 @@ class SrpPackTests(unittest.TestCase):
         self.assertTrue(pack["ready"], pack["gaps"])
         vals = {r["key"]: r["value"] for r in pack["fields"]}
         self.assertEqual(vals["aware_at"], "2026-11-07 01:10 UTC")
-        self.assertIn("Halo OS", vals["product_name_version"])
+        self.assertIn("Lumen WebView", vals["product_name_version"])
         self.assertIn("[ART14-T1 N4/6]", vals["title"])
         self.assertEqual(len(vals["member_states"].split(", ")), 27)
         self.assertNotIn("pec_indicator", vals)

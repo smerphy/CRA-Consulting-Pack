@@ -36,6 +36,6 @@ The companion CRA Product Classifier (D13) produces a record in the same shape a
 5. Get the named approver to sign off before the document enters the technical file.
 6. Keep the technical documentation and the declaration for 10 years after placing on the market or for the support period, whichever is longer (Art 13(13)).
 
-Regulatory facts are as at 30 Oct 2026. No harmonised standard is cited in the Official Journal, and no CRA notified body was verifiably designated at checks to 8 Sep 2026. Article and annex wording in these templates is paraphrased from mirrors of the regulation; confirm it against the Official Journal text before relying on it. The kit supports a documented compliance process and is not legal advice.
+Regulatory facts are as at 30 Oct 2026. No harmonised standard is cited in the Official Journal, and no CRA notified body was verifiably designated at checks to 8 Sep 2026. Article and annex references in these templates were checked against the authentic Official Journal text on 1 Nov 2026; quotations are exact unless marked as paraphrase. The kit supports a documented compliance process and is not legal advice.
 
 *CRA Compliance Templates Kit (D14) · v1.0 · 31 Oct 2026 · Prepared by \[Advisor\]*

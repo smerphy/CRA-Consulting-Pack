@@ -28,9 +28,9 @@
     "class2": 350,
     "not_placed": 0
   },
-  "product_revenue_eur_m": 36695,
+  "product_revenue_eur_m": 36875,
   "nb_route_revenue_eur_m": 12555,
-  "nb_route_share_of_product_revenue": 0.342,
+  "nb_route_share_of_product_revenue": 0.34,
   "nb_route_share_of_total_eu_revenue": 0.163,
   "browser_share_of_nb_route_revenue": 0.621,
   "borderline_high": [

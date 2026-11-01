@@ -1,6 +1,6 @@
 ## Annex I Part II: vulnerability handling and lifecycle duties
 
-Annex I Part II of the [CRA](https://eur-lex.europa.eu/eli/reg/2024/2847/oj) imposes eight process requirements on every manufacturer. Art 13 wraps them in lifecycle duties: a support period of at least 5 years (Art 13(8)), each security update available for at least 10 years (Art 13(9)), an SBOM, a CVD policy and due diligence on components (Art 13(5)). Unlike Part I, none of the eight is risk-qualified.
+Annex I Part II of the [CRA](https://eur-lex.europa.eu/eli/reg/2024/2847/oj) imposes eight process requirements on every manufacturer. Art 13 wraps them in lifecycle duties: a support period of at least 5 years (Art 13(8)), each security update available for at least 10 years (Art 13(9)), an SBOM, a CVD policy and due diligence on components (Art 13(5)). Unlike Part I, Part II has no risk-assessment chapeau and every point applies, though point 2 is framed "in relation to the risks posed" and points 2 and 7 carry "where technically feasible" and "where applicable" qualifiers.
 
 All eight apply "when placing a product with digital elements on the market, and for the support period" (Art 13(8)). They are assessed as processes through the Annex VII technical documentation. They apply from 11 Dec 2027; only Art 14 reporting is live now (see Reporting obligations (Article 14)).
 
@@ -23,7 +23,7 @@ Publication is expected end-2026 to Feb 2027, with no OJ citation yet (see Stand
 
 ### Table 2: Article 13 lifecycle paragraphs
 
-Numbering follows the OJ text as reproduced by legal mirrors and cross-checked against FAQ and guidance citations. The subparagraph order inside Art 13(8) follows the FAQ and is not verified against the OJ text.
+Numbering was checked against the OJ text on 1 Nov 2026. Art 13(8) has six subparagraphs: vulnerability handling for the support period; the factors for setting it; the five-year floor; delegated acts on minimum periods; the Annex VII information; and CVD policies.
 
 | Paragraph | Duty | Engineering implication |
 |---|---|---|

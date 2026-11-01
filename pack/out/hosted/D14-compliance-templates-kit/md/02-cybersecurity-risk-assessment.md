@@ -7,7 +7,7 @@ The cybersecurity risk assessment decides which Annex I Part I requirements appl
 | Item | Detail |
 | --- | --- |
 | Legal basis | Art 13(2)-(4); Annex I Part I; Annex VII pt 3; recital 55 |
-| Needed for | Deciding Part I applicability; Annex VII pt 3; the "adequate risk analysis" a notified body examines under Module B |
+| Needed for | Deciding Part I applicability; Annex VII pt 3; the "adequate analysis and assessment of the risks" a notified body examines under Module B (Annex VIII Part II pt 3.3) |
 | Owner | Product security officer |
 | Approver | Head of product security; product owner co-signs residual-risk acceptance |
 | When to create | At design, after Template 1 and before the release gate |
@@ -39,7 +39,7 @@ The cybersecurity risk assessment decides which Annex I Part I requirements appl
 | Attacker profile | \[Attackers assumed and excluded, with reasons\] | Commission FAQ section 4.1 | Remote opportunist; local attacker in BLE range; intruder with physical access. No capable-adversary assumption for a consumer product |
 | Assets | \[Data, functional and security assets\] | BSI TR-03183-1 RH\_RA.1 | Data: app keys, guest codes, access log. Functional: actuator, update path. Security: root of trust, signing keys |
 | Architecture and data flows | \[Diagram reference with trust boundaries\] | Annex VII pt 2(a) | DFD-L2 \[version\] |
-| Component inventory | \[SBOM reference and due-diligence status\] | Art 13(5); recital 58 | SBOM \[ref\]; BLE stack and TLS library reviewed |
+| Component inventory | \[SBOM reference and due-diligence status\] | Art 13(5); recital 34 | SBOM \[ref\]; BLE stack and TLS library reviewed |
 | Risk rating scale | \[Impact on C, I, A by likelihood\] | BSI TR-03183-1 RH\_RA.1.2 | Impact 1-5 by likelihood from exposure and access needed |
 | Acceptance criteria | \[Per-product criteria in terms of harm to users, data and connected systems\] | Guidance paras 156-163 | No residual risk allowing unauthorised unlock without physical attack on the lock body |
 
@@ -76,7 +76,7 @@ One row per requirement; Part I point (1) plus the thirteen point (2) items. Cel
 
 | Requirement | Applies? | How applied | Evidence |
 | --- | --- | --- | --- |
-| Annex I Part II points 1-8 (vulnerability handling) | Yes; not risk-qualified | \[Statement of how each process is applied, as Art 13(3) requires\] | SBOM, CVD policy (Template 7), update design note, reporting runbook (Template 8) |
+| Annex I Part II points 1-8 (vulnerability handling) | Yes; all apply (no risk-assessment chapeau; pt 2 is "in relation to the risks posed") | \[Statement of how each process is applied, as Art 13(3) requires\] | SBOM, CVD policy (Template 7), update design note, reporting runbook (Template 8) |
 
 ### Part E: residual-risk acceptance
 

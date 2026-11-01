@@ -264,7 +264,8 @@ def main() -> int:
     for r in rows:
         rev_by_bucket[r["class_bucket"]] += r["eu_revenue_est_eur_m"]
     nb_buckets = {"class1", "class2", "critical"}
-    product_buckets = {"default", "class1", "class2", "critical"}
+    # product revenue includes revenue of software inside another product's boundary (e.g. Hearth app)
+    product_buckets = {"default", "class1", "class2", "critical", "within_other_product"}
     rev_products = sum(v for k, v in rev_by_bucket.items() if k in product_buckets)
     rev_nb = sum(v for k, v in rev_by_bucket.items() if k in nb_buckets)
     # Hearth app subscription sits inside Class I device certificates

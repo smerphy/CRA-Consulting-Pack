@@ -23,7 +23,7 @@ Guidance [C(2026) 5252](https://ec.europa.eu/newsroom/dae/redirection/document/1
 | Exit plan | Replacement candidates; effort to swap; isolation measures if it must stay | Architecture review |
 | Decision | Approved, approved with conditions, rejected; owner; date; review trigger | Intake gate record |
 
-A component whose upstream support ends inside your support period needs an exit plan at intake. The FAQ requires you to replace or patch an unsupported component yourself. Recital 58 asks that dependencies on high-risk suppliers appear in the risk assessment; link the intake record to section 3.
+A component whose upstream support ends inside your support period needs an exit plan at intake. The FAQ requires you to replace or patch an unsupported component yourself. Recording dependencies on high-risk suppliers in the risk assessment is good practice (recital 58 asks the Commission and MSAs to weigh such non-technical risks); link the intake record to section 3.
 
 ### Inventory and monitoring
 

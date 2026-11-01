@@ -2,7 +2,7 @@
 
 A product is in scope when three cumulative conditions in Art 2(1) of the [CRA](https://eur-lex.europa.eu/eli/reg/2024/2847/oj) are met. It is a product with digital elements, and it is made available on the EU market in a commercial activity. Its intended or reasonably foreseeable use includes a data connection to a device or network, direct or indirect, logical or physical.
 
-The [Commission FAQ v1.4](https://ec.europa.eu/newsroom/dae/redirection/document/123307) and the [Art 26 guidance C(2026) 5252](https://ec.europa.eu/newsroom/dae/redirection/document/131456) both apply this three-part test. The operative article text in this doc was read from legal mirrors because EUR-Lex served only recitals to automated fetches; see Sources. Verify quoted wording against the OJ before relying on it in a filing.
+The [Commission FAQ v1.4](https://ec.europa.eu/newsroom/dae/redirection/document/123307) and the [Art 26 guidance C(2026) 5252](https://ec.europa.eu/newsroom/dae/redirection/document/131456) both apply this three-part test. The operative article text in this doc was checked on 1 Nov 2026 against the authentic OJ text (OJ L, 2024/2847, 20.11.2024, Publications Office cellar) and the English corrigenda; see the E6 claims register.
 
 ### Definitions that decide scope
 
@@ -26,7 +26,7 @@ Art 3 has 51 definitions. The ones below settle most scope and role questions.
 | Security update and functionality update | not defined in Art 3 | The guidance and FAQ distinguish fixes that reduce risk from changes that add features | Ship them separately where technically feasible (Annex I Part II(2)) |
 | Free and open-source software | (48) | Software whose source is openly shared under a licence allowing free use, modification and redistribution | Monetisation, not licence, decides whether it is placed on the market |
 
-The table paraphrases mirror text. Not verified against the OJ text; confirm exact wording before relying on it.
+The table paraphrases Art 3; each row was checked against the OJ text on 1 Nov 2026 (E6 claims register S03-S13).
 
 ### The data-connection test
 
@@ -107,4 +107,4 @@ The FAQ is a "living document" prepared by Commission services and is not an off
 
 Guidance C(2026) 5252 is non-binding; only the Court of Justice interprets the Regulation authoritatively (paras 7-9). The Commission approved its content on 27 Jul 2026 and said it "will be formally adopted" once all language versions exist. No evidence of adoption or OJ C-series publication was found by 30 Oct 2026, so it is formally a draft (see Open questions and watchlist).
 
-A corrigendum to the Regulation was published in the OJ on 17 Oct 2025. The notes record it as affecting at least Art 67 wording; its full content was not reviewed. No adopted amendment to scope, definitions or roles existed on 30 Oct 2026.
+Three corrigenda change the English text: 5 Dec 2024 (title: "(EU) 2019/1020"), 2 Jul 2025 (Art 64(10): the fines derogation runs from "paragraphs 2 to 9", not 3 to 9) and 17 Oct 2025 (Art 67: the CRA is point 72, not 69, of Annex I to Directive 2020/1828). Five more correct other language versions only (FR 3 Oct 2025 and 25 Mar 2026; SK 23 Feb 2026; DE 6 Aug 2026; SL 9 Oct 2026). No adopted amendment to scope, definitions or roles existed on 30 Oct 2026.

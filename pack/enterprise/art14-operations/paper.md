@@ -1,6 +1,6 @@
 # Article 14 at volume: reporting operations for a hyperscale manufacturer
 
-Aldermoor should plan for about 33 reportable cases a year (31 actively exploited vulnerabilities and 2 severe incidents, base estimate; range 16 to 58). Under the conservative one-record-per-product rule this pack recommends, that becomes about 92 Single Reporting Platform (SRP) records, 410 manual web-form submissions and 275 user notices a year. Grouping products into one record would cut this to 33 records and 146 submissions. The workload is modest, about 1.9 FTE in the base case and 6.9 FTE in the high case. Headcount is set by coverage: a filing seat staffed every hour of the year needs 5.5 FTE. The recommended increment is therefore about 6 FTE (9 FTE high case), plus a 24/7 awareness duty-officer rota of 5.5 FTE-equivalent absorbed into the existing PSIRT. Three design choices matter most. First, awareness is declared by the PSIRT duty chain alone, with no approval step. Second, each affected product gets its own SRP record until Ireland's coordinator CSIRT confirms that grouping is acceptable. Third, one internal case file drives filing, user notices and evidence, because the SRP has no API and keeps drafts in one person's account. All Aldermoor figures are estimates; public counts are calibration benchmarks, not Aldermoor data.
+Aldermoor should plan for about 33 reportable cases a year (31 actively exploited vulnerabilities and 2 severe incidents, base estimate; range 16 to 58). Under the conservative one-record-per-product rule this pack recommends, that becomes about 92 Single Reporting Platform (SRP) records, 413 manual web-form submissions and 275 user notices a year. Grouping products into one record would cut this to 33 records and 146 submissions. The workload is modest, about 1.9 FTE in the base case and 6.9 FTE in the high case. Headcount is set by coverage: a filing seat staffed every hour of the year needs 5.5 FTE. The recommended increment is therefore about 6 FTE (9 FTE high case), plus a 24/7 awareness duty-officer rota of 5.5 FTE-equivalent absorbed into the existing PSIRT. Three design choices matter most. First, awareness is declared by the PSIRT duty chain alone, with no approval step. Second, each affected product gets its own SRP record until Ireland's coordinator CSIRT confirms that grouping is acceptable. Third, one internal case file drives filing, user notices and evidence, because the SRP has no API and keeps drafts in one person's account. All Aldermoor figures are estimates; public counts are calibration benchmarks, not Aldermoor data.
 
 ## Aldermoor should expect about 90 SRP records a year, and the 24/7 filing seat, not the workload, sets the headcount
 
@@ -31,7 +31,7 @@ Source: `volume_model_output.csv`. One seat staffed every hour is 8,760 hours; a
 
 The overlap figure matters as much as the totals. In the base case almost one case in four will run in parallel with another. The rota must therefore assume two live cases, not one.
 
-The peak scenario is a single Lumen Engine bug, exploited in Lumen Browser and reachable in five other products sold across all 27 Member States.
+The peak scenario is a single Lumen Engine bug, exploited in Lumen Browser and reachable in five other products sold across all 27 Member States. The product list follows the module E3 register: Lumen WebView is its own Class I product (F13), and Halo OS on Arc devices sits inside the Arc phone's boundary (F05).
 
 Exhibit 2. Peak load in the first 72 hours (estimates)
 
@@ -50,7 +50,7 @@ Localisation is a pack assumption, not a KB rule. The KB names no language requi
 
 ## The clocks are short and fixed, and awareness is a recorded decision rather than a feeling
 
-Art 14 has applied since 11 Sep 2026 to every in-scope product, including products already on the market (Art 69(3); Art 71(2)). The clocks below are taken from the KB and confirmed against two verbatim mirrors of the Regulation (verification.md, claim 7).
+Art 14 has applied since 11 Sep 2026 to every in-scope product, including products already on the market (Art 69(3); Art 71(2)). The clocks below were checked against the Official Journal text of the Regulation (module E6, claims register).
 
 Exhibit 3. Article 14 clocks as implemented in the case engine
 
@@ -60,7 +60,7 @@ Exhibit 3. Article 14 clocks as implemented in the case engine
 | Notification | 72 h from awareness, Art 14(2)(b) | 72 h from awareness, Art 14(4)(b) | `aware_at + 72 h`; both clocks run from awareness, not consecutively |
 | Final report | No later than 14 days after a corrective or mitigating measure is available, Art 14(2)(c) | Within one month after submission of the 72 h notification, Art 14(4)(c) | AEV: `fix_at + 14 days`; SI: actual 72 h submission time plus one calendar month |
 | Intermediate update | On coordinator CSIRT request, Art 14(6) | Same | Tracked as a statutory item with the CSIRT's response time |
-| User information | Without undue delay after awareness, Art 14(8) | Same | Pack targets: impacted users by T+72 h; all users within 24 h of a fix |
+| User information | No fixed deadline; users must be informed "in a timely manner", failing which the coordinator CSIRT may inform them, Art 14(8) | Same | Pack targets: impacted users by T+72 h; all users within 24 h of a fix |
 
 The engine computes every deadline on exact UTC instants. It applies no business-day, weekend or holiday adjustment. A month is the same day and time in the next month, clamped to the month's last day, so a notification filed on 31 January gives a final report due on 28 or 29 February. These are the earliest defensible readings. A general EU rule on computing periods might extend day or month periods that end on a weekend; it is not in the KB, it is unverified here and the engine does not rely on it.
 
@@ -130,7 +130,7 @@ Exhibit 4. Steps, owners and targets
 | Final report | Assigned Representative after legal review | Fix + 14 days (AEV); 72 h submission + 1 month (SI) | Art 14(2)(c), (4)(c) |
 | Post-incident review | PSIRT lead | Within 2 weeks of final report | Application guide 10 |
 
-The coordinator CSIRT is derived, not chosen case by case. The engine applies Art 14(7) in order: main establishment where product cybersecurity decisions are predominantly taken, then the EU establishment with most employees, then the authorised representative, importer, distributor and most users. For Aldermoor the result is Ireland, because Aldermoor Ireland Ltd in Dublin takes those decisions. The coordinator is Ireland's NCSC, whose fallback address is usable only once ENISA declares an outage (KB 09-reporting.md).
+The coordinator CSIRT is derived, not chosen case by case. The engine applies Art 14(7) in order: main establishment where product cybersecurity decisions are predominantly taken, then the EU establishment with most employees; only a manufacturer with no EU main establishment falls back to the authorised representative, importer, distributor and most users. For Aldermoor the result is Ireland, because Aldermoor Ireland Ltd in Dublin takes those decisions. The coordinator is Ireland's NCSC, whose fallback address is usable only once ENISA declares an outage (KB 09-reporting.md).
 
 ## Decision rights put awareness with the PSIRT duty chain and keep legal off the 24-hour path
 
@@ -209,14 +209,14 @@ $ python -m case_engine timeline --case ART14-2611-001
 2026-11-09 10:00 UTC  user_notice                  communications           lumen-browser-desktop and -mobile: all_users via public advisory, release notes and CSAF
 2026-11-10 10:00 UTC  measure_available            remediation_lead         drive-sync-client: Client update with patched webview
 2026-11-10 17:00 UTC  measure_available            remediation_lead         lumen-os: Lumen OS out-of-cycle update
-2026-11-12 08:00 UTC  measure_available            remediation_lead         halo-os: Halo OS system WebView update via app store
+2026-11-12 08:00 UTC  measure_available            remediation_lead         lumen-webview: Lumen WebView update via app store
 2026-11-17 08:00 UTC  measure_available            remediation_lead         hearth-hub-display: Hearth Hub firmware
 
 $ python -m case_engine due --now 2026-11-13T09:00Z
 STATUS          DUE (UTC)             CASE            REC  ITEM
 past-target     2026-11-11 10:00 UTC  ART14-2611-001  N6    User notice, all users and CSAF: Aldermoor Drive desktop sync client
 past-target     2026-11-11 17:00 UTC  ART14-2611-001  N3    User notice, all users and CSAF: Lumen OS (laptop operating system)
-past-target     2026-11-13 08:00 UTC  ART14-2611-001  N4    User notice, all users and CSAF: Halo OS (mobile operating system, incl. system WebView)
+past-target     2026-11-13 08:00 UTC  ART14-2611-001  N4    User notice, all users and CSAF: Lumen WebView (system embedded browser for Halo devices)
 open            2026-11-18 08:00 UTC  ART14-2611-001  N5    User notice, all users and CSAF: Hearth Hub smart display
 open            2026-11-22 18:00 UTC  ART14-2611-001  N1   *SRP final report
 open            2026-11-22 22:00 UTC  ART14-2611-001  N2   *SRP final report

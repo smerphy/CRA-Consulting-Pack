@@ -6,7 +6,7 @@ This section covers selecting and contracting notified bodies before any is desi
 
 ### Selecting notified bodies while none is designated
 
-Designation is a leading-indicator game. Accreditation runs against EN ISO/IEC 17065 for Modules B+C and EN ISO/IEC 17021-1 for Module H. The notifying authority then notifies through NANDO, with a two-week objection window for accredited bodies (Art 43).
+Designation is a leading-indicator game. Accreditation in practice runs against EN ISO/IEC 17065 for Modules B+C and EN ISO/IEC 17021-1 for Module H (accreditation practice; not stated in the CRA text). The notifying authority then notifies through NANDO, with a two-week objection window for accredited bodies (Art 43).
 
 A body's accreditation certificate is therefore the signal that designation is weeks, not months, away.
 

@@ -34,7 +34,7 @@ The EU declaration of conformity is the manufacturer's signed statement that a p
 | Declaration ID and version | Internal reference, version number, date of issue. Control field, not an Annex V point | Art 28 ("updated as appropriate") | DoC-HBS-L2-\[001\], version 1, \[date\] |
 | 1. Product identification | Name, type and information enabling unique identification: model, SKUs, hardware revision, software or firmware versions | Annex V pt 1 | L2 Smart Lock, type L2; 3 SKUs L2-STD, L2-KEY, L2-RTF; hardware rev \[x\]; firmware \[x.y\] and later; companion app \[x.y\] |
 | 2. Manufacturer | Name and address of the manufacturer, or of its authorised representative | Annex V pt 2 | Example Group \[legal entity\], Home & Building Solutions, \[street\], \[postcode\] \[city\], Germany |
-| 3. Sole responsibility | Fixed statement, see wording below | Annex V pt 3 (the KB quotes "provider"; confirm the OJ wording) | Statement as drafted |
+| 3. Sole responsibility | Fixed statement, see wording below | Annex V pt 3 (OJ wording: "provider") | Statement as drafted |
 | 4. Object of the declaration | Description allowing traceability; a photograph is optional | Annex V pt 4 | Battery-powered smart door lock with app keys and guest access. Uses the Example Group access-management cloud as remote data processing. Photograph \[ref\] |
 | 5. Statement of conformity | Conformity with the relevant Union harmonisation legislation, listing each act covered | Annex V pt 5; Art 28(3) | Regulation (EU) 2024/2847; \[other applicable Union act, e.g. radio equipment legislation, with OJ reference\] |
 | 6. Standards and specifications | Harmonised standards, common specifications or cybersecurity certifications used, with versions; state "in part" where partial | Annex V pt 6 | No CRA harmonised standard cited in the OJ as at 30 Oct 2026. Other specifications applied: \[list, each labelled "draft" where it is a draft\] |
@@ -43,7 +43,7 @@ The EU declaration of conformity is the manufacturer's signed statement that a p
 
 ### Full declaration (Annex V) wording
 
-The block below is a drafting model that follows the Annex V points. Only the point 3 statement is quoted from the KB.
+The block below is a drafting model that follows the Annex V points. The point 3 statement quotes the OJ text.
 
 ```text
 EU DECLARATION OF CONFORMITY
@@ -85,7 +85,7 @@ Signed for and on behalf of: [manufacturer legal name]
 [signature]
 ```
 
-*Point 3 follows the knowledge base wording ("provider"), taken from one mirror of the regulation; confirm it against the Official Journal text before issuing.*
+*Point 3 quotes Annex V of the Official Journal text, which confirms "provider" in English and in the German ("Anbieter") and French ("fournisseur") versions. You may add the manufacturer's legal name after it; do not replace the statutory word.*
 
 ### Simplified declaration (Annex VI) wording
 
@@ -126,7 +126,7 @@ https://www.example.com/security/l2/declaration/
 | Languages | The languages required by each Member State where the product is made available | Art 28(2) |
 | One per product | Tied to the individual product rather than the type; a family declaration must clearly identify the variants | Art 28; FAQ 6.8; guidance pts 174-177 |
 | Updates | Keep it "updated as appropriate"; a new version after a substantial modification "might need a new declaration" | Art 28; FAQ 6.8 |
-| Several Union acts | One declaration, or a dossier of declarations, may cover all applicable acts | Art 28(3) |
+| Several Union acts | One single declaration must cover every Union act that requires one, identifying each act and its OJ publication reference | Art 28(3) |
 | Requests | Market surveillance may request the declaration and all conformity documentation on reasoned request | Art 13(22) |
 
 Guidance C(2026) 5252 is an approved draft; no formal adoption or OJ publication was found as at 30 Oct 2026.
@@ -137,6 +137,6 @@ Guidance C(2026) 5252 is an approved draft; no formal adoption or OJ publication
 - Adding the notified body number beside the CE marking under Module B+C. It belongs there only under Module H (Art 30(4)).
 - No controlled signing authority, so declarations are signed by whoever is asked. Use a signing instrument, a pre-signature checklist and a counter-signature.
 - An Annex VI text without the exact internet address, or a declaration URL that breaks during the retention period.
-- Treating RED certificates or EN 18031 assessments as CRA conformity. Art 69(1) keeps them valid for RED purposes only.
+- Treating RED certificates or EN 18031 assessments as CRA conformity. Art 69(1) keeps them valid until 11 Jun 2028; they evidence RED compliance, not CRA conformity (inference).
 
 *Template 5 · v1.0 · 31 Oct 2026 · Not legal advice; confirm wording against the Official Journal text before use.*

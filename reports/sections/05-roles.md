@@ -60,4 +60,4 @@ Vulnerability information flows upstream and downstream. Importers (Art 19(5)) a
 
 Manufacturers must report vulnerabilities found in components, including open-source ones, to the component maintainer and share fixes (Art 13(6)). Fixes go "where appropriate in a machine-readable format". Actively exploited vulnerabilities and severe incidents are reported under Art 14; see Reporting obligations (Article 14).
 
-Article text in this section was read from legal mirrors; see Sources. The fine tier for Arts 18-23 breaches (EUR 10m or 2%) is from Art 64(3) as mirrored and was not verified against the OJ text.
+Article references in this section were checked against the OJ text on 1 Nov 2026 (E6). The fine tier for Arts 18-23 breaches (EUR 10m or 2%) is confirmed in Art 64(3).

@@ -20,7 +20,7 @@ These forms prepare the three Art 14 notifications for an actively exploited vul
 1. Pre-fill the product rows of each form now: name, versions, Member States, support status.
 2. On any signal, open a case and assess immediately. Record the UTC awareness time once there is "a reasonable degree of certainty" (guidance para 213).
 3. File the early warning within 24 hours of awareness. Do not wait for legal review.
-4. Inform impacted users without undue delay (Art 14(8)). The notice is not gated on the filing.
+4. Inform impacted users, and all users where appropriate, in a timely manner (Art 14(8)). The notice is not gated on the filing.
 5. File the 72-hour notification. Count 72 hours from awareness, not from the early warning.
 6. Track the date the fix became available internally. File the final report on time.
 7. Record the SRP notification ID in the case file. Run the post-incident review and update the risk assessment.
@@ -34,7 +34,7 @@ These forms prepare the three Art 14 notifications for an actively exploited vul
 | Trigger | "Reliable evidence that a malicious actor has exploited it" in a system without the owner's permission | Affects, or could affect, the ability to protect "sensitive or important data or functions"; or has led, or could lead, to malicious code in the product or users' systems | Art 3(42); Art 14(5)(a)-(b) |
 | Early warning | 24 hours from awareness | 24 hours from awareness | Art 14(2)(a); 14(4)(a) |
 | Notification | 72 hours from awareness | 72 hours from awareness | Art 14(2)(b); 14(4)(b) |
-| Final report | No later than 14 days after a corrective or mitigating measure is available | Within 1 month after the 72-hour notification | Art 14(2)(c); 14(4)(c) |
+| Final report | No later than 14 days after a corrective or mitigating measure is available | Within 1 month after submitting the incident notification (72-hour stage) | Art 14(2)(c); 14(4)(c) |
 | Intermediate update | On CSIRT request | On CSIRT request | Art 14(6) |
 
 Suspicion starts triage; reasonable certainty starts the clock. Not reportable: good-faith research or bug-bounty findings without exploitation evidence, and component CVEs not exploitable or not exploited in the product (FAQ 5.2, 5.4; guidance paras 217-218). Exploitation known before 11 Sep 2026 is not reported retroactively. Record "not reportable" decisions with the same rigour.
@@ -72,22 +72,22 @@ The SRP 72-hour counter currently shows a due time 48 hours after the early warn
 
 | Field (SRP glossary name) | What to enter | Basis | Example: L2 Smart Lock (illustrative) |
 | --- | --- | --- | --- |
-| Description of severity and impact | Assessed severity rating, classification and rationale; CVSS vector with plain-language reasoning. No scale is prescribed | Art 14(2)(c) | High, CVSS \[vector\]; physical access to homes possible within Bluetooth range |
+| Description of the vulnerability, including severity and impact | What the vulnerability is; assessed severity rating, classification and rationale; CVSS vector with plain-language reasoning. No scale is prescribed | Art 14(2)(c)(i) | High, CVSS \[vector\]; physical access to homes possible within Bluetooth range |
 | Malicious actor | Information on the actor if known, else "unknown" | Art 14(2)(c) | Unknown |
 | Details of the security update | Fix version, what it changes, how it is delivered | Art 14(2)(c) | Firmware 3.2.5 adds token nonces; automatic over-the-air update |
 | Date corrective measure became available | Tracked internally; the SRP has no counter for this report | Art 14(2)(c) | 2026-11-20; final report due by 2026-12-04 |
 
-### Form D: final report, severe incident (1 month after the 72-hour notification)
+### Form D: final report, severe incident (1 month after submitting the 72-hour incident notification)
 
 | Field (SRP glossary name) | What to enter | Basis | Example: L2 Smart Lock (illustrative) |
 | --- | --- | --- | --- |
-| Description of severity and impact | Detailed severity and impact, with rationale | Art 14(4)(c) | \[n\] locks exposed for \[n\] hours; no confirmed entry |
+| Detailed description of the incident, including severity and impact | Detailed description, severity and impact, with rationale | Art 14(4)(c)(i) | \[n\] locks exposed for \[n\] hours; no confirmed entry |
 | Type of threat or root cause | Likely threat type or root cause | Art 14(4)(c) | Credential phishing of a cloud administrator; no MFA on one legacy account |
 | Applied and ongoing mitigation | Measures applied and still running | Art 14(4)(c) | MFA enforced for all admin accounts; key-issuance alerting; credential review ongoing |
 
 ### User notice (Art 14(8))
 
-After awareness, inform impacted users and, "where appropriate", all users without undue delay, with the mitigating measures. Use "where appropriate, a structured, machine-readable format". Guidance paras 219-221 allow detail to go first to affected customers and more widely once mitigated. If the manufacturer is not timely, the CSIRTs may inform users. No format is named; CSAF is the obvious candidate but appears in no primary source.
+After awareness, inform impacted users and, "where appropriate", all users in a timely manner (no fixed deadline), with the mitigating measures. Use "where appropriate, a structured, machine-readable format". Guidance paras 219-221 allow detail to go first to affected customers and more widely once mitigated. If the manufacturer is not timely, the CSIRTs may inform users. No format is named; CSAF is the obvious candidate but appears in no primary source.
 
 ```text
 Subject: Security notice for [product]: [action required / recommended]

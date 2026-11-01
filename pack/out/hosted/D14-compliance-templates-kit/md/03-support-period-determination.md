@@ -44,7 +44,7 @@ The support period determination records how long the manufacturer will handle v
 | Archives of old versions | \[Public archive with risk warnings, if offered\] | Art 13(11) | Archive page with warning text |
 | Sign-off | \[Name\], \[role\], \[date\] | Governance | \[Name\], Product manager; \[Name\], Compliance lead |
 
-The order of the Art 13(8) factors follows the Commission FAQ and is not verified against the OJ text. No delegated act on minimum periods exists as of 30 Oct 2026.
+The Art 13(8) factors follow the order of the OJ text: expected time in use, reasonable user expectations, nature of the product, relevant Union law; the rest are optional. No delegated act on minimum periods exists as of 30 Oct 2026.
 
 ### Part B: expected-use evidence
 
@@ -52,10 +52,10 @@ The order of the Art 13(8) factors follows the Commission FAQ and is not verifie
 | --- | --- | --- | --- |
 | Installed-base and field data | Age of units still connected | Expected time in use | \[% of earlier-generation locks active after 7 years\] |
 | Warranty, returns and replacement data | When users replace the product | Expected time in use | \[Median replacement age\] |
-| Comparable products | Periods declared for similar products | Reasonable user expectations | \[Competitor periods, with source\] |
+| Comparable products | Periods declared for similar products by other manufacturers | Optional factor (Art 13(8)); also informs reasonable user expectations | \[Competitor periods, with source\] |
 | Customer research and complaints | What buyers assume about support | Reasonable user expectations | \[Survey reference\] |
 | Product category | Whether the category is typically used for longer | Nature of the product; recital 60 | Long-lived home hardware |
-| Supplier support commitments | Whether chipset, OS and library support covers the period | Feasibility | \[BLE stack and MCU vendor commitments; Template 9\] |
+| Supplier support commitments | Whether chipset, OS and library support covers the period; availability of the operating environment | Optional factors (Art 13(8)): support periods of integrated core components; availability of the operating environment | \[BLE stack and MCU vendor commitments; Template 9\] |
 | Other Union law | Lifetimes or duties set elsewhere | Relevant Union law | \[None identified\] |
 
 ### Part C: decision and publication

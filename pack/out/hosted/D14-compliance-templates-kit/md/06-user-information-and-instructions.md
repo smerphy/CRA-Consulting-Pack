@@ -1,6 +1,6 @@
 # 6 · User information and instructions
 
-The user information document carries the security facts a user needs to buy, commission, run and retire the product safely. Art 13(18) requires the Annex II information to accompany every product "at minimum", in paper or electronic form. Write one versioned document per product or family, publish it at a stable URL, and file a copy in the technical documentation (Annex VII pt 1).
+The user information document carries the security facts a user needs to buy, commission, run and retire the product safely. Art 13(18) and Annex II require the listed information to accompany every product "at minimum" (Annex II), "in paper or electronic form" (Art 13(18)). Write one versioned document per product or family, publish it at a stable URL, and file a copy in the technical documentation (Annex VII pt 1).
 
 ## At a glance
 

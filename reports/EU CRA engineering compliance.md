@@ -63,7 +63,7 @@ Start with what is live now: the Art 14 reporting runbook with SRP registration,
 
 A product is in scope when three cumulative conditions in Art 2(1) of the [CRA](https://eur-lex.europa.eu/eli/reg/2024/2847/oj) are met. It is a product with digital elements, and it is made available on the EU market in a commercial activity. Its intended or reasonably foreseeable use includes a data connection to a device or network, direct or indirect, logical or physical.
 
-The [Commission FAQ v1.4](https://ec.europa.eu/newsroom/dae/redirection/document/123307) and the [Art 26 guidance C(2026) 5252](https://ec.europa.eu/newsroom/dae/redirection/document/131456) both apply this three-part test. The operative article text in this doc was read from legal mirrors because EUR-Lex served only recitals to automated fetches; see Sources. Verify quoted wording against the OJ before relying on it in a filing.
+The [Commission FAQ v1.4](https://ec.europa.eu/newsroom/dae/redirection/document/123307) and the [Art 26 guidance C(2026) 5252](https://ec.europa.eu/newsroom/dae/redirection/document/131456) both apply this three-part test. The operative article text in this doc was checked on 1 Nov 2026 against the authentic OJ text (OJ L, 2024/2847, 20.11.2024, Publications Office cellar) and the English corrigenda; see the E6 claims register.
 
 ### Definitions that decide scope
 
@@ -87,7 +87,7 @@ Art 3 has 51 definitions. The ones below settle most scope and role questions.
 | Security update and functionality update | not defined in Art 3 | The guidance and FAQ distinguish fixes that reduce risk from changes that add features | Ship them separately where technically feasible (Annex I Part II(2)) |
 | Free and open-source software | (48) | Software whose source is openly shared under a licence allowing free use, modification and redistribution | Monetisation, not licence, decides whether it is placed on the market |
 
-The table paraphrases mirror text. Not verified against the OJ text; confirm exact wording before relying on it.
+The table paraphrases Art 3; each row was checked against the OJ text on 1 Nov 2026 (E6 claims register S03-S13).
 
 ### The data-connection test
 
@@ -168,7 +168,7 @@ The FAQ is a "living document" prepared by Commission services and is not an off
 
 Guidance C(2026) 5252 is non-binding; only the Court of Justice interprets the Regulation authoritatively (paras 7-9). The Commission approved its content on 27 Jul 2026 and said it "will be formally adopted" once all language versions exist. No evidence of adoption or OJ C-series publication was found by 30 Oct 2026, so it is formally a draft (see Open questions and watchlist).
 
-A corrigendum to the Regulation was published in the OJ on 17 Oct 2025. The notes record it as affecting at least Art 67 wording; its full content was not reviewed. No adopted amendment to scope, definitions or roles existed on 30 Oct 2026.
+Three corrigenda change the English text: 5 Dec 2024 (title: "(EU) 2019/1020"), 2 Jul 2025 (Art 64(10): the fines derogation runs from "paragraphs 2 to 9", not 3 to 9) and 17 Oct 2025 (Art 67: the CRA is point 72, not 69, of Annex I to Directive 2020/1828). Five more correct other language versions only (FR 3 Oct 2025 and 25 Mar 2026; SK 23 Feb 2026; DE 6 Aug 2026; SL 9 Oct 2026). No adopted amendment to scope, definitions or roles existed on 30 Oct 2026.
 
 ## Exclusions and exceptions
 
@@ -286,7 +286,7 @@ Vulnerability information flows upstream and downstream. Importers (Art 19(5)) a
 
 Manufacturers must report vulnerabilities found in components, including open-source ones, to the component maintainer and share fixes (Art 13(6)). Fixes go "where appropriate in a machine-readable format". Actively exploited vulnerabilities and severe incidents are reported under Art 14; see Reporting obligations (Article 14).
 
-Article text in this section was read from legal mirrors; see Sources. The fine tier for Arts 18-23 breaches (EUR 10m or 2%) is from Art 64(3) as mirrored and was not verified against the OJ text.
+Article references in this section were checked against the OJ text on 1 Nov 2026 (E6). The fine tier for Arts 18-23 breaches (EUR 10m or 2%) is confirmed in Art 64(3).
 
 ## Product classification
 
@@ -418,7 +418,7 @@ Nothing marked draft is cited in the OJ as of 30 Oct 2026 (see Standards and gui
 
 ### Known exploitable vulnerabilities
 
-No legal text defines "known exploitable vulnerability". Recital 54 makes avoiding such vulnerabilities the goal of the risk assessment. Recital 38 expects "all available security patches" applied at placing on the market.
+No legal text defines "known exploitable vulnerability". Recital 54 makes avoiding such vulnerabilities the goal of the risk assessment. Recital 38 expects each product to have received "all security patches or updates available to address relevant security issues" when placed on the market.
 
 The [Commission guidance C(2026) 5252](https://ec.europa.eu/newsroom/dae/redirection/document/131456) (paras 233-234) treats a vulnerability as known once it is in the EUVD or another prominent database. Private disclosure, internal testing and prominent media reporting also count.
 
@@ -454,7 +454,7 @@ Remote data processing: Art 3(2) brings the manufacturer's own backend into the 
 
 Draft EN 304 621 [Annex R](https://labs.etsi.org/rep/stan4cra/en-304-621/-/raw/main/EN-304-621_AnnexR.md) applies clause 5 to the product as a whole and adds boundary requirements on both endpoints. The underlying third-party infrastructure stays outside.
 
-Indirect connection: Recital 9 keeps in scope products connected only indirectly, logically or physically, including through "network sockets or APIs".
+Indirect connection: Recital 9 keeps in scope products connected only indirectly, logically or physically, including logical connection "via network sockets, pipes, files, application programming interfaces or any other types of software interface".
 
 Components and microcontrollers: a separately sold MCU or module with a foreseeable data connection is a product with digital elements (see Product classification). Vendor papers from [TI (STDA050, Oct 2026)](https://www.ti.com/lit/pdf/STDA050) and [Microchip (DS00006536A, Aug 2026)](https://www.microchip.com/content/dam/mchp/documents/MCU32/ProductDocuments/SupportingCollateral/An-Embedded-Engineers-Guide-to-the-EU-Cyber-Resilience-Act-DS00006536.pdf) describe an integrator pattern.
 
@@ -468,7 +468,7 @@ BSI TR-03183-1 v1.0.0 (PDF dated 31 Jul 2026, announced 5 Aug 2026) carries no p
 
 ## Annex I Part II: vulnerability handling and lifecycle duties
 
-Annex I Part II of the [CRA](https://eur-lex.europa.eu/eli/reg/2024/2847/oj) imposes eight process requirements on every manufacturer. Art 13 wraps them in lifecycle duties: a support period of at least 5 years (Art 13(8)), each security update available for at least 10 years (Art 13(9)), an SBOM, a CVD policy and due diligence on components (Art 13(5)). Unlike Part I, none of the eight is risk-qualified.
+Annex I Part II of the [CRA](https://eur-lex.europa.eu/eli/reg/2024/2847/oj) imposes eight process requirements on every manufacturer. Art 13 wraps them in lifecycle duties: a support period of at least 5 years (Art 13(8)), each security update available for at least 10 years (Art 13(9)), an SBOM, a CVD policy and due diligence on components (Art 13(5)). Unlike Part I, Part II has no risk-assessment chapeau and every point applies, though point 2 is framed "in relation to the risks posed" and points 2 and 7 carry "where technically feasible" and "where applicable" qualifiers.
 
 All eight apply "when placing a product with digital elements on the market, and for the support period" (Art 13(8)). They are assessed as processes through the Annex VII technical documentation. They apply from 11 Dec 2027; only Art 14 reporting is live now (see Reporting obligations (Article 14)).
 
@@ -491,7 +491,7 @@ Publication is expected end-2026 to Feb 2027, with no OJ citation yet (see Stand
 
 ### Table 2: Article 13 lifecycle paragraphs
 
-Numbering follows the OJ text as reproduced by legal mirrors and cross-checked against FAQ and guidance citations. The subparagraph order inside Art 13(8) follows the FAQ and is not verified against the OJ text.
+Numbering was checked against the OJ text on 1 Nov 2026. Art 13(8) has six subparagraphs: vulnerability handling for the support period; the factors for setting it; the five-year floor; delegated acts on minimum periods; the Annex VII information; and CVD policies.
 
 | Paragraph | Duty | Engineering implication |
 |---|---|---|
@@ -602,7 +602,7 @@ Mandatory content combines the statute with the required fields in the [ENISA SR
 |---|---|---|---|---|---|
 | AEV early warning | 24 h | Awareness with reasonable certainty | Coordinator CSIRT and ENISA via SRP | Type, title, summary, product name and version, Member States where available, UTC awareness time | 14(2)(a) |
 | AEV vulnerability notification | 72 h | Same awareness time | Same; CSIRT disseminates onward | General information on product, exploit and vulnerability; measures taken; measures users can take; sensitivity; optional PEC flag | 14(2)(b) |
-| AEV final report | 14 days | Availability of a corrective or mitigating measure | Same | Severity and impact; malicious actor if known; details and date of the security update or measure | 14(2)(c) |
+| AEV final report | 14 days | Availability of a corrective or mitigating measure | Same | Description of the vulnerability, including severity and impact; malicious actor where available; details of the security update or other corrective measures (date of availability is an SRP field) | 14(2)(c) |
 | SI early warning | 24 h | Awareness with reasonable certainty | Same | Whether unlawful or malicious acts are suspected; Member States where available; UTC awareness time | 14(4)(a) |
 | SI incident notification | 72 h | Same awareness time | Same | General nature of the incident; initial assessment; measures taken and user measures; sensitivity | 14(4)(b) |
 | SI final report | 1 month | Submission of the 72 h notification | Same | Detailed severity and impact; threat type or root cause; applied and ongoing mitigation | 14(4)(c) |
@@ -631,7 +631,7 @@ No official statistics exist; the one public first-hand account ([Aikido, 23 Sep
 
 ### User notification (Art 14(8))
 
-After becoming aware, the manufacturer must inform impacted users and, "where appropriate", all users without undue delay. The notice covers the vulnerability or incident and any mitigating measures, "where appropriate, in a structured, machine-readable format". Guidance paras 219-221 make the duty risk-based: detailed disclosure may be limited to affected customers until a fix exists, with broader disclosure once mitigated.
+After becoming aware, the manufacturer must inform impacted users and, "where appropriate", all users. Art 14(8) sets no fixed deadline; the test is whether users are informed "in a timely manner", failing which the notified CSIRTs may inform them. The notice covers the vulnerability or incident and any mitigating measures, "where appropriate, in a structured, machine-readable format". Guidance paras 219-221 make the duty risk-based: detailed disclosure may be limited to affected customers until a fix exists, with broader disclosure once mitigated.
 
 If the manufacturer is not timely, the notified CSIRTs may inform users themselves. No format is named; CSAF is the obvious candidate but appears in no primary source.
 
@@ -666,13 +666,13 @@ Nothing today lets one filing discharge another. One compromised banking app can
 
 - Art 15 voluntary reporting of vulnerabilities, threats, incidents and near misses is not yet available in the SRP; CSIRTs must inform the manufacturer of third-party reports (Art 15(4)).
 - Importers (Art 19(5)) and distributors (Art 20(4)) must inform the manufacturer of vulnerabilities without undue delay from 11 Dec 2027, and MSAs immediately where there is a significant risk.
-- Open-source stewards fall under Art 14(1), (3) and (8) from 11 Dec 2027 only to the extent involved in development (Art 24(3)); they are exempt from fines (Art 64(10)(b)).
-- Penalties sit in the top tier: up to EUR 15,000,000 or 2.5% of worldwide annual turnover (Art 64(2)); micro and small enterprises are exempt from fines for missing the 24-hour deadlines (Art 64(10)(a)); enforcement machinery applies from 11 Dec 2027.
+- From 11 Dec 2027 open-source stewards fall under Art 14(1) to the extent they are involved in development, and under Art 14(3) and (8) only for severe incidents affecting network and information systems they provide for development (Art 24(3)); they are exempt from fines (Art 64(10)(b)).
+- Penalties sit in the top tier: up to EUR 15,000,000 or 2.5% of worldwide annual turnover (Art 64(2)); micro and small enterprises are exempt from fines for missing the 24-hour deadlines (Art 64(10)(a), as corrected by corrigendum OJ L, 2025/90555, which extends the derogation to paragraph 2); enforcement machinery applies from 11 Dec 2027.
 - No Art 14(10) implementing act on notification format or procedure has been adopted or drafted; the ENISA glossary is the de facto format.
 
 ## Conformity assessment and documentation
 
-The conformity route under Art 32 of the [CRA](https://eur-lex.europa.eu/eli/reg/2024/2847/oj) depends on the product's class (see Product classification), and as of 30 Oct 2026 an important Class I product cannot use self-assessment. Art 32(2) allows Module A only where an OJ-cited harmonised standard, common specification or Art 27(9) scheme is fully applied, and none is cited. The third-party alternative is blocked too, because no CRA notified body has been designated.
+The conformity route under Art 32 of the [CRA](https://eur-lex.europa.eu/eli/reg/2024/2847/oj) depends on the product's class (see Product classification), and as of 30 Oct 2026 an important Class I product cannot use self-assessment. Art 32(2) allows Module A only where harmonised standards, common specifications or European cybersecurity certification schemes at assurance level at least "substantial" "as referred to in Article 27" are applied in full; no CRA standard or common specification exists. The text does not name Art 27(9); reading the scheme limb as requiring an Art 27(9) act is an interpretation (see Risks in E6). The third-party alternative is blocked too, because no CRA notified body has been designated.
 
 Art 13(12) sequences the work: technical documentation, then the Art 32 procedure, then the EU declaration and CE marking, all before placing on the market. [Guidance C(2026) 5252](https://ec.europa.eu/newsroom/dae/redirection/document/131456) pt 137 lets any manufacturer choose a stricter route than its class requires.
 
@@ -692,15 +692,15 @@ Art 13(12) sequences the work: technical documentation, then the Art 32 procedur
 | Module | Manufacturer does | Notified body does | Ongoing surveillance | Retention | CE mark and notified-body number |
 |---|---|---|---|---|---|
 | A, internal control | Annex VII documentation; measures so design, production and vulnerability handling meet Annex I; declaration on sole responsibility | Not involved | No surveillance | Declaration and documentation 10 years or the support period | CE mark only |
-| B, EU-type examination | Application to one body with technical documentation, risk analysis and supporting evidence; inform the body of modifications affecting conformity (pt 7) | Examines design and vulnerability-handling processes; tests specimens; issues the EU-type examination certificate stating its own validity (pt 6) | Monitors the state of the art (pt 7); periodic audits of vulnerability handling (pt 8) | Certificate and additions 10 years or the support period (pt 10) | No number requirement |
+| B, EU-type examination | Application to one body with technical documentation, risk analysis and supporting evidence; inform the body of modifications affecting conformity (pt 7) | Examines design and vulnerability-handling processes; tests specimens; issues the EU-type examination certificate, stating any conditions for its validity (pt 6) | Monitors the state of the art (pt 7); periodic audits of vulnerability handling (pt 8) | Certificate and additions 10 years or the support period (pt 10) | No number requirement |
 | C, conformity to type | Keeps production conforming to the approved type and Part II processes; declaration per model | None in the production phase ([Commission FAQ](https://ec.europa.eu/newsroom/dae/redirection/document/123307) 6.2) | None beyond Module B | Declaration 10 years or the support period | CE mark only |
-| H, full quality assurance | Operates an approved quality system covering design, development, final inspection, testing and vulnerability handling (pt 3.2); notifies intended changes (pt 3.5) | Audits the quality system, including one model's technical documentation per product category, with a product-experienced assessor and a site visit (pt 3.3) | Periodic audits with reports, plus site access (pt 4); whether pt 4 also allows unexpected visits is disputed between the two mirrors read and is not verified against the OJ text | Quality-system documentation, approved changes and body decisions 10 years or the support period (pt 6) | CE mark followed by the notified body's identification number (pt 5.1; Art 30(4)) |
+| H, full quality assurance | Operates an approved quality system covering design, development, final inspection, testing and vulnerability handling (pt 3.2); notifies intended changes (pt 3.5) | Audits the quality system, including one model's technical documentation per product category, with a product-experienced assessor and a site visit (pt 3.3) | Periodic audits with an audit report, plus access to design, development, production, inspection, testing and storage sites (pts 4.2-4.3); the OJ text has no unexpected-visit provision | Quality-system documentation, approved changes and body decisions 10 years or the support period (pt 6) | CE mark followed by the notified body's identification number (pt 5.1; Art 30(4)) |
 
 The FAQ (6.2-6.3) describes B+C as one body doing documentation review and its own tests, with the certificate valid for a period the body defines. Module H suits portfolios with frequent substantial modifications because new variants extend the approved system; ISO 9000 certification alone does not satisfy it. Non-binding [BSI TR-03183-H v1.1.0](https://www.bsi.bund.de/SharedDocs/Downloads/EN/BSI/Publications/TechGuidelines/TR03183/BSI-TR-03183-H_v1_1_0.pdf?__blob=publicationFile&v=3) (30 May 2026) shows how an ISO/IEC 27001 ISMS can be extended to carry Module H.
 
 ### Technical documentation (Annex VII)
 
-Art 31 requires the dossier before placing on the market, kept current at least through the support period. Art 13(13) sets retention at 10 years after placing or the support period, whichever is longer. It may be written in any language.
+Art 31 requires the dossier before placing on the market, kept current at least through the support period. Art 13(13) sets retention at 10 years after placing or the support period, whichever is longer. No language is set for the dossier itself, but documentation and correspondence for a notified-body procedure must be in an official language of the body's Member State or a language the body accepts (Art 31(4)), and an MSA is entitled to a language it easily understands (Art 13(22)).
 
 On reasoned request it must reach an MSA "in a language which can be easily understood by that authority" (Art 13(22); FAQ 6.6). Guidance pts 174-177 allow one dossier for a product family with the same architecture, security-relevant design, intended purpose and risks.
 
@@ -719,7 +719,7 @@ Guidance pts 37-39 relieve products designed before 11 Dec 2027 of test evidence
 
 ### EU declaration of conformity and CE marking
 
-Art 28 requires one declaration per product following the Annex V structure, "updated as appropriate", in the languages of the Member States of sale. The FAQ (6.8) ties it to the individual product rather than the type, and says a new version "might need a new declaration" after a substantial modification. One declaration may cover several Union acts (Art 28(3)).
+Art 28 requires a declaration with the Annex V model structure (Annex VIII: one per product under Module A, one per product model under Modules C and H), "updated as appropriate", in the languages of the Member States of sale. The FAQ (6.8) ties it to the individual product rather than the type, and says a new version "might need a new declaration" after a substantial modification. Where several Union acts require a declaration, a single declaration covering all of them is mandatory (Art 28(3)).
 
 - [ ] Annex V point 1: name, type and information enabling unique identification
 - [ ] Point 2: name and address of the manufacturer or authorised representative
@@ -740,7 +740,7 @@ It must be affixed before placing on the market and takes the notified body's nu
 
 Chapter IV (Arts 35-51) applies since 11 Jun 2026, yet no CRA notified body appeared in NANDO at the last verified checks on 8 Sep 2026. The [Commission conformity-assessment page](https://digital-strategy.ec.europa.eu/en/policies/cra-conformity-assessment), updated 31 Jul 2026, still says "once available". Art 35(2) only asks Member States to "strive" for sufficient bodies by 11 Dec 2026; the zero count is not verified past 8 Sep 2026.
 
-Accreditation runs against EN ISO/IEC 17065 for Modules B+C and EN ISO/IEC 17021-1 for Module H. The Art 43 objection window is 2 weeks for accredited bodies and 2 months otherwise. Notifying authorities documented so far: Germany, [BSI](https://www.bsi.bund.de/EN/Themen/Unternehmen-und-Organisationen/Informationen-und-Empfehlungen/Cyber_Resilience_Act/Notifizierung-CRA/notifizierung-cra.html) with DAkkS accreditation; Finland, [Traficom](https://kyberturvallisuuskeskus.fi/en/our-activities/regulation-and-supervision/cyber-resilience-act-cra/apply-become-notified-body-under-cra) with FINAS; Malta, MDIA (Legal Notice 238 of 2026); Hungary, SZTFH (Act CXXXV of 2025).
+Accreditation in practice runs against EN ISO/IEC 17065 for Modules B+C and EN ISO/IEC 17021-1 for Module H (accreditation practice; not stated in the CRA text). The Art 43 objection window is 2 weeks for accredited bodies and 2 months otherwise. Notifying authorities documented so far: Germany, [BSI](https://www.bsi.bund.de/EN/Themen/Unternehmen-und-Organisationen/Informationen-und-Empfehlungen/Cyber_Resilience_Act/Notifizierung-CRA/notifizierung-cra.html) with DAkkS accreditation; Finland, [Traficom](https://kyberturvallisuuskeskus.fi/en/our-activities/regulation-and-supervision/cyber-resilience-act-cra/apply-become-notified-body-under-cra) with FINAS; Malta, MDIA (Legal Notice 238 of 2026); Hungary, SZTFH (Act CXXXV of 2025).
 
 France named ANSSI as notifying authority only, by Décret 2026-944 of 9 Oct 2026. ENISA published [technical competence requirements](https://www.enisa.europa.eu/publications/technical-competence-requirements-for-cra-notified-bodies) for CRA notified bodies on 4 Jun 2026.
 
@@ -972,7 +972,7 @@ The Digital Omnibus does not amend the CRA. A GB manufacturer is a third-country
 | [DORA, Regulation (EU) 2022/2554](https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32022R2554) | No cross-reference either way; recital 72 names DORA only as a parallel reporting regime | [DORA Art 28(5)](https://www.digital-operational-resilience-act.com/Article_28.html) "highest quality information security standards" | CRA conformity is the natural evidence for bank and insurer procurement, not a safe harbour; CRA Art 14 and DORA Art 19 reports stay separate; AFME's Jul 2026 request to report under DORA only is a request, not law |
 | Cybersecurity Act 2019/881; EUCC ([Implementing Reg 2024/482](https://certification.enisa.europa.eu/browse-topic/EUCC_en)); EUCS; CSA2 | A certificate at level "substantial" or higher removes third-party assessment for covered requirements, once an Art 27(9) delegated act exists | CRA Arts 8, 27(8)-(9), 52(4); recitals 46-48, 81-82 | Art 27(9) act "planned Q4 2026" on the [Commission factpage](https://digital-strategy.ec.europa.eu/en/factpages/cyber-resilience-act-implementation), not adopted; EUCS unadopted per [COM(2026) 502](https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A52026PC0502); CSA2 proposed 20 Jan 2026, trilogue status not verified; do not plan on a cloud certificate |
 | [General Product Safety Regulation (EU) 2023/988](https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32023R0988) | GPSR Chapter III Section 1, including Art 16, applies to safety risks the CRA does not cover | CRA Art 11 | An EU responsible person is needed for consumer products outside other harmonisation law |
-| [Market Surveillance Regulation (EU) 2019/1020](https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32019R1020) | Applies to CRA products; the CRA is added to Annex I but not to Art 4(5) | CRA Arts 52(1), 66; Reg 2019/1020 Arts 4, 6 | The CRA itself imposes no mandatory EU responsible operator; Art 6 deems EU-targeted online offers "made available"; the inserted Annex I point number differs between mirrors, verify in the OJ |
+| [Market Surveillance Regulation (EU) 2019/1020](https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32019R1020) | Applies to CRA products; the CRA is added to Annex I but not to Art 4(5) | CRA Arts 52(1), 66; Reg 2019/1020 Arts 4, 6 | The CRA itself imposes no mandatory EU responsible operator; Art 6 deems EU-targeted online offers "made available"; the CRA is inserted as point 72 of Annex I (Art 66, OJ text) |
 
 ### The Digital Omnibus
 
@@ -1030,7 +1030,7 @@ Most others are drafting, and Finland alone already enforces Art 14 breaches. En
 
 ### Powers and procedures (Chapter V)
 
-Article text was read from mirrors, not the authentic OJ text; article references are to Regulation (EU) 2024/2847.
+Article references are to Regulation (EU) 2024/2847 and were checked against the authentic OJ text on 1 Nov 2026 (E6).
 
 | Article | Power or procedure | What it means for you |
 |---|---|---|
@@ -1042,7 +1042,7 @@ Article text was read from mirrors, not the authentic OJ text; article reference
 | Art 52(14) | AI Act market surveillance authorities perform CRA surveillance for high-risk AI systems | One authority for both regimes on AI products |
 | Art 52(15)-(16) | ADCO under Reg 2019/1020 Art 30(2); publishes statistics and indicative guidance on support periods and may recommend enforcement focus | The CRA ADCO is operational, chaired by BSI with Cyprus's Digital Security Authority as vice-chair ([Expert Group minutes, 10-11 Jun 2026](https://ec.europa.eu/transparency/expert-groups-register/core/api/front/document/135392/download)) |
 | Art 13(25) | ADCO may run a Union-wide dependency assessment; MSAs may request SBOMs from manufacturers of the relevant categories, passed on anonymised and aggregated | SBOM requests can arrive outside any investigation of your product |
-| Art 53 | On "reasoned request", access to data "required to assess the design, development, production and vulnerability handling", including internal documentation, in a language the MSA easily understands | The mirror served one paragraph and no source-code wording; whether Art 53 expressly reaches source code is not verified against the OJ text, confirm before relying on it |
+| Art 53 | On "reasoned request", access to data "required to assess the design, development, production and vulnerability handling", including internal documentation, in a language the MSA easily understands | Art 53 is one paragraph in the OJ text and does not mention source code; the only operative mention is the confidentiality duty in Art 63(1)(a). Whether "data required to assess the design" includes source code is interpretation |
 | Art 16(3) | CSIRTs pass actively-exploited-vulnerability and severe-incident information to the MSAs of their Member States | Every Art 14 report is visible to the enforcer; ENISA may also propose sweeps from Art 14 data (Art 60) |
 | Art 54 | National procedure for a product presenting a "significant cybersecurity risk": evaluation, possibly with the CSIRT; corrective action, withdrawal or recall within a period "commensurate with the nature of the cybersecurity risk"; provisional measures notified EU-wide; no objection within three months means the measure is "deemed to be justified" and all Member States follow | Art 54(2) imports non-technical risk factors from NIS2 Art 22 supply-chain assessments, so supplier origin can be an enforcement factor |
 | Art 55 | Union safeguard procedure: on objection the Commission decides within nine months of the Art 54(5) notification; standards shortcomings go to Reg 1025/2012 Art 11 | A single national finding can become an EU-wide withdrawal |
@@ -1060,7 +1060,7 @@ Article text was read from mirrors, not the authentic OJ text; article reference
 | Art 64(3) | EUR 10,000,000 or 2% | Arts 18-23 (representatives, importers, distributors, rebranding and modification, identification), 28 (DoC), 30(1)-(4) (CE marking), 31(1)-(4) (technical documentation), 32(1)-(3) (conformity assessment), 33(5), 39, 41, 47, 49 (notified bodies), 53 (access to data) | An importer that rebrands or substantially modifies moves to the top tier via Art 21 |
 | Art 64(4) | EUR 5,000,000 or 1% | Incorrect, incomplete or misleading information to notified bodies or MSAs in reply to a request | Applies to the content of your reasoned-request responses |
 | Art 64(5) | Factors | Nature, gravity, duration and consequences; prior fines for similar breaches; size and market share, with regard to micro, small and start-up enterprises | Recital 121 adds income level for non-undertakings |
-| Art 64(10)(a) | Exemption | Micro and small enterprise manufacturers for missing the 24-hour early warnings in Art 14(2)(a) and 14(4)(a) | The 72-hour and final-report deadlines remain fineable |
+| Art 64(10)(a), as corrected by OJ L, 2025/90555 | Exemption | Micro and small enterprise manufacturers for missing the 24-hour early warnings in Art 14(2)(a) and 14(4)(a) | The 72-hour and final-report deadlines remain fineable |
 | Art 64(10)(b) | Exemption | Any infringement by open-source software stewards | Recital 120: no other pecuniary penalties either |
 | Art 64(1), (6)-(9) | National rules | Member States set "effective, proportionate and dissuasive" penalties and notify the Commission; fines shared via ICSMS; each state decides whether public authorities can be fined (64(7)); courts or other bodies may impose them (64(8)); fines may combine with corrective measures (64(9)) | Fines apply from 11 Dec 2027 with the rest of the Regulation |
 
@@ -1294,7 +1294,7 @@ The nearest fixed dates are 2 Nov 2026 (EN 40000-1-1 and -1-2 ratification, not 
 | CRA-AI Act and CRA-DORA interplay guidance | Sequencing of AI Act Art 43 and CRA Art 32 assessments; whether DORA entities get any credit for CRA-compliant suppliers | Commission work started (AI Board meetings Nov 2025 and 20 May 2026; DORA from April 2026); adoption of both targeted "by the end of 2026" | Publication by end-2026; the next Expert Group meeting was pencilled for 18 Nov 2026 | [Expert Group 5th meeting minutes](https://ec.europa.eu/transparency/expert-groups-register/core/api/front/document/135392/download) |
 | Second standardisation request | Would extend harmonised standards, and so presumption of conformity, to products outside Annex III and IV | Being drafted under the 2026 Annual Union Work Programme; Expert Group to be consulted | Draft request and Expert Group consultation; no date | [Expert Group 5th meeting minutes](https://ec.europa.eu/transparency/expert-groups-register/core/api/front/document/135392/download) |
 
-Two further items appear only in a vendor feed and are not verified. They are a Commission public-procurement proposal of 9 Sep 2026 said to amend the CRA, and a Slovenian-language corrigendum of 9 Oct 2026. Confirm both in EUR-Lex before acting on them.
+Two further items appear only in a vendor feed and are not verified. They are a Commission public-procurement proposal of 9 Sep 2026 said to amend the CRA, and a Slovenian-language corrigendum of 9 Oct 2026. The corrigendum is confirmed (OJ L, 2026/90847, Slovenian text only, including Art 3(17) and Art 14(7)(c)); it does not change the English text. Confirm the procurement proposal in EUR-Lex before acting on it.
 
 ### Unresolved interpretation questions
 
@@ -1302,10 +1302,9 @@ Two further items appear only in a vendor feed and are not verified. They are a 
 - Dual licensing and paid hosting of open-source software. Guidance section 3 covers paid support, donations and open-core editions but not dual licensing or a hosted service built on FOSS. The notes infer that the hosting business is manufacturer of its hosted product while freely available FOSS stays unplaced; this is inference.
 - "Without delay" in Annex I Part II(2) and (8). No official source gives a number. The only numeric hint is a 7-day acknowledgement cap in the prEN 40000-1-3 enquiry draft, reported second-hand; the final text is not public.
 - "Known exploitable vulnerability" in Annex I Part I 2(a). No official definition exists; draft ETSI EN 304 621 ties "known" to EUVD or industry-database publication, with a 14-day window or a documented mitigation. The guidance (section 9.2.2) treats EUVD listing, researcher disclosure and media reports as making a vulnerability known.
-- Whether Art 53 reaches source code. The mirrored text grants access on reasoned request to data on design, development, production and vulnerability handling plus internal documentation. A separate source-code paragraph could not be confirmed against the OJ text.
+- Whether Art 53 reaches source code. The OJ text grants access on reasoned request to data on design, development, production and vulnerability handling plus internal documentation; it has no source-code paragraph. Source code appears only in the Art 63(1)(a) confidentiality duty. Watch for MSA or ADCO practice.
 - The 72-hour and 48-hour counters. Art 14(2)(b) and 14(4)(b) run 72 hours from awareness; the SRP counter runs 48 hours from early-warning submission, as does Ireland's NCSC guidance. Treat the statutory clock as authoritative and the counter as a visibility aid, as ENISA itself says.
 - What "reliable evidence" of exploitation means. Art 3(42) and Commission FAQ 5.2 require reliable evidence of malicious exploitation, and guidance para 213 starts the clock at a "reasonable degree of certainty". No authority has said whether a single credible third-party report suffices; see Reporting obligations (Article 14).
-- Module H surveillance. Two mirrors disagree on whether Annex VIII Module H point 4 includes an unannounced-visits clause. Treat surveillance as periodic audits plus site access until the OJ text is checked.
 - The Recital 56 automatic-update carve-out. Which products count as "components", and how far "professional or industrial environments" extends, is unsettled. Record the justification in the Art 13(4) risk assessment and expect notified bodies to test it.
 
 ## Sources
@@ -1314,7 +1313,7 @@ Every entry is a page one of the nine research notes records as opened on or bef
 
 ### Primary legislation
 
-The authentic text of the CRA is Regulation (EU) 2024/2847 at its EUR-Lex ELI. During the research EUR-Lex served only the recitals (or empty PDFs) to automated fetches, so the operative articles and annexes were read from verbatim mirrors and cross-checked against each other, against Commission FAQ and guidance quotations and against Annex B of the ENISA Playbook: [Springlex](https://www.springlex.eu/en/packages/cra/cra-regulation/article-13/), [StreamLex](https://streamlex.eu/annexes/cra-en-annex-i/), [enobyte](https://enobyte.com/en/legal/cra/3/), [cyberresilienceact.eu](https://www.cyberresilienceact.eu/regulation.html), [european-cyber-resilience-act.com](https://www.european-cyber-resilience-act.com/Cyber_Resilience_Act_Articles.html) and [lxgesetze](https://lxgesetze.de/crv/69). Treat mirror wording as a close paraphrase and verify quotations against the OJ before relying on them.
+The authentic text of the CRA is Regulation (EU) 2024/2847 at its EUR-Lex ELI. During the research EUR-Lex served only the recitals (or empty PDFs) to automated fetches, so the operative articles and annexes were read from verbatim mirrors and cross-checked against each other, against Commission FAQ and guidance quotations and against Annex B of the ENISA Playbook: [Springlex](https://www.springlex.eu/en/packages/cra/cra-regulation/article-13/), [StreamLex](https://streamlex.eu/annexes/cra-en-annex-i/), [enobyte](https://enobyte.com/en/legal/cra/3/), [cyberresilienceact.eu](https://www.cyberresilienceact.eu/regulation.html), [european-cyber-resilience-act.com](https://www.european-cyber-resilience-act.com/Cyber_Resilience_Act_Articles.html) and [lxgesetze](https://lxgesetze.de/crv/69). On 1 Nov 2026 the article and annex references and quotations were re-checked against the authentic OJ text obtained from the Publications Office cellar (CELEX 32024R2847, XHTML manifestation); see pack/enterprise/oj-verification/claims.csv.
 
 - [Regulation (EU) 2024/2847, Cyber Resilience Act, ELI](https://eur-lex.europa.eu/eli/reg/2024/2847/oj) — OJ L 2024/2847, 20 Nov 2024; in force 10 Dec 2024
 - [Regulation (EU) 2024/2847, OJ HTML text](https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=OJ:L_202402847) — recitals 1-122 as served; articles not reached

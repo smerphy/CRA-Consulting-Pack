@@ -23,7 +23,7 @@ Outside-in analysis from public sources; not affiliated with or reviewed by Goog
 | gRPC | CNCF project; accepted 16 Feb 2017 (incubating) | Cloud client libraries and services | Neither (CNCF likely steward) | High | S55 |
 | TensorFlow | Google-operated project site; models "built by Google and the community" | Google ML products | Steward (likely); manufacturer for any paid supported distribution | Medium. Governance document on GitHub could not be retrieved | S58 |
 | Flutter | "Developed by engineers at Google along with hundreds of open source contributors"; BSD 3-Clause | Google apps built with Flutter | Steward (likely) | Medium-high | S57 |
-| Bazel | "The Bazel project is led and managed by Google" | Internal build systems (Blaze lineage) | Steward (likely) | High | S56 |
+| Bazel | "The Bazel project is led and managed by Google" | Build tool; no Google product found that ships it as a component | Steward (likely) | High | S56 |
 | gVisor | Open-source container sandbox ("runs anywhere existing container tooling does") | Google Cloud sandboxed runtimes | Steward for gVisor; note it would be Annex III Class II.1 (container runtime) if ever placed on the market, with the Art 32(5) public-documentation route available | Medium | S59 |
 | Brotli | Google GitHub organisation; exploited flaw CVE-2026-111497 added to CISA KEV on 27 Oct 2026 | Chrome and other Google products | Steward (likely) | Medium. GitHub release page could not be opened (HTTP 403) | S13 |
 | SLSA, OSV, OSS-Fuzz | SLSA originated in Google's Binary Authorization for Borg work and is now an open specification | Supply-chain tooling | Steward or neither depending on current host foundation (not verified here) | Low | S44, S45 |

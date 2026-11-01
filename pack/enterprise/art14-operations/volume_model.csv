@@ -8,7 +8,7 @@ aev,cloud_installed,"AEVs in desktop sync client, CLI/SDKs, on-prem connectors, 
 aev,third_party_components,"AEVs from third-party components exploited in Aldermoor products (guidance para 218 test)",2,4,8,cases/yr,Estimate,"KB 09-reporting.md triggers; Commission FAQ 5.4. Volume is an assumption"
 aev,oss_led_projects,"AEVs in Kite, Mooring, Tensile where Aldermoor markets them as products",0,1,2,cases/yr,Estimate,Assumption; steward duties apply from 11 Dec 2027 (KB 09-reporting.md)
 fanout,lumen_engine_browser,"Reportable products per case under pack rule FO-1",3,4.5,6,products/case,Estimate,"Engine embedded in 6 products (case_engine registry); Tier A+B share is an assumption"
-fanout,halo_os_arc_devices,"Reportable products per case",1.5,2.5,3,products/case,Estimate,"Halo OS plus Arc phone and tablet as separate products"
+fanout,halo_os_arc_devices,"Reportable products per case",1.5,2.5,3,products/case,Estimate,"Arc phone, Arc tablet and Halo Wear OS images as separate products (Halo OS on Arc sits inside the device boundary, E3 F05)"
 fanout,lumen_os_non_engine,"Reportable products per case",1,1.2,1.5,products/case,Estimate,Assumption
 fanout,hearth_smart_home,"Reportable products per case",1,1.5,3,products/case,Estimate,"Shared Hearth RTOS across device lines"
 fanout,pulse_keystone,"Reportable products per case",1,1,1,products/case,Estimate,Assumption

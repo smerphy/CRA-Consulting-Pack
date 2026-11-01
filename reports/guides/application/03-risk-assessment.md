@@ -23,7 +23,7 @@ Combine them freely. A common pattern is BSI TR-03183-1 for structure and verdic
 2. Conditions of use: operational environment, user capability, who administers it, network exposure, physical access.
 3. Asset list in the three BSI classes. Data assets: credentials, keys, personal data. Functional assets: control functions, the update path. Security assets: root of trust, signing keys, audit log.
 4. Architecture and data-flow diagrams showing every interface, including the product-to-RDPS boundary and each third-party service.
-5. Component inventory with due-diligence status (section 9), because recital 58 asks for supplier dependencies to appear in the assessment.
+5. Component inventory with due-diligence status (section 9), because Art 13(5) and recital 34 require due diligence on third-party components; record high-risk-supplier dependencies as good practice (recital 58 asks the Commission and MSAs, not manufacturers, to weigh such non-technical risk factors).
 6. Threat intelligence relevant to the product class, including EUVD and vendor advisories for the components used.
 
 For critical-infrastructure products the model must include capable adversaries; for consumer products a different model is acceptable (FAQ section 4.1). Write the attacker profile down.

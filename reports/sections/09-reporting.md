@@ -26,7 +26,7 @@ Mandatory content combines the statute with the required fields in the [ENISA SR
 |---|---|---|---|---|---|
 | AEV early warning | 24 h | Awareness with reasonable certainty | Coordinator CSIRT and ENISA via SRP | Type, title, summary, product name and version, Member States where available, UTC awareness time | 14(2)(a) |
 | AEV vulnerability notification | 72 h | Same awareness time | Same; CSIRT disseminates onward | General information on product, exploit and vulnerability; measures taken; measures users can take; sensitivity; optional PEC flag | 14(2)(b) |
-| AEV final report | 14 days | Availability of a corrective or mitigating measure | Same | Severity and impact; malicious actor if known; details and date of the security update or measure | 14(2)(c) |
+| AEV final report | 14 days | Availability of a corrective or mitigating measure | Same | Description of the vulnerability, including severity and impact; malicious actor where available; details of the security update or other corrective measures (date of availability is an SRP field) | 14(2)(c) |
 | SI early warning | 24 h | Awareness with reasonable certainty | Same | Whether unlawful or malicious acts are suspected; Member States where available; UTC awareness time | 14(4)(a) |
 | SI incident notification | 72 h | Same awareness time | Same | General nature of the incident; initial assessment; measures taken and user measures; sensitivity | 14(4)(b) |
 | SI final report | 1 month | Submission of the 72 h notification | Same | Detailed severity and impact; threat type or root cause; applied and ongoing mitigation | 14(4)(c) |
@@ -55,7 +55,7 @@ No official statistics exist; the one public first-hand account ([Aikido, 23 Sep
 
 ### User notification (Art 14(8))
 
-After becoming aware, the manufacturer must inform impacted users and, "where appropriate", all users without undue delay. The notice covers the vulnerability or incident and any mitigating measures, "where appropriate, in a structured, machine-readable format". Guidance paras 219-221 make the duty risk-based: detailed disclosure may be limited to affected customers until a fix exists, with broader disclosure once mitigated.
+After becoming aware, the manufacturer must inform impacted users and, "where appropriate", all users. Art 14(8) sets no fixed deadline; the test is whether users are informed "in a timely manner", failing which the notified CSIRTs may inform them. The notice covers the vulnerability or incident and any mitigating measures, "where appropriate, in a structured, machine-readable format". Guidance paras 219-221 make the duty risk-based: detailed disclosure may be limited to affected customers until a fix exists, with broader disclosure once mitigated.
 
 If the manufacturer is not timely, the notified CSIRTs may inform users themselves. No format is named; CSAF is the obvious candidate but appears in no primary source.
 
@@ -90,6 +90,6 @@ Nothing today lets one filing discharge another. One compromised banking app can
 
 - Art 15 voluntary reporting of vulnerabilities, threats, incidents and near misses is not yet available in the SRP; CSIRTs must inform the manufacturer of third-party reports (Art 15(4)).
 - Importers (Art 19(5)) and distributors (Art 20(4)) must inform the manufacturer of vulnerabilities without undue delay from 11 Dec 2027, and MSAs immediately where there is a significant risk.
-- Open-source stewards fall under Art 14(1), (3) and (8) from 11 Dec 2027 only to the extent involved in development (Art 24(3)); they are exempt from fines (Art 64(10)(b)).
-- Penalties sit in the top tier: up to EUR 15,000,000 or 2.5% of worldwide annual turnover (Art 64(2)); micro and small enterprises are exempt from fines for missing the 24-hour deadlines (Art 64(10)(a)); enforcement machinery applies from 11 Dec 2027.
+- From 11 Dec 2027 open-source stewards fall under Art 14(1) to the extent they are involved in development, and under Art 14(3) and (8) only for severe incidents affecting network and information systems they provide for development (Art 24(3)); they are exempt from fines (Art 64(10)(b)).
+- Penalties sit in the top tier: up to EUR 15,000,000 or 2.5% of worldwide annual turnover (Art 64(2)); micro and small enterprises are exempt from fines for missing the 24-hour deadlines (Art 64(10)(a), as corrected by corrigendum OJ L, 2025/90555, which extends the derogation to paragraph 2); enforcement machinery applies from 11 Dec 2027.
 - No Art 14(10) implementing act on notification format or procedure has been adopted or drafted; the ENISA glossary is the de facto format.
