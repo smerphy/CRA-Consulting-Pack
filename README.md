@@ -21,6 +21,8 @@ White-label consulting pack for the EU Cyber Resilience Act (Regulation (EU) 202
 | D14 | Compliance templates kit (10 fill-in templates) | `pack/out/hosted/D14-compliance-templates-kit/`; published doc |
 | D15 | Framework crosswalk (CRA vs NIS2, ISO 27001, IEC 62443, EN 18031, EN 303 645, NIST SSDF) | `pack/out/crosswalk/` (page + CSV), data `pack/data/crosswalk.json`, published artifact |
 | D12 | Portal (index of everything) | `pack/out/portal/index.html` and published artifact |
+| D16 | CRA Enterprise Edition (hyperscaler): programme case, evidence from the pipeline, Article 14 at volume, portfolio classification, open-source strategy, global control set, Official Journal verification, legal positions, Google outside-in appendix | `pack/enterprise/` (papers, code, models, data); published doc |
+| D17 | Global product security control set (EU, UK, US, Japan, Singapore, Australia) | `pack/enterprise/global-control-set/site/`; published artifact |
 | DS | Advisory design system | `pack/out/hosted/DS-design-system/` (tokens, CSS, components); published artifact |
 | KB | CRA knowledge base (4 tabs) | `reports/` (source) and `pack/out/hosted/KB-knowledge-base/` (Word, Markdown, PDF); published doc |
 

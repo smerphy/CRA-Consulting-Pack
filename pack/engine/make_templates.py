@@ -56,8 +56,8 @@ def portal():
         line = re.sub(r'file: "[^"]*"', f'file: "{{{{FILE:{did}}}}}"', line)
         return line
     t, n = re.subn(r'^    \{ phase: \d, id: "\w+".*$', card, t, flags=re.M)
-    if n != 16:
-        sys.exit(f"make_templates: expected 16 deliverable cards in the portal, found {n}")
+    if n != 18:
+        sys.exit(f"make_templates: expected 18 deliverable cards in the portal, found {n}")
     for leftover in ("Example Group", "Project Rampart", "claude.ai/artifact"):
         if leftover in t:
             sys.exit(f"make_templates: portal template still contains {leftover!r}")
