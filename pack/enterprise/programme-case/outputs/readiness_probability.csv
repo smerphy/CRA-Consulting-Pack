@@ -1,0 +1,73 @@
+lever_set,lever_description,node,product_line,target_date,p_ready_by_target,p_ready_by_11_dec_2027,p50_date,p80_date
+S0,"Base plan as the modules set it out (two bodies, shared capacity)",R_LUM,"READY - Lumen (browser desktop and mobile, WebView)",2027-12-11,0.003,0.003,2028-04-11,2028-06-03
+S0,"Base plan as the modules set it out (two bodies, shared capacity)",R_PLT,"READY - Platforms (Lumen OS, Halo Wear OS)",2027-12-11,0.018,0.018,2028-03-01,2028-04-14
+S0,"Base plan as the modules set it out (two bodies, shared capacity)",R_DEV,"READY - Devices Class I (Hearth, Pulse, Keystone)",2027-12-11,0.0,0.0,2028-05-29,2028-08-05
+S0,"Base plan as the modules set it out (two bodies, shared capacity)",R_CLD,"READY - Cloud and apps Class I and II (Authenticator, VPNs, Edge)",2027-12-11,0.008,0.008,2028-04-02,2028-05-30
+S0,"Base plan as the modules set it out (two bodies, shared capacity)",R_DEF,READY - Default-class products (Module A),2027-12-11,0.279,0.279,2027-12-30,2028-01-27
+S0,"Base plan as the modules set it out (two bodies, shared capacity)",R_OSS,READY - Open-source stewardship (Art 24 from 11 Dec 2027),2027-12-11,1.0,1.0,2027-08-09,2027-09-04
+S0,"Base plan as the modules set it out (two bodies, shared capacity)",R_A14,READY - Art 14 desk at full strength (target 31 Mar 2027; required now),2027-03-31,0.404,1.0,2027-04-06,2027-04-25
+S0,"Base plan as the modules set it out (two bodies, shared capacity)",G3,JC-STAR STAR-1 labels for Hearth and Pulse (target 30 Jun 2027),2027-06-30,0.001,0.999,2027-09-15,2027-10-11
+S0,"Base plan as the modules set it out (two bodies, shared capacity)",END,All CRA product lines,2027-12-11,0.0,0.0,2028-06-06,2028-08-11
+S1,L1 pre-contract both bodies and reserve 8 assessors each,R_LUM,"READY - Lumen (browser desktop and mobile, WebView)",2027-12-11,0.089,0.089,2028-01-21,2028-02-17
+S1,L1 pre-contract both bodies and reserve 8 assessors each,R_PLT,"READY - Platforms (Lumen OS, Halo Wear OS)",2027-12-11,0.222,0.222,2028-01-03,2028-01-30
+S1,L1 pre-contract both bodies and reserve 8 assessors each,R_DEV,"READY - Devices Class I (Hearth, Pulse, Keystone)",2027-12-11,0.03,0.03,2028-02-13,2028-03-20
+S1,L1 pre-contract both bodies and reserve 8 assessors each,R_CLD,"READY - Cloud and apps Class I and II (Authenticator, VPNs, Edge)",2027-12-11,0.141,0.141,2028-01-16,2028-02-16
+S1,L1 pre-contract both bodies and reserve 8 assessors each,R_DEF,READY - Default-class products (Module A),2027-12-11,0.279,0.279,2027-12-30,2028-01-27
+S1,L1 pre-contract both bodies and reserve 8 assessors each,R_OSS,READY - Open-source stewardship (Art 24 from 11 Dec 2027),2027-12-11,1.0,1.0,2027-08-09,2027-09-04
+S1,L1 pre-contract both bodies and reserve 8 assessors each,R_A14,READY - Art 14 desk at full strength (target 31 Mar 2027; required now),2027-03-31,0.404,1.0,2027-04-06,2027-04-25
+S1,L1 pre-contract both bodies and reserve 8 assessors each,G3,JC-STAR STAR-1 labels for Hearth and Pulse (target 30 Jun 2027),2027-06-30,0.001,0.999,2027-09-15,2027-10-11
+S1,L1 pre-contract both bodies and reserve 8 assessors each,END,All CRA product lines,2027-12-11,0.014,0.014,2028-02-18,2028-03-22
+S2,L2 priority sequencing (Lumen and Devices first),R_LUM,"READY - Lumen (browser desktop and mobile, WebView)",2027-12-11,0.218,0.218,2028-01-06,2028-02-05
+S2,L2 priority sequencing (Lumen and Devices first),R_PLT,"READY - Platforms (Lumen OS, Halo Wear OS)",2027-12-11,0.003,0.003,2028-03-21,2028-05-07
+S2,L2 priority sequencing (Lumen and Devices first),R_DEV,"READY - Devices Class I (Hearth, Pulse, Keystone)",2027-12-11,0.097,0.097,2028-02-01,2028-03-14
+S2,L2 priority sequencing (Lumen and Devices first),R_CLD,"READY - Cloud and apps Class I and II (Authenticator, VPNs, Edge)",2027-12-11,0.001,0.001,2028-05-01,2028-06-30
+S2,L2 priority sequencing (Lumen and Devices first),R_DEF,READY - Default-class products (Module A),2027-12-11,0.279,0.279,2027-12-30,2028-01-27
+S2,L2 priority sequencing (Lumen and Devices first),R_OSS,READY - Open-source stewardship (Art 24 from 11 Dec 2027),2027-12-11,1.0,1.0,2027-08-09,2027-09-04
+S2,L2 priority sequencing (Lumen and Devices first),R_A14,READY - Art 14 desk at full strength (target 31 Mar 2027; required now),2027-03-31,0.404,1.0,2027-04-06,2027-04-25
+S2,L2 priority sequencing (Lumen and Devices first),G3,JC-STAR STAR-1 labels for Hearth and Pulse (target 30 Jun 2027),2027-06-30,0.001,0.999,2027-09-15,2027-10-11
+S2,L2 priority sequencing (Lumen and Devices first),END,All CRA product lines,2027-12-11,0.0,0.0,2028-05-03,2028-07-02
+S3,L3 third body for Cloud and apps,R_LUM,"READY - Lumen (browser desktop and mobile, WebView)",2027-12-11,0.003,0.003,2028-04-11,2028-06-03
+S3,L3 third body for Cloud and apps,R_PLT,"READY - Platforms (Lumen OS, Halo Wear OS)",2027-12-11,0.018,0.018,2028-03-01,2028-04-14
+S3,L3 third body for Cloud and apps,R_DEV,"READY - Devices Class I (Hearth, Pulse, Keystone)",2027-12-11,0.097,0.097,2028-02-01,2028-03-14
+S3,L3 third body for Cloud and apps,R_CLD,"READY - Cloud and apps Class I and II (Authenticator, VPNs, Edge)",2027-12-11,0.092,0.092,2028-02-09,2028-04-03
+S3,L3 third body for Cloud and apps,R_DEF,READY - Default-class products (Module A),2027-12-11,0.279,0.279,2027-12-30,2028-01-27
+S3,L3 third body for Cloud and apps,R_OSS,READY - Open-source stewardship (Art 24 from 11 Dec 2027),2027-12-11,1.0,1.0,2027-08-09,2027-09-04
+S3,L3 third body for Cloud and apps,R_A14,READY - Art 14 desk at full strength (target 31 Mar 2027; required now),2027-03-31,0.404,1.0,2027-04-06,2027-04-25
+S3,L3 third body for Cloud and apps,G3,JC-STAR STAR-1 labels for Hearth and Pulse (target 30 Jun 2027),2027-06-30,0.001,0.999,2027-09-15,2027-10-11
+S3,L3 third body for Cloud and apps,END,All CRA product lines,2027-12-11,0.001,0.001,2028-04-20,2028-06-10
+S4,L1 + L2,R_LUM,"READY - Lumen (browser desktop and mobile, WebView)",2027-12-11,0.408,0.408,2027-12-20,2028-01-23
+S4,L1 + L2,R_PLT,"READY - Platforms (Lumen OS, Halo Wear OS)",2027-12-11,0.088,0.088,2028-01-15,2028-02-08
+S4,L1 + L2,R_DEV,"READY - Devices Class I (Hearth, Pulse, Keystone)",2027-12-11,0.329,0.329,2027-12-28,2028-01-29
+S4,L1 + L2,R_CLD,"READY - Cloud and apps Class I and II (Authenticator, VPNs, Edge)",2027-12-11,0.037,0.037,2028-02-01,2028-03-03
+S4,L1 + L2,R_DEF,READY - Default-class products (Module A),2027-12-11,0.279,0.279,2027-12-30,2028-01-27
+S4,L1 + L2,R_OSS,READY - Open-source stewardship (Art 24 from 11 Dec 2027),2027-12-11,1.0,1.0,2027-08-09,2027-09-04
+S4,L1 + L2,R_A14,READY - Art 14 desk at full strength (target 31 Mar 2027; required now),2027-03-31,0.404,1.0,2027-04-06,2027-04-25
+S4,L1 + L2,G3,JC-STAR STAR-1 labels for Hearth and Pulse (target 30 Jun 2027),2027-06-30,0.001,0.999,2027-09-15,2027-10-11
+S4,L1 + L2,END,All CRA product lines,2027-12-11,0.022,0.022,2028-02-04,2028-03-05
+S5,L1 + L2 + L3 (recommended),R_LUM,"READY - Lumen (browser desktop and mobile, WebView)",2027-12-11,0.408,0.408,2027-12-20,2028-01-23
+S5,L1 + L2 + L3 (recommended),R_PLT,"READY - Platforms (Lumen OS, Halo Wear OS)",2027-12-11,0.088,0.088,2028-01-15,2028-02-08
+S5,L1 + L2 + L3 (recommended),R_DEV,"READY - Devices Class I (Hearth, Pulse, Keystone)",2027-12-11,0.329,0.329,2027-12-28,2028-01-29
+S5,L1 + L2 + L3 (recommended),R_CLD,"READY - Cloud and apps Class I and II (Authenticator, VPNs, Edge)",2027-12-11,0.253,0.253,2028-01-07,2028-02-12
+S5,L1 + L2 + L3 (recommended),R_DEF,READY - Default-class products (Module A),2027-12-11,0.279,0.279,2027-12-30,2028-01-27
+S5,L1 + L2 + L3 (recommended),R_OSS,READY - Open-source stewardship (Art 24 from 11 Dec 2027),2027-12-11,1.0,1.0,2027-08-09,2027-09-04
+S5,L1 + L2 + L3 (recommended),R_A14,READY - Art 14 desk at full strength (target 31 Mar 2027; required now),2027-03-31,0.404,1.0,2027-04-06,2027-04-25
+S5,L1 + L2 + L3 (recommended),G3,JC-STAR STAR-1 labels for Hearth and Pulse (target 30 Jun 2027),2027-06-30,0.001,0.999,2027-09-15,2027-10-11
+S5,L1 + L2 + L3 (recommended),END,All CRA product lines,2027-12-11,0.043,0.043,2028-01-26,2028-02-22
+S6,"External: Module H body designated by 31 Jan 2027, base plan",R_LUM,"READY - Lumen (browser desktop and mobile, WebView)",2027-12-11,0.005,0.005,2028-04-06,2028-05-28
+S6,"External: Module H body designated by 31 Jan 2027, base plan",R_PLT,"READY - Platforms (Lumen OS, Halo Wear OS)",2027-12-11,0.023,0.023,2028-02-26,2028-04-08
+S6,"External: Module H body designated by 31 Jan 2027, base plan",R_DEV,"READY - Devices Class I (Hearth, Pulse, Keystone)",2027-12-11,0.001,0.001,2028-04-29,2028-06-28
+S6,"External: Module H body designated by 31 Jan 2027, base plan",R_CLD,"READY - Cloud and apps Class I and II (Authenticator, VPNs, Edge)",2027-12-11,0.019,0.019,2028-03-04,2028-04-20
+S6,"External: Module H body designated by 31 Jan 2027, base plan",R_DEF,READY - Default-class products (Module A),2027-12-11,0.279,0.279,2027-12-30,2028-01-27
+S6,"External: Module H body designated by 31 Jan 2027, base plan",R_OSS,READY - Open-source stewardship (Art 24 from 11 Dec 2027),2027-12-11,1.0,1.0,2027-08-09,2027-09-04
+S6,"External: Module H body designated by 31 Jan 2027, base plan",R_A14,READY - Art 14 desk at full strength (target 31 Mar 2027; required now),2027-03-31,0.404,1.0,2027-04-06,2027-04-25
+S6,"External: Module H body designated by 31 Jan 2027, base plan",G3,JC-STAR STAR-1 labels for Hearth and Pulse (target 30 Jun 2027),2027-06-30,0.001,0.999,2027-09-15,2027-10-11
+S6,"External: Module H body designated by 31 Jan 2027, base plan",END,All CRA product lines,2027-12-11,0.0,0.0,2028-05-07,2028-07-05
+S7,"External: designation by 31 Jan 2027, with L1 + L2 + L3",R_LUM,"READY - Lumen (browser desktop and mobile, WebView)",2027-12-11,0.409,0.409,2027-12-20,2028-01-23
+S7,"External: designation by 31 Jan 2027, with L1 + L2 + L3",R_PLT,"READY - Platforms (Lumen OS, Halo Wear OS)",2027-12-11,0.098,0.098,2028-01-14,2028-02-08
+S7,"External: designation by 31 Jan 2027, with L1 + L2 + L3",R_DEV,"READY - Devices Class I (Hearth, Pulse, Keystone)",2027-12-11,0.401,0.401,2027-12-20,2028-01-22
+S7,"External: designation by 31 Jan 2027, with L1 + L2 + L3",R_CLD,"READY - Cloud and apps Class I and II (Authenticator, VPNs, Edge)",2027-12-11,0.414,0.414,2027-12-19,2028-01-23
+S7,"External: designation by 31 Jan 2027, with L1 + L2 + L3",R_DEF,READY - Default-class products (Module A),2027-12-11,0.279,0.279,2027-12-30,2028-01-27
+S7,"External: designation by 31 Jan 2027, with L1 + L2 + L3",R_OSS,READY - Open-source stewardship (Art 24 from 11 Dec 2027),2027-12-11,1.0,1.0,2027-08-09,2027-09-04
+S7,"External: designation by 31 Jan 2027, with L1 + L2 + L3",R_A14,READY - Art 14 desk at full strength (target 31 Mar 2027; required now),2027-03-31,0.404,1.0,2027-04-06,2027-04-25
+S7,"External: designation by 31 Jan 2027, with L1 + L2 + L3",G3,JC-STAR STAR-1 labels for Hearth and Pulse (target 30 Jun 2027),2027-06-30,0.001,0.999,2027-09-15,2027-10-11
+S7,"External: designation by 31 Jan 2027, with L1 + L2 + L3",END,All CRA product lines,2027-12-11,0.075,0.075,2028-01-17,2028-02-10

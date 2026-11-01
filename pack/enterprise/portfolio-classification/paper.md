@@ -53,7 +53,7 @@ A keyword check in `classify.py` flags any family whose description also matches
 
 ## Route strategy: Module H in four organisations, with Module A for Class I only after standards are cited
 
-Today a Class I product cannot self-assess. Art 32(2) allows Module A only where harmonised standards, common specifications or European cybersecurity certification schemes at assurance level at least "substantial" "as referred to in Article 27" are applied in full. No CRA standard or common specification exists at 30 Oct 2026, and whether a scheme can serve before an Art 27(9) act is an open interpretation (module E6). The third-party routes are blocked too, because no notified body is designated (10-conformity.md; verification.md claims 9, 21, 23).
+Today a Class I product cannot self-assess. Art 32(2) allows Module A only where harmonised standards, common specifications or European cybersecurity certification schemes at assurance level at least "substantial" "as referred to in Article 27" are applied in full. No CRA standard or common specification exists at 30 Oct 2026, and whether a scheme can serve before an Art 27(9) act is an open interpretation (module E6; the Commission guidance reads the scheme limb as needing an Art 27(9) act, guidance para 148 footnote 25). The third-party routes are blocked too, because no notified body is designated (10-conformity.md; verification.md claims 9, 21, 23).
 
 **Exhibit 3: Route strategy by organisation**
 

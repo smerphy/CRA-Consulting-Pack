@@ -94,7 +94,7 @@ row('EAC-09', 'A substantial modification is a new placing (point 116).', 'E1', 
     [g('P116', "the act of making the substantially modified product available on the market constitutes a new placing on the market")], 'G', V)
 row('EAC-10', 'A new placing needs a new or updated declaration (FAQ 6.8).', 'E1', 'table "Three rules", row 2; field table row declaration', 'FAQ 6.8; Art 28(2)',
     [f('FAQ', "a new version of the product might need a new declaration of conformity, especially when it implements a substantial modification"), o("Such a declaration shall be updated as appropriate")], 'FAQ; OJ', W,
-    'FAQ 6.8 says a new version "might need" a new declaration, "especially" for a substantial modification; the binding rule is Art 28(2) ("updated as appropriate").')
+    'FAQ 6.8 says a new version "might need" a new declaration, "especially" for a substantial modification; the binding rule is Art 28(2) ("updated as appropriate"). Art 28(2) added to the citation in the paper.')
 row('EAC-11', 'Technical documentation and the declaration are kept 10 years after placing or for the support period, whichever is longer (Art 13(13)).', 'E1', 'table "Three rules", row 3; retention field; Q&A table', 'Art 13(13)',
     [o("for at least 10 years after the product with digital elements has been placed on the market or for the support period, whichever is longer")], 'OJ', V)
 row('EAC-12', 'Annex II information follows the same retention rule (Art 13(18)).', 'E1', 'table "Three rules", row 3', 'Art 13(18)',
@@ -190,12 +190,12 @@ row('A14-13', 'The SRP 72-hour counter shows a due time 48 hours after the early
     [f('ENISA', "the 72-hour counter displays a due date/time 48hrs after submission of the 24-hour Early Warning")], 'ENISA', V)
 row('A14-14', 'Ireland\'s National CRA Guidelines describe the detailed notification as due "within 48 hours of the early warning".', 'E2', 'section 2; Exhibit 4; Risks', 'Irish National CRA Guidelines v1; NCSC CRA page',
     [f('IE', "the Detailed Notification must be submitted within 48hrs of the EW submission"), f('IE', "Must be submitted within 48 hours of the Early Warning submission (72 hours total from initial awareness)")], 'IE', W,
-    'The Guidelines say "within 48hrs of the EW submission"; the quoted wording matches the NCSC web page, which adds "(72 hours total from initial awareness)". Cite the page for the quotation.')
+    'The Guidelines say "within 48hrs of the EW submission"; the quoted wording matches the NCSC web page, which adds "(72 hours total from initial awareness)". Cite the page for the quotation. Citation corrected in the paper.')
 row('A14-15', 'ENISA: "Only one notification is required for any given actively exploited vulnerability (AEV) or severe incident (SI)", in the context of a manufacturer with several EU branches (FAQ 8).', 'E2', 'section 3', 'ENISA SRP FAQ 8',
     [f('ENISA', "Only one notification is required for any given actively exploited vulnerability (AEV) or severe incident (SI), even when a manufacturer has multiple branches or subsidiaries in the EU")], 'ENISA', V)
 row('A14-16', 'A wrong choice of coordinator "may invalidate the notification" (FAQ 18).', 'E2', 'section 3; Risks', 'ENISA SRP FAQ 18',
     [f('ENISA', "If the wrong CDaC is selected, the notification may be invalidated and will need to be resubmitted to the correct CDaC")], 'ENISA', W,
-    'ENISA wording: "the notification may be invalidated and will need to be resubmitted to the correct CDaC". Paraphrase, not a quotation.')
+    'ENISA wording: "the notification may be invalidated and will need to be resubmitted to the correct CDaC". Quotation corrected in the paper.')
 row('A14-17', 'Art 14(8) is risk-based: detail may go first to affected customers, broader disclosure once mitigated (guidance paras 219-221).', 'E2', 'Exhibit 4; section on disclosure', 'Guidance paras 219-221',
     [g('P220', "is to be applied in a risk-based and proportionate manner"), g('P220', "manufacturers may limit the disclosure of detailed information to the relevant users or customers concerned"),
      g('P221', "Once the vulnerability has been adequately addressed or mitigated, broader disclosure may be appropriate")], 'G', V)
@@ -268,7 +268,7 @@ row('PC-12', 'Whether a scheme can serve before an Art 27(9) act is an open inte
     [g('P153', "if this has been specified via delegated acts in accordance with Article 27(9)"),
      f('G', "the same guidance also applies to common specifications adopted in accordance with Article 27(2) and to European cybersecurity certification schemes where specified by the Commission via delegated acts in accordance with Article 27(9)"),
      o("European cybersecurity certification schemes adopted pursuant to Regulation (EU) 2019/881 which have been identified by the Commission in an implementing act")], 'G; OJ', W,
-    'Still open in law, but the Commission guidance now takes a side: the scheme limb applies only to schemes specified by an Art 27(9) delegated act (footnote 25; para 153). Recital 91 also speaks of schemes "identified by the Commission". See legal-positions question C.')
+    'Still open in law, but the Commission guidance now takes a side: the scheme limb applies only to schemes specified by an Art 27(9) delegated act (footnote 25; para 153). Recital 91 also speaks of schemes "identified by the Commission". Citation to footnote 25 added in the paper. See legal-positions question C.')
 row('PC-13', 'Module A for Class I families where a cited vertical standard is applied in full and covers the core-functionality risks (guidance point 149).', 'E3', 'Exhibit 3', 'Guidance para 149',
     [g('P149', "all the applicable requirements of a relevant harmonised standard need to be applied; and (ii) the standard's scope needs to cover at least all the cybersecurity risks associated to that product's core functionality")], 'G', V)
 row('PC-14', 'Module H suits frequent substantial modifications because new variants extend the approved system (FAQ 6.3).', 'E3', 'route strategy section', 'FAQ 6.3',

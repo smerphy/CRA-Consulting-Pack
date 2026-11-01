@@ -1,0 +1,644 @@
+{
+  "as_at": "2026-11-01",
+  "start_date": "2026-11-02",
+  "deadline": "2027-12-11",
+  "runs": 5000,
+  "seed": 20261101,
+  "log": [
+    "read art14-operations/volume_model_output.csv",
+    "read portfolio-classification/nb_demand_summary.json",
+    "read portfolio-classification/nb_demand.csv",
+    "read portfolio-classification/classification_summary.json",
+    "read evidence-as-code/aldermoor-additions.json",
+    "read open-source-strategy/projects.yaml",
+    "read global-control-set/controls.json",
+    "read oj-verification/claims.csv"
+  ],
+  "budget_eur_m": {
+    "low": {
+      "one_off": 18.39,
+      "run_2027": 4.93,
+      "run_2028": 12.19,
+      "total": 35.51
+    },
+    "base": {
+      "one_off": 40.04,
+      "run_2027": 9.23,
+      "run_2028": 24.0,
+      "total": 73.27
+    },
+    "high": {
+      "one_off": 85.7,
+      "run_2027": 25.54,
+      "run_2028": 55.41,
+      "total": 166.65
+    }
+  },
+  "budget_by_workstream_eur_m": {
+    "low": {
+      "1 Evidence platform (E1)": {
+        "one_off": 3.22,
+        "run_2027": 2.19,
+        "run_2028": 3.19,
+        "total": 8.59
+      },
+      "2 Art 14 operations (E2)": {
+        "one_off": 0.46,
+        "run_2027": 1.46,
+        "run_2028": 1.38,
+        "total": 3.3
+      },
+      "3 Notified body and quality system (E3)": {
+        "one_off": 3.25,
+        "run_2027": 0.0,
+        "run_2028": 1.28,
+        "total": 4.54
+      },
+      "4 Classification and legal (E3)": {
+        "one_off": 0.86,
+        "run_2027": 0.0,
+        "run_2028": 0.23,
+        "total": 1.09
+      },
+      "5 Open-source programme (E4)": {
+        "one_off": 0.99,
+        "run_2027": 0.48,
+        "run_2028": 3.21,
+        "total": 4.68
+      },
+      "6 Multi-jurisdiction labelling (E5)": {
+        "one_off": 0.84,
+        "run_2027": 0.57,
+        "run_2028": 0.72,
+        "total": 2.13
+      },
+      "7 Documentation, Annex II and translations": {
+        "one_off": 3.08,
+        "run_2027": 0.0,
+        "run_2028": 0.63,
+        "total": 3.7
+      },
+      "8 Training": {
+        "one_off": 0.96,
+        "run_2027": 0.0,
+        "run_2028": 0.29,
+        "total": 1.25
+      },
+      "9 Programme office": {
+        "one_off": 3.07,
+        "run_2027": 0.0,
+        "run_2028": 0.69,
+        "total": 3.76
+      },
+      "10 Contingency": {
+        "one_off": 1.67,
+        "run_2027": 0.23,
+        "run_2028": 0.58,
+        "total": 2.49
+      }
+    },
+    "base": {
+      "1 Evidence platform (E1)": {
+        "one_off": 6.07,
+        "run_2027": 3.38,
+        "run_2028": 5.09,
+        "total": 14.54
+      },
+      "2 Art 14 operations (E2)": {
+        "one_off": 0.83,
+        "run_2027": 3.06,
+        "run_2028": 2.78,
+        "total": 6.67
+      },
+      "3 Notified body and quality system (E3)": {
+        "one_off": 5.51,
+        "run_2027": 0.0,
+        "run_2028": 2.46,
+        "total": 7.97
+      },
+      "4 Classification and legal (E3)": {
+        "one_off": 1.57,
+        "run_2027": 0.0,
+        "run_2028": 0.41,
+        "total": 1.98
+      },
+      "5 Open-source programme (E4)": {
+        "one_off": 1.6,
+        "run_2027": 0.91,
+        "run_2028": 6.33,
+        "total": 8.84
+      },
+      "6 Multi-jurisdiction labelling (E5)": {
+        "one_off": 1.55,
+        "run_2027": 1.03,
+        "run_2028": 1.41,
+        "total": 3.99
+      },
+      "7 Documentation, Annex II and translations": {
+        "one_off": 9.95,
+        "run_2027": 0.0,
+        "run_2028": 1.66,
+        "total": 11.61
+      },
+      "8 Training": {
+        "one_off": 2.03,
+        "run_2027": 0.0,
+        "run_2028": 0.58,
+        "total": 2.6
+      },
+      "9 Programme office": {
+        "one_off": 5.72,
+        "run_2027": 0.0,
+        "run_2028": 1.1,
+        "total": 6.82
+      },
+      "10 Contingency": {
+        "one_off": 5.22,
+        "run_2027": 0.84,
+        "run_2028": 2.18,
+        "total": 8.24
+      }
+    },
+    "high": {
+      "1 Evidence platform (E1)": {
+        "one_off": 9.65,
+        "run_2027": 8.29,
+        "run_2028": 11.46,
+        "total": 29.41
+      },
+      "2 Art 14 operations (E2)": {
+        "one_off": 1.61,
+        "run_2027": 10.67,
+        "run_2028": 9.39,
+        "total": 21.67
+      },
+      "3 Notified body and quality system (E3)": {
+        "one_off": 8.17,
+        "run_2027": 0.0,
+        "run_2028": 3.83,
+        "total": 12.0
+      },
+      "4 Classification and legal (E3)": {
+        "one_off": 3.08,
+        "run_2027": 0.0,
+        "run_2028": 0.8,
+        "total": 3.88
+      },
+      "5 Open-source programme (E4)": {
+        "one_off": 2.93,
+        "run_2027": 1.39,
+        "run_2028": 10.29,
+        "total": 14.61
+      },
+      "6 Multi-jurisdiction labelling (E5)": {
+        "one_off": 4.31,
+        "run_2027": 1.85,
+        "run_2028": 2.69,
+        "total": 8.85
+      },
+      "7 Documentation, Annex II and translations": {
+        "one_off": 24.01,
+        "run_2027": 0.0,
+        "run_2028": 5.75,
+        "total": 29.76
+      },
+      "8 Training": {
+        "one_off": 4.29,
+        "run_2027": 0.0,
+        "run_2028": 2.04,
+        "total": 6.33
+      },
+      "9 Programme office": {
+        "one_off": 10.51,
+        "run_2027": 0.0,
+        "run_2028": 1.93,
+        "total": 12.44
+      },
+      "10 Contingency": {
+        "one_off": 17.14,
+        "run_2027": 3.33,
+        "run_2028": 7.23,
+        "total": 27.7
+      }
+    }
+  },
+  "cost_monte_carlo_eur_m": {
+    "one_off": {
+      "p10": 37.56,
+      "p50": 41.31,
+      "p90": 45.56
+    },
+    "run_2028": {
+      "p10": 23.41,
+      "p50": 25.46,
+      "p90": 27.67
+    },
+    "total_q4_2026_to_q4_2028": {
+      "p10": 71.12,
+      "p50": 76.96,
+      "p90": 83.46
+    }
+  },
+  "headcount": {
+    "low": {
+      "by_quarter": {
+        "2026Q4": 10.1,
+        "2027Q1": 53.2,
+        "2027Q2": 82.4,
+        "2027Q3": 77.4,
+        "2027Q4": 63.9,
+        "2028Q1": 34.6,
+        "2028Q2": 34.6,
+        "2028Q3": 34.6,
+        "2028Q4": 34.6
+      },
+      "peak": 82.4,
+      "peak_quarter": "2027Q2",
+      "q4_2028": 34.6
+    },
+    "base": {
+      "by_quarter": {
+        "2026Q4": 14.1,
+        "2027Q1": 73.9,
+        "2027Q2": 137.5,
+        "2027Q3": 130.0,
+        "2027Q4": 103.3,
+        "2028Q1": 45.9,
+        "2028Q2": 45.9,
+        "2028Q3": 45.9,
+        "2028Q4": 45.9
+      },
+      "peak": 137.5,
+      "peak_quarter": "2027Q2",
+      "q4_2028": 45.9
+    },
+    "high": {
+      "by_quarter": {
+        "2026Q4": 22.2,
+        "2027Q1": 114.8,
+        "2027Q2": 224.2,
+        "2027Q3": 211.8,
+        "2027Q4": 167.1,
+        "2028Q1": 76.5,
+        "2028Q2": 76.5,
+        "2028Q3": 76.5,
+        "2028Q4": 76.5
+      },
+      "peak": 224.2,
+      "peak_quarter": "2027Q2",
+      "q4_2028": 76.5
+    }
+  },
+  "critical_path_base": {
+    "end_day": 527.3,
+    "end_date": "2028-04-13",
+    "critical_activities": [
+      "NB0",
+      "NB2",
+      "K_HW",
+      "H_DEV",
+      "D_DEV",
+      "R_DEV",
+      "END"
+    ],
+    "driving_chains": {
+      "R_LUM": [
+        "M0",
+        "C2",
+        "QSD",
+        "H_LUM",
+        "D_LUM",
+        "R_LUM"
+      ],
+      "R_PLT": [
+        "M0",
+        "C2",
+        "QSD",
+        "H_PLT",
+        "D_PLT",
+        "R_PLT"
+      ],
+      "R_DEV": [
+        "NB0",
+        "NB2",
+        "K_HW",
+        "H_DEV",
+        "D_DEV",
+        "R_DEV"
+      ],
+      "R_CLD": [
+        "NB0",
+        "NB2",
+        "K_CL",
+        "H_CLD",
+        "D_CLD",
+        "R_CLD"
+      ],
+      "R_DEF": [
+        "M0",
+        "C1",
+        "RA",
+        "AII",
+        "TR",
+        "D_DEF",
+        "R_DEF"
+      ],
+      "R_OSS": [
+        "M0",
+        "OS1",
+        "OS2",
+        "OS3",
+        "R_OSS"
+      ],
+      "R_A14": [
+        "M0",
+        "A14",
+        "R_A14"
+      ],
+      "G3": [
+        "M0",
+        "E1P",
+        "G2",
+        "G3"
+      ],
+      "END": [
+        "NB0",
+        "NB2",
+        "K_HW",
+        "H_DEV",
+        "D_DEV",
+        "R_DEV",
+        "END"
+      ]
+    },
+    "ready_dates": {
+      "R_LUM": "2028-03-05",
+      "R_PLT": "2028-01-22",
+      "R_DEV": "2028-04-13",
+      "R_CLD": "2028-02-13",
+      "R_DEF": "2027-11-26",
+      "R_OSS": "2027-07-30",
+      "R_A14": "2027-04-01",
+      "G3": "2027-08-29"
+    },
+    "h_durations_days": {
+      "H_LUM": 234.0,
+      "H_PLT": 191.8,
+      "H_DEV": 258.3,
+      "H_CLD": 198.7
+    }
+  },
+  "critical_path_levers_base": {
+    "ready_dates": {
+      "R_LUM": "2027-11-26",
+      "R_PLT": "2027-11-26",
+      "R_DEV": "2027-11-26",
+      "R_CLD": "2027-11-26",
+      "R_DEF": "2027-11-26",
+      "R_OSS": "2027-07-30",
+      "R_A14": "2027-04-01",
+      "G3": "2027-08-29"
+    },
+    "h_durations_days": {
+      "H_LUM": 73.1,
+      "H_PLT": 60.0,
+      "H_DEV": 80.7,
+      "H_CLD": 62.1
+    }
+  },
+  "readiness": {
+    "S0:R_LUM": 0.003,
+    "S0:R_PLT": 0.018,
+    "S0:R_DEV": 0.0,
+    "S0:R_CLD": 0.008,
+    "S0:R_DEF": 0.279,
+    "S0:R_OSS": 1.0,
+    "S0:R_A14": 0.404,
+    "S0:G3": 0.001,
+    "S0:END": 0.0,
+    "S1:R_LUM": 0.089,
+    "S1:R_PLT": 0.222,
+    "S1:R_DEV": 0.03,
+    "S1:R_CLD": 0.141,
+    "S1:R_DEF": 0.279,
+    "S1:R_OSS": 1.0,
+    "S1:R_A14": 0.404,
+    "S1:G3": 0.001,
+    "S1:END": 0.014,
+    "S2:R_LUM": 0.218,
+    "S2:R_PLT": 0.003,
+    "S2:R_DEV": 0.097,
+    "S2:R_CLD": 0.001,
+    "S2:R_DEF": 0.279,
+    "S2:R_OSS": 1.0,
+    "S2:R_A14": 0.404,
+    "S2:G3": 0.001,
+    "S2:END": 0.0,
+    "S3:R_LUM": 0.003,
+    "S3:R_PLT": 0.018,
+    "S3:R_DEV": 0.097,
+    "S3:R_CLD": 0.092,
+    "S3:R_DEF": 0.279,
+    "S3:R_OSS": 1.0,
+    "S3:R_A14": 0.404,
+    "S3:G3": 0.001,
+    "S3:END": 0.001,
+    "S4:R_LUM": 0.408,
+    "S4:R_PLT": 0.088,
+    "S4:R_DEV": 0.329,
+    "S4:R_CLD": 0.037,
+    "S4:R_DEF": 0.279,
+    "S4:R_OSS": 1.0,
+    "S4:R_A14": 0.404,
+    "S4:G3": 0.001,
+    "S4:END": 0.022,
+    "S5:R_LUM": 0.408,
+    "S5:R_PLT": 0.088,
+    "S5:R_DEV": 0.329,
+    "S5:R_CLD": 0.253,
+    "S5:R_DEF": 0.279,
+    "S5:R_OSS": 1.0,
+    "S5:R_A14": 0.404,
+    "S5:G3": 0.001,
+    "S5:END": 0.043,
+    "S6:R_LUM": 0.005,
+    "S6:R_PLT": 0.023,
+    "S6:R_DEV": 0.001,
+    "S6:R_CLD": 0.019,
+    "S6:R_DEF": 0.279,
+    "S6:R_OSS": 1.0,
+    "S6:R_A14": 0.404,
+    "S6:G3": 0.001,
+    "S6:END": 0.0,
+    "S7:R_LUM": 0.409,
+    "S7:R_PLT": 0.098,
+    "S7:R_DEV": 0.401,
+    "S7:R_CLD": 0.414,
+    "S7:R_DEF": 0.279,
+    "S7:R_OSS": 1.0,
+    "S7:R_A14": 0.404,
+    "S7:G3": 0.001,
+    "S7:END": 0.075
+  },
+  "nb_schedule": {
+    "wave1_days_base": 1088.5,
+    "wave1_cleared_quarter": {
+      "base": "2028Q1",
+      "constrained": "after 2028Q4",
+      "levers": "2027Q4"
+    },
+    "internal_ready_day": 240.0,
+    "internal_ready_date": "2027-06-30",
+    "peak_quarter_share_of_thin_market": 0.339
+  },
+  "memo_training_staff_time": {
+    "low": {
+      "hours": 70000,
+      "eur_m": 10.05
+    },
+    "base": {
+      "hours": 120000,
+      "eur_m": 20.68
+    },
+    "high": {
+      "hours": 230000,
+      "eur_m": 46.24
+    }
+  },
+  "e5_labelling_share_of_total_base": 0.054,
+  "e1_fte_years_2027_base": 32.0,
+  "e1_fte_years_2027_low": 22.0,
+  "e1_fte_years_2027_high": 52.0,
+  "module_facts": {
+    "e3_csv": {
+      "jcstar_models": 28.0,
+      "jcstar_new_models_yr": 13.0,
+      "jcstar_families": [
+        "F15",
+        "F16",
+        "F17",
+        "F18",
+        "F21",
+        "F23",
+        "F24",
+        "F22"
+      ],
+      "nb_families": 17,
+      "initial_types_nb": 47.0
+    },
+    "e1_versions_week": 2000.0,
+    "e1_product_lines": 200.0,
+    "e4_projects": 5,
+    "e5_controls": 43,
+    "e6": {
+      "F02": "Verified",
+      "F03": "Verified",
+      "F08": "Verified",
+      "K23": "Verified"
+    },
+    "e6_total": 184
+  },
+  "e2_incremental_fte": {
+    "low": 5.56,
+    "base": 5.93,
+    "high": 9.01
+  },
+  "e3_totals": {
+    "bc_y1": [
+      1581690,
+      4575870
+    ],
+    "bc_ss": [
+      1148290,
+      3275670
+    ],
+    "h_y1": [
+      1295000,
+      2625000
+    ],
+    "h_ss": [
+      486700,
+      1670100
+    ],
+    "bc_5y": [
+      6174850,
+      17678550
+    ],
+    "h_5y": [
+      3241800,
+      9305400
+    ],
+    "rec_y1": [
+      1295000,
+      2625000
+    ],
+    "rec_ss": [
+      486700,
+      1670100
+    ]
+  },
+  "e3_totals_body_days": {
+    "bc_y1": [
+      879,
+      2542
+    ],
+    "bc_ss": [
+      638,
+      1820
+    ],
+    "h_y1": [
+      719,
+      1458
+    ],
+    "h_ss": [
+      270,
+      928
+    ],
+    "bc_5y": [
+      3430,
+      9821
+    ],
+    "h_5y": [
+      1801,
+      5170
+    ],
+    "rec_y1": [
+      719,
+      1458
+    ],
+    "rec_ss": [
+      270,
+      928
+    ]
+  },
+  "e3_nb_route_families": 17,
+  "derived_base": {
+    "fte_cost_eur": 275700.0,
+    "e1_storage_eur_yr": 1562.3,
+    "e2_localisation_eur_yr": 950130.0,
+    "nb_y1_eur": 1960000.0,
+    "nb_pre_eur": 240000.0,
+    "nb_ss_eur_yr": 1078400.0,
+    "qs_build_fte": 12.0,
+    "qs_run_fte": 6.0,
+    "legal_opinions_eur": 600000.0,
+    "jcstar_unit_eur": 6164.71,
+    "jcstar_initial_eur": 172611.76,
+    "jcstar_run_eur_yr": 166447.06,
+    "us_ctm_eur": 0.0,
+    "annexvii_fteyrs": 17.39,
+    "annexii_fteyrs": 8.7,
+    "translation_eur": 2760000.0,
+    "translation_run_eur_yr": 828000.0,
+    "train_delivery_eur": 600000.0,
+    "train_run_eur_yr": 300000.0,
+    "train_staff_hours_memo": 120000.0,
+    "train_staff_cost_memo": 20677500.0,
+    "nb_assessors_eff": 5.0,
+    "nb_rate_body": 2.47,
+    "div_lumen": 2,
+    "div_platforms": 2,
+    "div_devices": 2,
+    "div_cloud_apps": 2
+  }
+}
