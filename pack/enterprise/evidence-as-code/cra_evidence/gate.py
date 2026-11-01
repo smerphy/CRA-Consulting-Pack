@@ -32,6 +32,11 @@ DEFAULT_POLICY = {
     "pentest_required_on": ["first_placing", "substantial"],
     "sarif_fail_level": "error",
     "harmonised_standards_cited": [],
+    # Conformity-assessment obligations (route, notified-body certificate)
+    # apply to units placed on or after this date (Art 69(2), Art 71(2)). Before it,
+    # route and certificate findings are INFO, so the gate does not block EU
+    # releases while no notified body can yet issue a certificate.
+    "conformity_obligations_apply_from": "2027-12-11",
     "required_matrix_items": PART_I_ITEMS,
 }
 
@@ -46,7 +51,7 @@ B = {
     "support": "Art 13(8); guidance paras 125-128; Annex VII pt 4 (KB 08-annex1-part2)",
     "sm": "Guidance pts 104-112, 108-110, 116 (KB 10-conformity; KB 03-scope)",
     "bundle": "Annex I Part II(2) 'where technically feasible' (guide 07-updates)",
-    "route": "Art 32(1)-(4) (KB 10-conformity 'Routes by class')",
+    "route": "Art 32(1)-(4) (KB 10-conformity 'Routes by class'); applies to units placed from 11 Dec 2027 (Art 69(2), Art 71(2); KB 04-exclusions)",
     "doc": "Art 13(12); Art 28; Annex V; FAQ 6.8 (KB 10-conformity)",
     "ret": "Art 13(13) (KB 10-conformity)",
     "place": "Guidance paras 13-14 (KB 03-scope)",
@@ -418,15 +423,24 @@ class Gate:
         cls, route = c.get("class"), c.get("conformity_route")
         cited = set(self.policy["harmonised_standards_cited"])
         applied = set(c.get("harmonised_standards_applied_in_full") or [])
+        # Before the application date no certificate can be required (and none
+        # can exist while no CRA notified body is designated): record the gap
+        # as INFO so readiness is tracked without blocking releases.
+        placing = (rec.get("placing_on_market") or {}).get("date")
+        start = self.policy.get("conformity_obligations_apply_from")
+        applies = not (start and placing and parse_date(placing) < parse_date(start))
+        sev = "fail" if applies else "info"
+        sfx = "" if applies else " (placing %s before %s: readiness finding, not enforced)" % (placing, start)
+        code = (lambda c_: c_) if applies else (lambda c_: c_ + "_PRE_APPLICATION")
         if cls == "important_class_i" and route == "module_a" and not (applied & cited):
-            self.add("ROUTE_NOT_PERMITTED", "fail",
-                     "Class I with Module A needs an OJ-cited standard applied in full; none cited in policy",
+            self.add(code("ROUTE_NOT_PERMITTED"), sev,
+                     "Class I with Module A needs an OJ-cited standard applied in full; none cited in policy" + sfx,
                      B["route"])
         if cls in ("important_class_ii", "critical") and route in ("module_a", "foss_module_a_public_docs"):
-            self.add("ROUTE_NOT_PERMITTED", "fail", "%s cannot use %s" % (cls, route), B["route"])
+            self.add(code("ROUTE_NOT_PERMITTED"), sev, "%s cannot use %s%s" % (cls, route, sfx), B["route"])
         if route in ("module_b_c", "module_h") and not c.get("certificate_ref"):
-            self.add("NB_CERTIFICATE_MISSING", "fail",
-                     "%s route without notified-body certificate or approval reference" % route, B["route"])
+            self.add(code("NB_CERTIFICATE_MISSING"), sev,
+                     "%s route without notified-body certificate or approval reference%s" % (route, sfx), B["route"])
 
     def _declaration(self, rec):
         d = rec.get("declaration") or {}

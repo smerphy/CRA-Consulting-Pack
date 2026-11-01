@@ -244,5 +244,40 @@ class SupportRouteDeclaration(unittest.TestCase):
         self.assertIn("ANNEX_II_MISSING", codes(r, "fail"))
 
 
+class ConformityApplicationDate(unittest.TestCase):
+    """Route and certificate rules bind units placed from 11 Dec 2027 only."""
+
+    def _placed(self, date, **cls):
+        def mut(m):
+            m["placing"]["date"] = date
+            m["support_period"]["end_date"] = "2039-12-31"
+            m["classification"].update(cls)
+        return mut
+
+    def test_missing_certificate_before_application_is_info(self):
+        r = decide(bundle(LOCK_OK, self._placed("2027-10-01", certificate_ref=None)))
+        self.assertEqual(r["decision"], "PASS", r["reasons"])
+        self.assertIn("NB_CERTIFICATE_MISSING_PRE_APPLICATION", codes(r, "info"))
+        self.assertNotIn("NB_CERTIFICATE_MISSING", codes(r))
+
+    def test_missing_certificate_on_application_date_fails(self):
+        r = decide(bundle(LOCK_OK, self._placed("2027-12-11", certificate_ref=None)))
+        self.assertIn("NB_CERTIFICATE_MISSING", codes(r, "fail"))
+
+    def test_route_not_permitted_before_application_is_info(self):
+        r = decide(bundle(LOCK_OK, self._placed("2027-12-10", conformity_route="module_a")))
+        self.assertIn("ROUTE_NOT_PERMITTED_PRE_APPLICATION", codes(r, "info"))
+        self.assertNotIn("ROUTE_NOT_PERMITTED", codes(r))
+        r = decide(bundle(LOCK_OK, self._placed("2027-12-10", **{"class": "important_class_ii",
+                                                                "conformity_route": "module_a"})))
+        self.assertIn("ROUTE_NOT_PERMITTED_PRE_APPLICATION", codes(r, "info"))
+
+    def test_application_date_is_policy_driven(self):
+        p = copy.deepcopy(POLICY)
+        p["conformity_obligations_apply_from"] = "2027-06-01"
+        r = decide(bundle(LOCK_OK, self._placed("2027-10-01", certificate_ref=None)), p)
+        self.assertIn("NB_CERTIFICATE_MISSING", codes(r, "fail"))
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=1)
