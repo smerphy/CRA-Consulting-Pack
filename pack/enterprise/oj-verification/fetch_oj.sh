@@ -22,6 +22,10 @@ fetch() { # celex, language (ISO 639-2/B), file
 echo "Regulation (EU) 2024/2847, EN: $(fetch 32024R2847 eng "$OUT/32024R2847.xhtml")"
 sha256sum "$OUT/32024R2847.xhtml"
 echo "Baseline sha256 (1 Nov 2026): fe0cca4a0caec50e7cf5a91432b94a19b211f86be8584fdba56372bdcea571ed"
+# The OJ PDF/A-2a edition (81 pages). Note: an unavailable type returns HTTP 200 with an error text body, so check the file type.
+curl -sS -m 90 -L -H "Accept: application/pdf;type=pdfa2a" -H "Accept-Language: eng" -o "$OUT/32024R2847.pdf" "$BASE/32024R2847"
+file "$OUT/32024R2847.pdf"; sha256sum "$OUT/32024R2847.pdf"
+echo "Baseline sha256 (1 Nov 2026): e3ecaabddf6e321fa04097d15dfcccc7309d0fe5896240ab7625a27d74ab1b0a"
 
 # Corrigenda are numbered R(01), R(02)... Each exists only in the language(s) it corrects.
 # Known on 1 Nov 2026: R(01) EN 5.12.2024; R(02) EN 2.7.2025; R(03) FR 3.10.2025; R(04) EN 17.10.2025;
