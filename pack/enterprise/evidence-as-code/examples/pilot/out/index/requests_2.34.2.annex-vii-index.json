@@ -43,8 +43,8 @@
         {
           "uri": "s3://cra-pilot-evidence/v1/requests/2.34.2/evidence/sbom.cdx.json",
           "ref": null,
-          "sha256": "288d61b6b7c5561c94f7b759c747af67d52cc055a5bde574fd9ddbdbdb726152",
-          "sha512": "13fb9a91f25ce6044ad55e753e8429f7a8f086613ddfc5b9cd418d40f06cea865948dc990e4ed9b70285c85640ff13d1dffd1749af6068779b1a6e9c0f51e821",
+          "sha256": "cb4540e410f73d4d9544850eacf24153e383b202e171fc02f5d7d126ed187433",
+          "sha512": "cbeee5ad49a2715f8814117cb0b27ea6c37df3d0ec8b800ed6e3d4873809c49fe635026d14669aca310cfc75a55518f9ced5c1a549f9e2a46cf12616634433e1",
           "label": "SBOM (CycloneDX 1.6)"
         },
         {
@@ -57,8 +57,8 @@
         {
           "uri": "s3://cra-pilot-evidence/v1/requests/2.34.2/evidence/vex.openvex.sigstore.json",
           "ref": null,
-          "sha256": "fcbc2b5c31694836f9f9928ce73b427a3bad44ff63d4c569f88294fd1cb2dd26",
-          "sha512": "85c7569cbee920a03b3653f2ea2231ad9b6681be739e85023e7745bbe9757701c3b0f7c11dcf918cf4c1543ebea24fc64a785e107d1a2747b8e7a4a0af0eb510",
+          "sha256": "f5f4dba2f7527b4bd4fe29fc0afda26c531702492e0aafeffe2d5203c679af64",
+          "sha512": "e8e35bd02c9172e93b4f405f2af8c2a6b66e840dd5318f30587304a0d18cd764b8f2564ab223680bbff2d2a2adf45ecad9ff2117360df05fa3da95c24617ab2f",
           "label": "Signed VEX attestation (verified key by pilot-psirt-vex)"
         },
         {
@@ -85,8 +85,8 @@
         {
           "uri": "s3://cra-pilot-evidence/v1/requests/2.34.2/evidence/provenance.sigstore.json",
           "ref": null,
-          "sha256": "3bf92c5b60dfa1a5e5ce9be7da0699c06e17b9498fb4f70e14e8a685f62a8305",
-          "sha512": "66d3b8bf82bf8be39de7e65bace671ecd8d0dd7196b3838fbf7da6ae8f0cf7c1b1c6eaf11fa7b5ffb59409e31844560064c1f6e5ef28ec02514668cf6893e70c",
+          "sha256": "26e1800faec0a3299ceba3055a267954133ceb77ff09fa2ee0de2e6bf221dc13",
+          "sha512": "67dfa4fd8b95729043b60aa3d3608c8b18b9d159199de30cb3252a2422368d626c6871e96ae46ac32b232190a1d84b883c0d5156e9b66100787abfbf4965725a",
           "label": "Build provenance (https://slsa.dev/provenance/v1; builder https://aldermoor.example/builders/cra-pilot-local/v1; verified key by pilot-builder-provenance ; SLSA Build L1)"
         }
       ],
@@ -132,8 +132,8 @@
         {
           "uri": "s3://cra-pilot-evidence/v1/requests/2.34.2/evidence/sast.sarif",
           "ref": null,
-          "sha256": "31e54d4ce3648f68d8fdcc2b22b217b0dd75cffdb2a2bd0e2c312474814452db",
-          "sha512": "9c13a72206a97136bb5c8dc0be188d411670452d3840f9f85adc3126a2c27538548fe6220c508d0bd9472a65abb6b8071d4bb230dc2f30492132abb2cbd7416d",
+          "sha256": "c528fe245e61a0322c47d9ba6cfd7cae559872f9a9345e9959a75b3c111758c5",
+          "sha512": "8c62aee71ac3deb3ddc6deac708eee27d322ff5ab25dd963021d878c097c9e71e06719f22894bb79d382a576406ebb3d3ecf9fe2772288d16d11ea34b75a58fa",
           "label": "sast (Bandit; error=0, note=16, suppressed=0, warning=0)"
         }
       ],
@@ -152,8 +152,8 @@
         {
           "uri": "s3://cra-pilot-evidence/v1/requests/2.34.2/evidence/sbom.cdx.json",
           "ref": null,
-          "sha256": "288d61b6b7c5561c94f7b759c747af67d52cc055a5bde574fd9ddbdbdb726152",
-          "sha512": "13fb9a91f25ce6044ad55e753e8429f7a8f086613ddfc5b9cd418d40f06cea865948dc990e4ed9b70285c85640ff13d1dffd1749af6068779b1a6e9c0f51e821",
+          "sha256": "cb4540e410f73d4d9544850eacf24153e383b202e171fc02f5d7d126ed187433",
+          "sha512": "cbeee5ad49a2715f8814117cb0b27ea6c37df3d0ec8b800ed6e3d4873809c49fe635026d14669aca310cfc75a55518f9ced5c1a549f9e2a46cf12616634433e1",
           "label": "SBOM"
         }
       ],

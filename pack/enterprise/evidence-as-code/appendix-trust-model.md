@@ -9,7 +9,7 @@ This appendix holds the verification detail behind the main paper ([paper.md](pa
 | Step | What is checked | Failure codes (prefixed `PROVENANCE_` or `VEX_`) |
 |---|---|---|
 | 1 Envelope | DSSE envelope, Sigstore bundle (v0.2/v0.3) or JSON Lines; `payloadType` is `application/vnd.in-toto+json`; signature computed over the DSSE pre-authentication encoding `PAE(type, body)` ([DSSE protocol](https://github.com/secure-systems-lab/dsse/blob/master/protocol.md)) | `UNSIGNED`, `PAYLOAD_TYPE_UNSUPPORTED`, `BUNDLE_INVALID` |
-| 2a Key mode | ECDSA P-256/SHA-256 or Ed25519 key listed in the trust policy for this product and purpose; key status and validity window at signing time; signing time from the Rekor integrated time when an entry is present, otherwise gate time | `NO_TRUSTED_SIGNER`, `SIGNATURE_INVALID`, `SIGNER_NOT_AUTHORISED`, `KEY_REVOKED`, `KEY_EXPIRED`, `KEY_NOT_YET_VALID` |
+| 2a Key mode | ECDSA P-256/SHA-256 or Ed25519 key listed in the trust policy for this product and purpose; key status and validity window at signing time. Signing time comes from the Rekor integrated time when an entry is present, else from a verified RFC 3161 timestamp over the signature bytes, else the gate's clock; the source is recorded | `NO_TRUSTED_SIGNER`, `SIGNATURE_INVALID`, `SIGNER_NOT_AUTHORISED`, `KEY_REVOKED`, `KEY_EXPIRED`, `KEY_NOT_YET_VALID`, `TIMESTAMP_INVALID`, `TIMESTAMP_MISSING` |
 | 2b Keyless mode | sigstore-python verifies the Fulcio chain, the signed certificate timestamp, the certificate's validity at log time and the Rekor entry against a pinned trusted root. The identity policy then requires the OIDC issuer, the subject alternative name and named Fulcio extensions (for example source repository and runner environment) | `IDENTITY_MISMATCH`, `SIGNATURE_INVALID`, `SIGSTORE_UNAVAILABLE` |
 | 3 Transparency log | This module's own offline check of each Rekor v1 entry: RFC 9162 inclusion proof to the root hash, signed checkpoint, signed entry timestamp, and that the logged payload hash, signature and verifier match the envelope. In keyless mode it runs as a second, independent check | `TLOG_MISSING`, `TLOG_INVALID` |
 | 4 Subject | A verified subject's SHA-256 or SHA-512 equals the artefact's | `SUBJECT_MISMATCH` |
@@ -36,17 +36,19 @@ SLSA v1.0 does not cover hermetic or reproducible builds; those sat at level 4 o
 | Build provenance, open-source builds on GitHub | Release workflow's OIDC identity | Sigstore keyless: 10-minute Fulcio certificate plus Rekor entry | No long-lived key; identity is issuer + workflow path + ref + repository | Exact identity and extensions in the trust policy; inclusion proof verified offline |
 | VEX (OpenVEX or CSAF) | PSIRT publishing service | DSSE, Ed25519 | PSIRT KMS key, release after two-person review for KEV items (process control) | Key authorised for `vex` only; subject is this artefact; signed predicate equals the evaluated VEX |
 | npm and other registry metadata | Registry | Registry key (npm: ECDSA P-256, published at the registry) | Registry operator | Optional check with `verify-attestation` |
-| Evidence record and ledger | Release pipeline identity | SHA-256 hash chain, object lock | Store account | Ledger verifies; record signing is a remaining gap |
+| Evidence record | Release pipeline signing service | in-toto Statement (subject: the artefact; predicate: the record) in DSSE, ECDSA P-256, Sigstore v0.3 bundle with an RFC 3161 timestamp | KMS or HSM key through a `KeyProvider` | Key authorised for `evidence_record` only; timestamp from a trusted TSA; record digest equals the log entry; verified on every read |
+| Evidence log checkpoint | Evidence store service | Signed tree head (size, RFC 9162 root) in DSSE, Ed25519, with an RFC 3161 timestamp | KMS or HSM key | Key authorised for `log_checkpoint`; root recomputed from the stored entries; copies held outside Aldermoor |
 
-The gate trusts four things only: the trust policy, the pinned Sigstore trusted root, the cryptographic library and the clock. The trust policy is versioned in the policy repository and changed by two-person review. It holds each key with key id, algorithm, purposes, owner, validity window and status; each keyless identity; and each builder with its assessed level and bound signers. The Sigstore root is pinned as a file, `trust/sigstore-public-good.trusted_root.json` (SHA-256 `6494e21e...0b66`), and its digest is written into every keyless verification result. The gate does not trust file names, `keyid` hints (DSSE defines them as unauthenticated), a provenance's claimed builder or level, or any field read before verification.
+The gate trusts five things only: the trust policy, the pinned Sigstore trusted root, the time-stamping authorities' root certificates listed in the trust policy, the cryptographic library and, where no log entry or timestamp exists, the clock. The trust policy is versioned in the policy repository and changed by two-person review. It holds each key with key id, algorithm, purposes, owner, validity window and status; each keyless identity; and each builder with its assessed level and bound signers. The Sigstore root is pinned as a file, `trust/sigstore-public-good.trusted_root.json` (SHA-256 `6494e21e...0b66`), and its digest is written into every keyless verification result. The gate does not trust file names, `keyid` hints (DSSE defines them as unauthenticated), a provenance's claimed builder or level, or any field read before verification.
 
-Key management follows four rules. Signing keys live in KMS or HSM and never in a repository; the demonstration keys in `examples/keys/` are the only exception and are labelled. Keys rotate yearly with overlapping validity windows. Revocation is a policy change (`status: revoked` or an entry in `revoked_keyids`), after which every new release signed with that key fails. Records already stored are not edited. After a key compromise, the response re-verifies records signed after the compromise time, using the logged signing time. Keyless identities have no key to revoke, so removing or narrowing the identity in the policy is the equivalent.
+Key management follows four rules. Signing keys live in KMS or HSM and never in a repository; the demonstration keys in `examples/keys/` and `examples/pilot/keys/` are the only exception and are labelled. Every signer is a `KeyProvider` (local file, AWS KMS, Google Cloud KMS or PKCS#11 HSM), so the pipeline holds a sign permission, never key material ([Appendix D](appendix-signing-storage-pilot.md)). Keys rotate yearly with overlapping validity windows. Revocation is a policy change (`status: revoked` or an entry in `revoked_keyids`), after which every new release signed with that key fails. Records already stored are not edited. After a key compromise, the response re-verifies records signed after the compromise time, using the logged signing time. Keyless identities have no key to revoke, so removing or narrowing the identity in the policy is the equivalent.
 
 ## What a notified body or authority can check without Aldermoor's tools
 
 | Check | Independent? | How |
 |---|---|---|
-| Evidence unchanged since the decision | Yes | Recompute SHA-256 of each stored object and compare with the record; verify the ledger chain; read object-lock retention |
+| Evidence unchanged since the decision | Yes | Recompute SHA-256 of each stored object and compare with the record; verify the record's DSSE signature with Aldermoor's public key; check the record's Merkle inclusion proof against a signed checkpoint the authority already holds; read object-lock retention |
+| When the evidence was signed | Yes | Verify the RFC 3161 token over the signature bytes with any RFC 3161 verifier (the module's tokens pass `openssl ts -verify`) and the TSA's root certificate |
 | Provenance and VEX signatures | Yes | Verify DSSE with Aldermoor's published public keys, or verify Sigstore bundles with cosign or sigstore-python against the public-good root, and look the entries up in the public Rekor log |
 | Gate decision | Yes, given the stored inputs and the gate source | Re-run the gate (Aldermoor supplies its source) with the policy version and feed snapshot named in the record |
 | Builder really meets Build L3 | No | Needs an audit of the build platform. This belongs in the Module H quality-system audit |
@@ -55,13 +57,16 @@ Key management follows four rules. Signing keys live in KMS or HSM and never in 
 
 ## Remaining verification gaps and long-term verifiability
 
-1. The evidence record itself is hash-chained and object-locked but not yet signed. Sign it with the pipeline key and log it.
-2. Key-mode signatures without a log entry take the gate's clock as signing time. Add RFC 3161 timestamps or a private transparency log.
-3. Checkpoints are verified but not witnessed, so a split-view log is not detected offline.
-4. GitHub private-repository attestations (GitHub's Sigstore instance, no Rekor) are untested.
-5. The Aldermoor builder's L3 rating is an illustrative assessment, not an audit.
-6. CSAF VEX has no standard in-toto predicate type, so the module uses an Aldermoor convention.
-7. The CI workflow has not run on GitHub.
+Closed on 1 Nov 2026: the evidence record is now signed and verified on read, and key-mode signatures carry RFC 3161 timestamps ([Appendix D](appendix-signing-storage-pilot.md)). Still open:
+
+1. The time-stamping authority in tests and the pilot is a local test authority. Production needs a contracted TSA, ideally two, and archived TSA certificates.
+2. Rekor checkpoints are verified but not witnessed, and the evidence log's own checkpoints are only as independent as the parties that hold copies. Distribute them, or log them publicly (optional Rekor upload, not built).
+3. The AWS KMS, Google Cloud KMS and PKCS#11 adapters are unit-tested with mocks only.
+4. Object Lock was tested against moto, which does not refuse shortened retention; the AWS guarantee is untested.
+5. GitHub private-repository attestations (GitHub's Sigstore instance, no Rekor) are untested.
+6. The Aldermoor builder's L3 rating is an illustrative assessment, not an audit; the pilot builder is a local L1 builder.
+7. CSAF VEX has no standard in-toto predicate type, so the module uses an Aldermoor convention; the evidence-record predicate type is also an Aldermoor convention.
+8. Neither CI workflow has run on GitHub.
 
 The pinned trusted root and the public keys must be archived with the records, and the record stores the root's digest. ECDSA P-256 and Ed25519 are not post-quantum. Plan algorithm migration as re-attestation of stored digests, never as an edit. Formats age too: BSI TR-03183-2 (non-binding) already asks for CycloneDX 1.6+ or SPDX 3.0.1+, while the samples use 1.5 and 2.3 (reports/guides/application/06-sbom.md). Plan format migration as a re-indexing, never an edit.
 
@@ -71,4 +76,5 @@ The pinned trusted root and the public keys must be archived with the records, a
 - Secure Systems Lab, [DSSE protocol](https://github.com/secure-systems-lab/dsse/blob/master/protocol.md): PAE definition; KEYID as an unauthenticated hint.
 - GitHub Docs, [Artifact attestations](https://docs.github.com/en/actions/concepts/security/artifact-attestations) ("Artifact attestations by itself provides SLSA v1.0 Build Level 2").
 - sigstore-python 4.5.1 (PyPI), whose bundled public-good trusted root is pinned in `trust/`.
+- IETF, [RFC 3161](https://datatracker.ietf.org/doc/html/rfc3161); Sigstore, [Bundle format](https://docs.sigstore.dev/about/bundle).
 - reports/guides/application/06-sbom.md: BSI TR-03183-2 format versions.

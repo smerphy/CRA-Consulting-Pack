@@ -1,0 +1,199 @@
+{
+  "generated": "2026-11-01T15:49:28+00:00",
+  "host": {
+    "python": "3.13.18",
+    "platform": "Linux-6.18.44-fc-v185-x86_64-with-glibc2.39",
+    "cpus": 2
+  },
+  "runs": [
+    {
+      "mode": "per-version",
+      "n": 1000,
+      "decisions": {
+        "REVIEW": 46,
+        "PASS": 926,
+        "FAIL": 28
+      },
+      "provenance_signing_time_source": {
+        "RFC 3161 timestamp (bench-tsa)": 1000
+      },
+      "stages": {
+        "producer_sign_timestamp": {
+          "mean_ms": 19.26,
+          "p50_ms": 18.28,
+          "p95_ms": 24.57,
+          "p99_ms": 28.41,
+          "total_s": 19.26
+        },
+        "gate_verify": {
+          "mean_ms": 32.22,
+          "p50_ms": 27.68,
+          "p95_ms": 46.03,
+          "p99_ms": 58.8,
+          "total_s": 32.22
+        },
+        "record_sign_timestamp": {
+          "mean_ms": 10.18,
+          "p50_ms": 9.45,
+          "p95_ms": 14.13,
+          "p99_ms": 16.02,
+          "total_s": 10.18
+        },
+        "object_lock_put": {
+          "mean_ms": 196.29,
+          "p50_ms": 196.31,
+          "p95_ms": 221.23,
+          "p99_ms": 232.44,
+          "total_s": 196.29
+        },
+        "merkle_append": {
+          "mean_ms": 0.08,
+          "p50_ms": 0.07,
+          "p95_ms": 0.11,
+          "p99_ms": 0.15,
+          "total_s": 0.08
+        },
+        "checkpoint": {
+          "mean_ms": 18.73,
+          "p50_ms": 17.2,
+          "p95_ms": 26.92,
+          "p99_ms": 29.57,
+          "total_s": 18.73
+        },
+        "end_to_end": {
+          "mean_ms": 278.54,
+          "p50_ms": 273.9,
+          "p95_ms": 312.18,
+          "p99_ms": 337.88,
+          "total_s": 278.54
+        }
+      },
+      "versions_per_second_single_thread": 3.59,
+      "calls_per_version": {
+        "tsa": 4.0,
+        "s3": {
+          "create_bucket": 0.0,
+          "get_object": 4.0,
+          "get_object_lock_configuration": 0.0,
+          "head_object": 17.0,
+          "list_objects_v2": 0.02,
+          "put_object": 17.0
+        },
+        "signatures": 4.0
+      },
+      "objects": 12403,
+      "objects_per_version": 12.4,
+      "input_bytes_per_version": 910057,
+      "store_verify": {
+        "seconds": 24.99,
+        "ms_per_version": 24.99,
+        "problems": [],
+        "problem_count": 0
+      },
+      "extrapolation": {
+        "basis": "measured single-thread end-to-end cost on local services; Aldermoor volumes are estimates (2,000 EU versions a week, 104,000 a year)",
+        "cpu_hours_per_week": 0.15,
+        "cpu_hours_per_year": 8.0,
+        "remote_calls_per_version_write_path": 42.0,
+        "assumed_remote_latency_ms": 50,
+        "wall_clock_per_version_if_sequential_s_at_assumed_latency": 2.38,
+        "note": "50 ms per remote call to a KMS, a TSA and an object store is an assumption, not a measurement; calls within a version can be parallelised and versions are independent."
+      }
+    },
+    {
+      "mode": "batched",
+      "n": 1000,
+      "decisions": {
+        "REVIEW": 46,
+        "PASS": 926,
+        "FAIL": 28
+      },
+      "provenance_signing_time_source": {
+        "RFC 3161 timestamp (bench-tsa)": 1000
+      },
+      "stages": {
+        "producer_sign_timestamp": {
+          "mean_ms": 19.79,
+          "p50_ms": 18.75,
+          "p95_ms": 25.04,
+          "p99_ms": 28.86,
+          "total_s": 19.79
+        },
+        "gate_verify": {
+          "mean_ms": 29.7,
+          "p50_ms": 28.35,
+          "p95_ms": 44.54,
+          "p99_ms": 57.96,
+          "total_s": 29.7
+        },
+        "record_sign_timestamp": {
+          "mean_ms": 0.7,
+          "p50_ms": 0.65,
+          "p95_ms": 1.12,
+          "p99_ms": 1.65,
+          "total_s": 0.7
+        },
+        "object_lock_put": {
+          "mean_ms": 198.35,
+          "p50_ms": 197.1,
+          "p95_ms": 226.9,
+          "p99_ms": 244.75,
+          "total_s": 198.35
+        },
+        "merkle_append": {
+          "mean_ms": 0.09,
+          "p50_ms": 0.08,
+          "p95_ms": 0.12,
+          "p99_ms": 0.16,
+          "total_s": 0.09
+        },
+        "checkpoint": {
+          "mean_ms": 0.18,
+          "p50_ms": 0.0,
+          "p95_ms": 0.0,
+          "p99_ms": 0.0,
+          "total_s": 0.18
+        },
+        "end_to_end": {
+          "mean_ms": 249.55,
+          "p50_ms": 247.26,
+          "p95_ms": 286.16,
+          "p99_ms": 316.99,
+          "total_s": 249.55
+        }
+      },
+      "versions_per_second_single_thread": 4.01,
+      "calls_per_version": {
+        "tsa": 2.01,
+        "s3": {
+          "create_bucket": 0.0,
+          "get_object": 3.01,
+          "get_object_lock_configuration": 0.0,
+          "head_object": 16.01,
+          "list_objects_v2": 0.01,
+          "put_object": 16.01
+        },
+        "signatures": 3.01
+      },
+      "objects": 11413,
+      "objects_per_version": 11.41,
+      "input_bytes_per_version": 910061,
+      "store_verify": {
+        "seconds": 15.4,
+        "ms_per_version": 15.4,
+        "problems": [],
+        "problem_count": 0
+      },
+      "extrapolation": {
+        "basis": "measured single-thread end-to-end cost on local services; Aldermoor volumes are estimates (2,000 EU versions a week, 104,000 a year)",
+        "cpu_hours_per_week": 0.14,
+        "cpu_hours_per_year": 7.2,
+        "remote_calls_per_version_write_path": 37.0,
+        "assumed_remote_latency_ms": 50,
+        "wall_clock_per_version_if_sequential_s_at_assumed_latency": 2.1,
+        "note": "50 ms per remote call to a KMS, a TSA and an object store is an assumption, not a measurement; calls within a version can be parallelised and versions are independent."
+      }
+    }
+  ],
+  "note": "extrapolation recomputed from the measured counters after correcting the remote-call count to the write path only"
+}

@@ -1,0 +1,93 @@
+# CRA evidence pilot: GitHub Actions workflow (NOT enabled, NOT pushed).
+#
+# Status: validated locally with actionlint 1.7.12 and the GitHub workflow
+# JSON Schema (check-jsonschema, vendored schema) and parsed by PyYAML in the
+# test suite. It has not run on GitHub. To enable it, copy it to
+# .github/workflows/ in the repository that holds this module.
+#
+# What it does: runs examples/pilot/run_pilot.py on a hosted runner. That
+# rebuilds ten real requests releases from their PyPI sdists in a network
+# namespace (twice, to check reproducibility), generates SBOM and SAST
+# evidence, signs and time-stamps provenance, VEX and records, runs the gate,
+# stores everything in an S3 Object Lock bucket on a local moto server and
+# verifies the store. It then re-verifies the store offline with the CLI and
+# uploads the results.
+#
+# Trust model in CI. The pilot keys are demonstration keys generated into the
+# workspace and the TSA is a local test authority. In production the job
+# would use a KMS-backed KeyProvider (OIDC to the cloud, kms:Sign only), a
+# real RFC 3161 TSA and a real Object Lock bucket; see paper.md.
+#
+# Every action is pinned to a full commit SHA (resolved 1 Nov 2026 for the
+# release-gate workflow); permissions are read-only.
+
+name: cra-evidence-pilot
+
+on:
+  workflow_dispatch:
+    inputs:
+      offline:
+        description: "Use only cached inputs (no network to PyPI or OSV)"
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: cra-evidence-pilot
+  cancel-in-progress: false
+
+jobs:
+  pilot:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    defaults:
+      run:
+        working-directory: pack/enterprise/evidence-as-code
+    env:
+      CRA_PILOT_CACHE: ${{ github.workspace }}/.cra-pilot-cache
+      PYTHONHASHSEED: "0"
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: "3.13"
+
+      - name: Install pinned dependencies (hash-checked)
+        run: python -m pip install --require-hashes -r examples/pilot/requirements-pilot.txt
+
+      - name: Allow unprivileged user namespaces for the network-isolated build
+        # Ubuntu 24.04 restricts unprivileged user namespaces through AppArmor.
+        # The pilot builds inside `unshare -rn` (no network); without this it
+        # falls back to a non-isolated build and records that in provenance.
+        run: |
+          sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0 || true
+          unshare -rn true && echo "network namespace available"
+
+      - name: Run the pilot (build, evidence, sign, timestamp, gate, object-lock store)
+        env:
+          OFFLINE: ${{ inputs.offline && '--offline' || '' }}
+        run: python examples/pilot/run_pilot.py $OFFLINE
+
+      - name: Verify the evidence store offline with the CLI
+        run: |
+          python -m cra_evidence verify-evidence-store --store examples/pilot/out/store \
+            --policy examples/pilot/policy/pilot-gate-policy.json --deep
+
+      - name: Unit and integration tests
+        run: python -m pytest -q tests
+
+      - name: Upload pilot evidence and results
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: cra-evidence-pilot
+          path: |
+            pack/enterprise/evidence-as-code/examples/pilot/results/
+            pack/enterprise/evidence-as-code/examples/pilot/out/
+            pack/enterprise/evidence-as-code/examples/pilot/releases/
+          if-no-files-found: error

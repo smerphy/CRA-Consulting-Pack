@@ -11,6 +11,12 @@ Commands
   verify-store  recompute the store's hash chain
   verify-attestation  verify one DSSE envelope or Sigstore bundle against the
              trust policy (exit 0 verified, 1 not verified)
+  sign-record   sign a gated record as an in-toto attestation (DSSE in a
+             Sigstore v0.3 bundle), optionally with an RFC 3161 timestamp
+  verify-record verify a signed record bundle against the trust policy
+  verify-evidence-store  verify a signed evidence store (local directory or
+             S3 Object Lock bucket): hash chain, Merkle root against signed
+             checkpoints, every record signature and timestamp
 """
 
 import argparse
@@ -179,6 +185,50 @@ def cmd_verify_attestation(args):
     return 0 if out["verified"] else 1
 
 
+def _trust(args):
+    pol = _policy(args) or {}
+    return A.TrustPolicy(pol.get("attestation_trust") or {}, pol.get("_base_dir"))
+
+
+def cmd_sign_record(args):
+    from . import keys as K
+    from . import record_signing as RS
+    from . import tsa as TS
+    if args.key_config:
+        provider = K.provider_from_config(C.load_json(args.key_config), os.path.dirname(os.path.abspath(args.key_config)))
+    else:
+        provider = K.LocalFileKeyProvider(args.key, args.key_name)
+    tsa = TS.TimestampClient(args.tsa_url) if args.tsa_url else None
+    _dump(RS.sign_record(C.load_json(args.record), provider, tsa), args.out)
+    return 0
+
+
+def cmd_verify_record(args):
+    from . import record_signing as RS
+    rec, res = RS.verify_record_bundle(C.load_json(args.bundle), _trust(args), args.product, args.expected_sha256,
+                                       _now(args))
+    out = {k: res[k] for k in ("verified", "method", "signer", "record_sha256", "problems")}
+    if rec is not None:
+        out["record_id"] = rec.get("record_id")
+        out["gate_decision"] = (rec.get("gate") or {}).get("decision")
+    _dump(out, None)
+    return 0 if res["verified"] else 1
+
+
+def cmd_verify_evidence_store(args):
+    from . import evidence_store as ES
+    from . import objectstore as O
+    if args.s3_bucket:
+        backend = O.S3ObjectLockBackend(args.s3_bucket, endpoint_url=args.s3_endpoint, prefix=args.s3_prefix or "")
+    else:
+        backend = O.LocalBackend(args.store)
+    store = ES.EvidenceStore(backend)
+    problems = store.verify(_trust(args), _now(args), deep=args.deep)
+    print(json.dumps({"entries": store.tree.size, "root_hash": store.tree.root().hex(),
+                      "problems": problems, "ok": not problems}, indent=2))
+    return 0 if not problems else 1
+
+
 def main(argv=None):
     p = argparse.ArgumentParser(prog="python -m cra_evidence", description=__doc__,
                                 formatter_class=argparse.RawDescriptionHelpFormatter)
@@ -226,6 +276,21 @@ def main(argv=None):
     sp.add_argument("--predicate-type", help="select this predicate type from a multi-attestation file")
     sp.add_argument("--now", help="evaluation time (ISO 8601)")
     sp.set_defaults(fn=cmd_verify_attestation)
+
+    sp = sub.add_parser("sign-record"); sp.add_argument("record")
+    sp.add_argument("--key", help="PEM private key (demonstration only)"); sp.add_argument("--key-name")
+    sp.add_argument("--key-config", help="JSON KeyProvider config: {type: file|aws-kms|gcp-kms|pkcs11, ...}")
+    sp.add_argument("--tsa-url", help="RFC 3161 time-stamping authority URL")
+    sp.add_argument("-o", "--out"); sp.set_defaults(fn=cmd_sign_record)
+
+    sp = sub.add_parser("verify-record"); sp.add_argument("bundle")
+    sp.add_argument("--policy", required=True); sp.add_argument("--product", required=True)
+    sp.add_argument("--expected-sha256"); sp.add_argument("--now"); sp.set_defaults(fn=cmd_verify_record)
+
+    sp = sub.add_parser("verify-evidence-store"); sp.add_argument("--store")
+    sp.add_argument("--s3-bucket"); sp.add_argument("--s3-endpoint"); sp.add_argument("--s3-prefix")
+    sp.add_argument("--policy", required=True); sp.add_argument("--deep", action="store_true")
+    sp.add_argument("--now"); sp.set_defaults(fn=cmd_verify_evidence_store)
 
     args = p.parse_args(argv)
     return args.fn(args)

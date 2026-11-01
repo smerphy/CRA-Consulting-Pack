@@ -5,7 +5,8 @@ Dependencies: ``cryptography`` (required: DSSE signature, transparency-log
 and key verification); ``sigstore`` (optional: keyless Sigstore bundles; a
 keyless bundle fails closed with SIGSTORE_UNAVAILABLE without it);
 ``jsonschema`` (optional: schema validation falls back to a built-in
-validator).
+validator); ``asn1crypto`` (RFC 3161 timestamps, ``tsa.py``); ``boto3``
+(optional: S3 Object Lock backend and AWS KMS key provider).
 """
 
 __version__ = "1.1.0"

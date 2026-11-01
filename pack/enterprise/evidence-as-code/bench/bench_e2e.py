@@ -209,13 +209,17 @@ def extrapolate(r):
     """Estimates, labelled: scale the measured single-thread cost to Aldermoor volumes."""
     e2e_s = r["stages"]["end_to_end"]["mean_ms"] / 1000
     weekly, yearly = 2000, 104000
-    calls = 2 + r["calls_per_version"]["tsa"] + sum(r["calls_per_version"]["s3"].values())
+    s3 = r["calls_per_version"]["s3"]
+    # write path only: signatures (KMS), timestamps (TSA), PUT and lock read-back (object store);
+    # get_object and list calls belong to the audit verification run after the loop
+    calls = r["calls_per_version"]["signatures"] + r["calls_per_version"]["tsa"] + \
+        s3.get("put_object", 0) + s3.get("head_object", 0)
     return {
         "basis": "measured single-thread end-to-end cost on local services; Aldermoor volumes are estimates "
                  "(2,000 EU versions a week, 104,000 a year)",
         "cpu_hours_per_week": round(weekly * e2e_s / 3600, 2),
         "cpu_hours_per_year": round(yearly * e2e_s / 3600, 1),
-        "remote_calls_per_version": round(calls, 1),
+        "remote_calls_per_version_write_path": round(calls, 1),
         "assumed_remote_latency_ms": 50,
         "wall_clock_per_version_if_sequential_s_at_assumed_latency": round(e2e_s + calls * 0.05, 2),
         "note": "50 ms per remote call to a KMS, a TSA and an object store is an assumption, not a measurement; "

@@ -2,9 +2,9 @@
   "log_id": "cra-pilot-log/requests",
   "leaf_index": 4,
   "tree_size": 5,
-  "root_hash": "b2441a912584d015444ea42ebbaba5b766ea9d26963623dbf6fc8dfe861c0a4d",
+  "root_hash": "9ebc0bcb6fdc74e35d6826c609fa5d88588a8a43821fcc2c302612e0ef5dcd42",
   "audit_path": [
-    "0d931f445802ae8ebf0508f79b11f571b026249623ff4c046a0c08c72f1d88f9"
+    "9637cb58be963081630cc12708533026757796d3cc5f64355ad0a3388fa20b00"
   ],
   "checkpoint_key": "log/checkpoints/000000000005.json"
 }

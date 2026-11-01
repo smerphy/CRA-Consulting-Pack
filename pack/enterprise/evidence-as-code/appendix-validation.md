@@ -1,4 +1,4 @@
-# Appendix B to E1: sample runs, real-release test, benchmark and CI workflow
+# Appendix B to E1: sample runs, real-release test, gate benchmark and CI workflows
 
 This appendix holds the test evidence behind the main paper ([paper.md](paper.md)). Aldermoor Platforms is fictional. All outputs were produced from the module root on 1 Nov 2026.
 
@@ -26,9 +26,9 @@ $ python -m cra_evidence retention --placing 2028-02-10 --support-end 2033-02-28
 $ python -m cra_evidence verify-store --store examples/out/store
 OK
 $ python -m pytest -q tests
-125 passed
+171 passed
 $ python tests/run_all.py            # standalone, and again with jsonschema blocked
-Ran 125 tests ... OK
+Ran 171 tests ... OK
 ```
 
 The append-only store keeps the earlier Lumen records, which used each version's own date as the placing date. The corrected records were appended beside them, as the design requires, rather than edited.
@@ -97,11 +97,11 @@ What this proves: the gate verifies real Sigstore keyless and key-based signatur
 | Artefact hashing (SHA-256 plus SHA-512) | 370 MiB a second per core: about 2.8 s for a 1 GiB image |
 | Core evidence per version | 864 KiB raw, 126 KiB gzip |
 
-Extrapolation (estimate): one core gates about 30 million versions a week at this rate. Aldermoor's estimated 2,000 EU versions a week need about 40 CPU-seconds, plus hashing. If each version carried a 1 GiB image, hashing would add about 1.6 CPU-hours a week. A tenfold release peak, or 20,000 versions in one 8-hour window, still fits on one core. Limits of the benchmark: inputs are synthetic and uniform, real OSV data is denser for popular packages, object-store latency is not included, and keyless verification was timed on a single real bundle.
+Extrapolation (estimate): one core gates about 30 million versions a week at this rate. Aldermoor's estimated 2,000 EU versions a week need about 40 CPU-seconds, plus hashing. If each version carried a 1 GiB image, hashing would add about 1.6 CPU-hours a week. A tenfold release peak, or 20,000 versions in one 8-hour window, still fits on one core. Limits of the benchmark: inputs are synthetic and uniform, real OSV data is denser for popular packages, object-store latency is not included, and keyless verification was timed on a single real bundle. The end-to-end benchmark in [Appendix D](appendix-signing-storage-pilot.md) adds record signing, timestamps, Object Lock PUTs and the Merkle log; the real-product pilot there also showed that real OSV data needed matcher fixes that synthetic feeds hid.
 
 ## The CI workflow is pinned, least-privilege and runs the gate on every tag
 
-`examples/ci/github-actions-cra-release-gate.yml` parses as valid YAML in the test suite. Every action is pinned to a full commit SHA resolved on 1 Nov 2026 (checkout v7.0.1, attest-build-provenance v4.2.2, upload-artifact v7.0.2, download-artifact v8.0.2, setup-python v7.1.0, configure-aws-credentials v6.3.0). Permissions are denied by default. The build job gets `id-token: write` and `attestations: write` for keyless provenance, and the gate job gets `id-token: write` only to assume the evidence-store role. The gate step writes the record and decision. The record is uploaded as a workflow artefact and to the object-locked store even when the gate fails, and promotion runs only on PASS through a protected environment. It has not been run on GitHub. Steps calling `./tools/*` stand for Aldermoor's own tooling. Private repositories sign with GitHub's Sigstore instance, which has no public transparency log ([GitHub, artifact attestations](https://docs.github.com/en/actions/concepts/security/artifact-attestations)), so their trust policy must point at GitHub's trusted root; that path is untested here. The Bazel file remains a sketch.
+`examples/ci/github-actions-cra-release-gate.yml` parses as valid YAML in the test suite. Every action is pinned to a full commit SHA resolved on 1 Nov 2026 (checkout v7.0.1, attest-build-provenance v4.2.2, upload-artifact v7.0.2, download-artifact v8.0.2, setup-python v7.1.0, configure-aws-credentials v6.3.0). Permissions are denied by default. The build job gets `id-token: write` and `attestations: write` for keyless provenance, and the gate job gets `id-token: write` only to assume the evidence-store role. The gate step writes the record and decision. The record is uploaded as a workflow artefact and to the object-locked store even when the gate fails, and promotion runs only on PASS through a protected environment. It has not been run on GitHub. On 1 Nov 2026 actionlint 1.7.12 and the GitHub workflow JSON Schema (check-jsonschema) reported no errors for it or for the new pilot workflow, `examples/ci/github-actions-cra-pilot.yml`, which runs the real-product pilot on demand ([Appendix D](appendix-signing-storage-pilot.md)). Steps calling `./tools/*` stand for Aldermoor's own tooling. Private repositories sign with GitHub's Sigstore instance, which has no public transparency log ([GitHub, artifact attestations](https://docs.github.com/en/actions/concepts/security/artifact-attestations)), so their trust policy must point at GitHub's trusted root; that path is untested here. The Bazel file remains a sketch.
 
 ## Sources
 

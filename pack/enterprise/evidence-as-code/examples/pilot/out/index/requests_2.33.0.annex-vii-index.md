@@ -7,16 +7,16 @@ Record `urn:aldermoor-pilot:cra-evidence:requests:2.33.0`. Version first offered
 | 1 General description: intended purpose, versions affecting compliance, Annex II information | Shipped artefact ; Product requests version 2.33.0; previous 2.32.5 | `b56f8df8da72f2fe` | s3://cra-pilot-evidence/v1/requests/2.33.0/artefact/requests-2.33.0-py3-none-any.whl |
 | 1 | Annex II user information | `ea1abbbbfa1242e5` | s3://cra-pilot-evidence/v1/requests/2.33.0/docs/annex-ii-user-information.md |
 | 2(a) Design and development; system architecture | Maintained outside the pipeline in the product technical file; linked by product id | | |
-| 2(b) Vulnerability handling: SBOM, CVD policy, reporting contact, secure update distribution | SBOM (CycloneDX 1.6) | `e845d30b9e10a15f` | s3://cra-pilot-evidence/v1/requests/2.33.0/evidence/sbom.cdx.json |
+| 2(b) Vulnerability handling: SBOM, CVD policy, reporting contact, secure update distribution | SBOM (CycloneDX 1.6) | `0a4602e5d852d941` | s3://cra-pilot-evidence/v1/requests/2.33.0/evidence/sbom.cdx.json |
 | 2(b) | VEX (OpenVEX) | `ca0e9a70fc95fab0` | s3://cra-pilot-evidence/v1/requests/2.33.0/evidence/vex.openvex.json |
-| 2(b) | Signed VEX attestation (verified key by pilot-psirt-vex) | `67fabb4a0629b574` | s3://cra-pilot-evidence/v1/requests/2.33.0/evidence/vex.openvex.sigstore.json |
+| 2(b) | Signed VEX attestation (verified key by pilot-psirt-vex) | `ae383524269e3431` | s3://cra-pilot-evidence/v1/requests/2.33.0/evidence/vex.openvex.sigstore.json |
 | 2(b) | CVD policy | `6fefeb586c89150b` | s3://cra-pilot-evidence/v1/requests/2.33.0/docs/cvd-policy.md |
 | 2(b) | Update design note | `48d8d713f9bd8bac` | s3://cra-pilot-evidence/v1/requests/2.33.0/docs/update-design-note.md |
-| 2(c) Production and monitoring processes with validation evidence | Build provenance (https://slsa.dev/provenance/v1; builder https://aldermoor.example/builders/cra-pilot-local/v1; verified key by pilot-builder-provenance ; SLSA Build L1) ; Release gate decision: FAIL under cra-pilot-gate/1.0.0 | `4275b081bdfe4d90` | s3://cra-pilot-evidence/v1/requests/2.33.0/evidence/provenance.sigstore.json |
+| 2(c) Production and monitoring processes with validation evidence | Build provenance (https://slsa.dev/provenance/v1; builder https://aldermoor.example/builders/cra-pilot-local/v1; verified key by pilot-builder-provenance ; SLSA Build L1) ; Release gate decision: FAIL under cra-pilot-gate/1.0.0 | `ee0356e1461fcbc7` | s3://cra-pilot-evidence/v1/requests/2.33.0/evidence/provenance.sigstore.json |
 | 3 Cybersecurity risk assessment and Annex I Part I applicability | Risk assessment | `aa096f3f9a24a8e3` | s3://cra-pilot-evidence/v1/requests/2.33.0/docs/risk-assessment.md |
 | 3 | Applicability matrix (not applied: 2l, 2m) | `e885c3dad355630d` | s3://cra-pilot-evidence/v1/requests/2.33.0/docs/applicability-matrix.json |
 | 4 Support period | End 2031-03-25 (5.00 years); justification: Authored: each version supported for 5 years from its release date; users receive fixes by moving to the latest version (Art 13(10)).; latest-version rule (Art 13(10)): yes | | |
 | 5 Harmonised standards, common specifications, certification schemes | Route module_a; applied in full: none; certificate n/a | | |
-| 6 Test reports against Annex I Parts I and II | sast (Bandit; error=3, note=6, suppressed=0, warning=0) | `570f7a2eb8f9dbcc` | s3://cra-pilot-evidence/v1/requests/2.33.0/evidence/sast.sarif |
+| 6 Test reports against Annex I Parts I and II | sast (Bandit; error=3, note=6, suppressed=0, warning=0) | `45691d4e904f5d91` | s3://cra-pilot-evidence/v1/requests/2.33.0/evidence/sast.sarif |
 | 7 EU declaration of conformity | Declaration PILOT-DoC-requests-2.32.2 (reused, from 2.32.2) at https://aldermoor.example/cra-pilot/doc/requests/2.32.2 | | |
-| 8 SBOM for market surveillance authority on reasoned request | SBOM | `e845d30b9e10a15f` | s3://cra-pilot-evidence/v1/requests/2.33.0/evidence/sbom.cdx.json |
+| 8 SBOM for market surveillance authority on reasoned request | SBOM | `0a4602e5d852d941` | s3://cra-pilot-evidence/v1/requests/2.33.0/evidence/sbom.cdx.json |

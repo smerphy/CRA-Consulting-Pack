@@ -158,6 +158,23 @@ class Timestamps(unittest.TestCase):
         finally:
             _TSA.stop()
 
+    @unittest.skipUnless(shutil.which("openssl"), "openssl not installed")
+    def test_openssl_verifies_our_tokens(self):
+        import subprocess
+        d = tempfile.mkdtemp(prefix="cra-ossl-", dir=_TMP)
+        for name, data in (("msg", b"sig-bytes"), ("resp.tsr", _TSA.timestamp(b"sig-bytes")),
+                           ("root.pem", T.pem_of(_TSA.root).encode()), ("other", b"x")):
+            with open(os.path.join(d, name), "wb") as fh:
+                fh.write(data)
+        ok = subprocess.run(["openssl", "ts", "-verify", "-data", os.path.join(d, "msg"), "-in",
+                             os.path.join(d, "resp.tsr"), "-CAfile", os.path.join(d, "root.pem")],
+                            capture_output=True, text=True)
+        self.assertEqual(ok.returncode, 0, ok.stderr)
+        bad = subprocess.run(["openssl", "ts", "-verify", "-data", os.path.join(d, "other"), "-in",
+                              os.path.join(d, "resp.tsr"), "-CAfile", os.path.join(d, "root.pem")],
+                             capture_output=True, text=True)
+        self.assertNotEqual(bad.returncode, 0)
+
     @unittest.skipUnless(HAVE_RFC3161_CLIENT, "rfc3161-client not installed")
     def test_independent_library_accepts_our_tokens(self):
         from rfc3161_client import VerifierBuilder, decode_timestamp_response
@@ -539,6 +556,120 @@ class S3ObjectLock(unittest.TestCase):
         self.assertEqual(st.verify(trust(), deep=True), [])
         with self.assertRaises(O.ObjectLockedError):
             be.delete(r["record_key"], version_id=r["versions"][0])
+
+
+
+# ------------------------------------------------- OSV matching on real data shapes
+
+class OsvRealShapes(unittest.TestCase):
+    """Bugs the pilot found on real OSV data: GIT ranges and GHSA/PYSEC aliases."""
+
+    PYSEC = {"id": "PYSEC-2020-148", "aliases": ["CVE-2020-26137", "GHSA-wqvq-5m8c-6g24"],
+             "affected": [{"package": {"name": "urllib3", "ecosystem": "PyPI"}, "ranges": [
+                 {"type": "GIT", "events": [{"introduced": "0"}, {"fixed": "1dd69c5c5982fae7c87a620d487c2ebf7a6b436b"}]},
+                 {"type": "ECOSYSTEM", "events": [{"introduced": "0"}, {"fixed": "1.25.9"}]}]}]}
+    GHSA = {"id": "GHSA-wqvq-5m8c-6g24", "aliases": ["CVE-2020-26137", "PYSEC-2020-148"],
+            "affected": [{"package": {"name": "urllib3", "ecosystem": "PyPI"}, "ranges": [
+                {"type": "ECOSYSTEM", "events": [{"introduced": "0"}, {"fixed": "1.25.9"}]}]}],
+            "database_specific": {"severity": "MODERATE"}}
+
+    def test_git_ranges_are_not_versions(self):
+        from cra_evidence import collectors as C
+        self.assertEqual(C.match_osv([{"name": "urllib3", "version": "2.7.0"}], [dict(self.PYSEC)], set()), [])
+
+    def test_aliases_match_once(self):
+        from cra_evidence import collectors as C
+        m = C.match_osv([{"name": "urllib3", "version": "1.25.8"}], [dict(self.PYSEC), dict(self.GHSA)], set())
+        self.assertEqual([x["vulnerability"] for x in m], ["CVE-2020-26137"])
+        no_cve = [{"id": "PYSEC-2026-1", "aliases": ["GHSA-aaaa-bbbb-cccc"], "affected": self.GHSA["affected"]},
+                  {"id": "GHSA-aaaa-bbbb-cccc", "aliases": ["PYSEC-2026-1"], "affected": self.GHSA["affected"]}]
+        m = C.match_osv([{"name": "urllib3", "version": "1.0"}], no_cve, set())
+        self.assertEqual(len(m), 1)
+
+
+# ------------------------------------------------------------- pilot outputs
+
+PILOT = os.path.join(ROOT, "examples", "pilot")
+PILOT_POLICY = os.path.join(PILOT, "policy", "pilot-gate-policy.json")
+
+
+@unittest.skipUnless(os.path.isdir(os.path.join(PILOT, "out", "store")), "pilot has not been run")
+class PilotOutputs(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        pol = json.load(open(PILOT_POLICY))
+        cls.trust = A.TrustPolicy(pol["attestation_trust"], os.path.dirname(PILOT_POLICY))
+        cls.results = json.load(open(os.path.join(PILOT, "results", "pilot-results.json")))
+
+    def test_offline_store_verifies(self):
+        st = ES.EvidenceStore(O.LocalBackend(os.path.join(PILOT, "out", "store")))
+        self.assertEqual(st.tree.size, len(self.results["versions"]))
+        self.assertEqual(st.verify(self.trust, deep=True), [])
+        self.assertEqual(st.tree.root().hex(), self.results["store"]["root_hash"])
+
+    def test_every_record_is_signed_timestamped_and_schema_valid(self):
+        from cra_evidence import schema as S
+        st = ES.EvidenceStore(O.LocalBackend(os.path.join(PILOT, "out", "store")))
+        for e in st.entries:
+            rec, res = st.get_record(e["record_id"], self.trust)
+            self.assertTrue(res["verified"], res["problems"])
+            self.assertTrue(res["signer"]["signing_time_source"].startswith("RFC 3161"))
+            self.assertEqual(S.validate(rec), [])
+            prov = rec["evidence"]["provenance"]["verification"]
+            self.assertTrue(prov["verified"])
+            self.assertEqual(prov["slsa_build_level"], 1)
+
+    def test_results_record_reproducible_builds_and_locked_store(self):
+        self.assertTrue(all(v["reproducibility"]["bit_identical"] for v in self.results["versions"]))
+        self.assertTrue(self.results["store"]["all_compliance_mode"])
+        neg = self.results["store"]["negative_checks"]
+        self.assertTrue(neg["delete_locked_version"].startswith("DENIED"))
+        self.assertTrue(neg["overwrite_record"].startswith("DENIED"))
+        events = {v["placing_event"] for v in self.results["versions"]}
+        self.assertEqual(events, {"first_placing", "substantial_modification_placing", "update_to_placed_product"})
+
+    def test_cli_sign_and_verify_record(self):
+        import io
+        from contextlib import redirect_stdout
+        from cra_evidence.cli import main
+        t = T.LocalTSA.from_pem_files(os.path.join(PILOT, "keys", "pilot-test-tsa.demo-private.pem"),
+                                      os.path.join(PILOT, "trust", "pilot-test-tsa.cert.pem"),
+                                      os.path.join(PILOT, "trust", "pilot-test-tsa-root.cert.pem"))
+        url = t.serve()
+        try:
+            rec = os.path.join(PILOT, "out", "records", "requests_2.34.2.record.json")
+            out = os.path.join(_TMP, "signed.json")
+            with redirect_stdout(io.StringIO()):
+                self.assertEqual(main(["sign-record", rec, "--key", os.path.join(
+                    PILOT, "keys", "pilot-release-record.demo-private.pem"), "--key-name", "pilot-release-record",
+                    "--tsa-url", url, "-o", out]), 0)
+            buf = io.StringIO()
+            with redirect_stdout(buf):
+                rc = main(["verify-record", out, "--policy", PILOT_POLICY, "--product", "requests"])
+            self.assertEqual(rc, 0, buf.getvalue())
+            self.assertEqual(json.loads(buf.getvalue())["gate_decision"], "PASS")
+        finally:
+            t.stop()
+
+
+class PilotWorkflow(unittest.TestCase):
+    def test_pilot_workflow_is_valid_pinned_and_read_only(self):
+        try:
+            import yaml
+        except ImportError:
+            self.skipTest("PyYAML not installed")
+        path = os.path.join(ROOT, "examples", "ci", "github-actions-cra-pilot.yml")
+        wf = yaml.safe_load(open(path))
+        self.assertEqual(wf["permissions"], {"contents": "read"})
+        self.assertIn("workflow_dispatch", wf[True] if True in wf else wf["on"])
+        import re
+        for step in wf["jobs"]["pilot"]["steps"]:
+            if "uses" in step:
+                self.assertRegex(step["uses"], r"^[\w.-]+/[\w.-]+@[0-9a-f]{40}$")
+        runs = " ".join(s.get("run", "") for s in wf["jobs"]["pilot"]["steps"])
+        self.assertIn("run_pilot.py", runs)
+        self.assertIn("--require-hashes", runs)
+        self.assertTrue(re.search(r"verify-evidence-store", runs))
 
 
 if __name__ == "__main__":

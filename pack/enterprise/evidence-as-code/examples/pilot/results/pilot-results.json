@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-01T15:46:24+00:00",
+  "generated": "2026-11-01T16:00:59+00:00",
   "package": "requests",
   "versions": [
     {
@@ -36,8 +36,7 @@
         "VULN_UNTRIAGED CVE-2026-45409 in idna@3.4",
         "VULN_UNTRIAGED CVE-2026-97687 in urllib3@2.0.2",
         "VULN_UNTRIAGED CVE-2026-97689 in urllib3@2.0.2",
-        "VULN_UNTRIAGED GHSA-6q48-6c7w-9gw2 in certifi@2023.5.7",
-        "VULN_UNTRIAGED PYSEC-2026-4320 in certifi@2023.5.7"
+        "VULN_UNTRIAGED GHSA-6q48-6c7w-9gw2 in certifi@2023.5.7"
       ],
       "matches_at_release": [],
       "matches_today": [
@@ -58,8 +57,7 @@
         "CVE-2026-45409",
         "CVE-2026-97687",
         "CVE-2026-97689",
-        "GHSA-6q48-6c7w-9gw2",
-        "PYSEC-2026-4320"
+        "GHSA-6q48-6c7w-9gw2"
       ],
       "sbom_components": 4,
       "direct_dependencies": [
@@ -92,30 +90,30 @@
         ]
       },
       "store": {
-        "record_key": "records/requests/2.31.0/acdb4ade383a16eb2a65b903035174e1382b14965bc46a2782208d619dcc6fe2.record.json",
-        "bundle_key": "records/requests/2.31.0/acdb4ade383a16eb2a65b903035174e1382b14965bc46a2782208d619dcc6fe2.bundle.json",
+        "record_key": "records/requests/2.31.0/c0410c9c65843fc2e35a4e326f6fc31a77d0068695e8d11fd1d97ce79dfb44ce.record.json",
+        "bundle_key": "records/requests/2.31.0/c0410c9c65843fc2e35a4e326f6fc31a77d0068695e8d11fd1d97ce79dfb44ce.bundle.json",
         "version_ids": [
-          "c60c6586-afca-42fc-bbde-e3ea0142d486",
-          "22aafa2e-ac61-4e31-8fa0-a6642df179b2"
+          "0a6214ce-7e04-41ad-9044-358056264ce3",
+          "4a3a2ded-bf2c-454e-84e1-969d2fde9f7b"
         ],
         "seq": 0
       },
       "timings_s": {
         "download": 0.0,
-        "build": 1.5853,
-        "rebuild_check": 1.5716,
-        "sbom": 3.0926,
-        "sast": 0.4171,
-        "provenance_sign_timestamp": 0.0284,
-        "vex_sign_timestamp": 0.0106,
-        "gate_incl_signature_and_timestamp_verification": 0.9472,
-        "store_total": 0.1859,
-        "record_sign_and_timestamp": 0.0092,
-        "object_lock_put": 0.1552,
+        "build": 1.4146,
+        "rebuild_check": 1.3985,
+        "sbom": 3.2535,
+        "sast": 0.4373,
+        "provenance_sign_timestamp": 0.0204,
+        "vex_sign_timestamp": 0.0116,
+        "gate_incl_signature_and_timestamp_verification": 0.9633,
+        "store_total": 0.1991,
+        "record_sign_and_timestamp": 0.0088,
+        "object_lock_put": 0.17,
         "merkle_append": 0.0001,
-        "checkpoint_sign_timestamp_put": 0.0212,
-        "index": 0.0012,
-        "end_to_end_excluding_download": 7.84
+        "checkpoint_sign_timestamp_put": 0.0198,
+        "index": 0.0011,
+        "end_to_end_excluding_download": 7.699
       }
     },
     {
@@ -146,8 +144,7 @@
         "VULN_UNTRIAGED CVE-2026-45409 in idna@3.7",
         "VULN_UNTRIAGED CVE-2026-97687 in urllib3@2.2.1",
         "VULN_UNTRIAGED CVE-2026-97689 in urllib3@2.2.1",
-        "VULN_UNTRIAGED GHSA-6q48-6c7w-9gw2 in certifi@2024.2.2",
-        "VULN_UNTRIAGED PYSEC-2026-4320 in certifi@2024.2.2"
+        "VULN_UNTRIAGED GHSA-6q48-6c7w-9gw2 in certifi@2024.2.2"
       ],
       "matches_at_release": [],
       "matches_today": [
@@ -164,8 +161,7 @@
         "CVE-2026-45409",
         "CVE-2026-97687",
         "CVE-2026-97689",
-        "GHSA-6q48-6c7w-9gw2",
-        "PYSEC-2026-4320"
+        "GHSA-6q48-6c7w-9gw2"
       ],
       "sbom_components": 4,
       "direct_dependencies": [
@@ -198,30 +194,30 @@
         ]
       },
       "store": {
-        "record_key": "records/requests/2.32.2/9d0921d7538d66fb97c20239e5aa6ee5a37dcc9f92b60c46d6cb7f5ce9bfe24c.record.json",
-        "bundle_key": "records/requests/2.32.2/9d0921d7538d66fb97c20239e5aa6ee5a37dcc9f92b60c46d6cb7f5ce9bfe24c.bundle.json",
+        "record_key": "records/requests/2.32.2/f1ef5190e04b1524dbf4c7680e538e5289dc5f0eac57e4e62e737a186c60aa9c.record.json",
+        "bundle_key": "records/requests/2.32.2/f1ef5190e04b1524dbf4c7680e538e5289dc5f0eac57e4e62e737a186c60aa9c.bundle.json",
         "version_ids": [
-          "e7241a69-92f1-44a3-8bbf-8eaf7ae5d7c3",
-          "b53331f3-9eff-45c5-a5ce-21c143baaa6a"
+          "59f03b64-9cdd-40c4-a6f2-9c94031cfe15",
+          "7e6f6465-3385-4e18-9be9-386944cf2877"
         ],
         "seq": 1
       },
       "timings_s": {
         "download": 0.0,
-        "build": 1.6569,
-        "rebuild_check": 1.6357,
-        "sbom": 3.1055,
-        "sast": 0.4414,
-        "provenance_sign_timestamp": 0.0093,
-        "vex_sign_timestamp": 0.0084,
-        "gate_incl_signature_and_timestamp_verification": 0.0119,
-        "store_total": 0.2375,
-        "record_sign_and_timestamp": 0.0087,
-        "object_lock_put": 0.212,
+        "build": 1.4564,
+        "rebuild_check": 1.4394,
+        "sbom": 3.0872,
+        "sast": 0.4602,
+        "provenance_sign_timestamp": 0.0099,
+        "vex_sign_timestamp": 0.0085,
+        "gate_incl_signature_and_timestamp_verification": 0.0113,
+        "store_total": 0.2141,
+        "record_sign_and_timestamp": 0.0096,
+        "object_lock_put": 0.1887,
         "merkle_append": 0.0001,
-        "checkpoint_sign_timestamp_put": 0.0163,
-        "index": 0.0011,
-        "end_to_end_excluding_download": 7.107
+        "checkpoint_sign_timestamp_put": 0.0155,
+        "index": 0.001,
+        "end_to_end_excluding_download": 6.688
       }
     },
     {
@@ -252,8 +248,7 @@
         "VULN_UNTRIAGED CVE-2026-45409 in idna@3.7",
         "VULN_UNTRIAGED CVE-2026-97687 in urllib3@2.2.1",
         "VULN_UNTRIAGED CVE-2026-97689 in urllib3@2.2.1",
-        "VULN_UNTRIAGED GHSA-6q48-6c7w-9gw2 in certifi@2024.2.2",
-        "VULN_UNTRIAGED PYSEC-2026-4320 in certifi@2024.2.2"
+        "VULN_UNTRIAGED GHSA-6q48-6c7w-9gw2 in certifi@2024.2.2"
       ],
       "matches_at_release": [],
       "matches_today": [
@@ -270,8 +265,7 @@
         "CVE-2026-45409",
         "CVE-2026-97687",
         "CVE-2026-97689",
-        "GHSA-6q48-6c7w-9gw2",
-        "PYSEC-2026-4320"
+        "GHSA-6q48-6c7w-9gw2"
       ],
       "sbom_components": 4,
       "direct_dependencies": [
@@ -304,30 +298,30 @@
         ]
       },
       "store": {
-        "record_key": "records/requests/2.32.3/e9a3b054498a079792d4ae1d5b3c8c3953e2b7a9811801c1c3a84058b72d12d3.record.json",
-        "bundle_key": "records/requests/2.32.3/e9a3b054498a079792d4ae1d5b3c8c3953e2b7a9811801c1c3a84058b72d12d3.bundle.json",
+        "record_key": "records/requests/2.32.3/1d836a177322f994c60d29f1de1140157dc753ba8d4adc3863a8bde0c3289d43.record.json",
+        "bundle_key": "records/requests/2.32.3/1d836a177322f994c60d29f1de1140157dc753ba8d4adc3863a8bde0c3289d43.bundle.json",
         "version_ids": [
-          "664ec32d-65d3-49c6-8e5d-a8beec06b375",
-          "62855f4a-de3c-4759-90f1-0d36815f9ce9"
+          "56541442-0857-4160-8c69-4226f564c9ec",
+          "3f90b527-a7c3-42c7-97ea-f42569d1e365"
         ],
         "seq": 2
       },
       "timings_s": {
         "download": 0.0,
-        "build": 1.5711,
-        "rebuild_check": 1.5429,
-        "sbom": 2.9946,
-        "sast": 0.4704,
-        "provenance_sign_timestamp": 0.0129,
-        "vex_sign_timestamp": 0.0086,
-        "gate_incl_signature_and_timestamp_verification": 0.0123,
+        "build": 1.5394,
+        "rebuild_check": 1.5113,
+        "sbom": 3.1117,
+        "sast": 0.5219,
+        "provenance_sign_timestamp": 0.0093,
+        "vex_sign_timestamp": 0.0081,
+        "gate_incl_signature_and_timestamp_verification": 0.0105,
         "store_total": 0.1863,
-        "record_sign_and_timestamp": 0.0084,
-        "object_lock_put": 0.1612,
+        "record_sign_and_timestamp": 0.0088,
+        "object_lock_put": 0.1486,
         "merkle_append": 0.0001,
-        "checkpoint_sign_timestamp_put": 0.0164,
-        "index": 0.0011,
-        "end_to_end_excluding_download": 6.8
+        "checkpoint_sign_timestamp_put": 0.0286,
+        "index": 0.001,
+        "end_to_end_excluding_download": 6.899
       }
     },
     {
@@ -355,8 +349,7 @@
         "VULN_UNTRIAGED CVE-2026-45409 in idna@3.10",
         "VULN_UNTRIAGED CVE-2026-97687 in urllib3@2.4.0",
         "VULN_UNTRIAGED CVE-2026-97689 in urllib3@2.4.0",
-        "VULN_UNTRIAGED GHSA-6q48-6c7w-9gw2 in certifi@2025.4.26",
-        "VULN_UNTRIAGED PYSEC-2026-4320 in certifi@2025.4.26"
+        "VULN_UNTRIAGED GHSA-6q48-6c7w-9gw2 in certifi@2025.4.26"
       ],
       "matches_at_release": [],
       "matches_today": [
@@ -370,8 +363,7 @@
         "CVE-2026-45409",
         "CVE-2026-97687",
         "CVE-2026-97689",
-        "GHSA-6q48-6c7w-9gw2",
-        "PYSEC-2026-4320"
+        "GHSA-6q48-6c7w-9gw2"
       ],
       "sbom_components": 4,
       "direct_dependencies": [
@@ -404,30 +396,30 @@
         ]
       },
       "store": {
-        "record_key": "records/requests/2.32.4/f906ced97d69072d1b08788c4ede1eea008579b9d86ba54ec7995119a607698f.record.json",
-        "bundle_key": "records/requests/2.32.4/f906ced97d69072d1b08788c4ede1eea008579b9d86ba54ec7995119a607698f.bundle.json",
+        "record_key": "records/requests/2.32.4/a94011a9c152b3f629624e15e44e251ae1cb9fc80da251bf91f33664434b99f9.record.json",
+        "bundle_key": "records/requests/2.32.4/a94011a9c152b3f629624e15e44e251ae1cb9fc80da251bf91f33664434b99f9.bundle.json",
         "version_ids": [
-          "4c43e993-ffec-4647-85fe-453d5cd47ff5",
-          "da120b80-a31c-40b1-a4c9-64c775045317"
+          "bd66c09c-3586-4830-9a59-e50ff3b63735",
+          "19e9ce70-eb6e-4b96-8467-418ecf94e9af"
         ],
         "seq": 3
       },
       "timings_s": {
         "download": 0.0,
-        "build": 1.5199,
-        "rebuild_check": 1.6519,
-        "sbom": 3.2043,
-        "sast": 0.4493,
-        "provenance_sign_timestamp": 0.0089,
-        "vex_sign_timestamp": 0.008,
-        "gate_incl_signature_and_timestamp_verification": 0.0109,
-        "store_total": 0.2011,
-        "record_sign_and_timestamp": 0.0089,
-        "object_lock_put": 0.1749,
+        "build": 1.4404,
+        "rebuild_check": 1.4631,
+        "sbom": 3.1415,
+        "sast": 0.4496,
+        "provenance_sign_timestamp": 0.009,
+        "vex_sign_timestamp": 0.0083,
+        "gate_incl_signature_and_timestamp_verification": 0.0148,
+        "store_total": 0.1907,
+        "record_sign_and_timestamp": 0.0088,
+        "object_lock_put": 0.1558,
         "merkle_append": 0.0001,
-        "checkpoint_sign_timestamp_put": 0.0169,
+        "checkpoint_sign_timestamp_put": 0.0258,
         "index": 0.0011,
-        "end_to_end_excluding_download": 7.055
+        "end_to_end_excluding_download": 6.718
       }
     },
     {
@@ -453,8 +445,7 @@
         "VULN_UNTRIAGED CVE-2026-45409 in idna@3.10",
         "VULN_UNTRIAGED CVE-2026-97687 in urllib3@2.5.0",
         "VULN_UNTRIAGED CVE-2026-97689 in urllib3@2.5.0",
-        "VULN_UNTRIAGED GHSA-6q48-6c7w-9gw2 in certifi@2025.8.3",
-        "VULN_UNTRIAGED PYSEC-2026-4320 in certifi@2025.8.3"
+        "VULN_UNTRIAGED GHSA-6q48-6c7w-9gw2 in certifi@2025.8.3"
       ],
       "matches_at_release": [],
       "matches_today": [
@@ -466,8 +457,7 @@
         "CVE-2026-45409",
         "CVE-2026-97687",
         "CVE-2026-97689",
-        "GHSA-6q48-6c7w-9gw2",
-        "PYSEC-2026-4320"
+        "GHSA-6q48-6c7w-9gw2"
       ],
       "sbom_components": 4,
       "direct_dependencies": [
@@ -500,30 +490,30 @@
         ]
       },
       "store": {
-        "record_key": "records/requests/2.32.5/9ce07f9908a6b2fc933765a4869f027c5ce1eecf14d0e69723733e05ec3cc9fa.record.json",
-        "bundle_key": "records/requests/2.32.5/9ce07f9908a6b2fc933765a4869f027c5ce1eecf14d0e69723733e05ec3cc9fa.bundle.json",
+        "record_key": "records/requests/2.32.5/b1a26209e113dedfc9919be2973853b56ad0ab08cf2efa8b687e7ad91f2e39db.record.json",
+        "bundle_key": "records/requests/2.32.5/b1a26209e113dedfc9919be2973853b56ad0ab08cf2efa8b687e7ad91f2e39db.bundle.json",
         "version_ids": [
-          "a7f22168-350b-4866-888b-f8b904008a53",
-          "10d60801-5dd6-4b30-a082-6c29a8a83d65"
+          "1459be04-d0f7-460f-aab3-9a0f3f749d45",
+          "85524936-1ff4-45cf-971d-b9f0c0b3ca47"
         ],
         "seq": 4
       },
       "timings_s": {
         "download": 0.0,
-        "build": 1.4767,
-        "rebuild_check": 1.5521,
-        "sbom": 3.1238,
-        "sast": 0.4627,
-        "provenance_sign_timestamp": 0.013,
-        "vex_sign_timestamp": 0.0083,
-        "gate_incl_signature_and_timestamp_verification": 0.0121,
-        "store_total": 0.1817,
-        "record_sign_and_timestamp": 0.0092,
-        "object_lock_put": 0.1543,
-        "merkle_append": 0.0001,
-        "checkpoint_sign_timestamp_put": 0.0177,
-        "index": 0.0013,
-        "end_to_end_excluding_download": 6.831
+        "build": 1.4079,
+        "rebuild_check": 1.4159,
+        "sbom": 3.1311,
+        "sast": 0.4462,
+        "provenance_sign_timestamp": 0.0097,
+        "vex_sign_timestamp": 0.008,
+        "gate_incl_signature_and_timestamp_verification": 0.0104,
+        "store_total": 0.1832,
+        "record_sign_and_timestamp": 0.0124,
+        "object_lock_put": 0.1536,
+        "merkle_append": 0.0,
+        "checkpoint_sign_timestamp_put": 0.0168,
+        "index": 0.0009,
+        "end_to_end_excluding_download": 6.613
       }
     },
     {
@@ -547,8 +537,7 @@
         "VULN_UNTRIAGED CVE-2026-97687 in urllib3@2.6.3",
         "VULN_UNTRIAGED CVE-2026-97688 in urllib3@2.6.3",
         "VULN_UNTRIAGED CVE-2026-97689 in urllib3@2.6.3",
-        "VULN_UNTRIAGED GHSA-6q48-6c7w-9gw2 in certifi@2026.2.25",
-        "VULN_UNTRIAGED PYSEC-2026-4320 in certifi@2026.2.25"
+        "VULN_UNTRIAGED GHSA-6q48-6c7w-9gw2 in certifi@2026.2.25"
       ],
       "matches_at_release": [],
       "matches_today": [
@@ -558,8 +547,7 @@
         "CVE-2026-97687",
         "CVE-2026-97688",
         "CVE-2026-97689",
-        "GHSA-6q48-6c7w-9gw2",
-        "PYSEC-2026-4320"
+        "GHSA-6q48-6c7w-9gw2"
       ],
       "sbom_components": 4,
       "direct_dependencies": [
@@ -592,30 +580,30 @@
         ]
       },
       "store": {
-        "record_key": "records/requests/2.33.0/61ebd26c6fcca8006fb486cab33b05ac34c0a31e53287d8d8e25f4465b8283f4.record.json",
-        "bundle_key": "records/requests/2.33.0/61ebd26c6fcca8006fb486cab33b05ac34c0a31e53287d8d8e25f4465b8283f4.bundle.json",
+        "record_key": "records/requests/2.33.0/8c02473a3c0b881786ccba08f7d1658944d0411ecd7d2bd5cd529b2ac0c1028d.record.json",
+        "bundle_key": "records/requests/2.33.0/8c02473a3c0b881786ccba08f7d1658944d0411ecd7d2bd5cd529b2ac0c1028d.bundle.json",
         "version_ids": [
-          "4bb6571e-e32a-440c-b495-7828178e0609",
-          "379a9e57-dd35-49be-b4ca-6178c50ea360"
+          "4d0cd476-9172-40f0-bf8b-78a495b7aefd",
+          "d554ef57-b0c8-4e73-bc59-4cdc12a326f1"
         ],
         "seq": 5
       },
       "timings_s": {
         "download": 0.0,
-        "build": 1.7762,
-        "rebuild_check": 1.7256,
-        "sbom": 3.283,
-        "sast": 0.4523,
-        "provenance_sign_timestamp": 0.0103,
-        "vex_sign_timestamp": 0.0093,
-        "gate_incl_signature_and_timestamp_verification": 0.0134,
-        "store_total": 0.1884,
-        "record_sign_and_timestamp": 0.0086,
-        "object_lock_put": 0.1533,
+        "build": 1.5563,
+        "rebuild_check": 1.5531,
+        "sbom": 3.1476,
+        "sast": 0.4178,
+        "provenance_sign_timestamp": 0.0094,
+        "vex_sign_timestamp": 0.0084,
+        "gate_incl_signature_and_timestamp_verification": 0.0167,
+        "store_total": 0.1841,
+        "record_sign_and_timestamp": 0.009,
+        "object_lock_put": 0.1569,
         "merkle_append": 0.0001,
-        "checkpoint_sign_timestamp_put": 0.0261,
-        "index": 0.0011,
-        "end_to_end_excluding_download": 7.459
+        "checkpoint_sign_timestamp_put": 0.0177,
+        "index": 0.001,
+        "end_to_end_excluding_download": 6.894
       }
     },
     {
@@ -639,8 +627,7 @@
         "VULN_UNTRIAGED CVE-2026-97687 in urllib3@2.6.3",
         "VULN_UNTRIAGED CVE-2026-97688 in urllib3@2.6.3",
         "VULN_UNTRIAGED CVE-2026-97689 in urllib3@2.6.3",
-        "VULN_UNTRIAGED GHSA-6q48-6c7w-9gw2 in certifi@2026.2.25",
-        "VULN_UNTRIAGED PYSEC-2026-4320 in certifi@2026.2.25"
+        "VULN_UNTRIAGED GHSA-6q48-6c7w-9gw2 in certifi@2026.2.25"
       ],
       "matches_at_release": [],
       "matches_today": [
@@ -650,8 +637,7 @@
         "CVE-2026-97687",
         "CVE-2026-97688",
         "CVE-2026-97689",
-        "GHSA-6q48-6c7w-9gw2",
-        "PYSEC-2026-4320"
+        "GHSA-6q48-6c7w-9gw2"
       ],
       "sbom_components": 4,
       "direct_dependencies": [
@@ -684,30 +670,30 @@
         ]
       },
       "store": {
-        "record_key": "records/requests/2.33.1/e2ca5c6794cba82298ac49b1cea47bfd840387d686e980f0ed23eca7439af1f1.record.json",
-        "bundle_key": "records/requests/2.33.1/e2ca5c6794cba82298ac49b1cea47bfd840387d686e980f0ed23eca7439af1f1.bundle.json",
+        "record_key": "records/requests/2.33.1/4e22602690c1589301eee2f2ec09d404cd5f563feaff44ce02a05345f24fd795.record.json",
+        "bundle_key": "records/requests/2.33.1/4e22602690c1589301eee2f2ec09d404cd5f563feaff44ce02a05345f24fd795.bundle.json",
         "version_ids": [
-          "5205b5ee-8fa4-4fbb-b262-7a49533a4901",
-          "7419c559-5e30-4025-8107-f6e07708988b"
+          "e03e8f56-99d5-4404-ad27-2a73908ff572",
+          "0727b0cd-d7ef-4238-8909-8b36a0ab329e"
         ],
         "seq": 6
       },
       "timings_s": {
         "download": 0.0,
-        "build": 1.8178,
-        "rebuild_check": 1.6789,
-        "sbom": 3.0428,
-        "sast": 0.4925,
+        "build": 1.6266,
+        "rebuild_check": 1.5058,
+        "sbom": 3.0389,
+        "sast": 0.4346,
         "provenance_sign_timestamp": 0.0089,
-        "vex_sign_timestamp": 0.0081,
-        "gate_incl_signature_and_timestamp_verification": 0.0114,
-        "store_total": 0.1796,
-        "record_sign_and_timestamp": 0.0091,
-        "object_lock_put": 0.1513,
-        "merkle_append": 0.0004,
-        "checkpoint_sign_timestamp_put": 0.0185,
-        "index": 0.0011,
-        "end_to_end_excluding_download": 7.241
+        "vex_sign_timestamp": 0.0099,
+        "gate_incl_signature_and_timestamp_verification": 0.0106,
+        "store_total": 0.1986,
+        "record_sign_and_timestamp": 0.013,
+        "object_lock_put": 0.1683,
+        "merkle_append": 0.0001,
+        "checkpoint_sign_timestamp_put": 0.0169,
+        "index": 0.001,
+        "end_to_end_excluding_download": 6.835
       }
     },
     {
@@ -726,8 +712,7 @@
         "VULN_UNTRIAGED CVE-2026-97687 in urllib3@2.7.0",
         "VULN_UNTRIAGED CVE-2026-97688 in urllib3@2.7.0",
         "VULN_UNTRIAGED CVE-2026-97689 in urllib3@2.7.0",
-        "VULN_UNTRIAGED GHSA-6q48-6c7w-9gw2 in certifi@2026.4.22",
-        "VULN_UNTRIAGED PYSEC-2026-4320 in certifi@2026.4.22"
+        "VULN_UNTRIAGED GHSA-6q48-6c7w-9gw2 in certifi@2026.4.22"
       ],
       "matches_at_release": [],
       "matches_today": [
@@ -735,8 +720,7 @@
         "CVE-2026-97687",
         "CVE-2026-97688",
         "CVE-2026-97689",
-        "GHSA-6q48-6c7w-9gw2",
-        "PYSEC-2026-4320"
+        "GHSA-6q48-6c7w-9gw2"
       ],
       "sbom_components": 4,
       "direct_dependencies": [
@@ -767,30 +751,30 @@
         ]
       },
       "store": {
-        "record_key": "records/requests/2.34.0/66f2a98baacc6a2223ffa3b00b23e7787d90d7b148cb6e0004613d564d490ada.record.json",
-        "bundle_key": "records/requests/2.34.0/66f2a98baacc6a2223ffa3b00b23e7787d90d7b148cb6e0004613d564d490ada.bundle.json",
+        "record_key": "records/requests/2.34.0/3a7f381cca61f025c76dab74bd6df90159f319ccf352a4638f4cf6f2a653c877.record.json",
+        "bundle_key": "records/requests/2.34.0/3a7f381cca61f025c76dab74bd6df90159f319ccf352a4638f4cf6f2a653c877.bundle.json",
         "version_ids": [
-          "83323076-59a0-4e09-9eeb-cb2771a987a2",
-          "86f96159-8055-4382-b197-4f5c05abdba0"
+          "134e85ee-a74d-4e38-8490-b66b15839482",
+          "9ff57796-dd4f-4ec9-af98-7e903608196e"
         ],
         "seq": 7
       },
       "timings_s": {
         "download": 0.0,
-        "build": 1.7364,
-        "rebuild_check": 1.6671,
-        "sbom": 3.0957,
-        "sast": 0.4854,
-        "provenance_sign_timestamp": 0.0086,
-        "vex_sign_timestamp": 0.0085,
-        "gate_incl_signature_and_timestamp_verification": 0.0131,
-        "store_total": 0.1778,
-        "record_sign_and_timestamp": 0.0088,
-        "object_lock_put": 0.1528,
+        "build": 1.5525,
+        "rebuild_check": 1.5312,
+        "sbom": 2.9918,
+        "sast": 0.5234,
+        "provenance_sign_timestamp": 0.0097,
+        "vex_sign_timestamp": 0.0081,
+        "gate_incl_signature_and_timestamp_verification": 0.0112,
+        "store_total": 0.1815,
+        "record_sign_and_timestamp": 0.0087,
+        "object_lock_put": 0.157,
         "merkle_append": 0.0001,
-        "checkpoint_sign_timestamp_put": 0.0158,
-        "index": 0.0017,
-        "end_to_end_excluding_download": 7.194
+        "checkpoint_sign_timestamp_put": 0.0155,
+        "index": 0.0009,
+        "end_to_end_excluding_download": 6.81
       }
     },
     {
@@ -808,16 +792,14 @@
         "VULN_UNTRIAGED CVE-2026-97687 in urllib3@2.7.0",
         "VULN_UNTRIAGED CVE-2026-97688 in urllib3@2.7.0",
         "VULN_UNTRIAGED CVE-2026-97689 in urllib3@2.7.0",
-        "VULN_UNTRIAGED GHSA-6q48-6c7w-9gw2 in certifi@2026.4.22",
-        "VULN_UNTRIAGED PYSEC-2026-4320 in certifi@2026.4.22"
+        "VULN_UNTRIAGED GHSA-6q48-6c7w-9gw2 in certifi@2026.4.22"
       ],
       "matches_at_release": [],
       "matches_today": [
         "CVE-2026-97687",
         "CVE-2026-97688",
         "CVE-2026-97689",
-        "GHSA-6q48-6c7w-9gw2",
-        "PYSEC-2026-4320"
+        "GHSA-6q48-6c7w-9gw2"
       ],
       "sbom_components": 4,
       "direct_dependencies": [
@@ -848,30 +830,30 @@
         ]
       },
       "store": {
-        "record_key": "records/requests/2.34.1/b3dc10bdd6aaf5c7a057f352ee4f8ae7ec7b8d22c14579d528abcbb9d6ad3d21.record.json",
-        "bundle_key": "records/requests/2.34.1/b3dc10bdd6aaf5c7a057f352ee4f8ae7ec7b8d22c14579d528abcbb9d6ad3d21.bundle.json",
+        "record_key": "records/requests/2.34.1/10d6caa7a616bca4d0e1f16c5010b5572ac36cfeee15fd2ea60dab7efdca8185.record.json",
+        "bundle_key": "records/requests/2.34.1/10d6caa7a616bca4d0e1f16c5010b5572ac36cfeee15fd2ea60dab7efdca8185.bundle.json",
         "version_ids": [
-          "f799a968-a1a5-4a3c-bc9f-3178bc6247ff",
-          "0f92e6d9-cf0b-4291-afcf-e98359f8fcce"
+          "2cabc76e-aebd-4ab8-9ca4-50c1f5e700e5",
+          "5244368a-9030-4edc-94dc-c85527e4b2bb"
         ],
         "seq": 8
       },
       "timings_s": {
-        "download": 0.0,
-        "build": 1.6743,
-        "rebuild_check": 1.6579,
-        "sbom": 3.0581,
-        "sast": 0.5014,
-        "provenance_sign_timestamp": 0.0084,
-        "vex_sign_timestamp": 0.0086,
-        "gate_incl_signature_and_timestamp_verification": 0.0107,
-        "store_total": 0.1755,
-        "record_sign_and_timestamp": 0.0088,
-        "object_lock_put": 0.1508,
+        "download": 0.0001,
+        "build": 1.5778,
+        "rebuild_check": 1.6125,
+        "sbom": 3.1179,
+        "sast": 0.5019,
+        "provenance_sign_timestamp": 0.009,
+        "vex_sign_timestamp": 0.0083,
+        "gate_incl_signature_and_timestamp_verification": 0.0106,
+        "store_total": 0.1801,
+        "record_sign_and_timestamp": 0.01,
+        "object_lock_put": 0.1521,
         "merkle_append": 0.0001,
-        "checkpoint_sign_timestamp_put": 0.0157,
-        "index": 0.001,
-        "end_to_end_excluding_download": 7.096
+        "checkpoint_sign_timestamp_put": 0.0176,
+        "index": 0.0012,
+        "end_to_end_excluding_download": 7.019
       }
     },
     {
@@ -889,16 +871,14 @@
         "VULN_UNTRIAGED CVE-2026-97687 in urllib3@2.7.0",
         "VULN_UNTRIAGED CVE-2026-97688 in urllib3@2.7.0",
         "VULN_UNTRIAGED CVE-2026-97689 in urllib3@2.7.0",
-        "VULN_UNTRIAGED GHSA-6q48-6c7w-9gw2 in certifi@2026.4.22",
-        "VULN_UNTRIAGED PYSEC-2026-4320 in certifi@2026.4.22"
+        "VULN_UNTRIAGED GHSA-6q48-6c7w-9gw2 in certifi@2026.4.22"
       ],
       "matches_at_release": [],
       "matches_today": [
         "CVE-2026-97687",
         "CVE-2026-97688",
         "CVE-2026-97689",
-        "GHSA-6q48-6c7w-9gw2",
-        "PYSEC-2026-4320"
+        "GHSA-6q48-6c7w-9gw2"
       ],
       "sbom_components": 4,
       "direct_dependencies": [
@@ -929,30 +909,30 @@
         ]
       },
       "store": {
-        "record_key": "records/requests/2.34.2/1233d4ac0ec8f79533364e267560a55f1a860085824a13acfd0b8ce7b6d655eb.record.json",
-        "bundle_key": "records/requests/2.34.2/1233d4ac0ec8f79533364e267560a55f1a860085824a13acfd0b8ce7b6d655eb.bundle.json",
+        "record_key": "records/requests/2.34.2/b4679278f86efded8bb7a884bb0b76dc4802ee5962e367b90d5d6c38c39f0236.record.json",
+        "bundle_key": "records/requests/2.34.2/b4679278f86efded8bb7a884bb0b76dc4802ee5962e367b90d5d6c38c39f0236.bundle.json",
         "version_ids": [
-          "5b651a0c-5682-4f0d-95c4-b3d8c15afd10",
-          "58a40ffa-d272-4c19-8372-814f737fc1a3"
+          "d3d8db6f-1e5b-430a-a1b6-0dc2a8794dde",
+          "d27fb68b-68e2-44c7-a8a2-24886076a1f8"
         ],
         "seq": 9
       },
       "timings_s": {
         "download": 0.0,
-        "build": 1.6198,
-        "rebuild_check": 1.6601,
-        "sbom": 3.1223,
-        "sast": 0.5065,
-        "provenance_sign_timestamp": 0.0088,
-        "vex_sign_timestamp": 0.0082,
-        "gate_incl_signature_and_timestamp_verification": 0.0116,
-        "store_total": 0.1906,
-        "record_sign_and_timestamp": 0.0101,
-        "object_lock_put": 0.1619,
+        "build": 1.6033,
+        "rebuild_check": 1.5293,
+        "sbom": 3.0392,
+        "sast": 0.4916,
+        "provenance_sign_timestamp": 0.0091,
+        "vex_sign_timestamp": 0.0097,
+        "gate_incl_signature_and_timestamp_verification": 0.0108,
+        "store_total": 0.2052,
+        "record_sign_and_timestamp": 0.0125,
+        "object_lock_put": 0.171,
         "merkle_append": 0.0001,
-        "checkpoint_sign_timestamp_put": 0.0183,
-        "index": 0.0012,
-        "end_to_end_excluding_download": 7.129
+        "checkpoint_sign_timestamp_put": 0.0212,
+        "index": 0.001,
+        "end_to_end_excluding_download": 6.899
       }
     }
   ],
@@ -976,14 +956,14 @@
   },
   "store": {
     "objects": 133,
-    "bytes": 1444670,
+    "bytes": 1444806,
     "all_compliance_mode": true,
     "verify_problems": [],
-    "verify_seconds": 0.694,
+    "verify_seconds": 0.726,
     "offline_mirror_verify_problems": [],
     "negative_checks": {
-      "delete_locked_version": "DENIED: records/requests/2.31.0/acdb4ade383a16eb2a65b903035174e1382b14965bc46a2782208d619dcc6fe2.record.json: delete refused by Object Lock (AccessDenied)",
-      "overwrite_record": "DENIED: records/requests/2.31.0/acdb4ade383a16eb2a65b903035174e1382b14965bc46a2782208d619dcc6fe2.record.json already exists; objects are write-once",
+      "delete_locked_version": "DENIED: records/requests/2.31.0/c0410c9c65843fc2e35a4e326f6fc31a77d0068695e8d11fd1d97ce79dfb44ce.record.json: delete refused by Object Lock (AccessDenied)",
+      "overwrite_record": "DENIED: records/requests/2.31.0/c0410c9c65843fc2e35a4e326f6fc31a77d0068695e8d11fd1d97ce79dfb44ce.record.json already exists; objects are write-once",
       "verify_on_read": {
         "verified": true,
         "signing_time_source": "RFC 3161 timestamp (pilot-test-tsa)"
@@ -994,7 +974,7 @@
     },
     "latest_checkpoint": "log/checkpoints/000000000010.json",
     "tree_size": 10,
-    "root_hash": "851453f87a3cb9af7e49c47b9e752694132a256076d1fbbfc82e826e7ee407be"
+    "root_hash": "5a7fdd71e77d60761a25b406320fcac43c6682f195abdb19e130fd27c86871eb"
   },
   "feeds": {
     "osv_records": 72,
@@ -1011,9 +991,9 @@
   },
   "summary": {
     "versions": 10,
-    "mean_end_to_end_s": 7.18,
-    "max_end_to_end_s": 7.84,
-    "mean_build_s": 1.64,
+    "mean_end_to_end_s": 6.91,
+    "max_end_to_end_s": 7.7,
+    "mean_build_s": 1.52,
     "all_bit_identical": true,
     "payload_identical_to_pypi": 10,
     "gate_at_release": {
@@ -1026,6 +1006,6 @@
       "REVIEW": 0,
       "FAIL": 10
     },
-    "run_seconds": 74.9
+    "run_seconds": 72.1
   }
 }

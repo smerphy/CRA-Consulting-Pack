@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "record_id": "urn:aldermoor-pilot:cra-evidence:requests:2.34.1",
-  "generated_at": "2026-11-01T15:47:36Z",
+  "generated_at": "2026-11-01T16:02:09Z",
   "product": {
     "product_id": "requests",
     "name": "requests HTTP library for Python (pilot product line; real open-source project)",
@@ -47,8 +47,8 @@
       "media_type": "application/vnd.cyclonedx+json",
       "size_bytes": 10285,
       "digests": {
-        "sha256": "0b73f7e9ee0ec31e95c4178b3344c1f5f8a1cd0775d989f92e15c6d718b7f75b",
-        "sha512": "4c9b6515213ce633709cd90a996222f0804ffa00417422bb79dba7b0024918dccb4916401e35ebb9f966f94712a1d75f9f78b8d54ace74610a4b816ce4076b21"
+        "sha256": "8d41447d8de689b589d1f1a149e706c4d7a6bb9a481283357d802fb7a75601f2",
+        "sha512": "3d6088cdc93c99c8e9088252807548ea0ceff50f6bf2a39f2076d59d92acf40d1f12026d4f522c49fedceadc6676802bbb0b29bf0b37d3ab620549a817c36101"
       },
       "format": "CycloneDX",
       "spec_version": "1.6",
@@ -67,14 +67,14 @@
       "media_type": "application/json",
       "size_bytes": 4564,
       "digests": {
-        "sha256": "089e7545ab9bf3a116344349cc994d816d52b033626783d2e31acf748581f2dd",
-        "sha512": "1f1ba366b8cd748552aa18086c93686041f1f0502bb04fc80681f37e903b558dc9c2e5e0a7f6a10bb53dc73e6c3fb74a4808d6b14d12c25debe65baba7a5720d"
+        "sha256": "4c51c946f64829bd861e22c6a91a561f298e399f9e51837dbbcdc09a6ef7893d",
+        "sha512": "26030d61b06e04ae35b51af99686a42d7a6c9bd826a744f6ce81764c9e0612e7fb51eb479277df1992c48a22b060d64c45fdf8d43649282f4346fe3a43bbb1cf"
       },
       "format": "in-toto Statement v1 / SLSA Provenance v1",
       "predicate_type": "https://slsa.dev/provenance/v1",
       "builder_id": "https://aldermoor.example/builders/cra-pilot-local/v1",
       "build_type": "https://aldermoor.example/cra-pilot/buildtypes/python-sdist-wheel/v1",
-      "invocation_id": "16297fe2-bc5f-48dd-be16-9fdc046264dd",
+      "invocation_id": "6988876e-4a62-4f91-9d06-464d179bf9fd",
       "subject_digest_match": true,
       "verification": {
         "verified": true,
@@ -88,8 +88,8 @@
           "timestamps": [
             {
               "tsa": "pilot-test-tsa",
-              "gen_time": "2026-11-01T15:47:27Z",
-              "serial": "8020952891373442841",
+              "gen_time": "2026-11-01T16:01:59Z",
+              "serial": "13124479367799269236",
               "policy": "1.3.6.1.4.1.57264.2",
               "hash_algorithm": "sha256",
               "accuracy": {
@@ -98,7 +98,7 @@
               "tsa_certificate_sha256": "52321df0a2b455164816dc3be142a9c11ceac0e51211efd0a74b9634c151d731"
             }
           ],
-          "signing_time": "2026-11-01T15:47:27Z",
+          "signing_time": "2026-11-01T16:01:59Z",
           "signing_time_source": "RFC 3161 timestamp (pilot-test-tsa)"
         },
         "tlog": null,
@@ -120,10 +120,10 @@
       "attestation": {
         "uri": "s3://cra-pilot-evidence/v1/requests/2.34.1/evidence/vex.openvex.sigstore.json",
         "media_type": "application/json",
-        "size_bytes": 2780,
+        "size_bytes": 2784,
         "digests": {
-          "sha256": "aefe91788a77c8291c981f15277abc8f0d2059dd28befc232044fdc6706eb5e8",
-          "sha512": "d6f7ebe955f2cbac6b7fa60687d6dbaf74ca9c325f5c51acb0a015e053269785ac61fcbc2980784df65ef39a2ec4799ed3f446b8a9a7ea2d71de6a35177165c0"
+          "sha256": "b6723c7c3c13ba6f53adb0e363649fe1337382d8759adcd53337dad1e28876bb",
+          "sha512": "2606e63e9e0e323a64b25174d3bd69f58cc179744361493dd3c1286304ebde391d53446a52c61906346c14ce4825b6f41b829d4093b48c78db288c49f7b22712"
         }
       },
       "known_vulnerability_matches": [],
@@ -143,8 +143,8 @@
           "timestamps": [
             {
               "tsa": "pilot-test-tsa",
-              "gen_time": "2026-11-01T15:47:36Z",
-              "serial": "8020952891373442867",
+              "gen_time": "2026-11-01T16:02:09Z",
+              "serial": "13124479367799269262",
               "policy": "1.3.6.1.4.1.57264.2",
               "hash_algorithm": "sha256",
               "accuracy": {
@@ -153,7 +153,7 @@
               "tsa_certificate_sha256": "52321df0a2b455164816dc3be142a9c11ceac0e51211efd0a74b9634c151d731"
             }
           ],
-          "signing_time": "2026-11-01T15:47:36Z",
+          "signing_time": "2026-11-01T16:02:09Z",
           "signing_time_source": "RFC 3161 timestamp (pilot-test-tsa)"
         },
         "tlog": null,
@@ -167,8 +167,8 @@
         "media_type": "application/sarif+json",
         "size_bytes": 29061,
         "digests": {
-          "sha256": "55210daa4d16a75acb821f644e849ce60250b44642bbe2401a44950627e065d5",
-          "sha512": "aff8811ad679dbfce5c60973d2c6079b71a2743a80d8a6ac40d4c0bed383efd41ab13123cc6a61ad9b6eb9768edd9fe45dcf6676f3f8d71e074ecc1e1818ce01"
+          "sha256": "1dd51de0e98df50cbebf1005d24db99adff806f50b58eceef79406e7521b929e",
+          "sha512": "1c87cc67297c2888e6dffa2618898c3b8003aa871871ae8ab51723e5bf8f8dfe081556d904b885ec9da012215f7b497c9884ebeb09141f916643674cba2bbd1c"
         },
         "test_type": "sast",
         "format": "SARIF",
@@ -291,7 +291,7 @@
   "gate": {
     "decision": "PASS",
     "policy_id": "cra-pilot-gate/1.0.0",
-    "evaluated_at": "2026-11-01T15:47:36Z",
+    "evaluated_at": "2026-11-01T16:02:09Z",
     "reasons": [
       {
         "code": "SBOM_OK",
