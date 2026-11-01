@@ -627,7 +627,7 @@ Art 69(1) keeps them valid until 11 Jun 2028; they evidence RED compliance, not 
 
 ### 2.23 `pack/out/hosted/D14-compliance-templates-kit/md/03-support-period-determination.md`
 
-Claims: T14. Reason: Art 13(8) second subparagraph lists this as an optional factor.
+Claims: T14. Reason: "Reasonable user expectations" is OJ wording (Art 13(8) second subparagraph: "taking into account, in particular, reasonable user expectations"); the correction is only that the same subparagraph lists comparable products of other manufacturers as an optional factor.
 
 Old text:
 

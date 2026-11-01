@@ -141,9 +141,11 @@ row('EAC-25', 'Declaration field: Art 13(12), 13(20), 28; Annex V.', 'E1', 'fiel
 row('EAC-26', 'Gate route rule: Class I on Module A needs a harmonised standard applied in full; Art 32(2) also allows a common specification or a "substantial" EU certification scheme.', 'E1', 'control table, row "Route and declaration"; decision 6', 'Art 32(2)',
     [o("has not applied or has applied only in part harmonised standards, common specifications or European cybersecurity certification schemes at assurance level at least 'substantial' as referred to in Article 27")], 'OJ', V,
     'Whether the scheme limb works before an Art 27(9) delegated act is open; the guidance reads it as requiring one (footnote 25 to para 148). See legal-positions question C.')
-row('EAC-27', 'Gate blocks Class II or critical products on Module A.', 'E1', 'control table, row "Route and declaration"', 'Art 32(3)-(4); Art 8(1)',
+row('EAC-27', 'Gate blocks Class II products on Module A unless they use the FOSS route with public technical documentation (Art 32(5)), and blocks critical products on either Module A route.', 'E1', 'control table, row "Route and declaration"', 'Art 32(3)-(5); Art 8(1); guidance para 148',
     [o("Where the product is an important product with digital elements that falls under class II as set out in Annex III, the manufacturer shall demonstrate conformity"),
-     o("shall be subject to the conformity assessment procedures referred to in Article 32(3)")], 'OJ', V)
+     o("shall be subject to the conformity assessment procedures referred to in Article 32(3)"),
+     o("which fall under the categories set out in Annex III, shall be able to demonstrate conformity with the essential cybersecurity requirements set out in Annex I by using one of the procedures referred to in paragraph 1 of this Article, provided that the technical documentation referred to in Article 31 is made available to the public at the time of the placing on the market"),
+     g('P148', "important products with digital elements of class II (with the exception of those qualifying as free and open-source software, in accordance with Article 32(5))")], 'OJ; G', V)
 row('EAC-28', 'Module H quality-system audit looks for the trail of gate decisions (Annex VIII Module H pts 3-4).', 'E1', 'section on target architecture', 'Annex VIII Part IV pts 3-4',
     [o("The notified body shall assess the quality system to determine whether it satisfies the requirements referred to in point 3.2")], 'OJ', V)
 row('EAC-29', 'Annex I Part II and the documentation duties apply from 11 Dec 2027; Art 14 reporting since 11 Sep 2026.', 'E1', 'rollout section', 'Art 71(2)',

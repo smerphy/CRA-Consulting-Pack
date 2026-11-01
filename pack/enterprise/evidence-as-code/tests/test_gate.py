@@ -204,6 +204,35 @@ class SupportRouteDeclaration(unittest.TestCase):
             m["classification"].update({"class": "important_class_ii", "conformity_route": "module_a"})
         self.assertIn("ROUTE_NOT_PERMITTED", codes(decide(bundle(LOCK_OK, mut)), "fail"))
 
+    def test_class_ii_foss_with_public_docs_passes_route(self):
+        # Art 32(5); guidance para 148: FOSS in Class II may use Module A
+        # when the technical documentation is public.
+        def mut(m):
+            m["classification"].update({"class": "important_class_ii",
+                                        "conformity_route": "foss_module_a_public_docs"})
+        r = decide(bundle(LOCK_OK, mut))
+        self.assertNotIn("ROUTE_NOT_PERMITTED", codes(r))
+        self.assertNotIn("NB_CERTIFICATE_MISSING", codes(r))
+
+    def test_class_ii_foss_without_public_docs_fails(self):
+        # Without public documentation the product is on plain Module A,
+        # which Class II cannot use (existing behaviour).
+        def mut(m):
+            m["classification"].update({"class": "important_class_ii", "conformity_route": "module_a"})
+        self.assertIn("ROUTE_NOT_PERMITTED", codes(decide(bundle(LOCK_OK, mut)), "fail"))
+
+    def test_class_i_foss_with_public_docs_passes_route(self):
+        def mut(m):
+            m["classification"].update({"class": "important_class_i",
+                                        "conformity_route": "foss_module_a_public_docs"})
+        self.assertNotIn("ROUTE_NOT_PERMITTED", codes(decide(bundle(LOCK_OK, mut))))
+
+    def test_critical_foss_with_public_docs_fails(self):
+        # Annex IV products are outside Art 32(5).
+        def mut(m):
+            m["classification"].update({"class": "critical", "conformity_route": "foss_module_a_public_docs"})
+        self.assertIn("ROUTE_NOT_PERMITTED", codes(decide(bundle(LOCK_OK, mut)), "fail"))
+
     def test_missing_declaration_fails(self):
         def mut(m):
             m["declaration"] = {"declaration_id": None, "status": "pending"}

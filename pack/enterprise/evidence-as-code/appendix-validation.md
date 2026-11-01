@@ -26,9 +26,9 @@ $ python -m cra_evidence retention --placing 2028-02-10 --support-end 2033-02-28
 $ python -m cra_evidence verify-store --store examples/out/store
 OK
 $ python -m pytest -q tests
-121 passed
+125 passed
 $ python tests/run_all.py            # standalone, and again with jsonschema blocked
-Ran 121 tests ... OK
+Ran 125 tests ... OK
 ```
 
 The append-only store keeps the earlier Lumen records, which used each version's own date as the placing date. The corrected records were appended beside them, as the design requires, rather than edited.

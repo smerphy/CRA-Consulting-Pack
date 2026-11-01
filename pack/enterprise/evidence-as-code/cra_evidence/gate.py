@@ -460,7 +460,12 @@ class Gate:
             self.add(code("ROUTE_NOT_PERMITTED"), sev,
                      "Class I with Module A needs an OJ-cited standard applied in full; none cited in policy" + sfx,
                      B["route"])
-        if cls in ("important_class_ii", "critical") and route in ("module_a", "foss_module_a_public_docs"):
+        # Art 32(5) opens Module A to FOSS in any Annex III category (Class I
+        # and Class II) when the technical documentation is public at placing
+        # (guidance para 148). Annex IV (critical) products are outside
+        # Art 32(5), so neither Module A route is open to them.
+        if (cls == "important_class_ii" and route == "module_a") or \
+                (cls == "critical" and route in ("module_a", "foss_module_a_public_docs")):
             self.add(code("ROUTE_NOT_PERMITTED"), sev, "%s cannot use %s%s" % (cls, route, sfx), B["route"])
         if route in ("module_b_c", "module_h") and not c.get("certificate_ref"):
             self.add(code("NB_CERTIFICATE_MISSING"), sev,
