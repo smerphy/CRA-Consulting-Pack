@@ -96,7 +96,8 @@ DERIVED = [
 ]
 EVAL_NS = {"MAX": max, "MIN": min, "IF": lambda c, a, b: a if c else b}
 INPUT_SECTIONS = ("global", "cost", "nb", "lever", "cod")
-FACTORS = ("wage", "shortage", "legal")
+FACTORS = ("wage", "shortage", "legal", "delivery")
+MARKET_FACTORS = ("wage", "shortage", "legal")
 LEVERS = ("lever_precontract", "lever_seq", "lever_thirdbody", "lever_joinqs", "lever_e1par")
 ALL_ON = {k: 1 for k in LEVERS}
 ALL_OFF = {k: 0 for k in LEVERS}
@@ -625,12 +626,14 @@ def joint_mc(M, deadline_day: int, n_runs: int) -> dict:
         vals = bc(str(it["low"])[3:]) if str(it["low"]).startswith("bc:") else (float(it["low"]), float(it["base"]), float(it["high"]))
         scen_p[sc][("act:" + tgt) if tgt in M.act_by_id else tgt] = vals
     keys = sorted(base_p)
-    loads = []
+    loads, loads_mkt = [], []
     for k in keys:
         lk = ("act:" + k[3:]) if k.startswith("pc:") else k
         ld = M.corr.get(lk)
-        a = [ld[f] for f in FACTORS] if ld else [0.0, 0.0, 0.0]
+        a = [ld[f] for f in FACTORS] if ld else [0.0] * len(FACTORS)
         loads.append((a, math.sqrt(max(0.0, 1.0 - sum(x * x for x in a)))))
+        am = [x if f in MARKET_FACTORS else 0.0 for x, f in zip(a, FACTORS)]
+        loads_mkt.append((am, math.sqrt(max(0.0, 1.0 - sum(x * x for x in am)))))
     # quantile tables of each PERT distribution (inverse CDF by sorted sample)
     rq, NQ, tables = random.Random(SEED + 7), 2000, {}
 
@@ -654,22 +657,26 @@ def joint_mc(M, deadline_day: int, n_runs: int) -> dict:
     for _ in range(n_runs):
         F = [rng.gauss(0, 1) for _ in FACTORS]
         e = [rng.gauss(0, 1) for _ in keys]
-        for mode in ("independent", "correlated"):
+        for mode in ("independent", "correlated", "market_only"):
             u = {}
             for idx, k in enumerate(keys):
-                a, sd = loads[idx]
-                z = e[idx] if mode == "independent" else a[0] * F[0] + a[1] * F[1] + a[2] * F[2] + sd * e[idx]
+                a, sd = (loads_mkt if mode == "market_only" else loads)[idx]
+                z = e[idx] if mode == "independent" else sum(ai * fi for ai, fi in zip(a, F)) + sd * e[idx]
                 u[k] = phi(z)
             for sc in MARKET_SCEN:
+                if mode == "market_only" and sc != "A":
+                    continue
                 P = scen_p[sc]
                 vals = {k: look(P[k], u[k]) for k in keys}
                 over = {k: x for k, x in vals.items() if not k.startswith(("act:", "pc:"))}
-                if sc == "A":
+                if sc == "A" and mode != "market_only":
                     rec["codp"][mode].append({k: over[k] for k in ("cod_exp_hardware", "cod_buffer_weeks", "cod_exp_swproduct", "cod_exp_swenabled", "cod_margin")})
                     for plan, lev in (("recommended", ALL_ON), ("as_written", ALL_OFF)):
                         t = M.budget(M.derive(M.pick("base", over, lev)))["total"]
                         for m_ in ("one_off", "run_2028", "total"):
                             rec["cost"].setdefault((plan, mode, m_), []).append(t[m_])
+                if mode == "market_only":
+                    continue  # cost-only variant: the three market factors without the delivery factor
                 sm = {(k[4:] if k.startswith("act:") else k): x for k, x in vals.items() if k.startswith(("act:", "pc:"))}
                 v0 = dict(base_v)
                 v0.update(over)
@@ -880,7 +887,7 @@ def main() -> None:
         w.writerow(["plan", "mode", "measure", "p10_eur_m", "p50_eur_m", "p80_eur_m", "p90_eur_m", "mean_eur_m"])
         for plan in ("recommended", "as_written"):
             for m_ in ("one_off", "run_2028", "total"):
-                for mode in ("independent", "correlated"):
+                for mode in ("independent", "market_only", "correlated"):
                     st = cost_j[f"{plan}|{mode}|{m_}"]
                     w.writerow([plan, mode, m_, st["p10"], st["p50"], st["p80"], st["p90"], st["mean"]])
 
@@ -1213,7 +1220,7 @@ def main() -> None:
     print("Remediation:", summary["remediation"], "Support:", summary["support_extension"], "Lever costs:", summary["lever_costs_eur_m"])
     for plan in ("recommended",):
         for m_ in ("one_off", "run_2028", "total"):
-            print(plan, m_, "indep", cost_j[f"{plan}|independent|{m_}"], "corr", cost_j[f"{plan}|correlated|{m_}"])
+            print(plan, m_, "indep", cost_j[f"{plan}|independent|{m_}"], "mkt", cost_j[f"{plan}|market_only|{m_}"], "corr", cost_j[f"{plan}|correlated|{m_}"])
     for sc in MARKET_SCEN:
         print(sc, "END", {f"{mode}:{sid}": rdy[(sc, mode, sid, "END")] for mode in ("independent", "correlated") for sid in ("S0", "S6", "S7", "S9") if (sc, mode, sid, "END") in rdy})
         print(sc, "E[RaR]", {sid: round(erar[(sc, "correlated", sid)]) for sid in ("S0", "S1", "S2", "S3", "S4", "S5", "S6", "S7")})

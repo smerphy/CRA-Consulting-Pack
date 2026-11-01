@@ -2253,6 +2253,9 @@
 # notified-body shortage), legal (legal-position outcomes that move classification-driven demand). An input's normal score is
 # z = sum(loading x factor) + sqrt(1 - sum(loading^2)) x own noise, mapped to its PERT distribution. A positive loading moves the
 # input towards its high (costly or slow) end. Keys prefixed act: are activity durations (pc_ contracting variants follow).
+# A fourth factor, delivery, is E7's addition beyond the three market factors: a common estimating and execution bias across
+# effort quantities and internal durations (if one workstream's effort is underestimated, others usually are too). The paper
+# reports cost with the three market factors only and with all four.
 - section: corr
   key: fte_cost_usd
   wage: 0.8
@@ -2294,7 +2297,8 @@
   wage: 0
   shortage: 0
   legal: 0.4
-  why: Failed classification calls add counsel work
+  delivery: 0.3
+  why: Failed classification calls add counsel work; common estimating bias
 - section: corr
   key: legal_run_fte
   wage: 0
@@ -2444,7 +2448,8 @@
   wage: 0
   shortage: 0
   legal: 0.3
-  why: Stricter readings of Annex I widen remediation
+  delivery: 0.5
+  why: Stricter readings of Annex I widen remediation; common estimating bias
 - section: corr
   key: act:NB0
   wage: 0
@@ -2493,3 +2498,255 @@
   shortage: 0
   legal: 0.5
   why: Contested calls take longer to ratify
+- section: corr
+  key: e1_platform_fte
+  wage: 0
+  shortage: 0
+  legal: 0
+  delivery: 0.4
+  why: Common estimating bias across effort lines
+- section: corr
+  key: e1_ci_fte
+  wage: 0
+  shortage: 0
+  legal: 0
+  delivery: 0.4
+  why: Common estimating bias across effort lines
+- section: corr
+  key: e1_onboarding_fteyrs
+  wage: 0
+  shortage: 0
+  legal: 0
+  delivery: 0.5
+  why: Common estimating bias across effort lines
+- section: corr
+  key: e1_platform_run_fte
+  wage: 0
+  shortage: 0
+  legal: 0
+  delivery: 0.3
+  why: Common estimating bias across effort lines
+- section: corr
+  key: e1_onboarding_run_fte
+  wage: 0
+  shortage: 0
+  legal: 0
+  delivery: 0.3
+  why: Common estimating bias across effort lines
+- section: corr
+  key: e2_tooling_fteyrs
+  wage: 0
+  shortage: 0
+  legal: 0
+  delivery: 0.4
+  why: Common estimating bias across effort lines
+- section: corr
+  key: qs_build_fte_per_org
+  wage: 0
+  shortage: 0
+  legal: 0
+  delivery: 0.4
+  why: Common estimating bias across effort lines
+- section: corr
+  key: oss_build_fte
+  wage: 0
+  shortage: 0
+  legal: 0
+  delivery: 0.3
+  why: Common estimating bias across effort lines
+- section: corr
+  key: lab_generator_fteyrs
+  wage: 0
+  shortage: 0
+  legal: 0
+  delivery: 0.4
+  why: Common estimating bias across effort lines
+- section: corr
+  key: annexvii_pw
+  wage: 0
+  shortage: 0
+  legal: 0
+  delivery: 0.5
+  why: Common estimating bias across effort lines
+- section: corr
+  key: annexii_pw
+  wage: 0
+  shortage: 0
+  legal: 0
+  delivery: 0.5
+  why: Common estimating bias across effort lines
+- section: corr
+  key: doc_run_fte
+  wage: 0
+  shortage: 0
+  legal: 0
+  delivery: 0.3
+  why: Common estimating bias across effort lines
+- section: corr
+  key: pmo_build_fte
+  wage: 0
+  shortage: 0
+  legal: 0
+  delivery: 0.4
+  why: Common estimating bias across effort lines
+- section: corr
+  key: train_build_fte
+  wage: 0
+  shortage: 0
+  legal: 0
+  delivery: 0.3
+  why: Common estimating bias across effort lines
+- section: corr
+  key: sp_fte_per_model_year
+  wage: 0
+  shortage: 0
+  legal: 0
+  delivery: 0.4
+  why: Common estimating bias across effort lines
+- section: corr
+  key: sev_arc
+  wage: 0
+  shortage: 0
+  legal: 0
+  delivery: 0.5
+  why: Gap assessments tend to be optimistic across all business lines together
+- section: corr
+  key: sev_halo
+  wage: 0
+  shortage: 0
+  legal: 0
+  delivery: 0.5
+  why: Gap assessments tend to be optimistic across all business lines together
+- section: corr
+  key: sev_apps
+  wage: 0
+  shortage: 0
+  legal: 0
+  delivery: 0.5
+  why: Gap assessments tend to be optimistic across all business lines together
+- section: corr
+  key: sev_lumen
+  wage: 0
+  shortage: 0
+  legal: 0
+  delivery: 0.5
+  why: Gap assessments tend to be optimistic across all business lines together
+- section: corr
+  key: sev_hearth
+  wage: 0
+  shortage: 0
+  legal: 0
+  delivery: 0.5
+  why: Gap assessments tend to be optimistic across all business lines together
+- section: corr
+  key: sev_pulse
+  wage: 0
+  shortage: 0
+  legal: 0
+  delivery: 0.5
+  why: Gap assessments tend to be optimistic across all business lines together
+- section: corr
+  key: sev_keystone
+  wage: 0
+  shortage: 0
+  legal: 0
+  delivery: 0.5
+  why: Gap assessments tend to be optimistic across all business lines together
+- section: corr
+  key: sev_cloud
+  wage: 0
+  shortage: 0
+  legal: 0
+  delivery: 0.5
+  why: Gap assessments tend to be optimistic across all business lines together
+- section: corr
+  key: sev_oss
+  wage: 0
+  shortage: 0
+  legal: 0
+  delivery: 0.5
+  why: Gap assessments tend to be optimistic across all business lines together
+- section: corr
+  key: act:M0
+  wage: 0
+  shortage: 0
+  legal: 0
+  delivery: 0.4
+  why: Internal workstreams slip together
+- section: corr
+  key: act:C2
+  wage: 0
+  shortage: 0
+  legal: 0
+  delivery: 0.4
+  why: Internal workstreams slip together
+- section: corr
+  key: act:QSD
+  wage: 0
+  shortage: 0
+  legal: 0
+  delivery: 0.4
+  why: Internal workstreams slip together
+- section: corr
+  key: act:RA
+  wage: 0
+  shortage: 0
+  legal: 0
+  delivery: 0.4
+  why: Internal workstreams slip together
+- section: corr
+  key: act:E1P
+  wage: 0
+  shortage: 0
+  legal: 0
+  delivery: 0.4
+  why: Internal workstreams slip together
+- section: corr
+  key: act:E1W1
+  wage: 0
+  shortage: 0
+  legal: 0
+  delivery: 0.4
+  why: Internal workstreams slip together
+- section: corr
+  key: act:E1W2
+  wage: 0
+  shortage: 0
+  legal: 0
+  delivery: 0.4
+  why: Internal workstreams slip together
+- section: corr
+  key: act:E1W3
+  wage: 0
+  shortage: 0
+  legal: 0
+  delivery: 0.4
+  why: Internal workstreams slip together
+- section: corr
+  key: act:TDN
+  wage: 0
+  shortage: 0
+  legal: 0
+  delivery: 0.4
+  why: Internal workstreams slip together
+- section: corr
+  key: act:TDD
+  wage: 0
+  shortage: 0
+  legal: 0
+  delivery: 0.4
+  why: Internal workstreams slip together
+- section: corr
+  key: act:AII
+  wage: 0
+  shortage: 0
+  legal: 0
+  delivery: 0.4
+  why: Internal workstreams slip together
+- section: corr
+  key: act:TR
+  wage: 0
+  shortage: 0
+  legal: 0
+  delivery: 0.4
+  why: Internal workstreams slip together
