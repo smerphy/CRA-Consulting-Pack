@@ -1,10 +1,10 @@
-<title>CRA Framework Crosswalk</title>
+<title>Global Product Security Control Set</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400..700&family=JetBrains+Mono:wght@400..600&family=Source+Serif+4:opsz,wght@8..60,400..700&display=swap">
 <style>
-/* Layout: "what you hold" selector and coverage summary on top; a requirement x framework matrix (scrolls sideways on its own) with a detail panel for the selected row. Advisory Design System tokens. */
+/* Layout: "regimes you must meet" selector and requirement summary on top; a control x regime matrix (scrolls sideways on its own) with a detail panel for the selected control; regime cards below. Advisory Design System tokens. */
 :root {
   --ink-900: #0E1A2B; --ink-700: #26364D; --ink-500: #56667E; --ink-300: #C5CDD8; --ink-100: #EEF1F5;
   --paper: #FAFAF7; --surface: #FFFFFF;
@@ -112,6 +112,13 @@ table.mx { border-collapse: separate; border-spacing: 0; width: 100%; min-width:
 .pill.cov-none { border: 1px dashed var(--rule); }
 .dim { opacity: .45; }
 .kit { font-size: 10px; vertical-align: super; color: var(--muted); margin-left: 1px; }
+.who { display: block; font: 600 10.5px/1.2 var(--font-body); color: var(--fg-2); margin-top: 3px; }
+.notreq { font-size: 11.5px; color: var(--muted); }
+.opt { font: 600 10px/1 var(--font-body); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); border: 1px solid var(--rule); border-radius: 999px; padding: 3px 6px; margin-left: 4px; }
+.src { font-size: 11.5px; color: var(--muted); }
+.strict { background: var(--tint); border-radius: var(--r2); padding: 8px 10px; font-size: 13.5px; }
+@media (max-width: 600px) { .mx th.req { min-width: 190px; } }
+footer ul { margin: 0; padding-left: 18px; display: grid; gap: 4px; max-width: 115ch; }
 .gapflag { display: inline-block; font: 600 10.5px/1.2 var(--font-body); color: var(--gap); background: var(--gap-tint); padding: 4px 6px; border-radius: 3px; }
 
 aside.detail { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 16px); max-height: calc(100vh - 32px); overflow-y: auto; background: var(--card); border: 1px solid var(--rule); border-radius: var(--r3); box-shadow: var(--shadow); }
@@ -124,7 +131,7 @@ aside.detail { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 16px)
 .d-fw b { font-weight: 600; }
 .d-fw .refs { grid-column: 1 / -1; font: 12px/1.5 var(--font-mono); color: var(--fg-2); word-break: break-word; }
 .d-fw .note { grid-column: 1 / -1; color: var(--fg-2); }
-.d-fw.held b::after { content: " · held"; color: var(--emph); font-weight: 500; }
+.d-fw.held b::after { content: " · your market"; color: var(--emph); font-weight: 500; }
 
 section.fws { padding-block: var(--s6); border-top: 1px solid var(--rule); }
 .fw-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: var(--s4); margin-top: var(--s4); }
@@ -140,23 +147,23 @@ footer p { max-width: 115ch; }
 <header class="mast">
   <div class="wrap">
     <div class="mast-top">
-      <span class="wordmark">CRA READINESS PROGRAMME</span>
-      <span class="meta"><span>Tool D15</span><span id="asat">Facts as at 30 Oct 2026</span><span>Prepared by [Advisor]</span></span>
+      <span class="wordmark">CRA ENTERPRISE EDITION</span>
+      <span class="meta"><span>Module E5</span><span id="asat">Facts as at 1 Nov 2026</span><span id="client">Aldermoor Platforms (fictional)</span></span>
     </div>
-    <h1>Reuse the evidence you already hold for the CRA</h1>
-    <p class="lede">Pick the frameworks your organisation already works to. The crosswalk shows, requirement by requirement, how far that evidence carries into the Cyber Resilience Act, and where the CRA asks for something new.</p>
+    <h1>Global Product Security Control Set</h1>
+    <p class="lede">Run one set of product-security controls, and one evidence store, for the EU, the UK, the US and Japan. Pick your target markets to see which controls each regime requires and the strictest requirement you have to build to.</p>
   </div>
 </header>
 
 <div class="wrap">
   <section class="hold" aria-labelledby="hold-h">
     <div>
-      <p class="eyebrow" id="hold-h">Frameworks you already hold</p>
-      <div class="chips" id="chips" role="group" aria-label="Frameworks you already hold"></div>
+      <p class="eyebrow" id="hold-h">Regimes you must meet</p>
+      <div class="chips" id="chips" role="group" aria-label="Regimes you must meet"></div>
       <div class="hold-actions"><button class="linkbtn" type="button" id="all">Select all</button><button class="linkbtn" type="button" id="none">Clear</button><span class="status" id="holdnote"></span></div>
     </div>
     <div class="summary" aria-live="polite">
-      <div class="big"><b id="pct">0%</b><span id="pctlbl">of CRA requirements have strong or partial evidence from what you hold</span></div>
+      <div class="big"><b id="pct">0%</b><span id="pctlbl">of the controls are required by the regimes you selected</span></div>
       <div class="bar" id="bar" role="img"></div>
       <div class="legend" id="legend"></div>
       <p class="gaps" id="gaps"></p>
@@ -165,9 +172,9 @@ footer p { max-width: 115ch; }
 
   <div class="tools">
     <div class="left">
-      <label class="tog" for="gaponly"><input type="checkbox" id="gaponly">Show gaps only</label>
+      <label class="tog" for="gaponly"><input type="checkbox" id="gaponly">Required controls only</label>
       <select id="grp" aria-label="Requirement group"></select>
-      <input type="search" id="q" placeholder="Search requirement or clause" aria-label="Search requirement or clause">
+      <input type="search" id="q" placeholder="Search control or clause" aria-label="Search control or clause">
     </div>
     <div class="left"><button class="btn" type="button" id="csv">Copy matrix as CSV</button><span class="status" id="csvstatus" aria-live="polite"></span></div>
   </div>
@@ -182,8 +189,8 @@ footer p { max-width: 115ch; }
 
 <section class="fws">
   <div class="wrap">
-    <p class="eyebrow">The frameworks</p>
-    <h2 style="font-size:28px;margin-top:6px">What each one gives you, and where it stops</h2>
+    <p class="eyebrow">The regimes</p>
+    <h2 style="font-size:28px;margin-top:6px">What each regime adds to the CRA baseline</h2>
     <div class="fw-grid" id="fwgrid"></div>
   </div>
 </section>
@@ -191,9 +198,8 @@ footer p { max-width: 115ch; }
 <div class="wrap">
 <footer>
   <p id="metanote"></p>
-  <p>* The CRA draft harmonised standards are not cited in the Official Journal and give no presumption of conformity; they are shown to guide design, and cannot be "held".</p>
-  <p><span class="kit">†</span> Mapping added by this kit where the engagement knowledge base gives none; verify the clause against the standard before relying on it. Unmarked mappings come from the knowledge base. Coverage is an indicative judgement of how much existing evidence can be reused, not a statement of conformity.</p>
-  <p>CRA Readiness Programme · CRA Framework Crosswalk (D15) · v1.0 · 31 Oct 2026 · Prepared by [Advisor]</p>
+  <ul id="footnotes"></ul>
+  <p>CRA Enterprise Edition · Global Product Security Control Set (E5) · v<span id="ver">1.0</span> · 1 Nov 2026 · Prepared by [Advisor]</p>
 </footer>
 </div>
 
@@ -201,105 +207,126 @@ footer p { max-width: 115ch; }
 const XW = /*XW_DATA*/null;
 (() => {
   "use strict";
-  if (!XW) { document.getElementById("detail").textContent = "No crosswalk data loaded."; return; }
+  if (!XW) { document.getElementById("detail").textContent = "No control-set data loaded."; return; }
   const $ = s => document.querySelector(s);
   const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
   const RANK = { strong: 3, partial: 2, weak: 1, none: 0 };
   const LBL = Object.fromEntries(XW.coverage_scale.map(c => [c.id, c.label]));
   const FW = XW.frameworks, RQ = XW.requirements;
   const M = {}; for (const m of XW.mappings) (M[m.req] ||= {})[m.fw] = m;
-  const DEFAULT_HELD = ["iso27001", "iec62443_4_1", "en18031"].filter(id => FW.some(f => f.id === id));
-  const KEY = "cra-crosswalk-held-v1";
-  let held = new Set(DEFAULT_HELD);
-  try { const s = JSON.parse(localStorage.getItem(KEY) || "null"); if (Array.isArray(s)) held = new Set(s.filter(id => FW.some(f => f.id === id && f.holdable !== false))); } catch {}
-  let sel = RQ[0].id;
-  const save = () => { try { localStorage.setItem(KEY, JSON.stringify([...held])); } catch {} };
+  const DEFAULT_SEL = (XW.meta.default_selected || FW.map(f => f.id)).filter(id => FW.some(f => f.id === id));
+  const KEY = "global-control-set-markets-v1";
+  let sel = new Set(DEFAULT_SEL);
+  try { const s = JSON.parse(localStorage.getItem(KEY) || "null"); if (Array.isArray(s)) sel = new Set(s.filter(id => FW.some(f => f.id === id))); } catch {}
+  let cur = RQ[0].id;
+  const save = () => { try { localStorage.setItem(KEY, JSON.stringify([...sel])); } catch {} };
   const shortName = f => f.short || f.name;
-  const best = rid => {
-    let b = { cov: "none", fw: null };
-    for (const fid of held) { const m = M[rid]?.[fid]; if (m && RANK[m.coverage] > RANK[b.cov]) b = { cov: m.coverage, fw: fid }; }
+  const fwById = id => FW.find(f => f.id === id);
+  const covOf = (rid, fid) => (M[rid]?.[fid]?.coverage) || "none";
+  // Strictest requirement among the selected regimes: highest coverage; ties go to the earlier regime in data order (CRA first).
+  const strictest = rid => {
+    let b = { cov: "none", fw: null, all: [] };
+    for (const f of FW) {
+      if (!sel.has(f.id)) continue;
+      const c = covOf(rid, f.id);
+      if (RANK[c] >= 2) b.all.push(f.id);
+      if (RANK[c] > RANK[b.cov]) b = { ...b, cov: c, fw: f.id };
+    }
     return b;
   };
+  const required = rid => RANK[strictest(rid).cov] >= 2;
 
   $("#asat").textContent = `Facts as at ${XW.meta.as_at}`;
+  if (XW.meta.client) $("#client").textContent = XW.meta.client;
+  $("#ver").textContent = XW.meta.version || "1.0";
   $("#metanote").textContent = XW.meta.note;
+  $("#footnotes").innerHTML = (XW.meta.footnotes || []).map(n => `<li>${esc(n)}</li>`).join("");
   $("#legend").innerHTML = XW.coverage_scale.map(c => `<span><i class="sw cov-${c.id}"></i>${esc(c.label)}</span>`).join("");
   const groups = [...new Set(RQ.map(r => r.group))];
-  $("#grp").innerHTML = `<option value="">All requirements (${RQ.length})</option>` + groups.map(g => `<option>${esc(g)}</option>`).join("");
+  $("#grp").innerHTML = `<option value="">All controls (${RQ.length})</option>` + groups.map(g => `<option>${esc(g)}</option>`).join("");
 
   function renderChips() {
-    $("#chips").innerHTML = FW.filter(f => f.holdable !== false).map(f => `<button type="button" class="chip" data-fw="${f.id}" aria-pressed="${held.has(f.id)}"><span class="tick" aria-hidden="true"></span>${esc(shortName(f))}</button>`).join("");
+    $("#chips").innerHTML = FW.map(f => `<button type="button" class="chip" data-fw="${f.id}" aria-pressed="${sel.has(f.id)}"><span class="tick" aria-hidden="true"></span>${esc(shortName(f))}${f.optional ? '<span class="opt">optional</span>' : ""}</button>`).join("");
     document.querySelectorAll("#chips .chip").forEach(b => b.addEventListener("click", () => {
-      held.has(b.dataset.fw) ? held.delete(b.dataset.fw) : held.add(b.dataset.fw); save(); renderAll();
+      sel.has(b.dataset.fw) ? sel.delete(b.dataset.fw) : sel.add(b.dataset.fw); save(); renderAll();
     }));
-    $("#holdnote").textContent = held.size ? "" : "Select at least one framework to see what carries over.";
+    $("#holdnote").textContent = sel.size ? "" : "Select at least one target market.";
   }
 
   function renderSummary() {
     const counts = { strong: 0, partial: 0, weak: 0, none: 0 };
-    const gapList = [];
-    for (const r of RQ) { const b = best(r.id); counts[b.cov]++; if (RANK[b.cov] <= 1) gapList.push(r); }
-    const n = RQ.length, covered = counts.strong + counts.partial;
-    $("#pct").textContent = held.size ? `${Math.round(covered / n * 100)}%` : "–";
-    $("#pctlbl").textContent = held.size ? `of ${n} CRA requirements have strong or partial evidence from what you hold (${counts.strong} strong, ${counts.partial} partial)` : "Select the frameworks you hold";
+    const single = {}, notReq = [];
+    for (const r of RQ) {
+      const b = strictest(r.id); counts[b.cov]++;
+      if (b.all.length === 1 && sel.size > 1) (single[b.all[0]] ||= []).push(r);
+      if (RANK[b.cov] < 2) notReq.push(r);
+    }
+    const n = RQ.length, reqd = counts.strong + counts.partial;
+    $("#pct").textContent = sel.size ? `${reqd}/${n}` : "–";
+    $("#pctlbl").textContent = sel.size ? `controls are required by the ${sel.size} regime${sel.size > 1 ? "s" : ""} you selected (${counts.strong} with a strong requirement, ${counts.partial} partial)` : "Select the regimes you must meet";
     $("#bar").innerHTML = ["strong", "partial", "weak", "none"].map(k => counts[k] ? `<i class="cov-${k}" style="width:${counts[k] / n * 100}%" title="${LBL[k]}: ${counts[k]}"></i>` : "").join("");
-    $("#bar").setAttribute("aria-label", ["strong", "partial", "weak", "none"].map(k => `${LBL[k]} ${counts[k]}`).join(", "));
-    const byGroup = {}; for (const r of gapList) (byGroup[r.group] ||= []).push(r);
-    $("#gaps").innerHTML = held.size
-      ? (gapList.length ? `<b>${gapList.length} requirements need new evidence.</b> ` + Object.entries(byGroup).map(([g, rs]) => `${esc(g)}: ${rs.map(r => esc(r.title)).join(" · ")}`).join(". ") + "." : "<b>No requirement is left without at least partial evidence.</b>")
-      : "";
+    $("#bar").setAttribute("aria-label", "Strictest requirement per control: " + ["strong", "partial", "weak", "none"].map(k => `${LBL[k]} ${counts[k]}`).join(", "));
+    if (!sel.size) { $("#gaps").innerHTML = ""; return; }
+    const parts = [];
+    const singles = Object.entries(single);
+    if (singles.length) parts.push(`<b>Driven by one regime only.</b> ` + singles.map(([fid, rs]) => `${esc(shortName(fwById(fid)))}: ${rs.map(r => esc(r.title)).join(" · ")}`).join(". ") + ".");
+    parts.push(notReq.length ? `<b>${notReq.length} not required by your selection</b> (keep as good practice or for other markets): ${notReq.map(r => esc(r.title)).join(" · ")}.` : "<b>Every control is required by at least one selected regime.</b>");
+    $("#gaps").innerHTML = parts.join(" ");
   }
 
   function renderMatrix() {
-    const g = $("#grp").value, q = $("#q").value.trim().toLowerCase(), gapOnly = $("#gaponly").checked;
-    $("#mxh").innerHTML = `<tr><th class="req" scope="col">CRA requirement</th>${FW.map(f => `<th scope="col" class="fw${held.has(f.id) ? " held" : ""}" title="${esc(f.name)}">${esc(shortName(f))}</th>`).join("")}<th scope="col" class="fw">Best you hold</th></tr>`;
-    let html = "", lastG = null, shown = 0;
+    const g = $("#grp").value, q = $("#q").value.trim().toLowerCase(), reqOnly = $("#gaponly").checked;
+    $("#mxh").innerHTML = `<tr><th class="req" scope="col">Control</th>${FW.map(f => `<th scope="col" class="fw${sel.has(f.id) ? " held" : ""}" title="${esc(f.name)}">${esc(shortName(f))}</th>`).join("")}<th scope="col" class="fw">Strictest in your markets</th></tr>`;
+    let html = "", lastG = null;
     for (const r of RQ) {
       if (g && r.group !== g) continue;
-      const b = best(r.id);
-      if (gapOnly && RANK[b.cov] > 1) continue;
+      const b = strictest(r.id);
+      if (reqOnly && RANK[b.cov] < 2) continue;
       if (q && !(`${r.ref} ${r.title} ${r.summary} ` + FW.map(f => M[r.id]?.[f.id]?.refs || "").join(" ")).toLowerCase().includes(q)) continue;
       if (r.group !== lastG) { html += `<tr class="grp"><th colspan="${FW.length + 2}" scope="colgroup">${esc(r.group)}</th></tr>`; lastG = r.group; }
-      shown++;
-      html += `<tr class="row${r.id === sel ? " sel" : ""}" data-id="${r.id}" tabindex="0"><th class="req" scope="row"><span class="rq-ref">${esc(r.ref)}</span><span class="rq-title">${esc(r.title)}</span></th>` +
-        FW.map(f => { const m = M[r.id]?.[f.id] || { coverage: "none", refs: "", source: "kb" };
-          return `<td class="cell${held.size && !held.has(f.id) ? " dim" : ""}" title="${esc(shortName(f))}: ${esc(LBL[m.coverage])}${m.refs ? " · " + esc(m.refs) : ""}"><span class="pill cov-${m.coverage}">${esc(LBL[m.coverage])}${m.source === "kit" && m.coverage !== "none" ? '<span class="kit">†</span>' : ""}</span></td>`; }).join("") +
-        `<td class="best">${!held.size ? "" : RANK[b.cov] > 1 ? `<span class="pill cov-${b.cov}">${esc(LBL[b.cov])}</span>` : `<span class="gapflag">Gap</span>`}</td></tr>`;
+      html += `<tr class="row${r.id === cur ? " sel" : ""}" data-id="${r.id}" tabindex="0"><th class="req" scope="row"><span class="rq-ref">${esc(r.ref)}</span><span class="rq-title">${esc(r.title)}</span></th>` +
+        FW.map(f => { const m = M[r.id]?.[f.id] || { coverage: "none", refs: "" };
+          return `<td class="cell${sel.size && !sel.has(f.id) ? " dim" : ""}" title="${esc(shortName(f))}: ${esc(LBL[m.coverage])}${m.refs ? " · " + esc(m.refs) : ""}"><span class="pill cov-${m.coverage}">${esc(LBL[m.coverage])}</span></td>`; }).join("") +
+        `<td class="best">${!sel.size ? "" : RANK[b.cov] >= 2 ? `<span class="pill cov-${b.cov}">${esc(LBL[b.cov])}</span><span class="who">${esc(shortName(fwById(b.fw)))}</span>` : `<span class="notreq">Not required</span>`}</td></tr>`;
     }
-    $("#mxb").innerHTML = html || `<tr><td colspan="${FW.length + 2}" style="padding:24px;color:var(--muted)">No requirement matches these filters.</td></tr>`;
+    $("#mxb").innerHTML = html || `<tr><td colspan="${FW.length + 2}" style="padding:24px;color:var(--muted)">No control matches these filters.</td></tr>`;
     document.querySelectorAll("#mxb tr.row").forEach(tr => {
-      const pick = () => { sel = tr.dataset.id; renderMatrix(); renderDetail(); };
+      const pick = () => { cur = tr.dataset.id; renderMatrix(); renderDetail(); };
       tr.addEventListener("click", pick);
       tr.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); pick(); } });
     });
   }
 
   function renderDetail() {
-    const r = RQ.find(x => x.id === sel) || RQ[0];
-    const b = best(r.id);
-    const order = [...FW].sort((a, c) => (held.has(c.id) - held.has(a.id)) || (RANK[M[r.id]?.[c.id]?.coverage || "none"] - RANK[M[r.id]?.[a.id]?.coverage || "none"]));
+    const r = RQ.find(x => x.id === cur) || RQ[0];
+    const b = strictest(r.id);
+    const order = [...FW].sort((a, c) => (sel.has(c.id) - sel.has(a.id)) || (RANK[covOf(r.id, c.id)] - RANK[covOf(r.id, a.id)]));
+    const srcLbl = XW.meta.source_legend || {};
+    const reqBy = b.all.map(id => esc(shortName(fwById(id))));
     $("#detail").innerHTML = `<div class="d-top"><span class="eyebrow">${esc(r.group)}</span><h2>${esc(r.title)}</h2><span class="rq-ref">${esc(r.ref)}</span><p style="font-size:14px;color:var(--fg-2)">${esc(r.summary)}</p>
-      ${held.size ? `<p style="font-size:13.5px">${RANK[b.cov] > 1 ? `Best evidence you hold: <b>${esc(shortName(FW.find(f => f.id === b.fw)))}</b> (${esc(LBL[b.cov])}).` : `<span class="gapflag">Gap</span> Nothing you hold gives more than weak evidence here.`}</p>` : ""}</div>
-      ${r.evidence ? `<div class="d-sec"><span class="eyebrow">CRA evidence for the technical file</span><p>${esc(r.evidence)}</p></div>` : ""}
-      <div class="d-sec"><span class="eyebrow">By framework</span>${order.map(f => { const m = M[r.id]?.[f.id] || { coverage: "none", refs: "", note: "" };
-        return `<div class="d-fw${held.has(f.id) ? " held" : ""}"><b>${esc(shortName(f))}</b><span class="pill cov-${m.coverage}">${esc(LBL[m.coverage])}${m.source === "kit" && m.coverage !== "none" ? '<span class="kit">†</span>' : ""}</span>${m.refs ? `<span class="refs">${esc(m.refs)}</span>` : ""}${m.note ? `<span class="note">${esc(m.note)}</span>` : ""}</div>`; }).join("")}</div>`;
+      ${sel.size ? `<p style="font-size:13.5px">${RANK[b.cov] >= 2 ? `Required in your markets by <b>${reqBy.join(", ")}</b>. Strictest: <b>${esc(shortName(fwById(b.fw)))}</b> (${esc(LBL[b.cov])}).` : `<span class="notreq">Not required by the regimes you selected.</span>`}</p>` : ""}
+      ${r.strictest ? `<p class="strict"><b>Build to:</b> ${esc(r.strictest)}</p>` : ""}</div>
+      ${r.evidence ? `<div class="d-sec"><span class="eyebrow">One artefact that proves it everywhere</span><p>${esc(r.evidence)}</p></div>` : ""}
+      <div class="d-sec"><span class="eyebrow">By regime</span>${order.map(f => { const m = M[r.id]?.[f.id] || { coverage: "none", refs: "", note: "" };
+        return `<div class="d-fw${sel.has(f.id) ? " held" : ""}"><b>${esc(shortName(f))}</b><span class="pill cov-${m.coverage}">${esc(LBL[m.coverage])}</span>${m.refs ? `<span class="refs">${esc(m.refs)}</span>` : ""}${m.note ? `<span class="note">${esc(m.note)}</span>` : ""}${m.source ? `<span class="note src">Source: ${esc(srcLbl[m.source] || m.source)}</span>` : ""}</div>`; }).join("")}</div>`;
   }
 
   function renderFrameworks() {
-    $("#fwgrid").innerHTML = FW.map(f => `<article class="fw-card"><span class="kind">${esc(f.kind)} · ${esc(f.status)}</span><h3>${f.url ? `<a href="${esc(f.url)}" target="_blank" rel="noopener">${esc(f.name)}</a>` : esc(f.name)}</h3><span class="kind">${esc(f.full_name || "")}</span>
-      <dl style="margin:0"><dt>Relation to the CRA</dt><dd>${esc(f.relation_to_cra)}</dd><dt>Evidence that carries over</dt><dd>${esc(f.reuse)}</dd><dt>Main gaps</dt><dd>${esc(f.gaps)}</dd></dl></article>`).join("");
+    $("#fwgrid").innerHTML = FW.map(f => `<article class="fw-card"><span class="kind">${esc(f.kind)}${f.optional ? " · optional" : ""}</span><h3>${f.url ? `<a href="${esc(f.url)}" target="_blank" rel="noopener">${esc(f.name)}</a>` : esc(f.name)}</h3><span class="kind">${esc(f.full_name || "")}</span>
+      <dl style="margin:0"><dt>Status</dt><dd>${esc(f.status)}</dd><dt>Relation to the CRA baseline</dt><dd>${esc(f.relation_to_cra)}</dd><dt>What the control set already gives you</dt><dd>${esc(f.reuse)}</dd><dt>Duties unique to this regime</dt><dd>${esc(f.gaps)}</dd>
+      ${Object.entries(f.facts || {}).map(([k, v]) => `<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join("")}</dl></article>`).join("");
   }
 
   function renderAll() { renderChips(); renderSummary(); renderMatrix(); renderDetail(); }
 
-  $("#all").addEventListener("click", () => { held = new Set(FW.filter(f => f.holdable !== false).map(f => f.id)); save(); renderAll(); });
-  $("#none").addEventListener("click", () => { held = new Set(); save(); renderAll(); });
+  $("#all").addEventListener("click", () => { sel = new Set(FW.map(f => f.id)); save(); renderAll(); });
+  $("#none").addEventListener("click", () => { sel = new Set(); save(); renderAll(); });
   for (const id of ["#grp", "#gaponly"]) $(id).addEventListener("change", renderMatrix);
   $("#q").addEventListener("input", renderMatrix);
   $("#csv").addEventListener("click", async () => {
     const cell = v => `"${String(v ?? "").replace(/"/g, '""')}"`;
-    const head = ["Requirement ID", "CRA reference", "Requirement", ...FW.flatMap(f => [`${shortName(f)} coverage`, `${shortName(f)} clauses`])];
-    const rows = RQ.map(r => [r.id, r.ref, r.title, ...FW.flatMap(f => { const m = M[r.id]?.[f.id] || {}; return [LBL[m.coverage || "none"], (m.refs || "") + (m.source === "kit" && m.coverage !== "none" ? " (kit mapping)" : "")]; })]);
+    const head = ["Control ID", "Group", "Control", "Evidence", ...FW.flatMap(f => [`${shortName(f)} coverage`, `${shortName(f)} clauses`]), "Strictest in selected markets"];
+    const rows = RQ.map(r => { const b = strictest(r.id); return [r.id, r.group, r.title, r.evidence, ...FW.flatMap(f => { const m = M[r.id]?.[f.id] || {}; return [LBL[m.coverage || "none"], m.refs || ""]; }), RANK[b.cov] >= 2 ? `${shortName(fwById(b.fw))} (${LBL[b.cov]})` : "Not required"]; });
     const text = [head, ...rows].map(r => r.map(cell).join(",")).join("\n");
     try { await navigator.clipboard.writeText(text); $("#csvstatus").textContent = `Copied ${rows.length} rows.`; }
     catch { $("#csvstatus").textContent = "Copy was blocked here. Use the CSV file delivered with the pack."; }

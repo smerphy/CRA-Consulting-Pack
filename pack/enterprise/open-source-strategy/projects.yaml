@@ -1,0 +1,158 @@
+# Aldermoor-led open-source projects: CRA roles and recommended actions (module E4)
+# Fictional reference client. Project facts below are ILLUSTRATIVE and were added by the
+# E4 writer, consistent with the master brief. Legal points cite the knowledge base:
+#   reports/sections/05-roles.md, 06-classification.md, 10-conformity.md, 12-open-source.md,
+#   13-interplay.md; reports/verification.md; research_notes/.../open_source.md.
+# "pt" and "Ex" refer to Commission guidance C(2026) 5252 (approved draft, 27 Jul 2026) as
+# mirrored by the ORC WG; the Commission PDF is authoritative.
+
+meta:
+  as_at: "2026-11-01"
+  regulatory_facts_verified_to: "2026-10-30"
+  steward_duties_apply_from: "2027-12-11"     # Art 71(2); 12-open-source.md
+  manufacturer_art14_applies_from: "2026-09-11"
+  pld_applies_to_products_placed_after: "2026-12-09"  # verification.md claim 19
+  additions_to_brief:
+    - "Licences, governance bodies, partner early-access programme, LTS offers and downstream users are illustrative."
+    - "Mooring Enterprise (paid) and Tensile LTS for paying cloud customers exist today (see E3 F39, F40)."
+    - "Halo partners receive security patches about 30 days before public release under the services distribution agreement."
+
+support_types:   # guidance pt 79; Art 24(3)
+  non_technical: "Branding, governance, donations: policy and cooperation only; no Art 14 reporting (pt 80)"
+  infrastructure: "Repositories, CI, signing keys, registries: also notify severe incidents affecting that infrastructure (Art 24(3) via Art 14(3), (8); pt 81)"
+  engineering: "Employed developers, releases, patches: also notify actively exploited vulnerabilities (Art 24(3) via Art 14(1); pt 82)"
+
+projects:
+
+  - id: HOSP
+    name: Halo Open Source Project
+    what_it_is: "Open-source base of the Halo mobile operating system (kernel, runtime, system services, reference apps)"
+    licence: "Apache-2.0 userland; GPL-2.0 kernel (illustrative)"
+    governance:
+      today: "Aldermoor-controlled. Aldermoor employees hold all release-manager and most maintainer roles; Aldermoor publishes releases and runs the repositories, CI and signing keys."
+      recommended: "Stay company-governed. Publish a project charter naming the Aldermoor legal entity that acts as steward, and a public Art 24(1) policy."
+    aldermoor_support_types: [non_technical, infrastructure, engineering]
+    monetisation:
+      today: "Source releases are free. Aldermoor earns revenue from the separately licensed Halo Services package, from Arc devices and from Halo Wear OS licences."
+      trigger_risks:
+        - "Partner early access: OEMs that sign the Halo Services agreement get security patches about 30 days early. If access to HOSP updates depends on a commercial agreement, an authority could treat it as a price for updates (pts 57, 60-62 by analogy)."
+        - "HOSP as the vehicle for services monetisation: pt 54 treats FOSS used to monetise other products or services as placed on the market. The separation between HOSP and Halo Services must be real in code, contracts and access."
+        - "Any paid support for a specific HOSP version would place that version on the market (pt 57, Ex 17)."
+    integrated_into_aldermoor_products: ["Arc phones and tablets (E3 F01, F02)", "Halo Wear OS (F07)", "Halo Services package runs on it (F06)"]
+    downstream_users: ["Hundreds of third-party phone and tablet makers", "Chip vendors (board support packages)", "Community distributions"]
+    role_today: "Steward for HOSP (Art 3(14); pts 67-68; Ex 25, 26, 29), subject to the early-access risk. Manufacturer of Arc devices, Halo Services and Halo Wear OS."
+    if_monetised: "Manufacturer of an Annex III Class I item 11 product (operating system); Art 32(5) Module A available if the Annex VII documentation is public."
+    art14_exposure: "As manufacturer of Arc devices and Halo Wear: Art 14 in force since 11 Sep 2026. As steward with engineering support: actively exploited vulnerabilities in HOSP itself from 11 Dec 2027 (Art 24(3)), including exploitation seen only on third-party OEM devices."
+    recommended_role: steward
+    downstream_commitments:
+      offer: ["Public monthly security bulletin with CVEs and patch levels", "CSAF advisories with VEX status", "Release SBOM and signed build provenance for each tagged release", "Published support window per major release, stated as intent", "Embargoed early access for any HOSP-based device maker on objective, free criteria"]
+      avoid: ["Tying early patch access to the Halo Services licence", "Contractual patch SLAs or warranties for HOSP releases", "CE marking or declarations of conformity for HOSP (stewards cannot CE mark; recital 19)", "Statements that HOSP is 'CRA compliant'"]
+    actions:
+      - {action: "Decouple the partner early-access programme from the Halo Services agreement; open it to any HOSP-based device maker under a free embargo agreement", owner: "General Counsel with VP Platforms", by: "2027-06"}
+      - {action: "Publish the HOSP Art 24(1) cybersecurity policy and name the steward legal entity", owner: "Head of Open Source Programme Office", by: "2027-06"}
+      - {action: "Route HOSP actively exploited vulnerabilities through the E2 case engine with both roles recorded (manufacturer for Arc, steward for HOSP)", owner: "CISO", by: "2027-09"}
+
+  - id: LUMEN-ENGINE
+    name: Lumen Engine
+    what_it_is: "Open-source web rendering and JavaScript engine behind Lumen Browser and Lumen WebView"
+    licence: "BSD-3-Clause (illustrative)"
+    governance:
+      today: "Aldermoor-led; about 85% of commits from Aldermoor; other browser vendors hold committer rights; Aldermoor publishes releases and runs CI."
+      recommended: "Keep Aldermoor as steward of the main engine. Move long-term support (LTS) branches to a not-for-profit foundation funded by members, with LTS releases public to all."
+    aldermoor_support_types: [non_technical, infrastructure, engineering]
+    monetisation:
+      today: "None. Lumen Browser is monetised through search, but the engine is published separately and freely."
+      trigger_risks:
+        - "Embedded, automotive and TV makers need engine security fixes for 5-10 year support periods (Art 13(8)) and ask Aldermoor to sell LTS branches. Selling LTS places those versions on the market (pt 57, Ex 17)."
+        - "Gating LTS to foundation members would turn membership fees into a de facto price (pts 60-62)."
+    integrated_into_aldermoor_products: ["Lumen Browser desktop and mobile (E3 F11, F12)", "Lumen WebView (F13)", "Lumen OS (F14)"]
+    downstream_users: ["Other browser makers (their browsers are Annex III Class I item 2 products)", "Desktop application frameworks embedding the engine", "TV, automotive and kiosk makers"]
+    role_today: "Steward (Ex 25, 29). Manufacturer of Lumen Browser, WebView and Lumen OS."
+    if_monetised: "Manufacturer of an Annex III Class I item 2 product (embedded browser); as FOSS, Art 32(5) allows Module A if the Annex VII documentation is published."
+    art14_exposure: "As manufacturer of Lumen Browser: in force since 11 Sep 2026, about 10 in-the-wild exploited vulnerabilities a year historically. As steward: actively exploited engine vulnerabilities from 11 Dec 2027, even when exploited only in another vendor's browser."
+    recommended_role: steward
+    downstream_commitments:
+      offer: ["CSAF advisories with VEX for every security release", "Release SBOM and signed provenance", "Published support windows for stable and extended-stable channels, stated as intent", "An engine architecture and threat-model document that downstream browser makers can cite in their own technical files", "A self-declaration against the OpenSSF OSPS Baseline, labelled voluntary"]
+      avoid: ["Paid LTS sold by Aldermoor, unless the executive team accepts the manufacturer role and the Art 32(5) disclosure", "Member-only LTS releases", "Promising downstream makers that the engine meets Annex I", "Indemnities"]
+    actions:
+      - {action: "Decide the LTS model: foundation-run public LTS funded by members (recommended) or Aldermoor-sold LTS under Art 32(5)", owner: "CTO with General Counsel", by: "2027-03"}
+      - {action: "Publish the Lumen Engine Art 24(1) policy and the engine threat model", owner: "VP Engineering, Lumen", by: "2027-06"}
+      - {action: "Set up a downstream security notification list with objective, free admission criteria", owner: "Lumen security lead", by: "2027-06"}
+
+  - id: KITE
+    name: Kite programming language and toolchain
+    what_it_is: "Compiler, standard library, package manager and package registry"
+    licence: "Apache-2.0 (illustrative)"
+    governance:
+      today: "Aldermoor-led with an advisory steering council that includes external members; Aldermoor hosts the package registry and signing keys."
+      recommended: "Transfer the project, trademark and registry to an independent Kite Foundation that publishes releases. Aldermoor funds and contributes."
+    aldermoor_support_types: [non_technical, infrastructure, engineering]
+    monetisation:
+      today: "None. Aldermoor Cloud runs Kite workloads as a hosted service; paid hosting of FOSS is not addressed in the guidance (12-open-source.md)."
+      trigger_risks:
+        - "Selling a supported Kite distribution or priority registry features would make Aldermoor a manufacturer (pts 51, 57)."
+    integrated_into_aldermoor_products: ["Kite runtime and standard library compiled into Aldermoor apps and services"]
+    downstream_users: ["Developers and companies shipping Kite-built software; the standard library ends up inside their products"]
+    role_today: "Steward with engineering and infrastructure support. Hosting the registry is not making available (recital 20) but brings Art 24(3) severe-incident duties for that infrastructure (pt 81)."
+    if_monetised: "Manufacturer of a default-class product (Module A)."
+    art14_exposure: "From 11 Dec 2027: actively exploited vulnerabilities (engineering) and severe incidents affecting the registry or signing infrastructure (infrastructure). After transfer these sit with the foundation; Aldermoor keeps manufacturer duties for its own products."
+    recommended_role: "contributor after transfer; steward until then"
+    downstream_commitments:
+      offer: ["Signed packages and registry provenance", "Security advisories for the toolchain and standard library", "Registry incident notification to users"]
+      avoid: ["Support commitments from Aldermoor once the foundation is steward"]
+    actions:
+      - {action: "Charter the Kite Foundation; transfer trademark, release authority and registry", owner: "Head of Open Source Programme Office", by: "2027-09"}
+      - {action: "Until transfer, publish the Art 24(1) policy and a registry incident plan", owner: "Kite engineering lead", by: "2027-06"}
+
+  - id: MOORING
+    name: Mooring
+    what_it_is: "Package and release manager for container-orchestrated applications"
+    licence: "Apache-2.0 (illustrative)"
+    governance:
+      today: "Aldermoor-led; Aldermoor also sells Mooring Enterprise, a paid supported edition with policy features (E3 F39)."
+      recommended: "Contribute the community edition to a neutral cloud-native foundation that publishes releases. Keep Mooring Enterprise as an Aldermoor product."
+    aldermoor_support_types: [infrastructure, engineering]
+    monetisation:
+      today: "Open core: free community edition and paid Mooring Enterprise."
+      trigger_risks:
+        - "Holding back security fixes from the community edition, or releasing them later than Enterprise, would make the free edition look like a gated product (pts 52-53, 62)."
+    integrated_into_aldermoor_products: ["Mooring Enterprise (F39)", "Aldermoor Edge deployment tooling (F33)"]
+    downstream_users: ["Platform engineering teams", "Software vendors packaging applications for orchestrated clusters"]
+    role_today: "Steward for the community edition; manufacturer for Mooring Enterprise (pts 52-53, Ex 30). Default class either way."
+    if_monetised: "Already monetised through Enterprise; the community edition stays unplaced while it is genuinely free."
+    art14_exposure: "Manufacturer duties for Enterprise since 11 Sep 2026; steward duties for the community edition from 11 Dec 2027 until transfer."
+    recommended_role: "contributor for community (after transfer); manufacturer for Enterprise"
+    downstream_commitments:
+      offer: ["Same-day security fixes in community and Enterprise", "Advisories and SBOMs for community releases"]
+      avoid: ["Enterprise-first security releases", "Warranties on the community edition"]
+    actions:
+      - {action: "Contribute community Mooring to a neutral foundation; agree release authority sits with the foundation", owner: "Head of Open Source Programme Office", by: "2027-12"}
+      - {action: "Adopt a same-day security-release rule across editions", owner: "Mooring engineering lead", by: "2027-03"}
+
+  - id: TENSILE
+    name: Tensile
+    what_it_is: "Machine-learning framework for training and inference"
+    licence: "Apache-2.0 (illustrative)"
+    governance:
+      today: "Aldermoor-led; large external contributor base; Aldermoor publishes community releases every 3 months and LTS builds every 12 months, the latter only to paying Aldermoor Cloud customers."
+      recommended: "Stay company-led for now. Publish LTS branches openly to all users."
+    aldermoor_support_types: [non_technical, infrastructure, engineering]
+    monetisation:
+      today: "Community releases free. LTS builds available only to paying cloud customers: paid access to a specific supported version, which places it on the market (pt 57, Ex 17)."
+      trigger_risks:
+        - "LTS gating (current)."
+        - "Pre-trained model weights distributed with the framework: the guidance does not address weights; a bare weights file is unresolved (03-scope.md)."
+    integrated_into_aldermoor_products: ["On-device ML in Arc phones and Halo", "Hearth assistant", "Aldermoor Cloud ML services (hosted, not a product)"]
+    downstream_users: ["ML developers", "Device and app makers embedding the inference runtime"]
+    role_today: "Steward for community releases; manufacturer for LTS builds today (default class, Module A)."
+    if_monetised: "Default-class product; Module A."
+    art14_exposure: "Manufacturer of LTS builds: Art 14 already applies to them. Steward duties for community releases from 11 Dec 2027."
+    recommended_role: steward
+    downstream_commitments:
+      offer: ["Public LTS branches with published support windows", "Advisories, SBOMs and provenance for the framework", "Model cards and provenance for distributed weights, labelled voluntary"]
+      avoid: ["Customer-only LTS builds", "Claims that models or weights are CRA compliant"]
+    actions:
+      - {action: "Open LTS builds to all users, or confirm Tensile LTS as a manufactured product with full CRA treatment", owner: "VP Engineering, ML with General Counsel", by: "2027-03"}
+      - {action: "Until decided, include Tensile LTS in the E2 Art 14 case engine as a manufacturer product", owner: "CISO", by: "immediately"}
+
+decision_matrix_columns: ["project", "governance today", "monetisation today", "role today", "main trigger risk", "recommended role", "governance move", "decision owner"]

@@ -1,0 +1,16 @@
+{
+  "module": "E1 evidence-as-code",
+  "note": "Fictional details added to the Aldermoor Platforms reference client by this module (BRIEF.md integrity rule: record additions). All illustrative.",
+  "additions": [
+    {"item": "Trusted builder identity", "value": "https://build.aldermoor.example/hermetic/v2 (hermetic Bazel-style remote execution, EU pool 'eu-hermetic-prod')"},
+    {"item": "Build type URI", "value": "https://build.aldermoor.example/buildtypes/hermetic-bazel/v1"},
+    {"item": "Evidence store", "value": "Object storage bucket 'aldermoor-cra-evidence-eu' with compliance-mode object lock; key prefix v1/<product>/<version>/"},
+    {"item": "Release metadata service", "value": "Internal service that writes release.json (placing date, class and route, support period, pt 110 answers, declaration link)"},
+    {"item": "Hearth Lock 3", "value": "Smart door lock; variants HL3-STD and HL3-PRO; Zephyr-based firmware; Thread and Matter; firmware 4.2.0 (security update, placed 18 Jan 2028) and 4.3.0 (adds voice-assistant unlock via Hearth cloud, 6 Mar 2028); support period to 31 Dec 2039"},
+    {"item": "Lumen Browser 141", "value": "141.0.7390.40 major placed earlier; 141.0.7390.54 blocked by the gate; 141.0.7390.65 placed 10 Feb 2028; support period to 28 Feb 2033 with Art 13(10) latest-version rule"},
+    {"item": "Conformity route assumed for Class I examples", "value": "Module H under an illustrative quality-system approval 'QS-APPROVAL-ILLUSTRATIVE-0142' (no CRA notified body designated at 8 Sep 2026)"},
+    {"item": "Declarations", "value": "AP-DoC-HL3-2027-001 (Hearth Lock 3 family, from firmware 4.0.0); AP-DoC-LB-141 (Lumen Browser 141, from 141.0.7390.40)"},
+    {"item": "Release volume assumption for sizing", "value": "2,000 EU-relevant product versions a week (estimate, out of 'thousands of releases a week')"},
+    {"item": "EU product lines for onboarding estimate", "value": "About 200 (estimate)"}
+  ]
+}
