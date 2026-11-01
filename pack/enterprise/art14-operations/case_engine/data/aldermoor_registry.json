@@ -1,0 +1,51 @@
+{
+  "_note": "Fictional reference client for the CRA Enterprise Edition (module E2). Aldermoor Platforms is fictional. Product versions, establishment headcounts, distribution maps and channels below are module E2 additions consistent with pack/enterprise/BRIEF.md; they are illustrative, not data about any real company. The 'class' strings are indicative inputs for the optional SRP field 'Product type, class and category'; module E3 (portfolio-classification) owns the authoritative classification.",
+  "manufacturer": {
+    "name": "Aldermoor Platforms",
+    "eu_manufacturer_entity": "Aldermoor Ireland Ltd",
+    "eu_establishments": [
+      {"member_state": "IE", "entity": "Aldermoor Ireland Ltd (Dublin)", "product_security_decisions_predominant": true, "employees": 8200},
+      {"member_state": "DE", "entity": "Aldermoor Germany GmbH (Munich)", "product_security_decisions_predominant": false, "employees": 3100},
+      {"member_state": "PL", "entity": "Aldermoor Poland sp. z o.o. (Warsaw)", "product_security_decisions_predominant": false, "employees": 1900}
+    ],
+    "authorised_representative_member_state": null,
+    "importer_member_state": null,
+    "distributor_member_state": null,
+    "most_users_member_state": "DE"
+  },
+  "coordinator_csirts": {
+    "_source": "KB reports/sections/09-reporting.md (ENISA list of coordinator CSIRTs, 4 Sep 2026; Ireland's NCSC CRA page); research_notes reporting_obligations.md KQ4 for contact URLs",
+    "IE": {"name": "National Cyber Security Centre (NCSC), Ireland", "url": "https://www.ncsc.gov.ie/cra/", "outage_fallback": "cra_fallback@ncsc.gov.ie (only once ENISA declares an SRP outage)"},
+    "DE": {"name": "BSI / CERT-Bund", "url": "https://www.bsi.bund.de/CERT-Bund", "outage_fallback": "Email in English while the SRP is down (per KB)"},
+    "BE": {"name": "Centre for Cybersecurity Belgium", "url": "https://ccb.belgium.be", "outage_fallback": null},
+    "NL": {"name": "NCSC-NL", "url": "https://www.ncsc.nl", "outage_fallback": null},
+    "FR": {"name": "CERT-FR", "url": "https://cert.cyber.gouv.fr", "outage_fallback": null}
+  },
+  "eu27": ["AT","BE","BG","HR","CY","CZ","DK","EE","FI","FR","DE","GR","HU","IE","IT","LV","LT","LU","MT","NL","PL","PT","RO","SK","SI","ES","SE"],
+  "products": [
+    {"id": "lumen-browser-desktop", "name": "Lumen Browser (desktop)", "family": "browser", "affected_versions": "all versions before the fixed build", "components": ["lumen-engine"], "member_states": "EU27", "class": "Annex III Class I (browser)", "support_status": "supported", "rdps_on_aldermoor_cloud": true, "user_channels": ["in-product update prompt", "public security advisory", "CSAF feed"]},
+    {"id": "lumen-browser-mobile", "name": "Lumen Browser (mobile)", "family": "browser", "affected_versions": "all versions before the fixed build", "components": ["lumen-engine"], "member_states": "EU27", "class": "Annex III Class I (browser)", "support_status": "supported", "rdps_on_aldermoor_cloud": true, "user_channels": ["app-store update", "public security advisory", "CSAF feed"]},
+    {"id": "lumen-os", "name": "Lumen OS (laptop operating system)", "family": "desktop_os", "affected_versions": "releases embedding the affected Lumen Engine build", "components": ["lumen-engine", "lumen-os-kernel"], "member_states": "EU27", "class": "Annex III Class I (operating system)", "support_status": "supported", "rdps_on_aldermoor_cloud": true, "user_channels": ["OS update notification", "admin console notice", "public security advisory", "CSAF feed"]},
+    {"id": "halo-os", "name": "Halo OS (mobile operating system, incl. system WebView)", "family": "mobile_os", "affected_versions": "security patch levels before the fixed level", "components": ["lumen-engine", "halo-kernel", "halo-media"], "member_states": "EU27", "class": "Annex III Class I (operating system)", "support_status": "supported", "rdps_on_aldermoor_cloud": true, "user_channels": ["system update notification", "OEM partner bulletin", "public security bulletin", "CSAF feed"]},
+    {"id": "hearth-hub-display", "name": "Hearth Hub smart display", "family": "smart_home", "affected_versions": "firmware before the fixed release", "components": ["lumen-engine", "hearth-rtos"], "member_states": ["AT","BE","DK","FI","FR","DE","IE","IT","NL","PL","PT","ES","SE","CZ","LU","GR","HU","RO","SK"], "class": "Annex III Class I (smart home general-purpose virtual assistant)", "support_status": "supported", "rdps_on_aldermoor_cloud": true, "user_channels": ["companion app notification", "public security advisory", "CSAF feed"]},
+    {"id": "drive-sync-client", "name": "Aldermoor Drive desktop sync client", "family": "cloud_installed", "affected_versions": "versions embedding the affected webview build", "components": ["lumen-engine"], "member_states": "EU27", "class": "default", "support_status": "supported", "rdps_on_aldermoor_cloud": true, "user_channels": ["in-app notice", "admin console notice", "public security advisory", "CSAF feed"]},
+    {"id": "arc-phone", "name": "Arc phone (hardware with Halo OS)", "family": "devices", "affected_versions": "devices on security patch levels before the fixed level", "components": ["halo-kernel", "halo-media", "bastion-se-firmware"], "member_states": "EU27", "class": "default (core function: smartphone)", "support_status": "supported", "rdps_on_aldermoor_cloud": true, "user_channels": ["system update notification", "email to registered owners", "public security bulletin", "CSAF feed"]},
+    {"id": "hearth-camera", "name": "Hearth camera and video doorbell", "family": "smart_home", "affected_versions": "firmware before the fixed release", "components": ["hearth-rtos"], "member_states": "EU27", "class": "Annex III Class I (smart home security product)", "support_status": "supported", "rdps_on_aldermoor_cloud": true, "user_channels": ["companion app notification", "email to registered owners", "public security advisory"]},
+    {"id": "hearth-lock", "name": "Hearth smart lock", "family": "smart_home", "affected_versions": "firmware before the fixed release", "components": ["hearth-rtos"], "member_states": ["AT","BE","DK","FI","FR","DE","IE","IT","NL","PL","ES","SE","LU","PT"], "class": "Annex III Class I (smart home security product, smart door lock)", "support_status": "supported", "rdps_on_aldermoor_cloud": true, "user_channels": ["companion app notification", "email to registered owners", "public security advisory"]},
+    {"id": "hearth-router", "name": "Hearth mesh Wi-Fi router", "family": "smart_home", "affected_versions": "firmware before the fixed release", "components": ["hearth-rtos"], "member_states": "EU27", "class": "Annex III Class I (router)", "support_status": "supported", "rdps_on_aldermoor_cloud": true, "user_channels": ["companion app notification", "public security advisory", "CSAF feed"]},
+    {"id": "pulse-watch", "name": "Pulse smartwatch", "family": "wearables", "affected_versions": "firmware before the fixed release", "components": ["pulse-rtos"], "member_states": "EU27", "class": "default (classification to confirm with module E3)", "support_status": "supported", "rdps_on_aldermoor_cloud": true, "user_channels": ["companion app notification", "public security advisory"]},
+    {"id": "keystone-key", "name": "Keystone security key", "family": "security_keys", "affected_versions": "firmware revisions listed in the advisory", "components": ["keystone-fw"], "member_states": "EU27", "class": "classification to confirm with module E3", "support_status": "supported", "rdps_on_aldermoor_cloud": false, "user_channels": ["email to registered owners", "public security advisory", "CSAF feed"]}
+  ],
+  "components": {
+    "lumen-engine": {"name": "Lumen Engine", "open_source": true, "maintainer": "Lumen Engine project (Aldermoor-led)", "upstream_channel": "Lumen Engine security tracker (embargoed)"},
+    "halo-kernel": {"name": "Halo OS kernel", "open_source": true, "maintainer": "Halo Open Source Project (Aldermoor-led)", "upstream_channel": "Halo Open Source Project security tracker"},
+    "halo-media": {"name": "Halo media framework", "open_source": true, "maintainer": "Halo Open Source Project (Aldermoor-led)", "upstream_channel": "Halo Open Source Project security tracker"},
+    "lumen-os-kernel": {"name": "Lumen OS kernel", "open_source": true, "maintainer": "Upstream kernel community", "upstream_channel": "Upstream kernel security contact"},
+    "hearth-rtos": {"name": "Hearth RTOS", "open_source": false, "maintainer": "Aldermoor", "upstream_channel": null},
+    "pulse-rtos": {"name": "Pulse RTOS", "open_source": false, "maintainer": "Aldermoor", "upstream_channel": null},
+    "keystone-fw": {"name": "Keystone firmware", "open_source": false, "maintainer": "Aldermoor", "upstream_channel": null},
+    "bastion-se-firmware": {"name": "Bastion secure element firmware", "open_source": false, "maintainer": "Aldermoor", "upstream_channel": null}
+  },
+  "awareness_authority_roles": ["psirt_lead", "psirt_deputy", "psirt_duty_officer"],
+  "legal_reviewer_roles": ["product_counsel", "legal_duty_counsel"]
+}

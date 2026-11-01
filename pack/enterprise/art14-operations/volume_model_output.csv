@@ -1,0 +1,8 @@
+scenario,aev_cases,si_cases,srp_notifications_per_product,srp_notifications_grouped,srp_submissions_per_product,srp_submissions_grouped,user_notices,filing_hours,triage_hours,coordination_hours,cell_hours,fte_cell_workload,fte_filing_seat_24x7,fte_cell_recommended,fte_legal,fte_comms,fte_incremental_total,fte_duty_rota_existing,p_overlap_72h
+low,15.0,1.0,31.0,16.0,124.0,64.0,62.0,165.33,240.0,210.0,787.33,0.49,5.47,5.47,0.03,0.06,5.56,5.47,0.12
+base,30.5,2.0,91.8,32.5,413.1,146.25,275.4,688.5,1040.0,730.0,3011.7,1.88,5.47,5.47,0.11,0.34,5.93,5.47,0.23
+high,53.0,5.0,221.0,58.0,1326.0,348.0,884.0,2891.42,5220.0,2090.0,11095.82,6.93,5.47,6.93,0.41,1.66,9.01,5.47,0.38
+
+mode,srp_records,submissions_first_72h,ar_hours_24h,ar_hours_72h,legal_hours_72h,user_notices,localised_notice_variants,ar_pairs_for_4h_ew,member_states
+per_product (FO-1),6,12,6.0,21.0,6.0,12,288,2,27
+grouped,1,2,1.0,3.5,1.0,12,288,1,27

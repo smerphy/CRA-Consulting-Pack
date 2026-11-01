@@ -1,0 +1,44 @@
+section,key,description,low,base,high,unit,label,source
+aev,lumen_engine_browser,"Actively exploited vulnerabilities in Lumen Engine / Lumen Browser",6,10,14,cases/yr,Aldermoor brief + benchmark,"BRIEF.md: ~10 in-the-wild exploited vulnerabilities a year historically. Benchmark: 8 Chrome zero-days exploited in 2025 (CyberInsider 11 Dec 2025); browsers <10% of 90 zero-days in 2025 (GTIG 5 Mar 2026)"
+aev,halo_os_arc_devices,"AEVs in Halo OS (incl. kernel, media, vendor firmware) and Arc phones/tablets",4,8,14,cases/yr,Estimate calibrated by benchmark,"GTIG: mobile OS zero-days 15 (2025), 9 (2024), 17 (2023) across all mobile OS vendors. Uplift for n-day exploitation on unpatched devices is an estimate"
+aev,lumen_os_non_engine,"AEVs in Lumen OS outside the engine",1,2,4,cases/yr,Estimate,"GTIG: desktop OS zero-days 16-23 a year across all vendors; Lumen OS share is an assumption"
+aev,hearth_smart_home,"AEVs in Hearth cameras, doorbells, locks, displays, routers",1,3,6,cases/yr,Estimate,"CISA KEV added 245 entries in 2025 and 185 in 2024 (SecurityWeek), many in edge and IoT devices; no vendor split used"
+aev,pulse_keystone,"AEVs in Pulse wearables and Keystone keys",0,0.5,1,cases/yr,Estimate,Assumption
+aev,cloud_installed,"AEVs in desktop sync client, CLI/SDKs, on-prem connectors, mobile apps",1,2,4,cases/yr,Estimate,Assumption
+aev,third_party_components,"AEVs from third-party components exploited in Aldermoor products (guidance para 218 test)",2,4,8,cases/yr,Estimate,"KB 09-reporting.md triggers; Commission FAQ 5.4. Volume is an assumption"
+aev,oss_led_projects,"AEVs in Kite, Mooring, Tensile where Aldermoor markets them as products",0,1,2,cases/yr,Estimate,Assumption; steward duties apply from 11 Dec 2027 (KB 09-reporting.md)
+fanout,lumen_engine_browser,"Reportable products per case under pack rule FO-1",3,4.5,6,products/case,Estimate,"Engine embedded in 6 products (case_engine registry); Tier A+B share is an assumption"
+fanout,halo_os_arc_devices,"Reportable products per case",1.5,2.5,3,products/case,Estimate,"Halo OS plus Arc phone and tablet as separate products"
+fanout,lumen_os_non_engine,"Reportable products per case",1,1.2,1.5,products/case,Estimate,Assumption
+fanout,hearth_smart_home,"Reportable products per case",1,1.5,3,products/case,Estimate,"Shared Hearth RTOS across device lines"
+fanout,pulse_keystone,"Reportable products per case",1,1,1,products/case,Estimate,Assumption
+fanout,cloud_installed,"Reportable products per case",1,1.2,2,products/case,Estimate,Assumption
+fanout,third_party_components,"Reportable products per case",1.5,3,5,products/case,Estimate,"A shared library is typically in several product lines"
+fanout,oss_led_projects,"Reportable products per case",1,1,1,products/case,Estimate,Assumption
+param,si_cases,"Severe incidents per year (Art 14(3)-(5))",1,2,5,cases/yr,Assumption,"No public benchmark; e.g. update-channel, signing-key or RDPS compromise affecting product security"
+param,si_fanout,"Reportable products per severe incident",1,2,4,products/case,Assumption,Assumption
+param,triage_ratio,"Signals assessed per reportable case (incl. not-reportable decisions)",5,8,15,ratio,Assumption,"KB: suspicion starts triage; not-reportable decisions logged with same rigour (corporate guide 07)"
+param,triage_hours,"Analyst hours per triage assessment",3,4,6,hours,Assumption,Assumption
+param,updates_per_notification,"SRP updates per notification (Art 14(6) requests, Member State or version changes)",1,1.5,3,count,Assumption,Assumption
+param,ew_filer_min,"Early warning: preparation and web-form entry (filer)",30,45,75,minutes,Assumption,"No API (ENISA SRP FAQ 15); fields per glossary"
+param,ew_checker_min,"Early warning: four-eyes check and evidence capture",10,15,20,minutes,Assumption,Pack design
+param,n72_filer_min,"72 h notification: preparation and entry (filer)",90,120,180,minutes,Assumption,Assumption
+param,n72_checker_min,"72 h notification: four-eyes check and evidence capture",20,30,45,minutes,Assumption,Pack design
+param,final_filer_min,"Final report: preparation and entry (filer)",120,150,240,minutes,Assumption,Assumption
+param,final_checker_min,"Final report: four-eyes check and evidence capture",20,30,45,minutes,Assumption,Pack design
+param,update_min,"Update: filer plus checker",30,40,60,minutes,Assumption,Assumption
+param,legal_min_per_stage,"Legal review minutes per 72 h and per final report",45,60,90,minutes,Assumption,"Legal reviews 72 h and final only (corporate guide 07)"
+param,notices_per_notification,"User notices per notification (impacted users, all users, CSAF)",2,3,4,count,Assumption,"Art 14(8); guidance paras 219-221 (KB 09-reporting.md)"
+param,notice_hours,"Hours per user notice (draft, approve, publish; translation excluded)",1.5,2,3,hours,Assumption,Assumption
+param,coord_hours_aev,"Incident commander and cell hours per AEV case",12,20,30,hours,Assumption,Assumption
+param,coord_hours_si,"Incident commander and cell hours per severe incident",30,60,100,hours,Assumption,Assumption
+param,oss_share,"Share of AEV cases needing Art 13(6) upstream work",0.4,0.6,0.8,share,Assumption,"Art 13(6); guidance 9.2.1 (KB 08-annex1-part2.md)"
+param,upstream_hours,"Hours per upstream report and fix share",2,4,6,hours,Assumption,Assumption
+param,drills_per_year,"Tabletop drills per year",2,4,4,count,Pack design,"KB: two a year minimum (corporate guide 07); pack recommends quarterly at hyperscale"
+param,drill_hours,"Cell hours per drill (prep, run, lessons)",80,120,160,hours,Assumption,Assumption
+param,productive_hours_fte,"Productive hours per FTE per year",1600,1600,1600,hours,Assumption,Assumption
+param,filing_seats,"Dedicated 24/7 filing seat (Assigned Representative on shift, follow-the-sun)",1,1,1,seats,Pack design,"Corporate guide 07: AR reachable within 1 h; personal EU Login per filer"
+param,duty_seats_existing,"24/7 awareness duty officer seat (absorbed in existing PSIRT rota, not incremental)",1,1,1,seats,Pack design,"Corporate guide 07: 24/7 on-call with awareness authority"
+param,peak_products,"Peak scenario: products affected by one engine bug",6,6,6,products,Brief scenario,BRIEF/E2 task
+param,peak_member_states,"Peak scenario: Member States",27,27,27,count,Brief scenario,BRIEF/E2 task
+param,languages_eu,"Official EU languages for localised user notices (pack assumption, not a KB rule)",24,24,24,count,Assumption,"Art 14(8) language not specified in KB"
