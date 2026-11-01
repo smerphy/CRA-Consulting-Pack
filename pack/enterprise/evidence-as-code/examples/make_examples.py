@@ -1,7 +1,11 @@
 """Generate the sample releases deterministically.
 
 Aldermoor Platforms is fictional. Component names are real open-source
-projects; component versions, digests, signatures and URLs are synthetic.
+projects; component versions, digests and URLs are synthetic. Signatures
+are REAL cryptographic signatures made with demonstration keys generated
+by this script (examples/keys/*.demo-private.pem). The private keys are
+committed only so the examples and tests are reproducible; a production
+signing key never leaves its KMS/HSM.
 Vulnerability identifiers (CVE-2022-37434 zlib, CVE-2023-4863 libwebp) are
 real public identifiers used on synthetic component versions for
 illustration. Feed files are illustrative excerpts with simplified ranges.
@@ -13,8 +17,20 @@ import base64
 import hashlib
 import json
 import os
+import sys
+
+from cryptography.hazmat.primitives import serialization
+from cryptography.hazmat.primitives.asymmetric import ec, ed25519
 
 HERE = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, os.path.dirname(HERE))
+from cra_evidence import attest as A  # noqa: E402
+
+KEYS = os.path.join(HERE, "keys")
+BUILD_KEY = "aldermoor-build-provenance-2027"     # ECDSA P-256, held by the hermetic builder's signing service
+PSIRT_KEY = "aldermoor-psirt-vex-2027"            # Ed25519, held by the PSIRT VEX publishing service
+OPENVEX_PT = "https://openvex.dev/ns/v0.2.0"
+CSAF_PT = "https://aldermoor.example/attestation/csaf-vex/v2.0"
 REL = os.path.join(HERE, "releases")
 BUILDER = "https://build.aldermoor.example/hermetic/v2"
 STORE = "s3://aldermoor-cra-evidence-eu/v1"
@@ -76,9 +92,74 @@ def feeds():
     write(os.path.join(HERE, "feeds", "kev-snapshot.json"), kev)
 
 
+# ---------------------------------------------------------------- keys
+
+def private_key(name):
+    """Load or create a demonstration signing key (persisted for reproducibility)."""
+    path = os.path.join(KEYS, name + ".demo-private.pem")
+    if not os.path.exists(path):
+        key = ec.generate_private_key(ec.SECP256R1()) if name == BUILD_KEY else ed25519.Ed25519PrivateKey.generate()
+        write(path, key.private_bytes(serialization.Encoding.PEM, serialization.PrivateFormat.PKCS8,
+                                      serialization.NoEncryption()))
+    with open(path, "rb") as fh:
+        return serialization.load_pem_private_key(fh.read(), password=None)
+
+
+def public_pem(name):
+    return private_key(name).public_key().public_bytes(
+        serialization.Encoding.PEM, serialization.PublicFormat.SubjectPublicKeyInfo).decode("ascii")
+
+
+def sign(statement, key_name):
+    k = private_key(key_name)
+    return A.sign_envelope(statement, k, keyid=A.keyid_for(k.public_key()))
+
+
+def key_entry(name, algorithm, purposes, owner):
+    pub = private_key(name).public_key()
+    return {"algorithm": algorithm, "keyid": A.keyid_for(pub), "public_key_pem": public_pem(name),
+            "owner": owner, "purposes": purposes, "status": "active",
+            "not_before": "2026-01-01T00:00:00Z", "not_after": "2030-12-31T23:59:59Z",
+            "custody": "Cloud KMS/HSM, non-exportable; this demonstration key is file-based (examples/keys)"}
+
+
+def trust_policy():
+    lock_ext = {"target": {"pattern": r"//firmware/hearth/lock3:signed_image"},
+                "source": {"pattern": r"git\+https://monorepo\.aldermoor\.example/monorepo@refs/tags/hearth-lock-3/.+"}}
+    lb_ext = {"target": {"pattern": r"//lumen/browser:release_linux_x64"},
+              "source": {"pattern": r"git\+https://monorepo\.aldermoor\.example/monorepo@refs/tags/lumen-browser/.+"}}
+
+    def product(ext):
+        return {"provenance": {"keys": [BUILD_KEY], "builder_ids": [BUILDER], "min_slsa_build_level": 3,
+                               "build_types": ["https://build.aldermoor.example/buildtypes/hermetic-bazel/v1"],
+                               "external_parameters": ext},
+                "vex": {"keys": [PSIRT_KEY]}}
+    return {
+        "trust_policy_id": "aldermoor-attestation-trust/1.0.0",
+        "description": "Who may sign what. SLSA levels are the verifier's assessment of each builder, "
+                       "not claims read from provenance (SLSA v1.0 'Verifying artifacts' step 1).",
+        "require_signed_provenance": True,
+        "require_signed_vex": True,
+        "min_slsa_build_level": 3,
+        "keys": {
+            BUILD_KEY: key_entry(BUILD_KEY, "ecdsa-p256-sha256", ["provenance"], "Developer Infrastructure (build platform)"),
+            PSIRT_KEY: key_entry(PSIRT_KEY, "ed25519", ["vex"], "Product Security Incident Response Team"),
+        },
+        "revoked_keyids": [],
+        "builders": {
+            BUILDER: {"slsa_build_level": 3, "hosted": True, "isolated": True, "signing_key_isolated": True,
+                      "signers": ["key:" + BUILD_KEY],
+                      "basis": "Internal assessment against SLSA v1.0 Build L3 requirements (illustrative ref "
+                               "SLSA-ASSESS-2027-04); re-assessed annually"},
+        },
+        "sigstore": {"trusted_root": "trust/sigstore-public-good.trusted_root.json"},
+        "products": {"hearth-lock-3": product(lock_ext), "lumen-browser": product(lb_ext)},
+    }
+
+
 def policy():
     write(os.path.join(HERE, "policy", "aldermoor-gate-policy.json"), {
-        "policy_id": "aldermoor-cra-gate/1.0.0",
+        "policy_id": "aldermoor-cra-gate/1.1.0",
         "description": "Release gate policy for EU-placed Aldermoor products (illustrative).",
         "trusted_builders": [BUILDER],
         "accepted_predicate_types": ["https://slsa.dev/provenance/v1"],
@@ -90,6 +171,8 @@ def policy():
         "sarif_fail_level": "error",
         "harmonised_standards_cited": [],
         "required_matrix_items": ["1"] + ["2" + c for c in "abcdefghijklm"],
+        "accepted_vex_predicate_types": [OPENVEX_PT, "https://openvex.dev/ns", CSAF_PT],
+        "attestation_trust": trust_policy(),
     })
 
 
@@ -162,7 +245,7 @@ def _uuid(s):
     return "%s-%s-%s-%s-%s" % (h[:8], h[8:12], h[12:16], h[16:20], h[20:32])
 
 
-def provenance(target, artname, art, tag, builder=BUILDER, dsse=False):
+def provenance(target, artname, art, tag, builder=BUILDER):
     st = {
         "_type": "https://in-toto.io/Statement/v1",
         "subject": [{"name": artname, "digest": {"sha256": sha256(art)}}],
@@ -183,12 +266,35 @@ def provenance(target, artname, art, tag, builder=BUILDER, dsse=False):
             },
         },
     }
-    if not dsse:
-        return st
-    return {"payloadType": "application/vnd.in-toto+json",
-            "payload": base64.b64encode(json.dumps(st).encode()).decode(),
-            "signatures": [{"keyid": "aldermoor-release-kms-key-07 (sample; signature is a placeholder)",
-                            "sig": base64.b64encode(b"PLACEHOLDER-NOT-A-SIGNATURE").decode()}]}
+    return sign(st, BUILD_KEY)
+
+
+def vex_attestation(vex_doc, artname, art, predicate_type):
+    st = {"_type": "https://in-toto.io/Statement/v1",
+          "subject": [{"name": artname, "digest": {"sha256": sha256(art)}}],
+          "predicateType": predicate_type, "predicate": vex_doc}
+    return sign(st, PSIRT_KEY)
+
+
+def sign_release(d):
+    """Re-sign a release directory's attestations after its evidence changed.
+
+    Used by tests that mutate VEX or provenance content to exercise gate
+    logic on correctly signed evidence. Subjects are kept as they were, so a
+    tampered artefact still fails the digest binding.
+    """
+    m = json.load(open(os.path.join(d, "release.json")))
+    ev = m.get("evidence") or {}
+    p = os.path.join(d, ev.get("provenance") or "-")
+    if os.path.isfile(p):
+        atts = A.load_attestation_file(p)
+        if atts:
+            write(p, sign(atts[0].unverified_statement(), BUILD_KEY))
+    v, va = os.path.join(d, ev.get("vex") or "-"), os.path.join(d, ev.get("vex_attestation") or "-")
+    if os.path.isfile(v) and os.path.isfile(va):
+        old = A.load_attestation_file(va)[0].unverified_statement()
+        old["predicate"] = json.load(open(v))
+        write(va, sign(old, PSIRT_KEY))
 
 
 def sarif(tool, results):
@@ -234,6 +340,7 @@ def common_docs(d, product, version, extra=""):
 def manifest(product, version, prev, release_date, placing, classification, artefact, direct, evidence,
              support, sm, decl, tests):
     ev = {"sbom": evidence[0], "provenance": evidence[1], "vex": evidence[2],
+          "vex_attestation": evidence[2].replace(".json", ".intoto.json"),
           "tests": [{"type": t, "path": p} for t, p in tests],
           "risk_assessment": {"path": "docs/risk-assessment.md", "ref": "RA-%s-%s" % (product["product_id"], version)},
           "applicability_matrix": {"path": "docs/applicability-matrix.json",
@@ -251,7 +358,7 @@ def manifest(product, version, prev, release_date, placing, classification, arte
         "evidence": ev, "support_period": support, "substantial_modification": sm, "declaration": decl,
         "signer": {"identity": "spiffe://aldermoor.example/release-pipeline/%s" % product["product_id"],
                    "role": "Release manager (accountable); pipeline identity signs",
-                   "signature_ref": "transparency-log entry (illustrative)"},
+                   "signature_ref": "DSSE envelopes: provenance key %s, VEX key %s" % (BUILD_KEY, PSIRT_KEY)},
         "store": {"uri_prefix": STORE, "object_lock_mode": "compliance"},
         "feeds": {"osv": "OSV snapshot 2026-10-30 (excerpt)", "kev": "CISA KEV 2026.10.30 (excerpt)"},
     }
@@ -280,11 +387,12 @@ def lock_release(version, prev, release_date, placing_date, comps, root_deps, ve
                     {"connectedhomeip": ["mbedtls", "openthread"]}))
     write(os.path.join(d, "evidence", "provenance.intoto.json"),
           provenance("//firmware/hearth/lock3:signed_image", artname, art, "hearth-lock-3/%s" % version))
-    write(os.path.join(d, "evidence", "vex.openvex.json"), {
-        "@context": "https://openvex.dev/ns/v0.2.0",
-        "@id": "https://vex.aldermoor.example/hearth-lock-3/%s" % version,
-        "author": "Aldermoor PSIRT", "role": "manufacturer", "timestamp": "2028-01-11T10:02:00Z", "version": 1,
-        "statements": vex_statements})
+    vex = {"@context": "https://openvex.dev/ns/v0.2.0",
+           "@id": "https://vex.aldermoor.example/hearth-lock-3/%s" % version,
+           "author": "Aldermoor PSIRT", "role": "manufacturer", "timestamp": "2028-01-11T10:02:00Z", "version": 1,
+           "statements": vex_statements}
+    write(os.path.join(d, "evidence", "vex.openvex.json"), vex)
+    write(os.path.join(d, "evidence", "vex.openvex.intoto.json"), vex_attestation(vex, artname, art, OPENVEX_PT))
     write(os.path.join(d, "evidence", "sast.sarif"), sarif("CodeQL", [
         ("cpp/uncontrolled-allocation-size", "warning", "Allocation size from BLE frame length", "src/ble/frame.c"),
         ("cpp/unused-local-variable", "note", "Unused variable", "src/ui/led.c"),
@@ -324,14 +432,14 @@ def browser_release(version, prev, placing_date, pkgs, root_deps, direct, csaf_s
     write(os.path.join(d, "artefact", artname), art)
     write(os.path.join(d, "evidence", "sbom.spdx.json"), spdx("lumen-browser", version, art, pkgs, root_deps))
     write(os.path.join(d, "evidence", "provenance.intoto.json"),
-          provenance("//lumen/browser:release_linux_x64", artname, art, "lumen-browser/%s" % version, dsse=True))
+          provenance("//lumen/browser:release_linux_x64", artname, art, "lumen-browser/%s" % version))
     pid = "LB-%s" % version
     status = {csaf_status: [pid]}
     vuln = {"cve": "CVE-2023-4863", "notes": [{"category": "description", "text": "Heap buffer overflow in libwebp lossless decoder."}],
             "product_status": status}
     if csaf_status == "fixed":
         vuln["remediations"] = [{"category": "vendor_fix", "details": "Vendored libwebp updated to 1.3.2.", "product_ids": [pid]}]
-    write(os.path.join(d, "evidence", "vex.csaf.json"), {
+    csaf = {
         "document": {"category": "csaf_vex", "csaf_version": "2.0", "title": "Lumen Browser %s VEX" % version,
                      "publisher": {"category": "vendor", "name": "Aldermoor Platforms (fictional)",
                                    "namespace": "https://www.aldermoor.example"},
@@ -344,7 +452,9 @@ def browser_release(version, prev, placing_date, pkgs, root_deps, direct, csaf_s
                 {"category": "product_version", "name": version,
                  "product": {"product_id": pid, "name": "Lumen Browser %s" % version,
                              "product_identification_helper": {"purl": "pkg:generic/aldermoor/lumen-browser@%s" % version}}}]}]}]},
-        "vulnerabilities": [vuln]})
+        "vulnerabilities": [vuln]}
+    write(os.path.join(d, "evidence", "vex.csaf.json"), csaf)
+    write(os.path.join(d, "evidence", "vex.csaf.intoto.json"), vex_attestation(csaf, artname, art, CSAF_PT))
     write(os.path.join(d, "evidence", "sast.sarif"), sarif("CodeQL", [
         ("cpp/integer-overflow-tainted", "warning", "Tainted multiplication", "engine/net/http_parser.cc")]))
     write(os.path.join(d, "evidence", "fuzz.sarif"), sarif("libFuzzer (aldermoor-fuzz-farm)", fuzz_results))

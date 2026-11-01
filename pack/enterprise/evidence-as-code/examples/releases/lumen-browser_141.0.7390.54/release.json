@@ -49,6 +49,7 @@
     "sbom": "evidence/sbom.spdx.json",
     "provenance": "evidence/provenance.intoto.json",
     "vex": "evidence/vex.csaf.json",
+    "vex_attestation": "evidence/vex.csaf.intoto.json",
     "tests": [
       {
         "type": "sast",
@@ -107,7 +108,7 @@
   "signer": {
     "identity": "spiffe://aldermoor.example/release-pipeline/lumen-browser",
     "role": "Release manager (accountable); pipeline identity signs",
-    "signature_ref": "transparency-log entry (illustrative)"
+    "signature_ref": "DSSE envelopes: provenance key aldermoor-build-provenance-2027, VEX key aldermoor-psirt-vex-2027"
   },
   "store": {
     "uri_prefix": "s3://aldermoor-cra-evidence-eu/v1",

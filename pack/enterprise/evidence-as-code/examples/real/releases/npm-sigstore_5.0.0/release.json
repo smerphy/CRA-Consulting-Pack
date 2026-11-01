@@ -1,0 +1,111 @@
+{
+  "manifest_version": "1.0",
+  "org": "aldermoor",
+  "_note": "Artefact, provenance, publish attestation and OSV records are REAL. CRA metadata below is SYNTHETIC: Aldermoor (fictional) is modelled as placing a product version whose release artefact is this exact npm tarball.",
+  "product": {
+    "product_id": "npm-sigstore",
+    "name": "sigstore-js npm package 5.0.0 (real artefact; CRA metadata synthetic)",
+    "manufacturer": "Aldermoor Platforms (fictional) as integrator",
+    "product_type": "software",
+    "family": "Developer tooling"
+  },
+  "version": "5.0.0",
+  "previous_version": "4.1.0",
+  "release_date": "2026-06-01",
+  "placing": {
+    "date": "2028-01-20",
+    "event": "new_version_placing",
+    "member_states": [
+      "IE",
+      "DE"
+    ]
+  },
+  "classification": {
+    "class": "default",
+    "annex_category": "Not listed in Annex III or IV (illustrative)",
+    "conformity_route": "module_a",
+    "harmonised_standards_applied_in_full": [],
+    "notified_body": null,
+    "certificate_ref": null
+  },
+  "artefact": "artefact/sigstore-5.0.0.tgz",
+  "build_graph": {
+    "direct_dependencies": [
+      "@sigstore/bundle",
+      "@sigstore/core",
+      "@sigstore/protobuf-specs",
+      "@sigstore/sign",
+      "@sigstore/tuf",
+      "@sigstore/verify"
+    ],
+    "source": "package.json dependencies of the published tarball (real)"
+  },
+  "evidence": {
+    "sbom": "evidence/sbom.cdx.json",
+    "provenance": "evidence/npm-attestations.json",
+    "vex": "evidence/vex.openvex.json",
+    "vex_attestation": "evidence/vex.openvex.intoto.json",
+    "tests": [
+      {
+        "type": "sast",
+        "path": "evidence/sast.sarif"
+      }
+    ],
+    "risk_assessment": {
+      "path": "docs/risk-assessment.md",
+      "ref": "RA-npm-sigstore-5.0.0 (synthetic)"
+    },
+    "applicability_matrix": {
+      "path": "docs/applicability-matrix.json",
+      "ref": "AM-npm-sigstore-5.0.0"
+    },
+    "annex_ii": {
+      "path": "docs/annex-ii-user-information.md",
+      "uri": "https://www.aldermoor.example/security/npm-sigstore/5.0.0/"
+    },
+    "update_design_note": {
+      "path": "docs/update-design-note.md",
+      "ref": "UDN-npm-sigstore"
+    },
+    "cvd_policy": {
+      "path": "docs/cvd-policy.md",
+      "ref": "https://www.aldermoor.example/security/cvd"
+    }
+  },
+  "support_period": {
+    "end_date": "2033-01-31",
+    "latest_version_rule": true,
+    "justification": "Synthetic: five years from placing with Art 13(10) latest-version rule."
+  },
+  "substantial_modification": {
+    "change_type": "security_update",
+    "questions": {
+      "new_threat_vectors": false,
+      "new_attack_scenarios": false,
+      "changed_likelihood": false,
+      "changed_impact": false
+    },
+    "rationale": "Synthetic.",
+    "assessed_by": null,
+    "decision": "not_substantial"
+  },
+  "declaration": {
+    "declaration_id": "AP-DoC-NPM-SIGSTORE-SYNTH",
+    "status": "new",
+    "uri": "https://www.aldermoor.example/compliance/doc/npm-sigstore",
+    "signatory_function": "Synthetic"
+  },
+  "signer": {
+    "identity": "https://github.com/sigstore/sigstore-js/.github/workflows/release.yml@refs/heads/main",
+    "role": "Upstream release workflow (keyless); Aldermoor PSIRT signs VEX",
+    "signature_ref": "Rekor entries in evidence/npm-attestations.json"
+  },
+  "store": {
+    "uri_prefix": "s3://aldermoor-cra-evidence-eu/v1",
+    "object_lock_mode": "compliance"
+  },
+  "feeds": {
+    "osv": "OSV api.osv.dev query, 1 Nov 2026 (real)",
+    "kev": "CISA KEV excerpt (illustrative)"
+  }
+}

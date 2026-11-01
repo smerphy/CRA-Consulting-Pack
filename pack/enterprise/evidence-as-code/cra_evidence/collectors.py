@@ -3,8 +3,9 @@
 Supported inputs
 - SBOM: CycloneDX 1.4-1.6 JSON, SPDX 2.2-2.3 JSON
 - Build provenance: in-toto Statement v1 with SLSA Provenance v1 predicate,
-  bare or wrapped in a DSSE envelope (signature verification is delegated to
-  cosign or equivalent in CI; see examples/ci)
+  bare, in a DSSE envelope, in a Sigstore bundle, or as JSON Lines
+  (.intoto.jsonl). This module only parses claims; the gate verifies the
+  signature and re-reads the claims from the verified bytes (attest.py)
 - Vulnerability status: OpenVEX v0.2.0, CSAF 2.0 with category csaf_vex
 - Tests: SARIF 2.1.0; a small JSON summary for reports that are not SARIF
   (for example a penetration-test PDF)
@@ -151,21 +152,35 @@ SLSA_V1 = "https://slsa.dev/provenance/v1"
 def normalise_provenance(doc):
     """Normalise an in-toto Statement carrying SLSA v1 provenance.
 
-    Accepts a bare Statement or a DSSE envelope. Does not verify signatures.
+    Accepts a bare Statement, a DSSE envelope, a Sigstore bundle, an npm
+    attestations response, JSON text or JSON Lines. Does NOT verify
+    signatures: the values returned are claims until attest.verify() has
+    checked them, and the gate uses only the verified statement.
     """
-    signed = False
-    if "payloadType" in doc and "payload" in doc:
-        if doc.get("payloadType") != "application/vnd.in-toto+json":
-            raise CollectorError("DSSE payloadType is not in-toto")
-        doc = json.loads(base64.b64decode(doc["payload"]).decode("utf-8"))
-        signed = True
+    from . import attest as A
+    if isinstance(doc, dict) and "payloadType" in doc and doc.get("payloadType") != A.INTOTO:
+        raise CollectorError("DSSE payloadType is not in-toto")
+    try:
+        atts = A.load_attestations(doc)
+    except ValueError as e:
+        raise CollectorError("provenance is not parseable JSON or JSON Lines: %s" % e)
+    if not atts:
+        raise CollectorError("not an in-toto Statement, DSSE envelope or Sigstore bundle")
+    att = A.select(atts, (SLSA_V1,))
+    if att.kind != "statement" and att.payload_type != A.INTOTO:
+        raise CollectorError("DSSE payloadType is not in-toto")
+    return _statement_claims(att.unverified_statement() or {}, att.kind != "statement", att.kind)
+
+
+def _statement_claims(doc, signed=False, envelope="statement"):
     if doc.get("_type") not in STATEMENT_TYPES:
         raise CollectorError("not an in-toto Statement")
     pred = doc.get("predicate") or {}
     run = pred.get("runDetails") or {}
     bdef = pred.get("buildDefinition") or {}
     meta = run.get("metadata") or {}
-    subjects = [{"name": s.get("name"), "sha256": (s.get("digest") or {}).get("sha256")}
+    subjects = [{"name": s.get("name"), "sha256": (s.get("digest") or {}).get("sha256"),
+                 "sha512": (s.get("digest") or {}).get("sha512")}
                 for s in doc.get("subject") or []]
     return {
         "format": "in-toto Statement v1 / SLSA Provenance v1" if doc.get("predicateType") == SLSA_V1
@@ -173,12 +188,14 @@ def normalise_provenance(doc):
         "predicate_type": doc.get("predicateType"),
         "builder_id": (run.get("builder") or {}).get("id"),
         "build_type": bdef.get("buildType"),
+        "external_parameters": bdef.get("externalParameters") or {},
         "invocation_id": meta.get("invocationId"),
         "started_on": meta.get("startedOn"),
         "finished_on": meta.get("finishedOn"),
         "subjects": subjects,
         "resolved_dependencies": [d.get("uri") for d in bdef.get("resolvedDependencies") or []],
         "dsse_envelope": signed,
+        "envelope": envelope,
     }
 
 
@@ -188,6 +205,9 @@ OPENVEX_STATUSES = {"not_affected", "affected", "fixed", "under_investigation"}
 
 
 def normalise_vex(doc):
+    """OpenVEX or CSAF VEX. An in-toto Statement wrapping one (predicate) is unwrapped."""
+    if doc.get("_type") in STATEMENT_TYPES and isinstance(doc.get("predicate"), dict):
+        doc = doc["predicate"]
     ctx = str(doc.get("@context", ""))
     if ctx.startswith("https://openvex.dev/ns"):
         return _normalise_openvex(doc)
@@ -348,31 +368,54 @@ def version_in_range(version, events):
     return affected
 
 
-def match_osv(components, osv_records, kev_ids):
-    """Match SBOM components against OSV records by package name and version."""
-    matches = []
-    for rec in osv_records:
-        ids = [rec.get("id")] + list(rec.get("aliases") or [])
-        cve = next((i for i in ids if i and i.startswith("CVE-")), rec.get("id"))
-        sev = (rec.get("database_specific") or {}).get("severity")
+_OSV_INDEX = {"records": None, "index": None}
+
+
+def index_osv(osv_records):
+    """Index OSV records by lower-case package name and purl name (built once per feed)."""
+    if _OSV_INDEX["records"] is osv_records:
+        return _OSV_INDEX["index"]
+    idx = {}
+    for ri, rec in enumerate(osv_records):
         for aff in rec.get("affected") or []:
             pkg = aff.get("package") or {}
-            pname = (pkg.get("name") or "").lower()
-            ppurl = _purl_name(pkg.get("purl"))
-            for comp in components:
-                cname = (comp.get("name") or "").lower()
-                if cname not in (pname, ppurl) and _purl_name(comp.get("purl")) not in (pname, ppurl):
+            for n in {(pkg.get("name") or "").lower(), _purl_name(pkg.get("purl"))}:
+                if n:
+                    idx.setdefault(n, []).append((ri, rec, aff))
+    _OSV_INDEX.update(records=osv_records, index=idx)
+    return idx
+
+
+def match_osv(components, osv_records, kev_ids):
+    """Match SBOM components against OSV records by package name and version.
+
+    Uses a name index so cost grows with SBOM size, not feed size; output
+    order is feed order, then component order (same as a nested scan).
+    """
+    idx = index_osv(osv_records)
+    found = {}
+    for ci, comp in enumerate(components):
+        if not comp.get("version"):
+            continue
+        names = {(comp.get("name") or "").lower(), _purl_name(comp.get("purl"))}
+        seen = set()
+        for n in names:
+            for ri, rec, aff in idx.get(n, ()):
+                key = (ri, id(aff))
+                if key in seen:
                     continue
-                if not comp.get("version"):
-                    continue
+                seen.add(key)
                 for rng in aff.get("ranges") or []:
                     if version_in_range(comp["version"], rng.get("events") or []):
-                        matches.append({
+                        ids = [rec.get("id")] + list(rec.get("aliases") or [])
+                        cve = next((i for i in ids if i and i.startswith("CVE-")), rec.get("id"))
+                        sev = (rec.get("database_specific") or {}).get("severity")
+                        found[(ri, ci, id(aff))] = {
                             "vulnerability": cve,
                             "aliases": [i for i in ids if i and i != cve],
                             "component": "%s@%s" % (comp["name"], comp["version"]),
                             "severity": sev.lower() if sev else None,
                             "known_exploited": any(i in kev_ids for i in ids),
-                        })
+                        }
                         break
-    return matches
+    return [found[k] for k in sorted(found, key=lambda k: (k[0], k[1]))]

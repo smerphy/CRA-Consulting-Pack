@@ -1,46 +1,10 @@
 {
-  "_type": "https://in-toto.io/Statement/v1",
-  "subject": [
+  "payloadType": "application/vnd.in-toto+json",
+  "payload": "eyJfdHlwZSI6Imh0dHBzOi8vaW4tdG90by5pby9TdGF0ZW1lbnQvdjEiLCJwcmVkaWNhdGUiOnsiYnVpbGREZWZpbml0aW9uIjp7ImJ1aWxkVHlwZSI6Imh0dHBzOi8vYnVpbGQuYWxkZXJtb29yLmV4YW1wbGUvYnVpbGR0eXBlcy9oZXJtZXRpYy1iYXplbC92MSIsImV4dGVybmFsUGFyYW1ldGVycyI6eyJzb3VyY2UiOiJnaXQraHR0cHM6Ly9tb25vcmVwby5hbGRlcm1vb3IuZXhhbXBsZS9tb25vcmVwb0ByZWZzL3RhZ3MvaGVhcnRoLWxvY2stMy80LjIuMCIsInRhcmdldCI6Ii8vZmlybXdhcmUvaGVhcnRoL2xvY2szOnNpZ25lZF9pbWFnZSJ9LCJpbnRlcm5hbFBhcmFtZXRlcnMiOnsicmVtb3RlX2V4ZWN1dGlvbl9wb29sIjoiZXUtaGVybWV0aWMtcHJvZCIsInNhbmRib3giOiJoZXJtZXRpYyJ9LCJyZXNvbHZlZERlcGVuZGVuY2llcyI6W3siZGlnZXN0Ijp7ImdpdENvbW1pdCI6IjMyYTVhZWRlNjc4YmQwMWM0YzZlZDljOGQwNGFkZmVlYTYzNjEyNzYifSwidXJpIjoiZ2l0K2h0dHBzOi8vbW9ub3JlcG8uYWxkZXJtb29yLmV4YW1wbGUvbW9ub3JlcG9AcmVmcy90YWdzL2hlYXJ0aC1sb2NrLTMvNC4yLjAifV19LCJydW5EZXRhaWxzIjp7ImJ1aWxkZXIiOnsiaWQiOiJodHRwczovL2J1aWxkLmFsZGVybW9vci5leGFtcGxlL2hlcm1ldGljL3YyIiwidmVyc2lvbiI6eyJoZXJtZXRpYy1iYXplbCI6IjguMS4wLWFsZC40In19LCJtZXRhZGF0YSI6eyJmaW5pc2hlZE9uIjoiMjAyOC0wMS0xMVQwOToxMzo1NVoiLCJpbnZvY2F0aW9uSWQiOiJpbnYtMzJhNWFlZGU2NzhiZDAxYyIsInN0YXJ0ZWRPbiI6IjIwMjgtMDEtMTFUMDg6NTE6NDBaIn19fSwicHJlZGljYXRlVHlwZSI6Imh0dHBzOi8vc2xzYS5kZXYvcHJvdmVuYW5jZS92MSIsInN1YmplY3QiOlt7ImRpZ2VzdCI6eyJzaGEyNTYiOiJkZmUyOTI3N2JhZWVkZjBlNDI4YmJjNTMzNWI5NjY3ZjA5MzUwOGE1MzkxMzY5YjYxMDQxNDljZTQ4NDJiNTczIn0sIm5hbWUiOiJoZWFydGgtbG9jay0zLWZ3LTQuMi4wLmJpbiJ9XX0=",
+  "signatures": [
     {
-      "name": "hearth-lock-3-fw-4.2.0.bin",
-      "digest": {
-        "sha256": "dfe29277baeedf0e428bbc5335b9667f093508a5391369b6104149ce4842b573"
-      }
+      "keyid": "SHA256:5/BGkSJWhRosY/rZF6zgAvyWO9amzbx8seowHkRKQCA",
+      "sig": "MEQCIBZUPWBArCUD1KDKcFPwX4bvr1FWFNF0uOr8jI27ls1DAiBB0v0+DanHKat9lCGyOXqbJqsS+MHkIzCwRUx1NKu3gg=="
     }
-  ],
-  "predicateType": "https://slsa.dev/provenance/v1",
-  "predicate": {
-    "buildDefinition": {
-      "buildType": "https://build.aldermoor.example/buildtypes/hermetic-bazel/v1",
-      "externalParameters": {
-        "target": "//firmware/hearth/lock3:signed_image",
-        "source": "git+https://monorepo.aldermoor.example/monorepo@refs/tags/hearth-lock-3/4.2.0"
-      },
-      "internalParameters": {
-        "remote_execution_pool": "eu-hermetic-prod",
-        "sandbox": "hermetic"
-      },
-      "resolvedDependencies": [
-        {
-          "uri": "git+https://monorepo.aldermoor.example/monorepo@refs/tags/hearth-lock-3/4.2.0",
-          "digest": {
-            "gitCommit": "32a5aede678bd01c4c6ed9c8d04adfeea6361276"
-          }
-        }
-      ]
-    },
-    "runDetails": {
-      "builder": {
-        "id": "https://build.aldermoor.example/hermetic/v2",
-        "version": {
-          "hermetic-bazel": "8.1.0-ald.4"
-        }
-      },
-      "metadata": {
-        "invocationId": "inv-32a5aede678bd01c",
-        "startedOn": "2028-01-11T08:51:40Z",
-        "finishedOn": "2028-01-11T09:13:55Z"
-      }
-    }
-  }
+  ]
 }

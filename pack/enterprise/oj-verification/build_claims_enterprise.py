@@ -1,5 +1,5 @@
 # Usage: python3 -I build_claims_enterprise.py            (from pack/enterprise/oj-verification/)
-# Builds claims_enterprise.csv: every legal or guidance citation in the Enterprise papers (E1-E5, G),
+# Builds claims_enterprise.csv: every legal or guidance citation in the Enterprise papers (E1-E5, G, programme-case),
 # with the exact source text relied on. Every quoted fragment is checked against the local copy of
 # its source before the CSV is written; for guidance rows the fragment must occur inside the cited
 # paragraph(s) or Example(s) of C(2026) 5252 (source/guidance/C_2026_5252_index.json), not merely
@@ -48,6 +48,7 @@ P = {
     'E4': 'pack/enterprise/open-source-strategy/paper.md',
     'E5': 'pack/enterprise/global-control-set/paper.md',
     'G': 'pack/enterprise/google-outside-in/paper.md',
+    'PCASE': 'pack/enterprise/programme-case/paper.md',
 }
 
 V, W, WA, NF, CNV = 'Verified', 'Verified with wording difference', 'Wrong article/point', 'Not found', 'Could not verify'
@@ -492,6 +493,35 @@ row('GOI-18', '"Reliable evidence" bar (Art 3(42)); single core functionality pe
 row('GOI-19', 'Whether one SRP notification may cover several products is not answered in any source opened.', 'G', 'Risks', 'ENISA SRP FAQ; guidance section 9.1',
     [], 'ENISA', V, 'Absence confirmed in the ENISA FAQ (15 Oct 2026) and guidance paras 209-221. See legal-positions question A.')
 
+
+# ---------------- programme-case (added 1 Nov 2026; module appeared during this verification) ----------------
+row('PCS-01', 'About 200 product lines need Annex VII parts, Annex II user information and translations into 23 languages (Art 28; Art 13(18)).', 'PCASE', 'budget section, first bullet', 'Art 28(2); Art 13(18)',
+    [o("It shall be made available in the languages required by the Member State in which the product with digital elements is placed on the market or made available on the market"),
+     o("Such information and instructions shall be provided in a language which can be easily understood by users and market surveillance authorities")], 'OJ', W,
+    'The CRA sets languages by Member State requirement (declaration) and by what users and authorities easily understand (Annex II information); it does not require 23 languages for every product line. The paper treats 23 as the conservative reading in its Risks; say so where the figure is first used.')
+row('PCS-02', 'Art 14 has applied since 11 Sep 2026; full application 11 Dec 2027.', 'PCASE', 'budget section; reconciliation table', 'Art 71(2)',
+    [o("However, Article 14 shall apply from 11 September 2026"), o("This Regulation shall apply from 11 December 2027")], 'OJ', V)
+row('PCS-03', 'Lumen, as software, cannot bridge the deadline with stock: each new version after 11 Dec 2027 is a new placing under the Commission\'s draft guidance (E1).', 'PCASE', 'lever L2', 'Guidance paras 13-15; Example 2; para 108; Art 69(2)',
+    [g('P15', "Iterations that do not qualify as substantial modifications do not require the manufacturer to perform a new conformity assessment procedure and therefore do not modify that software's date of placement on the market"),
+     g('P108', "security updates are generally not to be regarded as substantial modifications"),
+     o("shall be subject to the requirements set out in this Regulation only if, from that date, those products are subject to a substantial modification")], 'G; OJ', NF,
+    'Under the guidance only substantially modified versions (and new variants) are new placings. A version placed before 11 Dec 2027 can keep receiving non-substantial and security updates after that date without a certificate (Art 69(2)); what a late certificate blocks is the next substantially modified version. The lever still matters if 4-weekly majors are substantial, but the paper overstates the exposure. Not edited (substantive); corrections_enterprise.md C-11.')
+row('PCS-04', 'Hardware units placed before 11 Dec 2027 stay lawful, with only Art 14 applying to them.', 'PCASE', 'lever L2; decision 3', 'Art 69(2)-(3)',
+    [o("the obligations laid down in Article 14 shall apply to all products with digital elements that fall within the scope of this Regulation that have been placed on the market before 11 December 2027")], 'OJ', V)
+row('PCS-05', 'If every Lumen security release is a new placing after 11 Dec 2027, a late certificate stops EU releases, not just launches.', 'PCASE', 'Risks, per-version placing', 'Guidance paras 15, 108; Example 2',
+    [g('E2', "Both copies of version 1.0.0 and 1.0.1 of software X are considered to be placed on the market on 1 January 2028")], 'G', W,
+    'Correctly framed as a conditional, but the guidance answers it: security releases are generally not substantial (para 108) and non-substantial versions are not new placings (para 15, Example 2). Restate as a residual risk that the guidance changes on adoption. corrections_enterprise.md C-11.')
+row('PCS-06', 'Check Art 39 independence before any letter of intent to a notified body.', 'PCASE', 'decision 2', 'Art 39(3)',
+    [o("A conformity assessment body shall be a third-party body independent of the organisation or the product with digital elements it assesses")], 'OJ', V)
+row('PCS-07', 'Member States to "strive" for sufficient notified bodies by 11 Dec 2026 (E6 K23).', 'PCASE', 'reconciliation table', 'Art 35(2)',
+    [o("Member States shall strive to ensure, by 11 December 2026 that there is a sufficient number of notified bodies")], 'OJ', V)
+row('PCS-08', 'Art 13(6) upstream reporting is not a legal duty before Dec 2027.', 'PCASE', 'module disagreements table', 'Art 13(6); Art 71(2)',
+    [o("This Regulation shall apply from 11 December 2027")], 'OJ', V, 'Art 13 is not among the provisions applying earlier (only Art 14 and Chapter IV).')
+row('PCS-09', 'Platforms inside the Lumen quality system needs one item 11 model review instead of its own approval (L4).', 'PCASE', 'lever L4', 'Annex VIII Part IV pt 3.1(b)',
+    [o("the technical documentation for one model of each category of products with digital elements intended to be manufactured or developed")], 'OJ', V)
+row('PCS-10', 'No CRA notified body was listed in NANDO at the last verified check (8 Sep 2026); JC-STAR STAR-1 fee JPY 198,000.', 'PCASE', 'Risks; reconciliation table', 'None (status and non-EU facts)',
+    [], 'NONE', CNV, 'Outside the E6 source set; rely on reports/verification.md claim 23 and the IPA page cited by the module.')
+
 # ---------------- build and check ----------------
 bad = 0
 out = []
@@ -520,6 +550,6 @@ with open('claims_enterprise.csv', 'w', newline='', encoding='utf-8') as fh:
 from collections import Counter
 c = Counter(r['status'] for r in out)
 print(len(out), 'claims;', dict(c))
-for k in ['E1', 'E2', 'E3', 'E4', 'E5', 'G']:
+for k in ['E1', 'E2', 'E3', 'E4', 'E5', 'G', 'PCASE']:
     sub = [r for r in out if r['where_used'].startswith(P[k])]
     print(k, len(sub), dict(Counter(r['status'] for r in sub)))

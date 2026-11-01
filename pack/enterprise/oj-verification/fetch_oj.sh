@@ -40,3 +40,12 @@ done
 for c in 32025R2392 32026R0339 32026R0881 32024L2853; do
   echo "$c EN: $(fetch "$c" eng "$OUT/$c.xhtml")"
 done
+
+# Commission guidance C(2026) 5252 (annex 131456, communication 131455) and FAQ (Markdown 123307, PDF 122331),
+# used by claims_enterprise.csv. A hash change means a new version: rebuild source/guidance/C_2026_5252_index.json
+# with guidance_index.py and rerun build_claims_enterprise.py, which fails on any quotation that has moved.
+# Baselines (1 Nov 2026): 131456 fe209c25...; 131455 d218cd8d...; 123307 beb9b79a...; 122331 43cd3da1... (full hashes in source/guidance/MANIFEST.csv)
+for d in 131456 131455 123307 122331; do
+  curl -sS -m 90 -L -o "$OUT/ec_doc_$d" -w "EC document $d: %{http_code}\n" "https://ec.europa.eu/newsroom/dae/redirection/document/$d"
+  sha256sum "$OUT/ec_doc_$d"
+done

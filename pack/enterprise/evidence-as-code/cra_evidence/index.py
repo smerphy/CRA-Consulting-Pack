@@ -16,6 +16,18 @@ def _d(item):
             "sha512": item["digests"].get("sha512")}
 
 
+def _vlabel(v):
+    if not v:
+        return "signature not evaluated"
+    if not v.get("verified"):
+        return "signature NOT verified"
+    s = v.get("signer") or {}
+    who = s.get("key") or s.get("san") or "?"
+    lvl = " ; SLSA Build L%d" % v["slsa_build_level"] if v.get("slsa_build_level") is not None else ""
+    log = " ; Rekor index %s" % (v.get("tlog") or {}).get("log_index") if (v.get("tlog") or {}).get("log_index") else ""
+    return "verified %s by %s%s%s" % (v.get("method"), who, lvl, log)
+
+
 def build_index(record):
     ev = record.get("evidence", {})
     c = record.get("classification", {})
@@ -41,12 +53,16 @@ def build_index(record):
         if ev.get("sbom") else None,
         dict(_d(ev.get("vulnerability_status")), label="VEX (%s)" % ev["vulnerability_status"]["format"])
         if ev.get("vulnerability_status") else None,
+        dict(_d(ev["vulnerability_status"]["attestation"]), label="Signed VEX attestation (%s)" % _vlabel(
+            ev["vulnerability_status"].get("verification")))
+        if (ev.get("vulnerability_status") or {}).get("attestation") else None,
         dict(_d(ev.get("cvd_policy")), label="CVD policy") if ev.get("cvd_policy") else None,
         dict(_d(ev.get("update_design_note")), label="Update design note") if ev.get("update_design_note") else None,
     ])
     add("2(c)", "Production and monitoring processes with validation evidence", [
-        dict(_d(ev.get("provenance")), label="Build provenance (%s; builder %s)" % (
-            ev["provenance"]["predicate_type"], ev["provenance"]["builder_id"])) if ev.get("provenance") else None,
+        dict(_d(ev.get("provenance")), label="Build provenance (%s; builder %s; %s)" % (
+            ev["provenance"]["predicate_type"], ev["provenance"]["builder_id"],
+            _vlabel(ev["provenance"].get("verification")))) if ev.get("provenance") else None,
     ], "Release gate decision: %s under %s" % (gate.get("decision", "not evaluated"), gate.get("policy_id", "-")))
     add("3", "Cybersecurity risk assessment and Annex I Part I applicability", [
         dict(_d(ev.get("risk_assessment")), label="Risk assessment") if ev.get("risk_assessment") else None,

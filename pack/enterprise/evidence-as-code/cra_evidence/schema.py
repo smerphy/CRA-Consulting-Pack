@@ -3,7 +3,7 @@
 Uses ``jsonschema`` (Draft 2020-12, with format checking) when installed.
 Otherwise falls back to a small validator covering the keywords the record
 schema uses: type, enum, const, required, properties, additionalProperties
-(false), items, minItems, minimum, minLength, pattern, format (date,
+(false), items, minItems, minimum, maximum, minLength, pattern, format (date,
 date-time), allOf and local $ref.
 """
 
@@ -13,7 +13,16 @@ import os
 import re
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-SCHEMA_PATH = os.path.normpath(os.path.join(HERE, "..", "spec", "cra-evidence-record.v1.0.0.schema.json"))
+SPEC_DIR = os.path.normpath(os.path.join(HERE, "..", "spec"))
+SCHEMA_VERSIONS = ("1.0.0", "1.1.0")
+LATEST = SCHEMA_VERSIONS[-1]
+SCHEMA_PATH = os.path.join(SPEC_DIR, "cra-evidence-record.v%s.schema.json" % LATEST)
+
+
+def schema_path(version=LATEST):
+    if version not in SCHEMA_VERSIONS:
+        version = LATEST
+    return os.path.join(SPEC_DIR, "cra-evidence-record.v%s.schema.json" % version)
 
 
 def load_schema(path=SCHEMA_PATH):
@@ -30,8 +39,14 @@ def have_jsonschema():
 
 
 def validate(instance, schema=None, force_fallback=False):
-    """Return a list of error strings (empty when valid)."""
-    schema = schema or load_schema()
+    """Return a list of error strings (empty when valid).
+
+    Without an explicit schema, a record is validated against the schema
+    version it declares, so records written under 1.0.0 stay valid.
+    """
+    if schema is None:
+        declared = instance.get("schema_version") if isinstance(instance, dict) else None
+        schema = load_schema(schema_path(declared or LATEST))
     if not force_fallback and have_jsonschema():
         import jsonschema
         cls = jsonschema.Draft202012Validator
@@ -111,6 +126,8 @@ class MiniValidator:
         if isinstance(x, (int, float)) and not isinstance(x, bool):
             if "minimum" in s and x < s["minimum"]:
                 out.append("%s: %r is less than %r" % (path, x, s["minimum"]))
+            if "maximum" in s and x > s["maximum"]:
+                out.append("%s: %r is greater than %r" % (path, x, s["maximum"]))
         if isinstance(x, list):
             if "minItems" in s and len(x) < s["minItems"]:
                 out.append("%s: fewer than %d items" % (path, s["minItems"]))

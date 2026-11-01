@@ -1,0 +1,22 @@
+{
+  "checked": "2026-11-01T14:17:58Z",
+  "rekor": [
+    {
+      "predicateType": "https://github.com/npm/attestation/tree/main/specs/publish/v0.1",
+      "logIndex": "1697020151",
+      "body_matches_bundle": true,
+      "integratedTime_matches": true
+    },
+    {
+      "predicateType": "https://slsa.dev/provenance/v1",
+      "logIndex": "1697019812",
+      "body_matches_bundle": true,
+      "integratedTime_matches": true
+    }
+  ],
+  "tuf": {
+    "refreshed": true,
+    "same_rekor_log_ids": true,
+    "same_fulcio_cas": true
+  }
+}

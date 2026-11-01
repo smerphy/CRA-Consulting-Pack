@@ -80,7 +80,7 @@ Documentation may be kept in a working language of your choice, but a notified b
 
 ### 1.5 `pack/out/hosted/D14-compliance-templates-kit/md/05-eu-declaration-of-conformity.md`
 
-Claims: T17. Reason: Art 28(3): 'a single EU declaration of conformity shall be drawn up'. No 'dossier' option.
+Claims: T17. Reason: Art 28(3): 'a single EU declaration of conformity shall be drawn up'. No 'dossier' option in the OJ text. Note added 1 Nov 2026 after reading the Commission FAQ v1.4: section 6.8 says the single declaration "may be a dossier made up of relevant individual Declarations of conformity" (citing Blue Guide 4.4). The new text below stays correct; a template may add "(a dossier format is acceptable if presented as the one single declaration)".
 
 Old text:
 

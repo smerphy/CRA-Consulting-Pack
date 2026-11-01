@@ -9,13 +9,17 @@ Commands
   retention  compute the Art 13(13) retain-until date
   store      gate a release and write it to an append-only evidence store
   verify-store  recompute the store's hash chain
+  verify-attestation  verify one DSSE envelope or Sigstore bundle against the
+             trust policy (exit 0 verified, 1 not verified)
 """
 
 import argparse
+import datetime as _dt
 import json
 import os
 import sys
 
+from . import attest as A
 from . import collectors as C
 from . import gate as G
 from . import index as I
@@ -38,13 +42,22 @@ def _feeds(args):
 
 
 def _policy(args):
-    return C.load_json(args.policy) if getattr(args, "policy", None) else None
+    if not getattr(args, "policy", None):
+        return None
+    pol = C.load_json(args.policy)
+    pol["_base_dir"] = os.path.dirname(os.path.abspath(args.policy))
+    return pol
+
+
+def _now(args):
+    v = getattr(args, "now", None)
+    return _dt.datetime.fromisoformat(v.replace("Z", "+00:00")) if v else None
 
 
 def _gated(args):
     osv, kev = _feeds(args)
     bundle = build_bundle(args.release, osv_records=osv, kev_ids=kev, generated_at=args.generated_at)
-    result = G.evaluate(bundle, _policy(args))
+    result = G.evaluate(bundle, _policy(args), now=_now(args))
     bundle.record["gate"] = result
     return bundle, result
 
@@ -126,7 +139,7 @@ def cmd_store(args):
     m = bundle.context["manifest"]
     ev = m.get("evidence", {})
     files = [m["artefact"]] if m.get("artefact") else []
-    files += [ev[k] for k in ("sbom", "provenance", "vex") if ev.get(k)]
+    files += [ev[k] for k in ("sbom", "provenance", "vex", "vex_attestation") if ev.get(k)]
     files += [t["path"] for t in ev.get("tests", [])]
     files += [ev[k]["path"] for k in ("risk_assessment", "applicability_matrix", "annex_ii",
                                        "update_design_note", "cvd_policy") if ev.get(k)]
@@ -142,6 +155,30 @@ def cmd_verify_store(args):
     return 0 if not problems else 1
 
 
+def cmd_verify_attestation(args):
+    pol = _policy(args) or {}
+    trust = A.TrustPolicy(pol.get("attestation_trust") or {}, pol.get("_base_dir"))
+    atts = A.load_attestation_file(args.attestation)
+    if args.predicate_type:
+        atts = [a for a in atts if (a.unverified_statement() or {}).get("predicateType") == args.predicate_type]
+    att = atts[0] if atts else None
+    res = A.verify(att, trust, args.product, args.purpose, _now(args))
+    out = A.summary(res, trust)
+    st = res["statement"] or {}
+    out["predicate_type"] = st.get("predicateType")
+    out["subjects"] = st.get("subject")
+    if args.artefact:
+        from .digests import file_digests
+        digs, _ = file_digests(args.artefact)
+        alg = A.subject_matches(st, digs)
+        out["artefact"] = {"path": args.artefact, "sha256": digs["sha256"], "subject_match": alg}
+        if not alg:
+            out["verified"] = False
+            out["problems"].append("SUBJECT_MISMATCH: no verified subject matches the artefact digest")
+    _dump(out, None)
+    return 0 if out["verified"] else 1
+
+
 def main(argv=None):
     p = argparse.ArgumentParser(prog="python -m cra_evidence", description=__doc__,
                                 formatter_class=argparse.RawDescriptionHelpFormatter)
@@ -152,6 +189,7 @@ def main(argv=None):
         sp.add_argument("--osv", help="OSV records JSON (list or {'vulns': [...]})")
         sp.add_argument("--kev", help="CISA KEV catalogue JSON")
         sp.add_argument("--generated-at", help="fix the record timestamp (reproducible output)")
+        sp.add_argument("--now", help="evaluation time for key validity checks (ISO 8601; default: now)")
 
     sp = sub.add_parser("record"); sp.add_argument("release"); feeds(sp)
     sp.add_argument("-o", "--out"); sp.set_defaults(fn=cmd_record)
@@ -177,6 +215,14 @@ def main(argv=None):
 
     sp = sub.add_parser("verify-store"); sp.add_argument("--store", required=True)
     sp.set_defaults(fn=cmd_verify_store)
+
+    sp = sub.add_parser("verify-attestation"); sp.add_argument("attestation")
+    sp.add_argument("--policy", required=True); sp.add_argument("--product", required=True)
+    sp.add_argument("--purpose", required=True, help="provenance | vex | publish | ...")
+    sp.add_argument("--artefact", help="check the verified subject digest against this file")
+    sp.add_argument("--predicate-type", help="select this predicate type from a multi-attestation file")
+    sp.add_argument("--now", help="evaluation time (ISO 8601)")
+    sp.set_defaults(fn=cmd_verify_attestation)
 
     args = p.parse_args(argv)
     return args.fn(args)

@@ -11,6 +11,7 @@ import datetime as _dt
 import os
 
 from . import SCHEMA_VERSION
+from . import attest as A
 from . import collectors as C
 from .digests import digested_item
 from .retention import retain_until, support_years
@@ -58,6 +59,7 @@ def build_bundle(release_dir, osv_records=None, kev_ids=None, generated_at=None)
     art_rel = manifest.get("artefact")
     art = item(art_rel) if art_rel else None
     ctx["artefact_sha256"] = art["digests"]["sha256"] if art else None
+    ctx["artefact_digests"] = dict(art["digests"]) if art else {}
 
     # SBOM
     sbom_rec, sbom_norm = None, None
@@ -83,21 +85,27 @@ def build_bundle(release_dir, osv_records=None, kev_ids=None, generated_at=None)
         ctx["sbom_missing_top_level"] = sorted(d for d in direct if d.lower() not in have)
         sbom_rec["top_level_complete"] = sbom_norm["top_level_recorded"] and not ctx["sbom_missing_top_level"]
 
-    # provenance
+    # provenance (claims only; the gate verifies signatures and re-reads the
+    # claims from the verified payload)
     prov_rec, prov_norm = None, None
+    ctx["provenance_attestations"] = []
     if ev.get("provenance") and path_of(ev["provenance"]):
         try:
-            prov_norm = C.normalise_provenance(C.load_json(path_of(ev["provenance"])))
+            with open(path_of(ev["provenance"]), "r", encoding="utf-8") as fh:
+                text = fh.read()
+            prov_norm = C.normalise_provenance(text)
+            ctx["provenance_attestations"] = A.load_attestations(text)
             prov_rec = item(ev["provenance"])
-            match = bool(ctx["artefact_sha256"]) and any(
-                s["sha256"] == ctx["artefact_sha256"] for s in prov_norm["subjects"])
+            digs = ctx["artefact_digests"]
+            match = any((s.get("sha256") and s["sha256"] == digs.get("sha256")) or
+                        (s.get("sha512") and s["sha512"] == digs.get("sha512")) for s in prov_norm["subjects"])
             prov_rec.update({
                 "format": prov_norm["format"],
                 "predicate_type": prov_norm["predicate_type"] or "",
                 "builder_id": prov_norm["builder_id"] or "",
                 "build_type": prov_norm["build_type"] or "",
                 "invocation_id": prov_norm["invocation_id"] or "",
-                "subject_digest_match": match,
+                "subject_digest_match": bool(digs) and match,
             })
         except (C.CollectorError, ValueError) as e:
             ctx["errors"].append(("PROVENANCE_UNPARSEABLE", str(e)))
@@ -105,9 +113,16 @@ def build_bundle(release_dir, osv_records=None, kev_ids=None, generated_at=None)
 
     # VEX + known-vulnerability correlation
     vex_rec, vex_norm = None, None
+    ctx["vex_attestations"], ctx["vex_document"] = [], None
     if ev.get("vex") and path_of(ev["vex"]):
         try:
-            vex_norm = C.normalise_vex(C.load_json(path_of(ev["vex"])))
+            vdoc = C.load_json(path_of(ev["vex"]))
+            embedded = [a for a in A.load_attestations(vdoc) if a.kind != "statement"]
+            if embedded:                       # the VEX file is itself a signed attestation
+                ctx["vex_attestations"] = embedded
+                vdoc = (embedded[0].unverified_statement() or {}).get("predicate") or {}
+            ctx["vex_document"] = vdoc
+            vex_norm = C.normalise_vex(vdoc)
             vex_rec = item(ev["vex"])
             vex_rec.update({
                 "format": vex_norm["format"],
@@ -130,6 +145,13 @@ def build_bundle(release_dir, osv_records=None, kev_ids=None, generated_at=None)
             m["vex_status"] = st["status"] if st else None
     ctx["vex"] = vex_norm
     ctx["matches"] = matches
+    if ev.get("vex_attestation") and path_of(ev["vex_attestation"]):
+        try:
+            ctx["vex_attestations"] = A.load_attestation_file(path_of(ev["vex_attestation"]))
+            if vex_rec is not None:
+                vex_rec["attestation"] = item(ev["vex_attestation"])
+        except ValueError as e:
+            ctx["errors"].append(("VEX_ATTESTATION_UNPARSEABLE", str(e)))
     if vex_rec is not None:
         vex_rec["known_vulnerability_matches"] = matches
         vex_rec["feeds"] = list((manifest.get("feeds") or {}).values()) or ["OSV snapshot", "CISA KEV snapshot"]

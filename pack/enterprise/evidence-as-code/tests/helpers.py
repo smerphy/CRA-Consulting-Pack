@@ -32,8 +32,19 @@ def ensure_examples():
         make_examples.main()
 
 
-def bundle(name, mutate_manifest=None, mutate_files=None):
-    """Build a bundle from an example release, optionally on a mutated copy."""
+def resign(release_dir):
+    """Re-sign a mutated release with the demonstration keys (pipeline signing step)."""
+    sys.path.insert(0, EX)
+    import make_examples
+    make_examples.sign_release(release_dir)
+
+
+def bundle(name, mutate_manifest=None, mutate_files=None, resign_after=True):
+    """Build a bundle from an example release, optionally on a mutated copy.
+
+    After a mutation the copy is re-signed (as the pipeline would sign the
+    new evidence) unless resign_after is False, which models tampering.
+    """
     ensure_examples()
     src = os.path.join(RELEASES, name)
     if not mutate_manifest and not mutate_files:
@@ -49,6 +60,8 @@ def bundle(name, mutate_manifest=None, mutate_files=None):
             json.dump(m, fh)
     if mutate_files:
         mutate_files(dst)
+    if resign_after:
+        resign(dst)
     return build_bundle(dst, OSV, KEV, generated_at="2028-01-11T10:15:00Z")
 
 
