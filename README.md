@@ -24,7 +24,7 @@ White-label consulting pack for the EU Cyber Resilience Act (Regulation (EU) 202
 | DS | Advisory design system | `pack/out/hosted/DS-design-system/` (tokens, CSS, components); published artifact |
 | KB | CRA knowledge base (4 tabs) | `reports/` (source) and `pack/out/hosted/KB-knowledge-base/` (Word, Markdown, PDF); published doc |
 
-Everything hosted on claude.ai is also copied into `pack/out/hosted/` (exported 1 Nov 2026): decks and one-pagers as PDF plus source, docs as Word, Markdown and PDF per tab, the dashboard as source, data and a snapshot. The claude.ai versions stay the live, editable copies; re-export after editing them. Deck PPTX files are slide images with notes; download an editable PPTX from the deck on claude.ai.
+Everything hosted on claude.ai is also copied into `pack/out/hosted/` (exported 1 Nov 2026): decks and one-pagers as PDF plus source, docs as Word, Markdown and PDF per tab, the dashboard as source, data and a snapshot. The claude.ai versions stay the live, editable copies; re-export after editing them. Deck PPTX files are fully editable (native text, shapes, tables and charts, with speaker notes), rebuilt from the slide source by `pack/engine/pptx/d0N_build.js`; they use the design fonts Source Serif 4, Inter and JetBrains Mono (free on Google Fonts), so install those for exact line breaks.
 
 ## Layout
 
@@ -59,3 +59,7 @@ Deterministic (seeded): re-running reproduces `pack_data.json` and `DATA_SUMMARY
 - Notified-body status in the pack data and deliverables is dated "at checks to 8 Sep 2026" (the last verified NANDO check; the knowledge base states it as at 30 Oct 2026). Recheck NANDO before each client issue and update `build_data.py`.
 - D11 holds ten conformity-assessment rows (notified-body routes) at "Not started" by design: they cannot progress until a CRA notified body is designated and contracted. Clear a row's "Status hold" cell to release it once its body is contracted.
 - The staff pulse (D07) needs works council sign-off by 6 Nov 2026 before its 23 Nov launch; the comms calendar (D05) carries the same gate.
+
+## Rebuild the editable decks
+
+`node pack/engine/pptx/d01_build.js` (likewise `d02_build.js`, `d03_build.js`) rebuilds each deck's PPTX from `pack/out/hosted/<deck>/source/` using Playwright and PptxGenJS (`npm i pptxgenjs` if missing). Web fonts are vendored in `pack/engine/pptx/fonts/` (SIL Open Font License). D02's line-break tuning also uses static Source Serif 4, Inter and JetBrains Mono files from `~/.fonts` or `/usr/share/fonts` when present.
