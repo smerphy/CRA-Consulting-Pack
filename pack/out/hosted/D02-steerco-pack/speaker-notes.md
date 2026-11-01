@@ -32,7 +32,7 @@ Article 14 has applied since 11 Sep 2026. In the 22 Oct tabletop drill, the team
 
 ## 8. EUR 468m of EU revenue needs a notified body; none as at 8 Sep 2026
 
-Of EUR 807m of in-scope EU revenue, EUR 468m sits in seven Class I and II families that need a notified body: five on Module H, and V1 and L2 on Module B plus C. No CRA body was in NANDO at the last checks and no harmonised standard is cited, so Class I cannot use Module A. If EG-700 and H3 prove Class I, a further EUR 133m depends on a body; SD2 plans for that now.
+Of EUR 807m of in-scope EU revenue, EUR 468m sits in seven Class I and II families that need a notified body: five on Module H, and V1 and L2 on Module B plus C. No CRA body was in NANDO at the last checks. Class I can use Module A only by applying in full a harmonised standard, a common specification or a European cybersecurity certification scheme at assurance level at least ‘substantial’ (Article 32(2)); none is available today. If EG-700 and H3 prove Class I, a further EUR 133m depends on a body; SD2 plans for that now.
 
 ## 9. Spend is EUR 410k against a EUR 384k plan (+7%), within tolerance
 

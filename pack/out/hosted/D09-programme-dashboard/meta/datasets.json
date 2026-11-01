@@ -201,12 +201,12 @@
     "source": {
       "kind": "file",
       "name": "reg_facts.json",
-      "url": "/_blob/81829e7e04b726b6bed20d745ad08229"
+      "url": "/_blob/f44e12588b0d7110c5cbb5a4b1e6c41f"
     },
     "title": "CRA regulatory facts",
     "updated": {
-      "at": "2026-10-31T15:41:32Z",
-      "by": "Claude, from the programme pack data (v1.0)"
+      "at": "2026-11-01T14:05:25Z",
+      "by": "Claude, OJ-verified corrections (F04, F07, F15)"
     }
   },
   "revenue_by_class": {

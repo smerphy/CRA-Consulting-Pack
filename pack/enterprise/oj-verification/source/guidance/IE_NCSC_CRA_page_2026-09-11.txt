@@ -1,0 +1,91 @@
+
+Home
+ About
+About Us
+CSIRT-IE
+Strategy
+ Report & Contact
+Incident Reporting
+Contact
+Early Warning Service
+ Compliance & Regulation
+NIS2
+CyFun
+Cyber Resilience Act
+ Alerts & Guidance
+News & Advisories
+Guidance Documents
+SecureAI
+CVD Implementation
+ Community
+Cyber CORE
+ NCC-IE
+NCC-IE
+SME Grants
+EU Cyber Resilience Act
+ Last updated 11thSeptember 2026
+ Key Enforcement Date: 11th September 2026
+ Mandatory reporting obligations under Article 14 of the Cyber Resilience Act have now commenced as of 11th September 2026 — over a year ahead of full technical product compliance rules (December 2027).
+ All entities must now report actively exploited vulnerabilities and severe incidents in relevant products.
+What is the Cyber Resilience Act?
+Entered into force on 10th December 2024, the Cyber Resilience Act (CRA) introduces mandatory cybersecurity standards for hardware and software products made available on the EU market. Manufacturers remain responsible for vulnerability handling throughout a product's full operational lifecycle.
+Core Objectives
+Enforce secure-by-design principles during product development.
+Mandate active vulnerability management and lifecycle patching.
+Enhance user transparency regarding support periods and updates.
+Create a harmonised cybersecurity baseline across all EU Member States.
+Products in Scope
+Applies to Products with Digital Elements (PDEs)—any hardware or software that connects directly or indirectly to a network (e.g., laptops, smart devices, OS, mobile apps, industrial IoT).
+Note: There are specific exemptions for offline products and strictly excluded sectors, however manufacturers must undertake their own appropriate legal and technical assessment to determine if their products fall within these exemptions.
+Mandatory Reporting Thresholds
+Starting 11th September 2026, manufacturers of products made available in the EU market must report two categories of security events affecting their products:
+1. Actively Exploited Vulnerabilities
+Any software or hardware flaw where reliable evidence shows a malicious actor is actively exploiting the vulnerability in the wild.
+2. Severe Incidents
+Any operational security incident that negatively affects (or could affect) a product's security functions, data confidentiality, or system integrity.
+ Third-Party Components: If an actively exploited vulnerability or a severe incident occurs in a third-party component integrated into your product, you, as the final product manufacturer, are required to report once you confirm your product is affected.
+Legacy Products: Products placed on the market prior to December 2027 are exempt from design rules, but are fully subject to reporting obligations if currently available on the EU market.
+Statutory Reporting Timelines
+Notifications are submitted sequentially via the ENISA Single Reporting Platform (SRP):
+ STAGE 1
+24 Hours
+ Early Warning Notification
+Submitted within 24 hours of becoming aware of an active exploit or severe incident.
+A baseline notice highlighting suspected malicious intent and impacted Member States.
+Do not delay submission pending a deep technical analysis.
+ STAGE 2
++48 Hours
+ Detailed Notification ("72-Hour Report")
+Must be submitted within 48 hours of the Early Warning submission (72 hours total from initial awareness).
+Provides initial severity assessment, root cause, nature of the event, and temporary mitigations/workarounds.
+ STAGE 3
+Final
+ Final Report
+Active Exploits: Submitted within 14 days after a corrective patch or workaround is made available.
+Severe Incidents: Submitted no later than 1 month after the Stage 2 Detailed Notification.
+Contains complete root-cause analysis, patch details, and corrective actions taken.
+Platform Submission & Emergency Protocol
+All CRA notifications must be submitted through ENISA's Single Reporting Platform (SRP), which automatically routes reports to the relevant national CSIRT and ENISA simultaneously. 
+Only notifications submitted via the SRP count as satisfying statutory reporting obligations.
+ Access ENISA Single Reporting Platform
+Emergency Fallback Protocol (SRP Offline Only)
+In the event that the SRP experiences an outage, a fallback mechanism via email will apply for voluntary alerting of an urgent vulnerability or severe incident.
+Strict Usage Condition:
+Submissions via email will ONLY be accepted when the SRP is officially declared offline by ENISA.
+As soon as the SRP becomes available, any official notifications (the 24-hour Early Warning or 72-hour Notification) must be submitted formally through the platform to satisfy compliance requirements. 
+Emergency Reporting Address: cra_fallback@ncsc.gov.ie
+Reporting an Active Exploit or Severe Incident falling under the CRA
+Mandatory notifications will be submitted via the ENISA SRP:
+ Access ENISA SRP
+ No pre-registration is required. Account creation will take place during first submission.
+CRA Guidance & FAQs
+Access official European Commission (EC) and ENISA CRA & SRP guidance:
+ EC: CRA Technical FAQ
+ EC: Implementation Guidance
+ ENISA: Single Reporting Platform User Guide & FAQ
+NCSC Guidance on CRA Reporting Obligations
+ Disclaimer
+ Privacy
+ Sitemap
+ Contact
+ © NCSC 2025.
