@@ -207,7 +207,7 @@ Source: Project Rampart stakeholder register and programme data; knowledge base,
 | Support period | ‘Security updates for \[product\] until \[month year\].’ | ‘Lifetime support’; any support period not yet confirmed by product management. | The support period is a declared commitment with legal weight (Art 13(8), (19)). |
 | Timeline | ‘Reporting has applied since 11 Sep 2026; everything else applies from 11 Dec 2027.’ | ‘The CRA starts in 2027’; ‘the Digital Omnibus will delay it’. | Reporting is already live; the Digital Omnibus proposal does not amend the CRA and is not adopted. |
 | Penalties | Internal only: ‘Fines can reach EUR 15m or 2.5% of worldwide turnover, whichever is higher.’ | ‘We face a EUR 30m fine’ in any external or all-staff message. | Fear does not change behaviour. Fines and most market-surveillance enforcement apply from 11 Dec 2027; Finland can already enforce Article 14 breaches (since 11 Sep 2026). |
-| Open source | ‘We take responsibility for the open-source components in our products and report vulnerabilities upstream.’ | ‘Open-source projects must now comply with the CRA’; ‘maintainers must give us SBOMs’. | Integrating open source never transfers the manufacturer’s duty (Art 13(5)); stewards have a light-touch regime (Art 24). |
+| Open source | ‘We take responsibility for the open-source components in our products and report vulnerabilities upstream.’ | ‘Open-source projects must now comply with the CRA’; ‘maintainers must give us SBOMs’. | Integrating open source leaves the manufacturer’s due-diligence duty in place (Art 13(5)); stewards have a light-touch regime (Art 24). |
 | Products already sold | ‘Products already in the field are covered by our reporting duty and supported on their stated terms.’ | ‘Old products are out of scope.’ | Art 14 reporting applies to products placed on the market before 11 Dec 2027 (Art 69(3)). |
 
 Source: knowledge base (Executive summary, Reporting obligations, Conformity, Standards, Open-source software), facts as at 30 Oct 2026; Illustrative
@@ -1095,7 +1095,7 @@ The 24-hour and 72-hour clocks both run from awareness, in parallel, and remedia
 
 ## User notifications and the CSAF companion
 
-**Every user notice has two forms carrying the same facts: a human-readable notice people act on, and a machine-readable CSAF advisory their tools ingest.** The CRA asks us to inform impacted users, and where appropriate all users, without undue delay, in a machine-readable format where appropriate (Art 14(8)). Detail may go first to affected customers while no fix exists, and more widely once the issue is mitigated (guidance paras 219-221).
+**Every user notice has two forms carrying the same facts: a human-readable notice people act on, and a machine-readable CSAF advisory their tools ingest.** The CRA asks us to inform impacted users, and where appropriate all users, in a timely manner, in a machine-readable format where appropriate (Art 14(8)). Detail may go first to affected customers while no fix exists, and more widely once the issue is mitigated (guidance paras 219-221).
 
 ### Template 1: interim notice to affected customers (before a fix)
 

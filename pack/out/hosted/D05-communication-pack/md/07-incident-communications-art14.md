@@ -68,7 +68,7 @@ The 24-hour and 72-hour clocks both run from awareness, in parallel, and remedia
 
 ## User notifications and the CSAF companion
 
-**Every user notice has two forms carrying the same facts: a human-readable notice people act on, and a machine-readable CSAF advisory their tools ingest.** The CRA asks us to inform impacted users, and where appropriate all users, without undue delay, in a machine-readable format where appropriate (Art 14(8)). Detail may go first to affected customers while no fix exists, and more widely once the issue is mitigated (guidance paras 219-221).
+**Every user notice has two forms carrying the same facts: a human-readable notice people act on, and a machine-readable CSAF advisory their tools ingest.** The CRA asks us to inform impacted users, and where appropriate all users, in a timely manner, in a machine-readable format where appropriate (Art 14(8)). Detail may go first to affected customers while no fix exists, and more widely once the issue is mitigated (guidance paras 219-221).
 
 ### Template 1: interim notice to affected customers (before a fix)
 

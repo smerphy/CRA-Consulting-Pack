@@ -173,7 +173,7 @@ Art 14 is the CRA's first live obligation: every manufacturer of an in-scope pro
 | --- | --- | --- |
 | Early warning | 24 hours from awareness (Art 14(2)(a)) | 24 hours from awareness (Art 14(4)(a)) |
 | Notification | 72 hours from awareness (Art 14(2)(b)) | 72 hours from awareness (Art 14(4)(b)) |
-| Final report | 14 days after a corrective or mitigating measure is available (Art 14(2)(c)) | 1 month after the 72-hour notification (Art 14(4)(c)) |
+| Final report | 14 days after a corrective or mitigating measure is available (Art 14(2)(c)) | 1 month after submitting the 72-hour incident notification (Art 14(4)(c)) |
 | Recipient | Coordinator CSIRT of the main-establishment Member State, with simultaneous access for ENISA, through the Single Reporting Platform (Art 14(7)) | Same |
 
 *Source: [Regulation (EU) 2024/2847](https://eur-lex.europa.eu/eli/reg/2024/2847/oj) Art 14. Official.*
@@ -455,7 +455,7 @@ This report is desk research: it uses published secondary sources only, with no 
 - Samples are self-selected and skew towards engaged audiences, and two (Bitkom, ONEKEY) are German only; none is representative of EU manufacturers.
 - The notified-body count rests on a secondary tracker last checked on 8 Sep 2026, because NANDO's successor application could not be queried directly.
 - Standards stages and dates come partly from secondary trackers; France's decree and Malta's authority were confirmed only through secondary sources.
-- The CRA's operative articles were read through verbatim legal mirrors and cross-checked, because EUR-Lex served only recitals to automated retrieval; the authentic text is [Regulation (EU) 2024/2847](https://eur-lex.europa.eu/eli/reg/2024/2847/oj) on EUR-Lex.
+- The CRA's operative articles were first read through verbatim legal mirrors and were checked against the authentic Official Journal text on 1 Nov 2026; the authentic text is [Regulation (EU) 2024/2847](https://eur-lex.europa.eu/eli/reg/2024/2847/oj) on EUR-Lex.
 - Status changes quickly: re-check the signposts in section 10 at least quarterly.
 
 **Other official sources cited:** Commission guidance C(2026) 5252 and FAQ v1.4; Implementing Regulation (EU) 2025/2392; Delegated Regulations (EU) 2026/881 and 2026/339; Directive (EU) 2024/2853; COM(2025) 837 and Council ST 14756/26; the ENISA Single Reporting Platform hub; the national sources listed under Exhibit 20. The full source list sits in the EU Cyber Resilience Act Engineering Compliance Knowledge Base that accompanies this report.

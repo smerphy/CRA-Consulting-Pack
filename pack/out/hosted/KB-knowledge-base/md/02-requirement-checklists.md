@@ -2,7 +2,7 @@
 
 Oct 30, 2026
 
-One tickable line per legal requirement of Regulation (EU) 2024/2847, with its article reference and the evidence to hold. Tick a line only against a pointer to that evidence. Run the first checklist per product; the rest follow from the role and class it records. Article wording was read via legal mirrors; verify quotations against the OJ text before relying on them in a filing.
+One tickable line per legal requirement of Regulation (EU) 2024/2847, with its article reference and the evidence to hold. Tick a line only against a pointer to that evidence. Run the first checklist per product; the rest follow from the role and class it records. Article wording was checked against the authentic OJ text on 1 Nov 2026.
 
 ## 1. Scope, role and route gate (per product)
 
@@ -46,7 +46,7 @@ Point 1 is absolute. Points 2(a) to 2(m) apply on the basis of the Art 13(2) ris
 
 ## 3. Annex I Part II: vulnerability handling requirements
 
-All eight apply to every manufacturer, when placing the product on the market and throughout the support period (Art 13(8)). None is risk-qualified.
+All eight apply to every manufacturer, when placing the product on the market and throughout the support period (Art 13(8)). Part II has no risk-assessment chapeau; point 2 is framed "in relation to the risks posed".
 
 - [ ] Point 1: vulnerabilities and components identified and documented, including a software bill of materials in a commonly used and machine-readable format covering at least the top-level dependencies. Evidence: SBOM per release in the technical file, vulnerability register
 - [ ] Point 2: vulnerabilities addressed and remediated without delay in relation to the risks posed, including by providing security updates; security updates separated from functionality updates where technically feasible. Evidence: triage SLAs, release records, justification for any bundling
@@ -60,7 +60,7 @@ All eight apply to every manufacturer, when placing the product on the market an
 
 ## 4. Article 13: manufacturer obligations
 
-One line per paragraph. Paragraph numbering follows the OJ text as reproduced by legal mirrors and cross-checked against the Commission FAQ and guidance.
+One line per paragraph. Paragraph numbering was checked against the OJ text on 1 Nov 2026.
 
 - [ ] 13(1): the product is designed, developed and produced in accordance with Annex I Part I
 - [ ] 13(2): a cybersecurity risk assessment is undertaken and its outcome applied in planning, design, development, production, delivery and maintenance
@@ -99,11 +99,11 @@ Live since 11 Sep 2026 for every in-scope product, including those placed on the
 - [ ] 14(3): severe incidents having an impact on the security of the product are notified
 - [ ] 14(4)(a): early warning within 24 hours, stating whether unlawful or malicious acts are suspected
 - [ ] 14(4)(b): incident notification within 72 hours: nature of the incident, initial assessment, measures taken and available to users
-- [ ] 14(4)(c): final report within one month of the 72-hour notification
+- [ ] 14(4)(c): final report within one month after submitting the 72-hour incident notification
 - [ ] 14(5): the severe-incident criteria are written into the decision procedure: impact on the product's ability to protect sensitive or important data or functions, or malicious code executing in the product or in users' systems
 - [ ] 14(6): intermediate status reports are supplied on the CSIRT's request
 - [ ] 14(7): notifications are filed on the single reporting platform to the coordinator CSIRT of the main-establishment Member State; for a manufacturer with no EU establishment the authorised representative, importer, distributor or most-users fallback is decided in advance
-- [ ] 14(8): impacted users and, where appropriate, all users are informed without undue delay about the vulnerability or incident and the corrective measures, in a structured machine-readable format where appropriate
+- [ ] 14(8): impacted users and, where appropriate, all users are informed in a timely manner about the vulnerability or incident and the corrective measures, in a structured machine-readable format where appropriate
 - [ ] 14(9) and 16(2): the grounds in Delegated Regulation (EU) 2026/881 for a CSIRT to delay dissemination are understood; the particularly exceptional circumstances flag is used only where justified
 - [ ] 14(10): notification templates follow any Commission implementing act on format and procedure (none adopted; the ENISA glossary fields are the de facto format)
 - [ ] Art 15: the voluntary reporting route for other vulnerabilities, threats, incidents and near misses is known (not yet available on the platform)
@@ -238,7 +238,7 @@ All apply from 11 Dec 2027. An importer or distributor that rebrands or substant
 
 - [ ] 24(1): a documented, verifiable cybersecurity policy fosters secure development and effective vulnerability handling, covers vulnerability documentation and remediation, information sharing with the community and promotion of voluntary reporting
 - [ ] 24(2): cooperation with market surveillance authorities; the policy is supplied on reasoned request in a language they understand
-- [ ] 24(3): Art 14(1), (3) and (8) reporting is performed to the extent the steward is involved in development or runs the development infrastructure
+- [ ] 24(3): Art 14(1) reporting is performed to the extent the steward is involved in development, and Art 14(3) and (8) only for severe incidents affecting network and information systems it provides for development
 - [ ] Steward status is recorded per project, and any monetisation that would make the steward a manufacturer is flagged
 
 ## 10. Transition, traceability and watch items

@@ -143,7 +143,7 @@ Combine them freely. A common pattern is BSI TR-03183-1 for structure and verdic
 2. Conditions of use: operational environment, user capability, who administers it, network exposure, physical access.
 3. Asset list in the three BSI classes. Data assets: credentials, keys, personal data. Functional assets: control functions, the update path. Security assets: root of trust, signing keys, audit log.
 4. Architecture and data-flow diagrams showing every interface, including the product-to-RDPS boundary and each third-party service.
-5. Component inventory with due-diligence status (section 9), because recital 58 asks for supplier dependencies to appear in the assessment.
+5. Component inventory with due-diligence status (section 9), because Art 13(5) and recital 34 require due diligence on third-party components; record high-risk-supplier dependencies as good practice (recital 58 asks the Commission and MSAs, not manufacturers, to weigh such non-technical risk factors).
 6. Threat intelligence relevant to the product class, including EUVD and vendor advisories for the components used.
 
 For critical-infrastructure products the model must include capable adversaries; for consumer products a different model is acceptable (FAQ section 4.1). Write the attacker profile down.
@@ -895,7 +895,7 @@ Guidance [C(2026) 5252](https://ec.europa.eu/newsroom/dae/redirection/document/1
 | Exit plan | Replacement candidates; effort to swap; isolation measures if it must stay | Architecture review |
 | Decision | Approved, approved with conditions, rejected; owner; date; review trigger | Intake gate record |
 
-A component whose upstream support ends inside your support period needs an exit plan at intake. The FAQ requires you to replace or patch an unsupported component yourself. Recital 58 asks that dependencies on high-risk suppliers appear in the risk assessment; link the intake record to section 3.
+A component whose upstream support ends inside your support period needs an exit plan at intake. The FAQ requires you to replace or patch an unsupported component yourself. Recording dependencies on high-risk suppliers in the risk assessment is good practice (recital 58 asks the Commission and MSAs to weigh such non-technical risks); link the intake record to section 3.
 
 ### Inventory and monitoring
 
@@ -1007,13 +1007,13 @@ A stale distribution map is the most common blocker to a 24-hour filing. The "Me
 | --- | --- | --- |
 | Early warning (24 h) | Title and summary; product name and version; Member States; awareness time in UTC; for incidents, whether malicious or unlawful acts are suspected | Type, Title, Summary, Product name and version, Member States, Date/time became aware, Incident suspected of unlawful or malicious acts |
 | 72-hour notification | General information on the vulnerability and exploit, or the incident and initial assessment; corrective or mitigating measures taken; measures users can take; sensitivity view; attack vector; whether to request limited dissemination | General information, Initial assessment, Corrective or mitigating measures taken, Corrective or mitigating measures users can take, Considered sensitivity, Attack vector, PEC indicator |
-| Final report (14 days after a fix for vulnerabilities; 1 month after the 72-hour report for incidents) | Severity rating, classification and rationale; impact description; malicious actor if known, else "unknown"; details of the security update; date the measure became available; root cause for incidents | Description of severity and impact, Malicious actor, Details of the security update, Date corrective measure became available, Type of threat or root cause, Applied and ongoing mitigation |
+| Final report (14 days after a fix for vulnerabilities; 1 month after submitting the 72-hour incident notification) | Severity rating, classification and rationale; impact description; malicious actor if known, else "unknown"; details of the security update; date the measure became available; root cause for incidents | Description of severity and impact, Malicious actor, Details of the security update, Date corrective measure became available, Type of threat or root cause, Applied and ongoing mitigation |
 
 No severity scale is prescribed; supply the CVSS vector and a plain-language rationale. Track the date a fix became available internally, because the vulnerability final report has no platform counter.
 
 ### User notification (Art 14(8))
 
-After awareness the manufacturer informs impacted users and, where appropriate, all users without undue delay, including mitigating measures, "where appropriate" in a machine-readable format. Guidance paras 219-221 make this proportionate: affected customers may receive detail before a fix exists and the wider public once mitigated. The product team prepares both forms.
+After awareness the manufacturer informs impacted users and, where appropriate, all users in a timely manner (Art 14(8)), including mitigating measures, "where appropriate" in a machine-readable format. Guidance paras 219-221 make this proportionate: affected customers may receive detail before a fix exists and the wider public once mitigated. The product team prepares both forms.
 
 - Human-readable: in-product notice, app notification or email with the interim action, the fix version and the advisory link. The same text travels with the update as its advisory message (section 7).
 - Machine-readable: a CSAF advisory, with a VEX "under\_investigation" or "known\_affected" status until the fix, then the final advisory with fixed versions (section 8). CSAF is the obvious candidate and appears in no primary source as a required format.
@@ -1051,7 +1051,7 @@ Three documents leave the engineering process for every product version: the Ann
 
 No authority publishes an Annex VII template. [BSI TR-03183-1 v1.0.0](https://www.bsi.bund.de/SharedDocs/Downloads/EN/BSI/Publications/TechGuidelines/TR03183/BSI-TR-03183-1_v1_0_0.pdf?__blob=publicationFile&v=3) section 4.8 lists the minimum content of an assessment report, which "can therefore form part of the technical documentation". The outline below uses it as the skeleton and maps each part to the Annex VII point it satisfies.
 
-1. **Cover and control.** Product name, model and variants; file version; date; author and approver; retention date (Art 13(13)). Language note: any language internally, translatable for an authority on reasoned request (Art 13(22)).
+1. **Cover and control.** Product name, model and variants; file version; date; author and approver; retention date (Art 13(13)). Language note: an official language of the notified body's Member State or one it accepts where a body is involved (Art 31(4)); translatable for an authority on reasoned request (Art 13(22)).
 2. **Product identification.** Intended purpose and foreseeable use from the product definition record (section 2); hardware and software versions affecting compliance. For hardware, photographs or illustrations of external features, markings and internal layout. The remote-function map and the family variant list. Annex VII point 1(a)-(c).
 3. **Risk context.** Operational environment, user profile, assets in the three classes, attacker profile, expected time in use. Feeds Annex VII point 3.
 4. **Risk assessment.** Threat model and data-flow diagrams; evaluated risks; accepted risks with treatment. The Annex I Part I applicability matrix with justifications, and the Part I point (1) and Part II application statements (section 3). Annex VII point 3.
@@ -1087,7 +1087,7 @@ Draw up one declaration per product following the Annex V structure, with the ei
 
 Element 7 names the notified body, procedure and certificate where Module B+C or H applies.
 
-Signing: the person signing acts for the manufacturer and assumes responsibility for compliance (Art 28(4)). Name the function, place and date, and keep the signing authority with the executive sponsor or a written delegate. Where several Union acts apply, one declaration or a dossier of declarations covers all of them (Art 28(3)).
+Signing: the person signing acts for the manufacturer and assumes responsibility for compliance (Art 28(4)). Name the function, place and date, and keep the signing authority with the executive sponsor or a written delegate. Where several Union acts require a declaration, one single declaration must cover all of them and identify each act with its publication reference (Art 28(3)).
 
 The simplified Annex VI form reads "Hereby, \[manufacturer\] declares that the product with digital elements type \[...\]" complies with Regulation (EU) 2024/2847. It then gives "the exact internet address" of the full declaration (Art 13(20)). Use it in packaging and in-app screens; the full declaration lives at that address and a copy sits in the technical file.
 

@@ -36,7 +36,7 @@ The companion CRA Product Classifier (D13) produces a record in the same shape a
 5. Get the named approver to sign off before the document enters the technical file.
 6. Keep the technical documentation and the declaration for 10 years after placing on the market or for the support period, whichever is longer (Art 13(13)).
 
-Regulatory facts are as at 30 Oct 2026. No harmonised standard is cited in the Official Journal, and no CRA notified body was verifiably designated at checks to 8 Sep 2026. Article and annex wording in these templates is paraphrased from mirrors of the regulation; confirm it against the Official Journal text before relying on it. The kit supports a documented compliance process and is not legal advice.
+Regulatory facts are as at 30 Oct 2026. No harmonised standard is cited in the Official Journal, and no CRA notified body was verifiably designated at checks to 8 Sep 2026. Article and annex references in these templates were checked against the authentic Official Journal text on 1 Nov 2026; quotations are exact unless marked as paraphrase. The kit supports a documented compliance process and is not legal advice.
 
 *CRA Compliance Templates Kit (D14) · v1.0 · 31 Oct 2026 · Prepared by \[Advisor\]*
 
@@ -135,7 +135,7 @@ The cybersecurity risk assessment decides which Annex I Part I requirements appl
 | Item | Detail |
 | --- | --- |
 | Legal basis | Art 13(2)-(4); Annex I Part I; Annex VII pt 3; recital 55 |
-| Needed for | Deciding Part I applicability; Annex VII pt 3; the "adequate risk analysis" a notified body examines under Module B |
+| Needed for | Deciding Part I applicability; Annex VII pt 3; the "adequate analysis and assessment of the risks" a notified body examines under Module B (Annex VIII Part II pt 3.3) |
 | Owner | Product security officer |
 | Approver | Head of product security; product owner co-signs residual-risk acceptance |
 | When to create | At design, after Template 1 and before the release gate |
@@ -167,7 +167,7 @@ The cybersecurity risk assessment decides which Annex I Part I requirements appl
 | Attacker profile | \[Attackers assumed and excluded, with reasons\] | Commission FAQ section 4.1 | Remote opportunist; local attacker in BLE range; intruder with physical access. No capable-adversary assumption for a consumer product |
 | Assets | \[Data, functional and security assets\] | BSI TR-03183-1 RH\_RA.1 | Data: app keys, guest codes, access log. Functional: actuator, update path. Security: root of trust, signing keys |
 | Architecture and data flows | \[Diagram reference with trust boundaries\] | Annex VII pt 2(a) | DFD-L2 \[version\] |
-| Component inventory | \[SBOM reference and due-diligence status\] | Art 13(5); recital 58 | SBOM \[ref\]; BLE stack and TLS library reviewed |
+| Component inventory | \[SBOM reference and due-diligence status\] | Art 13(5); recital 34 | SBOM \[ref\]; BLE stack and TLS library reviewed |
 | Risk rating scale | \[Impact on C, I, A by likelihood\] | BSI TR-03183-1 RH\_RA.1.2 | Impact 1-5 by likelihood from exposure and access needed |
 | Acceptance criteria | \[Per-product criteria in terms of harm to users, data and connected systems\] | Guidance paras 156-163 | No residual risk allowing unauthorised unlock without physical attack on the lock body |
 
@@ -204,7 +204,7 @@ One row per requirement; Part I point (1) plus the thirteen point (2) items. Cel
 
 | Requirement | Applies? | How applied | Evidence |
 | --- | --- | --- | --- |
-| Annex I Part II points 1-8 (vulnerability handling) | Yes; not risk-qualified | \[Statement of how each process is applied, as Art 13(3) requires\] | SBOM, CVD policy (Template 7), update design note, reporting runbook (Template 8) |
+| Annex I Part II points 1-8 (vulnerability handling) | Yes; all apply (no risk-assessment chapeau; pt 2 is "in relation to the risks posed") | \[Statement of how each process is applied, as Art 13(3) requires\] | SBOM, CVD policy (Template 7), update design note, reporting runbook (Template 8) |
 
 ### Part E: residual-risk acceptance
 
@@ -286,7 +286,7 @@ The support period determination records how long the manufacturer will handle v
 | Archives of old versions | \[Public archive with risk warnings, if offered\] | Art 13(11) | Archive page with warning text |
 | Sign-off | \[Name\], \[role\], \[date\] | Governance | \[Name\], Product manager; \[Name\], Compliance lead |
 
-The order of the Art 13(8) factors follows the Commission FAQ and is not verified against the OJ text. No delegated act on minimum periods exists as of 30 Oct 2026.
+The Art 13(8) factors follow the order of the OJ text: expected time in use, reasonable user expectations, nature of the product, relevant Union law; the rest are optional. No delegated act on minimum periods exists as of 30 Oct 2026.
 
 ### Part B: expected-use evidence
 
@@ -294,10 +294,10 @@ The order of the Art 13(8) factors follows the Commission FAQ and is not verifie
 | --- | --- | --- | --- |
 | Installed-base and field data | Age of units still connected | Expected time in use | \[% of earlier-generation locks active after 7 years\] |
 | Warranty, returns and replacement data | When users replace the product | Expected time in use | \[Median replacement age\] |
-| Comparable products | Periods declared for similar products | Reasonable user expectations | \[Competitor periods, with source\] |
+| Comparable products | Periods declared for similar products by other manufacturers | Optional factor (Art 13(8)); also informs reasonable user expectations | \[Competitor periods, with source\] |
 | Customer research and complaints | What buyers assume about support | Reasonable user expectations | \[Survey reference\] |
 | Product category | Whether the category is typically used for longer | Nature of the product; recital 60 | Long-lived home hardware |
-| Supplier support commitments | Whether chipset, OS and library support covers the period | Feasibility | \[BLE stack and MCU vendor commitments; Template 9\] |
+| Supplier support commitments | Whether chipset, OS and library support covers the period; availability of the operating environment | Optional factors (Art 13(8)): support periods of integrated core components; availability of the operating environment | \[BLE stack and MCU vendor commitments; Template 9\] |
 | Other Union law | Lifetimes or duties set elsewhere | Relevant Union law | \[None identified\] |
 
 ### Part C: decision and publication
@@ -367,13 +367,13 @@ The technical documentation index is the first page of a product's Annex VII fil
 | Product and variants | \[Family; variant list in Part C\] | Guidance paras 174-177 | L2 Smart Lock, 3 SKUs |
 | Conformity route | \[From Template 1\] | Art 32 | Module B+C (planned) |
 | Retention end | \[10 years after last placing, or end of support period, whichever is later\] | Art 13(13) | \[Date\] |
-| Working language | \[Any language; translation plan for authorities\] | Art 13(22) | English; translation on request |
+| Working language | \[Working language; for a notified-body route, an official language of the body's Member State or one it accepts; translation plan for authorities\] | Art 31(4); Art 13(22) | English, accepted by the notified body; translation on request |
 | System of record | \[GRC platform, document-management system or compliance tool with audit trail\] | Evidence governance | \[Tool name\] |
 | Legacy design relief | \[Yes or no; scope\] | Guidance pts 37-39 | \[Yes, for design phases before 11 Dec 2027\] |
 
 ### Part B: Annex VII index
 
-Document names show illustrative L2 entries. Point 1 is split into 1(a)-1(d) (sub-lettering for this kit; the regulation numbers point 1 as one item).
+Document names show illustrative L2 entries. Point 1 rows 1(a)-1(d) follow the lettering of Annex VII point 1 in the OJ text.
 
 | Annex VII point | Content required | Document / artefact | Owner | Location (system of record) | Version | Status |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -467,7 +467,7 @@ The EU declaration of conformity is the manufacturer's signed statement that a p
 | Declaration ID and version | Internal reference, version number, date of issue. Control field, not an Annex V point | Art 28 ("updated as appropriate") | DoC-HBS-L2-\[001\], version 1, \[date\] |
 | 1. Product identification | Name, type and information enabling unique identification: model, SKUs, hardware revision, software or firmware versions | Annex V pt 1 | L2 Smart Lock, type L2; 3 SKUs L2-STD, L2-KEY, L2-RTF; hardware rev \[x\]; firmware \[x.y\] and later; companion app \[x.y\] |
 | 2. Manufacturer | Name and address of the manufacturer, or of its authorised representative | Annex V pt 2 | Example Group \[legal entity\], Home & Building Solutions, \[street\], \[postcode\] \[city\], Germany |
-| 3. Sole responsibility | Fixed statement, see wording below | Annex V pt 3 (the KB quotes "provider"; confirm the OJ wording) | Statement as drafted |
+| 3. Sole responsibility | Fixed statement, see wording below | Annex V pt 3 (OJ wording: "provider") | Statement as drafted |
 | 4. Object of the declaration | Description allowing traceability; a photograph is optional | Annex V pt 4 | Battery-powered smart door lock with app keys and guest access. Uses the Example Group access-management cloud as remote data processing. Photograph \[ref\] |
 | 5. Statement of conformity | Conformity with the relevant Union harmonisation legislation, listing each act covered | Annex V pt 5; Art 28(3) | Regulation (EU) 2024/2847; \[other applicable Union act, e.g. radio equipment legislation, with OJ reference\] |
 | 6. Standards and specifications | Harmonised standards, common specifications or cybersecurity certifications used, with versions; state "in part" where partial | Annex V pt 6 | No CRA harmonised standard cited in the OJ as at 30 Oct 2026. Other specifications applied: \[list, each labelled "draft" where it is a draft\] |
@@ -476,7 +476,7 @@ The EU declaration of conformity is the manufacturer's signed statement that a p
 
 ### Full declaration (Annex V) wording
 
-The block below is a drafting model that follows the Annex V points. Only the point 3 statement is quoted from the KB.
+The block below is a drafting model that follows the Annex V points. The point 3 statement quotes the OJ text.
 
 ```text
 EU DECLARATION OF CONFORMITY
@@ -518,7 +518,7 @@ Signed for and on behalf of: [manufacturer legal name]
 [signature]
 ```
 
-*Point 3 follows the knowledge base wording ("provider"), taken from one mirror of the regulation; confirm it against the Official Journal text before issuing.*
+*Point 3 quotes Annex V of the Official Journal text, which confirms "provider" in English and in the German ("Anbieter") and French ("fournisseur") versions. You may add the manufacturer's legal name after it; do not replace the statutory word.*
 
 ### Simplified declaration (Annex VI) wording
 
@@ -559,7 +559,7 @@ https://www.example.com/security/l2/declaration/
 | Languages | The languages required by each Member State where the product is made available | Art 28(2) |
 | One per product | Tied to the individual product rather than the type; a family declaration must clearly identify the variants | Art 28; FAQ 6.8; guidance pts 174-177 |
 | Updates | Keep it "updated as appropriate"; a new version after a substantial modification "might need a new declaration" | Art 28; FAQ 6.8 |
-| Several Union acts | One declaration, or a dossier of declarations, may cover all applicable acts | Art 28(3) |
+| Several Union acts | One single declaration must cover every Union act that requires one, identifying each act and its OJ publication reference | Art 28(3) |
 | Requests | Market surveillance may request the declaration and all conformity documentation on reasoned request | Art 13(22) |
 
 Guidance C(2026) 5252 is an approved draft; no formal adoption or OJ publication was found as at 30 Oct 2026.
@@ -570,7 +570,7 @@ Guidance C(2026) 5252 is an approved draft; no formal adoption or OJ publication
 - Adding the notified body number beside the CE marking under Module B+C. It belongs there only under Module H (Art 30(4)).
 - No controlled signing authority, so declarations are signed by whoever is asked. Use a signing instrument, a pre-signature checklist and a counter-signature.
 - An Annex VI text without the exact internet address, or a declaration URL that breaks during the retention period.
-- Treating RED certificates or EN 18031 assessments as CRA conformity. Art 69(1) keeps them valid for RED purposes only.
+- Treating RED certificates or EN 18031 assessments as CRA conformity. Art 69(1) keeps them valid until 11 Jun 2028; they evidence RED compliance, not CRA conformity (inference).
 
 *Template 5 · v1.0 · 31 Oct 2026 · Not legal advice; confirm wording against the Official Journal text before use.*
 
@@ -579,7 +579,7 @@ Guidance C(2026) 5252 is an approved draft; no formal adoption or OJ publication
 
 # 6 · User information and instructions
 
-The user information document carries the security facts a user needs to buy, commission, run and retire the product safely. Art 13(18) requires the Annex II information to accompany every product "at minimum", in paper or electronic form. Write one versioned document per product or family, publish it at a stable URL, and file a copy in the technical documentation (Annex VII pt 1).
+The user information document carries the security facts a user needs to buy, commission, run and retire the product safely. Art 13(18) and Annex II require the listed information to accompany every product "at minimum" (Annex II), "in paper or electronic form" (Art 13(18)). Write one versioned document per product or family, publish it at a stable URL, and file a copy in the technical documentation (Annex VII pt 1).
 
 ## At a glance
 
@@ -815,7 +815,7 @@ These forms prepare the three Art 14 notifications for an actively exploited vul
 1. Pre-fill the product rows of each form now: name, versions, Member States, support status.
 2. On any signal, open a case and assess immediately. Record the UTC awareness time once there is "a reasonable degree of certainty" (guidance para 213).
 3. File the early warning within 24 hours of awareness. Do not wait for legal review.
-4. Inform impacted users without undue delay (Art 14(8)). The notice is not gated on the filing.
+4. Inform impacted users, and all users where appropriate, in a timely manner (Art 14(8)). The notice is not gated on the filing.
 5. File the 72-hour notification. Count 72 hours from awareness, not from the early warning.
 6. Track the date the fix became available internally. File the final report on time.
 7. Record the SRP notification ID in the case file. Run the post-incident review and update the risk assessment.
@@ -829,7 +829,7 @@ These forms prepare the three Art 14 notifications for an actively exploited vul
 | Trigger | "Reliable evidence that a malicious actor has exploited it" in a system without the owner's permission | Affects, or could affect, the ability to protect "sensitive or important data or functions"; or has led, or could lead, to malicious code in the product or users' systems | Art 3(42); Art 14(5)(a)-(b) |
 | Early warning | 24 hours from awareness | 24 hours from awareness | Art 14(2)(a); 14(4)(a) |
 | Notification | 72 hours from awareness | 72 hours from awareness | Art 14(2)(b); 14(4)(b) |
-| Final report | No later than 14 days after a corrective or mitigating measure is available | Within 1 month after the 72-hour notification | Art 14(2)(c); 14(4)(c) |
+| Final report | No later than 14 days after a corrective or mitigating measure is available | Within 1 month after submitting the incident notification (72-hour stage) | Art 14(2)(c); 14(4)(c) |
 | Intermediate update | On CSIRT request | On CSIRT request | Art 14(6) |
 
 Suspicion starts triage; reasonable certainty starts the clock. Not reportable: good-faith research or bug-bounty findings without exploitation evidence, and component CVEs not exploitable or not exploited in the product (FAQ 5.2, 5.4; guidance paras 217-218). Exploitation known before 11 Sep 2026 is not reported retroactively. Record "not reportable" decisions with the same rigour.
@@ -867,22 +867,22 @@ The SRP 72-hour counter currently shows a due time 48 hours after the early warn
 
 | Field (SRP glossary name) | What to enter | Basis | Example: L2 Smart Lock (illustrative) |
 | --- | --- | --- | --- |
-| Description of severity and impact | Assessed severity rating, classification and rationale; CVSS vector with plain-language reasoning. No scale is prescribed | Art 14(2)(c) | High, CVSS \[vector\]; physical access to homes possible within Bluetooth range |
+| Description of the vulnerability, including severity and impact | What the vulnerability is; assessed severity rating, classification and rationale; CVSS vector with plain-language reasoning. No scale is prescribed | Art 14(2)(c)(i) | High, CVSS \[vector\]; physical access to homes possible within Bluetooth range |
 | Malicious actor | Information on the actor if known, else "unknown" | Art 14(2)(c) | Unknown |
 | Details of the security update | Fix version, what it changes, how it is delivered | Art 14(2)(c) | Firmware 3.2.5 adds token nonces; automatic over-the-air update |
 | Date corrective measure became available | Tracked internally; the SRP has no counter for this report | Art 14(2)(c) | 2026-11-20; final report due by 2026-12-04 |
 
-### Form D: final report, severe incident (1 month after the 72-hour notification)
+### Form D: final report, severe incident (1 month after submitting the 72-hour incident notification)
 
 | Field (SRP glossary name) | What to enter | Basis | Example: L2 Smart Lock (illustrative) |
 | --- | --- | --- | --- |
-| Description of severity and impact | Detailed severity and impact, with rationale | Art 14(4)(c) | \[n\] locks exposed for \[n\] hours; no confirmed entry |
+| Detailed description of the incident, including severity and impact | Detailed description, severity and impact, with rationale | Art 14(4)(c)(i) | \[n\] locks exposed for \[n\] hours; no confirmed entry |
 | Type of threat or root cause | Likely threat type or root cause | Art 14(4)(c) | Credential phishing of a cloud administrator; no MFA on one legacy account |
 | Applied and ongoing mitigation | Measures applied and still running | Art 14(4)(c) | MFA enforced for all admin accounts; key-issuance alerting; credential review ongoing |
 
 ### User notice (Art 14(8))
 
-After awareness, inform impacted users and, "where appropriate", all users without undue delay, with the mitigating measures. Use "where appropriate, a structured, machine-readable format". Guidance paras 219-221 allow detail to go first to affected customers and more widely once mitigated. If the manufacturer is not timely, the CSIRTs may inform users. No format is named; CSAF is the obvious candidate but appears in no primary source.
+After awareness, inform impacted users and, "where appropriate", all users in a timely manner (no fixed deadline), with the mitigating measures. Use "where appropriate, a structured, machine-readable format". Guidance paras 219-221 allow detail to go first to affected customers and more widely once mitigated. If the manufacturer is not timely, the CSIRTs may inform users. No format is named; CSAF is the obvious candidate but appears in no primary source.
 
 ```text
 Subject: Security notice for [product]: [action required / recommended]
@@ -994,10 +994,10 @@ This pack gives contract clauses that let you meet your Art 13(5) due diligence 
 | 2 Vulnerability notification | Early notice so our 24 h and 72 h clocks can be met | Art 13(5), Art 14(2) and (4), Annex I Part II(6) | Must | Monitor supplier advisories, EUVD, NVD and OSV ourselves; intake gate rates component high risk |
 | 3 Security updates | Fixes for the whole product support period | Art 13(8), 13(9), Annex I Part II(2), (7), (8) | Must | Source code escrow or our own patching; documented replacement plan |
 | 4 SBOM delivery | Component depth in our SBOM | Annex I Part II(1); Annex VII pts 2(b), 8; Art 13(25) | Must | Binary SCA on the delivered artefact; we generate the SBOM and mark known unknowns |
-| 5 Secure development, evidence and audit | Evidence for diligence and for reasoned requests | Art 13(5), 13(22); Recital 34; Annex VIII Module B pt 8 | Must for security-relevant components; Should otherwise | Questionnaire answers, scoped certificates and our own testing (fuzzing, penetration test) |
+| 5 Secure development, evidence and audit | Evidence for diligence and for reasoned requests | Art 13(5), 13(22); Recital 34; supports Annex VIII Module B pt 8 (notified-body audits of our processes) | Must for security-relevant components; Should otherwise | Questionnaire answers, scoped certificates and our own testing (fuzzing, penetration test) |
 | 6 Incident cooperation | Inputs for Art 14 reports and user information | Art 14(2), (4), (6), (8) | Must | Named contact on best efforts; build data from our own telemetry |
 | 7 End-of-life and cessation | Time to migrate before support ends | Art 13(8), 13(19), 13(23) | Must | Last-time buy; escrow; earlier redesign |
-| 8 Substantial change notice | Input to our substantial modification test | Art 3(30); guidance pts 108-110; Annex VIII Module B pt 7 | Should | Our release gate assesses every supplier release (Template 10) |
+| 8 Substantial change notice | Input to our substantial modification test | Art 3(30); guidance pts 108-110; supports our Annex VIII Module B pt 7 duty to inform the notified body | Should | Our release gate assesses every supplier release (Template 10) |
 | 9 Flow-down | Same duties on sub-suppliers | Art 13(5); Art 23 traceability | Should | Supplier lists sub-suppliers of security-relevant parts |
 | 10 Open-source components | Keeps responsibility and upstream channel with us | Art 13(5), 13(6); guidance pts 86-88, 222-229 | Must | None needed; we run the upstream channel |
 | 11 Confidentiality of vulnerability information | Embargo without blocking legal reports | Annex I Part II(4), (5); Art 14(8) | Must | Supplier CVD policy governs, with embargo dates agreed in writing |
@@ -1131,7 +1131,7 @@ This record decides whether a change to a product already on the market is a sub
 5. If any of questions 1-4 is yes, test whether the changed risk affects Annex I Part I compliance. If it does, or you cannot show it does not, record the change as substantial. This step is a kit rule, not guidance text.
 6. Record the outcome, the reasoning and the approver. Borderline negatives also go to the notified body under Module B.
 
-Art 3(30) is paraphrased from mirror text; confirm the OJ wording before relying on it.
+Art 3(30) (OJ text): a change after placing on the market "which affects the compliance of the product with digital elements with the essential cybersecurity requirements set out in Part I of Annex I or which results in a modification to the intended purpose for which the product with digital elements has been assessed".
 
 ### Consequence table
 

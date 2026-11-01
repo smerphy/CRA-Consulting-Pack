@@ -203,7 +203,7 @@ The other five are the organisation's way of making the remaining obligations re
 - The early warning is filed within 24 hours of awareness and the notification within 72 hours of the same awareness. The final report follows Art 14(2)(c) or 14(4)(c) timing.
 - Legal reviews the 72-hour and final reports, not the early warning.
 - The main-establishment Member State and coordinator CSIRT are decided in advance (Art 14(7)); a wrong choice "may invalidate the notification" (ENISA SRP FAQ 18).
-- Users are informed without undue delay, in a risk-based and proportionate way (Art 14(8); guidance paras 219-221).
+- Users are informed in a timely manner, in a risk-based and proportionate way (Art 14(8); guidance paras 219-221).
 - Legacy products placed before 11 Dec 2027 stay in the reportable inventory (Art 69(3)).
 - UTC timestamps for first signal, awareness, escalation and each submission are recorded in the case file.
 
@@ -671,7 +671,7 @@ The cell shares one fact base and one UTC timeline, and each owner files separat
 
 ### Customer and user communication governance
 
-Art 14(8) requires the manufacturer to inform impacted users, and where appropriate all users, without undue delay, "where appropriate, in a structured, machine-readable format". Guidance paras 219-221 make the duty risk-based: detailed disclosure may be limited to affected customers until a fix exists, with broader disclosure once mitigated. If the manufacturer is not timely, the CSIRTs may inform users themselves.
+Art 14(8) requires the manufacturer to inform impacted users, and where appropriate all users, in a timely manner (no fixed deadline), "where appropriate, in a structured, machine-readable format". Guidance paras 219-221 make the duty risk-based: detailed disclosure may be limited to affected customers until a fix exists, with broader disclosure once mitigated. If the manufacturer is not timely, the CSIRTs may inform users themselves.
 
 | Decision | Owner | Rule |
 | --- | --- | --- |
@@ -787,7 +787,7 @@ Art 13(22) requires the manufacturer to answer a reasoned request from a market 
 | Translation or summary where the file is not in a language the authority understands | Compliance lead | Within the target |
 | Deliver, log recipient, date and contents | Compliance lead | 10 working days |
 
-Ten working days is an internal target, not a legal deadline. Documentation may be kept in any language, but the authority is entitled to a version it understands (FAQ Section 6.6). Plan translation capacity for the Member States in the register.
+Ten working days is an internal target, not a legal deadline. Documentation may be kept in a working language of your choice, but a notified body can require its own Member State's language or one it accepts (Art 31(4)), and the authority is entitled to a version it easily understands (Art 13(22); FAQ Section 6.6). Plan translation capacity for the Member States in the register.
 
 The knowledge base, Enforcement, market surveillance and penalties, covers the powers behind the request.
 
@@ -916,7 +916,7 @@ This section covers selecting and contracting notified bodies before any is desi
 
 ### Selecting notified bodies while none is designated
 
-Designation is a leading-indicator game. Accreditation runs against EN ISO/IEC 17065 for Modules B+C and EN ISO/IEC 17021-1 for Module H. The notifying authority then notifies through NANDO, with a two-week objection window for accredited bodies (Art 43).
+Designation is a leading-indicator game. Accreditation in practice runs against EN ISO/IEC 17065 for Modules B+C and EN ISO/IEC 17021-1 for Module H (accreditation practice; not stated in the CRA text). The notifying authority then notifies through NANDO, with a two-week objection window for accredited bodies (Art 43).
 
 A body's accreditation certificate is therefore the signal that designation is weeks, not months, away.
 
