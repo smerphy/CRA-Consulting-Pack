@@ -3,7 +3,10 @@
   "product_id": "lumen-browser",
   "version": "141.0.7390.65",
   "placing_date": "2028-02-10",
-  "retain_until": "2038-02-10",
+  "placing_event": "update_to_placed_product",
+  "inherited_placing_date": "2028-01-06",
+  "inherited_from_version": "141.0.7390.40",
+  "retain_until": "2038-01-06",
   "substantial_modification": "not_substantial",
   "points": [
     {

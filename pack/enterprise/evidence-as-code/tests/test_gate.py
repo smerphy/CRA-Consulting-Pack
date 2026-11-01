@@ -244,6 +244,52 @@ class SupportRouteDeclaration(unittest.TestCase):
         self.assertIn("ANNEX_II_MISSING", codes(r, "fail"))
 
 
+class InheritedPlacingDate(unittest.TestCase):
+    """Non-substantial software versions keep the placing date (guidance para 15, Example 2)."""
+
+    def test_sample_update_inherits_and_passes(self):
+        r = decide(bundle(BROWSER_OK))
+        self.assertEqual(r["decision"], "PASS", r["reasons"])
+        self.assertIn("PLACING_INHERITED", codes(r, "info"))
+
+    def test_retention_checked_against_inherited_date(self):
+        b = bundle(BROWSER_OK)
+        b.record["retention"]["retain_until"] = "2038-01-05"
+        self.assertIn("RETENTION_TOO_SHORT", codes(decide(b), "fail"))
+        b = bundle(BROWSER_OK)
+        b.record["retention"]["retain_until"] = "2038-01-06"
+        self.assertNotIn("RETENTION_TOO_SHORT", codes(decide(b)))
+
+    def test_new_placing_cannot_inherit(self):
+        def mut(m):
+            m["placing"]["event"] = "new_version_placing"
+        r = decide(bundle(BROWSER_OK, mut))
+        self.assertIn("PLACING_INHERITANCE_INCONSISTENT", codes(r, "review"))
+        # the record then uses the version's own date for retention
+        self.assertEqual(bundle(BROWSER_OK, mut).record["retention"]["retain_until"], "2038-02-10")
+
+    def test_inherited_after_version_date_fails(self):
+        def mut(m):
+            m["placing"]["inherited_placing_date"] = "2028-03-01"
+        self.assertIn("PLACING_INHERITED_AFTER_VERSION", codes(decide(bundle(BROWSER_OK, mut)), "fail"))
+
+    def test_update_to_product_placed_before_application_date(self):
+        """Art 69(2): a product placed before 11 Dec 2027 keeps receiving non-substantial
+        updates without a certificate; a substantially modified version does not."""
+        def upd(m):
+            m["placing"].update(date="2028-02-10", inherited_placing_date="2027-11-02")
+            m["classification"]["certificate_ref"] = None
+        r = decide(bundle(BROWSER_OK, upd))
+        self.assertIn("NB_CERTIFICATE_MISSING_PRE_APPLICATION", codes(r, "info"))
+        self.assertNotIn("NB_CERTIFICATE_MISSING", codes(r))
+
+        def sm(m):
+            upd(m)
+            m["placing"]["event"] = "substantial_modification_placing"
+            del m["placing"]["inherited_placing_date"]
+        self.assertIn("NB_CERTIFICATE_MISSING", codes(decide(bundle(BROWSER_OK, sm)), "fail"))
+
+
 class ConformityApplicationDate(unittest.TestCase):
     """Route and certificate rules bind units placed from 11 Dec 2027 only."""
 

@@ -425,6 +425,9 @@ def lock_comps(zlib="1.2.12", extra=()):
     return base + list(extra)
 
 
+BROWSER_141_PLACED = "2028-01-06"  # illustrative: first offering of 141.0.7390.40, assessed as a new placing
+
+
 def browser_release(version, prev, placing_date, pkgs, root_deps, direct, csaf_status, fuzz_results, sm):
     d = os.path.join(REL, "lumen-browser_%s" % version)
     art = blob("lumen-browser-%s" % version)
@@ -464,7 +467,11 @@ def browser_release(version, prev, placing_date, pkgs, root_deps, direct, csaf_s
     m = manifest({"product_id": "lumen-browser", "name": "Lumen Browser (desktop)",
                   "manufacturer": "Aldermoor Platforms (fictional)", "product_type": "software",
                   "family": "Lumen Browser"}, version, prev, placing_date,
-                 {"date": placing_date, "event": "new_version_placing", "member_states": ["IE", "DE", "FR", "ES", "IT", "PL"]},
+                 # A weekly security update on the 141 branch is not a new placing: it keeps
+                 # the placing date of 141.0.7390.40 (guidance para 15, Example 2).
+                 {"date": placing_date, "event": "update_to_placed_product",
+                  "member_states": ["IE", "DE", "FR", "ES", "IT", "PL"],
+                  "inherited_placing_date": BROWSER_141_PLACED, "inherited_from_version": "141.0.7390.40"},
                  {"class": "important_class_i",
                   "annex_category": "Annex III Class I, 2: standalone and embedded browsers",
                   "conformity_route": "module_h", "harmonised_standards_applied_in_full": [],

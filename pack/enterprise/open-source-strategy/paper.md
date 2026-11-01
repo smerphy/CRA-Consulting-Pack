@@ -16,7 +16,7 @@ Article 2 never mentions open source. The carve-out works through Art 3(22): mak
 | Charging for binaries, updates or a specific supported version, even with a free equivalent | Manufacturer of what is charged for | Pts 51, 57; Example 17 |
 | Open core: paid edition and free community edition on near-identical code | Manufacturer for the paid edition; steward for the community edition | Pts 52-53; Example 30 |
 | FOSS used to monetise other products or services | Placed on the market | Pt 54; Examples 14-16 |
-| Donations or membership that gate access, essential functions or updates, or buy contractual benefits | Manufacturer; the payment is a de facto price | Pts 60-62; Examples 20-22 |
+| Donations that gate access, essential functions or updates, or buy contractual benefits | Manufacturer; the payment is a de facto price. Note: membership fees paid to a not-for-profit steward do not make it a manufacturer (pt 66, Example 33) | Pts 60-62, 66; Examples 20-22, 33 |
 | Paid consulting, training or support sold separately while software and maintenance stay free | Not placed on the market | Pts 55-56; Example 18 |
 | Not-for-profit foundation sustaining FOSS that companies use commercially | Foundation is steward; companies owe due diligence | Pts 66, 76-78; Examples 24, 28, 33 |
 | Contributor with commit rights on a project it does not publish or control | Neither manufacturer nor steward | Recital 18; pts 48-49, 85-86; Example 13 |
@@ -35,7 +35,7 @@ Two consequences follow. An OSPO is never the regulated entity; the legal person
 | Cybersecurity policy | Documented and verifiable; covers secure development, documenting and remediating vulnerabilities, sharing information with the community, and promoting voluntary Art 15 reporting | Art 24(1) |
 | Cooperation | Cooperate with market surveillance authorities on request; supply the policy on reasoned request | Art 24(2) |
 | Reporting, infrastructure support | Notify severe incidents affecting the repositories, CI or signing infrastructure Aldermoor provides; inform users | Art 24(3) via Art 14(3), (8); pt 81 |
-| Reporting, engineering support | Notify actively exploited vulnerabilities in the project. Art 24(3) applies Art 14(8) user information only to the infrastructure-incident limb, so informing users here is guidance-led good practice, not a steward duty | Art 24(3) via Art 14(1); pt 82 |
+| Reporting, engineering support | Notify actively exploited vulnerabilities in the project. Art 24(3) applies Art 14(8) user information only to the infrastructure-incident limb, so informing users here is guidance-led good practice, not a steward duty (guidance para 82 nonetheless describes informing users as "required" where the steward has a direct relationship with them; follow it as practice) | Art 24(3) via Art 14(1); pt 82 |
 | Exemptions | No CE marking, conformity assessment, Annex I duties, technical documentation or SBOM; no administrative fines under any Art 64 tier | Recitals 19, 120; Art 64(10)(b), as corrected by OJ L, 2025/90555 ("paragraphs 2 to 9") |
 | Residual enforcement | An authority may require corrective action | Art 52(3) |
 | Start date | 11 Dec 2027; the 11 Sep 2026 reporting start created no steward duty | Art 71(2); OpenSSF, 11 Sep 2026 |

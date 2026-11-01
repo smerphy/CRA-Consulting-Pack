@@ -64,7 +64,7 @@ projects:
       today: "None. Lumen Browser is monetised through search, but the engine is published separately and freely."
       trigger_risks:
         - "Embedded, automotive and TV makers need engine security fixes for 5-10 year support periods (Art 13(8)) and ask Aldermoor to sell LTS branches. Selling LTS places those versions on the market (pt 57, Ex 17)."
-        - "Gating LTS to foundation members would turn membership fees into a de facto price (pts 60-62)."
+        - "Gating LTS to foundation members would make membership fees a price for access to that version (pt 57); fees that do not gate access do not make a not-for-profit steward a manufacturer (pt 66, Example 33)."
     integrated_into_aldermoor_products: ["Lumen Browser desktop and mobile (E3 F11, F12)", "Lumen WebView (F13)", "Lumen OS (F14)"]
     downstream_users: ["Other browser makers (their browsers are Annex III Class I item 2 products)", "Desktop application frameworks embedding the engine", "TV, automotive and kiosk makers"]
     role_today: "Steward (Ex 25, 29). Manufacturer of Lumen Browser, WebView and Lumen OS."

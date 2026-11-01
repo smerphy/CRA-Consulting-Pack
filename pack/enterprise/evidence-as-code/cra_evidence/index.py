@@ -91,18 +91,31 @@ def build_index(record):
         "product_id": record["product"]["product_id"],
         "version": record["version"]["version"],
         "placing_date": record["placing_on_market"]["date"],
+        "placing_event": record["placing_on_market"].get("event"),
+        "inherited_placing_date": record["placing_on_market"].get("inherited_placing_date"),
+        "inherited_from_version": record["placing_on_market"].get("inherited_from_version"),
         "retain_until": (record.get("retention") or {}).get("retain_until"),
         "substantial_modification": (record.get("substantial_modification") or {}).get("decision"),
         "points": pts,
     }
 
 
+def _placing_sentence(idx):
+    if idx.get("inherited_placing_date") and idx.get("placing_event") == "update_to_placed_product":
+        return ("Version first offered %s; not a new placing, so it keeps placing date %s from version %s "
+                "(guidance para 15, Example 2)." % (idx["placing_date"], idx["inherited_placing_date"],
+                                                    idx.get("inherited_from_version") or "(not recorded)"))
+    if idx.get("placing_event") == "update_to_placed_product":
+        return "Version first offered %s as an update to a placed product." % idx["placing_date"]
+    return "Placed %s (%s)." % (idx["placing_date"], idx.get("placing_event") or "event not recorded")
+
+
 def render_markdown(idx):
     lines = [
         "# Annex VII index: %s %s" % (idx["product_id"], idx["version"]),
         "",
-        "Record `%s`. Placed %s. Retain until %s. Substantial-modification decision: %s." % (
-            idx["record_id"], idx["placing_date"], idx["retain_until"], idx["substantial_modification"]),
+        "Record `%s`. %s Retain until %s. Substantial-modification decision: %s." % (
+            idx["record_id"], _placing_sentence(idx), idx["retain_until"], idx["substantial_modification"]),
         "",
         "| Annex VII point | Evidence | SHA-256 (first 16) | Location |",
         "|---|---|---|---|",

@@ -51,6 +51,8 @@ Verdict key: **confirmed** / **wrong** / **partly wrong** / **unverifiable**.
 8. **Claim 22 (standards)** — the 2 Nov 2026 ratification date for EN 40000-1-1/-1-2, the 3 Aug 2026 HAS submission for prEN 40000-1-3 and the per-item M/606 deadlines rest on secondary trackers; iTeh shows EN 40000-1-1:2026 at "Closure of Vote - Formal Approval" with publication 17 Nov 2026. Label them as such. The draft amending decision's horizontal date is reported as 30 Oct 2026 by some and 31 Oct 2026 by others.
 9. **Claim 29 (CVE)** — 20 CNAs as of 6 Aug 2026 is correct, but ENISA announced further CNAs on 21 Oct 2026; refresh the number.
 
+10. **Addendum 1 Nov 2026 (Enterprise module E6, correction C-10): placing of software versions.** Sections 03 and the application guide 11 said placing is "per version" for standalone software, which three Enterprise modules read as making every version a new placing. The guidance says otherwise: all copies of a version are placed at its first offering, later versions keep that date unless they are a substantial modification (para 15, Example 2), and builds for different platforms are distinct products (para 14). The KB text now says so (sections/03-scope.md, the combined document and guides/application/11-documentation-set.md). Source: C(2026) 5252 annex, Commission PDF of 27 Jul 2026 (copy and hash in pack/enterprise/oj-verification/source/guidance/MANIFEST.csv).
+
 ## Claims not fully verifiable from primary sources
 
 - **Claim 22**: CEN-CENELEC primary pages (CRA page returns 404; DKE Oct 2026 table has no dates) do not expose formal-vote/ratification dates; Annex I of C(2025) 618 (per-item deadlines) was not in the copy retrieved.

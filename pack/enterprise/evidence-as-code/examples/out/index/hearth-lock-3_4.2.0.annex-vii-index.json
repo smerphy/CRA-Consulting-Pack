@@ -3,6 +3,9 @@
   "product_id": "hearth-lock-3",
   "version": "4.2.0",
   "placing_date": "2028-01-18",
+  "placing_event": "update_to_placed_product",
+  "inherited_placing_date": null,
+  "inherited_from_version": null,
   "retain_until": "2039-12-31",
   "substantial_modification": "not_substantial",
   "points": [

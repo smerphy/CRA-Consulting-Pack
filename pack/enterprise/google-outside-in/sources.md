@@ -82,6 +82,7 @@ All sources were accessed on 1 Nov 2026. "Fetched" means the page was retrieved 
 | S60 | OpenSSF, A Community Guide to the EU CRA September 11 Deadline for Manufacturers, 11 Sep 2026 | https://openssf.org/blog/2026/09/11/a-community-guide-to-the-eu-cra-september-11-deadline-for-manufacturers/ | 1 Nov 2026 | Fetched | Steward duties from 11 Dec 2027; most open-source community will qualify as stewards |
 | S61 | OpenSSF Stewards Playbook | https://policy.openssf.org/CRA/stewards-playbook.html | 1 Nov 2026 | Fetched | Per-project legal-entity steward checklist |
 | S62 | ENISA SRP FAQ | https://www.enisa.europa.eu/topics/product-security/single-reporting-platform-srp/frequently-asked-questions | 1 Nov 2026 | Fetched | Checked for multi-product notification rules; none found |
+| S63 | Commission services CRA FAQ v1.4 (4 Sep 2026), via module E6 | https://ec.europa.eu/newsroom/dae/redirection/document/123307 | 1 Nov 2026 | Fetched by module E6 (copy and SHA-256 in `../oj-verification/source/guidance/MANIFEST.csv`) | FAQ 4.5.3: newly placed units of a product need their own support period under Art 13(8); FAQ 7.2: the CRA applies to individual products, not product types |
 
 ## Searched or attempted but not relied on
 

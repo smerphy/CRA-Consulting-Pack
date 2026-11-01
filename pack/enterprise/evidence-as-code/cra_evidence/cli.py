@@ -130,7 +130,7 @@ def cmd_validate(args):
 
 
 def cmd_retention(args):
-    _dump(R.explain(args.placing, args.support_end, args.buffer_days), None)
+    _dump(R.explain(args.placing, args.support_end, args.buffer_days, args.inherited_placing), None)
     return 0
 
 
@@ -208,6 +208,9 @@ def main(argv=None):
 
     sp = sub.add_parser("retention"); sp.add_argument("--placing", required=True)
     sp.add_argument("--support-end", required=True); sp.add_argument("--buffer-days", type=int, default=0)
+    sp.add_argument("--inherited-placing",
+                    help="placing date a non-substantial version keeps (guidance para 15, Example 2); "
+                         "used where earlier than --placing")
     sp.set_defaults(fn=cmd_retention)
 
     sp = sub.add_parser("store"); sp.add_argument("release"); feeds(sp)

@@ -3,6 +3,9 @@
   "product_id": "npm-sigstore",
   "version": "5.0.0",
   "placing_date": "2028-01-20",
+  "placing_event": "new_version_placing",
+  "inherited_placing_date": null,
+  "inherited_from_version": null,
   "retain_until": "2038-01-20",
   "substantial_modification": "not_substantial",
   "points": [

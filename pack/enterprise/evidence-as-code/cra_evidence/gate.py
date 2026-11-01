@@ -13,7 +13,7 @@ import re
 
 from . import attest as A
 from .record import PART_I_ITEMS
-from .retention import parse_date, retain_until
+from .retention import effective_placing_date, parse_date, retain_until
 
 DEFAULT_POLICY = {
     "policy_id": "aldermoor-cra-gate/1.1.0",
@@ -54,7 +54,7 @@ B = {
     "route": "Art 32(1)-(4) (KB 10-conformity 'Routes by class'); applies to units placed from 11 Dec 2027 (Art 69(2), Art 71(2); KB 04-exclusions)",
     "doc": "Art 13(12); Art 28; Annex V; FAQ 6.8 (KB 10-conformity)",
     "ret": "Art 13(13) (KB 10-conformity)",
-    "place": "Guidance paras 13-14 (KB 03-scope)",
+    "place": "Art 3(21); guidance paras 13-15 and Example 2 (KB 03-scope)",
     "sig": "Annex VII pt 2(c); Art 13(14); integrity of the technical file (guide 05-sdlc 'sign evidence'); "
            "SLSA v1.0 'Verifying artifacts' step 1",
     "slsa": "SLSA v1.0 Build track levels and 'Verifying artifacts' steps 1-2 (design control, not a legal "
@@ -97,6 +97,7 @@ class Gate:
         self._risk(ev, ctx)
         self._support(rec)
         self._substantial(rec)
+        self._placing(rec)
         self._route(rec)
         self._declaration(rec)
         self._retention(rec)
@@ -418,6 +419,24 @@ class Gate:
             self.add("SM_PLACING_EVENT_MISMATCH", "fail",
                      "substantial modification must be recorded as a new placing (pt 116)", B["sm"])
 
+    def _placing(self, rec):
+        p = rec.get("placing_on_market") or {}
+        inherited = p.get("inherited_placing_date")
+        if not inherited:
+            return
+        if p.get("event") != "update_to_placed_product":
+            self.add("PLACING_INHERITANCE_INCONSISTENT", "review",
+                     "event %s is a new placing, so it cannot keep the inherited placing date %s"
+                     % (p.get("event"), inherited), B["place"])
+        elif p.get("date") and parse_date(inherited) > parse_date(p["date"]):
+            self.add("PLACING_INHERITED_AFTER_VERSION", "fail",
+                     "inherited placing date %s is later than the version date %s" % (inherited, p["date"]),
+                     B["place"])
+        else:
+            self.add("PLACING_INHERITED", "info",
+                     "not a new placing: keeps placing date %s from version %s"
+                     % (inherited, p.get("inherited_from_version") or "(not recorded)"), B["place"])
+
     def _route(self, rec):
         c = rec.get("classification") or {}
         cls, route = c.get("class"), c.get("conformity_route")
@@ -426,7 +445,12 @@ class Gate:
         # Before the application date no certificate can be required (and none
         # can exist while no CRA notified body is designated): record the gap
         # as INFO so readiness is tracked without blocking releases.
-        placing = (rec.get("placing_on_market") or {}).get("date")
+        # A version that is not a new placing keeps the inherited placing date
+        # (guidance para 15, Example 2), so a product placed before the
+        # application date can keep receiving non-substantial updates
+        # without a certificate (Art 69(2)).
+        eff = effective_placing_date(rec.get("placing_on_market"))
+        placing = eff.isoformat() if eff else None
         start = self.policy.get("conformity_obligations_apply_from")
         applies = not (start and placing and parse_date(placing) < parse_date(start))
         sev = "fail" if applies else "info"
@@ -457,7 +481,7 @@ class Gate:
 
     def _retention(self, rec):
         r = rec.get("retention")
-        p = (rec.get("placing_on_market") or {}).get("date")
+        p = effective_placing_date(rec.get("placing_on_market"))
         e = (rec.get("support_period") or {}).get("end_date")
         if not r or not p or not e:
             self.add("RETENTION_UNDETERMINED", "fail", "retention date cannot be computed", B["ret"])

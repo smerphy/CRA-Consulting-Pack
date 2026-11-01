@@ -76,7 +76,30 @@ class Retention(unittest.TestCase):
 
     def test_record_uses_rule(self):
         self.assertEqual(gated(LOCK_OK).record["retention"]["retain_until"], "2039-12-31")
-        self.assertEqual(gated(BROWSER_OK).record["retention"]["retain_until"], "2038-02-10")
+        # 141.0.7390.65 is a security update that keeps the placing date of
+        # 141.0.7390.40 (2028-01-06; guidance para 15, Example 2).
+        rec = gated(BROWSER_OK).record
+        self.assertEqual(rec["retention"]["retain_until"], "2038-01-06")
+        self.assertIn("inherited from version 141.0.7390.40", rec["retention"]["rule"])
+
+    def test_inherited_placing_date_used_where_earlier(self):
+        self.assertEqual(R.retain_until("2028-02-10", "2033-02-28", inherited_placing_date="2028-01-06"),
+                         dt.date(2038, 1, 6))
+        # a later "inherited" date never extends or shortens below the version date rule
+        self.assertEqual(R.retain_until("2028-02-10", "2033-02-28", inherited_placing_date="2028-03-01"),
+                         dt.date(2038, 2, 10))
+        # support end still dominates when later
+        self.assertEqual(R.retain_until("2028-02-10", "2039-12-31", inherited_placing_date="2028-01-06"),
+                         dt.date(2039, 12, 31))
+
+    def test_effective_placing_date(self):
+        upd = {"date": "2028-02-10", "event": "update_to_placed_product", "inherited_placing_date": "2028-01-06"}
+        self.assertEqual(R.effective_placing_date(upd), dt.date(2028, 1, 6))
+        new = dict(upd, event="substantial_modification_placing")
+        self.assertEqual(R.effective_placing_date(new), dt.date(2028, 2, 10))
+        self.assertEqual(R.effective_placing_date({"date": "2028-02-10", "event": "update_to_placed_product"}),
+                         dt.date(2028, 2, 10))
+        self.assertIsNone(R.effective_placing_date({}))
 
     def test_update_availability(self):
         self.assertEqual(R.update_available_until("2028-02-10", "2033-02-28"), dt.date(2038, 2, 10))
@@ -174,6 +197,11 @@ class Cli(unittest.TestCase):
     def test_retention_cli(self):
         rc, out = self._run("retention", "--placing", "2028-01-18", "--support-end", "2039-12-31")
         self.assertEqual(json.loads(out)["retain_until"], "2039-12-31")
+        rc, out = self._run("retention", "--placing", "2028-02-10", "--support-end", "2033-02-28",
+                            "--inherited-placing", "2028-01-06")
+        res = json.loads(out)
+        self.assertEqual((res["retain_until"], res["placing_date"], res["version_date"]),
+                         ("2038-01-06", "2028-01-06", "2028-02-10"))
 
 
 if __name__ == "__main__":

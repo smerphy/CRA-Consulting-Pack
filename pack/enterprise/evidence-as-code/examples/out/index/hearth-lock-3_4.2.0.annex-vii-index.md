@@ -1,6 +1,6 @@
 # Annex VII index: hearth-lock-3 4.2.0
 
-Record `urn:aldermoor:cra-evidence:hearth-lock-3:4.2.0`. Placed 2028-01-18. Retain until 2039-12-31. Substantial-modification decision: not_substantial.
+Record `urn:aldermoor:cra-evidence:hearth-lock-3:4.2.0`. Version first offered 2028-01-18 as an update to a placed product. Retain until 2039-12-31. Substantial-modification decision: not_substantial.
 
 | Annex VII point | Evidence | SHA-256 (first 16) | Location |
 |---|---|---|---|

@@ -26,7 +26,11 @@ Modelling rules (legal basis in the KB):
   surveillance audits (pt 4); new or substantially modified products are scope
   extensions with the same body, "a more streamlined process" (FAQ 6.3).
 - Security updates are generally not substantial modifications (pt 108), so
-  ordinary versions do not trigger new examinations.
+  ordinary versions do not trigger new examinations. A software version that is
+  not a substantial modification keeps the original placing date (guidance
+  paras 13-15, Example 2), so the demand driver is substantial modifications and
+  new types, not version count. Version count drives only the small Module B
+  change-notice allowance below and the labelled "naive" sensitivity.
 """
 from __future__ import annotations
 
@@ -117,7 +121,7 @@ def main() -> int:
         if fid not in linked:
             org_cats[org][cid] = max(org_cats[org].get(cid, 0), cx)
 
-        # naive sensitivity: every version treated as a new type
+        # naive sensitivity (not the guidance reading): every version treated as a new type
         naive = lohi(exam_f, ver) if ver and fid not in linked else (0, 0)
 
         org_bc_y1[org] = add(org_bc_y1[org], bc_y1)

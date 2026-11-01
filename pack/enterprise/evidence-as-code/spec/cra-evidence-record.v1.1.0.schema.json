@@ -69,7 +69,7 @@
             "software",
             "hardware_with_software"
           ],
-          "x-cra-basis": "Art 30(1) CE marking differs for software and hardware (reports/sections/10-conformity.md); placing judged per unit for hardware and per version for standalone software (guidance paras 13-14, reports/sections/03-scope.md)."
+          "x-cra-basis": "Art 30(1) CE marking differs for software and hardware (reports/sections/10-conformity.md); placing judged per unit for hardware; for standalone software all copies of a version are placed at its first offering and non-substantial versions keep that date (guidance paras 13-15, Example 2, reports/sections/03-scope.md)."
         },
         "family": {
           "type": "string",
@@ -124,12 +124,12 @@
         "date",
         "event"
       ],
-      "x-cra-basis": "Art 3(21) placing on the market; guidance paras 13-14 (per unit; per version for standalone software; all copies of a version deemed placed at first commercial offering) (reports/sections/03-scope.md).",
+      "x-cra-basis": "Art 3(21) placing on the market; guidance paras 13-15 and Example 2 (per unit; for standalone software all copies of a version are placed at its first offering, later versions keep that date unless they are a substantial modification, and builds for different platforms are distinct products) (reports/sections/03-scope.md).",
       "properties": {
         "date": {
           "type": "string",
           "format": "date",
-          "x-cra-basis": "Guidance paras 13-14 (reports/sections/03-scope.md); start of the Art 13(13) retention clock (reports/sections/10-conformity.md)."
+          "x-cra-basis": "First offering of this version (guidance paras 13-14; reports/sections/03-scope.md). For a new placing this is the placing date and starts the Art 13(13) retention clock; for an update to a placed product the clock runs from the inherited placing date where earlier (para 15, Example 2) (reports/sections/10-conformity.md)."
         },
         "event": {
           "enum": [
@@ -138,7 +138,7 @@
             "substantial_modification_placing",
             "update_to_placed_product"
           ],
-          "x-cra-basis": "Guidance pt 116: a substantial modification is a new placing on the market (reports/sections/10-conformity.md); non-substantial updates do not reset the placing date (reports/sections/03-scope.md)."
+          "x-cra-basis": "Guidance pt 116: a substantial modification is a new placing on the market (reports/sections/10-conformity.md); versions that are not substantial modifications keep the original placing date (guidance para 15, Example 2; reports/sections/03-scope.md). 'new_version_placing' is for a version that is a new placing without a substantial modification, such as a distinct variant (para 14)."
         },
         "member_states": {
           "type": "array",
@@ -147,6 +147,17 @@
             "pattern": "^[A-Z]{2}$"
           },
           "x-cra-basis": "Art 28: declaration in the languages of the Member States of sale (reports/sections/10-conformity.md)."
+        },
+        "inherited_placing_date": {
+          "type": "string",
+          "format": "date",
+          "description": "For an update to a placed product: the placing date this version keeps (added in 1.1.0, optional).",
+          "x-cra-basis": "Guidance para 15 and Example 2: iterations that are not substantial modifications do not modify the software's date of placement on the market (reports/sections/03-scope.md). Starts the Art 13(13) retention clock where earlier than the version date."
+        },
+        "inherited_from_version": {
+          "type": "string",
+          "description": "The version whose placing (first placing, substantial-modification placing or new variant) this version inherits (added in 1.1.0, optional).",
+          "x-cra-basis": "Guidance paras 13-15 and Example 2; record every version and whether it is a new placing (reports/sections/03-scope.md)."
         }
       }
     },

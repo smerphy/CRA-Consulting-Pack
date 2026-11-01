@@ -1,6 +1,6 @@
 # Annex VII index: lumen-browser 141.0.7390.65
 
-Record `urn:aldermoor:cra-evidence:lumen-browser:141.0.7390.65`. Placed 2028-02-10. Retain until 2038-02-10. Substantial-modification decision: not_substantial.
+Record `urn:aldermoor:cra-evidence:lumen-browser:141.0.7390.65`. Version first offered 2028-02-10; not a new placing, so it keeps placing date 2028-01-06 from version 141.0.7390.40 (guidance para 15, Example 2). Retain until 2038-01-06. Substantial-modification decision: not_substantial.
 
 | Annex VII point | Evidence | SHA-256 (first 16) | Location |
 |---|---|---|---|

@@ -14,7 +14,7 @@ from . import SCHEMA_VERSION
 from . import attest as A
 from . import collectors as C
 from .digests import digested_item
-from .retention import retain_until, support_years
+from .retention import effective_placing_date, retain_until, support_years
 
 PART_I_ITEMS = ["1"] + ["2" + c for c in "abcdefghijklm"]
 
@@ -209,10 +209,15 @@ def build_bundle(release_dir, osv_records=None, kev_ids=None, generated_at=None)
     sp = manifest.get("support_period") or {}
     sm = manifest.get("substantial_modification") or {}
     ret = None
-    if placing.get("date") and sp.get("end_date"):
+    eff = effective_placing_date(placing)
+    if eff and sp.get("end_date"):
+        rule = "Art 13(13): max(placing + 10 years, support period end)"
+        if placing.get("date") and eff < effective_placing_date({"date": placing["date"]}):
+            rule += "; placing date %s inherited from version %s (guidance para 15, Example 2)" % (
+                eff.isoformat(), placing.get("inherited_from_version") or "previously placed")
         ret = {
-            "retain_until": retain_until(placing["date"], sp["end_date"]).isoformat(),
-            "rule": "Art 13(13): max(placing + 10 years, support period end)",
+            "retain_until": retain_until(eff, sp["end_date"]).isoformat(),
+            "rule": rule,
             "store_uri": _uri(manifest, ""),
             "object_lock_mode": (manifest.get("store") or {}).get("object_lock_mode", "compliance"),
         }

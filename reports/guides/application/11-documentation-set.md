@@ -68,7 +68,7 @@ Keep a version-support register: version, placing date, declared end date, what 
 
 Every placing on the market freezes a document set. For hardware that is each unit shipment against the file version current at the time.
 
-For software it is the first offering of each version (guidance paras 11-16). Record the mapping from product version to file, Annex II and declaration versions in the release gate record (section 5).
+For standalone software, all copies of a version are placed at its first offering; later versions keep that date unless they are a substantial modification, and builds for different platforms are distinct products (guidance paras 11, 13-15, Examples 1-2). Each version still has its own file version. Record every version, whether it is a new placing and the placing date it keeps, with the mapping from product version to file, Annex II and declaration versions in the release gate record (section 5).
 
 Retention runs 10 years from placing or the support period, whichever is longer. It covers the file and declaration (Art 13(13)) and the Annex II information (Art 13(18)).
 

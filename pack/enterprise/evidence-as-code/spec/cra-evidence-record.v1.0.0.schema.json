@@ -39,7 +39,7 @@
         "product_id": {"type": "string", "pattern": "^[a-z0-9._-]+$", "x-cra-basis": "Annex V point 1; Annex II point 3 (unique identification)."},
         "name": {"type": "string", "x-cra-basis": "Annex V point 1; Annex II point 3."},
         "manufacturer": {"type": "string", "x-cra-basis": "Annex V point 2; Art 13(16) (reports/sections/08-annex1-part2.md Table 2)."},
-        "product_type": {"enum": ["software", "hardware_with_software"], "x-cra-basis": "Art 30(1) CE marking differs for software and hardware (reports/sections/10-conformity.md); placing judged per unit for hardware and per version for standalone software (guidance paras 13-14, reports/sections/03-scope.md)."},
+        "product_type": {"enum": ["software", "hardware_with_software"], "x-cra-basis": "Art 30(1) CE marking differs for software and hardware (reports/sections/10-conformity.md); placing judged per unit for hardware; for standalone software all copies of a version are placed at its first offering and non-substantial versions keep that date (guidance paras 13-15, Example 2, reports/sections/03-scope.md)."},
         "family": {"type": "string", "x-cra-basis": "Guidance paras 174-177: one file and one declaration may cover a product family (reports/sections/10-conformity.md; reports/guides/application/11-documentation-set.md)."},
         "variants": {"type": "array", "items": {"type": "string"}, "x-cra-basis": "Guidance paras 174-177: the declaration must clearly identify the variants (reports/guides/application/11-documentation-set.md)."}
       }
@@ -60,10 +60,10 @@
       "type": "object",
       "additionalProperties": false,
       "required": ["date", "event"],
-      "x-cra-basis": "Art 3(21) placing on the market; guidance paras 13-14 (per unit; per version for standalone software; all copies of a version deemed placed at first commercial offering) (reports/sections/03-scope.md).",
+      "x-cra-basis": "Art 3(21) placing on the market; guidance paras 13-15 and Example 2 (per unit; for standalone software all copies of a version are placed at its first offering, later versions keep that date unless they are a substantial modification, and builds for different platforms are distinct products) (reports/sections/03-scope.md).",
       "properties": {
-        "date": {"type": "string", "format": "date", "x-cra-basis": "Guidance paras 13-14 (reports/sections/03-scope.md); start of the Art 13(13) retention clock (reports/sections/10-conformity.md)."},
-        "event": {"enum": ["first_placing", "new_version_placing", "substantial_modification_placing", "update_to_placed_product"], "x-cra-basis": "Guidance pt 116: a substantial modification is a new placing on the market (reports/sections/10-conformity.md); non-substantial updates do not reset the placing date (reports/sections/03-scope.md)."},
+        "date": {"type": "string", "format": "date", "x-cra-basis": "First offering of this version (guidance paras 13-14; reports/sections/03-scope.md). For a new placing this is the placing date and starts the Art 13(13) retention clock; for an update to a placed product the clock runs from the inherited placing date where earlier (para 15, Example 2) (reports/sections/10-conformity.md)."},
+        "event": {"enum": ["first_placing", "new_version_placing", "substantial_modification_placing", "update_to_placed_product"], "x-cra-basis": "Guidance pt 116: a substantial modification is a new placing on the market (reports/sections/10-conformity.md); versions that are not substantial modifications keep the original placing date (guidance para 15, Example 2; reports/sections/03-scope.md). 'new_version_placing' is for a version that is a new placing without a substantial modification, such as a distinct variant (para 14)."},
         "member_states": {"type": "array", "items": {"type": "string", "pattern": "^[A-Z]{2}$"}, "x-cra-basis": "Art 28: declaration in the languages of the Member States of sale (reports/sections/10-conformity.md)."}
       }
     },

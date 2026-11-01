@@ -18,7 +18,7 @@ Art 3 has 51 definitions. The ones below settle most scope and role questions.
 | Logical, physical and indirect connection | (8)-(10) | Software interfaces; electrical, optical, mechanical or radio links; connection through a larger system that is itself connectable | Indirect connection is what brings offline desktop software into scope |
 | Manufacturer | (13) | Whoever develops or has developed the product and markets it under its own name or trademark, paid or free | Outsourced development under your brand still makes you the manufacturer |
 | Support period | (20) | The period during which vulnerabilities must be handled under Annex I Part II | At least 5 years unless the expected use time is shorter (Art 13(8)) |
-| Placing on the market | (21) | The first making available on the EU market | Judged per unit; for standalone software, per version (guidance paras 13-14) |
+| Placing on the market | (21) | The first making available on the EU market | Judged per unit. For standalone software, all copies of a version are placed at its first offering; later versions keep that date unless they are a substantial modification, and builds for different platforms are distinct products (guidance paras 11, 13-15, Examples 1-2) |
 | Making available on the market | (22) | Supply for distribution or use in the course of a commercial activity, paid or free | Free supply by a business is still caught (Recital 15) |
 | Intended purpose | (23) | The use the manufacturer specifies in instructions, marketing and technical documentation | Your marketing copy defines the assessed purpose |
 | Reasonably foreseeable use | (24) | Use likely to result from foreseeable human behaviour or technical interaction, even if not intended | The connection test is run against this, not only the intended purpose |
@@ -64,7 +64,7 @@ Such a product may use the tailor-made derogations for exactly two requirements.
 
 A multi-tenant CRM with minor customisation is not tailor-made (FAQ). Keep the evidence of tailor-made status in the technical documentation.
 
-Placing on the market is per unit, and for standalone software per version. All copies of a version are deemed placed at the first commercial offering, whatever the later download dates (guidance paras 13-14, Example 1). Non-substantial updates do not reset that date.
+Placing on the market is judged per unit. For standalone software, all copies of a version are placed at its first offering, whatever the later download dates; later versions keep that date unless they are a substantial modification, and builds for different platforms are distinct products (guidance paras 11, 13-15, Examples 1-2). Record every version and whether it is a new placing.
 
 Variants that differ in components, configuration or enabled features are distinct products. Product families with the same architecture, security-relevant design, intended purpose and risks may share one risk assessment and one technical file. They may also share one declaration listing the variants (paras 174-177).
 

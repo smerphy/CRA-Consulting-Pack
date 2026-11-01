@@ -47,7 +47,7 @@ The script applies five KB rules on top of a recorded core-functionality stateme
 2. **One core functionality.** Each product has exactly one core functionality for classification (guidance pt 144). It is read objectively from instructions, marketing and technical documentation, and inconsistency between them is an indicator of misrepresentation (pts 139, 142-143; 06-classification.md).
 3. **Integration does not reclassify; ancillary functions do not declassify.** Embedding an important or critical component leaves the host's class unchanged (Art 7(1); Example 58). A router with a firewall stays a router (IR 2025/2392 recitals; guidance pt 152, Example 63).
 4. **Separately sold modules are separate products.** A module sold or licensed separately takes its own class (guidance pt 145, Example 61). This is why Halo Services, Aldermoor One VPN and the planned Edge Firewall add-on are assessed on their own.
-5. **Monetisation decides FOSS status, not the licence.** The Cloud SDKs are open source but are used to monetise cloud services, so Aldermoor is their manufacturer (guidance pt 54). Tensile LTS builds offered only to paying customers are placed on the market (pt 57, Example 17). Unmonetised projects make Aldermoor a steward at most (12-open-source.md).
+5. **Monetisation decides FOSS status, not the licence.** The Cloud SDKs are open source but are used to monetise cloud services, so Aldermoor is their manufacturer (guidance pt 54). Tensile LTS builds offered only to paying customers are placed on the market (pt 57, Example 17). If LTS source code is shared only with paying customers, the LTS build is not FOSS at all (guidance para 46), so the Art 32(5) route would not be open to it. Unmonetised projects make Aldermoor a steward at most (12-open-source.md).
 
 A keyword check in `classify.py` flags any family whose description also matches another category. In every flagged case the register records why that function was treated as ancillary or integrated. Examples are the browser in a phone, the firewall in a router and the border router in a smart speaker.
 
@@ -84,7 +84,7 @@ The Art 32(5) FOSS route is not available as products ship today. It applies onl
 
 Module H wins in every organisation over five years. In Devices it costs about a third as much, because B+C would mean 32 separate type examinations by Dec 2027 and every Hearth app change would touch about 21 certificates. In Lumen, Platforms and Cloud and apps the cost gap is narrow, and Module H earns its place by absorbing 4-weekly change without re-opening type certificates.
 
-Version discipline matters more than the route. Under Commission guidance (paras 13-14; guidance, not the Regulation's text), placing on the market is per version for standalone software, but security updates are "generally not" substantial modifications (pt 108). If every 4-weekly Lumen major were treated as a new type, examination cost for the three I.2 families would reach about EUR 33m a year at the high estimate. The four-question substantial-modification test (pt 110), run and recorded per release, is what keeps the real figure under EUR 1m.
+Version discipline matters more than the route. Under Commission guidance (paras 13-15 and Example 2; guidance, not the Regulation's text), a software version that is not a substantial modification keeps the original placing date, and security updates are "generally not" substantial modifications (pt 108). If every 4-weekly Lumen major were treated as a new type, examination cost for the three I.2 families would reach about EUR 33m a year at the high estimate. The four-question substantial-modification test (pt 110), run and recorded per release, is what keeps the real figure under EUR 1m.
 
 **Exhibit 5: Aldermoor's share of EU notified-body capacity (hypothetical scenarios)**
 
@@ -161,7 +161,7 @@ flowchart LR
 
 ## Sources
 
-- Knowledge base: reports/sections/03-scope.md (scope, browser-only software, remote data processing, per-version placing, product families); 05-roles.md (manufacturer definition); 06-classification.md (26 categories, core-functionality rules, self-classification procedure); 10-conformity.md (Art 32 routes, Annex VIII modules, notified-body status and vendor estimates); 12-open-source.md (monetisation and steward rules); reports/verification.md (claims 9, 10, 11, 15, 21, 22, 23).
+- Knowledge base: reports/sections/03-scope.md (scope, browser-only software, remote data processing, placing date for software versions, product families); 05-roles.md (manufacturer definition); 06-classification.md (26 categories, core-functionality rules, self-classification procedure); 10-conformity.md (Art 32 routes, Annex VIII modules, notified-body status and vendor estimates); 12-open-source.md (monetisation and steward rules); reports/verification.md (claims 9, 10, 11, 15, 21, 22, 23).
 - Research notes: research_notes/EU CRA engineering compliance/classification_and_conformity.md (KQ1 core-functionality points 139-146, KQ4 Annex VIII, KQ7 notified bodies).
 - [Regulation (EU) 2024/2847](https://eur-lex.europa.eu/eli/reg/2024/2847/oj) (Arts 3, 7, 8, 30, 32, 35, 39, 64; Annexes III, IV, VIII).
 - [Commission Implementing Regulation (EU) 2025/2392](https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32025R2392) (technical descriptions).

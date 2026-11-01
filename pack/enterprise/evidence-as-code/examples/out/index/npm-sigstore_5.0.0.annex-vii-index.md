@@ -1,6 +1,6 @@
 # Annex VII index: npm-sigstore 5.0.0
 
-Record `urn:aldermoor:cra-evidence:npm-sigstore:5.0.0`. Placed 2028-01-20. Retain until 2038-01-20. Substantial-modification decision: not_substantial.
+Record `urn:aldermoor:cra-evidence:npm-sigstore:5.0.0`. Placed 2028-01-20 (new_version_placing). Retain until 2038-01-20. Substantial-modification decision: not_substantial.
 
 | Annex VII point | Evidence | SHA-256 (first 16) | Location |
 |---|---|---|---|
